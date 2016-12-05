@@ -1,0 +1,41 @@
+\documentclass[12pt]{article}%
+\usepackage{latexsym,amsmath,amsfonts,amssymb}
+%\usepackage{concrete}% text font
+%\usepackage{euler}% math font
+\usepackage{graphicx}%insert pictures
+\usepackage{geometry}%setting margins
+\usepackage{fancybox}
+\usepackage{xcolor}
+\usepackage[colorinlistoftodos,shadow]{todonotes}
+\usepackage{tikz}
+\pagestyle{empty}
+\linespread{1.6}%double spacing created to give space for binomial coefficients
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% NOTATION %%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\FPC}{Fundamental Principle of Counting }
+%%%%%%%%%%%%%%%%%%%%%% END OF PREAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\noindent Suppose $5$ cards are dealt from a standard deck of $52$ cards. Find
+$P(1 \mbox{ pair})$.\\\\
+\textbf{Solution:} Since order is not important and repetition of 
+cards is not allowed, this is a problem that will involve combinations and
+the denominator is $\binom{52}{5}$. Now use the \FPC to determine the numerator. 
+
+\begin{center}
+\begin{tabular}{lcc}
+Event & Outcomes & Example\\
+\hline
+$E_1:$ Choose $1$ kind to be the pair & $\binom{13}{1}$ & $5$ \\
+$E_2:$ Choose $2$ specific cards for the pair & $\binom{4}{2}$ & 
+$5\,\heartsuit$, $5\,\spadesuit$ \\
+$E_3:$ Choose $3$ other kinds & $\binom{12}{3}$ & 
+$5\,\heartsuit$, $5\,\spadesuit$, $7$, $8$, J \\
+$E_4:$ Choose a specific first card & $\binom{4}{1}$ & 
+$5\,\heartsuit$, $5\,\spadesuit$, $7\,\heartsuit$, $8$, J \\
+$E_5:$ Choose a specific second card & $\binom{4}{1}$ & 
+$5\,\heartsuit$, $5\,\spadesuit$, $7\,\heartsuit$, $8\,\clubsuit$, J \\
+$E_6:$ Choose a specific third card & $\binom{4}{1}$ & 
+$5\,\heartsuit$, $5\,\spadesuit$, $7\,\heartsuit$, $8\,\clubsuit$, J\,$\clubsuit$ \\
+\end{tabular}
+\end{center}
+By the \FPC there $\binom{13}{1}\binom{4}{2}\binom{12}{3}\binom{4}{1}\binom{4}{1}\binom{4}{1}$ different ways to choose $1$ pair. Therefore, $P(1 \mbox{ pair})=\frac{\binom{13}{1}\binom{4}{2}\binom{12}{3}\binom{4}{1}\binom{4}{1}\binom{4}{1}}{\binom{52}{5}}=\frac{1098240}{2598960} \approx 0.4225690276$.\\\\
+\end{document}

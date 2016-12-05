@@ -1,0 +1,29 @@
+%   (pdf)latex TrigTable2.tex; sage TrigTable2.sage; pdflatex TrigTable.tex
+
+\documentclass[12pt]{article}
+\usepackage{kpfonts}  %Changing the default fonts
+\usepackage[T1]{fontenc}
+\usepackage{sagetex}
+\usepackage[margin=.5in]{geometry}
+\begin{document}
+\pagestyle{empty}
+\begin{center}
+{\LARGE Trigonometric Table}
+\end{center}
+\begin{sagesilent}
+var('x')
+f(x) = sin(x*pi/180.)
+g(x) = cos(x*pi/180.)
+h(x) = tan(x*pi/180.)
+
+output = ""
+output += r"\begin{tabular}{ccccccccc} "
+output += r" degrees & sine & cosine & tangent & & degrees & sine & cosine & tangent \\ \hline "
+for i in range(1, 45):
+    output += r"%d & %8.4f & %8.4f & %8.4f & & %d & %8.4f & % 8.4f & %12.4f  \\ "%(i, f(i), g(i), h(i), i+45, f(i+45), g(i+45), h(i+45))
+output += r"\end{tabular}"
+\end{sagesilent}
+\begin{center}
+\sagestr{output}
+\end{center}
+\end{document}

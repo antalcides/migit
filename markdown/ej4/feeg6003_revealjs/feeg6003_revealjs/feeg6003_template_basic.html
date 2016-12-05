@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+    <!--Document Info-->
+	<head>
+		<title>reveal.js - Basic presentation</title>
+		<link rel="stylesheet" href="./reveal.js/css/reveal.css">
+        <link rel="stylesheet" href="./reveal.js/css/theme/sky.css">
+        
+		<script src="./reveal.js/lib/js/head.min.js"></script>
+		<script src="./reveal.js/js/reveal.js"></script>
+	</head>
+    
+    <!--Page Content-->
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Basic Presentation</h1>
+					<p>This example contains the bare minimum includes and markup required to run a reveal.js presentation.</p>
+                    <p>There's no theme so browser defaults are used</p>
+				</section>
+                
+				<section>
+					<h2>Basic Presentation</h2>
+					<p>This example contains the bare minimum includes and markup required to run a reveal.js presentation.</p>
+                    <p>There's no theme so browser defaults are used</p>
+				</section>
+
+			</div>
+		</div>
+
+		<script>
+            // Must initialise reveal for presentation
+            Reveal.initialize({
+                // Display controls in the bottom right corner
+				controls: true,
+                // Display a presentation progress bar
+				progress: true,
+                // Push each slide change to the browser history
+				history: true,
+                // Vertical centering of slides
+				center: true,
+                // none/fade/slide/convex/concave/zoom
+				transition: 'convex',
+                
+                // LaTeX Support with MathJax
+                math: {
+					// mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+					config: 'TeX-AMS_HTML-full'
+				},
+                
+				// Optional reveal.js plugins
+				dependencies: [
+                    // Cross-browser support
+					{ src: './reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    // Markdown Support
+					{ src: './reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    // Code Syntax Highlighting
+					{ src: './reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    // Slide Zooming
+					{ src: './reveal.js/plugin/zoom-js/zoom.js', async: true },
+                    // LateX Support
+					{ src: './reveal.js/plugin/math/math.js', async: true },
+                    // Speaker Notes
+					{ src: './reveal.js/plugin/notes/notes.js', async: true },
+                    { src: './reveal.js/socket.io/socket.io.js', async: true },
+                    { src: './reveal.js/plugin/notes-server/client.js', async: true }
+				]
+			});
+            
+		</script>
+	</body>
+</html>

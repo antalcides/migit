@@ -1,0 +1,100 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{xcolor}
+\usepackage[margin=.75in]{geometry}
+\linespread{1.35}
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+{\Large \textbf{A Glimpse of Calculus}}\\
+\end{center}
+\textbf{Requirement:} A solid background in precalculus and a 
+graphing calculator.\\
+\textbf{Background:} Calculus had so much material to cover that
+I used this example in precalculus to give students a glimpse of
+calculus through using a graphing calculator. You'll need to mention
+how many cubic inches are in a gallon.\\
+
+A manufacturer of paint packages the product in 1 gallon cylindrical 
+cans. In an effort to save money in production (which will also 
+increase profits) they want to know if there is a particular size paint 
+can that will hold $1$ gallon of paint and use less metal than the 
+other paint cans. What is the minimum amount of metal in the can?
+
+We can construct a \textit{mathematical model} to solve this 
+problem. The first step is to find the {\bf primary equation}; that is, 
+a formula for the quantity to be minimized/maximized. Since we're 
+trying to minimize the surface area, $S$, the primary equation is:
+\[S=2\pi r^2+2\pi rh \]
+
+The formula for surface area has two unknowns: the radius and the 
+height. One of the variables can be eliminated by using a 
+{\bf secondary equation}. Since the volume of the paint can is 
+given by $V=\pi r^2h$ and we know the volume is $1$ gallon, the
+equation becomes $1 \mbox{ gallon}=\pi r^2h$. But the radius
+and height of the can aren't measured in units of gallons; use the 
+fact that one gallon which is approximately $231$ cubic inches and 
+solve for $h$ to get $h=\frac{231}{\pi r^2}\mbox{ in}^3$. 
+Combine the primary equation with the secondary equation 
+to get $S=2\pi r^2+2\pi r\left(\frac{231}{\pi r^2}\right)$, 
+which simplifies to $S=2\pi r^2+\left(\frac{462}{r}\right)$. 
+This function of $r$, whose units are inches, and this can be 
+graphed in the 
+Cartesian plane. Using a graphing calculator you can, with a little 
+bit of work, get a graph similar to the one below.
+
+\begin{figure}[h]
+\begin{center}	
+  \includegraphics[width=3.in]{PaintFunc.pdf}
+  \end{center}
+\caption{What is the minimum amount of material needed to make a 1 gallon paint can?} \label{fg:ptcn}
+\end{figure}
+
+We know from working with calculators that what we don't see in 
+the graph might be more important than what we do 
+see in the graph. There might be many other value way out that 
+give us another value which is better. From our picture 
+on the screen, however, by pointing the arrow on the screen to the 
+lowest point on the graph we get an {\em approximate} point of 
+about $(3.325, 208.42)$. By combining our math knowledge with 
+technology we can quickly get an approximate answer to our 
+problem: a paint can with radius of $3.325$ inches will have a 
+surface area of $208.42$ square inches.
+Although this appears to be a good estimate, there is an important 
+question to consider:
+Is it possible that there is a value of $r$ not on the graph that 
+gives us an even smaller area? That isn't obvious.
+Likewise, what's the exact value of $r$ that gives the absolute 
+minimum value for a surface area.
+Calculus will allow us to find all the possible minimums and it will 
+allow us to find the exact value of the radius which produces the 
+can of minimum volume. For this mathematical
+model the value of $r$ that will require the least amount of 
+material is $r=\sqrt[3]{\frac{231}{2\pi}} \approx 3.325$
+inches. The minimum amount of material is then $S=2\pi \left( \sqrt[3]{\frac{231}{2\pi}}\, \right)^2+\left(\frac{462}{\sqrt
+[3]{\frac{231}{2\pi}}}\right) \approx 208.41 \mbox{in}^2$.\\
+
+Many important problems revolve around trying to find a minimum 
+(e.g. surface area) or a maximum
+(e.g. profit). As a result, an important part of calculus is to:
+\begin{enumerate}
+\item Find equations that describe the problem.
+\item Combine the equations to get a primary equation in one 
+variable.
+\item Graph the equation.
+\item Find the value of $x$ that corresponds to the minimum/
+maximum value of the function.
+\item Put the value into a number that the average person would 
+understand and add the units.
+\end{enumerate}
+\textbf{Conclusion:} 
+Without calculus, people you can find the surface area of a paint 
+can with a specific radius. Calculus will give you the power to
+determine which paint can, of all the infinite paint cans with 
+a volume of $1$ gallon, will have the smallest surface area. 
+Technology allows us to graph a function which describes the 
+surface area and estimate the minimum possible surface
+area but calculus gives us the power to find the exact radius that 
+results in the smallest surface area. 
+\end{document}

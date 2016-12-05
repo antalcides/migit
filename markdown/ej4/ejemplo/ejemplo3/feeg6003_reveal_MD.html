@@ -1,0 +1,702 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<title>ACM2 - Reveal.js</title>
+<script type="text/javascript" src="qr-code/jquery.min.js"></script>
+<script type="text/javascript" src="qr-code/qrcode.js"></script>
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="C. Rafter, K. Drakopoulos">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="./reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="./reveal.js/css/theme/sky.css" id="theme">
+        <link rel="stylesheet" href="uos-logo.css">
+		
+        <!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="./reveal.js/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? './reveal.js/css/print/pdf.css' : './reveal.js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+        
+        <!--Plotly Plotting-->
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        
+        <!--Set Alignment-->
+        <style>
+            /*Content Alignment*/
+            .reveal .slides {
+                text-align: center;
+            }
+            /*Title Alignment*/
+            .reveal .slides h1{
+                text-align: center;
+            }
+        </style>
+
+		<!--[if lt IE 9]>
+		<script src="/reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+            <!--Insert uni logo in top corner-->
+            <img id="unilogo" src="img/uos-logo.png" class="imageposition-unilogo desktop-image"/>
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+                <!-- Slides are separated by newline + three dashes + newline, vertical slides identical but two dashes 
+                <section>
+                    Your network IP is: <p id=list></p>
+                    <input id="text" type="hidden" value="-" style="width:80%" /><br />
+                    <div id="qrcode"></div>
+                </section>-->
+                <section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$">
+                    <script type="text/template">
+                        # Reveal.js
+                        ### The HTML Presentation Framework
+
+                        A workshop by
+                        
+                        Craig Rafter and Konstantinos Drakopoulos.
+
+                        ---
+
+                        ## Hello There
+
+                        reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
+
+                        ---
+
+                        ## Workshop outline
+
+                        1. Reveal.js capabilities
+                        2. Making a reveal.js presentation
+                        3. Making your own presentation
+
+                        ---
+                        
+                        ## Why Reveal.js?
+                        
+                        - Define files as text.
+                        - Version control your presention.
+                        - Beautiful consistent web formatting
+                        - Markdown and LaTeX out of the box
+                        
+                        --
+                        
+                        ## Alternatives
+                        
+                        - PowerPoint
+                        - Latex & Beamer
+                        - Slides.js
+                        - Deck.js
+                        - Prezi
+                        - Impress.js
+                        
+                        ---
+
+                        [//]: # (Example of nested vertical slides)
+
+                        ## Vertical Slides
+
+                        Slides can be nested inside of each other.
+                        Use the *Space* key to navigate through all slides.
+
+                        ![Down Arrow](https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png)
+
+                        --
+
+                        ## Basement Level 1
+
+                        Nested slides are useful for adding additional detail underneath a high level horizontal slide.
+
+                        --
+
+                        ## Basement Level 2
+                        
+                        That's it, time to move on!
+
+                        ---
+
+                        ## Slides
+                        
+                        Slides are built using **HTML** and **JavaScript**. For those of you unfamiliar with web programming, reveal.js also allows **Markdown** to be used.
+
+                        ---
+
+                        ## Point of View
+
+                        Press **ESC** to enter the slide overview.
+
+                        Hold down alt and click on any element to zoom in on it using [zoom.js](http://lab.hakim.se/zoom-js). Alt + click anywhere to zoom back out.
+
+                        ---
+
+                        ## Markdown support
+
+                        Write content using inline or external Markdown.
+                        Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
+
+                        ```
+                        <section data-markdown>
+                          ## Markdown support
+
+                          Write content using inline or external Markdown.
+                          Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
+                        </section>
+                        ```
+                        
+                        ---
+                        
+                        ## Markdown Slide 1.1
+                        
+                        Vertical Tile 1
+
+                        --
+
+                        ## Markdown Slide 1.2
+                        
+                        Vertical Tile 2
+
+                        ---
+
+                        ## Markdown Slide 2
+                        
+                        Code for last 3 slides:
+                        
+                        ```html
+                        <section data-markdown data-separator="^\n---\n$" 
+                          data-separator-vertical="^\n--\n$">
+                            ## Demo 2
+                            Slide 1.1
+                            
+                            --
+                            
+                            ## Demo 2
+                            Slide 1.2
+                            
+                            ---
+                            
+                            ## Demo 2
+                            Slide 2
+                        </section>
+                        ```
+
+                        ---
+                        
+                        ## Terrific $\LaTeX$
+                        
+                        Reveals MathJax wrapper allows you
+                        to add maths e.g. $y = mx + c$
+                        
+                        ```
+                        <h2>Terrific $\LaTeX$</h2>
+                        <p>Reveals MathJax wrapper allows you</p>
+                        <p> to add maths e.g. $y = mx + c$</p>
+                        ```
+                        
+                        --
+                        
+                        ## Terrific $\LaTeX$
+                        ##### The Cauchy-Schwartz Inequality
+                        
+                        <!--!!! REMEMBER TO ESCAPE UNDERSCORE IN MARKDOWN !!!-->
+                        $\left( \sum\_{k=1}^n a\_k b\_k \right)^2 \leq \left(a\_k^2 \right) \left( \sum\_{k=1}^n b\_k^2 \right)$
+                        
+                        --
+                        
+                        ## Terrific $\LaTeX$
+                        ##### A Cross Product Formula
+                        
+                        $\mathbf{V}\_1 \times \mathbf{V}\_2 =  \begin{vmatrix}
+							\mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \\\
+							\frac{\partial X}{\partial u} &amp;  \frac{\partial Y}{\partial u} &amp; 0 \\\
+							\frac{\partial X}{\partial v} &amp;  \frac{\partial Y}{\partial v} &amp; 0
+							\end{vmatrix}$
+
+                        --
+                        
+                        ## Terrific $\LaTeX$
+                        ##### Maxwell's Equations
+                        
+                        $\begin{aligned}
+							\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &amp; = \frac{4\pi}{c}\vec{\mathbf{j}} \\\   
+                            \nabla \cdot \vec{\mathbf{E}} &amp; = 4 \pi \rho \\\
+							\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} &amp; = \vec{\mathbf{0}} \\\
+							\nabla \cdot \vec{\mathbf{B}} &amp; = 0 
+                        \end{aligned} \\\$
+                        
+                        --
+
+                        ## Terrific $\LaTeX$
+                        ##### Maths in markdown
+                        
+                        $P(E) = {n \choose k} p^k (1-p)^{n-k}$
+                        
+                        ```
+                        ## Terrific $\LaTeX$
+                        ##### Maths in markdown
+                        
+                        $P(E) = {n \choose k} p^k (1-p)^{ n-k}$
+                        ```                        
+                        </script>
+                </section>
+                
+                <section>
+                    <h2>Powerful Plotting</h2>
+                    <p>Embed plotly.js or chart.js plots right into your slides!</p>
+                    <div id="MtBrunoDiv" style="margin: 0 auto; width: 480px; height: 400px;" centered>
+                        <!-- Plotly chart will be drawn inside this DIV -->
+                    </div>
+                    <script src="plotfile.js"></script>
+                </section>
+				
+                <section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$">
+                    <script type="text/template">
+                        ## Fragments
+
+                        Hit the next arrow...
+
+                        ... to step through ... <!--.element class="fragment"-->
+
+                        ... a fragmented slide. <!--.element class="fragment"-->
+                        <aside class="notes">
+                            This slide has fragments which are also stepped through in the notes window.
+                        </aside>
+
+                        --
+                        
+                        ## Fragment Styles</h2>
+
+                        There's different types of fragments, like:
+
+                        grow <!--.element class="fragment grow"-->
+
+                        shrink <!--.element class="fragment shrink"-->
+
+                        fade-out <!--.element class="fragment fade-out"-->
+
+                        current-visible <!--.element class="fragment current-visible"-->
+
+                        highlight-red <!--.element class="fragment highlight-red"-->
+
+                        highlight-blue <!--.element class="fragment highlight-blue"-->
+
+                        ---
+
+                        <!--.slide: id="#transitionMod"-->
+                        ## Transition Styles
+
+                        You can select from different transitions, like:
+
+                        [None](?transition=none#/transitionMod) -
+                        [Fade](?transition=fade#/transitionMod) -
+                        [Slide](?transition=slide#/transitionMod) -
+                        [Convex](?transition=convex#/transitionMod) -
+                        [Concave](?transition=concave#/transitionMod) -
+                        [Zoom](?transition=zoom#/transitionMod)
+                    </script>
+                </section>
+
+				<section>
+					<h2>Themes</h2>
+					<p>
+						reveal.js comes with a few themes built in: <br>
+						<!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','./reveal.js/css/theme/black.css'); return false;">Black (default)</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','./reveal.js/css/theme/white.css'); return false;">White</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','./reveal.js/css/theme/league.css'); return false;">League</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','./reveal.js/css/theme/sky.css'); return false;">Sky</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','./reveal.js/css/theme/beige.css'); return false;">Beige</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','./reveal.js/css/theme/simple.css'); return false;">Simple</a> <br>
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','./reveal.js/css/theme/serif.css'); return false;">Serif</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','./reveal.js/css/theme/blood.css'); return false;">Blood</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','./reveal.js/css/theme/night.css'); return false;">Night</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','./reveal.js/css/theme/moon.css'); return false;">Moon</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','./reveal.js/css/theme/solarized.css'); return false;">Solarized</a>
+					</p>
+				</section>
+
+				<section data-markdown data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$">
+                    <script type="text/template">
+                        ## Slide Backgrounds
+                        <!--.slide: data-background="#dddddd"-->						
+                        
+                        Set `data-background="#dddddd"` on a slide to change the background color. All CSS color formats are supported.
+						
+                        ![Down Arrow](https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png)
+                        
+                        --
+                        
+                        <!--.slide: data-background="img/bigcirc.png"-->
+                        ## Image Backgrounds
+                        
+                        ```
+                        <section data-background="image.png">
+                        ```
+                        
+                        --
+                        
+                        <!--.slide: data-background="img/bluecirc.png" data-background-repeat="repeat" data-background-size="100px"-->
+                        ## Image Backgrounds
+                        
+                        ```
+                        <section data-background="image.png" data-background-repeat="repeat" 
+                            data-background-size="100px">
+                        ```
+                        
+                        --
+                        
+						<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 10px; opacity: 0.9;">
+                            <h3><font color="#FFFFFF">Video Background</font></h3>
+							<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-iframe="https://www.youtube.com/embed/ZXsQAXx_ao0" data-autoplay data-background-color="#000000"&gt;</code></pre>
+						</div>
+                        <!--.slide: data-background-iframe="https://www.youtube.com/embed/ZXsQAXx_ao0" data-background-color="#000000"-->
+                                                
+                        --
+                        
+                        ## Embedded Video
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/ZXsQAXx_ao0" frameborder="0" allowfullscreen></iframe>
+
+                        ```
+                        <iframe width="560" height="315" 
+                        src="https://www.youtube.com/embed/ZXsQAXx_ao0?autoplay=1" 
+                        frameborder="0" allowfullscreen></iframe>
+                        ```
+                        
+                        --
+                        
+                        <!--.slide: data-background="http://i.giphy.com/90F8aUepslB84.gif"-->
+                        <div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 10px; opacity: 0.8;">
+                            <h3><font color="#FFFFFF">. . . and GIFs</font></h3>
+                            <pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background="http://i.giphy.com/90F8aUepslB84.gif"&gt;</code></pre>
+                        </div>
+                        
+                        ---
+                        
+                        <!--.slide: data-transition="slide" data-background="#4d7e65" data-background-transition="zoom"-->
+                        ## Background Transitions
+                        
+                        Different background transitions are available via the `backgroundTransition` option. This one's called "zoom".
+                        
+                        ```
+                        Reveal.configure({ backgroundTransition: 'zoom' })
+                        ```
+                        
+                        ---
+                        
+                        <!--.slide: data-transition="slide" data-background="#b5533c" data-background-transition="zoom"-->
+                        ## Background Transitions
+                        
+                        You can override background transitions per-slide.
+                        
+                        ```
+                        <section data-background-transition="zoom">
+                        ```
+                        
+                        ---
+                        
+                        ## Pretty Code
+                        
+                        ```python
+                        import numpy as np
+                        from matplotlib import pyplot
+
+                        x = np.arange(10)
+                        y = x**2
+
+                        pyplot.plot(x, y)
+                        pyplot.title('$x vs x^2$')
+                        pyplot.xlabel('$x$')
+                        pyplot.ylabel('$x^2$')
+                        ``` 
+                        
+                        Code syntax highlighting coutesy of [highlight.js](http://softwaremaniacs.org/soft/highlight/en/description/)
+                        
+                        ---
+                                                
+                        ## Intergalactic Interconnections
+                        
+                        You can link between slide internally [like this](#/15/5).
+                        
+                    </script>
+				</section>
+
+                <section>
+                    <h2>Two columns, no problems...</h2>
+                    <div class='left' style='float:left; width: left.width;' data-markdown>
+                        <script type="text/template">
+                            ###### Numbered lists
+                            1. Milk
+                            2. Coffee
+                            3. Tea
+                        </script>
+                    </div>
+                    <div class='right' style='float: right; width: right.width;' data-markdown>
+                        <script type="text/template">
+                            ###### Bullet lists
+
+                            - First Thing
+                            - Second Thing
+                            - Third Thing
+                        </script>
+                    </div>
+                </section>
+                
+				<section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$">
+                    <script type="text/template">
+                        ## Tablular Tables
+                        |Item     |Value |Qty. |
+                        |:--------|:----:|:---:|
+                        |Apples   |$1.00 |7    |
+                        |Lemonade |$2.00 |18   |
+                        |Bread    |$3.00 |2    |
+                        
+                        ---
+                        
+                        ## Clever Quotes
+                        
+                        These guys come in two forms, inline *"The nice thing about standards is that there are so many to choose from"* and block:
+                        
+                        > For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
+						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.
+                        
+                        ---
+                        
+                        ## Speaker View
+                        
+                        There's a [speaker view](https://github.com/hakimel/reveal.js#speaker-notes). It includes a timer, preview of the upcoming slide as well as your speaker notes.
+                        
+                        Press the ***S*** key to try it out.
+                        
+                        <aside class="notes">
+                            Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+                        </aside>
+                        
+                        ---
+                        
+                        ## Take a moment
+                        
+                        Press ***B*** or ***.*** on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
+                        
+                        <!-- ---
+                        
+                        ## Export to PDF
+                        
+                        Presentations can be [exported to PDF](https://github.com/hakimel/reveal.js#pdf-export) here's an example from [Slideshare](https://www.slideshare.net/):
+                        <iframe src="https://www.slideshare.net/slideshow/embed_code/key/wJKsHYIEG2CqUj" width="500" height="410" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+                        
+                        -->
+                        
+                        ---
+                        
+                        ## JavaScript and State Events
+                        
+                        An Extensive JavaScript API allows, context based slide modification, custom key bindings, auto-progression and much more!
+                        
+                        --
+                        
+                        For example, by setting up an event listener on slide trasitions we can turn the university logo on/off. 
+                        
+                        The following script is placed at the end of the file:
+                        
+                        ```
+                        Reveal.addEventListener( 'slidechanged', function(event) {
+                            if (event.indexh == 25 && event.indexv == 1) {
+                                document.getElementById("unilogo").style = "visibility: hidden;";
+                            }
+                            else {
+                                document.getElementById("unilogo").style = "visibility: visible;";
+                            }
+                        });
+                        ```
+                        
+                        ---
+                        
+                        ## Third-party Plugins
+                        
+                        - [anything](https://github.com/rajgoel/reveal.js-plugins/tree/master/anything): a plugin for adding plots, charts, animated SVGs, or anything else inside an HTML object using a JSON string and a javascript function ([Demo](http://courses.telematique.eu/reveal.js-plugins/anything-demo.html))
+
+                        - [audio-slideshow](https://github.com/rajgoel/reveal.js-plugins/tree/master/audio-slideshow): a plugin for easy audio playback and recording ([Demo](http://courses.telematique.eu/reveal.js-plugins/audio-slideshow-demo.html))
+
+                        - [chalkboard](https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard): A plugin adding a chalkboard  (<a href="http://courses.telematique.eu/reveal.js-plugins/chalkboard-demo.html">Demo</a>)
+
+                        - [notell](https://github.com/ysmood/notell): Control reveal.js remotely from another browser tab or device 
+
+                        
+                        --
+                        
+                        ## Software
+                        
+                        - [slides.com](http://slides.com) Visual editor for reveal.js, create presentations without knowing how to code.
+                        - [runnable.com](http://runnable.com/U51EjgiOZqRA3HoV/basic-reveal-js-example-for-node-javascript-and-presentations) Live editable example of the source code.
+                        
+                        - [prez](https://github.com/lmtm/prez) Generate Reveal.js slideshows from a set of markdowns.
+                                                
+                        - [uncloak](https://github.com/lmtm/uncloak) Reveal.js theme editor to tweak colors and font styles in a live GUI.
+                        
+                        **Many more at** [**Reveal.js - Plugins, Tools and Hardware**](https://github.com/hakimel/reveal.js/wiki/Plugins,-Tools-and-Hardware)
+                        
+                        ---
+                        
+                        # THE END
+                        
+                        Thank you!
+                        
+                        Now onto the fun part!
+                    </script>
+                </section>
+			</div>
+		</div>
+        <!---->
+		<script src="./reveal.js/lib/js/head.min.js"></script>
+		<script src="./reveal.js/js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+            // Must initialise reveal for presentation
+            Reveal.initialize({
+                // Display controls in the bottom right corner
+				controls: true,
+                // Display a presentation progress bar
+				progress: true,
+                // Push each slide change to the browser history
+				history: true,
+                // Vertical centering of slides
+				center: true,
+                // none/fade/slide/convex/concave/zoom
+				transition: 'convex',
+                
+                // LaTeX Support with MathJax
+                math: {
+					// mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+					config: 'TeX-AMS_HTML-full'
+				},
+                
+				// Optional reveal.js plugins
+				dependencies: [
+                    // Cross-browser support
+					{ src: './reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    // Markdown Support
+					{ src: './reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    // Code Syntax Highlighting
+					{ src: './reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    // Slide Zooming
+					{ src: './reveal.js/plugin/zoom-js/zoom.js', async: true },
+                    // LateX Support
+					{ src: './reveal.js/plugin/math/math.js', async: true },
+                    // Speaker Notes
+					{ src: './reveal.js/plugin/notes/notes.js', async: true }
+				]
+			});
+            
+            // For triggering logo off on a particular slide
+            Reveal.addEventListener( 'slidechanged', function( event ) {
+                if (event.indexh == 25 && event.indexv == 1) {
+                    document.getElementById("unilogo").style = "visibility: hidden;";
+                }
+                else{
+                    document.getElementById("unilogo").style = "visibility: visible;";
+                }
+            });
+var myAddress=[""];
+// NOTE: window.RTCPeerConnection is "not a constructor" in FF22/23
+var RTCPeerConnection = /*window.RTCPeerConnection ||*/ window.webkitRTCPeerConnection || window.mozRTCPeerConnection;
+
+if (RTCPeerConnection) (function () {
+    var rtc = new RTCPeerConnection({iceServers:[]});
+    if (1 || window.mozRTCPeerConnection) {      // FF [and now Chrome!] needs a channel/stream to proceed
+        rtc.createDataChannel('', {reliable:false});
+    };
+    
+    rtc.onicecandidate = function (evt) {
+        // convert the candidate to SDP so we can run it through our general parser
+        // see https://twitter.com/lancestout/status/525796175425720320 for details
+        if (evt.candidate) grepSDP("a="+evt.candidate.candidate);
+    };
+    rtc.createOffer(function (offerDesc) {
+        grepSDP(offerDesc.sdp);
+        rtc.setLocalDescription(offerDesc);
+    }, function (e) { console.warn("offer failed", e); });
+    
+    
+    var addrs = Object.create(null);
+    addrs["0.0.0.0"] = false;
+    
+    function updateDisplay(newAddr) {
+        if (newAddr in addrs) return;
+        else addrs[newAddr] = true;
+        var displayAddrs = Object.keys(addrs).filter(function (k) { return addrs[k]; });
+        document.getElementById('list').textContent = (displayAddrs.join(" or perhaps ") || "n/a")+" on port 1234";
+        for (i in displayAddrs){
+        document.getElementById('text').value = "http://"+displayAddrs[i]+":1234";
+        makeCode();
+        }
+        return displayAddrs
+    }
+    function grepSDP(sdp) {
+        var hosts = [];
+        sdp.split('\r\n').forEach(function (line) { // c    .f. http://tools.ietf.org/html/rfc4566#page-39
+            if (~line.indexOf("a=candidate")) {     // http://tools.ietf.org/html/rfc4566#section-5.13
+                var parts = line.split(' '),        // http://tools.ietf.org/html/rfc5245#section-15.1
+                    addr = parts[4],
+                    type = parts[7];
+                if (type === 'host') {
+                    updateDisplay(addr)};
+            } else if (~line.indexOf("c=")) {       // http://tools.ietf.org/html/rfc4566#section-5.7
+                var parts = line.split(' '),
+                    addr = parts[2];
+                updateDisplay(addr);
+            }
+        });
+    }
+    
+})(); else {
+    document.getElementById('list').innerHTML = "<code>ifconfig | grep inet | grep -v inet6 | cut -d\" \" -f2 | tail -n1</code>";
+    document.getElementById('list').nextSibling.textContent = "In Chrome and Firefox your IP should display automatically, by the power of WebRTCskull.";
+}
+var qrcode = new QRCode("qrcode");
+
+function makeCode () {      
+    var elText = document.getElementById("text");
+    
+    if (!elText.value) {
+        alert("Input a text");
+        elText.focus();
+        return;
+    }
+    
+    qrcode.makeCode(elText.value);
+}
+
+makeCode();
+
+$("#text").
+    on("blur", function () {
+        makeCode();
+    }).
+    on("keydown", function (e) {
+        if (e.keyCode == 13) {
+            makeCode();
+        }
+    });
+
+		</script>
+	</body>
+</html>

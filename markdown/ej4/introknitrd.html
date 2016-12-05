@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+  <meta name="author" content="Antonio Murandi" />
+  <meta name="author" content="José Antonio Palazón" />
+  <title>Taller Caldum: Introducción: R + knitr + markdown</title>
+<style>
+  html { background-color: black; }
+  body { background-color: white; }
+  /* A section is a slide. It's size is 800x600, and this will never change */
+  section {
+      font-family: Arial, serif;
+      font-size: 20pt;
+    }
+  address, blockquote, dl, fieldset, form, h1, h2, h3, h4, h5, h6, hr, ol, p, pre, table, ul, dl { padding: 10px 20px 10px 20px; }
+  h1, h2, h3 {
+    text-align: center;
+    margin: 10pt 10pt 20pt 10pt;
+  }
+  ul, ol {
+    margin: 10px 10px 10px 50px;
+  }
+  section.titleslide h1 { margin-top: 200px; }
+  h1.title { margin-top: 150px; }
+  h1 { font-size: 180%; }
+  h2 { font-size: 120%; }
+  h3 { font-size: 100%; }
+  blockquote { font-style: italic }
+  q {
+    display: inline-block;
+    width: 700px;
+    height: 600px;
+    background-color: black;
+    color: white;
+    font-size: 60px;
+    padding: 50px;
+  }
+  footer {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+  }
+
+  /* Transition effect */
+  /* Feel free to change the transition effect for original
+     animations. See here:
+     https://developer.mozilla.org/en/CSS/CSS_transitions
+     How to use CSS3 Transitions: */
+  section {
+      -moz-transition: left 400ms linear 0s;
+      -webkit-transition: left 400ms linear 0s;
+      -ms-transition: left 400ms linear 0s;
+      transition: left 400ms linear 0s;
+  }
+
+  /* Before */
+  section { left: -150%; }
+  /* Now */
+  section[aria-selected] { left: 0; }
+  /* After */
+  section[aria-selected] ~ section { left: +150%; }
+
+  /* Incremental elements */
+
+  /* By default, visible */
+  .incremental > * { opacity: 1; }
+
+  /* The current item */
+  .incremental > *[aria-selected] { color: red; opacity: 1; }
+
+  /* The items to-be-selected */
+  .incremental > *[aria-selected] ~ * { opacity: 0.2; }
+</style>
+  <script src="https://d3eoax9i5htok0.cloudfront.net/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</head>
+<body>
+<section>
+  <h1 class="title">Taller Caldum: Introducción: R + <code>knitr</code> + <code>markdown</code></h1>
+  <h2 class="author">Antonio Murandi</h2>
+  <h2 class="author">José Antonio Palazón</h2>
+  <h3 class="date">Murcia, 24 de julio de 2012</h3>
+</section>
+<section class="slide level3" id="section">
+<h1 id="section"></h1>
+<figure>
+<img src="img/dibujo.svg"><figcaption></figcaption>
+</figure>
+</section>
+<section class="slide level3" id="una-cita">
+<h1 id="una-cita">Una cita</h1>
+<p>My grandfather once told me there are two kinds of people:</p>
+<blockquote>
+<p>Those who do the work and those who take the credit. He told me to try to be in the first group; there was much less competition.&quot;</p>
+</blockquote>
+<p>–– Indira Gandhi, <em>the late Prime Minister of India</em></p>
+</section>
+<section class="titleslide slide level1" id="objetivos-y-fundamentos"><h1 id="objetivos-y-fundamentos">Objetivos y fundamentos</h1></section><section class="titleslide slide level2" id="objetivos"><h1 id="objetivos">Objetivos</h1></section><section class="slide level3" id="qué-vamos-a-ver">
+<h1 id="qué-vamos-a-ver">¿Qué vamos a ver?</h1>
+<p><strong>Investigación reproducible</strong></p>
+<ul>
+<li><p>Analizar el valor de los métodos asociados a la IR</p></li>
+<li><p>Conocer herramientas para el trabajo con IR</p></li>
+<li><p>Plantear métodos de trabajo en IR</p></li>
+<li><p>Establecer un punto de partida para el trabajo colaborativo</p></li>
+</ul>
+</section><section class="slide level3" id="por-donde-empezar">
+<h1 id="por-donde-empezar">¿Por donde empezar?</h1>
+<ul>
+<li>En la wikipedia
+<ul>
+<li><a href="http://es.wikipedia.org/wiki/Markdown">markdown</a></li>
+<li><a href="http://es.wikipedia.org/wiki/R_(lenguaje_de_programaci%C3%B3n)">R</a></li>
+</ul></li>
+<li>Página principal
+<ul>
+<li><em>The Comprehensive R Archive Network</em>: <a href="http://cran.r-project.org/">CRAN</a></li>
+<li><a href="http://yihui.name/knitr/"><code>knitr</code></a></li>
+<li><a href="http://rstudio.org/">RStudio</a></li>
+<li><a href="http://daringfireball.net/projects/markdown/">markdown</a></li>
+<li>El programa para manejar textos en markdown: <a href="http://johnmacfarlane.net/pandoc/">pandoc</a></li>
+</ul></li>
+</ul>
+</section><section class="titleslide slide level2" id="de-nerds-humanos-y-cultura"><h1 id="de-nerds-humanos-y-cultura">De <code>nerds</code>, humanos y cultura</h1></section><section class="slide level3" id="condenados-a-no-entendernos">
+<h1 id="condenados-a-no-entendernos">Condenados a no entendernos …</h1>
+<ul>
+<li><p>Documentos para seres humanos que hacen el papel de máquinas</p></li>
+<li><p>Escasa capacidad de abstraer datos y procedimientos</p></li>
+<li><p>Prisa, mucha, mucha prisa</p></li>
+<li><p><del>Nula</del> Escasa formación tecnológica</p></li>
+<li><p>Lo que dice Vicente es lo que dice la gente</p></li>
+</ul>
+</section><section class="slide level3" id="tic-o-ti">
+<h1 id="tic-o-ti">¿TIC o TI?</h1>
+<ul>
+<li><p><strong>TIC</strong>: Tecnología de la Información y de las Comunicaciones</p></li>
+<li><p><strong>TI</strong>: Tecnología de la Información</p></li>
+<li><p>Comunicación: emisor — medio — receptor</p></li>
+</ul>
+</section><section class="slide level3" id="trabajando-racionalmente">
+<h1 id="trabajando-racionalmente">Trabajando racionalmente</h1>
+<ul>
+<li>El código mínimo
+<ul>
+<li><p>Esclavos</p></li>
+<li><p>Escribas</p></li>
+<li><p>Conocimiento</p></li>
+<li><p>Autómatas</p></li>
+</ul></li>
+<li><p>¿Cuanto de si da un <em>bit</em>?</p></li>
+<li><p><em>The Open University</em> <a href="http://www.open.ac.uk/skillsforstudy/writing-for-university.php">tutorial para la escritura en la universidad</a>, y un artículo de <a href="http://www.americanscientist.org/issues/pub/the-science-of-scientific-writing/">_American Scientist</a></p></li>
+<li><p><a href="http://abstrusegoose.com/474">Cuidadín</a></p></li>
+</ul>
+</section><section class="slide level3" id="lenguajes">
+<h1 id="lenguajes">Lenguajes</h1>
+<ul>
+<li><p>Semántica: el significado de las cosas</p></li>
+<li><p>Semiótica: símbolos y conocimiento</p></li>
+<li><p>Sintaxis: reglas de comunicación</p></li>
+<li><p>El sufrido papel y las reglas universales o <em>yo me entiendo</em></p></li>
+</ul>
+</section><section class="slide level3" id="herramientas-generales">
+<h1 id="herramientas-generales">Herramientas generales</h1>
+<ul>
+<li><p>Terminales</p></li>
+<li><p>Editores</p></li>
+<li><p>Manejo de gráficos</p></li>
+<li><p>Hojas de cálculo</p></li>
+<li><p>…</p></li>
+</ul>
+</section><section class="slide level3" id="herramientas-de-autor">
+<h1 id="herramientas-de-autor">Herramientas de autor</h1>
+<ul>
+<li><p>R: programa para el desarrollo de procedimientos de análisis de datos</p></li>
+<li><p>knitr: librería de R</p></li>
+<li><p>markdown: lenguaje de marcas</p></li>
+<li><p><strong>RStudio</strong>: entorno de desarrollo para R</p></li>
+</ul>
+</section>
+<section class="titleslide slide level1" id="rstudio"><h1 id="rstudio">RStudio</h1></section><section class="titleslide slide level2" id="breve-repaso-a-las-características-de-rstudio"><h1 id="breve-repaso-a-las-características-de-rstudio">Breve repaso a las características de Rstudio</h1></section><section class="slide level3" id="ventajas-de-rstudio">
+<h1 id="ventajas-de-rstudio">Ventajas de Rstudio</h1>
+<ul>
+<li>Alternativas
+<ul>
+<li><code>xterm</code>, <code>gnome-terminal</code>, <code>terminator</code>, …</li>
+<li>gedit, block de notas, nano, …</li>
+<li>emacs, …</li>
+</ul></li>
+<li>Ventajas
+<ul>
+<li>Manejo integrado</li>
+<li>Información de los distintos elementos</li>
+<li>Definición de proyectos</li>
+<li>Creación de documentos: facilita la escritura de <em>scripts</em></li>
+<li>Completado inteligente de paréntesis</li>
+<li>Oferta de opciones</li>
+</ul></li>
+</ul>
+</section><section class="titleslide slide level2" id="creación-de-un-proyecto"><h1 id="creación-de-un-proyecto">Creación de un proyecto</h1></section><section class="slide level3" id="ejercicio">
+<h1 id="ejercicio">Ejercicio</h1>
+<ul>
+<li>Crear un proyecto llamado <code>Ejercicio1</code></li>
+<li>Utilizar el siguiente código para crear un <code>Rscript</code><br>(<code>File-&gt; New-&gt; Rscript</code> o <code>CTL+SHIFT+n</code>)</li>
+</ul>
+<pre><code># Sumar los diez primeros enteros
+sum( 1:10 )
+# Representar la función seno
+( curve( sin, -pi, pi, col=3, lwd=4 ) )
+abline( v=0, h=0, col=&quot;grey&quot;, lwd=2)</code></pre>
+<ul>
+<li>Comprobar el código</li>
+<li>Configurar las opciones (<code>Tools-&gt; Options</code>)</li>
+<li>Guardar el proyecto y salir de RStudio</li>
+</ul>
+</section>
+<section class="titleslide slide level1" id="markdown"><h1 id="markdown">Markdown</h1></section><section class="titleslide slide level2" id="aspectos-básicos-de-markdown"><h1 id="aspectos-básicos-de-markdown">Aspectos básicos de markdown</h1></section><section class="slide level3" id="que-puede-hacer-markdown-por-mi">
+<h1 id="que-puede-hacer-markdown-por-mi">¿Que puede hacer markdown por mi?</h1>
+<ul>
+<li>Quiero olvidarme del instrumento para pensar sólo en lo que estoy escribiendo</li>
+<li>Quiero escribir sin preocuparme del aspecto</li>
+<li>Quiero reutilizar lo que ya sé</li>
+<li>Quiero índices, bibliografía, …</li>
+<li>Quiero documentos ligeros</li>
+<li>Quiero escribir como me convenga, para el lector lo que necesite</li>
+<li>Quiero poder recortar y pegar a sin problemas</li>
+<li>Quiero trabajar con mis colegas</li>
+</ul>
+</section><section class="slide level3" id="un-lenguaje-de-marcas">
+<h1 id="un-lenguaje-de-marcas">Un lenguaje de marcas</h1>
+<ul>
+<li>mediawiki, dokuwiki, …</li>
+<li>rts, org, …</li>
+<li>html, html5, xml, sgml, …</li>
+<li>docbook</li>
+<li>LaTeX (beamer, …)</li>
+<li>texinfo, textile, context</li>
+<li>epub, groff, asciidoc</li>
+<li>Ver este <a href="http://youtu.be/u9UAo899bn8">video</a> para saber mas sobre lenguajes de marcas</li>
+<li><a href="http://johnmacfarlane.net/pandoc/diagram.png">Mapa</a> de relaciones entre distintos formatos</li>
+</ul>
+</section><section class="slide level3" id="conceptos-básicos-de-la-sintaxis">
+<h1 id="conceptos-básicos-de-la-sintaxis">Conceptos básicos de la sintaxis</h1>
+<ul>
+<li><p>Documentación <a href="http://daringfireball.net/projects/markdown/syntax">original del autor</a>, <a href="http://plataforma.asmoz.org/help.php?file=markdown.html">traducción al castellano</a></p></li>
+<li><p>Sintaxis con las extensiones de <a href="http://johnmacfarlane.net/pandoc/README.html">pandoc</a></p></li>
+<li><p>Un interesante texto para escribir con soltura en markdown documentos complejos</p></li>
+<li><p>Una <em>chuleta</em> (<em>refcard</em> o <em>cheatsheet</em>) <a href="http://scottboms.com/downloads/documentation/markdown_cheatsheet.pdf">de markdown</a></p></li>
+<li><p>Otros <a href="http://servbiob.inf.um.es/proyectos/public/projects/markdown-umu/wiki">enlaces de interés</a></p></li>
+<li><p>Podemos utilizar Rstudio como editor de markdown (incluye acceso directo a las ayudas)</p></li>
+</ul>
+</section><section class="slide level3" id="elementos-básicos">
+<h1 id="elementos-básicos">Elementos básicos</h1>
+<ul>
+<li>La estructura del documento: encabezamientos (cabeceras de distinto nivel)</li>
+<li>Las fuentes imprescindibles (negritas, cursivas, tipo terminal, subíndices, …)</li>
+<li>Bloques de texto</li>
+<li>Listas de concepto, numeradas o no</li>
+<li>Citas</li>
+<li>Enlaces</li>
+<li>Tablas y gráficos</li>
+</ul>
+</section><section class="slide level3" id="uso-adecuado-de-las-fuentes">
+<h1 id="uso-adecuado-de-las-fuentes">Uso adecuado de las fuentes</h1>
+<ul>
+<li><em>cursiva</em>:
+<ul>
+<li>para palabras en otros idiomas (<em>ad</em> <em>hoc</em>)</li>
+<li>una acepción especial que va a definirse (<em>segmentación</em>)</li>
+<li>para nombres de variables (<em>x</em>)</li>
+</ul></li>
+<li><code>terminal</code>:
+<ul>
+<li>literales para trasladar al sistema informático (<code>plot( x, y )</code>)</li>
+<li>para términos de TI (<code>pdf</code>, <code>shell</code>), en este caso debe usarse con cuidado</li>
+</ul></li>
+</ul>
+</section><section class="slide level3" id="ejercicio-1">
+<h1 id="ejercicio-1">Ejercicio</h1>
+<ul>
+<li>Usando RStudio, desde el proyecto anterior, prepara un documento describiendo dos estadísticos habituales, aprovecha el siguiente código básico:</li>
+</ul>
+<pre><code>% Dos estadísticos básicos
+% Autor
+% Taller Caldum, 24 de julio de 2012
+
+# De la media
+
+# De la varianza
+</code></pre>
+<ul>
+<li><p>Guarda el fichero: <code>estadisticos.md</code></p></li>
+<li><p>Comprueba la salida en html</p></li>
+</ul>
+</section><section class="titleslide slide level2" id="avanzando-con-markdown"><h1 id="avanzando-con-markdown">Avanzando con markdown</h1></section><section class="slide level3" id="fórmulas">
+<h1 id="fórmulas">Fórmulas</h1>
+<ul>
+<li><p>Se utiliza la notación de \(\LaTeX\)</p></li>
+<li><p>Para marcarlas utilizamos $ delante y detrás de la fórmula</p></li>
+<li><p>Un ejemplo: <code>$\bar{x}$</code> que proporciona \(\bar{x}\)</p></li>
+<li><p>Pero …<br>— … ¡¡¡ yo no sé nada de \(\LaTeX\) !!!<br>— Entonces, simplemente, <a href="http://webdemo.visionobjects.com/equation.html?locale=es_ES">dibuja las formulas</a></p></li>
+</ul>
+</section><section class="slide level3" id="ejercicio-2">
+<h1 id="ejercicio-2">Ejercicio</h1>
+<ul>
+<li><p>Incluye en el documento las formulas correspondientes a los estadísticos indicados</p></li>
+<li><p>Comprueba la salida en html</p></li>
+</ul>
+</section><section class="slide level3" id="gráficos-enlaces-bibliografía">
+<h1 id="gráficos-enlaces-bibliografía">Gráficos, enlaces, bibliografía …</h1>
+<ul>
+<li><p>Es posible utilizar una base de datos bibliográfica para citar los documentos desde el texto</p></li>
+<li><p>Se incluyen enlaces a referencias web o locales:<br><code>[texto de referencia](http://enlace &quot;Texto a visualizar al pasar el mouse&quot;)</code></p></li>
+<li><p>Se incluyen gráficos fácilmente:<br><code>![Pie de figura](fichero_gráfico &quot;Texto a visualizar al pasar el mouse&quot;)</code></p></li>
+</ul>
+</section><section class="slide level3" id="ejercicio-3">
+<h1 id="ejercicio-3">Ejercicio</h1>
+<p>Incluye en el documento:</p>
+<ul>
+<li><p>Enlaces a citas del uso de la media y la varianza</p></li>
+<li><p>Una figura correspondiente al tema de trabajo</p></li>
+</ul>
+<p>¿Algún problema?</p>
+</section>
+<section class="titleslide slide level1" id="knitr"><h1 id="knitr">Knitr</h1></section><section class="titleslide slide level2" id="investigación-reproducible-con-r"><h1 id="investigación-reproducible-con-r">Investigación reproducible con R</h1></section><section class="slide level3" id="documentación-del-proyecto">
+<h1 id="documentación-del-proyecto">Documentación del proyecto</h1>
+<ul>
+<li><a href="http://cran.r-project.org/">CRAN</a>
+<ul>
+<li><a href="http://cran.r-project.org/web/packages/">Task views</a>
+<ul>
+<li><a href="http://cran.r-project.org/web/views/ReproducibleResearch.html">Investigación Reproducible</a></li>
+</ul></li>
+</ul></li>
+<li><a href="http://cran.r-project.org/web/packages/">paquetes</a>
+<ul>
+<li><a href="http://cran.r-project.org/web/packages/knitr/index.html">knitr</a></li>
+</ul></li>
+<li><a href="http://www.statistik.lmu.de/~leisch/Sweave/"><code>Sweave</code></a>, desarrollado por F. Leisch</li>
+<li><a href="(http://yihui.name/knitr/"><code>knitr</code></a>, desarrollado por Y. Xie</li>
+</ul>
+</section><section class="slide level3" id="ventajas-e-inconvenientes-de-knitr">
+<h1 id="ventajas-e-inconvenientes-de-knitr">Ventajas e inconvenientes de <code>knitr</code></h1>
+<ul>
+<li>Más sencillo de implementar</li>
+<li>Permite producir gráficos sin limitaciones</li>
+<li>Más opciones</li>
+<li>Permite usar otros lenguajes de programación</li>
+</ul>
+<p> </p>
+<ul>
+<li>El autor, en su documentación, asume el conocimiento de <code>Sweave</code></li>
+</ul>
+</section><section class="slide level3" id="elementos-en-investigación-reproducible">
+<h1 id="elementos-en-investigación-reproducible">Elementos en investigación reproducible</h1>
+<ul>
+<li><strong>textos</strong> <em>vs</em> <strong><em>chunks</em></strong>: marcas para inicio y fin de <em>chunk</em></li>
+</ul>
+<pre><code># Ejemplo de IR
+
+Esto es un ejemplo para ver la unión
+de un texto y un _chunck_ en el documento
+fuente:
+
+```{r}
+sum(1:10)
+plot(1:10)
+```
+
+Cuando R procese este documento
+se incluirá los resultados de la
+suma y el gráfico indicado en el
+_chunk_.</code></pre>
+</section><section class="slide level3" id="proceso-en-investigación-reproducible">
+<h1 id="proceso-en-investigación-reproducible">Proceso en investigación reproducible</h1>
+<ol type="1">
+<li><p>Elaboración del documento donde se auna la escritura del código y los textos necesarios. En <code>markdonw</code> y R la extensión del fichero es <code>.Rmd</code></p></li>
+<li><p>Procesado del documento por la aplicación correspondiente a lenguaje de trabajo, en nuestro caso R. Creación de un documento en el formato deseado; en nuetro caso un documento <code>.md</code></p></li>
+<li><p>Procesado, en su caso, del documento resultante, por ejemplo: elaboración de un documento <code>.pdf</code>.</p></li>
+</ol>
+</section><section class="slide level3" id="ejercicio-4">
+<h1 id="ejercicio-4">Ejercicio</h1>
+<ul>
+<li>Siguiendo con el ejemplo anterior añadir los <em>chunks</em> necesarios para incluir un ejemplo de calculo en cada uno de los estadísticos anteriores</li>
+</ul>
+<pre><code>x &lt;- c( 53, 56, 47, 30, 54, 2, 62, 25, 25, 53 )
+mean(x)
+var(x)
+</code></pre>
+<ul>
+<li><p>Convertir el documento en <code>markdown</code> en <code>R markdown</code>, guardándolo con la extensión <code>.Rmd</code></p></li>
+<li><p>Crear el <em>chunks</em> de forma automática con el menú adecuado.</p></li>
+</ul>
+</section><section class="slide level3" id="usando-directamente-la-librería-knitr">
+<h1 id="usando-directamente-la-librería-knitr">Usando directamente la librería <code>knitr</code></h1>
+<ul>
+<li><p>En la terminal de R utilizaremos directamente:</p>
+<pre><code>library(knitr)
+knitr(&quot;estadisticos.Rmd&quot;)</code></pre></li>
+<li><p>¿Cuál es el resultado? ¿Dónde se ubica el fichero <code>estadisticos.html</code> creado?</p></li>
+</ul>
+</section><section class="slide level3" id="chunks-opciones-valores-en-las-frases">
+<h1 id="chunks-opciones-valores-en-las-frases"><em>chunks</em>: opciones, valores en las frases</h1>
+<ul>
+<li><p>Valores en el texto, compruebe este código en el documento de trabajo.</p>
+<pre><code>En este ejemplo se comprueba que el máximo 
+valor tomado por los datos es `r max(x)`,
+mientras el mínimo es
+`r min(x)`.</code></pre>
+<ul>
+<li>¿Algún problema?</li>
+</ul></li>
+</ul>
+</section><section class="slide level3" id="chunks-opciones-ocultando-código">
+<h1 id="chunks-opciones-ocultando-código"><em>chunks</em>: opciones, ocultando código</h1>
+<ul>
+<li><p>Para ocultar código, no los resultados, comprobar las diferencias</p>
+<pre><code>```{r}
+mean(x)
+hist(x)
+```
+
+```{r echo=F}
+mean(x)
+hist(x)
+```</code></pre></li>
+</ul>
+</section><section class="slide level3" id="chunks-opciones">
+<h1 id="chunks-opciones"><em>chunks</em>: opciones</h1>
+<ul>
+<li><p>Todas las <a href="http://yihui.name/knitr/options">opciones</a></p></li>
+<li><p><code>{r inicio}</code> define este <em>chunk</em> con el nombre <code>inicio</code></p></li>
+<li><p><code>{r ,</code> opción 1<code>,</code> opción 2 <code>, ... }</code> separamos las opciones por comas</p></li>
+<li><p><code>eval=FALSE</code> el <em>chunk</em> no es evaluado</p></li>
+<li><p><code>results=hide</code> el <em>chunk</em> es evaluado pero no se muestran los resultados</p></li>
+</ul>
+</section><section class="slide level3" id="chunks-opciones-1">
+<h1 id="chunks-opciones-1"><em>chunks</em>: opciones</h1>
+<ul>
+<li><p><code>prompt=FALSE</code> elimina en la salida el prompt de las expresiones</p></li>
+<li><p><code>comment=NA</code> elimina en la salida los caracteres <code>##</code> que anteceden a las líneas de resultados</p></li>
+<li><p><code>background=#F7F7F7'</code> para determinar el color de fondo de los <em>chunks</em></p></li>
+<li><p><code>tidy=TRUE</code> presenta el código de forma elegante</p></li>
+</ul>
+</section><section class="slide level3" id="chunks-opciones-2">
+<h1 id="chunks-opciones-2"><em>chunks</em>: opciones</h1>
+<ul>
+<li><code>fig.keep='last'</code> en el <em>chunk</em> sólo se conserva la última gráfica generada</li>
+<li><code>dpi=72</code> resolución para las gráficas generadas en el <em>chunk</em></li>
+<li><code>fig.width=9</code> ancho de las figuras en pulgadas (también <code>fig.height</code>)</li>
+<li><code>dev='Cairo_svg'</code> define el formato gráfico de salida para las figuras del <em>chunk</em></li>
+</ul>
+<p> </p>
+<ul>
+<li><code>cache=TRUE</code> se activa la cache para el <em>chunk</em></li>
+</ul>
+</section><section class="slide level3" id="pero-yo-yo-amo-el-zarzal">
+<h1 id="pero-yo-yo-amo-el-zarzal">Pero yo, yo amo el zarzal</h1>
+<ul>
+<li><p>En la terminal podemos ejecutar para obtener el documento final:</p>
+<pre><code>Rscript -e &quot;library(knitr); \
+knit(&#39;estadisticos.Rmd&#39;)&quot;</code></pre></li>
+<li><p>posteriormente, con <code>pandoc</code> obtenemos el formato deseado</p></li>
+<li><p>Transparencias</p>
+<pre><code>pandoc -s -S -i -t dzslides  \
+        -m estadisticos.md   \
+        -o estadisticos.html</code></pre></li>
+</ul>
+</section><section class="slide level3" id="pero-yo-amo-el-zarzal">
+<h1 id="pero-yo-amo-el-zarzal">Pero yo, amo el zarzal</h1>
+<ul>
+<li><p>Documento en \(\LaTeX\)</p>
+<pre><code>pandoc -s -S -i  --toc estadisticos.md \
+       -o estadisticos.tex
+
+pdflatex estadisticos.tex</code></pre></li>
+<li><p>En formato de procesador:</p>
+<pre><code>pandoc -s -S -i -m --toc estadisticos.md \
+       -o estadisticos.odt</code></pre></li>
+<li><p>¿Algún problema? ¿cómo hacemos un fichero para un libro electrónico?</p></li>
+</ul>
+</section><section class="slide level3" id="extrayendo-el-código-de-todos-lo-chunks">
+<h1 id="extrayendo-el-código-de-todos-lo-chunks">Extrayendo el código de todos lo <em>chunks</em></h1>
+<ul>
+<li>En ocasiones queremos extraer el código de R</li>
+<li><p>Ejemplo: `purl(“estadisticos.Rnw”)</p></li>
+<li><p>Proporciona un fichero <code>estadisticos.R</code></p></li>
+<li><p>Cada <em>chunk</em> está etiquetado y puede ser llamado desde otro documento con esa etiqueta</p></li>
+</ul>
+</section><section class="slide level3" id="organizando-el-proyecto">
+<h1 id="organizando-el-proyecto">Organizando el proyecto</h1>
+<pre><code>─── proyectoX
+    ├── dat
+    ├── img
+    ├── doc
+    ├── html
+    │
+    ├── Leeme
+    ├── informe.Rmd   informe.md
+    │
+    ├── bibliografia.bib
+    │
+    └── .Rhistory .RData</code></pre>
+</section><section class="slide level3" id="organizando-el-proyecto-1">
+<h1 id="organizando-el-proyecto-1">Organizando el proyecto</h1>
+<pre><code>─── proyectoX
+    ├── dat
+    │   ├── datos.csv
+    │   └── variables.csv
+    ├── img
+    │   ├── imagen1.png   imagen3.png   
+    │   └── dibujo1.svg   dibujo4.pdf  ...  
+    ├── doc
+    │   ├── informe.doc
+    │   └── plantilla.doc
+    ├── html
+    │   ├── estilo.css
+    │   └── informe.html
+    │
+    └── .. </code></pre>
+</section><section class="slide level3" id="para-un-adecuado-seguimiento-del-trabajo">
+<h1 id="para-un-adecuado-seguimiento-del-trabajo">Para un adecuado seguimiento del trabajo</h1>
+<p>Al final o el inicio, según preferencias, conviene añadir:</p>
+<p><code>print(sessionInfo(), locale = FALSE)</code></p>
+<pre><code>R version 2.15.1 (2012-06-22)
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+attached base packages:
+[1] stats     graphics  grDevices utils     
+[4] datasets  methods   base     
+
+other attached packages:
+[1] knitr_0.7
+
+loaded via a namespace (and not attached):
+[1] digest_0.5.2   evaluate_0.4.1 formatR_0.4    
+[4] markdown_0.5.2 parser_0.0-14  plyr_1.7.1     Rcpp_0.9.10   
+[8] stringr_0.6    tools_2.15.1  </code></pre>
+</section>
+<section class="titleslide slide level1" id="algunas-referencias"><h1 id="algunas-referencias">Algunas referencias</h1></section><section class="slide level3" id="documentación-sobre-knitr">
+<h1 id="documentación-sobre-knitr">Documentación sobre <code>knitr</code></h1>
+<ul>
+<li><p><a href="https://github.com/downloads/yihui/knitr/knitr-manual.pdf">Manual de <code>knitr</code></a></p></li>
+<li><p><a href="http://erre-que-erre-paco.blogspot.com.es/2012/05/knitr-un-paquete-avanzado-para-la.html">Blog de los erreros</a></p></li>
+<li><p>[Preparando transparencias con <code>markdown</code> <a href="http://yihui.name/en/2012/05/how-to-make-html5-slides-with-knitr/"><code>.Rmd</code></a>, <a href="http://yihui.name/slides/knitr-slides.html#1.0"><code>html</code></a></p></li>
+<li><p><a href="http://groups.google.com/group/knitr">Grupo usuarios de google: knitr</a></p></li>
+</ul>
+</section>
+<!-- {{{{ dzslides core
+#
+#
+#     __  __  __       .  __   ___  __
+#    |  \  / /__` |    | |  \ |__  /__`
+#    |__/ /_ .__/ |___ | |__/ |___ .__/ core :€
+#
+#
+# The following block of code is not supposed to be edited.
+# But if you want to change the behavior of these slides,
+# feel free to hack it!
+#
+-->
+
+<!-- Default Style -->
+<style>
+  * { margin: 0; padding: 0; }
+  details { display: none; }
+  body {
+    width: 800px; height: 600px;
+    margin-left: -400px; margin-top: -300px;
+    position: absolute; top: 50%; left: 50%;
+    overflow: hidden;
+  }
+  section {
+    position: absolute;
+    pointer-events: none;
+    width: 100%; height: 100%;
+  }
+  section[aria-selected] { pointer-events: auto; }
+  html { overflow: hidden; }
+  body { display: none; }
+  body.loaded { display: block; }
+  .incremental {visibility: hidden; }
+  .incremental[active] {visibility: visible; }
+</style>
+
+<script>
+  var Dz = {
+    remoteWindows: [],
+    idx: -1,
+    step: 0,
+    slides: null,
+    params: {
+      autoplay: "1"
+    }
+  };
+
+  Dz.init = function() {
+    document.body.className = "loaded";
+    this.slides = $$("body > section");
+    this.setupParams();
+    this.onhashchange();
+    this.setupTouchEvents();
+    this.onresize();
+  }
+  
+  Dz.setupParams = function() {
+    var p = window.location.search.substr(1).split('&');
+    p.forEach(function(e, i, a) {
+      var keyVal = e.split('=');
+      Dz.params[keyVal[0]] = decodeURIComponent(keyVal[1]);
+    });
+  }
+
+  Dz.onkeydown = function(aEvent) {
+    // Don't intercept keyboard shortcuts
+    if (aEvent.altKey
+      || aEvent.ctrlKey
+      || aEvent.metaKey
+      || aEvent.shiftKey) {
+      return;
+    }
+    if ( aEvent.keyCode == 37 // left arrow
+      || aEvent.keyCode == 38 // up arrow
+      || aEvent.keyCode == 33 // page up
+    ) {
+      aEvent.preventDefault();
+      this.back();
+    }
+    if ( aEvent.keyCode == 39 // right arrow
+      || aEvent.keyCode == 40 // down arrow
+      || aEvent.keyCode == 34 // page down
+    ) {
+      aEvent.preventDefault();
+      this.forward();
+    }
+    if (aEvent.keyCode == 35) { // end
+      aEvent.preventDefault();
+      this.goEnd();
+    }
+    if (aEvent.keyCode == 36) { // home
+      aEvent.preventDefault();
+      this.goStart();
+    }
+    if (aEvent.keyCode == 32) { // space
+      aEvent.preventDefault();
+      this.toggleContent();
+    }
+  }
+
+  /* Touch Events */
+
+  Dz.setupTouchEvents = function() {
+    var orgX, newX;
+    var tracking = false;
+
+    var db = document.body;
+    db.addEventListener("touchstart", start.bind(this), false);
+    db.addEventListener("touchmove", move.bind(this), false);
+
+    function start(aEvent) {
+      aEvent.preventDefault();
+      tracking = true;
+      orgX = aEvent.changedTouches[0].pageX;
+    }
+
+    function move(aEvent) {
+      if (!tracking) return;
+      newX = aEvent.changedTouches[0].pageX;
+      if (orgX - newX > 100) {
+        tracking = false;
+        this.forward();
+      } else {
+        if (orgX - newX < -100) {
+          tracking = false;
+          this.back();
+        }
+      }
+    }
+  }
+
+  /* Adapt the size of the slides to the window */
+
+  Dz.onresize = function() {
+    var db = document.body;
+    var sx = db.clientWidth / window.innerWidth;
+    var sy = db.clientHeight / window.innerHeight;
+    var transform = "scale(" + (1/Math.max(sx, sy)) + ")";
+
+    db.style.MozTransform = transform;
+    db.style.WebkitTransform = transform;
+    db.style.OTransform = transform;
+    db.style.msTransform = transform;
+    db.style.transform = transform;
+  }
+
+
+  Dz.getDetails = function(aIdx) {
+    var s = $("section:nth-of-type(" + aIdx + ")");
+    var d = s.$("details");
+    return d ? d.innerHTML : "";
+  }
+
+  Dz.onmessage = function(aEvent) {
+    var argv = aEvent.data.split(" "), argc = argv.length;
+    argv.forEach(function(e, i, a) { a[i] = decodeURIComponent(e) });
+    var win = aEvent.source;
+    if (argv[0] === "REGISTER" && argc === 1) {
+      this.remoteWindows.push(win);
+      this.postMsg(win, "REGISTERED", document.title, this.slides.length);
+      this.postMsg(win, "CURSOR", this.idx + "." + this.step);
+      return;
+    }
+    if (argv[0] === "BACK" && argc === 1)
+      this.back();
+    if (argv[0] === "FORWARD" && argc === 1)
+      this.forward();
+    if (argv[0] === "START" && argc === 1)
+      this.goStart();
+    if (argv[0] === "END" && argc === 1)
+      this.goEnd();
+    if (argv[0] === "TOGGLE_CONTENT" && argc === 1)
+      this.toggleContent();
+    if (argv[0] === "SET_CURSOR" && argc === 2)
+      window.location.hash = "#" + argv[1];
+    if (argv[0] === "GET_CURSOR" && argc === 1)
+      this.postMsg(win, "CURSOR", this.idx + "." + this.step);
+    if (argv[0] === "GET_NOTES" && argc === 1)
+      this.postMsg(win, "NOTES", this.getDetails(this.idx));
+  }
+
+  Dz.toggleContent = function() {
+    // If a Video is present in this new slide, play it.
+    // If a Video is present in the previous slide, stop it.
+    var s = $("section[aria-selected]");
+    if (s) {
+      var video = s.$("video");
+      if (video) {
+        if (video.ended || video.paused) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      }
+    }
+  }
+
+  Dz.setCursor = function(aIdx, aStep) {
+    // If the user change the slide number in the URL bar, jump
+    // to this slide.
+    aStep = (aStep != 0 && typeof aStep !== "undefined") ? "." + aStep : ".0";
+    window.location.hash = "#" + aIdx + aStep;
+  }
+
+  Dz.onhashchange = function() {
+    var cursor = window.location.hash.split("#"),
+        newidx = 1,
+        newstep = 0;
+    if (cursor.length == 2) {
+      newidx = ~~cursor[1].split(".")[0];
+      newstep = ~~cursor[1].split(".")[1];
+      if (newstep > Dz.slides[newidx - 1].$$('.incremental > *').length) {
+        newstep = 0;
+        newidx++;
+      }
+    }
+    if (newidx != this.idx) {
+      this.setSlide(newidx);
+    }
+    if (newstep != this.step) {
+      this.setIncremental(newstep);
+    }
+    for (var i = 0; i < this.remoteWindows.length; i++) {
+      this.postMsg(this.remoteWindows[i], "CURSOR", this.idx + "." + this.step);
+    }
+  }
+
+  Dz.back = function() {
+    if (this.idx == 1 && this.step == 0) {
+      return;
+    }
+    if (this.step == 0) {
+      this.setCursor(this.idx - 1,
+                     this.slides[this.idx - 2].$$('.incremental > *').length);
+    } else {
+      this.setCursor(this.idx, this.step - 1);
+    }
+  }
+
+  Dz.forward = function() {
+    if (this.idx >= this.slides.length &&
+        this.step >= this.slides[this.idx - 1].$$('.incremental > *').length) {
+        return;
+    }
+    if (this.step >= this.slides[this.idx - 1].$$('.incremental > *').length) {
+      this.setCursor(this.idx + 1, 0);
+    } else {
+      this.setCursor(this.idx, this.step + 1);
+    }
+  }
+
+  Dz.goStart = function() {
+    this.setCursor(1, 0);
+  }
+
+  Dz.goEnd = function() {
+    var lastIdx = this.slides.length;
+    var lastStep = this.slides[lastIdx - 1].$$('.incremental > *').length;
+    this.setCursor(lastIdx, lastStep);
+  }
+
+  Dz.setSlide = function(aIdx) {
+    this.idx = aIdx;
+    var old = $("section[aria-selected]");
+    var next = $("section:nth-of-type("+ this.idx +")");
+    if (old) {
+      old.removeAttribute("aria-selected");
+      var video = old.$("video");
+      if (video) {
+        video.pause();
+      }
+    }
+    if (next) {
+      next.setAttribute("aria-selected", "true");
+      var video = next.$("video");
+      if (video && !!+this.params.autoplay) {
+        video.play();
+      }
+    } else {
+      // That should not happen
+      this.idx = -1;
+      // console.warn("Slide doesn't exist.");
+    }
+  }
+
+  Dz.setIncremental = function(aStep) {
+    this.step = aStep;
+    var old = this.slides[this.idx - 1].$('.incremental > *[aria-selected]');
+    if (old) {
+      old.removeAttribute('aria-selected');
+    }
+    var incrementals = this.slides[this.idx - 1].$$('.incremental');
+    if (this.step <= 0) {
+      incrementals.forEach(function(aNode) {
+        aNode.removeAttribute('active');
+      });
+      return;
+    }
+    var next = this.slides[this.idx - 1].$$('.incremental > *')[this.step - 1];
+    if (next) {
+      next.setAttribute('aria-selected', true);
+      next.parentNode.setAttribute('active', true);
+      var found = false;
+      incrementals.forEach(function(aNode) {
+        if (aNode != next.parentNode)
+          if (found)
+            aNode.removeAttribute('active');
+          else
+            aNode.setAttribute('active', true);
+        else
+          found = true;
+      });
+    } else {
+      setCursor(this.idx, 0);
+    }
+    return next;
+  }
+  
+  Dz.postMsg = function(aWin, aMsg) { // [arg0, [arg1...]]
+    aMsg = [aMsg];
+    for (var i = 2; i < arguments.length; i++)
+      aMsg.push(encodeURIComponent(arguments[i]));
+    aWin.postMessage(aMsg.join(" "), "*");
+  }
+
+  window.onload = Dz.init.bind(Dz);
+  window.onkeydown = Dz.onkeydown.bind(Dz);
+  window.onresize = Dz.onresize.bind(Dz);
+  window.onhashchange = Dz.onhashchange.bind(Dz);
+  window.onmessage = Dz.onmessage.bind(Dz);
+</script>
+
+
+<script> // Helpers
+  if (!Function.prototype.bind) {
+    Function.prototype.bind = function (oThis) {
+
+      // closest thing possible to the ECMAScript 5 internal IsCallable
+      // function 
+      if (typeof this !== "function")
+      throw new TypeError(
+        "Function.prototype.bind - what is trying to be fBound is not callable"
+      );
+
+      var aArgs = Array.prototype.slice.call(arguments, 1),
+          fToBind = this,
+          fNOP = function () {},
+          fBound = function () {
+            return fToBind.apply( this instanceof fNOP ? this : oThis || window,
+                   aArgs.concat(Array.prototype.slice.call(arguments)));
+          };
+
+      fNOP.prototype = this.prototype;
+      fBound.prototype = new fNOP();
+
+      return fBound;
+    };
+  }
+
+  var $ = (HTMLElement.prototype.$ = function(aQuery) {
+    return this.querySelector(aQuery);
+  }).bind(document);
+
+  var $$ = (HTMLElement.prototype.$$ = function(aQuery) {
+    return this.querySelectorAll(aQuery);
+  }).bind(document);
+
+  NodeList.prototype.forEach = function(fun) {
+    if (typeof fun !== "function") throw new TypeError();
+    for (var i = 0; i < this.length; i++) {
+      fun.call(this, this[i]);
+    }
+  }
+
+</script>
+<!-- vim: set fdm=marker: }}} -->
+</body>
+</html>

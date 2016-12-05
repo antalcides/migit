@@ -1,0 +1,37 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym, amsmath,amsfonts,amssymb}
+\usepackage[margin=.75in]{geometry}
+\usepackage{kpfonts}  %Changing the default fonts
+\usepackage[T1]{fontenc}
+\setlength{\parskip}{1.2ex} %space between paragraphs
+\setlength{\parindent}{1em} %Paragraph indentation
+\linespread{1.25} %spacing between lines
+\pagestyle{empty} %no page numbers
+\begin{document}
+\begin{center}
+\Large{\textbf{A Useful Proof by Contradiction}}
+\end{center}
+Every high school student must master the basic skill of factoring
+a number, at least in theory.  Those learning the process 
+will often try factoring $149$ by attempting to divide it by the 
+numbers $2, 3, 4, \ldots$ and so on all the way up to $149$ (if 
+they have the patience) until, hopefully, someone tells them they 
+don't have to try dividing by all those numbers. Instead, they
+just need to check the prime numbers between $2$ and 
+$\sqrt{149} <13$. Why is that so? It's a consequence of the 
+next theorem, which is the shortest meaningful proof by 
+contradiction I know of.\\\\
+\textbf{Theorem:} Let $p$ and $q$  be positive integers. If 
+$N=pq$ then either $p \leq \sqrt{N}$ or $q \leq \sqrt{N}$.\\\\
+Proof: Suppose $p > \sqrt{N}$ and $q > \sqrt{N}$. It follows
+ that $pq > \sqrt{N}\sqrt{N}=N$ hence either $p \leq \sqrt{N}$
+ or $q \leq \sqrt{N}$.\\
+ 
+If $N$ is composite number, it has a factor less than $\sqrt{N}$.
+That factor must also be divisible by a prime number. It follows
+that every composite number $N$ is divisible by a prime number 
+between $2$ and $\sqrt{N}$. Therefore, to check whether $149$ is
+prime we need to test whether it is divisible by $2, 3, 5, 7$, and 
+$11$. Knowing this will save students a lot of time when they
+are factoring numbers. 
+\end{document}

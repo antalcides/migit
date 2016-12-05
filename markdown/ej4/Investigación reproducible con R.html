@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html><head>
+  <title>Investigación reproducible con R</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="generator" content="pandoc">
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <link rel="stylesheet" media="all" href="Investigaci%C3%B3n%20reproducible%20con%20R_files/fonts.css">
+
+  <link rel="stylesheet" media="all" href="Investigaci%C3%B3n%20reproducible%20con%20R_files/default.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="Investigaci%C3%B3n%20reproducible%20con%20R_files/phone.css">
+
+  <!-- base href="http://bogota-r.github.io/reproducible-research/" -->
+
+  <script type="text/javascript">
+    var SLIDE_CONFIG = {
+      // Slide settings
+      settings: {
+                title: 'Investigación reproducible con R',
+                        useBuilds: true,
+        usePrettify: true,
+        enableSlideAreas: true,
+        enableTouch: true,
+                favIcon: 'reproducible-research_files/logo.png',
+              },
+
+      // Author information
+      presenters: [
+            ]
+    };
+  </script>
+
+  <style type="text/css">
+
+    b, strong {
+      font-weight: bold;
+    }
+
+    em {
+      font-style: italic;
+    }
+
+    slides > slide {
+      -webkit-transition: all 0.4s ease-in-out;
+      -moz-transition: all 0.4s ease-in-out;
+      -o-transition: all 0.4s ease-in-out;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .auto-fadein {
+      -webkit-transition: opacity 0.6s ease-in;
+      -webkit-transition-delay: 0.4s;
+      -moz-transition: opacity 0.6s ease-in 0.4s;
+      -o-transition: opacity 0.6s ease-in 0.4s;
+      transition: opacity 0.6s ease-in 0.4s;
+      opacity: 0;
+    }
+
+    slides > slide:not(.nobackground):before {
+      font-size: 12pt;
+      content: "";
+      position: absolute;
+      bottom: 20px;
+      left: 60px;
+      background: url(reproducible-research_files/logo.png) no-repeat 0 50%;
+      -webkit-background-size: 30px 30px;
+      -moz-background-size: 30px 30px;
+      -o-background-size: 30px 30px;
+      background-size: 30px 30px;
+      padding-left: 40px;
+      height: 30px;
+      line-height: 1.9;
+    }
+  </style>
+
+  <link rel="stylesheet" href="Investigaci%C3%B3n%20reproducible%20con%20R_files/styles.css" type="text/css">
+
+
+<link href="Investigaci%C3%B3n%20reproducible%20con%20R_files/logo.png" type="image/png" rel="icon"><script src="Investigaci%C3%B3n%20reproducible%20con%20R_files/MathJax.js" type="text/javascript"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MathJax .MJX-monospace {font-family: monospace}
+.MathJax .MJX-sans-serif {font-family: sans-serif}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax:focus, body :focus .MathJax {display: inline-table}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!important; vertical-align: 0!important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+.MathJax nobr {white-space: nowrap!important}
+.MathJax img {display: inline!important; float: none!important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_ExBox {display: block!important; overflow: hidden; width: 1px; height: 60ex; min-height: 0; max-height: none}
+.MathJax .MathJax_EmBox {display: block!important; overflow: hidden; width: 1px; height: 60em; min-height: 0; max-height: none}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Main; src: url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff?rev=2.6.1') format('woff'), url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf?rev=2.6.1') format('opentype')}
+@font-face {font-family: MathJax_Main; src: url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff?rev=2.6.1') format('woff'), url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf?rev=2.6.1') format('opentype'); font-weight: bold}
+@font-face {font-family: MathJax_Main; src: url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff?rev=2.6.1') format('woff'), url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf?rev=2.6.1') format('opentype'); font-style: italic}
+@font-face {font-family: MathJax_Math; src: url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff?rev=2.6.1') format('woff'), url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf?rev=2.6.1') format('opentype'); font-style: italic}
+@font-face {font-family: MathJax_Caligraphic; src: url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff?rev=2.6.1') format('woff'), url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf?rev=2.6.1') format('opentype')}
+@font-face {font-family: MathJax_Size1; src: url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff?rev=2.6.1') format('woff'), url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf?rev=2.6.1') format('opentype')}
+@font-face {font-family: MathJax_Size2; src: url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff?rev=2.6.1') format('woff'), url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf?rev=2.6.1') format('opentype')}
+@font-face {font-family: MathJax_Size3; src: url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff?rev=2.6.1') format('woff'), url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf?rev=2.6.1') format('opentype')}
+@font-face {font-family: MathJax_Size4; src: url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff?rev=2.6.1') format('woff'), url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf?rev=2.6.1') format('opentype')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+
+<body class="loaded" style="opacity: 0"><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px none; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"><br><br></div></div><div style="display: none;" id="MathJax_Message"></div>
+
+<slides class="layout-widescreen">
+
+  <slide data-total-slides="39" data-slide-num="1" class="title-slide segue nobackground">
+        <aside class="gdbar"><img src="Investigaci%C3%B3n%20reproducible%20con%20R_files/logo.png"></aside>
+        <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+      <h1 data-config-title="">Investigación reproducible con R</h1>
+      <h2 data-config-subtitle=""><!-- populated from slide_config.json --></h2>
+      <p data-config-presenter=""></p>
+          </hgroup>
+  </slide>
+
+<slide data-total-slides="39" data-slide-num="2" class=""><hgroup><h2>De que vamos a hablar:</h2></hgroup><article id="de-que-vamos-a-hablar">
+
+<ol>
+<li>Intro:
+
+<ul>
+<li>Que es <em>reproducible research</em> y para que?</li>
+<li>Sobrevuelo historico</li>
+<li>Algunas herramientas y flujos de trabajo</li>
+</ul></li>
+<li><strong>knitr y rmarkdown</strong></li>
+</ol>
+
+</article></slide><slide data-total-slides="39" data-slide-num="3" class="segue dark nobackground"><hgroup class="auto-fadein"><h2>Intro</h2></hgroup><article id="intro">
+
+</article></slide><slide data-total-slides="39" data-slide-num="4" class=""><hgroup><h2>Que es <em>reproducible research</em>?</h2></hgroup><article id="que-es-reproducible-research" class="build">
+
+<p class=""><em>"Creo que metimos los datos que no eran!"</em></p>
+
+<p class=""><em>"Como es que generamos esta gráfica?"</em></p>
+
+<p class=""><em>"De donde vienen esos datos? Creo que toca actualizarlos!"</em></p>
+
+<p class=""><em>"Y este error qué? Antes no salia!"</em></p>
+
+<p class=""><a href="https://www.biostat.wisc.edu/%7Ekbroman/presentations/repro_research_RDS2015.pdf" title="">Basdo en notas de Karl Broman</a></p>
+
+</article></slide><slide data-total-slides="39" data-slide-num="5" class=""><hgroup><h2>Que es <em>reproducible research</em>?</h2></hgroup><article id="que-es-reproducible-research-1">
+
+<p><a href="https://en.wikipedia.org/wiki/Reproducibility#Reproducible_research" title="">De wikipedia (en inglés)</a>:</p>
+
+<p><em>"El termino investigación reproducible (<em>reproducible research</em>) se refiere a la idea de que el producto final de una investigación <del>academica</del>
+ es el artículo en conjunto con todo el ambiente computacional usado 
+para producir los reseltudas en el articulo como el codigo, los datos, 
+etc. que pueden ser usados para <strong>reproducir</strong> los resultados y crear nuevo trabajo basado en la investigación."</em></p>
+
+<p>Ver por ejemplo <a href="https://statistics.stanford.edu/sites/default/files/EFS%20NSF%20474.pdf" title=""><em>WaveLab and Reproducible Research</em></a> en particular las anecdotas en la sección 2.</p>
+
+</article></slide><slide data-total-slides="39" data-slide-num="6" class=""><hgroup><h2>Que es <em>reproducible research</em>?</h2></hgroup><article id="que-es-reproducible-research-2">
+
+<p>Rproducibilidad vs replicabilidad.</p>
+
+<p>Reproducible vs valido.</p>
+
+<p><a href="https://en.wikipedia.org/wiki/Reproducibility" title="">De wikipedia (en inglés)</a>: <em>Reproducibilidad es la capacidad de un <strong>experimento</strong> o <strong>estudio</strong> de ser duplicado. … Hablamos de <strong>replicar</strong> un experimento cuando este se reproduce. La reproducibilidad es uno de los principios fundamentales del metodo cientifico.</em></p>
+
+</article></slide><slide data-total-slides="39" data-slide-num="7" class=""><hgroup><h2>Por qué <em>reproducible research</em>?</h2></hgroup><article id="por-que-reproducible-research">
+
+<ul class="build">
+<li class="">Para colaborar.</li>
+<li class="">Por uno mismo!</li>
+<li class="">Por la ciencia y su desarrollo.</li>
+<li class="">Para fomentar la transparencia.</li>
+</ul>
+
+</article></slide><slide data-total-slides="39" data-slide-num="8" class=""><hgroup><h2>Sobrevuelo histórico </h2><h3> Raices</h3></hgroup><article id="sobrevuelo-historico-raices">
+
+<ul>
+<li>Stanford:
+
+<ul>
+<li><a href="http://cs.stanford.edu/%7Euno/" title="">Donald Knuth</a> y la idea de <a href="https://en.wikipedia.org/wiki/Literate_programming" title=""><em>Literate programming</em></a>: <a href="http://www.literateprogramming.com/" title="">http://www.literateprogramming.com/</a></li>
+<li><a href="http://sepwww.stanford.edu/doku.php?id=sep:research:reproducible" title=""><em>Stanford Exploration Project</em></a></li>
+<li><a href="http://statweb.stanford.edu/%7Ewavelab/" title="">WaveLab</a></li>
+</ul></li>
+<li><p><a href="http://www.literateprogramming.com/knuthweb.pdf" title=""><code>WEB</code></a> la primera implementación de <em>literate programming</em>: <span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;mspace width=&quot;-.14em&quot; /&gt;&lt;mpadded height=&quot;-.5ex&quot; depth=&quot;+.5ex&quot; voffset=&quot;-.5ex&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;/mrow&gt;&lt;/mpadded&gt;&lt;mspace width=&quot;-.115em&quot; /&gt;&lt;mi&gt;X&lt;/mi&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-1-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 2.703em; display: inline-block;" role="math" id="MathJax-Span-1" class="math"><span style="display: inline-block; position: relative; width: 2.067em; height: 0px; font-size: 130%;"><span style="position: absolute; clip: rect(1.384em, 1002.07em, 2.571em, -1000em); top: -2.212em; left: 0em;"><span id="MathJax-Span-2" class="mrow"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-3" class="mi">T<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.12em;"></span></span><span style="height: 0em; vertical-align: 0em; margin-left: -0.14em;" id="MathJax-Span-4" class="mspace"></span><span id="MathJax-Span-5" class="mpadded"><span style="display: inline-block; position: relative; width: 0.764em; height: 0px;"><span style="position: absolute; clip: rect(3.166em, 1000.76em, 4.135em, -1000em); top: -3.775em; left: 0em;"><span id="MathJax-Span-6" class="mrow"><span id="MathJax-Span-7" class="texatom"><span id="MathJax-Span-8" class="mrow"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-9" class="mi">E<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.026em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 3.99em;"></span></span></span></span><span style="height: 0em; vertical-align: 0em; margin-left: -0.115em;" id="MathJax-Span-10" class="mspace"></span><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-11" class="mi">X<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.024em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.212em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.342em; border-left: 0px solid; width: 0px; height: 1.293em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>T</mi><mspace width="-.14em"></mspace><mpadded height="-.5ex" depth="+.5ex" voffset="-.5ex"><mrow class="MJX-TeXAtom-ORD"><mi>E</mi></mrow></mpadded><mspace width="-.115em"></mspace><mi>X</mi></math></span></span><script id="MathJax-Element-1" type="math/tex">\TeX</script> + PASCAL.</p></li>
+<li><p><a href="https://www.cs.tufts.edu/%7Enr/noweb/" title=""><code>noweb</code></a> por <a href="http://www.cs.tufts.edu/%7Enr/" title="">Norman Ramsey</a> <em>literate programming</em> simple, extensible, independiente de lenguajes.</p></li>
+</ul>
+
+<p>Mucho más en: <a href="http://reproducibleresearch.net/links/" title="">http://reproducibleresearch.net/links/</a></p>
+
+</article></slide><slide data-total-slides="39" data-slide-num="9" class=""><hgroup><h2>Sobrevuelo histórico</h2></hgroup><article id="sobrevuelo-historico">
+
+<p><a href="http://www.literateprogramming.com/knuthweb.pdf" title="WEB"><img src="Investigaci%C3%B3n%20reproducible%20con%20R_files/WEB.png" title=""></a></p>
+
+</article></slide><slide data-total-slides="39" data-slide-num="10" class=""><hgroup><h2>Sobrevuelo histórico </h2><h3> Sweave</h3></hgroup><article id="sobrevuelo-historico-sweave">
+
+<p><a href="http://www.statistik.lmu.de/%7Eleisch/Sweave/" title="">Sweave</a> por <a href="http://www.statistik.lmu.de/%7Eleisch/" title="">Friedrich Leisch</a> sintaxis de <code>noweb</code> con <span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;L&lt;/mi&gt;&lt;mspace width=&quot;-.325em&quot; /&gt;&lt;mpadded height=&quot;+.21em&quot; depth=&quot;-.21em&quot; voffset=&quot;+.21em&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mstyle displaystyle=&quot;false&quot; scriptlevel=&quot;1&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/mrow&gt;&lt;/mstyle&gt;&lt;/mrow&gt;&lt;/mpadded&gt;&lt;mspace width=&quot;-.17em&quot; /&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;mspace width=&quot;-.14em&quot; /&gt;&lt;mpadded height=&quot;-.5ex&quot; depth=&quot;+.5ex&quot; voffset=&quot;-.5ex&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;/mrow&gt;&lt;/mpadded&gt;&lt;mspace width=&quot;-.115em&quot; /&gt;&lt;mi&gt;X&lt;/mi&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-2-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 3.578em; display: inline-block;" role="math" id="MathJax-Span-12" class="math"><span style="display: inline-block; position: relative; width: 2.74em; height: 0px; font-size: 130%;"><span style="position: absolute; clip: rect(1.351em, 1002.74em, 2.571em, -1000em); top: -2.212em; left: 0em;"><span id="MathJax-Span-13" class="mrow"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-14" class="mi">L</span><span style="height: 0em; vertical-align: 0em; margin-left: -0.325em;" id="MathJax-Span-15" class="mspace"></span><span id="MathJax-Span-16" class="mpadded"><span style="display: inline-block; position: relative; width: 0.53em; height: 0px;"><span style="position: absolute; clip: rect(3.34em, 1000.51em, 4.135em, -1000em); top: -4.2em; left: 0em;"><span id="MathJax-Span-17" class="mrow"><span id="MathJax-Span-18" class="texatom"><span id="MathJax-Span-19" class="mrow"><span id="MathJax-Span-20" class="mstyle"><span id="MathJax-Span-21" class="mrow"><span id="MathJax-Span-22" class="texatom"><span id="MathJax-Span-23" class="mrow"><span style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-24" class="mi">A</span></span></span></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 3.99em;"></span></span></span></span><span style="height: 0em; vertical-align: 0em; margin-left: -0.17em;" id="MathJax-Span-25" class="mspace"></span><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-26" class="mi">T<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.12em;"></span></span><span style="height: 0em; vertical-align: 0em; margin-left: -0.14em;" id="MathJax-Span-27" class="mspace"></span><span id="MathJax-Span-28" class="mpadded"><span style="display: inline-block; position: relative; width: 0.764em; height: 0px;"><span style="position: absolute; clip: rect(3.166em, 1000.76em, 4.135em, -1000em); top: -3.775em; left: 0em;"><span id="MathJax-Span-29" class="mrow"><span id="MathJax-Span-30" class="texatom"><span id="MathJax-Span-31" class="mrow"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-32" class="mi">E<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.026em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 3.99em;"></span></span></span></span><span style="height: 0em; vertical-align: 0em; margin-left: -0.115em;" id="MathJax-Span-33" class="mspace"></span><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-34" class="mi">X<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.024em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.212em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.342em; border-left: 0px solid; width: 0px; height: 1.336em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>L</mi><mspace width="-.325em"></mspace><mpadded height="+.21em" depth="-.21em" voffset="+.21em"><mrow class="MJX-TeXAtom-ORD"><mstyle displaystyle="false" scriptlevel="1"><mrow class="MJX-TeXAtom-ORD"><mi>A</mi></mrow></mstyle></mrow></mpadded><mspace width="-.17em"></mspace><mi>T</mi><mspace width="-.14em"></mspace><mpadded height="-.5ex" depth="+.5ex" voffset="-.5ex"><mrow class="MJX-TeXAtom-ORD"><mi>E</mi></mrow></mpadded><mspace width="-.115em"></mspace><mi>X</mi></math></span></span><script id="MathJax-Element-2" type="math/tex">\LaTeX</script> + S (i.e. R)</p>
+
+<pre class="prettyprint lang-r"><span class="pln">help</span><span class="pun">(</span><span class="str">"Sweave"</span><span class="pun">,</span><span class="pln"> package</span><span class="pun">=</span><span class="str">"utils"</span><span class="pun">)</span><span class="pln"> </span></pre>
+
+</article></slide><slide data-total-slides="39" data-slide-num="11" class="far-past"><hgroup><h2>Sobrevuelo histórico</h2></hgroup><article id="sobrevuelo-historico-1">
+
+<div class="centered">
+<p><a href="http://www.statistik.lmu.de/%7Eleisch/Sweave/Sweave-manual.pdf" title="WEB"><img src="Investigaci%C3%B3n%20reproducible%20con%20R_files/Sweave.png" title=""></a></p></div>
+
+</article></slide><slide data-total-slides="39" data-slide-num="12" class="past"><hgroup><h2>Sobrevuelo histórico </h2><h3> knitr</h3></hgroup><article id="sobrevuelo-historico-knitr">
+
+<p><a href="http://yihui.name/knitr/" title="">knitr</a>: <em>a <a href="https://github.com/yihui/knitr#motivation" title="">neater</a> versión of Sweave</em></p>
+
+</article></slide><slide data-total-slides="39" data-slide-num="13" class="current"><hgroup><h2>Sobrevuelo histórico </h2><h3> rmarkdown</h3></hgroup><article id="sobrevuelo-historico-rmarkdown">
+
+<p>Documentos dinamicos con R:</p>
+
+<p><a href="http://rmarkdown.rstudio.com/" title="">RMarkdown</a> = knitr con <a href="https://daringfireball.net/projects/markdown/" title="">markdown</a> + <a href="http://pandoc.org/" title="">pandoc</a> =</p>
+
+<div class="centered">
+<p><a href="http://rmarkdown.rstudio.com/" title="WEB"><img src="Investigaci%C3%B3n%20reproducible%20con%20R_files/RMarkdownOutputFormats.png" title=""></a></p></div>
+
+</article></slide><slide data-total-slides="39" data-slide-num="14" class="next"><hgroup><h2>Sobrevuelo histórico </h2><h3> Jupyter (antes iPython)</h3></hgroup><article id="sobrevuelo-historico-jupyter-antes-ipython">
+
+<p><a href="http://jupyter.org/" title="">Jupyter</a> (antes <a href="http://ipython.org/" title="">iPython</a>): computacioón interactiva independiente del lenguaje - <a href="https://github.com/ipython/ipython/wiki/IPython-kernels-for-other-languages" title=""><em>kernels</em></a>. (<a href="http://jupyter.readthedocs.org/en/latest/install.html#install" title="">Como instalar</a>)</p>
+
+<p>Jupyter con Python y su <em>stack</em> para computo cientifico <a href="http://www.scipy.org/" title="">SciPy</a> / <a href="https://www.continuum.io/why-anaconda" title="">Anaconda</a> han desarrollado un ambiente muy valioso para analisis de datos abierto: e.g. <a href="https://github.com/google/deepdream/blob/master/dream.ipynb" title="">Google deep-dream</a></p>
+
+<p><a href="http://bogota-r.github.io/reproducible-research/irkernel.github.io" title="">iRkernel</a> - <em>kernel</em> de R para Jupyter.</p>
+
+</article></slide><slide data-total-slides="39" data-slide-num="15" class="far-next"><hgroup><h2>Algunas herramientas y flujos de trabajo </h2><h3> Investigación reproducible es mucho más</h3></hgroup><article id="algunas-herramientas-y-flujos-de-trabajo-investigacion-reproducible-es-mucho-mas">
+
+<p>Pero hacer <em>reproducible research</em> bueno o util requiere más que entrelazar prosa y codigo.</p>
+
+<p>Niveles de calidad:</p>
+
+<ul>
+<li>Se pueden reproducir (regenerar) las tablas y graficas?</li>
+<li>Coincide el codigo con lo que dice la documentación?</li>
+<li>Se explica claramente por qué se hace lo que se hace? (e.g. selección de parametros)</li>
+<li>Sirve el codigo con otros datos?</li>
+<li>Se puede extender el codigo para hacer otras cosas?</li>
+</ul>
+
+</article></slide><slide data-total-slides="39" data-slide-num="16" class=""><hgroup><h2>Algunas herramientas y flujos de trabajo </h2><h3> <a href="http://kbroman.org/steps2rr/" title="">Recomendaciones generales</a></h3></hgroup><article id="algunas-herramientas-y-flujos-de-trabajo-recomendaciones-generales" class="left-margin">
+
+<ul class="build">
+<li class="to-build">Todo programado</li>
+<li class="to-build">Organizar datos y codigos - <a href="http://stats.stackexchange.com/a/3191" title="">definir una estructura</a> (e.g. <a href="http://stackoverflow.com/a/1434424" title="">LCFD</a>, <a href="http://projecttemplate.net/" title="">ProjectTemplate</a>, <a href="http://stackoverflow.com/a/1266400" title="">Paquetes</a> <a href="http://r-pkgs.had.co.nz/" title="">no es tan dificil</a>)) y <a href="http://www.stat.ubc.ca/%7Ejenny/STAT545A/block19_codeFormattingOrganization.html#coding-style" title="">una</a> <a href="https://google.github.io/styleguide/Rguide.xml" title="">guia</a> <a href="http://adv-r.had.co.nz/Style.html" title="">de estilo</a></li>
+<li class="to-build">Automatizar los procesos (<a href="https://www.gnu.org/software/make/" title="">GNU Make</a>)</li>
+<li class="to-build">Reportes reproducibles - <em>literate <strong>analysis</strong> + programming</em> (rmarkdown!)</li>
+<li class="to-build"><em>No repetirse</em>: encapsular codigo reutilizable en funciones.</li>
+</ul>
+
+</article></slide><slide data-total-slides="39" data-slide-num="17" class=""><hgroup><h2>Algunas herramientas y flujos de trabajo </h2><h3> <a href="http://kbroman.org/steps2rr/" title="">Recomendaciones generales</a></h3></hgroup><article id="algunas-herramientas-y-flujos-de-trabajo-recomendaciones-generales-1" class="left-margin">
+
+<ul class="build">
+<li class="to-build">Encapsular las funciones en paquetes/modulos (documentando <em>literate programing</em> con <a href="https://cran.r-project.org/web/packages/roxygen2/" title="">roxygen2</a>!) - (extensibilidad y portabilidad).</li>
+<li class="to-build">Sistemas de control de version (<a href="https://git-scm.com/" title="">git</a> + <a href="https://github.com/" title="">GitHub</a>/<a href="https://bitbucket.org/" title="">bitbucket</a>) - el problema del <a href="http://www.phdcomics.com/comics/archive.php?comicid=1531" title=""><em>not Final doc</em></a></li>
+<li class="to-build">Portabilidad: manejo de dependencias / ambientes virtuales (e.g. <a href="https://rstudio.github.io/packrat/" title="">packrat</a>, <a href="https://www.docker.com/" title="">Docker</a> + <a href="https://github.com/rocker-org/rocker" title="">rocker</a>)</li>
+<li class="to-build">Validez del codigo (y de los datos!): pruebas <a href="https://github.com/hadley/testthat" title="">testthat</a> y <a href="https://github.com/ropensci/testdat" title="">testdat</a>. Ver <a href="https://slides.com/treycausey/pydata2015" title=""><em>testing for data science</em></a> con Python.</li>
+</ul>
+
+</article></slide><slide data-total-slides="39" data-slide-num="18" class="segue dark nobackground"><hgroup class="auto-fadein"><h2>rmarkdown</h2></hgroup><article id="rmarkdown">
+
+</article></slide><slide data-total-slides="39" data-slide-num="19" class=""><hgroup><h2>¿Cómo se hacen reportes reproducibles en R?</h2></hgroup><article id="como-se-hacen-reportes-reproducibles-en-r">
+
+<p>Knitr + markdown + pandoc = rmarkdown</p>
+
+<ul>
+<li>rmarkdown: Paquete de Rstudio</li>
+<li>Funciona con un click dentro del IDE Rstudio</li>
+</ul>
+
+</article></slide><slide data-total-slides="39" data-slide-num="20" class=""><hgroup><h2>¿Por qué usar markdown?</h2></hgroup><article id="por-que-usar-markdown">
+
+<ul>
+<li>Fácil de aprender y usar.</li>
+<li>Mantener la atención en el contenido y no en lo estético.</li>
+<li>Flexible… inicialmente para HTML pero se puede convertir a diferentes formatos</li>
+</ul>
+
+</article></slide><slide data-total-slides="39" data-slide-num="21" class=""><hgroup><h2>¿Qué es markdown?</h2></hgroup><article id="que-es-markdown">
+
+<ul>
+<li>Markup language: diseñados para producir contenidos con texto plano</li>
+<li>Ejemplo: Latex… markup language para crear pdf's</li>
+<li>Convertir a varios formatos (HMTL/pdf/word)</li>
+</ul>
+
+</article></slide><slide data-total-slides="39" data-slide-num="22" class=""><hgroup><h2>Markdown - HTML</h2></hgroup><article id="markdown---html">
+
+<img src="Investigaci%C3%B3n%20reproducible%20con%20R_files/rmarkdown-html.png" title="">
+
+</article></slide><slide data-total-slides="39" data-slide-num="23" class=""><hgroup><h2>Markdown - HTML</h2></hgroup><article id="markdown---html-1">
+
+<img src="Investigaci%C3%B3n%20reproducible%20con%20R_files/rmarkdown-html2.png" title="">
+
+</article></slide><slide data-total-slides="39" data-slide-num="24" class=""><hgroup><h2>Knitr y Pandoc</h2></hgroup><article id="knitr-y-pandoc">
+
+<ul>
+<li>Knitr: Mejora sobre Sweave. Renderizar reportes que a su vez corran 
+código. Ejemplo de uso: publicaciones científicas - actualizar gráficos</li>
+<li>Pandoc: La navaja suiza para convertir documentos… markdown, 
+reStructuredText, textile, HTML, DocBook, LaTeX, MediaWiki markup, TWiki
+ markup, OPML, Emacs Org-Mode, Txt2Tags, Microsoft Word docx, 
+LibreOffice ODT, EPUB</li>
+</ul>
+
+</article></slide><slide data-total-slides="39" data-slide-num="25" class=""><hgroup><h2>¿Cómo se escribe en formato rmarkdown (.Rmd)?</h2></hgroup><article id="como-se-escribe-en-formato-rmarkdown-.rmd">
+
+<ul>
+<li>Yaml frontmatter</li>
+<li>Chunks</li>
+<li>Markdown normal</li>
+</ul>
+
+<img src="Investigaci%C3%B3n%20reproducible%20con%20R_files/rmarkdown-rmd.png" title="">
+
+</article></slide><slide data-total-slides="39" data-slide-num="26" class=""><hgroup><h2>Chunks</h2></hgroup><article id="chunks">
+
+<p>Los chunks son conceptos que vienen del paquete knitr.<br>Comienzan con tres <strong>back ticks</strong> y <code>{r }</code></p>
+
+<p><code>r   1 + 1</code></p>
+
+<p><code>#&gt; [1] 2</code> #&gt; [1] 2</p>
+
+<p>Tiene múltiples opciones dependiendo de lo que se quiera a la salida.</p>
+
+<p><code>echo, eval, message, warning, results, fig.width, fig.height...</code></p>
+
+<p>Ver opciones <a href="http://yihui.name/knitr/options/" title="">http://yihui.name/knitr/options/</a></p>
+
+</article></slide><slide data-total-slides="39" data-slide-num="27" class=""><hgroup><h2>Yaml front matter</h2></hgroup><article id="yaml-front-matter">
+
+<p>Lo que va al comienzo del archivo <code>.Rmd</code> Se pueden definir formatos y otras propiedades, incluso definir parámetros para automatizar reportes.</p>
+
+<pre>  ---
+  title: "Hola, soy Rmarkdown"
+  date: "2016-02-17"
+  output: html_document
+  ---</pre>
+
+</article></slide><slide data-total-slides="39" data-slide-num="28" class=""><hgroup><h2>¿Resultado?</h2></hgroup><article id="resultado">
+
+<img src="Investigaci%C3%B3n%20reproducible%20con%20R_files/rmarkdown-result.png" title="">
+
+</article></slide><slide data-total-slides="39" data-slide-num="29" class=""><hgroup><h2>¿Cómo se compila?</h2></hgroup><article id="como-se-compila">
+
+<img src="Investigaci%C3%B3n%20reproducible%20con%20R_files/rmarkdown-button.png" title="">
+
+</article></slide><slide data-total-slides="39" data-slide-num="30" class=""><hgroup><h2>¿Cómo se compila sin ayuda de Rstudio?</h2></hgroup><article id="como-se-compila-sin-ayuda-de-rstudio">
+
+<pre class="prettyprint lang-r"><span class="pln">library</span><span class="pun">(</span><span class="pln">rmarkdown</span><span class="pun">)</span><span class="pln">
+render</span><span class="pun">(</span><span class="str">"index.Rmd"</span><span class="pun">)</span><span class="pln">
+browseURL</span><span class="pun">(</span><span class="str">"index.html"</span><span class="pun">)</span></pre>
+
+</article></slide><slide data-total-slides="39" data-slide-num="31" class=""><hgroup><h2>Nuestro turno: Primero lo primero:</h2></hgroup><article id="nuestro-turno-primero-lo-primero">
+
+<pre class="prettyprint lang-r"><span class="pln">install.packages</span><span class="pun">(</span><span class="pln">c</span><span class="pun">(</span><span class="str">"knitr"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"rmarkdown"</span><span class="pun">))</span></pre>
+
+</article></slide><slide data-total-slides="39" data-slide-num="32" class=""><hgroup><h2>Nuestro turno</h2></hgroup><article id="nuestro-turno">
+
+<pre>  Title
+  ====================
+  
+  This is an R Markdown document.
+  
+  ```{{r results='asis'}}
+  library(knitr)
+  kable(head(cars), 'html')
+  ```
+  
+  You can also embed plots, for example:
+  
+  ```{{r fig.width=7, fig.height=6, echo=FALSE}}
+  plot(cars)
+  ```</pre>
+
+</article></slide><slide data-total-slides="39" data-slide-num="33" class=""><hgroup><h2>¿Qué más? Tablas interactivas</h2></hgroup><article id="que-mas-tablas-interactivas">
+
+<img src="Investigaci%C3%B3n%20reproducible%20con%20R_files/rmarkdown-interactive-tables.png" title="">
+
+</article></slide><slide data-total-slides="39" data-slide-num="34" class=""><hgroup><h2>¿Qué más? Gráficos interactivas</h2></hgroup><article id="que-mas-graficos-interactivas">
+
+<img src="Investigaci%C3%B3n%20reproducible%20con%20R_files/rmarkdown-interactive-graphs.png" title="">
+
+<pre>  library(plotly)
+  p &lt;- ggplot(data = d, aes(x = carat, y = price, colour = clarity)) +
+    geom_point(aes(text = cut), size = 3) + geom_smooth() + facet_wrap(~ clarity)
+  ggplotly(p)</pre>
+
+</article></slide><slide data-total-slides="39" data-slide-num="35" class=""><hgroup><h2>Otros ejemplos</h2></hgroup><article id="otros-ejemplos">
+
+<ul>
+<li><p>Estilo Tufte: <a href="http://cran.r-project.org/web/packages/tufterhandout/vignettes/example.html" title="">HTML</a>, <a href="http://rmarkdown.rstudio.com/examples/tufte-handout.pdf" title="">pdf</a> documents.</p></li>
+<li><p>Kmeans <a href="https://rpubs.com/dnchari/kmeans" title="">https://rpubs.com/dnchari/kmeans</a></p></li>
+<li><p>Mapas y proyecciones <a href="https://rpubs.com/hrbrmstr/coord_proj_stress_test" title="">https://rpubs.com/hrbrmstr/coord_proj_stress_test</a></p></li>
+<li><p>Htmlwidgets de Redes <a href="https://rpubs.com/yoshio/99778" title="">https://rpubs.com/yoshio/99778</a></p></li>
+</ul>
+
+</article></slide><slide data-total-slides="39" data-slide-num="36" class=""><hgroup><h2>Rmarkdown avanzado</h2></hgroup><article id="rmarkdown-avanzado">
+
+<ul>
+<li><p>Opciones globales <code>knitr::opts_chunk$set(message = FALSE, warning = FALSE)</code></p></li>
+<li><p>Pasar parámetros <a href="http://rmarkdown.rstudio.com/developer_parameterized_reports.html" title="">http://rmarkdown.rstudio.com/developer_parameterized_reports.html</a></p>
+
+<pre>  params:
+start: !r as.Date("2015-01-01")
+snapshot: !r as.POSIXct("2015-01-01 12:30:00")</pre></li>
+<li><p>Documentos reactivos (embeber shiny): <a href="http://rmarkdown.rstudio.com/authoring_shiny.html" title="">http://rmarkdown.rstudio.com/authoring_shiny.html</a>)</p></li>
+<li><p>Cambiar el template de html: <a href="http://rmarkdown.rstudio.com/developer_document_templates.html" title="">http://rmarkdown.rstudio.com/developer_document_templates.html</a></p></li>
+</ul>
+
+</article></slide><slide data-total-slides="39" data-slide-num="37" class=""><hgroup><h2>Otros recursos</h2></hgroup><article id="otros-recursos">
+
+<ul>
+<li><a href="https://github.com/cpsievert/slides" title="">https://github.com/cpsievert/slides</a></li>
+<li><a href="http://rmarkdown.rstudio.com/" title="">http://rmarkdown.rstudio.com</a></li>
+<li><a href="http://www.rstudio.com/ide/docs/authoring/using_markdown" title="">http://www.rstudio.com/ide/docs/authoring/using_markdown</a></li>
+<li><a href="http://yihui.name/knitr/" title="">http://yihui.name/knitr/</a></li>
+</ul>
+
+</article></slide><slide data-total-slides="39" data-slide-num="38" class=""><hgroup><h2>Gracias!</h2></hgroup><article id="gracias">
+
+<p>No olvidar</p>
+
+<pre>sessionInfo()</pre>
+
+<p>O mejor</p>
+
+<pre>devtools::session_info()</pre>
+
+</article></slide><slide data-total-slides="39" data-slide-num="39" class=""><hgroup><h2>Colofón</h2></hgroup><article id="colofon" class="smaller left-margin">
+
+<h3><a href="http://bogota-r.github.io/reproducible-research" title=""><strong>bogota-r.github.io/reproducible-research</strong></a></h3>
+
+<p>Esta presentación fue escrita en <a href="http://rmarkdown.rstudio.com/" title="">RMarkdown</a> desde <a href="https://www.rstudio.com/" title="">RStudio</a> y compilada por <code>rmarkdown</code> en la plantilla <a href="https://code.google.com/archive/p/io-2012-slides/" title=""><code>ioslides</code></a> de Google gracias a <a href="http://yihui.name/knitr/" title=""><code>knitr</code></a> y <a href="http://pandoc.org/" title=""><code>pandoc</code></a>. Publicada en la web en <a href="https://github.com/bogota-r/intro" title="">GitHub</a> gracias a <a href="https://pages.github.com/" title="">GitHub Pages</a>.</p>
+
+<p>La presentación fue preparada por por <a href="https://github.com/demorenoc" title="">Daniel Moreno</a> y <a href="https://github.com/jpmarindiaz" title="">Juan Pablo Marin</a> para el <a href="http://www.meetup.com/Bogota-R-Users-Group/" title="">Grupo de Usuarios de R de Bogotá</a> y el contenido original esta bajo la licensia <a href="http://creativecommons.org/licenses/by/4.0/" title="">CC-BY 4.0</a>.</p>
+
+<p><a href="http://creativecommons.org/licenses/by/4.0/" title="WEB"><img src="Investigaci%C3%B3n%20reproducible%20con%20R_files/88x31.png" title=""></a></p></article></slide>
+
+
+  <slide class="backdrop"></slide>
+
+<div id="prev-slide-area" class="slide-area"></div><div id="next-slide-area" class="slide-area"></div></slides>
+
+<script src="Investigaci%C3%B3n%20reproducible%20con%20R_files/modernizr.js"></script>
+<script src="Investigaci%C3%B3n%20reproducible%20con%20R_files/prettify.js"></script>
+<script src="Investigaci%C3%B3n%20reproducible%20con%20R_files/lang-r.js"></script>
+<script src="Investigaci%C3%B3n%20reproducible%20con%20R_files/lang-yaml.js"></script>
+<script src="Investigaci%C3%B3n%20reproducible%20con%20R_files/hammer.js"></script>
+<script src="Investigaci%C3%B3n%20reproducible%20con%20R_files/slide-controller.js"></script>
+<script src="Investigaci%C3%B3n%20reproducible%20con%20R_files/slide-deck.js"></script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+<!-- map slide visiblity events into shiny -->
+<script>
+  (function() {
+    if (window.jQuery) {
+       window.jQuery(document).on('slideleave', function(e) {
+         window.jQuery(e.target).trigger('hidden');
+      });
+       window.jQuery(document).on('slideenter', function(e) {
+         window.jQuery(e.target).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+
+<div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px none; margin: 0px;"><div style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; padding: 0px; border: 0px none; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: italic; font-size-adjust: none; font-family: MathJax_Math,sans-serif;" id="MathJax_Font_Test"></div></div></body></html>

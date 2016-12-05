@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage{sagetex}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepgfplotslibrary{polar}
+\pagestyle{empty}
+\begin{document}
+\begin{sagesilent}
+x=var('x')
+t = var('t')
+x_coords = [t for t in srange(0,360,.1)]
+y_coords = [cos(t*pi/180)*sin(t*pi/180) for t in srange(0,360,.1)]
+output = ""
+output += r"\begin{tikzpicture}"
+output += r"\begin{polaraxis}"
+output += r"\addplot+[mark=none] coordinates {"
+for i in range(0,len(x_coords)-1):
+    output += r"(%f,%f) "%(x_coords[i],y_coords[i])
+output += r"};"
+output += r"\end{polaraxis}"
+output += r"\end{tikzpicture}"
+\end{sagesilent}
+\sagestr{output}
+\end{document}

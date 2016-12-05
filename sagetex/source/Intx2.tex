@@ -1,0 +1,125 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym, amsmath,amsfonts,amssymb}
+\usepackage[margin=.75in]{geometry}
+\usepackage{kpfonts}  %Changing the default fonts
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\newcommand\T{\rule{0pt}{4ex}} % \T will create extra space above (used to fix tables)
+\newcommand\B{\rule[-2.5ex]{0pt}{0pt}}% \B will create extra space below (used to fix tables)
+\setlength{\parskip}{1.2ex} %space between paragraphs
+\setlength{\parindent}{1em} %Paragraph indentation
+\linespread{1.5} %spacing between lines
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+\Large{\textbf{Series and Integrals}}
+\end{center}
+{\bf Question:} What is the area between the graph of $y=x^2$ and the $x$-axis, from 0 to 2?\\
+\begin{figure}[h!!]
+\begin{center}
+  \includegraphics[width=2.1in]{Intx2Region.pdf} 
+\end{center}
+\caption{What's the area under the curve $y=x^2$.}
+\end{figure}
+
+Before calculus, we learned to calculate the formulas for various
+polygons: square, rectangle, triangles, parallelograms, 
+trapezoids, and so on. These shapes had sides that were formed
+from line segments. We can, however, approximate the area 
+under the curve using rectangle. If we make sure to use rectangles
+that are always below the curve, then the estimate of the area
+will be too low. If we use rectangle that are always above the 
+curve then the estimate of the area is too high. 
+\begin{figure}[h!]
+	\begin{minipage}[c]{.5\textwidth}
+	\vspace{0pt}	%\align the tops of minipages
+	\centering
+	  \includegraphics[width=2.1in]{Intx2Low.pdf} 
+	\end{minipage}%              The % prevents an interword space from causing a potential problem
+	\begin{minipage}[c]{.5\textwidth}
+	\vspace{0pt}	%align the tops of minipages
+	  \includegraphics[width=2.1in]{Intx2Up.pdf} 
+	\end{minipage}
+\caption{An underestimate and overestimate of the area under
+the curve $y=x^2$.}
+\end{figure}
+
+By increasing the number of rectangles we can get a better 
+estimate of the area both on the low side and on the high side. The 
+incredible power of calculus comes from being able to use limits
+to get the exact area by looking at an infinite number of 
+rectangles. Since high school students are supposed
+to know that $\sum_{i=1}^{n}i^2=\frac{n(n+1)(2n+1)}{6}$ \,a
+great example to illustrate how series can give us the exact
+answer is the function $y=x^2$. This is accomplished by getting 
+an underestimate of the area and an overestimate of the area. 
+If $A$ is the area under the curve then we know it is greater 
+than or equal to 0. On the other hand, the height of $x^2$ is at 
+most 4 between 0 and 2. Therefore the area is at most 8. To get 
+a better estimate we use more rectangles. 
+Our underestimate and overestimte will be more accurate.
+
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+$R_n$ & Underestimate of A & Overestimate of A\\
+\hline
+$1$ & $2(0)=0$ & $2(4)=8$\\
+\hline
+$2$ & $1(0)+1(1)=1$ & $1(1)+1(4)=5$\\
+\hline
+3 & $\frac{2}{3}(0)+\frac{2}{3}\left(\frac{2}{3}\right)^2+\frac{2}{3}\left(\frac{4}{3}\right)^2$ &
+$\frac{2}{3}\left(\frac{2}{3}\right)^2+\frac{2}{3}\left(\frac{4}{3}\right)^2+\frac{2}{3}\left(\frac{6}{3}\right)^2$\T\B\\
+\hline
+4 & $\frac{2}{4}(0)+\frac{2}{4}\left(\frac{2}{4}\right)^2+\frac{2}{4}\left(\frac{4}{4}\right)^2+\frac{2}{4}\left(
+\frac{6}{4}\right)$ & $\frac{2}{4}\left(\frac{2}{4}\right)^2+\frac{2}{4}\left(\frac{4}{4}\right)^2+
+\frac{2}{4}\left(\frac{6}{4}\right)^2+\frac{2}{4}\left(\frac{8}{4}\right)^2$\T \B\\
+\hline
+5 & $\frac{2}{5}\left(\left(\frac{2}{5}\right)^2+\left(2\frac{2}{5}\right)^2+\left(3\frac{2}{5}\right)^2+ 
+\left(4\frac{2}{5}\right)^2\right)$ & $\frac{2}{5}\left(\left(\frac{2}{5}\right)^2+\left(2\frac{2}{5}\right)^2+
+\left(3\frac{2}{5}\right)^2+\left(4\frac{2}{5}\right)^2+\left(5\frac{2}{5}\right)^2\right)$\T  \B\\
+\hline
+\vdots & \vdots & \vdots\\
+\hline
+k & $\frac{2}{k}\left(\left(\frac{2}{k}\right)^2+\left(2\frac{2}{k}\right)^2+\ldots+
+\left((k-1)\frac{2}{k}\right)^2\right)$ & $\frac{2}{k}\left(\left(\frac{2}{k}\right)^2+\left(2\frac{2}{k}\right)^2+\ldots+
+\left(k\frac{2}{k}\right)^2\right)$\T\B\\
+\hline
+\end{tabular}
+\end{center}
+
+The process of estimating the area under a curve is shown below 
+for the case with $5$ rectangles. Notice that in the 
+underestimate there are $4$ rectangles. You can't see the fourth 
+rectangle because it has a height of $0$.
+
+Let's simplify the underestimate and overestimate for $k$ rectangles. The underestimate of the area is
+$\left(\frac{2}{k}\right)^3\left[1^2+2^2+\ldots+(k-1)^2\right]=\left(\frac{2}{k}\right)^3\left[\frac{(k-1)(k)(2(k-1)+1)}{6}\right]=\frac{8}{k^2}\frac{(k-1)(2k-1)}{6}=\frac{8k^2-12k+4}{3k^2}$ with a little bit of algebra.
+
+The overestimate of the area is $\left(\frac{2}{k}\right)^3\left[1^2+2^2+\ldots+k^2\right]=\left(\frac{2}{k}\right)^3\left[\frac{(k-1)(k)(2k+1)}{6}\right]=\frac{8}{k^2}\frac{(k+1)(2k+1)}{6}$ which finally
+simplifies to $\frac{8k^2+12k+4}{3k^2}$.
+
+Putting these two results together gives shows the area is 
+bounded: $\frac{8k^2-12k+4}{3k^2} \leq A \leq \frac{8k^2+12k+4}{3k^2}$ which means
+$\lim_{k \to \infty}\frac{8k^2-12k+4}{3k^2} \leq A \leq \lim_{k \to \infty}\frac{8k^2+12k+4}{3k^2}$ hence
+$A=\frac{8}{3}$.  We've found the {\em exact} area under a 
+curve using limits BUT we needed a "nice" function with a
+series that we knew in order to get the answer. 
+Mathematicians have found: If $f$ is a continuous function on $\left[a,b\right]$ and $f(x) \geq 0$ on 
+$\left[a,b\right]$ then the {\bf area, A, under the curve} is given by $A=\lim_{n \to \infty}\sum_{i=1}^{n}f(x_i)
+(\Delta x)$ where the $x_i$ are the endpoints of the rectangles.
+That's a complicated looking formula, but it's just the way that
+mathematicians describe the process of adding up the area
+of the rectangles that we illustrated. The {\bf definite integral} of 
+{\bf any} function $f$ defined from $a$ to $b$ is $\int_a^bf(x)dx=
+\lim_{n \to \infty} \sum_{i=1}^nf(c_i)(\Delta x)$ provided the 
+limit exists. The $c_i$ are any points in the rectangle. That is, the 
+evaluation points don't have to be equally spaced. When 
+the limit exists we say that $f$ is {\bf integrable} on $\left[a,b
+\right]$.
+
+Having a conrete example of using series to figure out the area
+under a curve will help the student make sense
+of $A=\lim_{n \to \infty}\sum_{i=1}^{n}f(x_i)(\Delta x)$.
+\end{document}
+

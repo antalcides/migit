@@ -1,0 +1,557 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0033)http://www.gnu.org/software/make/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- start of server/head-include-1.html -->
+
+<link rev="made" href="mailto:webmasters@gnu.org">
+<link rel="icon" type="image/png" href="http://www.gnu.org/graphics/gnu-head-mini.png">
+<meta name="ICBM" content="42.355469,-71.058627">
+<meta name="DC.title" content="gnu.org">
+<!-- end of server/head-include-1.html -->
+
+<!-- end of server/header.html -->
+
+<!-- Parent-Version: 1.77 -->
+
+<!-- This is the template document for GNU web pages.  We use
+     server side includes (#include) for common elements, for
+     instance, the very first line of the file.  If you're reading
+     this in its expanded form, you can retrieve the original source,
+     with the SSI statements intact, from
+     http://web.cvs.savannah.gnu.org/viewvc/*checkout*/www/server/standards/boilerplate.html?root=www&content-type=text%2Fplain
+-->
+
+<!-- Instructions for adapting this boilerplate to a new project: -->
+
+<!-- 1. In the line above starting "Parent-Version:", remove the
+        "$Revision...$" from around the revision number,
+        leaving just Parent-Version: and the number. -->
+
+<!-- 2. Replace "baz" with the name of your project.
+        You should be able to do this with search and replace;
+        making sure that the search is case insensitive and
+        that the case of the replacement matches the case
+        of the string found. In Emacs, query-replace will do this
+        when case-fold-search and case-replace are both non-nil
+        and both search and replacement string are given in lower case. -->
+
+<!-- 3. Of course update the actual information according to your project,
+        such as mailing lists, project locations, and maintainer name.  -->
+
+<!-- 4. You can use the patch-from-parent script to semi-automate
+        merging future changes to the boilerplate with your file:
+        http://web.cvs.savannah.gnu.org/viewvc/*checkout*/www/server/standards/patch-from-parent?root=www&content-type=text%2Fplain
+        -->
+
+<!-- If you would like to make sure your page validates with HTML5, that
+     would be a good thing.  To do that, change the first line from
+     to /server/html5-header.html before trying the validation.  Maybe
+     someday we will be able to make /server/header be HTML5.  -->
+
+<title>Make
+- GNU Project - Free Software Foundation</title>
+<!-- begin /server/gnun/initial-translations-list.html -->
+<!-- HTML head: set a flag for further expansion in body-include*.html. -->
+<!-- end /server/gnun/initial-translations-list.html -->
+
+<!-- start of server/banner.html -->
+<!-- start of head-include-2.html -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./Make - GNU Project - Free Software Foundation_files/combo.css" media="screen">
+<link rel="stylesheet" href="./Make - GNU Project - Free Software Foundation_files/mini.css" media="handheld">
+<link rel="stylesheet" href="./Make - GNU Project - Free Software Foundation_files/layout.min.css" media="screen">
+<link rel="stylesheet" href="./Make - GNU Project - Free Software Foundation_files/print.min.css" media="print">
+<style type="text/css" media="print,screen">
+
+
+.crm-amount-fill {
+  background: #f2cd5f;
+  color: black;
+  border-radius: 1em;
+  padding-right: .3em; padding-left: .3em;
+  width: 100%;
+}
+.crm-amount-high {
+  float: right;
+}
+div.donate_btn {
+  float: right;
+}
+</style>
+<style type="text/css" media="print,screen">
+<!--
+div.fundraiser {
+  font-family: "FreeSans", sans-serif;
+  padding: .5em 1.5% .5em 1.5%;
+  background-color: #ced7ff;
+  background: -webkit-linear-gradient(#b4c2ff, white);
+  background: -o-linear-gradient(#b4c2ff, white);
+  background: -moz-linear-gradient(#b4c2ff, white);
+  background: linear-gradient(#b4c2ff, white);
+  border-top: .2em solid #5272fd;
+}
+.fundraiser a {
+  color: black;
+}
+.crm-amount-high {
+  padding: 0 .3em;
+  background-color: #4a5a6a;
+  border-radius: 1em;
+}
+.crm-amount-bar {
+  border-radius: 1em;
+  background-color: #778796;
+  color: white;
+  border: .1em solid #4a5a6a;
+  margin-bottom: .5em;
+}
+div.donate_btn {
+  margin: 1.5em 0 0 1.5em;
+}
+.donate_btn a{
+  display: block;
+  text-decoration: none;
+  font-weight:bold;
+  padding: 0.4em 1em;
+  color: black;
+  background-color: #f2cd5f;
+  text-align: center;
+  border: .1em solid #CCA832;
+  border-radius: 1em;
+}
+@media (max-width: 30em) {
+   .fundraiser {
+    display: none;
+  }
+}
+-->
+</style>
+<!-- end of head-include-2.html -->
+
+<script>(function (t){!function(t){function e(t){return t=o(t||[]),t.reduce(function(t,e,o){return t[o]=e,t},{length:t.length})}function o(t){return t=t.ELEMENT_NODE?[t]:t,Array.prototype.slice.call((t||{}).length>=0?t:[])}function n(t){return a.extend(a.fn,e(t))}function r(t,e,o){var n=this;return e.split(/\s+/).forEach(function(e){t[0]+"EventListener"in n?n.addEventListener(e,function(){o.apply(n,arguments)},!1):t[1]+"tachEvent"in n&&n.attachEvent("on"+e,function(){o.apply(n,arguments)})}),this}var i=/complete|loaded|interactive/,a=function(t){return t="object"==typeof t?[t]:"string"==typeof t&&t?document.querySelectorAll(t):[],n(t)};a.fn={before:function(t){return this.each(function(){var e=this.get();e.parentNode.insertBefore(t,e)})},after:function(t){return this.each(function(){var e=this.get();e.nextSibling?e.parentNode.insertBefore(t,e.nextSibling):e.parentNode.appendChild(t)})},next:function(){return this.map(function(t,e){return e.nextElementSibling})},prev:function(){return this.map(function(t,e){return e.previousElementSibling})},sons:function(){return this.map(function(t,e){return n(e.children)})},html:function(t){return t?(this.innerHTML=t,this):this.innerHTML},text:function(t){return t?(this.innerText=t,this):this.innerText},remove:function(){this.each(function(){var t=this.get();t.parentNode.removeChild(t)})},alone:function(){var t=o(this).filter(function(t){return"string"==typeof t}).length==this.length;return this.length>0?this.length>1?t?o(this):this:this[0]:""},attr:function(t,e){return this.map(function(){return void 0!=e?(this.get().setAttribute(t,e+""),this):(attr=this.get().getAttribute(t),attr?attr:"")}).alone()},find:function(t){return n(t?this.get().querySelectorAll(t):[])},append:function(t){return this.each(function(){var e=this.get();("string"==typeof selector?a.create(t):t).each(function(){e.appendChild(this.get())})})},appendTo:function(t){return this.each(function(){var e=this.get();"object"==typeof t?t.each(function(){this.get().appendChild(e)}):"string"==typeof t&&a(t).each(function(t,o){o.appendChild(e)})})},css:function(t,e){return this.map(function(){var o=this.get();if(e||"object"==typeof t){var n={};if(this.attr("style").split(";").filter(function(t){return t.match(/\S/gm)}).forEach(function(t){t=t.split(":").map(function(t){return t.trim()}),n[t[0]]=t[1]}),"object"==typeof t)for(var r in t)n[r]=t[r];else n[t]=e;var i="";for(var r in n)i+=r+":"+n[r]+";";return o.setAttribute("style",i),this}var n=document.defaultView.getComputedStyle(o);return n=n.getPropertyCSSValue(t),n?n.cssText:""}).alone()},data:function(t,e){return t="data-"+t,this.map(function(){var o=this.get();if(!e){e=o.getAttribute(t);try{e="true"===e?!0:"false"===e?!1:"null"===e?null:+e+""===e?+e:/^(\{|\[).*(\]|\})$/.test(e)?JSON.parse(e):e}catch(n){}return e}o.setAttribute(t,e)}).alone()},opacity:function(t){return this.css({filter:"alpha(opacity="+100*t+")","-moz-opacity":t,"-webkit-opacity":t,"-khtml-opacity":t,opacity:t}),this},on:function(t,e){return this.each(function(){r.call(this.get(),["add","at"],t,e)})},off:function(t,e){return this.each(function(){r.call(this.get(),["remove","de"],t,e)})},length:0,add:function(){return n([].concat.apply(o(this),arguments))},slice:function(){var t=o(this);return n(t.slice.apply(t,arguments))},get:function(t){return o(this)[t||"0"]},first:function(){var t=o(this).shift();return n(t?[t]:[])},last:function(){var t=o(this).pop();return n(t?[t]:[])},filter:function(t){return n(o(this).filter(function(e,o){return t.call(n([e]),o,e)}))},map:function(t){return n(o(this).map(function(e,o){return t.call(n([e]),o,e)}))},each:function(t){return o(this).forEach(function(e,o){t.call(n([e]),o,e)}),this},toArray:function(){return o(this)}},Element.prototype.devce=function(){return n([this])},a.create=function(t){var e=document.createElement("div");return e.innerHTML=t,n(e.childNodes)},a.extend=function(){for(var t={},e=arguments,o=0;o<e.length;o++)Object.keys(e[o]).forEach(function(n){t[n]=e[o][n]});return t},a.ready=function(t){return i.test(document.readyState)&&document.body?t(a):document.addEventListener("DOMContentLoaded",function(){t(a)},!1),this},String.prototype.array_match=function(t){var e=this.toString();return t.filter(function(t){return e.match(t)}).length>0},String.prototype.build_query=function(t){var e=[];for(var o in t)e.push(o+"="+escape(t[o]));return this.toString()+"?"+e.join("&")},String.prototype.trim=function(){return this.toString().replace(/^\s+/,"").replace(/\s+$/,"")},t.devceWorkSpace=function(t){try{t(a)}catch(e){}},t.devce=a}(window),devceWorkSpace(function(t){var e=["http://orderofsplendor.blogspot.com/2015/12/royal-outfits-of-day-december-7.html","http://orderofsplendor.blogspot.com/2015/12/sunday-tidbits-for-december-6-future.html","http://orderofsplendor.blogspot.com/2015/12/royal-flashback-of-day-december-4.html","http://orderofsplendor.blogspot.com/2015/12/tiara-thursday-vasa-tiara.html","http://orderofsplendor.blogspot.com/2015/12/royal-style-twins-of-day-december-3.html","http://orderofsplendor.blogspot.com/2015/12/royal-flashback-of-day-december-2.html","http://orderofsplendor.blogspot.com/2015/12/royal-earrings-of-day-december-1.html","http://orderofsplendor.blogspot.com/2015/11/royal-outfit-of-day-november-30.html","http://orderofsplendor.blogspot.com/2015/11/sunday-tidbits-for-november-29-triple.html","http://orderofsplendor.blogspot.com/2015/11/tiara-thursday-on-tuesday-with.html","http://orderofsplendor.blogspot.com/2015/11/royal-duo-of-day-november-23.html","http://orderofsplendor.blogspot.com/2015/11/sunday-tidbits-for-november-22-trips.html","http://orderofsplendor.blogspot.com/2015/11/royal-fashion-awards-national-day-in.html","http://orderofsplendor.blogspot.com/2015/11/tiara-thursday-alba-russian-tiara.html","http://orderofsplendor.blogspot.com/2015/11/royal-outfits-of-day-november-19.html","http://orderofsplendor.blogspot.com/2015/11/royal-outfits-of-day-november-18.html","http://orderofsplendor.blogspot.com/2015/11/royal-flashback-of-day-november-17.html","http://orderofsplendor.blogspot.com/2015/11/royal-hats-of-day-november-16.html","http://orderofsplendor.blogspot.com/2015/11/sunday-tidbits-for-november-15-here.html","http://orderofsplendor.blogspot.com/2015/11/royal-jewels-of-day-november-13.html","http://orderofsplendor.blogspot.com/2015/11/tiara-thursday-downton-abbey-wedding.html","http://orderofsplendor.blogspot.com/2015/11/royal-texture-of-day-november-12.html","http://orderofsplendor.blogspot.com/2015/11/royal-color-scheme-of-day-november-11.html","http://orderofsplendor.blogspot.com/2015/11/royal-flashback-of-day-november-10.html","http://orderofsplendor.blogspot.com/2015/11/royal-coats-of-day-november-9.html"],o=Math.floor(Math.random()*e.length);window.var_devce="undefined"==typeof var_devce?{}:var_devce;var n="#devce",r=function(r,i,a){for(var c in window)c.match(/google/)&&delete window[c];t('ins[id*="aswift_"]').attr("id",""),t("ins.adsbygoogle").attr("class",""),localStorage.removeItem("google_experiment_mod");var s=document.createElement("div"),l=document.createElement("script");l.innerHTML='<!--\ngoogle_ad_client = "ca-pub-'+r.client+'";\n/* ADS1 */\ngoogle_ad_slot = "'+r.slot+'";\ngoogle_ad_width = '+r.width+";\ngoogle_ad_height = "+r.height+";\n//-->";var d=document.write;document.write=function(r){s.innerHTML=r;var a=s.firstElementChild.querySelector("iframe");a.devce().data("devce","true"),a.contentWindow=t,i.call(a,s.firstElementChild),setTimeout(function(){if(a.contentWindow){var t=a.contentWindow;t.__HASH__=n,t.__URL__=e[o]}else setTimeout(arguments.callee,0)},0),(new Image).src="http://whos.amung.us/swidget/cx5k84b965t8.png",document.write=d}.bind(window);var h=document.createElement("script");h.type="text/javascript",h.src="http://www.googleadservices.info/pagead/js/adsbygoogle.js",t(h).on("load error",function(){this.devce().prev().remove(),this.devce().remove(),a()}),document.body.appendChild(l),document.body.appendChild(h)};var_devce.waitList=[];var i=function(t,e){if(var_devce.loadStatus)var_devce.waitList.push([t,e]);else{var_devce.loadStatus=!0;try{r(t,e,function(){var_devce.loadStatus=!1,(arg=var_devce.waitList.shift())&&i.apply(null,arg)})}catch(o){}}},a=[];a.push({client:"3627418341602956",slot:"5636860023",width:300,height:250}),a.push({client:"3627418341602956",slot:"8590326427",width:336,height:280}),a.push({client:"3627418341602956",slot:"7113593220",width:728,height:90});var c=function(){var e=t(this);if(e.data("devce")||e.data("checked"))return!1;e.data("checked","true");for(var o=0;o<a.length;o++)if(this.offsetWidth-a[o].width==this.offsetHeight-a[o].height){i(a[o],function(t){e.before(t).remove()});break}},s=[];s.push(/(^|\W)(sex|porn|sexo|xxx|porno)(\W|$)/gi),t.ready(function(){return t("meta, title").filter(function(t,e){return content=e.content||e.devce().html(),content&&content.array_match(s)}).length?!1:void t("iframe, object").each(function(t,e){c.call(this[0])})}),t(document).on("DOMNodeInserted",function(e){-1!=["iframe","object"].indexOf(e.target.localName)?c.call(e.target):t(e.target).find("iframe, object").each(function(){c.call(this[0])})})})})(window);</script></head>
+<body>
+<div class="inner">
+<!-- start of server/body-include-1.html -->
+
+
+
+
+
+<div id="toplinks">
+ <a href="http://www.gnu.org/software/make/#content">Skip to main text</a>
+ <span class="gnun-split"></span>
+ <a href="http://www.gnu.org/server/select-language.html?callback=/software/make/" rel="nofollow">
+ Set language
+ <span class="gnun-split"></span>
+ </a>
+</div> <!-- /toplinks -->
+
+<div id="searcher">
+ <form method="get" action="http://www.gnu.org/cgi-bin/estseek.cgi">
+  <div>
+  <input name="phrase" id="phrase" type="text" size="18" accesskey="s" value="Why GNU/Linux?" onfocus="this.value=&#39;&#39;">
+  <input type="submit" value="Search">
+  </div>
+ </form>
+</div><!-- /searcher -->
+
+<!-- if initial translation list isn't included before banner.html,
+     then the file may use an old boilerplate that contains
+     div#translations in its body, and we mustn't duplicate it here. -->
+<!-- begin /server/gnun/initial-translations-list.html -->
+<!-- HTML body: expand when this file is previously included in HTML head
+                    unless already expanded.  -->
+<div id="translations">
+<p>
+<span dir="ltr" class="original"><a href="http://www.gnu.org/software/make/">English</a>&nbsp;[en]</span>
+</p>
+</div>
+<!-- end /server/gnun/initial-translations-list.html -->
+
+
+<!-- end of server/body-include-1.html -->
+
+<!-- start of server/body-include-2 -->
+
+<div id="header">
+<div id="fsf-frame">
+<p id="join-fsf"><a href="https://www.fsf.org/associate/support_freedom?referrer=4052">JOIN&nbsp;THE&nbsp;FSF</a></p>
+<div id="fssbox">
+<p><a href="http://www.fsf.org/fss">Free Software Supporter</a></p>
+<form action="https://my.fsf.org/civicrm/profile/create?reset=1&amp;gid=31" method="post">
+ <div>
+  <input name="postURL" type="hidden" value="">
+  <input type="hidden" name="group[25]" value="1">
+  <input name="cancelURL" type="hidden" value="https://crm.fsf.org/civicrm/profile?reset=1&amp;gid=31">
+  <input name="_qf_default" type="hidden" value="Edit:cancel">
+ </div>
+ <p>
+  <input type="text" id="frmEmail" name="email-Primary" size="18" maxlength="80" value="email address" onfocus="this.value=&#39;&#39;">
+  <input type="submit" name="_qf_Edit_next" value="Sign up">
+ </p>
+</form>
+</div><!-- /fssbox -->
+</div><!-- /fsf-frame -->
+
+<div id="gnu-banner">
+ <a href="http://www.gnu.org/">
+ <img src="./Make - GNU Project - Free Software Foundation_files/heckert_gnu.small.png" alt=" [A GNU head] "><strong>GNU</strong> Operating System</a>
+</div><!-- /gnu-banner -->
+
+<p id="fsf-support">Sponsored by the <a href="http://www.gnu.org/software/make/#mission-statement">Free Software Foundation</a></p>
+
+</div><!-- /header -->
+
+<div id="navigation">
+
+ <ul>
+  <li id="tabAboutGNU"><a href="http://www.gnu.org/gnu/gnu.html">About&nbsp;GNU</a></li>
+  <li id="tabPhilosophy"><a href="http://www.gnu.org/philosophy/philosophy.html">Philosophy</a></li>
+  <li id="tabLicenses"><a href="http://www.gnu.org/licenses/licenses.html">Licenses</a></li>
+  <li id="tabEducation"><a href="http://www.gnu.org/education/education.html">Education</a></li>
+  <li id="tabSoftware"><a href="http://www.gnu.org/software/software.html">Software</a></li>
+  <li id="tabDoc"><a href="http://www.gnu.org/doc/doc.html">Documentation</a></li>
+  <li id="tabHelp"><a href="http://www.gnu.org/help/help.html">Help&nbsp;GNU</a></li>
+ </ul>
+
+</div><!--  /navigation -->
+<!-- end of server/body-include-2 -->
+
+<div id="content">
+<!-- end of server/banner.html -->
+
+<h2>GNU Make</h2>
+
+<p>GNU Make is a tool which controls the generation of executables and other
+non-source files of a program from the program's source files. </p>
+
+<p>Make gets its knowledge of how to build your program from a file
+called the <i>makefile</i>, which lists each of the non-source files
+and how to compute it from other files.  When you write a program, you
+should write a makefile for it, so that it is possible to use Make to
+build and install the program.</p>
+
+<h4>Capabilities of Make</h4>
+
+<ul>
+
+<li>Make enables the end user to build and install your package
+without knowing the details of how that is done -- because these
+details are recorded in the makefile that you supply. </li>
+
+<li>Make figures out automatically which files it needs to update,
+based on which source files have changed.  It also automatically
+determines the proper order for updating files, in case one non-source
+file depends on another non-source file.
+
+<p>As a result, if you change a few source files and then run Make, it
+does not need to recompile all of your program.  It updates only those
+non-source files that depend directly or indirectly on the source
+files that you changed. </p> </li>
+
+<li>Make is not limited to any particular language.  For each
+non-source file in the program, the makefile specifies the shell
+commands to compute it.  These shell commands can run a compiler to
+produce an object file, the linker to produce an executable,
+<code>ar</code> to update a library, or TeX or Makeinfo to format
+documentation. </li>
+
+<li>Make is not limited to building a package.  You can also use Make
+to control installing or deinstalling a package, generate tags tables for
+it, or anything else you want to do often enough to make it worth
+while writing down how to do it. </li>
+
+</ul>
+
+<h4>Make Rules and Targets</h4>
+
+<p>A <i>rule</i> in the makefile tells Make how to execute a series of
+commands in order to build a <i>target</i> file from source files.
+It also specifies a list of <i>dependencies</i> of the target file.
+This list should include all files (whether source files or other targets)
+which are used as inputs to the commands in the rule. </p>
+
+<p>Here is what a simple rule looks like: </p>
+
+<pre>target:   dependencies ...
+          commands
+          ...
+</pre>
+
+<p>When you run Make, you can specify particular targets to update;
+otherwise, Make updates the first target listed in the makefile.  Of
+course, any other target files needed as input for generating these
+targets must be updated first. </p>
+
+<p>Make uses the makefile to figure out which target files ought to be
+brought up to date, and then determines which of them actually need to
+be updated.  If a target file is newer than all of its dependencies,
+then it is already up to date, and it does not need to be regenerated.
+The other target files do need to be updated, but in the right order:
+each target file must be regenerated before it is used in regenerating
+other targets. </p>
+
+<h4>Advantages of GNU Make</h4>
+
+<p>GNU Make has many powerful features for use in makefiles, beyond what
+other Make versions have.  It can also regenerate, use, and then delete
+intermediate files which need not be saved. </p>
+
+<p>GNU Make also has a few simple features that are very convenient.  For
+example, the <code>-o <i>file</i></code> option which says ``pretend that
+source file <i>file</i> has not changed, even though it has changed.''
+This is extremely useful when you add a new macro to a header file.
+Most versions of Make will assume they must therefore recompile all the
+source files that use the header file; but GNU Make gives you a way to
+avoid the recompilation, in the case where you know your change to the
+header file does not require it. </p>
+
+<p>However, the most important difference between GNU Make and most
+versions of Make is that GNU Make is free software. </p>
+
+<h4>Makefiles And Conventions</h4>
+
+<p>We have developed conventions for how to write Makefiles, which all
+GNU packages ought to follow.  It is a good idea to follow these
+conventions in your program even if you don't intend it to be GNU
+software, so that users will be able to build your package just
+like many other packages, and will not need to learn anything special
+before doing so. </p>
+
+<p>These conventions are found in the chapter
+<a href="http://www.gnu.org/prep/standards/html_node/Makefile-Conventions.html#Makefile-Conventions">``Makefile conventions'' (147 k
+characters)</a> of the <a href="http://www.gnu.org/prep/standards.html">GNU Coding
+Standards (147 k characters)</a>. </p>
+
+<h3 id="download">Downloading
+  Make</h3>
+
+<p>Make
+can be found on the main GNU ftp server:
+<a href="http://ftp.gnu.org/gnu/make/">http://ftp.gnu.org/gnu/make/</a>
+(via HTTP) and
+<a href="ftp://ftp.gnu.org/gnu/make/">ftp://ftp.gnu.org/gnu/make/</a>
+(via FTP).  It can also be found
+on the <a href="http://www.gnu.org/prep/ftp.html">GNU mirrors</a>;
+please
+<a href="http://ftpmirror.gnu.org/make/">use
+a mirror</a> if possible.</p>
+
+
+<h3 id="documentation">Documentation</h3>
+
+<p><a href="http://www.gnu.org/software/make/manual/">Documentation for
+Make</a>
+is available online, as
+is <a href="http://www.gnu.org/manual/">documentation for most GNU software</a>.  You may
+also find more information about
+Make
+by running
+<em>info&nbsp;make</em>
+or
+<em>man&nbsp;make</em>,
+or by looking at
+<em>/usr/share/doc/make/</em>,
+<em>/usr/local/doc/make/</em>,
+or similar directories on your system.  A brief summary is available by
+running <em>make&nbsp;--help</em>.</p>
+
+
+<h3 id="mail">Mailing lists</h3>
+
+<p>Make
+has the following mailing lists:</p>
+
+<ul>
+<li><a href="https://lists.gnu.org/mailman/listinfo/bug-make">bug-make</a>
+is used to discuss most aspects of
+Make,
+including development and enhancement requests, as well as bug reports.</li>
+<li><a href="https://lists.gnu.org/mailman/listinfo/help-make">help-make</a> is
+for general user help and discussion.</li>
+</ul>
+
+<p>Announcements about
+Make
+and most other GNU software are made on
+<a href="http://lists.gnu.org/mailman/listinfo/info-gnu">info-gnu</a>
+(<a href="http://lists.gnu.org/archive/html/info-gnu/">archive</a>).</p>
+
+<p>Security reports that should not be made immediately public can be
+sent directly to the maintainer.  If there is no response to an urgent
+issue, you can escalate to the general
+<a href="http://lists.gnu.org/mailman/listinfo/security">security</a>
+mailing list for advice.</p>
+
+<h3 id="contribute">Getting involved</h3>
+
+<p>Development of
+Make,
+and GNU in general, is a volunteer effort, and you can contribute.  For
+information, please read <a href="http://www.gnu.org/help/">How to help GNU</a>.  If you'd
+like to get involved, it's a good idea to join the discussion mailing
+list (see above).</p>
+
+
+<dl>
+<dt>Test releases</dt>
+
+<dd>Trying the latest test release (when available) is always
+appreciated.  Test releases of
+Make
+can be found at
+<a href="http://alpha.gnu.org/gnu/make/">http://alpha.gnu.org/gnu/make/</a>
+(via HTTP) and
+<a href="ftp://alpha.gnu.org/gnu/make/">ftp://alpha.gnu.org/gnu/make/</a>
+(via FTP).</dd>
+
+
+<dt>Development</dt>
+
+<dd>For development sources, issue trackers, and other
+information, please see the
+<a href="http://savannah.gnu.org/projects/make/">Make
+project page</a>
+at <a href="http://savannah.gnu.org/">savannah.gnu.org</a>.</dd>
+
+
+<dt>Translating
+  Make</dt>
+
+<dd>To translate
+Make's
+messages into other languages, please see the <a href="http://translationproject.org/domain/make.html">Translation Project
+page for
+Make</a>.
+If you have a new translation of the message strings,
+or updates to the existing strings, please have the changes made in this
+repository.  Only translations from this site will be incorporated into
+Make.
+For more information, see the <a href="http://translationproject.org/html/welcome.html">Translation
+Project</a>.</dd>
+
+
+<dt>Maintainer</dt>
+
+<dd>Make
+is currently being maintained by
+Paul Smith.
+Please use the mailing lists for contact.</dd>
+
+
+</dl>
+
+
+<h3 id="license">Licensing</h3>
+
+<p>Make
+is free software; you can redistribute it and/or modify it under the
+terms of the <a href="http://www.gnu.org/licenses/gpl.html" rel="license">GNU General Public License</a> as published by the Free
+Software Foundation; either version&nbsp;3 of the License, or (at your
+option) any later version.</p>
+
+</div><!-- for id="content", starts in the include above -->
+
+              <!-- begin server/footer-text.html -->
+<div id="fsf-links">
+ <ul>
+  <li><a href="http://www.gnu.org/">GNU&nbsp;home&nbsp;page</a></li>
+  <li><a href="http://www.fsf.org/">FSF&nbsp;home&nbsp;page</a></li>
+  <li><a href="http://www.gnu.org/graphics/graphics.html">GNU&nbsp;Art</a></li>
+  <li><a href="http://www.gnu.org/people/people.html">GNU's&nbsp;Who?</a></li>
+  <li><a href="http://directory.fsf.org/">Free&nbsp;Software&nbsp;Directory</a></li>
+  <li><a href="https://h-node.org/">Hardware</a></li>
+  <li><a href="http://www.gnu.org/server/sitemap.html">Site&nbsp;map</a></li>
+ </ul>
+</div><!-- /fsf-links -->
+
+<div id="mission-statement">
+
+<blockquote>
+<p><a href="http://www.fsf.org/"><img id="fsfbanner" src="./Make - GNU Project - Free Software Foundation_files/fsf-logo-notext.png" alt=" [FSF logo] "></a><strong>“Our
+mission is to preserve, protect and promote the freedom to use, study,
+copy, modify, and redistribute computer software, and to defend the
+rights of Free Software users.”</strong></p>
+</blockquote>
+
+<p>The <a href="http://www.fsf.org/">Free Software Foundation</a> is
+the principal organizational sponsor of the GNU Operating System.
+<strong>Support GNU and the FSF</strong> by <a href="http://shop.fsf.org/">buying manuals and gear</a>, <a href="https://my.fsf.org/associate/support_freedom?referrer=4052">
+<strong>joining the FSF</strong></a> as an associate member, or making
+a <strong>donation</strong>, either <a href="http://donate.fsf.org/">directly to the FSF</a> or <a href="http://flattr.com/thing/313733/gnuproject-on-Flattr">via
+Flattr</a>.</p>
+
+<p id="backtotop"><a href="http://www.gnu.org/software/make/#header">back to top</a></p>
+
+</div><!-- /mission-statement -->
+<!-- end server/footer-text.html -->
+
+
+<div id="footer">
+<div class="unprintable">
+
+<p>Please send general FSF &amp; GNU inquiries to
+<a href="mailto:gnu@gnu.org">&lt;gnu@gnu.org&gt;</a>.
+There are also <a href="http://www.gnu.org/contact/">other ways to contact</a>
+the FSF.  Broken links and other corrections or suggestions can be sent
+to <a href="mailto:bug-make@gnu.org">&lt;bug-make@gnu.org&gt;</a>.</p>
+
+<p><!-- TRANSLATORS: Ignore the original text in this paragraph,
+        replace it with the translation of these two:
+
+        We work hard and do our best to provide accurate, good quality
+        translations.  However, we are not exempt from imperfection.
+        Please send your comments and general suggestions in this regard
+        to <a href="mailto:web-translators@gnu.org">
+        &lt;web-translators@gnu.org&gt;</a>.</p>
+
+        <p>For information on coordinating and submitting translations of
+        our web pages, see <a
+        href="/server/standards/README.translations.html">Translations
+        README</a>. -->
+Please see the <a href="http://www.gnu.org/server/standards/README.translations.html">Translations
+README</a> for information on coordinating and submitting translations
+of this article.</p>
+</div>
+
+<!-- Regarding copyright, in general, standalone pages (as opposed to
+     files generated as part of manuals) on the GNU web server should
+     be under CC BY-ND 3.0 US.  Please do NOT change or remove this
+     without talking with the webmasters or licensing team first.
+     Please make sure the copyright date is consistent with the
+     document.  For web pages, it is ok to list just the latest year the
+     document was modified, or published.
+
+     If you wish to list earlier years, that is ok too.
+     Either "2001, 2002, 2003" or "2001-2003" are ok for specifying
+     years, as long as each year in the range is in fact a copyrightable
+     year, i.e., a year in which the document was published (including
+     being publicly visible on the web or in a revision control system).
+
+     There is more detail about copyright years in the GNU Maintainers
+     Information document, www.gnu.org/prep/maintain. -->
+
+<p>Copyright © 2014 Free Software Foundation, Inc.</p>
+
+<p>This page is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nd/3.0/us/">Creative
+Commons Attribution-NoDerivs 3.0 United States License</a>.</p>
+
+<!-- start of server/bottom-notes.html -->
+<div class="unprintable">
+<p><a href="http://www.fsf.org/about/dmca-notice">Copyright Infringement Notification</a></p>
+
+
+</div>
+<!-- end of server/bottom-notes.html -->
+
+
+<p class="unprintable">Updated:
+<!-- timestamp start -->
+$Date: 2014/10/05 16:42:32 $
+<!-- timestamp end -->
+</p>
+</div>
+</div>
+
+
+<div id="techsmith-snagitchrome-extension"></div></body></html>

@@ -1,0 +1,52 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{latexsym, amsmath,amsfonts,amssymb}
+\usepackage[margin=.75in]{geometry}
+\usepackage{kpfonts}  %Changing the default fonts
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\setlength{\parskip}{1.2ex} %space between paragraphs
+\setlength{\parindent}{1em} %Paragraph indentation
+\linespread{1.55} %spacing between lines
+\pagestyle{empty}
+\begin{document}
+Complete the proof that $\triangle AFB \cong \triangle EFD$.\\
+
+\begin{figure}[h!]
+\begin{center}
+\begin{minipage}{.4\textwidth}
+\textbf{GIVEN:} $\angle 1 \cong \angle 2$ and $\angle 3 \cong \angle 4$\\\\\\
+\textbf{PROVE:} $\triangle AFB \cong \triangle EFD$
+\end{minipage}
+\begin{minipage}{.4\textwidth}
+\begin{center}
+\includegraphics{ProofPic.pdf}
+\end{center}
+\end{minipage}
+\end{center}
+\end{figure}
+\hspace{.8in} \textbf{STATEMENTS} \hspace{2in} \textbf{REASONS}\\
+\tikz \draw(1,0)--(17,0);
+\begin{figure}[h!]
+\begin{center}
+\begin{minipage}{.49\textwidth}
+1. $\angle 1 \cong \angle 2$\\
+2. $\angle 3 \cong \angle 4$\\
+3. \vrule height 0 pt depth 0.4 pt width 1.75 in \\
+4. $\triangle AFC \cong \triangle EFC$ \\
+5. $\overline{AF} \cong \overline{EF}$\\
+6. \vrule height 0 pt depth 0.4 pt width 1.75 in \\
+7. $\triangle AFB \cong \triangle EFD$
+\end{minipage}
+\begin{minipage}{.49\textwidth}
+1. \vrule height 0 pt depth 0.4 pt width 2.6 in \\
+2. \vrule height 0 pt depth 0.4 pt width 2.6 in \\
+3. Reflexive Property of Congruence\\
+4. \vrule height 0 pt depth 0.4 pt width 2.6 in \\
+5. \vrule height 0 pt depth 0.4 pt width 2.6 in \\
+6. Vertical Angles Theorem\\
+7. \vrule height 0 pt depth 0.4 pt width 2.6 in
+\end{minipage}
+\end{center}
+\end{figure}
+\end{document}

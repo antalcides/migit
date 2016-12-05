@@ -1,0 +1,56 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{latexsym, amsmath,amsfonts,amssymb}
+\usepackage{xcolor}
+\usepackage{wrapfig}
+\usepackage[margin=.75in]{geometry}
+\usepackage{kpfonts}  %Changing the default fonts
+\usepackage[T1]{fontenc}
+\setlength{\parskip}{1.2ex} %space between paragraphs
+\setlength{\parindent}{1em} %Paragraph indentation
+\clubpenalty = 10000
+\widowpenalty = 10000
+\newcommand\T{\rule{0pt}{2ex}} % \T will create extra space above (used to fix tables)
+\newcommand\B{\rule[-1.5ex]{0pt}{0pt}}% \B will create extra space below (used to fix tables)
+\linespread{1.25} %spacing between lines
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+\textbf{{\Large The Number of Primes is Infinite}}
+\end{center}
+\textbf{Definition:} If $m$ and $n$ are integers then 
+$m$ \textbf{divides} $n$ means $mk=n$ for some
+integer $k$.\\\\
+\textbf{Examples:} \\\\
+$3$ divides $12$ because $(3)(4)=12$.\\
+$-7$ divides $14$ because $(-7)(-2)=14$.\\
+$5$ divides $0$ because $(5)(0)=0$.\\
+$-5$ divides $-25$ because $(-5)(5)=-25$.\\
+
+\noindent\textbf{Lemma}: Let $a$, $b$, and $m$ be 
+integers. If $m$ divides $a$ and $m$ divides $b$ then 
+$m$ divides $a+b$ and $m$ divides $a-b$.
+
+\noindent\textbf{Proof:} Since $m$ divides $a$ and 
+$b$ we have $mk_1=a$ and $mk_2=b$ for some integers
+$k_1$ and $k_2$. It follows that $a+b=mk_1+mk_2
+=m(k_1+k_2)$ and since $k_1+k_2$ must be an integer, 
+$m$ divides $a+b$ as claimed. Likewise, 
+$a-b=mk_1-mk_2=m(k_1-k_2)$ and since $k_1-k_2$ must also
+be an integer $m$ divides $a-b$.\\
+
+\noindent\textbf{Theorem} (Euclid): There are infinitely 
+many primes.
+
+\noindent\textbf{Proof:} Suppose, by way of contradiction, 
+there are only $m$ prime numbers. Let 
+$p_1$, $p_2$, \ldots, $p_m$ represent these $m$ prime 
+numbers and consider $n=p_1p_2 \ldots p_m+1$. 
+Since $n$ is bigger than the biggest prime, $n$ is composite 
+hence divisible by some prime $p_k$. Now $p_k$ also
+divides $p_1p_2 \ldots p_m$ so by the Lemma, $p_k$
+divides $n-p_1p_2 \ldots p_m$. Therefore, $p_k$ divides
+$1$ but this is clearly a contradiction because all primes
+are greater than $1$. It follows that the number of primes
+is infinite.
+\end{document}

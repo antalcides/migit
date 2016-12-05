@@ -1,0 +1,64 @@
+/*Dynamic positioning*/
+@media screen and (max-width:1024px) and (orientation:portrait) {
+    .reveal .slides > section, .reveal .slides > section > section {
+        font-size: 45px
+    }
+
+    .reveal ol {
+        font-size: 36px
+    }
+
+    #quotes {
+        font-size: 36px
+    }
+
+    .desktop-image {
+        display: none !important
+    }
+
+    #quickstarthelp {
+        font-size: 35px !important
+    }
+
+    #qslogo {
+        width: 70% !important
+    }
+
+    .imageposition-help {
+        bottom: 3% !important
+    }
+
+    .mobile-image-logo {
+        display: block !important
+    }
+
+    .subpage-mobile-text {
+        font-size: 36px !important
+    }
+
+    .subpage-mobile-text-books {
+        font-size: 34px !important
+    }
+}
+
+/*Corner logo*/
+
+.imageposition-logo {
+    width: 20%;
+    visibility: visible;
+    display: block;
+    position: fixed;
+    top: 2.5%;
+    right: 2.5%;
+    z-index: 100
+}
+
+/* Usage:
+<head>
+<link rel="stylesheet" href="css/reveal.min.css">
+...
+
+<body>
+  <div class="reveal">
+    <img id="logo" src="img/logo.png" class="imageposition-logo desktop-image"></img>
+*/

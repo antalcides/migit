@@ -1,0 +1,5 @@
+using Gadfly
+Gadfly.plot(layer(x=xdf[:xmin],y=xdf[:dens],Geom.bar,Theme(default_color=color("lightgray"))),
+layer(x=xp[:x],y=xp[:dens],Geom.line,Theme(default_color=color("orange"))))
+
+

@@ -1,0 +1,88 @@
+# LyX 2.1.5dev generated this file. If you want to make your own
+# modifications you should do them from inside LyX and save.
+
+Format 15
+
+\bind_file "sciword"
+
+#
+# MISC SECTION ######################################
+#
+
+\user_name "Antalcides"
+\user_email ""
+
+#
+# SCREEN & FONTS SECTION ############################
+#
+
+\screen_font_sizes 5 7 8 9 10 12 14.4 17.26 20.74 24.88
+\single_instance false
+
+#
+# COLOR SECTION ###################################
+#
+
+
+#
+# PRINTER SECTION ###################################
+#
+
+
+#
+# TEX SECTION #######################################
+#
+
+
+#
+# FILE SECTION ######################################
+#
+
+\tempdir_path "/home/aolivo/lyx/tem"
+
+#
+# PLAIN TEXT EXPORT SECTION ##############################
+#
+
+
+#
+# SPELLCHECKER SECTION ##############################
+#
+
+
+#
+# LANGUAGE SUPPORT SECTION ##########################
+#
+
+
+#
+# 2nd MISC SUPPORT SECTION ##########################
+#
+
+
+#
+# FORMATS SECTION ##########################
+#
+
+\format "dia" "dia" "DIA" "" "auto" "auto" "vector,zipped=native" "application/x-dia-diagram"
+\format "fen" "fen" "FEN" "" "auto" "auto" "" ""
+\format "agr" "agr" "Grace" "" "auto" "auto" "vector" ""
+\format "noteedit" "not" "Noteedit" "" "auto" "auto" "vector" ""
+\format "pdf2" "pdf" "PDF (pdflatex)" "F" "evince" "" "document,vector,menu=export" ""
+\format "PyTeXPDF" "pdf" "PythonTeXPDF" "" "" "" "" "\format"
+\format "tgif" "obj, tgo" "Tgif" "" "auto" "auto" "vector" "application/x-tgif"
+\format "pytexs1" "pytexs1" "pytexs1" "" "" "" "document" ""
+\format "PyTeXs2" "tex" "pythonTeXs2" "F" "evince" "" "" "\converter"
+
+#
+# CONVERTERS SECTION ##########################
+#
+
+\converter "luatex" "pytexs1" "pdflatex -shell-escape $$i" ""
+\converter "pytexs1" "PyTeXs2" "pythontex $$i" ""
+\converter "PyTeXs2" "PyTeXPDF" "pdflatex -shell-escape $$i" ""
+
+#
+# COPIERS SECTION ##########################
+#
+

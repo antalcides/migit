@@ -1,0 +1,50 @@
+% Copyright 2015 http://www.highschoolmathandchess.com/
+% This program is free software: you can redistribute it and/or modify
+%   it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 3 of the License, or
+%    (at your option) any later version.
+%    This program is distributed in the hope that it will be useful,
+%   but WITHOUT ANY WARRANTY; without even the implied warranty of
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+\documentclass{article}
+\usepackage[color]{lapdf}
+\usepackage{sagetex}
+\unitlength1cm
+\begin{document}
+\begin{sagesilent}
+center = [-2,-1]
+MajorA = 3
+MinorA = 2
+RotAng = 120
+output = r""
+IntX1 = MajorA*cos(RotAng*pi/180)+center[0]
+IntY1 = MajorA*sin(RotAng*pi/180)+center[1]
+IntX2 = -MajorA*cos(RotAng*pi/180)+center[0]
+IntY2 = -MajorA*sin(RotAng*pi/180)+center[1]
+
+IntX3 = MinorA*cos((RotAng+90)*pi/180)+center[0]
+IntY3 = MinorA*sin((RotAng+90)*pi/180)+center[1]
+IntX4 = MinorA*cos((RotAng+270)*pi/180)+center[0]
+IntY4 = MinorA*sin((RotAng+270)*pi/180)+center[1]
+output += r"\begin{lapdf}(%d,%d)(%d,%d)"%(2*MajorA+2,2*MajorA+2,center[0]-MajorA-1,center[1]-MajorA-1)
+output += r"\Lingrid(10)(0,3)(%d,%d)(%d,%d)"%(center[0]-MajorA-1,center[0]+MajorA+1,center[1]-MajorA-1,center[1]+MajorA+1)
+output += r"\Red"
+output += r"\Ellipse(50)(%f,%f)(%f,%f,%f)"%(center[0],center[1],MajorA,MinorA,RotAng)
+output += r"\Stroke"
+output += r"\Blue"
+output += r"\Dash(3)"
+output += r"\Line(%f,%f)(%f,%f) \Stroke"%(IntX1,IntY1,IntX2,IntY2)
+output += r"\Line(%f,%f)(%f,%f) \Stroke"%(IntX3,IntY3,IntX4,IntY4)
+output += r"\Dash(0)"
+output += r"\Point(.5)(%f,%f)"%(center[0],center[1])
+output += r"\Text(%f,%f,cb){$C$}"%(center[0]+.2,center[1]+.25)
+output += r"\end{lapdf}"
+\end{sagesilent}
+\begin{center}
+\sagestr{output}
+\end{center}
+\end{document}

@@ -1,0 +1,83 @@
+<p>% Habits
+% John Doe
+% March 22, 2005</p>
+<style>
+body{
+    background-image: url('image.png');
+    background-color: #6DB3F2;
+    background-size: 1350px 600px;
+                     }
+</style>
+
+<h1 id="in-the-morning">In the morning</h1>
+
+<h2 id="getting-up">Getting up</h2>
+
+<ul>
+  <li>Turn off alarm</li>
+  <li>Get out of bed</li>
+</ul>
+
+<h2 id="breakfast">Breakfast</h2>
+
+<ul>
+  <li>Eat eggs</li>
+  <li>Drink coffee</li>
+</ul>
+
+<h1 id="in-the-evening">In the evening</h1>
+
+<h1 id="dinner">Dinner</h1>
+
+<ul>
+  <li>Eat spaghetti</li>
+  <li>Drink wine</li>
+</ul>
+<center><img src="image.jpeg" width="600" height="400" /></center>
+
+<hr />
+
+<h1 id="going-to-sleep">Going to sleep</h1>
+
+<ul>
+  <li>Get in bed</li>
+  <li>Count sheep
+To produce the slide show, simply type</li>
+</ul>
+
+<p>pandoc -t s5 -s habits.txt -o habits.html
+for S5,</p>
+
+<p>pandoc -t slidy -s habits.txt -o habits.html
+for Slidy,</p>
+
+<p>pandoc -t slideous -s habits.txt -o habits.html
+for Slideous,</p>
+
+<p>pandoc -t dzslides -s habits.txt -o habits.html
+for DZSlides,</p>
+
+<hr />
+
+<h1 id="going-to-math">Going to Math</h1>
+<p>En una línea</p>
+
+<p>$ \alpha + \beta + x^{2} = z^{2} $ or $ \frac{1}{2^{-32} - 1} $.</p>
+
+<p>Definición: Sea $X$ una variable aleatoria que asume los valores
+$x_{1},x_{2},x_{3},\cdots x_{k}$, con iguales probabilidades, entonces
+* * *
+<script type="math/tex">% <![CDATA[
+\begin{equation} f\left(x,k\right)=\left\{ \begin{array}{ccc}
+\frac{1}{k} & si & x=x_{1},x_{2},x_{3},\cdots x_{k}\\
+0 &  & \text{si no}
+\end{array}\right.\end{equation} %]]></script></p>
+
+<hr />
+
+<h1 id="other-maths">Other Maths</h1>
+<p>These render differently. For example, type
+$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$
+ (which is inline mode) or type
+<script type="math/tex">\begin{equation}\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}\end{equation}</script></p>
+

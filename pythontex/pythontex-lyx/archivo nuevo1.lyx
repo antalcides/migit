@@ -1,0 +1,313 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{pythontex}
+\newcommand\includegraphicsifexists[2][width=\linewidth]{\IfFileExists{#2}{\includegraphics[#1]{#2}}{}}
+\title{Example Document with Python\TeX}
+\author{indraniel}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+maketitle
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Ejemplo de una figura
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{pycode}
+\end_layout
+
+\begin_layout Plain Layout
+
+# -*- coding: utf-8 -*- #!
+\end_layout
+
+\begin_layout Plain Layout
+
+import numpy as np
+\end_layout
+
+\begin_layout Plain Layout
+
+import scipy.stats as stats
+\end_layout
+
+\begin_layout Plain Layout
+
+import matplotlib.pyplot as plt
+\end_layout
+
+\begin_layout Plain Layout
+
+import seaborn as sns
+\end_layout
+
+\begin_layout Plain Layout
+
+a = np.arange(16)
+\end_layout
+
+\begin_layout Plain Layout
+
+poi = stats.poisson
+\end_layout
+
+\begin_layout Plain Layout
+
+lambda_ = [1.5, 4.25]
+\end_layout
+
+\begin_layout Plain Layout
+
+# Begin with an empty plot, 5 x 3 inches
+\end_layout
+
+\begin_layout Plain Layout
+
+plt.clf()
+\end_layout
+
+\begin_layout Plain Layout
+
+plt.figure(figsize=(5, 3))
+\end_layout
+
+\begin_layout Plain Layout
+
+plt.bar(a, poi.pmf(a, lambda_[0]),
+\end_layout
+
+\begin_layout Plain Layout
+
+        label="$
+\backslash
+lambda = %.1f$" % lambda_[0],
+\end_layout
+
+\begin_layout Plain Layout
+
+        alpha=0.60,
+\end_layout
+
+\begin_layout Plain Layout
+
+        color=sns.color_palette()[0],
+\end_layout
+
+\begin_layout Plain Layout
+
+        lw=1)
+\end_layout
+
+\begin_layout Plain Layout
+
+plt.bar(a, poi.pmf(a, lambda_[1]),
+\end_layout
+
+\begin_layout Plain Layout
+
+        label="$
+\backslash
+lambda = %.1f$" % lambda_[1],
+\end_layout
+
+\begin_layout Plain Layout
+
+        alpha=0.60,
+\end_layout
+
+\begin_layout Plain Layout
+
+        color=sns.color_palette()[1],
+\end_layout
+
+\begin_layout Plain Layout
+
+        lw=1)
+\end_layout
+
+\begin_layout Plain Layout
+
+#plt.xticks(a + 0.4, a)
+\end_layout
+
+\begin_layout Plain Layout
+
+plt.xticks(a + 0.4, a)
+\end_layout
+
+\begin_layout Plain Layout
+
+plt.legend()
+\end_layout
+
+\begin_layout Plain Layout
+
+plt.ylabel("Probabilidad de $k$")
+\end_layout
+
+\begin_layout Plain Layout
+
+plt.xlabel("$k$")
+\end_layout
+
+\begin_layout Plain Layout
+
+plt.title("La funcion de masa de probabilidad de una variable  
+\backslash
+n" " aleatoria de Poisson para  diferentes valores de "
+\end_layout
+
+\begin_layout Plain Layout
+
+          "$
+\backslash
+lambda$ 
+\backslash
+n")
+\end_layout
+
+\begin_layout Plain Layout
+
+# Save the plot as a PDF file
+\end_layout
+
+\begin_layout Plain Layout
+
+plt.savefig("myplot.pdf", bbox_inches="tight",format="pdf")
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{pycode}
+\end_layout
+
+\begin_layout Plain Layout
+
+x; para diferentes valores de lambda 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\backslash
+includegraphicsifexists[width=0.7
+\backslash
+linewidth]{myplot.pdf}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

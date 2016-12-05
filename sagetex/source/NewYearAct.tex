@@ -1,0 +1,60 @@
+% Copyright 2014 http://www.highschoolmathandchess.com/
+% This program is free software: you can redistribute it and/or modify
+%   it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 3 of the License, or
+%    (at your option) any later version.
+%    This program is distributed in the hope that it will be useful,
+%   but WITHOUT ANY WARRANTY; without even the implied warranty of
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+\documentclass{article}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage[T1]{fontenc}% change the fonts
+\usepackage[margin=.5in]{geometry}%  sets the margins
+\usepackage{sagetex}%  use Sage for it's math ability
+\usepackage{supertabular}
+\pagestyle{empty}
+\begin{document}
+\fontsize{15pt}{17pt}\selectfont %sets font size and line spacing
+\noindent
+\begin{tabular}{@{}l p{1.6in}r @{}}
+Name: \vrule height 0 pt depth 0.4 pt width 3.0 in & & Period: \vrule height 0 pt depth 0.4 pt width .75 in \\\\
+Date: \vrule height 0 pt depth 0.4 pt width 1.0 in
+\end{tabular}
+\begin{center}
+{\LARGE $2015$ Math Activity}
+\end{center}
+\noindent \textbf{Instructions: }Use the digits of the year: $0$,
+$1$, $2$, $5$ one time each along with operations ($+$, 
+$-$, $\times$, $\div$, and exponentiation: $\wedge$) 
+to write an expression for each of the numbers from $1$ to $100$. You 
+may group digits (e.g. $215$) and use decimals (e.g. $.02$). 
+Example: To get $0$ we could write the expression $(12\wedge 5)\times 0$. 
+How many can you get?
+\begin{sagesilent}
+N = 100
+lines = ceil(N/3)
+extra = N%3
+output = ""
+output += r"\begin{supertabular}{p{5.5cm}|p{5.5cm}|p{5.5cm}}"
+for i in range(1, lines):
+    output += r"%d & %d & %d \\ "%(3*(i-1)+1,3*(i-1)+2,3*(i-1)+3)
+    output += r" &  & \\ "
+    output += r"\hline "
+    
+if extra == 0:
+    output += r"%d & %d & %d \\ "%(3*(lines-1)+1,3*(lines-1)+2,3*(lines-1)+3)
+    output += r" &  & \\ "
+elif extra == 1:
+    output += r"%d &  & \\ "%(3*(lines-1)+1)
+else:
+    output += r"%d & %d & \\ "%(3*(lines-1)+1, 3*(lines-1)+2)
+output += r"\end{supertabular}"
+\end{sagesilent}
+\begin{center}
+\sagestr{output}
+\end{center}
+\end{document}

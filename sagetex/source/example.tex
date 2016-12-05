@@ -1,0 +1,131 @@
+\documentclass{article}
+\title{Examples of embedding Sage output in \LaTeX\ documents}
+\author{}
+
+\usepackage{sagetex}
+\usepackage{fullpage}
+\usepackage{verbatim}
+
+\def\bs{\ensuremath{\backslash}}
+
+\begin{document}
+\maketitle
+
+\section{Overview}
+
+\begin{enumerate}
+\item
+Get ahold of the files \texttt{sagetex.sty} and \texttt{sagetex.py}.  
+They can be found in the Sage directory
+(\texttt{\$SAGEROOT/examples/latex\underline{ }embed/}), or on the CTAN website
+(\texttt{http://www.ctan.org}). Put these files in the same directory as your
+.tex file.
+
+\item
+In your .tex file, add the following line to the preamble:
+\begin{quote}
+\texttt{{$\backslash$}usepackage\{sagetex\}}
+\end{quote}
+
+\item
+Add some Sage code to your article (see below for examples).
+
+\item
+Compile:
+\begin{itemize}
+\item \texttt{latex filename.tex} (or use pdflatex)
+\item \texttt{sage filename.sage}
+\item \texttt{pdflatex filename.tex}
+\end{itemize}
+Note that once you've run Sage, you don't need to run it again unless you've
+changed the Sage code in your article.
+\end{enumerate}
+
+\section{\texttt{{\bs}sage}}
+
+Use the command \texttt{$\backslash$sage} to include the output of Sage
+commands inline. For example, the following line
+\begin{quote}
+\begin{verbatim}
+The second derivative of $\sage{x*sin(x^2)}$
+is $\sage{diff(x*sin(x^2),x,2)}$.
+\end{verbatim}
+\end{quote}
+Will typeset the following:
+\begin{quote}
+The second derivative of $\sage{x*sin(x^2)}$
+is $\sage{diff(x*sin(x^2),x,2)}$.
+\end{quote}
+
+\section{\texttt{{\bs}sageblock}}
+
+The \texttt{sageblock} environment allows you to display \emph{and}
+execute some Sage code.
+\begin{sageblock}
+ var('a,b,c')
+ eqn = a*x^2 + b*x + c
+ s = solve(eqn, x)
+\end{sageblock}
+The variables \texttt{eqn} and \texttt{s} are available throughout
+the document now. For example:
+
+\begin{quote}
+\begin{verbatim}
+Solutions of $\mbox{eqn}=\sage{eqn}$:
+\begin{displaymath}
+\sage{s[0]}, \sage{s[1]}
+\end{displaymath}
+\end{verbatim}
+\end{quote}
+outputs:
+\begin{quote}
+Solutions of $\mbox{eqn}=\sage{eqn}$:
+\begin{displaymath}
+\sage{s[0]}, \sage{s[1]}
+\end{displaymath}
+\end{quote}
+
+Note that you can do anything in a code block that you can do in Sage and/or
+Python. 
+
+\section{\texttt{{\bs}sagesilent}}
+
+The \texttt{sagesilent} environment executes some Sage code, but does not
+display the code. For example,
+
+\begin{quote}
+\begin{verbatim}
+The following code block doesn't appear in the typeset file\dots
+\begin{sagesilent}
+  var('x')
+  f = log(sin(x)/x)
+\end{sagesilent}
+but we can refer to whatever we did in that code block:
+The Taylor Series of $f(x)=\sage{f}$ is: $\sage{ f.taylor(x, 0, 10) }$.
+\end{verbatim}
+\end{quote}
+typesets the following.
+
+\begin{quote}
+The following code block doesn't appear in the typeset file\dots
+\begin{sagesilent}
+  var('x')
+  f = log(sin(x)/x)
+\end{sagesilent}
+but we can refer to whatever we did in that code block:
+The Taylor Series of $f(x)=\sage{f}$ is: $\sage{ f.taylor(x, 0, 10) }$.
+\end{quote}
+
+\section{\texttt{{\bs}sageplot}}
+
+To plot images, use the \texttt{sageplot} command.
+The following \LaTeX\ code will include the image below.
+\begin{quote}
+\begin{verbatim}
+\sageplot{graphs.FlowerSnark().plot()}
+\end{verbatim}
+\end{quote}
+
+\sageplot{graphs.FlowerSnark().plot()}
+
+\end{document}

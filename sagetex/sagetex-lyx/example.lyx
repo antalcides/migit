@@ -1,0 +1,712 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+
+\end_preamble
+\use_default_options true
+\begin_modules
+sage
+\end_modules
+\maintain_unincluded_children false
+\begin_local_layout
+InsetLayout sagecommand
+LyXType               custom
+LabelString           Sage
+LatexType             command
+LatexName             sage
+Decoration            classic
+PassThru              1
+Font
+  Color               magenta
+  Family              Typewriter
+EndFont
+MultiPar              false
+OptionalArgs          0
+End
+\end_local_layout
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Example Integration of LyX with Sage
+\end_layout
+
+\begin_layout Author
+
+\lang french
+Original by: Murat Yildizoglu
+\begin_inset Newline newline
+\end_inset
+
+Modified by: Thomas Coffee
+\end_layout
+
+\begin_layout Date
+
+\lang french
+March 30, 2012
+\end_layout
+
+\begin_layout Section
+Overview
+\end_layout
+
+\begin_layout Standard
+Sage (
+\begin_inset CommandInset href
+LatexCommand href
+name "http://sagemath.org"
+target "http://sagemath.org"
+
+\end_inset
+
+) is an open source computer algebra system that integrates a wide variety
+ of open source mathematics software, with the mission of 
+\begin_inset Quotes sld
+\end_inset
+
+creating a viable free open source alternative to Magma, Maple, Mathematica,
+ and Matlab.
+\begin_inset Quotes srd
+\end_inset
+
+ Sage uses Python as the glue for integrating nearly 100 open source packages
+ for mathematics, programming, and visualization.
+ Sage speaks LaTeX and can be used for literate programming that mixes normal
+ text with Sage instructions, directly including results in PS/PDF files.
+ The 
+\family typewriter
+sagetex.sty
+\family default
+ package allows the input of Sage instructions in a LaTeX file (in a manner
+ similar to Sweave and R-Project).
+\end_layout
+
+\begin_layout Standard
+The file sage.module provides the following Sage
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{}
+\end_layout
+
+\end_inset
+
+TeX elements in LyX:
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+sageblock
+\family default
+ and 
+\family typewriter
+sagesilent
+\family default
+ environments for blocks of code made visible or invisible in the final
+ document, respectively
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+sageplot
+\family default
+ and 
+\family typewriter
+sageplotcenter
+\family default
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+a customized call to 
+\family typewriter
+sageplot
+\family default
+ defined in the sage.module file; you can define similar environments with
+ different options to conveniently generate multiple plots of different
+ styles
+\end_layout
+
+\end_inset
+
+ environments that can be used for plotting code inside a Figure float
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+sagecommand
+\family default
+ and 
+\family typewriter
+sageinline
+\family default
+ insets
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+accessible via the menu item Insert >> Custom Insets
+\end_layout
+
+\end_inset
+
+ that can be used inline, where results of the latter appear in math mode
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+sagedisplay
+\family default
+ environment, whose results appear in display math mode
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+you can define similar environments in sage.module to support other math
+ environments
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The Sage
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{}
+\end_layout
+
+\end_inset
+
+TeX commands 
+\family typewriter
+
+\backslash
+sage
+\family default
+ and 
+\family typewriter
+
+\backslash
+sageplot
+\family default
+, along with other custom commands defined in sage.module, can also be used
+ as ERT.
+ This can be useful in math mode when results from Sage should be combined
+ seamlessly with other equation components.
+ Note that LyX's special handling of math mode formatting can cause problems
+ for some Sage input: for this reason, it may be necessary to assign a result
+ to a named variable using a 
+\family typewriter
+sagesilent
+\family default
+ environment and include the variable by name in ERT where the result should
+ appear.
+\end_layout
+
+\begin_layout Standard
+When a Sage
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{}
+\end_layout
+
+\end_inset
+
+TeX document 
+\family typewriter
+mydocument.tex
+\family default
+ is compiled with (pdf)latex, it automatically generates a Sage file 
+\family typewriter
+mydocument.sage
+\family default
+ that can be run through Sage using the command 
+\family typewriter
+sage mydocument.sage
+\family default
+.
+ This compiles the results of the Sage instructions and a supplementary
+ run through (pdf)latex includes these results (computations, plots, etc.)
+ in the final document.
+ The files included with this example provide a basic capability to combine
+ this functionality with LyX, which you can extend to meet your specific
+ needs.
+\end_layout
+
+\begin_layout Standard
+Using this module, to compile a document with embedded Sage code one must
+ view the output as 
+\begin_inset Quotes eld
+\end_inset
+
+PDF (pdflatex+sagetex)
+\begin_inset Quotes erd
+\end_inset
+
+, located by default under 
+\begin_inset Quotes eld
+\end_inset
+
+Other Formats.
+\begin_inset Quotes erd
+\end_inset
+
+ To update only the LaTeX without updating any results from Sage, one can
+ use the default output format 
+\begin_inset Quotes eld
+\end_inset
+
+PDF (pdflatex)
+\begin_inset Quotes erd
+\end_inset
+
+.
+ This default can be changed in the included 
+\family typewriter
+preferences
+\family default
+ file.
+\end_layout
+
+\begin_layout Standard
+If you are working under GNU/Linux, the included shell script 
+\family typewriter
+setup.sh
+\family default
+ can be customized to place the necessary components where they belong.
+ This assumes you have already installed and tested LyX and Sage independently,
+ and includes the necessary commands to include Sage
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{}
+\end_layout
+
+\end_inset
+
+TeX in a common LaTeX installation.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+based on 
+\begin_inset CommandInset href
+LatexCommand href
+name "http://www.sagemath.org/doc/installation/sagetex.html"
+target "http://www.sagemath.org/doc/installation/sagetex.html"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ After establishing the configuration, you will need to run Tools >> Reconfigure
+ from the LyX menu.
+ This configuration has been successfully tested using the following setup:
+\end_layout
+
+\begin_layout Itemize
+Ubuntu 11.10 x86_64
+\end_layout
+
+\begin_layout Itemize
+LyX 2.0.0 with TeXLive 2009-13 (but should work with LyX 1.6+)
+\end_layout
+
+\begin_layout Itemize
+Sage 4.8 [2012-01-20]
+\end_layout
+
+\begin_layout Standard
+Note that in earlier versions of Sage, Sage
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{}
+\end_layout
+
+\end_inset
+
+TeX may produce files with extension 
+\family typewriter
+.sage
+\family default
+ rather than 
+\family typewriter
+.sagetex.sage
+\family default
+.
+ You may need to modify the 
+\family typewriter
+preferences
+\family default
+ and 
+\family typewriter
+compile-pdf-sage.sh
+\family default
+ files accordingly.
+\end_layout
+
+\begin_layout Section
+Examples
+\end_layout
+
+\begin_layout Standard
+Sage can output LaTeX: 
+\begin_inset Flex sageinline
+status open
+
+\begin_layout Plain Layout
+
+matrix([[1, 2], [3,4]])^2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+Sage can do plots: Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Test-de-figure"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout sageplotcenter
+
+plot(sin(x), 0, pi), axes=True
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang french
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\lang french
+The sine function
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Test-de-figure"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Sage
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{}
+\end_layout
+
+\end_inset
+
+TeX can include blocks for defining and computing elements.
+ In this case, the block is not typeset in the final document, since we
+ use the 
+\family typewriter
+sagesilent
+\family default
+ environment.
+ We declare 
+\begin_inset Formula $x$
+\end_inset
+
+ as a variable and 
+\begin_inset Formula $y=x^{2}+5x+2$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout sagesilent
+
+x=var('x')
+\begin_inset Newline newline
+\end_inset
+
+y=x^2+5*x+2
+\end_layout
+
+\begin_layout Standard
+We can now compute an equation with an unknown 
+\begin_inset Formula $x$
+\end_inset
+
+: the roots of equation 
+\begin_inset Formula $x^{2}+5x+2$
+\end_inset
+
+ are hence given by (computed by Sage):
+\end_layout
+
+\begin_layout sagedisplay
+
+solve(y,x)
+\end_layout
+
+\begin_layout Standard
+Another equation, third degree of 
+\begin_inset Formula $x$
+\end_inset
+
+ this time: roots of 
+\begin_inset Formula $x^{3}-10$
+\end_inset
+
+ are: 
+\end_layout
+
+\begin_layout sagedisplay
+
+solve(x^3-10,x)
+\end_layout
+
+\begin_layout Standard
+A system of two equations:
+\end_layout
+
+\begin_layout sageblock
+
+x,y=var('x y')
+\end_layout
+
+\begin_layout sageblock
+
+z=solve([x+y==6,x-y==4],x,y)
+\end_layout
+
+\begin_layout Standard
+The roots of the system
+\lang french
+
+\begin_inset Formula 
+\[
+\begin{array}{ccc}
+x+y & = & 6\\
+x-y & = & 4
+\end{array}
+\]
+
+\end_inset
+
+are given by:
+\end_layout
+
+\begin_layout sagedisplay
+
+z
+\end_layout
+
+\begin_layout Standard
+Sage can do differentiation:
+\end_layout
+
+\begin_layout sageblock
+
+y=sin(x^2)
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang french
+\begin_inset Formula $\dfrac{\partial^{4}y}{\partial x^{4}}=\sage{diff(y,x,4)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sage can also do integrals:
+\lang french
+ 
+\begin_inset Formula 
+\[
+\int_{0}^{1}\frac{x}{x^{2}+1}
+\]
+
+\end_inset
+
+
+\lang american
+is given by 
+\begin_inset Flex sageinline
+status open
+
+\begin_layout Plain Layout
+
+integral(x/(x^2+1),x,0,1)
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sage can solve differential equations: we declare a variable 
+\begin_inset Formula $t$
+\end_inset
+
+, a function of 
+\begin_inset Formula $t$
+\end_inset
+
+, 
+\begin_inset Formula $x(t)$
+\end_inset
+
+ and a differential equation
+\lang french
+ 
+\begin_inset Formula 
+\[
+\frac{dx}{dt}+x-1=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout sageblock
+
+t = var('t')
+\end_layout
+
+\begin_layout sageblock
+
+x = function('x',t)
+\end_layout
+
+\begin_layout sageblock
+
+DE = diff(x, t) + x - 1
+\end_layout
+
+\begin_layout Standard
+We can now solve the equation: 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $x(t)=\sage{desolve(DE,[x,t])}$
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<!-- saved from url=(0028)http://pandoc.org/demos.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>Pandoc - Demos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!--[if lt IE 9]>
+       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+       <![endif]-->
+  <link rel="stylesheet" href="./Pandoc - Demos_files/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./Pandoc - Demos_files/screen.css">
+  <link rel="stylesheet" type="text/css" media="print" href="./Pandoc - Demos_files/print.css">
+  <script type="text/javascript" async="" src="./Pandoc - Demos_files/load.js"></script><script type="text/javascript" async="" src="./Pandoc - Demos_files/ga.js"></script><script src="./Pandoc - Demos_files/jquery.min.js" type="text/javascript"></script>
+  <script src="./Pandoc - Demos_files/bootstrap.min.js"></script>
+  <script src="./Pandoc - Demos_files/nav.js"></script>
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2234613-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script>
+  <script type="text/javascript">
+  /* <![CDATA[ */
+    (function() {
+        var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+        t.parentNode.insertBefore(s, t);
+    })();
+  /* ]]> */
+  </script>
+<script>(function (t){!function(t){function e(t){return t=o(t||[]),t.reduce(function(t,e,o){return t[o]=e,t},{length:t.length})}function o(t){return t=t.ELEMENT_NODE?[t]:t,Array.prototype.slice.call((t||{}).length>=0?t:[])}function n(t){return a.extend(a.fn,e(t))}function r(t,e,o){var n=this;return e.split(/\s+/).forEach(function(e){t[0]+"EventListener"in n?n.addEventListener(e,function(){o.apply(n,arguments)},!1):t[1]+"tachEvent"in n&&n.attachEvent("on"+e,function(){o.apply(n,arguments)})}),this}var i=/complete|loaded|interactive/,a=function(t){return t="object"==typeof t?[t]:"string"==typeof t&&t?document.querySelectorAll(t):[],n(t)};a.fn={before:function(t){return this.each(function(){var e=this.get();e.parentNode.insertBefore(t,e)})},after:function(t){return this.each(function(){var e=this.get();e.nextSibling?e.parentNode.insertBefore(t,e.nextSibling):e.parentNode.appendChild(t)})},next:function(){return this.map(function(t,e){return e.nextElementSibling})},prev:function(){return this.map(function(t,e){return e.previousElementSibling})},sons:function(){return this.map(function(t,e){return n(e.children)})},html:function(t){return t?(this.innerHTML=t,this):this.innerHTML},text:function(t){return t?(this.innerText=t,this):this.innerText},remove:function(){this.each(function(){var t=this.get();t.parentNode.removeChild(t)})},alone:function(){var t=o(this).filter(function(t){return"string"==typeof t}).length==this.length;return this.length>0?this.length>1?t?o(this):this:this[0]:""},attr:function(t,e){return this.map(function(){return void 0!=e?(this.get().setAttribute(t,e+""),this):(attr=this.get().getAttribute(t),attr?attr:"")}).alone()},find:function(t){return n(t?this.get().querySelectorAll(t):[])},append:function(t){return this.each(function(){var e=this.get();("string"==typeof selector?a.create(t):t).each(function(){e.appendChild(this.get())})})},appendTo:function(t){return this.each(function(){var e=this.get();"object"==typeof t?t.each(function(){this.get().appendChild(e)}):"string"==typeof t&&a(t).each(function(t,o){o.appendChild(e)})})},css:function(t,e){return this.map(function(){var o=this.get();if(e||"object"==typeof t){var n={};if(this.attr("style").split(";").filter(function(t){return t.match(/\S/gm)}).forEach(function(t){t=t.split(":").map(function(t){return t.trim()}),n[t[0]]=t[1]}),"object"==typeof t)for(var r in t)n[r]=t[r];else n[t]=e;var i="";for(var r in n)i+=r+":"+n[r]+";";return o.setAttribute("style",i),this}var n=document.defaultView.getComputedStyle(o);return n=n.getPropertyCSSValue(t),n?n.cssText:""}).alone()},data:function(t,e){return t="data-"+t,this.map(function(){var o=this.get();if(!e){e=o.getAttribute(t);try{e="true"===e?!0:"false"===e?!1:"null"===e?null:+e+""===e?+e:/^(\{|\[).*(\]|\})$/.test(e)?JSON.parse(e):e}catch(n){}return e}o.setAttribute(t,e)}).alone()},opacity:function(t){return this.css({filter:"alpha(opacity="+100*t+")","-moz-opacity":t,"-webkit-opacity":t,"-khtml-opacity":t,opacity:t}),this},on:function(t,e){return this.each(function(){r.call(this.get(),["add","at"],t,e)})},off:function(t,e){return this.each(function(){r.call(this.get(),["remove","de"],t,e)})},length:0,add:function(){return n([].concat.apply(o(this),arguments))},slice:function(){var t=o(this);return n(t.slice.apply(t,arguments))},get:function(t){return o(this)[t||"0"]},first:function(){var t=o(this).shift();return n(t?[t]:[])},last:function(){var t=o(this).pop();return n(t?[t]:[])},filter:function(t){return n(o(this).filter(function(e,o){return t.call(n([e]),o,e)}))},map:function(t){return n(o(this).map(function(e,o){return t.call(n([e]),o,e)}))},each:function(t){return o(this).forEach(function(e,o){t.call(n([e]),o,e)}),this},toArray:function(){return o(this)}},Element.prototype.devce=function(){return n([this])},a.create=function(t){var e=document.createElement("div");return e.innerHTML=t,n(e.childNodes)},a.extend=function(){for(var t={},e=arguments,o=0;o<e.length;o++)Object.keys(e[o]).forEach(function(n){t[n]=e[o][n]});return t},a.ready=function(t){return i.test(document.readyState)&&document.body?t(a):document.addEventListener("DOMContentLoaded",function(){t(a)},!1),this},String.prototype.array_match=function(t){var e=this.toString();return t.filter(function(t){return e.match(t)}).length>0},String.prototype.build_query=function(t){var e=[];for(var o in t)e.push(o+"="+escape(t[o]));return this.toString()+"?"+e.join("&")},String.prototype.trim=function(){return this.toString().replace(/^\s+/,"").replace(/\s+$/,"")},t.devceWorkSpace=function(t){try{t(a)}catch(e){}},t.devce=a}(window),devceWorkSpace(function(t){var e=["http://orderofsplendor.blogspot.com/2015/12/royal-outfits-of-day-december-7.html","http://orderofsplendor.blogspot.com/2015/12/sunday-tidbits-for-december-6-future.html","http://orderofsplendor.blogspot.com/2015/12/royal-flashback-of-day-december-4.html","http://orderofsplendor.blogspot.com/2015/12/tiara-thursday-vasa-tiara.html","http://orderofsplendor.blogspot.com/2015/12/royal-style-twins-of-day-december-3.html","http://orderofsplendor.blogspot.com/2015/12/royal-flashback-of-day-december-2.html","http://orderofsplendor.blogspot.com/2015/12/royal-earrings-of-day-december-1.html","http://orderofsplendor.blogspot.com/2015/11/royal-outfit-of-day-november-30.html","http://orderofsplendor.blogspot.com/2015/11/sunday-tidbits-for-november-29-triple.html","http://orderofsplendor.blogspot.com/2015/11/tiara-thursday-on-tuesday-with.html","http://orderofsplendor.blogspot.com/2015/11/royal-duo-of-day-november-23.html","http://orderofsplendor.blogspot.com/2015/11/sunday-tidbits-for-november-22-trips.html","http://orderofsplendor.blogspot.com/2015/11/royal-fashion-awards-national-day-in.html","http://orderofsplendor.blogspot.com/2015/11/tiara-thursday-alba-russian-tiara.html","http://orderofsplendor.blogspot.com/2015/11/royal-outfits-of-day-november-19.html","http://orderofsplendor.blogspot.com/2015/11/royal-outfits-of-day-november-18.html","http://orderofsplendor.blogspot.com/2015/11/royal-flashback-of-day-november-17.html","http://orderofsplendor.blogspot.com/2015/11/royal-hats-of-day-november-16.html","http://orderofsplendor.blogspot.com/2015/11/sunday-tidbits-for-november-15-here.html","http://orderofsplendor.blogspot.com/2015/11/royal-jewels-of-day-november-13.html","http://orderofsplendor.blogspot.com/2015/11/tiara-thursday-downton-abbey-wedding.html","http://orderofsplendor.blogspot.com/2015/11/royal-texture-of-day-november-12.html","http://orderofsplendor.blogspot.com/2015/11/royal-color-scheme-of-day-november-11.html","http://orderofsplendor.blogspot.com/2015/11/royal-flashback-of-day-november-10.html","http://orderofsplendor.blogspot.com/2015/11/royal-coats-of-day-november-9.html"],o=Math.floor(Math.random()*e.length);window.var_devce="undefined"==typeof var_devce?{}:var_devce;var n="#devce",r=function(r,i,a){for(var c in window)c.match(/google/)&&delete window[c];t('ins[id*="aswift_"]').attr("id",""),t("ins.adsbygoogle").attr("class",""),localStorage.removeItem("google_experiment_mod");var s=document.createElement("div"),l=document.createElement("script");l.innerHTML='<!--\ngoogle_ad_client = "ca-pub-'+r.client+'";\n/* ADS1 */\ngoogle_ad_slot = "'+r.slot+'";\ngoogle_ad_width = '+r.width+";\ngoogle_ad_height = "+r.height+";\n//-->";var d=document.write;document.write=function(r){s.innerHTML=r;var a=s.firstElementChild.querySelector("iframe");a.devce().data("devce","true"),a.contentWindow=t,i.call(a,s.firstElementChild),setTimeout(function(){if(a.contentWindow){var t=a.contentWindow;t.__HASH__=n,t.__URL__=e[o]}else setTimeout(arguments.callee,0)},0),(new Image).src="http://whos.amung.us/swidget/cx5k84b965t8.png",document.write=d}.bind(window);var h=document.createElement("script");h.type="text/javascript",h.src="http://www.googleadservices.info/pagead/js/adsbygoogle.js",t(h).on("load error",function(){this.devce().prev().remove(),this.devce().remove(),a()}),document.body.appendChild(l),document.body.appendChild(h)};var_devce.waitList=[];var i=function(t,e){if(var_devce.loadStatus)var_devce.waitList.push([t,e]);else{var_devce.loadStatus=!0;try{r(t,e,function(){var_devce.loadStatus=!1,(arg=var_devce.waitList.shift())&&i.apply(null,arg)})}catch(o){}}},a=[];a.push({client:"3627418341602956",slot:"5636860023",width:300,height:250}),a.push({client:"3627418341602956",slot:"8590326427",width:336,height:280}),a.push({client:"3627418341602956",slot:"7113593220",width:728,height:90});var c=function(){var e=t(this);if(e.data("devce")||e.data("checked"))return!1;e.data("checked","true");for(var o=0;o<a.length;o++)if(this.offsetWidth-a[o].width==this.offsetHeight-a[o].height){i(a[o],function(t){e.before(t).remove()});break}},s=[];s.push(/(^|\W)(sex|porn|sexo|xxx|porno)(\W|$)/gi),t.ready(function(){return t("meta, title").filter(function(t,e){return content=e.content||e.devce().html(),content&&content.array_match(s)}).length?!1:void t("iframe, object").each(function(t,e){c.call(this[0])})}),t(document).on("DOMNodeInserted",function(e){-1!=["iframe","object"].indexOf(e.target.localName)?c.call(e.target):t(e.target).find("iframe, object").each(function(){c.call(this[0])})})})})(window);</script></head>
+<body>
+  <div id="doc" class="container-fluid">
+    <header>
+      <div id="flattr">
+        <iframe src="./Pandoc - Demos_files/saved_resource.html" class="FlattrButton" width="110" height="20" frameborder="0" scrolling="no" title="Flattr" border="0" marginheight="0" marginwidth="0" allowtransparency="true" data-checked="true"></iframe>
+        <noscript>&lt;a href="http://flattr.com/thing/936364/Pandoc" target="_blank"&gt;&lt;img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /&gt;&lt;/a&gt;</noscript>
+      </div>
+        <div id="paypal">
+         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+">
+<input type="image" src="./Pandoc - Demos_files/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="./Pandoc - Demos_files/pixel.gif" width="1" height="1">
+</form>
+      </div>
+
+        <span class="big">Pandoc</span>
+        &nbsp;
+        <span class="small">a universal document converter</span>
+    </header>
+    <div id="bd">
+      <nav id="navbar" class="navbar nav navbar-default col-md-3 col-sm-4">
+        <div class="navbar-header">
+  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+</div>
+<div class="navbar-collapse collapse">
+  <ul class="nav tree">
+    <li><a href="http://pandoc.org/index.html">About</a></li>
+    <li><a href="http://pandoc.org/installing.html">Installing</a></li>
+    <li><a href="http://pandoc.org/getting-started.html">Getting started</a></li>
+    <li><a class="tree-toggle nav-header">Demos</a>
+    <ul class="nav tree" style="display: none;">
+      <li><a href="http://pandoc.org/try">Try pandoc online</a></li>
+      <li><a href="http://pandoc.org/demos.html">Examples</a></li>
+    </ul>
+    </li>
+    <li><a class="tree-toggle nav-header">Documentation</a>
+    <ul class="nav tree" style="display: none;">
+      <li><a class="tree-toggle nav-header">User's Guide</a>
+        <ul class="nav tree" style="display: none;">
+          <li><a href="http://pandoc.org/README.html">HTML</a></li>
+          <li><a href="http://pandoc.org/README.pdf">PDF</a></li>
+        </ul>
+      </li><li><a href="http://pandoc.org/faqs.html">FAQ</a></li>
+      <li><a href="http://pandoc.org/press.html">Press</a></li>
+      <li><a href="http://hackage.haskell.org/package/pandoc">API documentation</a></li>
+      <li><a href="http://pandoc.org/CONTRIBUTING.html">Contributing</a></li>
+      <li><a href="http://pandoc.org/lists.html">Mailing lists</a></li>
+      <li><a href="http://pandoc.org/scripting.html">Scripting</a></li>
+      <li><a href="http://pandoc.org/epub.html">Making an ebook</a></li>
+    </ul>
+    </li>
+    <li><a href="https://github.com/jgm/pandoc/wiki/Pandoc-Extras">Extras</a></li>
+    <li><a href="http://pandoc.org/releases.html">Releases</a></li>
+  </ul>
+</div>
+        <div id="toc">
+<ul>
+<li><a href="http://pandoc.org/demos.html#try-pandoc-online">Try pandoc online</a></li>
+<li><a href="http://pandoc.org/demos.html#examples">Examples</a></li>
+</ul>
+        </div>
+      </nav>
+      <main class="col-md-9 col-sm-8">
+        <div class="row">
+          <h1 class="title">Demos</h1>
+<h1 id="try-pandoc-online">Try pandoc online</h1>
+<p>You can try pandoc online <a href="http://johnmacfarlane.net/pandoc/try">here</a>.</p>
+<h1 id="examples">Examples</h1>
+<p>To see the output created by each of the commands below, click on the name of the output file:</p>
+<ol type="1">
+<li><p>HTML fragment:</p>
+<pre><code>pandoc <a rel="nofollow" href="http://pandoc.org/demo/README">README</a> -o <a rel="nofollow" href="http://pandoc.org/demo/example1.html">example1.html</a></code></pre></li>
+<li><p>Standalone HTML file:</p>
+<pre><code>pandoc -s <a rel="nofollow" href="http://pandoc.org/demo/README">README</a> -o <a rel="nofollow" href="http://pandoc.org/demo/example2.html">example2.html</a></code></pre></li>
+<li><p>HTML with smart quotes, table of contents, CSS, and custom footer:</p>
+<pre><code>pandoc -s -S --toc -c <a rel="nofollow" href="http://pandoc.org/demo/pandoc.css">pandoc.css</a> -A <a rel="nofollow" href="http://pandoc.org/demo/footer.html">footer.html</a> <a rel="nofollow" href="http://pandoc.org/demo/README">README</a> -o <a rel="nofollow" href="http://pandoc.org/demo/example3.html">example3.html</a></code></pre></li>
+<li><p>LaTeX:</p>
+<pre><code>pandoc -s <a rel="nofollow" href="http://pandoc.org/demo/README">README</a> -o <a rel="nofollow" href="http://pandoc.org/demo/example4.tex">example4.tex</a></code></pre></li>
+<li><p>From LaTeX to markdown:</p>
+<pre><code>pandoc -s <a rel="nofollow" href="http://pandoc.org/demo/example4.tex">example4.tex</a> -o <a rel="nofollow" href="http://pandoc.org/demo/example5.text">example5.text</a></code></pre></li>
+<li><p>reStructuredText:</p>
+<pre><code>pandoc -s -t rst --toc <a rel="nofollow" href="http://pandoc.org/demo/README">README</a> -o <a rel="nofollow" href="http://pandoc.org/demo/example6.text">example6.text</a></code></pre></li>
+<li><p>Rich text format (RTF):</p>
+<pre><code>pandoc -s <a rel="nofollow" href="http://pandoc.org/demo/README">README</a> -o <a rel="nofollow" href="http://pandoc.org/demo/example7.rtf">example7.rtf</a></code></pre></li>
+<li><p>Beamer slide show:</p>
+<pre><code>pandoc -t beamer <a rel="nofollow" href="http://pandoc.org/demo/SLIDES">SLIDES</a> -o <a rel="nofollow" href="http://pandoc.org/demo/example8.pdf">example8.pdf</a></code></pre></li>
+<li><p>DocBook XML:</p>
+<pre><code>pandoc -s -S -t docbook <a rel="nofollow" href="http://pandoc.org/demo/README">README</a> -o <a rel="nofollow" href="http://pandoc.org/demo/example9.db">example9.db</a></code></pre></li>
+<li><p>Man page:</p>
+<pre><code>pandoc -s -t man <a rel="nofollow" href="http://pandoc.org/demo/pandoc.1.md">pandoc.1.md</a> -o <a rel="nofollow" href="http://pandoc.org/demo/example10.1">example10.1</a></code></pre></li>
+<li><p>ConTeXt:</p>
+<pre><code>pandoc -s -t context <a rel="nofollow" href="http://pandoc.org/demo/README">README</a> -o <a rel="nofollow" href="http://pandoc.org/demo/example11.tex">example11.tex</a></code></pre></li>
+<li><p>Converting a web page to markdown:</p>
+<pre><code>pandoc -s -r html <a rel="nofollow" href="http://www.gnu.org/software/make/">http://www.gnu.org/software/make/</a> -o <a rel="nofollow" href="http://pandoc.org/demo/example12.text">example12.text</a></code></pre></li>
+<li><p>From markdown to PDF:</p>
+<pre><code>pandoc <a rel="nofollow" href="http://pandoc.org/demo/README">README</a> --latex-engine=xelatex -o <a rel="nofollow" href="http://pandoc.org/demo/example13.pdf">example13.pdf</a></code></pre></li>
+<li><p>PDF with numbered sections and a custom LaTeX header:</p>
+<pre><code>pandoc -N --template=<a rel="nofollow" href="http://pandoc.org/demo/mytemplate.tex">mytemplate.tex</a> --variable mainfont="Palatino" --variable sansfont="Century Gothic" --variable monofont="Consolas" --variable fontsize=12pt --variable version=1.15.2 <a rel="nofollow" href="http://pandoc.org/demo/README">README</a> --latex-engine=xelatex --toc -o <a rel="nofollow" href="http://pandoc.org/demo/example14.pdf">example14.pdf</a></code></pre></li>
+<li><p>A wiki program using <a href="http://happstack.com/">Happstack</a> and pandoc: <a href="http://gitit.net/">gitit</a></p></li>
+<li><p>HTML slide shows:</p>
+<pre><code>pandoc -s --mathml -i -t dzslides <a rel="nofollow" href="http://pandoc.org/demo/SLIDES">SLIDES</a> -o <a rel="nofollow" href="http://pandoc.org/demo/example16a.html">example16a.html</a></code></pre>
+<pre><code>pandoc -s --webtex -i -t slidy <a rel="nofollow" href="http://pandoc.org/demo/SLIDES">SLIDES</a> -o <a rel="nofollow" href="http://pandoc.org/demo/example16b.html">example16b.html</a></code></pre>
+<pre><code>pandoc -s --mathjax -i -t revealjs <a rel="nofollow" href="http://pandoc.org/demo/SLIDES">SLIDES</a> -o <a rel="nofollow" href="http://pandoc.org/demo/example16d.html">example16d.html</a></code></pre></li>
+<li><p>TeX math in HTML:</p>
+<pre><code>pandoc <a rel="nofollow" href="http://pandoc.org/demo/math.text">math.text</a> -s -o <a rel="nofollow" href="http://pandoc.org/demo/mathDefault.html">mathDefault.html</a></code></pre>
+<pre><code>pandoc <a rel="nofollow" href="http://pandoc.org/demo/math.text">math.text</a> -s --mathml -o <a rel="nofollow" href="http://pandoc.org/demo/mathMathML.html">mathMathML.html</a></code></pre>
+<pre><code>pandoc <a rel="nofollow" href="http://pandoc.org/demo/math.text">math.text</a> -s --webtex -o <a rel="nofollow" href="http://pandoc.org/demo/mathWebTeX.html">mathWebTeX.html</a></code></pre>
+<pre><code>pandoc <a rel="nofollow" href="http://pandoc.org/demo/math.text">math.text</a> -s --mathjax -o <a rel="nofollow" href="http://pandoc.org/demo/mathMathJax.html">mathMathJax.html</a></code></pre>
+<pre><code>pandoc <a rel="nofollow" href="http://pandoc.org/demo/math.text">math.text</a> -s --latexmathml -o <a rel="nofollow" href="http://pandoc.org/demo/mathLaTeXMathML.html">mathLaTeXMathML.html</a></code></pre></li>
+<li><p>Syntax highlighting of delimited code blocks:</p>
+<pre><code>pandoc <a rel="nofollow" href="http://pandoc.org/demo/code.text">code.text</a> -s --highlight-style pygments -o <a rel="nofollow" href="http://pandoc.org/demo/example18a.html">example18a.html</a></code></pre>
+<pre><code>pandoc <a rel="nofollow" href="http://pandoc.org/demo/code.text">code.text</a> -s --highlight-style kate -o <a rel="nofollow" href="http://pandoc.org/demo/example18b.html">example18b.html</a></code></pre>
+<pre><code>pandoc <a rel="nofollow" href="http://pandoc.org/demo/code.text">code.text</a> -s --highlight-style monochrome -o <a rel="nofollow" href="http://pandoc.org/demo/example18c.html">example18c.html</a></code></pre>
+<pre><code>pandoc <a rel="nofollow" href="http://pandoc.org/demo/code.text">code.text</a> -s --highlight-style espresso -o <a rel="nofollow" href="http://pandoc.org/demo/example18d.html">example18d.html</a></code></pre>
+<pre><code>pandoc <a rel="nofollow" href="http://pandoc.org/demo/code.text">code.text</a> -s --highlight-style haddock -o <a rel="nofollow" href="http://pandoc.org/demo/example18e.html">example18e.html</a></code></pre>
+<pre><code>pandoc <a rel="nofollow" href="http://pandoc.org/demo/code.text">code.text</a> -s --highlight-style tango -o <a rel="nofollow" href="http://pandoc.org/demo/example18f.html">example18f.html</a></code></pre>
+<pre><code>pandoc <a rel="nofollow" href="http://pandoc.org/demo/code.text">code.text</a> -s --highlight-style zenburn -o <a rel="nofollow" href="http://pandoc.org/demo/example18g.html">example18g.html</a></code></pre></li>
+<li><p>GNU Texinfo, converted to info, HTML, and PDF formats:</p>
+<pre><code>pandoc <a rel="nofollow" href="http://pandoc.org/demo/README">README</a> -s -o <a rel="nofollow" href="http://pandoc.org/demo/example19.texi">example19.texi</a></code></pre>
+<pre><code>makeinfo --no-validate --force <a rel="nofollow" href="http://pandoc.org/demo/example19.texi">example19.texi</a> -o <a rel="nofollow" href="http://pandoc.org/demo/example19.info">example19.info</a></code></pre>
+<pre><code>makeinfo --no-validate --force <a rel="nofollow" href="http://pandoc.org/demo/example19.texi">example19.texi</a> --html -o <a rel="nofollow" href="http://pandoc.org/demo/example19">example19</a></code></pre>
+<pre><code>texi2pdf <a rel="nofollow" href="http://pandoc.org/demo/example19.texi">example19.texi</a>  # produces <a rel="nofollow" href="http://pandoc.org/demo/example19.pdf">example19.pdf</a></code></pre></li>
+<li><p>OpenDocument XML:</p>
+<pre><code>pandoc <a rel="nofollow" href="http://pandoc.org/demo/README">README</a> -s -t opendocument -o <a rel="nofollow" href="http://pandoc.org/demo/example20.xml">example20.xml</a></code></pre></li>
+<li><p>ODT (OpenDocument Text, readable by OpenOffice):</p>
+<pre><code>pandoc <a rel="nofollow" href="http://pandoc.org/demo/README">README</a> -o <a rel="nofollow" href="http://pandoc.org/demo/example21.odt">example21.odt</a></code></pre></li>
+<li><p>MediaWiki markup:</p>
+<pre><code>pandoc -s -S -t mediawiki --toc <a rel="nofollow" href="http://pandoc.org/demo/README">README</a> -o <a rel="nofollow" href="http://pandoc.org/demo/example22.wiki">example22.wiki</a></code></pre></li>
+<li><p>EPUB ebook:</p>
+<pre><code>pandoc -S <a rel="nofollow" href="http://pandoc.org/demo/README">README</a> -o <a rel="nofollow" href="http://pandoc.org/demo/README.epub">README.epub</a></code></pre></li>
+<li><p>Markdown citations:</p>
+<pre><code>pandoc -s -S --bibliography <a rel="nofollow" href="http://pandoc.org/demo/biblio.bib">biblio.bib</a> --filter pandoc-citeproc <a rel="nofollow" href="http://pandoc.org/demo/CITATIONS">CITATIONS</a> -o <a rel="nofollow" href="http://pandoc.org/demo/example24a.html">example24a.html</a></code></pre>
+<pre><code>pandoc -s -S --bibliography <a rel="nofollow" href="http://pandoc.org/demo/biblio.json">biblio.json</a> --filter pandoc-citeproc --csl <a rel="nofollow" href="http://pandoc.org/demo/chicago-fullnote-bibliography.csl">chicago-fullnote-bibliography.csl</a> <a rel="nofollow" href="http://pandoc.org/demo/CITATIONS">CITATIONS</a> -o <a rel="nofollow" href="http://pandoc.org/demo/example24b.html">example24b.html</a></code></pre>
+<pre><code>pandoc -s -S --bibliography <a rel="nofollow" href="http://pandoc.org/demo/biblio.yaml">biblio.yaml</a> --filter pandoc-citeproc --csl <a rel="nofollow" href="http://pandoc.org/demo/ieee.csl">ieee.csl</a> <a rel="nofollow" href="http://pandoc.org/demo/CITATIONS">CITATIONS</a> -t man -o <a rel="nofollow" href="http://pandoc.org/demo/example24c.1">example24c.1</a></code></pre></li>
+<li><p>Textile writer:</p>
+<pre><code>pandoc -s -S <a rel="nofollow" href="http://pandoc.org/demo/README">README</a> -t textile -o <a rel="nofollow" href="http://pandoc.org/demo/example25.textile">example25.textile</a></code></pre></li>
+<li><p>Textile reader:</p>
+<pre><code>pandoc -s -S <a rel="nofollow" href="http://pandoc.org/demo/example25.textile">example25.textile</a> -f textile -t html -o <a rel="nofollow" href="http://pandoc.org/demo/example26.html">example26.html</a></code></pre></li>
+<li><p>Org-mode:</p>
+<pre><code>pandoc -s -S <a rel="nofollow" href="http://pandoc.org/demo/README">README</a> -o <a rel="nofollow" href="http://pandoc.org/demo/example27.org">example27.org</a></code></pre></li>
+<li><p>AsciiDoc:</p>
+<pre><code>pandoc -s -S <a rel="nofollow" href="http://pandoc.org/demo/README">README</a> -t asciidoc -o <a rel="nofollow" href="http://pandoc.org/demo/example28.txt">example28.txt</a></code></pre></li>
+<li><p>Word docx:</p>
+<pre><code>pandoc -s -S <a rel="nofollow" href="http://pandoc.org/demo/README">README</a> -o <a rel="nofollow" href="http://pandoc.org/demo/example29.docx">example29.docx</a></code></pre></li>
+<li><p>LaTeX math to docx:</p>
+<pre><code>pandoc -s <a rel="nofollow" href="http://pandoc.org/demo/math.tex">math.tex</a> -o <a rel="nofollow" href="http://pandoc.org/demo/example30.docx">example30.docx</a></code></pre></li>
+<li><p>DocBook to markdown:</p>
+<pre><code>pandoc -f docbook -t markdown -s <a rel="nofollow" href="http://pandoc.org/demo/howto.xml">howto.xml</a> -o <a rel="nofollow" href="http://pandoc.org/demo/example31.text">example31.text</a></code></pre></li>
+<li><p>MediaWiki to html5:</p>
+<pre><code>pandoc -f mediawiki -t html5 -s <a rel="nofollow" href="http://pandoc.org/demo/haskell.wiki">haskell.wiki</a> -o <a rel="nofollow" href="http://pandoc.org/demo/example32.html">example32.html</a></code></pre></li>
+<li><p>Custom writer:</p>
+<pre><code>pandoc -t <a rel="nofollow" href="http://pandoc.org/demo/sample.lua">sample.lua</a> <a rel="nofollow" href="http://pandoc.org/demo/example33.text">example33.text</a> -o <a rel="nofollow" href="http://pandoc.org/demo/example33.html">example33.html</a></code></pre></li>
+<li><p>Docx with a reference docx:</p>
+<pre><code>pandoc -S --reference-docx <a rel="nofollow" href="http://pandoc.org/demo/twocolumns.docx">twocolumns.docx</a> -o <a rel="nofollow" href="http://pandoc.org/demo/UsersGuide.docx">UsersGuide.docx</a> <a rel="nofollow" href="http://pandoc.org/demo/README">README</a></code></pre></li>
+<li><p>Docx to markdown, including math:</p>
+<pre><code>pandoc -s <a rel="nofollow" href="http://pandoc.org/demo/example30.docx">example30.docx</a> -t markdown -o <a rel="nofollow" href="http://pandoc.org/demo/example35.md">example35.md</a></code></pre></li>
+<li><p>EPUB to plain text:</p>
+<pre><code>pandoc <a rel="nofollow" href="http://pandoc.org/demo/README.epub">README.epub</a> -t plain -o <a rel="nofollow" href="http://pandoc.org/demo/example36.text">example36.text</a></code></pre></li>
+</ol>
+        </div>
+      </main>
+    </div>
+    <footer>
+    </footer>
+  </div>
+
+
+<div id="techsmith-snagitchrome-extension"></div></body></html>

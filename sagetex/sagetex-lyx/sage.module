@@ -1,0 +1,151 @@
+#\DeclareLyXModule[sagetex.sty]{Sage}
+#DescriptionBegin
+#Allows to use Sage as a literate programming tool, mixed with your text.
+#Provides 
+#    the environments: sageblock and sagesilent
+#    the commands: \sage (to be used in-line) and \sageplot (as an environment, can be included in a Figure float)
+#Needs a chain Latex(Standard) to Sage and from Sage to PDF to be compiled fully with the rendering of sage instructions
+#Or you can export the latex file and compile it manually in a console window, by executing
+#(pdf)latex mysagedoc.tex -> generates mysagedoc.sage
+#sage mysagedoc.sage
+#(pdf)latex mysagedoc.tex
+#DescriptionEnd
+
+#Category: literate
+
+Format 35
+
+OutputType              literate
+OutputFormat            sagetex
+
+AddToPreamble
+\usepackage{sagetex}
+\newcommand{\centerplot}[1]{\begin{center}\sageplot[width=10cm][pdf]{#1}\end{center}}
+\newcommand{\sageeqninline}[1]{$ \sage{#1} $}
+\newcommand{\sageeqndisplay}[1]{\[ \sage{#1} \]}
+EndPreamble
+
+
+Style sageblock
+	Margin                Dynamic
+	LatexType             Environment
+	LatexName             sageblock
+	Category              Sage
+	Align                 Left
+	AlignPossible         Block,Left
+	NewLine               0
+	FreeSpacing           1
+	PassThru              1
+	ParbreakIsNewline     1
+	Spellcheck	          0
+	LabelType             Static
+	LabelFont
+	  Color               magenta
+	EndFont
+	TextFont
+	  Color               latex
+	  Family              Typewriter
+	EndFont
+End
+
+Style sagesilent
+	Margin                Dynamic
+	LatexType             Environment
+	LatexName             sagesilent
+	Category              Sage
+	Align                 Left
+	AlignPossible         Block,Left
+	NewLine               0
+	FreeSpacing           1
+	PassThru              1
+	ParbreakIsNewline     1
+	Spellcheck	          0
+	LabelType             Static
+	LabelFont
+	  Color               magenta
+	EndFont
+	TextFont
+	  Color               magenta
+	  Family              Typewriter
+	EndFont
+End
+
+Style sagedisplay
+    Margin                Dynamic
+    LatexType             Command
+    LatexName             sageeqndisplay
+    Category              Sage
+    OptionalArgs          1
+    RequiredArgs          0
+    Align                 Center
+    AlignPossible         Block,Center
+    NewLine               0
+    FreeSpacing           1
+    PassThru              1
+    ParbreakIsNewline     1
+    Spellcheck            0
+    TextFont
+      Color               magenta
+      Family              Typewriter
+    EndFont
+End      
+
+Style sageplotcenter
+	LatexType             Command
+	LatexName             centerplot
+	Category              Sage
+	OptionalArgs          1
+	RequiredArgs          0
+	Align                 Left
+	FreeSpacing           1
+	PassThru              1
+	Spellcheck	          0
+	TextFont
+	  Color               magenta
+	  Family              Typewriter
+	EndFont
+End
+
+Style sageplot
+	LatexType             Command
+	LatexName             sageplot
+	Category              Sage
+	OptionalArgs          1
+	RequiredArgs          0
+	Align                 Left
+	FreeSpacing           1
+	PassThru              1
+	Spellcheck	          0
+	TextFont
+	  Color               magenta
+	  Family              Typewriter
+	EndFont
+End
+
+InsetLayout Flex:sagecommand
+    LyXType               custom
+	LabelString           Sage
+	LatexType             command
+	LatexName             sage
+	Decoration            classic
+	PassThru              1
+	Font
+	  Color               magenta
+	  Family              Typewriter
+	EndFont
+	MultiPar              false
+End
+
+InsetLayout Flex:sageinline
+    LyXType               custom
+    LabelString           Sage
+    LatexType             command
+    LatexName             sageeqninline
+    Decoration            classic
+    PassThru              1
+    Font
+      Color               magenta
+      Family              Typewriter
+    EndFont
+    MultiPar              false
+End

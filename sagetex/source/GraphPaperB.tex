@@ -1,0 +1,13 @@
+\documentclass[a4paper]{article}
+\usepackage[margin=.5in]{geometry}
+\usepackage{tikz}
+\pagestyle{empty}
+\begin{document}
+\begin{tikzpicture}
+[My grid/.style ={help lines, step=.5cm
+,color=#1!90},
+My grid/.default=black]
+\draw[My grid]
+ (0,0) grid (18,27);
+\end{tikzpicture}
+\end{document}

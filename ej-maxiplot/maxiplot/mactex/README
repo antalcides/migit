@@ -1,0 +1,48 @@
+## THIS package is prepared for Maxima 5.29 using sbcl (lisp)
+## IT DOES NOT WORK WITH Maxima < 5.29
+
+## The lines starting with # in this file are comments.
+## You can test this package if you type
+## source README
+## in a terminal (you can find it in the programs menu)
+# create the following directories:
+# /usr/share/texmf/tex/latex/subfiles/
+# /usr/share/texmf/tex/latex/maxima/
+# (run):
+sudo mkdir -p /usr/share/texmf/tex/latex/{maxima,subfiles}
+
+
+# copy this to /usr/share/texmf/tex/latex/subfiles/
+# subfiles.sty
+# subfiles.cls
+# (run):
+sudo cp subfiles.{sty,cls} /usr/share/texmf/tex/latex/subfiles/
+
+
+# copy this to /usr/share/texmf/tex/latex/subfiles/
+# maxiplot.sty
+# (run):
+sudo cp subfiles.{sty,cls} /usr/share/texmf/tex/latex/subfiles/
+
+
+# copy this to /usr/share/maxima/5.29.1/share/utils/
+# mactex-utilities.lisp
+# max-tex-init.mac
+# max-tex-tools.lisp
+sudo cp mactex-utilities.lisp max-tex-init.mac max-tex-tools.lisp /usr/share/maxima/5.29.1/share/utils/
+
+# Update the tex database
+# (run):
+sudo texhash
+
+
+# To run the example, make sure that all .tex files are
+# in the same directory (mastertmp.tex, subtmp.tex)
+# Then compile latex:
+# run
+latex --shell-escape mastertmp
+bibtex mastertmp.aux
+latex mastertmp
+latex mastertmp
+dvips mastertmp
+ps2pdf mastertmp.ps

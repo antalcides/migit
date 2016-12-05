@@ -1,0 +1,149 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\usepackage{longtable,booktabs}
+\usepackage{graphicx}
+% Redefine \includegraphics so that, unless explicit options are
+% given, the image width will not exceed the width of the page.
+% Images get their normal width if they fit onto the page, but
+% are scaled down if they would overflow the margins.
+\makeatletter
+\def\ScaleIfNeeded{%
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+\let\Oldincludegraphics\includegraphics
+{%
+ \catcode`\@=11\relax%
+ \gdef\includegraphics{\@ifnextchar[{\Oldincludegraphics}{\Oldincludegraphics[width=\ScaleIfNeeded]}}%
+}%
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+
+\author{}
+\date{}
+
+\begin{document}
+
+{
+\hypersetup{linkcolor=black}
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+class: center, middle
+
+\section{Example presentation}\label{example-presentation}
+
+by \href{http://www.fladd.de}{Florian Krause}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\section{Using lists}\label{using-lists}
+
+Presentations usually use lists items:
+
+\begin{itemize}
+\item
+  Bullet item 1
+\item
+  Bullet item 2
+\end{itemize}
+
+\begin{longtable}[c]{@{}l@{}}
+\toprule\addlinespace
+\begin{minipage}[t]{0.03\columnwidth}\raggedright
+count: false
+\end{minipage}
+\\\addlinespace
+\begin{minipage}[t]{0.03\columnwidth}\raggedright
+* Bullet item 3 (incremental)
+\end{minipage}
+\\\addlinespace
+\begin{minipage}[t]{0.03\columnwidth}\raggedright
+1. Numbered item 1
+\end{minipage}
+\\\addlinespace
+\begin{minipage}[t]{0.03\columnwidth}\raggedright
+2. Numbered item 2
+\end{minipage}
+\\\addlinespace
+\bottomrule
+\end{longtable}
+
+\section{Embedding images}\label{embedding-images}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Images can be included by simply pointing to the file:
+\end{itemize}
+
+.center{[}\includegraphics{image.png}{]}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\section{Formatting text}\label{formatting-text}
+
+\begin{itemize}
+\item
+  Text can be \emph{italic} or \textbf{bold}
+\item
+  There can be \texttt{inline code}
+\item
+  And even full (syntax highlighted!) code blocks:
+\end{itemize}
+
+```python def test(a, b): c = a + b return ``a + b = \{0\}.''format(c)
+````
+
+???
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  This is a comment and not visible on the slides
+\end{itemize}
+
+\end{document}

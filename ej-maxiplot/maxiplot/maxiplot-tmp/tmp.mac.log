@@ -1,0 +1,48 @@
+
+Maxima 5.32.1 http://maxima.sourceforge.net
+using Lisp GNU Common Lisp (GCL) GCL 2.6.10 (a.k.a. GCL)
+Distributed under the GNU Public License. See the file COPYING.
+Dedicated to the memory of William Schelter.
+The function bug_report() provides bug reporting information.
+(%i1) batch("tmp.mac")
+
+read and interpret file: #p/media/aolivo/Antalcides-EXT/maletin/doc-reproducible/ej-maxiplot/Carpeta sin título/maxiplot-tmp/tmp.mac
+(%i2) load("max-tex-init.mac")
+Maxima encountered a Lisp error:
+
+ Error in PROGN [or a callee]: Cannot open the file /usr/share/maxima/5.32.1/share/max-tex-init.mac.
+
+Automatically continuing.
+To enable the Lisp debugger set *debugger-hook* to nil.
+AMSMATH-MATRIX
+(%i3) write_stdout("tmp.mxx")
+(%i4) append_stdout("tmp.mxx",print("\\newcommand{\\checkfor}[2]",lbracep),
+                    print(" \\ifcsname#1\\endcsname"),print(" % "),
+                    print(" \\else"),print("   #2"),print(" \\fi"),
+                    print(rbrace))
+\newcommand{\checkfor}[2] lbracep 
+ \ifcsname#1\endcsname 
+ %  
+ \else 
+   #2 
+ \fi 
+rbrace 
+(%i5) plot2d([cos(x),sin(x^2)],[x,-3,3],[plot_format,gnuplot],
+             [gnuplot_term,ps],[run_viewer,false],
+             [gnuplot_out_file,"grafico1.eps"])
+(%o5) /home/aolivo/maxout.gnuplot
+/home/aolivo/grafico1.eps
+(%i6) append_stdout("tmp.mxx",print("\\checkfor{maximai}",lbracep),
+                    print("\\newcommand{\\maximai}",lbracep),f:x/(2-3*x+x^3),
+                    tex('integrate(f,x)),print("="),tex(integrate(f,x)),
+                    print("+K"),print(rbrace),print(rbrace))
+\checkfor{maximai} lbracep 
+\newcommand{\maximai} lbracep 
+$$\int {{{x}\over{x^3-3\,x+2}}}{\;dx}$$
+= 
+$$-{{2\,\log \left(x+2\right)}\over{9}}+{{2\,\log \left(x-1\right)
+ }\over{9}}-{{1}\over{3\,x-3}}$$
++K 
+rbrace 
+rbrace 
+(%o6)                               tmp.mac

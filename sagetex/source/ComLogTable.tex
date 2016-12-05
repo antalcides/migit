@@ -1,0 +1,33 @@
+\documentclass[12pt]{article}
+\usepackage{kpfonts}  %Changing the default fonts
+\usepackage[T1]{fontenc}
+\usepackage{sagetex}
+\usepackage[margin=.25in]{geometry}
+\usepackage{supertabular}
+\begin{document}
+\pagestyle{empty}
+\begin{center}
+{\LARGE Common Logarithm Table}
+\end{center}
+\begin{sagesilent}
+var('x')
+f(x) = log(x, 10)
+
+output = ""
+output += r"\begin{supertabular}{ccccccccccc} "
+output += r" N & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\ \hline "
+for i in range(0,90):
+    num1 = 1.0+i/10.0
+    output += r" %2.1f "%(num1) 
+    for j in range(0,10):
+        num2 = num1+j/100.
+        output += r"& %2.4f "%(f(num2))
+    output += r"\\ "
+    if (i==44):
+        output += r" N & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\ \hline "
+output += r"\end{supertabular}"
+\end{sagesilent}
+\begin{center}
+\sagestr{output}
+\end{center}
+\end{document}

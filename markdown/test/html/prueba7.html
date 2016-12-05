@@ -1,0 +1,126 @@
+<h1 id="mi-primer-documento-markdown">Mi primer documento Markdown</h1>
+<p>Este documento es para experimentar lo que es diagramar con texto <em>Markup</em>.
+Vamos ahora a realizar varios ensayos.
+* Insertaremos una imagen
+<img src="/home/antalcides/Escritorio/est/ejemplos/image/maple.png" alt="Imagen de prueba" title="Mi Imagen" />
+* insertaremos una ecuación
+$\intop_{1}^{2}x^{2}dx$</p>
+
+<hr />
+<ul>
+  <li>imagenes 
+<img src="/home/antalcides/Escritorio/est/ejemplos/image/maple.png" alt="" title="title&quot;&quot;width:50px;height:50px" /></li>
+  <li>Insertar una imagen con el tamaño personalizado</li>
+  <li>
+    <ul>
+      <li>-</li>
+    </ul>
+  </li>
+</ul>
+<center><img src="/home/antalcides/Escritorio/est/ejemplos/image/Professional_Social_Work-education.JPG" width="100" height="100" /></center>
+<hr />
+<p>![][id]
+[id]: http://bit.ly/1g1oUFW “title” “width:200px;height:100px”</p>
+
+<p><img src="http://bit.ly/1g1oUFW" alt="" title="right&quot; &quot;width:200px;height:100px;float:right;padding-left:10px;" /></p>
+
+<ul>
+  <li>
+    <p>Insertaremos líneas de código en Python
+<code>python
+     def syntaxHighlight():
+  haroo = "press"
+  return haroo
+</code></p>
+  </li>
+  <li>
+    <p>Insertan código LaTex</p>
+  </li>
+</ul>
+
+<p><code>tex
+\documentclass[12pt]{article}
+\usepackage{lingmacros}
+\usepackage{tree-dvips}
+\begin{document} 
+</code></p>
+
+<ul>
+  <li>Código en php</li>
+</ul>
+
+<p>```php
+&lt;?php
+$a1=array(“a”=&gt;”red”,”b”=&gt;”green”,”c”=&gt;”blue”);
+$a2=array(“a”=&gt;”red”,”c”=&gt;”blue”,”d”=&gt;”pink”);</p>
+
+<p>$result=array_intersect_key($a1,$a2);
+print_r($result);
+?&gt;
+```</p>
+
+<hr />
+
+<p><code>ruby
+code block
+</code></p>
+
+<pre><code class="language-cpp">fenced code block
+</code></pre>
+
+<pre><code class="language-javascript">function syntaxHighlight(code, lang) {
+   var foo = 'rhio';
+   var bar = 33;
+}
+</code></pre>
+<ul>
+  <li>
+    <p>Tablas
+| Column | Column | Column |
+|——–|——–|——–|
+| value  | value  | value  |</p>
+  </li>
+  <li>Insertar media rich
+@<a href="https://twitter.com/haroopad/status/337257711827841024">media</a>
+@<a href="https://twitter.com/haroopad/status/337257711827841024" title="width:200px;margin:1em">caption</a></li>
+  <li>Audio y video
+<img src="http://v2v.cc/~j/theora_testsuite/320x240.ogg" alt="audio" />
+<img src="http://www.html5rocks.com/en/tutorials/video/basics/devstories.webm" alt="video" /></li>
+  <li>Otros</li>
+  <li>[x] send email</li>
+  <li>[ ] meet with my boss</li>
+  <li>[ ] date with my girl friend</li>
+  <li>[ ] write techical reporting about javascript</li>
+</ul>
+
+<hr />
+
+<p>graph LR;
+    A[Hard edge]–&gt;|Link text|B(Round edge);
+    B–&gt;C{Decision};
+    C–&gt;|One|D[Result one];
+    C–&gt;|Two|E[Result two];</p>
+
+<hr />
+
+<h1 id="other-maths">Other Maths</h1>
+
+<p>En una línea</p>
+
+<p>$ \alpha + \beta + x^{2} = z^{2} $ or $ \frac{1}{2^{-32} - 1} $.</p>
+
+<p>Definición: Sea $X$ una variable aleatoria que asume los valores
+$x_{1},x_{2},x_{3},\cdots x_{k}$, con iguales probabilidades, entonces
+* * *
+<script type="math/tex">% <![CDATA[
+\begin{equation} f\left(x,k\right)=\left\{ \begin{array}{ccc}
+\frac{1}{k} & si & x=x_{1},x_{2},x_{3},\cdots x_{k}\\
+0 &  & \text{si no}
+\end{array}\right.\end{equation} %]]></script></p>
+
+<hr />
+<p>These render differently. For example, type
+$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$
+ (which is inline mode) or type
+<script type="math/tex">\begin{equation}\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}\end{equation}</script></p>
+

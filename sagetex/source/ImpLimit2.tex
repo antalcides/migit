@@ -1,0 +1,75 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{latexsym, amsmath,amsfonts,amssymb}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{fancybox}
+%\usepackage{sagetex}
+\usepackage{nccmath}%to get small medium and large math
+\usepackage{framed}
+%\usepackage{microtype}
+\usepackage{natbib,bm,url,todonotes}
+\usepackage{wrapfig}
+\usepackage[ugly]{units}
+\usepackage[margin=.75in]{geometry}
+\usepackage[compact,small]{titlesec}
+\usepackage{kpfonts}  %Changing the default fonts
+\usepackage[T1]{fontenc}
+\hypersetup{colorlinks=true,linkcolor=black} %take off the box, have the link black instead of red
+\setlength{\parskip}{1.2ex} %space between paragraphs
+\setlength{\parindent}{1em} %Paragraph indentation
+\clubpenalty = 10000
+\widowpenalty = 10000
+\newcommand\T{\rule{0pt}{2ex}} % \T will create extra space above (used to fix tables)
+\newcommand\B{\rule[-1.5ex]{0pt}{0pt}}% \B will create extra space below (used to fix tables)
+\usetikzlibrary{calc,trees,positioning,arrows,chains,shapes.geometric,%
+  decorations.pathreplacing,decorations.pathmorphing,shapes,%
+  matrix,shapes.symbols,plotmarks,decorations.markings,shadows}
+\linespread{1.25} %spacing between lines
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+\Large{\textbf{An Important Limit}}
+\end{center}
+Proof, the essence of mathematics, is typically beyond the range of most high school students.
+When you're able to find a proof that they can understand, even if it's just a mathematical
+argument, it's a good idea to expose them to it. It's a break from the tedious calculations and
+will give students at least some appreciation of the what mathematicians do. One argument
+that every Calculus students should see is $\underset{x \to 0}{\lim}\,\frac{\sin(x)}{x}=1$.
+Determining the limit forces students to recall important information about similar triangles and 
+sectors of circles and apply it to a solving a different problem.
+
+\begin{wrapfigure}{l}{7.cm}
+\includegraphics[width=6.5cm]{LimSin.pdf}
+\caption{Start with the unit circle.} \label{fg:ucatO}
+\end{wrapfigure}
+To calculate the limit, draw a unit circle centered at the origin. I've chosen $\theta$ to 
+be big enough that we can get a nice picture. The first important observation is that every 
+angle $\theta$ can be associated with a point $(x, y)$, which is indicated with the red 
+point. The point $(x, y)$ can be expressed as $(\cos(\theta), \sin(\theta))$. Dropping 
+a perpendicular from the point $(x, y)$ to the origin creates a right triangle 
+with a hypotenuse of length $1$. Corresponding to this triangle is a similar triangle 
+which contains the point $(1,0)$. This is illustrated more clearly in Figure 2; the two 
+triangles are $\triangle OSR$ and $\triangle OTU$, respectively.
+
+Since the radius of the circle is $1$, the area of the unit circle is just $\pi(1)^2=\pi$ so the 
+area of sector $OSU$ is $\frac{\theta}{2\pi}\pi=\frac{\theta}{2}$. Figure 2 makes is clear that 
+area of triangle $\triangle OSR$ is less than or equal to area of sector $OSU$  which is less 
+than or equal to area of triangle $\triangle OTU$. The area of triangle $OSR$ is just 
+$\frac{1}{2}\cos(\theta)\sin(\theta)$ and the area of the sector is $\frac{1}{2}\theta$. 
+
+\begin{wrapfigure}{l}{7cm}
+\includegraphics[width=5.75cm]{LimSin2.pdf}
+\caption{A sector of a circle.} \label{fg:sec}
+\end{wrapfigure}
+Finally, notice that for $\triangle OTU$ we have 
+$\tan(\theta)=\frac{TU}{1}=TU$, so the area of $\triangle OTU$ is just $\frac{1}{2}\tan(\theta)=\frac{\sin(\theta)}{2\cos(\theta)}$.
+Put it all together and we get the inequality chain:
+\[0 \leq \frac{1}{2}\cos(\theta)\sin(\theta) \leq \frac{\theta}{2} \leq \frac{1}{2}\tan(\theta)=\frac{\sin(\theta)}{2\cos(\theta)}\]
+which is equivalent to  $0 \leq \cos(\theta)\sin(\theta) \leq \theta \leq \tan(\theta)=\frac{\sin(\theta)}{\cos(\theta)}$. Since $\theta \neq 0$,  $\sin(\theta) \neq 0$ either, so we can divide by $\sin(\theta)$ to get
+$\cos(\theta) \leq \frac{\theta}{\sin(\theta)} \leq \frac{1}{\cos(\theta)}$. If $\cos(\theta) \neq 0$ then $\frac{1}{\cos(\theta)} \geq
+ \frac{\sin(\theta)}{\theta} \geq \cos(\theta)$. Take the limit of each term as $x$ approaches $0$ to get 
+$\lim_{x \to 0}\cos(\theta) \leq \lim_{x \to 0}\frac{\sin(\theta)}{\theta}  \leq \lim_{x \to 0}\frac{1}{\cos(\theta)}$. This simplifies to 
+$1 \leq \lim_{x \to 0}\frac{\sin(\theta)}{\theta} \leq 1$, hence $\lim_{x \to 0}\frac{\sin(\theta)}{\theta} =1$.
+\end{document}

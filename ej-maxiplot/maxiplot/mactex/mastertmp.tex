@@ -1,0 +1,29 @@
+\documentclass[a4paper]{article}
+
+\usepackage{mxmgplt}
+
+% Path for figures
+\graphicspath{{Figures/}}
+
+\begin{document}
+\section{This is section 1}
+This is the text of the section
+
+With some formulas
+%% You can cite (uncomment the following and the last blocks
+%% in this document)
+%\cite{Too90} \cite{Brown09} \cite{ShahinpoorKimEtAl07} \cite{GamezZarzosoEtAl08} \cite{LaFiandra08}
+$$ a\,b\,c $$
+\subfile{subtmp} % Inlcude files
+
+%% Change Bibliography for References, and put it in numbered section
+%% LaTeX/Bibliography Management - Wikibooks
+%% en.wikibooks.org/wiki/LaTeX/Bibliography_Management
+%%\renewcommand*{\bibname}{\vspace*{-1em}} % book: remove extra space
+%\renewcommand*{\refname}{\vspace*{-1em}} % article: remove extra space
+%\section{References}
+%\vspace*{-1em} % remove extra space
+%\bibliographystyle{giorgio} % http://www.podoblaz.net/cml/?id=39
+%\bibliography{references-file-without-extension}
+
+\end{document}

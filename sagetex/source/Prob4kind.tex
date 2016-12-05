@@ -1,0 +1,37 @@
+\documentclass[12pt]{article}%
+\usepackage{latexsym,amsmath,amsfonts,amssymb}
+%\usepackage{concrete}% text font
+%\usepackage{euler}% math font
+\usepackage{graphicx}%insert pictures
+\usepackage{geometry}%setting margins
+\usepackage{fancybox}
+\usepackage{xcolor}
+\usepackage[colorinlistoftodos,shadow]{todonotes}
+\usepackage{tikz}
+\pagestyle{empty}
+\linespread{1.6}% double spacing to give room for the binomial coefficients
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% NOTATION %%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\FPC}{Fundamental Principle of Counting }
+%%%%%%%%%%%%%%%%%%%%%% END OF PREAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\noindent Suppose $5$ cards are dealt from a standard deck of $52$ cards. Find
+$P(4 \mbox{ of a kind})$.\\\\
+\textbf{Solution:} Since order is not important and repetition of 
+cards is not allowed, this is a problem that involves combinations and
+the denominator is $\binom{52}{5}$. Now use the \FPC to determine the number
+of ways to get $4$ of a kind. 
+\begin{center}
+\begin{tabular}{lcc}
+Event & Outcomes & Example\\
+\hline
+$E_1:$ Choose the kind for $4$ of a kind & $\binom{13}{1}$ & Q \\
+$E_2:$ Choose the specific cards for $4$ of a kind & $\binom{4}{4}$ & 
+Q\,$\clubsuit$, Q\,$\spadesuit$, Q\,$\heartsuit$, Q\,$\diamondsuit$\\
+$E_3:$ Choose the remaining card & $\binom{48}{1}$ & 
+Q\,$\clubsuit$, Q\,$\spadesuit$, Q\,$\heartsuit$, Q\,$\diamondsuit$, 
+$5\,\spadesuit$\\
+\end{tabular}
+\end{center}
+By the \FPC there $\binom{13}{1}\binom{4}{4}\binom{48}{1}$ different
+ways to choose $4$ of a kind. Therefore, $P(4 \mbox{ of a kind})=\frac{\binom{13}{1}\binom{4}{4}\binom{48}{1}}{\binom{52}{5}}=\frac{624}{2598960} \approx 0.0002400960$.\\\\
+\end{document}

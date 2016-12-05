@@ -1,0 +1,104 @@
+% Copyright 2015 http://www.highschoolmathandchess.com/
+% This program is free software: you can redistribute it and/or modify
+%   it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 3 of the License, or
+%    (at your option) any later version.
+%    This program is distributed in the hope that it will be useful,
+%   but WITHOUT ANY WARRANTY; without even the implied warranty of
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+\documentclass{standalone}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{pgfplots}
+\usepackage{sagetex}
+\usetikzlibrary{spy}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{decorations}
+\pgfplotsset{compat=newest}% use newest version
+\begin{document}
+\begin{sagesilent}
+####### SCREEN SETUP #####################
+LowerX = -3.0
+UpperX = 3.0
+LowerY = -3.0
+UpperY = 3.0
+step = .01
+Scale = 1.0
+xscale=1.0
+yscale=1.0
+#####################TIKZ PICTURE SET UP ###########
+output = r""
+output += r"\begin{tikzpicture}"
+output += r"[line cap=round,line join=round,x=8.75cm,y=8cm]"
+output += r"\begin{axis}["
+output += r"grid = both,"
+#Change "both" to "none" in above line to remove graph paper
+output += r"minor tick num=4,"
+output += r"every major grid/.style={Red!30, opacity=1.0},"
+output += r"every minor grid/.style={ForestGreen!30, opacity=1.0},"
+output += r"height= %f\textwidth,"%(yscale)
+output += r"width = %f\textwidth,"%(xscale)
+output += r"thick,"
+output += r"black,"
+output += r"axis lines=center,"
+#Comment out above line to have graph in a boxed frame (no axes)
+output += r"domain=%f:%f,"%(LowerX,UpperX)
+output += r"line join=bevel,"
+output += r"xmin=%f,xmax=%f,ymin= %f,ymax=%f,"%(LowerX,UpperX,LowerY, UpperY)
+#output += r"xticklabels=\empty,"
+#output += r"yticklabels=\empty,"
+output += r"major tick length=5pt,"
+output += r"minor tick length=0pt,"
+output += r"major x tick style={black,very thick},"
+output += r"major y tick style={black,very thick},"
+output += r"minor x tick style={black,thin},"
+output += r"minor y tick style={black,thin},"
+#output += r"xtick=\empty,"
+#output += r"ytick=\empty"
+output += r"]"
+##############FUNCTIONS#################################
+##FUNCTION 1
+t1 =  var('t1')
+x1_coords = srange(LowerX,UpperX,step)
+y1_coords = [(zeta(t1)).n(digits=6) for t1 in x1_coords]
+output += r"\addplot[thin, NavyBlue, unbounded coords=jump] coordinates {"
+for i in range(0,len(x1_coords)):
+    if (y1_coords[i])<LowerY or (y1_coords[i])>UpperY:
+        output += r"(%f,inf) "%(x1_coords[i])
+    else:
+        output += r"(%f,%f) "%(x1_coords[i],y1_coords[i])
+output += r"};"
+output += r"\addlegendentry{$\zeta(x)$}"
+##FUNCTION 2 #########################################
+t2 =  var('t2')
+x2_coords = srange(LowerX,UpperX,step)
+y2_coords = [(t2^2).n(digits=6) for t2 in x2_coords]
+output += r"\addplot[thin, Orchid, unbounded coords=jump] coordinates {"
+for i in range(0,len(x2_coords)):
+    if (y2_coords[i])<LowerY or (y2_coords[i])>UpperY:
+        output += r"(%f,inf) "%(x2_coords[i])
+    else:
+        output += r"(%f,%f) "%(x2_coords[i],y2_coords[i])
+output += r"};"
+output += r"\addlegendentry{$x^2$}"
+##FUNCTION 3 ##############################################
+t3 =  var('t3')
+x3_coords = srange(LowerX,UpperX,step)
+y3_coords = [(sin(t3)).n(digits=6) for t3 in x3_coords]
+output += r"\addplot[thin, Peach, unbounded coords=jump] coordinates {"
+for i in range(0,len(x3_coords)):
+    if (y3_coords[i])<LowerY or (y3_coords[i])>UpperY:
+        output += r"(%f, inf) "%(x3_coords[i])
+    else:
+        output += r"(%f, %f) "%(x3_coords[i],y3_coords[i])
+output += r"};"
+output += r"\addlegendentry{$\sin(x)$}"
+##### COMMENT OUT A LINE OF SAGESILENT BY STARTING WITH #
+output += r"\end{axis}"
+output += r"\end{tikzpicture}"
+\end{sagesilent}
+\sagestr{output}
+\end{document}

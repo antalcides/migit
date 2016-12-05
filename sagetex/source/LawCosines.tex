@@ -1,0 +1,74 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{latexsym, amsmath,amsfonts,amssymb}
+\usepackage{xcolor}
+\usepackage[margin=.75in]{geometry}
+\usepackage{kpfonts}  %Changing the default fonts
+\usepackage[T1]{fontenc}
+\setlength{\parskip}{1.2ex} %space between paragraphs
+\setlength{\parindent}{1em} %Paragraph indentation
+\clubpenalty = 10000
+\widowpenalty = 10000
+\newcommand\T{\rule{0pt}{2ex}} % \T will create extra space above (used to fix tables)
+\newcommand\B{\rule[-1.5ex]{0pt}{0pt}}% \B will create extra space below
+\linespread{1.25} %spacing between lines
+\pagestyle{empty} %remove page numbers
+\begin{document}
+\begin{center}
+\Large{\textbf{Law of Cosines Proof}}
+\end{center}
+
+\noindent {\bf Law of Cosines:} For $\triangle ABC$ with sides $a, b, c$:
+\begin{center}
+$a^2=b^2+c^2-2bc\cos(A)$\\
+$b^2=a^2+c^2-2ac\cos(B)$\\
+$c^2=a^2+b^2-2ab\cos(C)$
+\end{center}
+{\bf Proof:} There are two cases to consider depending on whether the triangle
+is acute or obtuse.\\\\
+Case $1$: $\triangle ABC$ is acute.\\\\
+Arrange the triangle so that the base is $\overline{AB}$ and drop a perpendicular from point $C$ to $\overline{AB}$ to create point $D$ as shown in the following diagram:
+\begin{figure}[h]
+\begin{center}
+\includegraphics{AcuteTri.pdf}
+\caption{Proving the Law of Cosines with an acute triangle.} \label{fg:lofs}
+\end{center}
+\end{figure}
+
+\noindent From $\triangle ADC$, $\cos(A)=\frac{AD}{b}$ which
+is equivalent to $AD=b\cos(A)$. Applying the Pythagorean Theorem tells 
+us $b^2=(h_1)^2+(AD)^2$ so that $(h_1)^2=b^2-(AD)^2$. Since $\triangle DCB$ is also a right triangle, applying the Pythagorean Theorem gives
+$a^2=(h_1)^2+(DB)^2$ and then substituting in for $(h_1)^2$ gives
+$a^2=\left[b^2-(AD)^2\right]+(DB)^2$. Now $DB=c-AD$ so 
+$a^2=b^2-(AD)^2+(c-AD)^2$. A little algebra gives 
+$a^2=b^2-(AD)^2+c^2-2c(AD)+(AD)^2$ which is equivalent to 
+$a^2=b^2+c^2-2c(AD)$. Since $AD=b\cos(A)$ this becomes
+$a^2=b^2+c^2-2bc\cos(A)$. In similar fashion it can be shown that
+$b^2=a^2+c^2-2ac\cos(B)$ and $c^2=a^2+b^2-2ab\cos(C)$.
+\newpage
+\noindent Case $2$: $\triangle ABC$ is obtuse.\\\\
+If the triangle is arranged so that the base is the side opposite the obtuse angle, $C$ then dropping a perpendicular to the other side as in the following diagram:
+\begin{figure}[h]
+\begin{center}
+\includegraphics {ObtuseTri.pdf}
+\caption{Proving the Law of Cosines with an obtuse triangle.} \label{fg:lofs2}
+\end{center}
+\end{figure}
+
+\noindent This will be solved as in Case 1 so the only case that needs to be checked is if the triangle is rotated so that $\overline{AC}$ is the base. Drop a perpendicular from $B$ to $\overline{AC}$ to create point $D$ as shown:
+\begin{figure}[h]
+\begin{center}
+\includegraphics {ObtuseTriB.pdf}
+\end{center}
+\end{figure}
+
+\noindent Since $C$ is an obtuse angle $\cos(C)=-\cos(180^{\circ}-C)=-\frac{CD}{a}$; that is, $CD=-a\cos(C)$. Applying the Pythagorean
+Theorem to $\triangle BCD$ gives $a^2=(h_2)^2+(CD)^2$ or 
+$(h_2)=a^2-(CD)^2$. For $\triangle ABD$ the Pythagorean Theorem gives $c^2=(h_2)^2+(CD+b)^2$ hence $c^2=\left[a^2-(CD)^2\right]+(CD+b)^2$. This is equivalent to 
+$c^2=a^2-(CD)^2+(CD)^2+2(CD)b+b^2$ which simplifies to
+$c^2=a^2+2(CD)b+b^2$. Substituting $CD=-a\cos(C)$ and rearranging
+the terms gives $c^2=a^2+b^2-2ab\cos(C)$.
+
+\noindent In both cases, the Law of Cosines is established.
+
+\end{document}

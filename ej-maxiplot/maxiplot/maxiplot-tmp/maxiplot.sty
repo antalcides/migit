@@ -1,0 +1,283 @@
+%% This work may be distributed and/or modified under the
+%% conditions of the GPL 3 license. It was adapted from another license
+%% which provides conditions to modify the work and the license itself.
+%%
+%% "...If for any part of your work you want or need to use *distribution*
+%% conditions that differ significantly from those in this license, then
+%% do not refer to this license anywhere in your work but, instead,
+%% distribute your work under a different license."
+%%
+%% Acoording to that license (which cannot be cited here), one should
+%% provide a way to reproduce the original work. This has been provided
+%% as an attachment. If you didn't get this file, go to
+%% https://trisquel.info/en/wiki/recipe-latex-gnuplot-tight-box-eps-maxima
+%% or consult with the person from which you got this file to obtain
+%% the original. In any case, it is not mandatory.
+%%
+%% Modification of original maxima.sty by J.M. Planas made by J. M. Mira mira@um.es
+%% Modification of J.M. Mira by Giorgio Nucci nuccigiorgio@sharklasers.com
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{maxiplot}[2006/07/25]
+\RequirePackage{amsmath}
+\RequirePackage{graphicx}
+\DeclareOption{amsmath}{\maxima@amsmathtrue}
+
+\newcommand{\macfile}{\jobname.mac}
+\newcommand{\mxxfile}{\jobname.mxx}
+
+\newcounter{maxima@count}
+\def\maxima@out{-1}
+\newcommand{\maximacount}{\value{maxima@count}}
+
+\newif\ifmaximaloaded
+\newif\ifmaxima@autoinsertblock
+\newif\ifmaxima@texout
+\newif\ifmaxima@amsmath
+\maxima@amsmathfalse
+
+\ProcessOptions\relax
+
+
+\newcommand{\maximacurrent}{\ifmaximaloaded\csname \maxima@current\endcsname\fi}
+
+\AtBeginDocument{%
+  \InputIfFileExists{\mxxfile}%
+  {\maximaloadedtrue}%
+  {\maximaloadedfalse}%
+}
+
+\AtEndDocument{%
+    \immediate\closeout\maxima@out
+    \write18{echo Processing Maxima...}
+    \write18{maxima -b \macfile >\macfile.log}
+    \write18{echo Maxima processed. See \macfile.log for details}
+}
+
+\newcommand{\IfMaximaLoaded}[1]{\ifmaximaloaded#1\fi}
+
+\def\maxima@init{%
+  \ifnum\maxima@out=-1
+    \newwrite\maxima@out
+    \immediate\openout \maxima@out \macfile
+    \immediate\write\maxima@out{load("max-tex-init.mac")$}
+    \ifmaxima@amsmath
+      \immediate\write\maxima@out{:lisp(defprop $matrix amsmath-matrix tex)}%
+    \fi
+    \immediate\write\maxima@out{write_stdout("\mxxfile")$}
+    %*******CREATE MACRO TO CHECK IF A MACRO EXISTS (within <file>.mxx)*
+    %*******TO AVOID TROUBLE WITH SUBEQUATIONS******************
+    \immediate\write\maxima@out{append_stdout("\mxxfile", print("\\newcommand{\\checkfor}[2]",lbracep)}%
+    \immediate\write\maxima@out{,
+    print("  \\ifcsname\#1\\endcsname"),
+    print(" \%"),
+    print("  \\else"),
+    print(" \  \ \#2"),
+    print("  \\fi"),
+    print(rbrace))$}
+  \fi%
+}
+
+\def\@@imaxima#1{%
+  \immediate\write\maxima@out{#1}
+  \ifmaxima@texout
+    \immediate\write\maxima@out{,print(rbrace),print(rbrace))$}
+  \fi%
+  \endgroup
+  \ifmaxima@autoinsertblock \maximacurrent \fi
+}
+
+\long\def\@@maxima#1\end{%
+  \immediate\write\maxima@out{#1}
+  \ifmaxima@texout
+    \immediate\write\maxima@out{,print(rbrace),print(rbrace))$}
+    \fi%
+  \endgroup
+  \ifmaxima@autoinsertblock \maximacurrent \fi
+  \end
+}
+
+\def\@maxima@common{%
+\begingroup
+  \obeylines
+  \obeyspaces
+  \def\\{\noexpand\\}
+  \newlinechar=`\^^M  % Piet van Oostrum: newline fix on MacOSX
+  \catcode`\"11\relax
+  \catcode`\&11\relax
+  \catcode`\%11\relax
+  \maxima@init
+  \ifmaxima@texout
+    \stepcounter{maxima@count}
+    \immediate\write\maxima@out{append_stdout("\mxxfile", }%
+    %*********** CHECK IF THE MACRO EXISTS (within test.mxx)************
+    %************TO AVOID TROUBLE WITH SUBEQUATIONS*********************
+    \immediate\write\maxima@out{print("\\checkfor{\maxima@current}",lbracep),
+		print("\\newcommand{\\\maxima@current}",lbracep),
+    }
+  \fi
+}
+
+\newenvironment{maxima}[1][maxima\romannumeral\maximacount]{%
+  \global\def\maxima@current{#1}
+  \maxima@autoinsertblocktrue
+  \maxima@texouttrue
+  \@maxima@common\@@maxima}{}
+\newenvironment{maxima*}[1][maxima\romannumeral\maximacount]{%
+  \global\def\maxima@current{#1}
+  \maxima@autoinsertblockfalse
+  \maxima@texouttrue
+  \@maxima@common\@@maxima}{}
+
+\newenvironment{maximacmd}{\maxima@autoinsertblockfalse\maxima@texoutfalse\@maxima@common\@@maxima}{}
+\newcommand{\imaximacmd}{\maxima@autoinsertblockfalse\maxima@texoutfalse\@maxima@common\@@imaxima}%
+
+\newcommand{\imaxima}[1][maxima\romannumeral\maximacount]{%
+  \global\def\maxima@current{#1}
+  \@ifstar{\maxima@autoinsertblockfalse\maxima@texouttrue\@maxima@common\@@imaxima}%
+          {\maxima@autoinsertblocktrue\maxima@texouttrue\@maxima@common\@@imaxima}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage{verbatim}
+
+\newenvironment{@vmaximawrite}%
+ {\@bsphack
+  \let\do\@makeother\dospecials\catcode`\^^M\active
+  \def\verbatim@processline{%
+    \immediate\write\maxima@out{\the\verbatim@line}}%
+  \verbatim@start}%
+ {\@esphack}
+
+\newenvironment{@vmaxima}%
+ {\maxima@init
+  \ifmaxima@texout
+    \stepcounter{maxima@count}
+    \immediate\write\maxima@out{append_stdout("\mxxfile", print("\noexpand\\newcommand{\noexpand\\\maxima@current}",lbracep),}%
+    \fi
+  \@vmaximawrite}
+ {\end@vmaximawrite
+  \ifmaxima@texout
+    \immediate\write\maxima@out{,print(rbrace))$}
+    \fi}
+
+\newenvironment{vmaxima}[1][maxima\romannumeral\maximacount]{%
+  \global\def\maxima@current{#1}%
+  \maxima@texouttrue\@vmaxima}
+ {\end@vmaxima\maximacurrent}
+
+\newenvironment{vmaxima*}[1][maxima\romannumeral\maximacount]{%
+  \global\def\maxima@current{#1}
+  \maxima@texouttrue\@vmaxima}
+ {\end@vmaxima}
+
+\newenvironment{vmaximacmd}%
+ {\maxima@texoutfalse\@vmaxima}
+ {\end@vmaxima}
+
+
+% **************ADDITIONS**************
+% Source to execute bash:
+%How to invoke \write18{pdflatex "\def\param{...}\input{filename}"}?
+%tex.stackexchange.com/ questions/ 97958/ how-to-invoke-write18pdflatex-def-param-inputfilename
+%tex.stackexchange.com/questions/14186/how-can-i-provide-a-verbatim-unescaped-commandline-for-executing-with-write18
+\def\exec{\begingroup\setexeccatcodes\innerexec}
+\def\setexeccatcodes{\catcode`\#=12 \catcode`\%=12 \catcode`\=12
+	\catcode`\$=12 \catcode`\^=12 \catcode`\\=12
+}
+\def\innerexec#1{\immediate\write18{\unexpanded{#1}}\endgroup}
+
+% This command is faster (updates in one latex run), but less powerful
+\newcommand\maxieq[1]{ %%$ \displaystyle\maxieq{diff(f(x),x)} $
+	%%\begin{equation}
+		%%\maxieq{integrate(r(a),a)}
+	%%\end{equation}
+	%% tex.stackexchange.com/ questions/ 87095/ is-it-possible-to-write-all-mathematical-formulas-in-a-separate-file- and-add-the
+	\exec{
+		maxima --very-quiet % remove headings from maxima
+		-r ' % read commands
+		load("mactex-utilities")'\$' % translations from tex to latex
+		display2d: false'\$' % no fancy notation
+		tex(#1)'\$ |  % convert to tex in maxima
+		tr -d \$ | % remove dollar signs
+		sed '/^'\$'/{d}' > /tmp/maxima.aux % dump output to file
+	}
+	\input{/tmp/maxima.aux} % read file
+}
+
+\newcommand\gnuplotcmd[2]{% arg 1: commands; arg 2: name of output file
+	\exec{[ ! -d Figures ] && mkdir Figures}
+	\exec{echo 'set terminal epslatex color colortext standalone;
+		set output "#1.tex";
+		#2;
+		set output;' | gnuplot;}
+	\exec{latex "#1.tex" &&
+		dvips "#1.dvi" &&
+		ps2eps -f -q "#1.ps" && mv "#1.eps" "Figures/#1.eps";
+		rm -f "#1".tex "#1".dvi Figures/"#1".tex;
+	}
+}
+
+% New commands for gnuplot
+% Command to run gnuplot code and insert the result as picture (tight)
+\newcommand\gnuplot[3]{ % First argument: caption. Second argument: name of file (and figure). Third
+% argument: code
+	% (all the commands are sent as a single line)
+	\gnuplotcmd{#2}{#3}
+	%% Make picture tight with epstool:
+	%\exec{epstool --bbox --quiet --copy "#3".eps "#3".eps.mod}
+	%\exec{mv "#3".eps.mod "Figures/""#3".eps}
+	\centering
+	\includegraphics{Figures/#2.eps}
+	\caption{#1\label{fig:#2}}
+}
+
+% Command to run gnuplot code and insert the result as picture (tight)
+\newcommand{\gnuplotfile}[3]{ % arg 1: caption; arg 2: name of eps file (and label);
+% arg 3: file with gnuplot code
+
+	%% Example:
+	%\begin{figure}
+		%\gnuplotfile{Caption2}{../Code/DynamicAnalysis/shank.gpi}{prueba}
+	%\end{figure}
+
+	%\exec{sed 's-\^\#\(.*\)\$-\%\1-g; s-\([\^\#]*\)\#\(.*\)-\1;\%\2-g;s-\^\([\^;]*\)\$-\1;-g' shank.gpi > prueba}
+	% Add a line to replot and send to a file in gnuplot
+	\exec{echo 'set terminal epslatex color colortext standalone;
+		set output "#2.tex";
+		load "#3";
+		set output;' | gnuplot}
+	%% Remove the last line (all the commands are sent as a single line)
+	%\exec{sed -i \$d "#3"}
+	% Create dedicated folder for figures
+	\exec{[ ! -d Figures ] && mkdir Figures}
+	\exec{latex "#2.tex" &&
+		dvips "#2.dvi" &&
+		ps2eps -f -q "#2.ps" && mv "#2.eps" "Figures/#2.eps";
+		rm -f #2.tex #2.dvi;
+	}
+
+	%% Make a tight picture with epstool
+	%\exec{epstool --bbox --quiet --copy "Figures/#2".eps "Figures/#2".eps.mod}
+	%\exec{mv "Figures/#2".eps.mod "Figures/#2".eps}
+	% Add picture with caption and label
+	\centering
+	\includegraphics{Figures/#2.eps}
+	\caption{#1\label{fig:#2}}
+}
+
+% ****************REMOVAL**********************
+% *** This macro (from J.M. Planas file) of Gnuplot doesn't work with
+% *** pdfTeX 3.1415926-1.40.10-2.2 (TeX Live 2009/Debian)
+% *** gnuplot 4.4
+%\newwrite\@mainplot
+%\newif\gnuplot@autoinsertblock
+
+%\def\gnuplot{\immediate\openout\@mainplot\jobname.gnuplot
+%\bgroup\todocaracter\auxplot}
+%\def\auxplot#1{\immediate\write\@mainplot{#1}\egroup%
+%\immediate\closeout\@mainplot%
+%\immediate\write18{gnuplot \jobname.gnuplot}}
+%\def\makeother#1{\catcode`#1=12\relax}
+%\def\todocaracter{\makeother\ \makeother\\\makeother\$\makeother\&%
+%\makeother\#\makeother\_\makeother\%\makeother\~\makeother\|}

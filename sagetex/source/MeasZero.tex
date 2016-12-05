@@ -1,0 +1,71 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym, amsmath,amsfonts,amssymb}
+\usepackage{xcolor}
+\usepackage[margin=.75in]{geometry}
+\usepackage{kpfonts}  %Changing the default fonts
+\usepackage[T1]{fontenc}
+\setlength{\parskip}{1.2ex} %space between paragraphs
+\setlength{\parindent}{1em} %Paragraph indentation
+\linespread{1.4} %spacing between lines
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+\textbf{{\Large The Rational Numbers Have Measure Zero}}
+\end{center}
+The TED-Ed video ``How Big is Infinity'' illustrates how to list
+the positive rational numbers: $\frac{1}{1}, \frac{1}{2},
+\frac{2}{1}, \frac{3}{1}, \frac{2}{2}, \frac{1}{3}, \frac{1}{4},
+\ldots$ and this idea can be extended to all rational numbers 
+by including $0$ as well as the negative rational numbers:
+$0,\frac{1}{1}, -\frac{1}{1}, \frac{1}{2}, -\frac{1}{2},
+\frac{2}{1}, -\frac{2}{1}, \frac{3}{1}, -\frac{3}{1}, \frac{2}{2}, -\frac{2}{2}, \frac{1}{3}, -\frac{1}{3}, \frac{1}{4}, 
+-\frac{1}{4}, \ldots$
+On a number line where the integers are $1$ centimeter apart,
+cover $0$ with a piece of paper of length $.1$ centimeters, 
+$\frac{1}{1}$ with a paper of length $.01$ centimeters, 
+$-\frac{1}{1}$ with a paper of length $.001$ centimeters, and
+so on. In general, cover the $\mbox{i}^{\tiny\mbox{th}}$
+rational number with a piece of paper of length $10^{-i}$. 
+The result is $.1+.01+.001+\cdots$ which all of your students
+should agree will have length $\overline{.1}$ centimeters. 
+Stop the class to summarize what's happened: the number line
+had an infinite length yet the rational numbers can be covered
+with just $\overline{.1}$ centimeters of paper. What's not 
+covered by the paper? Most (but not all) of the irrational numbers
+because each piece of paper covering a rational number also 
+covers lots of other rational and irrational numbers. Even though 
+it seems obvious that every number is rational
+the infinite length is due the irrational numbers it should now be 
+clear: \textbf{proof is necessary, even when things seem obvious.}
+Seeing how small the rational numbers are compared to the 
+irrational numbers is an essential lesson every high school student 
+should learn. 
+
+For students who have knowledge of limits, start with the 
+infinite geometric series formula:
+\[\sum_{i=1}^{\infty}ar^{n-1}=\frac{a}{1-r} \hspace{4ex}\mbox{for }|r|<1\]
+and note that $.1+.01+.001+\cdots$ is an infinite geometric
+series with $a=.1$ and $r=.1$ hence the total length of paper used 
+is $\frac{.1}{1-.1}=\frac{1}{9}$ centimeters. But there
+was no need to use that much paper since a single rational 
+number is a point on the number line and points have no 
+length. Cover $0$ with a piece of paper of length $.01$ centimeters, 
+$\frac{1}{1}$ with a paper of length $.001$ centimeters, 
+$-\frac{1}{1}$ with a paper of length $.0001$ centimeters, and
+so on. In general, cover the $\mbox{i}^{\tiny\mbox{th}}$
+rational number with a piece of paper of length $10^{-i-1}$. The
+rational numbers are now covered with paper having total length
+$\frac{.01}{1-.1}=\frac{1}{90}$ centimeters. Of course, you can 
+improve on this further, so that you cover $0$ with a piece of paper 
+of length $.001$ centimeters, $\frac{1}{1}$ with a paper of length 
+$.0001$ centimeters, $-\frac{1}{1}$ with a paper of length 
+$.00001$ centimeters, and so on. In general, cover the 
+$\mbox{i}^{\tiny\mbox{th}}$ rational number with a piece of 
+paper of length $10^{-i-2}$ and the rational numbers are now 
+covered with paper having total length
+$\frac{.001}{1-.1}=\frac{1}{900}=.00\overline{1}$ centimeters.
+This argument can continue forever, so the amount of paper 
+needed to cover the rationals is 
+$\lim_{n\to \infty}\frac{1}{9}\frac{1}{10^n}=0$. That's why 
+it's called measure $0$; the length is $0$.
+\end{document}

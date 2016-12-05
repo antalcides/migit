@@ -1,0 +1,187 @@
+% Copyright 2015 http://www.highschoolmathandchess.com/
+% This program is free software: you can redistribute it and/or modify
+%   it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 3 of the License, or
+%    (at your option) any later version.
+%    This program is distributed in the hope that it will be useful,
+%   but WITHOUT ANY WARRANTY; without even the implied warranty of
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+\documentclass[a4paper,addpoints,12point]{exam}%
+% -----------------------------The preamble ------------------------------------
+\usepackage{xcolor}
+\usepackage{fix-cm}% allow for a bigger font
+%  mathematical typesetting, fonts, and symbols
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage[T1]{fontenc}% change the fonts
+\usepackage[margin=.5in]{geometry}%  sets the margins
+\usepackage{sagetex}%  use Sage for it's math ability
+\usepackage{graphicx}%  for including pictures
+\usepackage{tikz} %tikz pictures, graph paper.
+\pagestyle{empty} % remove the page numbers
+\pagestyle{head}
+\noprintanswers % If you want to print answers
+%\noprintanswers % If you don't want to print answers
+\addpoints % if you want to count the points
+% \noaddpoints % if you don't want to count the points
+% Specifies the way question are displayed:
+%\qformat{\textbf{\thequestion.}\quad(\thepoints)\hfill}
+\shadedsolutions % defines the style of the solution environment
+% \framedsolutions % defines the style of the solution environment
+\definecolor{SolutionColor}{rgb}{0.8,0.9,1} % light blue
+% Defines the title of the solution environment:
+\renewcommand{\solutiontitle}{\noindent\textbf{Solution:}\par\noindent}
+% **************** BEGIN INPUT ASSIGNMENT INFO *******************
+\newcommand{\course}{My Math Course}
+\newcommand{\assignment}{My Test}
+\newcommand{\teacher}{Mr. Ima Putz}
+% **************** END INPUT ASSIGNMENT INFO *******************
+\runningheadrule
+\runningheader{\course}{\assignment}{\teacher}
+\setlength{\parskip}{1.2ex} %space between paragraphs
+\setlength{\parindent}{1em} %Paragraph indentation
+\linespread{1.2} %spacing between lines
+\widowpenalty = 10000   %penalty for a broken page
+\newcommand\T{\rule{0pt}{2ex}} % \T will create extra space above (used to fix tables)
+\newcommand\B{\rule[-1.5ex]{0pt}{0pt}}% \B will create extra space below (used to fix tables)
+% -----------------------------End of the preamble ------------------------------
+\begin{document}
+\fontsize{17pt}{20pt}\selectfont %sets font size and line spacing
+\noindent
+\begin{tabular}{@{}l p{1.6in}r @{}}
+Name: \vrule height 0 pt depth 0.4 pt width 3.0 in & & Period: \vrule height 0 pt depth 0.4 pt width .75 in \\\\
+\teacher &  &Date: \hrulefill \\
+\end{tabular}
+\begin{center}
+The point value is given for each problem.\\ \vspace{.1in}
+	{\bf \assignment}
+\end{center}
+\noindent Show the solution to each problem. Put your answer in the space provided. If there isn't enough space, circle your answer.
+% *********** BEGIN DEFINE VARIABLES ****************
+\begin{sagesilent}
+a = Integer(randint(6,9))
+b = Integer(randint(7,10))
+c = Integer(randint(2,5))
+d = Integer(randint(2,5))
+e = Integer(randint(1,4))
+f1 = Integer(randint(1,4))
+q1 = expand((x-a)*(x-c))
+q2 = expand((x-b)*(x-d))
+g=Integer(randint(23,37))
+h=Integer(randint(31,42))
+i=Integer(randint(19,45))
+j=Integer(randint(19,40))
+k=Integer(randint(15,36))
+l=Integer(randint(24,34))
+f = open(r"SMCtestAnswers.tex",'w')
+#File is created if it isn't there to be opened
+f.write(r"\documentclass[a4paper,addpoints,12point]{exam}")
+f.write("\n")
+f.write(r"\usepackage{amsmath, amsfonts, amssymb}")
+f.write("\n")
+f.write(r"\usepackage{xcolor}")
+f.write("\n")
+f.write(r"\printanswers")
+f.write("\n")
+f.write(r"\shadedsolutions")
+f.write("\n")
+f.write(r"\definecolor{SolutionColor}{rgb}{0.8,0.9,1}")
+f.write("\n")
+f.write(r"\renewcommand{\solutiontitle}{\noindent\textbf{Solution:}\par\noindent}")
+f.write("\n")
+f.write(r"\begin{document}")
+f.write("\n")
+f.write(r"\begin{center}")
+f.write("\n")
+f.write(r"{\large Answers}")
+f.write("\n")
+f.write(r"\end{center}")
+f.write("\n")
+f.write(r"\begin{solution}")
+f.write("\n")
+f.write(r"$x=%s$, and $x=%s$"%(a,c))
+f.write("\n")
+f.write(r"\end{solution}")
+f.write("\n")
+f.write(r"\begin{solution}")
+f.write("\n")
+f.write(r"$%s$"%(str(integrate(q1,(x,0,e)))))
+f.write("\n")
+f.write(r"\end{solution}")
+f.write("\n")
+f.write(r"\begin{solution}")
+f.write("\n")
+f.write(r"$x=%s$, and $x=%s$"%(b,d))
+f.write("\n")
+f.write(r"\end{solution}")
+f.write("\n")
+f.write(r"\begin{solution}")
+f.write("\n")
+f.write(r"$%s$"%(diff(q2)))
+f.write("\n")
+f.write(r"\end{solution}")
+f.write("\n")
+f.write(r"\begin{solution}")
+f.write("\n")
+f.write(r"$%s$"%(str(factor(a*b*c))))
+f.write("\n")
+f.write(r"\end{solution}")
+f.write("\n")
+f.write(r"\begin{solution}")
+f.write("\n")
+f.write(r"$\frac{%s}{%s}$"%((g+h+i),(g+h+i+j+k+l)))
+f.write("\n")
+f.write(r"\end{solution}")
+f.write("\n")
+f.write(r"\begin{solution}")
+f.write("\n")
+f.write(r"$\sqrt{%s}$"%((a-c)^2+(b-e)^2))
+f.write("\n")
+f.write(r"\end{solution}")
+f.write("\n")
+f.write(r"\end{document}")
+f.close()
+\end{sagesilent}
+% *********** END DEFINE VARIABLES ****************
+\begin{questions}
+\bracketedpoints
+\question[4]
+Factor $\sage{q1}$.
+\answerline
+\vspace{0.85in}
+\question[4]
+Determine  $\int_{0}^{\sage{e}}\sage{q1}\,dx$.
+\answerline
+\vspace{0.85in}
+\question[5]
+Factor $\sage{q2}$.
+\answerline
+\vspace{0.85in}
+\question[6]
+Find $\frac{d}{dx}\left(\sage{q2}\right)$.
+\answerline
+\newpage
+\question[5]
+Factor $\sage{a*b*c}$.
+\answerline
+\vspace{0.85in}
+\question[4]
+The table shows the number of voters in Mickey Mouse U. who were polled on their vote for Alex and Bob in the school election. Find the probability that a randomly selected person voted for Alex.
+\\\\
+\begin{tabular}{c|c|c|c}
+ & Sophomores & Juniors & Seniors\\
+\hline
+Alex & $\sage{g}$ & $\sage{h}$ & $\sage{i}$\\
+\hline
+Bob & $\sage{j}$ & $\sage{k}$ & $\sage{l}$\\
+\hline
+\end{tabular}
+\answerline
+\vspace{0.85in}
+\question[6]
+Find the distance between the points $(\sage{a},\sage{b})$ and $(\sage{c},\sage{e})$.
+\end{questions}
+\end{document}

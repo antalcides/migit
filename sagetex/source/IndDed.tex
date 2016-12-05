@@ -1,0 +1,50 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{latexsym, amsmath,amsfonts,amssymb}
+\usepackage{xcolor}
+\usepackage{wrapfig}
+\usepackage[margin=.75in]{geometry}
+\usepackage{kpfonts}  %Changing the default fonts
+\usepackage[T1]{fontenc}
+\setlength{\parskip}{1.2ex} %space between paragraphs
+\setlength{\parindent}{1em} %Paragraph indentation
+\clubpenalty = 10000
+\widowpenalty = 10000
+\newcommand\T{\rule{0pt}{2ex}} % \T will create extra space above (used to fix tables)
+\newcommand\B{\rule[-1.5ex]{0pt}{0pt}}% \B will create extra space below (used to fix tables)
+\linespread{1.25} %spacing between lines
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+\textbf{{\Large Inductive Versus Deductive Reasoning}}
+\end{center}
+A simple illustration of inductive versus deductive reasoning can
+demonstrate the power of deductive reasoning. Your students will
+need some background on conjectures, counterexamples, and
+theorems. Knowing that inductive reasoning isn't foolproof (as
+we saw in ``\ldots is ambiguous'') is essential; it allows you to 
+compare it with deductive reasoning, which is perfect.
+
+\begin{center}
+\begin{tabular}{cccc}
+$1+2+3=2(3)$& $2+3+4=3(3)$& $3+4+5=4(3)$ & $4+5+6=5(3)$\\
+$5+6+7=6(3)$&$6+7+8=7(3)$&$7+8+9=8(3)$ & $8+9+10=9(3)$\\
+$9+10+11=10(3)$&$10+11+12=11(3)$&$11+12+13=12(3)$ & $12+13+14=13(3)$\\
+\end{tabular}
+\end{center}
+Stress that inductive reasoning is what we use to formulate a 
+conjecture. It shouldn't be that difficult for them to see:\\\\
+\textbf{Conjecture: }The sum of $3$ consecutive integers is equal to $3$ multiplied by the middle number.\\\\
+Note that no computer or calculator can help us solve the problem
+completely because there are an infinite number of equations 
+to check. Deductive reasoning, however, allows us to prove 
+the result for an infinite number of equations in a finite amount of 
+time.\\\\
+\textbf{Proof:} Any $3$ consecutive numbers can be written 
+as $n$, $n+1$, and $n+2$ for some $n$. The sum is then 
+$n+(n+1)+(n+2)$ which simplifies to $3n+3=3(n+1)$. That is, 
+the sum is equal to $3$ multiplied by the middle number.\\\\
+Depending on the quality of your students you'll need to provide
+more details. Going from $3+4+5$ to $n+(n+1)+(n+2)$ is a jump
+that I found many of my students weren't ready for.
+\end{document}

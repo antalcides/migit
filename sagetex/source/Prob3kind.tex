@@ -1,0 +1,41 @@
+\documentclass[12pt]{article}%
+\usepackage{latexsym,amsmath,amsfonts,amssymb}
+%\usepackage{concrete}% text font
+%\usepackage{euler}% math font
+\usepackage{graphicx}%insert pictures
+\usepackage{geometry}%setting margins
+\usepackage{fancybox}
+\usepackage{xcolor}
+\usepackage[colorinlistoftodos,shadow]{todonotes}
+\usepackage{tikz}
+\pagestyle{empty}
+\linespread{1.6}% double spacing to give room for the binomial coefficients
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% NOTATION %%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\FPC}{Fundamental Principle of Counting }
+%%%%%%%%%%%%%%%%%%%%%% END OF PREAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\noindent Suppose $5$ cards are dealt from a standard deck of $52$ cards. Find
+$P(3 \mbox{ of a kind})$.\\\\
+\textbf{Solution:} Since order is not important and repetition of 
+cards is not allowed, this is a problem that involves combinations and
+the denominator is $\binom{52}{5}$. To determine the numerator be aware
+that $3$ of a kind does not include having another pair of cards along with 
+the $3$ of a kind. Now use the \FPC to determine the numerator. 
+\begin{center}
+\begin{tabular}{lcc}
+Event & Outcomes & Example\\
+\hline
+$E_1:$ Choose the kind for $3$ of a kind & $\binom{13}{1}$ & $9$ \\
+$E_2:$ Choose $3$ specific cards for $3$ of a kind & $\binom{4}{3}$ & 
+$9\,\clubsuit$, $9\,\heartsuit$, $9\,\diamondsuit$\\
+$E_3:$ Choose $2$ other one of a kinds & $\binom{12}{2}$ & 
+$9\,\clubsuit$, $9\,\heartsuit$, $9\,\diamondsuit$, J, $4$\\
+$E_4:$ Choose the suit of the first one of a kind  & $\binom{4}{1}$ & 
+$9\,\clubsuit$, $9\,\heartsuit$, $9\,\diamondsuit$, J\,$\heartsuit$, $4$\\
+$E_5:$ Choose the suit of the second one of a kind & $\binom{4}{1}$ & 
+$9\,\clubsuit$, $9\,\heartsuit$, $9\,\diamondsuit$, J\,$\heartsuit$, $4 \,\clubsuit$\\
+\end{tabular}
+\end{center}
+By the \FPC there $\binom{13}{1}\binom{4}{3}\binom{12}{2}\binom{4}{1}\binom{4}{1}$  
+different ways to choose $3$ of a kind. Therefore, $P(3 \mbox{ of a kind})=\frac{\binom{13}{1}\binom{4}{3}\binom{12}{2}\binom{4}{1}\binom{4}{1}}{\binom{52}{5}}=\frac{54912}{2598960} \approx 0.0211284514$.\\\\
+\end{document}

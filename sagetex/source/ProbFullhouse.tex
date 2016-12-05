@@ -1,0 +1,39 @@
+\documentclass[12pt]{article}%
+\usepackage{latexsym,amsmath,amsfonts,amssymb}
+\usepackage{graphicx}%insert pictures
+\usepackage{geometry}%setting margins
+\usepackage{fancybox}
+\usepackage{xcolor}
+\usepackage[colorinlistoftodos,shadow]{todonotes}
+\usepackage{tikz}
+\pagestyle{empty}
+\linespread{1.6}% double spacing to give room for the binomial coefficients
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% NOTATION %%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\FPC}{Fundamental Principle of Counting }
+%%%%%%%%%%%%%%%%%%%%%% END OF PREAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\noindent A \textbf{full house} refers to a hand of five cards that consists 
+of three of a kind and one pair. Suppose $5$ cards are dealt from a standard deck 
+of $52$ cards. Find
+$P(\mbox{full house})$.\\\\
+\textbf{Solution:} Since order is not important and repetition of 
+cards is not allowed, this is a problem that involves combinations and
+the denominator is $\binom{52}{5}$. A full house is $3$ of a kind and
+$1$ pair. Use the \FPC to determine the numerator. 
+\begin{center}
+\begin{tabular}{lcc}
+Event & Outcomes & Example\\
+\hline
+$E_1:$ Choose the kind for $3$ of a kind & $\binom{13}{1}$ & $8$ \\
+$E_2:$ Choose the specific cards for $3$ of a kind & $\binom{4}{3}$ & 
+$8\,\clubsuit$, $8\,\heartsuit$, $8\,\diamondsuit$\\
+$E_3:$ Choose the kind for the pair & $\binom{12}{1}$ & 
+$8\,\clubsuit$, $8\,\heartsuit$, $8\,\diamondsuit$, $7$\\
+$E_4:$ Choose the specific cards & $\binom{4}{2}$ & 
+$8\,\clubsuit$, $8\,\heartsuit$, $8\,\diamondsuit$, $7\,\diamondsuit$,
+$7\,\spadesuit$\\
+\end{tabular}
+\end{center}
+By the \FPC there $\binom{13}{1}\binom{4}{3}\binom{12}{1}\binom{4}{2}$ different
+ways to choose a full house. Therefore, $P(\mbox{full house})=\frac{\binom{13}{1}\binom{4}{3}\binom{12}{1}\binom{4}{2}}{\binom{52}{5}}=\frac{3744}{2598960} \approx 0.0014405762$.\\\\
+\end{document}

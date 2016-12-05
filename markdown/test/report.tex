@@ -1,0 +1,158 @@
+\section{In the morning}\label{in-the-morning}
+
+\subsection{Getting up}\label{getting-up}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Turn off alarm
+\item
+  Get out of bed
+\end{itemize}
+
+\subsection{Breakfast}\label{breakfast}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Eat eggs
+\item
+  Drink coffee
+\end{itemize}
+
+\section{In the evening}\label{in-the-evening}
+
+\section{Dinner}\label{dinner}
+
+\begin{itemize}
+\item
+  Eat spaghetti
+\item
+  Drink wine
+\item
+\end{itemize}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\section{Going to sleep}\label{going-to-sleep}
+
+\begin{itemize}
+\item
+  Get in bed
+\item
+  Count sheep
+\item
+  To produce the slide show, simply type
+\item
+  pandoc -t s5 -s habits.txt -o habits.html for S5,
+\item
+  pandoc -t slidy -s habits.txt -o habits.html for Slidy,
+\item
+  pandoc -t slideous -s habits.txt -o habits.html for Slideous,
+\item
+  pandoc -t dzslides -s habits.txt -o habits.html for DZSlides,
+\end{itemize}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\section{Going to Math}\label{going-to-math}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Definición: Sea $X$ una variable aleatoria que asume los valores
+  $x_{1},x_{2},x_{3},\cdots x_{k}$, con iguales probabilidades, entonces
+  \begin{equation} f\left(x,k\right)=\left\{ \begin{array}{ccc}\frac{1}{k} & si & x=x_{1},x_{2},x_{3},\cdots x_{k}\\ 0 &  & \text{si no} \end{array}\right.\end{equation} 
+\end{itemize}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\section{Other Maths}\label{other-maths}
+
+\begin{itemize}
+\item
+  These render differently. For example, type
+  $\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$
+\item
+  (which is inline mode) or type
+\item
+ \begin{equation}
+ \sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6} 
+ \end{equation}
+\item
+  En una línea $\alpha + \beta -x^2 = \frac{1}{2^{-32} - 1}$ o
+  $x^{2} + y^2 = z^2$
+\end{itemize}
+
+\section{Going Code}\label{going-code}
+
+\begin{itemize}
+\item
+  Math online
+
+\begin{verbatim}
+En una línea  $\alpha + \beta -x^2 = \frac{1}{2^{-32} - 1}$ o $x^{2} + y^2 = z^2$
+\end{verbatim}
+\item
+  Math display
+
+\begin{verbatim}
+$$\begin{equation}\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}\end{equation}$$
+\end{verbatim}
+\end{itemize}
+
+\section{Going Table}\label{going-table}
+
+Colons can be used to align columns.
+
+\begin{longtable}[c]{@{}lcr@{}}
+\toprule\addlinespace
+Tables & Are & Cool
+\\\addlinespace
+\midrule\endhead
+col 3 is & right-aligned & \$1600
+\\\addlinespace
+col 2 is & centered & \$12
+\\\addlinespace
+zebra stripes & are neat & \$1
+\\\addlinespace
+\bottomrule
+\end{longtable}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{longtable}[c]{@{}lll@{}}
+\toprule\addlinespace
+Markdown & Less & Pretty
+\\\addlinespace
+\midrule\endhead
+\emph{Still} & \texttt{renders} & \textbf{nicely}
+\\\addlinespace
+1 & 2 & 3
+\\\addlinespace
+\bottomrule
+\end{longtable}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{longtable}[c]{@{}clrll@{}}
+\toprule\addlinespace
+aaa & aaa & $\alpha$ & sss & ssss
+\\\addlinespace
+\midrule\endhead
+ssss & ss & aaaa & 11 & 4444
+\\\addlinespace
+33333 & 2222 & 1111 & 11111 & 1111
+\\\addlinespace
+111 & 77777 & 8888 & 00000 & sssss
+\\\addlinespace
+\bottomrule
+\end{longtable}
+
+\begin{verbatim}
+|  aaa      | aaa       | $\alpha$  | sss       | ssss      |
+|:-----:    |:-------   |----------:    |-------    |-------    |
+| ssss      | ss    | aaaa      | 11    | 4444      |
+| 33333     | 2222      | 1111      | 11111     | 1111      |
+|  111      | 77777     | 8888      | 00000     | sssss     |
+\end{verbatim}

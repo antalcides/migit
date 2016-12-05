@@ -1,0 +1,79 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{latexsym, amsmath,amsfonts,amssymb}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{fancybox}
+\usepackage{nccmath}%to get small medium and large math
+\usepackage{natbib,todonotes}
+\usepackage{wrapfig}
+\usepackage[margin=1in]{geometry}
+\usepackage{kpfonts}  %Changing the default fonts
+\usepackage[T1]{fontenc}
+\usepackage{tkz-euclide}
+\setlength{\parskip}{1.2ex} %space between paragraphs
+\setlength{\parindent}{1em} %Paragraph indentation
+\clubpenalty = 10000
+\widowpenalty = 10000
+\newcommand\T{\rule{0pt}{2ex}} % \T will create extra space above (used to fix tables)
+\newcommand\B{\rule[-1.5ex]{0pt}{0pt}}% \B will create extra space below (used to fix tables)
+\usetikzlibrary{calc,trees,positioning,arrows,chains,shapes.geometric,%
+  decorations.pathreplacing,decorations.pathmorphing,shapes,%
+  matrix,shapes.symbols,plotmarks,decorations.markings,shadows}
+\linespread{1.25} %spacing between lines
+\newtheorem{Theorem}{Theorem}
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+\Large{\textbf{Pythagorean Theorem}}
+\end{center}
+\textbf{Pythagorean Theorem:} If $T$ is a right triangle with sides of length
+$a$ and $b$ and a hypotenuse of length $c$ then $c^2=a^2+b^2$.
+
+\noindent\textbf{Proof:} Draw a square with sides of length $a+b$ and label
+the corners $A$, $B$, $C$, $D$.  Next, go to each of the four sides of the 
+square in a counterclockwise manner, marking off the distance $b$ on each side,
+to create the points $E$, $F$, $G$, and $H$. Finally, draw the line segments $\overline{EF}$, $\overline{FG}$,
+$\overline{GH}$, $\overline{HE}$ to create the diagram below.
+
+\begin{center}
+\begin{tikzpicture}[scale = 1.75]
+\draw (0,4)--(4,4)--(4,0)--(0,0)--cycle;
+\draw (3,0)--(4,3)--(1,4)--(0,1)--cycle;
+\coordinate [label=below left:$A$] (A) at (0,0);
+\coordinate [label=below:$B$] (B) at (4,0);
+\coordinate [label=above right:$C$] (C) at (4,4);
+\coordinate [label=above left:$D$] (D) at (0,4);
+\coordinate [label=below:$E$] (E) at (3,0);
+\coordinate [label=right:$F$] (F) at (4,3);
+\coordinate [label=above:$G$] (G) at (1,4);
+\coordinate [label=left:$H$] (H) at (0,1);
+\foreach \point in {A,B,C,D,E,F,G,H}
+\fill [black,opacity=1] (\point) circle (1pt);
+\coordinate [label=below:$b$] (S1) at (1.5,0);
+\coordinate [label=right:$b$] (S2) at (4,1.5);
+\coordinate [label=above:$b$] (S3) at (2.5,4);
+\coordinate [label=left:$b$] (S4) at (0,2.5);
+\coordinate [label=below:$a$] (T1) at (3.5,0);
+\coordinate [label=right:$a$] (T2) at (4,3.5);
+\coordinate [label=above:$a$] (T1) at (0.5,4);
+\coordinate [label=left:$a$] (T1) at (0,0.5);
+\coordinate [label=below:$c$] (U1) at (1.5,.8);
+\coordinate [label=right:$c$] (U2) at (3.2,1.5);
+\coordinate [label=below:$c$] (U3) at (2.5,3.5);
+\coordinate [label=left:$c$] (U4) at (.75,2.5);
+\end{tikzpicture}
+\end{center}
+
+The triangles $AHE$, $BEF$, $CFG$, and $DGH$ each contain a right angle
+of the square ABCD, so they are congruent right triangles as well by SAS. 
+You can verify that $EFGH$ is a square by observing, for example, that $m(\angle AEH)+m(\angle\, HEF) + m(\angle\, FEB) = 180^{\circ}$. Since the Triangle Sum allows us to conclude $m(\angle\, AEH)+m(\angle\, FEB) = 90^{\circ}$ we know $m(\angle\, HEF)= 90^{\circ}$. By showing that
+each interior angle of $EFGH$ is a right angle through a similar argument 
+it will follow that $EFGH$ is  also a square. Since 
+$$\mbox{area of square $ABCD\, - $ area of the four triangles $ = $ area of square $EFGH$}$$
+and the area of each triangle is $\frac{1}{2}ab$ it follows that 
+$(a+b)^2 - 4\frac{1}{2}ab = c^2$ which simplifies to $a^2+2ab+b^2-2ab
+=c^2$. Simplifying further and rearranging the terms yields $c^2=a^2+b^2$ as claimed.
+
+\end{document}
+

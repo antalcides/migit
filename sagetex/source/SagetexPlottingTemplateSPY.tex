@@ -1,0 +1,123 @@
+% Copyright 2015 http://www.highschoolmathandchess.com/
+% This program is free software: you can redistribute it and/or modify
+%   it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 3 of the License, or
+%    (at your option) any later version.
+%    This program is distributed in the hope that it will be useful,
+%   but WITHOUT ANY WARRANTY; without even the implied warranty of
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+\documentclass[border={0pt 0pt 5pt 0pt}]{standalone}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{pgfplots}
+\usepackage{sagetex}
+\usetikzlibrary{spy}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{decorations}
+\pgfplotsset{compat=newest}% use newest version
+\begin{document}
+\begin{sagesilent}
+####### SCREEN SETUP #####################
+LowerX = -3.0
+UpperX = 3.0
+LowerY = -3.0
+UpperY = 3.0
+step = .01
+Scale = 1.0
+xscale=1.0
+yscale=1.0
+#####################TIKZ PICTURE SET UP ###########    
+output = r""
+output += r"\begin{tikzpicture}"
+output += r"[line cap=round,line join=round,x=8.75cm,y=8cm,spy using outlines={circle,lens={scale=3.5},connect spies}]"
+output += r"\begin{axis}["
+output += r"grid = both,"
+#Change "both" to "none" in above line to remove graph paper
+output += r"minor tick num=4,"
+output += r"every major grid/.style={Red!30, opacity=1.0},"
+output += r"every minor grid/.style={ForestGreen!30, opacity=1.0},"
+output += r"height= %f\textwidth,"%(yscale)
+output += r"width = %f\textwidth,"%(xscale)
+output += r"thick,"
+output += r"black,"
+output += r"axis lines=center,"
+#Comment out above line to have graph in a boxed frame (no axes)
+output += r"domain=%f:%f,"%(LowerX,UpperX)
+output += r"line join=bevel,"
+output += r"xmin=%f,xmax=%f,ymin= %f,ymax=%f,"%(LowerX,UpperX,LowerY, UpperY)
+#output += r"xticklabels=\empty,"
+#output += r"yticklabels=\empty,"
+output += r"major tick length=5pt,"
+output += r"minor tick length=0pt,"
+output += r"major x tick style={black,very thick},"
+output += r"major y tick style={black,very thick},"
+output += r"minor x tick style={black,thin},"
+output += r"minor y tick style={black,thin},"
+#output += r"xtick=\empty,"
+#output += r"ytick=\empty"
+output += r"]"
+##############FUNCTIONS#################################
+##FUNCTION 1
+t1 =  var('t1')
+a = .5
+b = 3
+n = 10
+def weierstrass(t1,a,b,n):
+    answer = 0
+    for i in range(0,n):
+        answer += a^i*cos(b^i*pi*t1).n(digits=5)
+
+    return answer
+
+x1_coords = srange(LowerX,0,step)+ srange(0,1.5,.001)+ srange(1.5,UpperX,step)
+#Thanks to Lazza. More detail for the magnified section
+y1_coords = [weierstrass(t1,a,b,n).n(digits=5) for t1 in x1_coords]
+output += r"\addplot[thin, Orchid, unbounded coords=jump] coordinates {"
+for i in range(0,len(x1_coords)):
+    if (y1_coords[i])<LowerY or (y1_coords[i])>UpperY:
+        output += r"(%f, inf) "%(x1_coords[i])
+    else:
+        output += r"(%f, %f) "%(x1_coords[i],y1_coords[i])
+output += r"};"
+output += r"\addlegendentry{$W(x)$}"
+##FUNCTION 2 #########################################
+t2 =  var('t2')
+x2_coords = srange(LowerX,.8,.001)+ srange(1.2,UpperX,step)
+#Without step of .001 the function doesn't make it to the bottom
+y2_coords = [(zeta(t2)).n(digits=6) for t2 in x2_coords]
+output += r"\addplot[thin, Peach, unbounded coords=jump] coordinates {"
+for i in range(0,len(x2_coords)):
+    if (y2_coords[i])<LowerY or (y2_coords[i])>UpperY:
+        output += r"(%f, inf) "%(x2_coords[i])
+    else:
+        output += r"(%f, %f) "%(x2_coords[i],y2_coords[i])
+output += r"};"
+output += r"\addlegendentry{$\zeta(x)$}"
+##FUNCTION 3 ##############################################
+t3 =  var('t3')
+g =.5
+for i in range(1,17):
+    g += -2*(1/(pi*(2*i-1)))*sin((pi*(2*i-1))*x)
+x3_coords = srange(LowerX,0,step)+ srange(0,1.5,.001)+ srange(1.5,UpperX,step)
+#Note section with step .001 makes magnified part look smoother
+y3_coords = [g(t3).n(digits=6) for t3 in x3_coords]
+output += r"\addplot[thin, NavyBlue, unbounded coords=jump] coordinates {"
+for i in range(0,len(x3_coords)):
+    if (y3_coords[i])<LowerY or (y3_coords[i])>UpperY:
+        output += r"(%f, inf) "%(x3_coords[i])
+    else:
+        output += r"(%f, %f) "%(x3_coords[i],y3_coords[i])
+output += r"};"
+output += r"\addlegendentry{$F(x)$}"
+
+output += r"\draw[dashed, color=BrickRed] (axis cs:0.5,-4)--(axis cs:0.5,4){};"
+output += r"\spy [black!75,size=2.5in] on (.75,.65) in node [left] at (2.0,.65);"
+##### COMMENT OUT A LINE BY STARTING WITH #
+output += r"\end{axis}"
+output += r"\end{tikzpicture}"
+\end{sagesilent}
+\sagestr{output}
+\end{document}

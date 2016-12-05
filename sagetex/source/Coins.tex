@@ -1,0 +1,124 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym, amsmath,amsfonts,amssymb}
+\usepackage[margin=.75in]{geometry}
+\usepackage{kpfonts}  %Changing the default fonts
+\usepackage[T1]{fontenc}
+\setlength{\parskip}{1.2ex} %space between paragraphs
+\setlength{\parindent}{1em} %Paragraph indentation
+\linespread{1.25} %spacing between lines
+\pagestyle{empty} %no page numbers
+\begin{document}
+\begin{center}
+\Large{\textbf{Coins}}
+\end{center}
+\textbf{Rules:} Start with 2 players and a pile of 20 coins.
+The players take turns deciding whether to remove 1, 2, or 3 coins 
+from the pile. The player who takes the last coin \emph{loses}. \\
+
+You can implement this game, which is really Nim with one heap,
+into your classroom in many ways. Here's one method. Start by
+drawing 20 circles onto the whiteboard, explaining the rules, and  
+playing several sample games. Afterwards, coins becomes a 
+warmup activity for your class, but make sure you start with a 
+different number of coins each and give your class the choice on 
+whether they move first or second. This prevents students from 
+copying your play from earlier games as well as making it more 
+difficult to figure out a winning strategy. After playing the game 
+many times until the class understands the rules, pose questions
+like these:
+\begin{enumerate}
+\item If the pile has 15 coins is it better to go first? What if the 
+pile had 37 coins? 1256 coins?
+\item Suppose we change the rules so that the number of coins
+we can take is either 1 or 2? Now what happens for 37 coins?
+\item Suppose we change the rules so that the player who gets 
+the last coin wins. Who will win if the game has 53 coins?
+\end{enumerate}
+
+Budget some time for them to think and respond to your questions.
+Be ready to critique the answers, too. After giving adequate time,
+explain that you can prove the answer to these and other questions
+by thinking like a mathematician. All we need to do is think 
+backwards and assume our opponent always plays the best move.
+Here's the explanation for a game with 13 coins where each
+player choses either 1, 2, or 3 coins each turn, and the player who
+takes the last coin loses. Talk through the logic while you 
+fill in the chart below.
+
+If there is 1 coin left on a player's turn then they must take the 
+last coin, so \textbf{1 coin is a losing position}. If there are 2 
+coins left on a player's turn then the best move is to choose 1 coin 
+leaving the opponent with 1 coin (a losing position). Therefore, 
+\textbf{2 coins is a winning position}. If there are 3 coins left on a 
+player's turn then the best move is to choose 2 coins leaving the 
+opponent with 1 coin (which is losing) so 
+\textbf{3 coins is a winning position}. If there are 4 coins on a 
+player's turn then choosing 3 coins leaves
+the opponent with 1 coin, so \textbf{4 coins is a winning position}. If
+there are are 5 coins then choosing 1, 2, or 3 coins leaves the 
+opponent with 4, 3, or 2 coins. These are all winning position if our
+opponent plays the best. Therefore, \textbf{5 coins is a losing 
+position}. If there are 6 coins then choosing 1 coin gives our
+opponent a losing position, so 
+\textbf{6 coins is a winning position}. If there are 7 coins then 
+choosing 2 coins gives our opponent 5 coins (a losing position), so 
+\textbf{7 coins is a winning position}. If there are 8 coins then 
+choosing 3 coins gives our opponent 5 coins (a losing position), so 
+\textbf{8 coins is a winning position}. If there are 9 coins then it
+doesn't matter if we choose 1, 2, or 3 coins because the opponent
+is left with a 8, 7, or 6 coins. These are all winning positions if the
+opponent plays the best moves. Therefore 
+\textbf{9 coins is a losing position}. If there are 10 coins then 
+choosing 1 coin gives our opponent a losing position, so 
+\textbf{10 coins is a winning position}. If there are 11 coins then 
+choosing 2 coins gives our opponent 9 coins (a losing position), so 
+\textbf{11 coins is a winning position}. If there are 12 coins then 
+choosing 3 coins gives our opponent 5 coins (a losing position), so 
+\textbf{12 coins is a winning position}. If there are 13 coins then it
+doesn't matter if we choose 1, 2, or 3 coins because the opponent
+is left with a 12, 11, or 10 coins. These are all winning positions if 
+the opponent plays the best moves. Therefore 
+\textbf{13 coins is a losing position}. 
+ 
+ \begin{center}
+\begin{tabular}{cc}
+coins left & type of position\\
+\hline
+1 & losing\\
+2 & winning\\
+3 & winning\\
+4 & winning\\
+5 & losing\\
+6 & winning\\
+7 & winning\\
+8 & winning\\
+9 & losing\\
+10 & winning\\
+11 & winning\\
+12 & winning\\
+13 & losing
+\end{tabular}
+\end{center}
+
+So a 13 coin game is a losing position. The second player will 
+always win if they play it correctly. Building the chart helps the
+class to see the pattern to the losing positions: $1, 5, 9, 13$.
+They all have a remainder of 1 after they are divided by 4. So if
+the game has 37 coins then $37=9(4)+1$ so 37 coins is a losing 
+position for the player who moves first. If there are 1256 coins
+then $1256=4(314)$. Since the remainder upon division by 4
+is 0, a game with 1256 coins is a winning position for the first 
+player.
+
+Knowing the formula for losing squares gives you the winning 
+strategy: make sure you leave your opponent a number of coins
+which, when divided by 4, has a remainder of 1. If you have 36
+coins (remainder 0) then choosing 3 coins leaves your opponent 
+on a losing number position because 33 has a remainder
+of 1 after division by four: $33=(8)(4)+1$. After your opponent 
+is on a losing position, make sure that they stay there. If they 
+choose, $k$ coins, you choose $4-k$ coins. Game over!
+
+Thinking like a mathematician takes what seems to be a 
+complicated game and makes it easy.
+\end{document}

@@ -1,0 +1,32 @@
+% Copyright 2015 http://www.highschoolmathandchess.com/
+% This program is free software: you can redistribute it and/or modify
+%   it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 3 of the License, or
+%    (at your option) any later version.
+%    This program is distributed in the hope that it will be useful,
+%   but WITHOUT ANY WARRANTY; without even the implied warranty of
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+\documentclass{article}
+\usepackage[color]{lapdf}
+\unitlength2cm
+\begin{document}
+\begin{lapdf}(6,6)(-2,-1) %from bottom left (-2,-1) add 6 to x and 6 to y to get upper right
+\Lingrid(10)(0,3)(-2,4)(-1,5)% (10) influences number of dots in grid
+%(tick pattern:0 or 1(none,dotted), tick label:0,1,2 none, +axes,+tick,+numbers)
+%(none,(xmin, xmax)(ymin, ymax)
+\Red %change pen color
+\Ellipse(50)(1,2)(3,2,30) %50 segments in ellipse, center, major axis, minor axis, rotate 30 degrees
+\Stroke %use pen
+\Blue %change pen color
+\Dash(3)%(0) solid, (1) dashed, (2) dot-dash, (3) short dash
+\Line(-2,0.5)(4,3.5) \Stroke
+\Line(-0.5,5)(2.5,-1) \Stroke
+\Dash(0)
+\Point(.5)(1,2)%(0) black, (1) white (.5) gray
+\Text(1.1,2.2,cb){$C$} % put text at point (1.1,2.2)
+\end{lapdf}
+\end{document}

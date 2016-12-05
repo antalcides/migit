@@ -1,0 +1,44 @@
+\documentclass{article}
+\usepackage{sagetex}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pagestyle{empty}
+\begin{document}
+\begin{sagesilent}
+x,y = var('x,y')
+#code from sagemath website
+#http://www.sagemath.org/doc/reference/plotting/sage/plot/contour_plot.html#sage.plot.contour_plot.implicit_plot
+def mandel(n):
+      c = polygen(CDF, 'c')
+      z = 0
+      for i in range(n):
+          z = z*z + c
+      def f(x, y):
+          val = z(CDF(x, y))
+          return val.norm() - 4
+      return f
+        
+p = implicit_plot(mandel(7), (-0.30, 0.05), (-1.15, -0.9),plot_points=50)
+P = p.matplotlib()
+R = P.get_children()[1]
+S = R.collections[0]
+r = S.get_paths()[0]
+v = r.vertices
+xvals = v[:,0]
+yvals = v[:,1]
+
+output = ""
+output += r"\begin{tikzpicture}"
+output += r"\begin{axis}[xmin=-.3,xmax=.08,ymin=-1.15,ymax=-.9]"
+output += r"\addplot+[blue,mark size=0.17pt] coordinates {"
+for i in range(0,len(xvals)):
+    output += r"(%f, %f) "%(xvals[i],yvals[i])
+output += r"};"
+output += r"\end{axis}"
+output += r"\end{tikzpicture}"
+\end{sagesilent}
+\sagestr{output}
+\end{document}
+
+%sagemathcloud={"zoom_width":180}

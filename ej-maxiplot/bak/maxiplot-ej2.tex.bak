@@ -1,0 +1,194 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[spanish]{babel}
+\usepackage[ansinew]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[amsmath]{maxiplot}
+
+\title{Maxiplot: Maxima y Gnuplot en \LaTeX.\\}
+
+\def\Maxima{\emph{Maxima}}
+\def\Gnuplot{\emph{Gnuplot}}
+\makeatletter % changes the catcode of @ to 11
+%\def\@setpar#1{\def\par{#1}\def\@par{#1}}
+%\def\@par{\let\par\@@par\par}
+%\def\@restorepar{\def\par{\@par}}
+\let\@@par\par
+\makeatother % changes the catcode of @ back to 12
+
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%
+
+\[
+ \begin{maxima}
+ f:1/n^2,
+ numer:true,
+ tex('sum(f,n,1,100)),
+ print("="),
+ tex(nusum(f,n,1,100))
+ \end{maxima}
+ \] 
+%%%%%%%%%%%%
+$$
+ \begin{maxima}
+ A:matrix([1,2,3],[4,8,5],[9,5,4]),
+ B:matrix([0,1,8],[1,7,0],[3,1,0]),
+ tex(A),
+ tex(B),
+ print("="),
+ tex(A.B)
+ \end{maxima}
+$$
+
+
+% %%%%%%%%%%%%%%%
+ La matriz 
+$\begin{maxima}
+  A:matrix([3,1],[2,4]),
+  tex('A),
+  print("="),
+  tex(A)
+\end{maxima}$
+tiene por adjunta
+$
+\begin{maxima}
+  print("\\mbox{Adj}(A)="),
+  tex(adjoint(A))
+\end{maxima}
+$ 
+cuyo determinante es 
+$
+\mbox{Det}(A)=
+\imaxima{tex(determinant(A))}
+$ 
+y por consiguiente su inversa resulta ser
+$$
+\begin{maxima}
+  print("\\mbox{Inv}(A)="),
+  tex(invert(A))
+\end{maxima}
+$$
+
+El polinomio caracter\'istico de la matriz $A$ es
+$
+\mbox{Det}(A-xI)=
+\begin{maxima}
+P:expand(charpoly(A,x)), 
+tex(P)
+\end{maxima}
+$ 
+cuyas ra\'ices son 
+$\imaxima{tex(solve(P))}$ 
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%%%%%%
+
+%
+
+\pagebreak
+\begin{maximacmd}
+  tangente(fx,a):=expand(ev(fx,x=a)
+                  +subst(a,x,diff(fx,x))*(x-a))$
+  plot2d([sin(x),tangente(sin(x),%pi/3)], [x,-3,3],
+         [gnuplot_preamble,"set zeroaxis;"],
+         [gnuplot_term, png],
+         [gnuplot_out_file,"./\jobname2D.png"])$
+\end{maximacmd}
+\begin{center}
+  \mxpIncludegraphics[scale=0.60]{\jobname2D.png}
+\end{center}
+\pagebreak
+Los entornos presentados hasta ahora pueden contener comandos \LaTeX{} que ser\'an
+sustituidos antes de pasar al archivo \texttt{mac}. Ahora bien, esta capacidad
+puede, a veces, no ser deseable o puede dar problemas con algunas secuencias
+de caracteres. Para evitar esto est\'an los entornos \texttt{vmaxima} y \texttt{vmaximacmd},
+cuyo uso es similar a los anteriores, pero el volcado es literal. Estos entornos
+est\'an basados en el paquete \texttt{verbatim} de \LaTeX{}. 
+
+\pagebreak
+
+\subsubsection{Gnuplot.}
+Si bien \Maxima{} permite la inclusi\'on de gr\'aficos a trav\'es de \Gnuplot{}, a veces puede ser preferible trabajar directamente con \'este \'ultimo. Para esto usaremos los entornos \texttt{gnuplot} y su versi\'on `verbatim' \texttt{vgnuplot}.
+
+Un ejemplo 3D
+\begin{verbatim}
+\begin{gnuplot}
+  set term png crop enhanced font "calibri, 10"
+  set output "toros.png"
+  set parametric
+  set urange [0:2*pi]
+  set vrange [-pi:pi]
+  set isosamples 36,24
+  set hidden3d
+  set view 75,15,1,1
+  unset key
+  set ticslevel 0
+  x1(u,v)=cos(u)+.5*cos(u)*cos(v)
+  y1(u,v)=sin(u)+.5*sin(u)*cos(v)
+  z1(u,v)=.5*sin(v)
+  x2(u,v)=1+cos(u)+.5*cos(u)*cos(v)
+  y2(u,v)=.5*sin(v)
+  z2(u,v)=sin(u)+.5*sin(u)*cos(v)
+  set multiplot
+  splot x1(u,v), y1(u,v), z1(u,v) w pm3d, x2(u,v), y2(u,v), z2(u,v) w pm3d
+  splot x1(u,v), y1(u,v), z1(u,v) lt 3,   x2(u,v), y2(u,v), z2(u,v) lt 5 
+\end{gnuplot}
+\begin{center}
+  \mxpIncludegraphics[scale=0.75]{toros.png}
+\end{center}
+\end{verbatim}
+
+
+\begin{gnuplot}
+  set term png crop enhanced font "calibri, 10"
+  set output "toros.png"
+   set parametric
+  set urange [0:2*pi]
+  set vrange [-pi:pi]
+  set isosamples 36,24
+  set hidden3d
+  set view 75,15,1,1
+  unset key
+  set ticslevel 0
+  x1(u,v)=cos(u)+.5*cos(u)*cos(v)
+  y1(u,v)=sin(u)+.5*sin(u)*cos(v)
+  z1(u,v)=.5*sin(v)
+  x2(u,v)=1+cos(u)+.5*cos(u)*cos(v)
+  y2(u,v)=.5*sin(v)
+  z2(u,v)=sin(u)+.5*sin(u)*cos(v)
+  set multiplot
+  splot x1(u,v), y1(u,v), z1(u,v) w pm3d, x2(u,v), y2(u,v), z2(u,v) w pm3d
+  splot x1(u,v), y1(u,v), z1(u,v) lt 3,   x2(u,v), y2(u,v), z2(u,v) lt 5 
+  unset multiplot
+\end{gnuplot}
+\begin{center}
+  \mxpIncludegraphics[scale=0.75]{toros.png}
+\end{center}
+Observemos el comando \verb|\mxpIncludegraphics|: el uso es el mismo que \verb|includegraphics| del
+paquete \verb|graphicx|, de hecho lo que hace es asegurarse de que existe el archivo gr\'afico e invocar dicha macro.
+\pagebreak
+\begin{gnuplot}
+set terminal png transparent nocrop enhanced size 450,320 font "arial,8" 
+set output "simple1.png"
+unset parametric
+set samples 100, 100
+set title "Simple Plots" 
+set title  font ",20" norotate
+set xrange [-10:10]
+plot[x=-10:10] sin(x),atan(x),cos(atan(x))
+unset multiplot
+\end{gnuplot}
+\begin{center}
+  \mxpIncludegraphics[scale=0.75]{simple1.png}
+\end{center}
+%%%%%%%%%%%%5
+Observemos el comando \verb|\mxpIncludegraphics|: el uso es el mismo que \verb|includegraphics| del
+paquete \verb|graphicx|, de hecho lo que hace es asegurarse de que existe el archivo gr\'afico e invocar dicha macro.
+\pagebreak
+
+\end{document}

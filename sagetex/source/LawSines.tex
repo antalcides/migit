@@ -1,0 +1,68 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{latexsym, amsmath,amsfonts,amssymb}
+\usepackage{xcolor}
+\usepackage[margin=.75in]{geometry}
+\usepackage{kpfonts}  %Changing the default fonts
+\usepackage[T1]{fontenc}
+\setlength{\parskip}{1.2ex} %space between paragraphs
+\setlength{\parindent}{1em} %Paragraph indentation
+\clubpenalty = 10000
+\widowpenalty = 10000
+\newcommand\T{\rule{0pt}{2ex}} % \T will create extra space above (used to fix tables)
+\newcommand\B{\rule[-1.5ex]{0pt}{0pt}}% \B will create extra space below
+\linespread{1.25} %spacing between lines
+\pagestyle{empty} %remove page numbers
+\begin{document}
+\begin{center}
+\Large{\textbf{Law of Sines Proof}}
+\end{center}
+
+\noindent {\bf Law of Sines:} For $\triangle ABC$ with sides $a, b, c$: $\frac{a}{\sin(A)}=\frac{b}{\sin(B)}=\frac{c}{\sin(C)}$.\\\\
+{\bf Proof:} There are two cases to consider depending on whether the triangle
+is acute or obtuse.\\\\
+Case $1$: $\triangle ABC$ is acute.\\\\
+Arrange the triangle so that the base is $\overline{AB}$ and drop a perpendicular from point $C$ to $\overline{AB}$ to create point $D$ as shown in the following diagram:
+\begin{figure}[h]
+\begin{center}
+\includegraphics {AcuteTri.pdf}
+\caption{Proving the Law of Sines with an acute triangle.} \label{fg:lofs}
+\end{center}
+\end{figure}
+
+\noindent From $\triangle ADC$ we have $\sin(A)=\frac{h_1}{b}$ and from $\triangle BDC$,  $\sin(B)=\frac{h_1}{a}$. Solving for $h_1$ yields $h_1=b\sin(A)$ and $h_1=a\sin(B)$. Combining the two equations 
+gives $b\sin(A)=a\sin(B)$ which simplifies to $\frac{a}{\sin(A)}=\frac{b}{\sin(B)}$. Now rotate the triangle so that $\overline{AC}$ is the base and
+drop a perpendicular from $B$ to $\overline{AC}$ to create $D$ as shown:
+\begin{figure}[h]
+\begin{center}
+\includegraphics {AcuteTriB.pdf}
+\end{center}
+\end{figure}
+
+\noindent Follow the same argument as above to get $\sin(C)=\frac{h_2}{a}$ and $\sin(A)=\frac{h_2}{c}$. Solving for $h_2$ gives $h_2=c\sin(A)$ and $h_2=a\sin(C)$. These two equations yield $a\sin(C)=c\sin(A)$ which
+simplifies to $\frac{a}{\sin(A)}=\frac{c}{\sin(C)}$. Combine with
+$\frac{a}{\sin(A)}=\frac{b}{\sin(B)}$ to get 
+$\frac{a}{\sin(A)}=\frac{b}{\sin(B)}=\frac{c}{\sin(C)}$.\\\\
+Case $2$: $\triangle ABC$ is obtuse.\\\\
+Arrange the triangle so that the base is the side opposite the obtuse angle, $C$. Drop a perpendicular to the other side as in the following diagram:
+\begin{figure}[h]
+\begin{center}
+\includegraphics {ObtuseTri.pdf}
+\caption{Proving the Law of Sines with an obtuse triangle.} \label{fg:lofs2}
+\end{center}
+\end{figure}
+\noindent From $\triangle ADC$ we have $\sin(A)=\frac{h_1}{b}$ and from $\triangle BDC$,  $\sin(B)=\frac{h_1}{a}$. Solving for $h_1$ in both equations yields $h_1=b\sin(A)$ and $h_1=a\sin(B)$ which means $b\sin(A)=a\sin(B)$. This is equivalent to $\frac{a}{\sin(A)}=\frac{b}{\sin(B)}$. Now rotate the triangle so that $\overline{AC}$ is the base and
+drop a perpendicular from $B$ to $\overline{AC}$ to create point $D$ as shown in the diagram below:
+\begin{figure}[h]
+\begin{center}
+\includegraphics {ObtuseTriB.pdf}
+\end{center}
+\end{figure}
+
+\noindent Since $C$ is an obtuse angle $\sin(C)=\sin(180^{\circ}-C)=\frac{h_2}{a}$; that is, $\sin(C)=\frac{h_2}{a}$. Combine this with $\sin(A)=\frac{h_2}{c}$ to get $c\sin(A)=a\sin(C)$. This is 
+equivalent to  $\frac{a}{\sin(A)}=\frac{c}{\sin(C)}$ which, when
+combined with $\frac{a}{\sin(A)}=\frac{b}{\sin(B)}$ gives $\frac{a}{\sin(A)}=\frac{b}{\sin(B)}=\frac{c}{\sin(C)}$.
+
+\noindent In both cases, the Law of Sines is established.
+
+\end{document}

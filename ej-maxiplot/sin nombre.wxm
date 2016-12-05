@@ -1,0 +1,44 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 13.04.2 ] */
+
+/* [wxMaxima: input   start ] */
+eq:'diff(y,x)=y*x*sin(x);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+ode2(eq,y,x);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+eq2:'diff(y,x)=y*x*sin(x);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+ode2(eq2,y,x); ic1(%,x=pi/4,y=%e);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+g:sin(x);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+taylor(g,x,0,7);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+plot3d(-x^2+y^2,[x,-2,2],[y,-2,2],
+    [plot_format, gnuplot],
+    [run_viewer,true],
+    [gnuplot_preamble,"set terminal png; set output 'grafico9.png' "],
+    [gnuplot_pm3d, true]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+plot3d(-x^2+y^2, [x,-2,2], [y,-2,2], [plot_format,gnuplot],
+ [gnuplot_preamble, "set pm3d at b"],
+ [gnuplot_term, png],
+ [gnuplot_out_file, "/home/aolivo/plot3d.png"])$
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

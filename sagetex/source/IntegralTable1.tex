@@ -1,0 +1,55 @@
+\documentclass[11pt]{article}
+%\usepackage{concmath}
+\usepackage{amsmath, amsfonts}
+\usepackage{eulervm}
+\usepackage{multicol}
+\usepackage{fullpage}
+\pagestyle{empty}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+%\DeclareMathOperator{\coth}{coth}
+\columnsep = 5pt
+\begin{document}
+\begin{center}\textbf{\Huge Table of Integrals }\end{center}
+Let $a \in \mathbb{R}^{+}$, and $n \in \mathbb{R}$. Remember to add $C$ to each answer for indefinite integrals.
+\begin{center}
+\textbf{\large Memorize}
+\end{center}
+\begin{multicols}{2}
+\begin{enumerate}
+\item $\displaystyle\int x^n\,dx =
+\begin{cases}
+\displaystyle\frac{x^{n+1}}{n+1} &\mbox{for }n\neq -1\\\\
+\displaystyle \ln |x| &\mbox{for }n=-1
+\end{cases}$
+\item $\displaystyle\int a^x\,dx = \frac{a^x}{\ln(a)}$
+\item $\displaystyle\int e^x\,dx = e^x$
+\item $\displaystyle\int \sin(ax)\,dx = -\frac{1}{a} \cos(ax)$
+\item $\displaystyle\int \cos(ax)\,dx = \frac{1}{a}\sin(ax)$
+\item $\displaystyle\int \tan(ax)\,dx = \frac{1}{a}\ln|\sec(x)|$
+\item $\displaystyle\int \sec(ax)\,dx = \frac{1}{a}\ln|\sec(ax)+\tan(ax)|$
+\item $\displaystyle\int \csc(x)\,dx = \ln|\csc(x)-\cot(x)|$
+\item $\displaystyle\int \cot(ax)\,dx = \frac{1}{a}\ln|\sin(ax)|$
+\item $\displaystyle\int \frac{1}{\sqrt{a^2 - x^2}}\ dx = \sin^{-1}\left(\frac{x}{a}\right)$
+\item $\displaystyle\int \frac{-1}{\sqrt{a^2-x^2}}\,dx = \cos^{-1}\left(\frac{x}{a}\right)$
+\item $\displaystyle\int \frac{1}{a^2+x^2}\,dx = \frac{1}{a}\tan^{-1}\left(\frac{x}{a}\right)$
+\item $\displaystyle\int \cosh(ax)\,dx = \frac{1}{a}\sinh(ax)$
+\item $\displaystyle\int \sinh(ax)\,dx = \frac{1}{a}\cosh(ax)$
+\end{enumerate}
+\end{multicols}
+\vspace{10mm}
+\begin{center}
+\textbf{\large Practice Using a Table}
+\end{center}
+\begin{enumerate}
+\item $\displaystyle \int x^n \ln{n}(x)\,dx = \frac{x^{n+1}}{(n+1)^2}[(n+1)\ln(x)-1]$
+\item $\displaystyle \int \sin^{n}(x)\,dx = -\frac{1}{n}\sin^{n-1}(x)\cos(x)
++\frac{n-1}{n}\int \sin^{n-2}(x)\,dx$
+\item $\displaystyle \int \cos^{n}(x)\,dx = \frac{1}{n}\cos^{n-1}(x)\sin(x)
++\frac{n-1}{n}\int \cos^{n-2}(x)\,dx$
+\item $\displaystyle \int \tan^{n}(x)\,dx = \frac{1}{n-1}\tan^{n-1}(x)- 
+\int \tan^{n-2}(x)\,dx$
+\item $\displaystyle \int \sin^{n}(x)\cos^{m}(x)\,dx = -\frac{\sin^{n-1}(x)\cos^{m+1}(x)}{n+m}+\frac{n-1}{n+m}\int \sin^{n-2}(x)\cos^{m}(x)\,dx$
+\end{enumerate}
+
+\end{document}

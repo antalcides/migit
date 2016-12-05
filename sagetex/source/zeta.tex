@@ -1,0 +1,35 @@
+\documentclass{article}
+\usepackage{sagetex}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{pgfplots}
+\begin{document}
+\begin{sagesilent}
+t = var('t')
+LowerY = -4
+UpperY = 5
+LowerX = -3
+UpperX = 3
+step = .01
+x_coords = [t for t in srange(LowerX,UpperX,step)]
+y_coords = [zeta(t).n(digits=6) for t in srange(LowerX,UpperX,step)]
+
+output = r""
+output += r"\begin{tikzpicture}[scale=.7]"
+output += r"\begin{axis}[xmin=%f,xmax=%f,ymin= %f,ymax=%f]"%(LowerX,UpperX,LowerY, UpperY)
+output += r"\addplot[thin, blue, unbounded coords=jump] coordinates {"
+for i in range(0,len(x_coords)-1):
+    if (y_coords[i])<LowerY or (y_coords[i])>UpperY:
+        output += r"(%f , inf) "%(x_coords[i])
+    else:
+        output += r"(%f , %f) "%(x_coords[i],y_coords[i])
+output += r"};"
+output += r"\end{axis}"
+output += r"\end{tikzpicture}"
+\end{sagesilent}
+\begin{center}
+\sagestr{output}
+\end{center}
+\begin{center}
+\sageplot[width=6cm]{plot(zeta(x), (x, -3, 3),ymin=-4, ymax=5,detect_poles=True)}
+\end{center}
+\end{document}

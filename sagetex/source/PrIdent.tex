@@ -1,0 +1,113 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx,hyperref,amsmath,natbib,microtype,todonotes}
+\usepackage[a4paper,margin=.5in]{geometry}
+\usepackage[compact,small]{titlesec}
+\setlength{\parskip}{1.3ex} %space between paragraphs
+\setlength{\parindent}{2em} %Paragraph indentation
+\clubpenalty = 10000
+\widowpenalty = 10000
+\newcommand\T{\rule{0pt}{3ex}} % \T will create extra space above (used to fix tables)
+\newcommand\B{\rule[-1.5ex]{0pt}{0pt}}% \B will create extra space below (used to fix tables)
+\usepackage{kpfonts}  %Changing the default fonts
+\usepackage[T1]{fontenc}
+\usepackage{epsfig,latexsym, amsfonts,amssymb,color}
+\usetikzlibrary{arrows}
+
+\pagestyle{empty}
+\baselineskip = 1.5\baselineskip
+
+\begin{document}
+\noindent Name \rule{80 mm}{.2pt} \hspace{35 mm} Date \rule{25 mm}{.2pt}\\\\
+Class \rule{30 mm}{.2pt} \hspace{15 mm}\textbf{Proving Trigonometric Identities}\\\\
+Mathematicians spend a lot of time discovering relationships and when they think they've found one, they'll try
+to prove it. Trigonometric identities are a great way for you to get a glimpse of this process. Just like the
+mathematician trying to prove something new, you aren't allowed to assume the trigonometric identity is true.
+Mathematicians know \textbf{the proper procedure is to start with one side and, through algebraic manipulation,
+show that it's equal to the other side.}
+
+In this worksheet we'll see why it's wrong to work with both sides at the same time. Start with:
+
+	\begin{minipage}[h]{.1 \textwidth}
+	\vspace{0pt}	%\align the tops of minipages
+	\[a(x)=\left\{ \begin{array}{ll} 1 & \mbox{if $x \in \mathbb{Z}$}\\
+		0 & \mbox{if $x \not \in \mathbb{Z}$} \end{array}\right.\]\\
+	\end{minipage}%              The % prevents an interword space from causing a potential problem
+	\begin{minipage}[h]{1 \textwidth}
+	\vspace{0pt}	%align the tops of minipages
+	%\centering
+ 	\[b(x)=\left\{ \begin{array}{ll} 0 & \mbox{if $x \in \mathbb{Z}$}\\
+		1 & \mbox{if $x \not \in \mathbb{Z}$} \end{array}\right.\]\\
+	\end{minipage}
+		
+	\begin{minipage}[h]{.1\textwidth}
+	\vspace{0pt}	%align the tops of minipages
+	%\centering
+ 	\[c(x)=\left\{ \begin{array}{ll} 1 & \mbox{if $x \geq 0$}\\
+		0 & \mbox{if $x < 0$} \end{array}\right.\]\\
+	\end{minipage}
+	\begin{minipage}[h]{1\textwidth}
+	\vspace{0pt}	%align the tops of minipages
+ 	\[d(x)=\left\{ \begin{array}{ll} 0 & \mbox{if $x \geq 0$}\\
+		1 & \mbox{if $x < 0$} \end{array}\right.\]\\
+	\end{minipage}
+
+1. Graph the functions $a(x)$, $b(x)$, $c(x)$, and $d(x)$ below:
+
+\begin{tikzpicture}
+  \draw[<->] (0,0)--(6,0);
+  \draw[<->] (3,2)--(3,-2);
+  \draw[<->] (9,0)--(15,0);
+  \draw[<->] (12,2)--(12,-2);
+\end{tikzpicture}
+
+\vspace{.4in}
+
+\begin{tikzpicture}
+  \draw[<->] (0,0)--(6,0);
+  \draw[<->] (3,2)--(3,-2);
+  \draw[<->] (9,0)--(15,0);
+  \draw[<->] (12,2)--(12,-2);
+\end{tikzpicture}
+
+Now suppose someone asks you to whether it's true that $\frac{a(x)}{d(x)}= \frac{c(x)}{b(x)}$ and you 
+cross multiply (even though you aren't supposed to) to get $a(x)b(x)=c(x)d(x)$. Since $a(x)>0$ 
+whenever $b(x)=0$, we know $a(x)b(x)=0$ for 
+every value of $x$. A similar argument shows that $c(x)d(x)=0$ for all values of $x$. In other words, 
+both $a(x)b(x)$ and $c(x)d(x)$ are identical to the line $y=0$; the domains are $(-\infty, \infty)$ and
+the ranges are $\{0\}$. So it's clear that $\frac{a(x)}{d(x)}= \frac{c(x)}{b(x)}$? Not so fast!
+\newpage
+2. Graph $\frac{a(x)}{d(x)}$ and $\frac{c(x)}{b(x)}$.\\\\
+\begin{tikzpicture}
+  \draw[<->] (0,0)--(6,0);
+  \draw[<->] (3,2)--(3,-2);
+  \draw[<->] (9,0)--(15,0);
+  \draw[<->] (12,2)--(12,-2);
+\end{tikzpicture}
+
+\vspace{.4in}
+
+
+3. Find the domain and range of $\frac{a(x)}{d(x)}$ and $\frac{c(x)}{b(x)}$.\\\\\\
+Domain of $\frac{a(x)}{d(x)}$ \hspace{.75in} Range of $\frac{a(x)}{d(x)}$ \hspace{1in} 
+Domain of $\frac{c(x)}{b(x)}$ \hspace{.75in} Range of $\frac{c(x)}{b(x)}$\\\\\\\\\\
+
+Notice that the answers are much different now!  The domains are not $(-\infty, \infty)$ and they're
+different. The problem is the original identity isn't true and when you cross multiply it out like it
+is true, you get into trouble.
+
+So if you have a trigonometric identity
+ \[\frac{\cos(\theta)}{1-\sin(\theta)}=\frac{1+\sin(\theta)}{\cos(\theta)}\] \\
+you are not allowed to solve it like this:\\
+$\cos(\theta)\cos(\theta)= (1-\sin(\theta))(1+\sin(\theta))$ which simplifies to $\cos^2(\theta)= 1-\sin^2(\theta)$ and then to $\cos^2(\theta)+ \sin^2(\theta)=1$. 
+
+In this case the identity is true, but look a little closer. The lefthand side is not defined whenever
+$\sin(\theta)=1$; i.e., $\theta= \frac{\pi}{2} + 2n\pi$. The righthand side is not defined when 
+$\cos(\theta)=0$, which is when $\theta= \frac{\pi}{2} + n\pi$. The lefthand side and righthand side have
+different domains, but whenever both are defined they are the same. When you cross multiply to get
+$\cos(\theta)\cos(\theta)=(1-\sin(\theta))(1+\sin(\theta))$ both the lefthand side and righthand side are
+defined for all real number values of $\theta$. 
+
+4. Solve the trigonometric identity
+\[\frac{\cos(\theta)}{1-\sin(\theta)}=\frac{1+\sin(\theta)}{\cos(\theta)}\] 
+by working from left to right.
+\end{document}

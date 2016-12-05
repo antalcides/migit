@@ -1,0 +1,34 @@
+\force_paint_single_char false
+
+\Format pdf10   pdf "PDF (pdflatex+sagetex)"    g   xdg-open    ""  "document,vector,menu=export"
+
+\viewer_alternatives pdf10 xdg-open
+\viewer_alternatives pdf10 okular
+\viewer_alternatives pdf10 evince
+\viewer_alternatives pdf10 xpdf
+
+\viewer_alternatives pdf11 xdg-open
+\viewer_alternatives pdf11 okular
+\viewer_alternatives pdf11 evince
+\viewer_alternatives pdf11 xpdf
+
+
+# to make SageTeX the default pathway, change "pdf2" to "pdf10"
+\default_view_format pdf2
+
+# two-step conversion process allows LaTeX messages to be processed by LyX
+# we use "compile-pdf-sage.sh $$i" since the documented base file name substitution "$$b" appears unsupported
+
+\Format sagetex tex             SageTeX "" "" gedit "document,menu=export"
+\Format sage    sagetex.sage    Sage    "" "" ""    "document"
+
+\converter  sagetex sage    "pdflatex $$i"              "latex=pdflatex"
+\converter  sage    pdf10   "compile-pdf-sage.sh $$i"   ""
+
+# using only pdflatex allows updating LaTeX without updating Sage computations
+\converter  sagetex pdf2    "pdflatex $$i"              "latex=pdflatex"
+
+# for one-step conversion, uncomment this line and corresponding lines in compile-pdf-sage.sh
+#\converter sagetex pdf10 "compile-pdf-sage.sh $$i" ""
+
+

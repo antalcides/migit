@@ -1,0 +1,30 @@
+\documentclass{article}
+\usepackage{sagetex}
+\usepackage{graphicx}
+\pagestyle{empty}
+\begin{document}
+\begin{sagesilent}
+t6 = Tachyon(camera_center=(0,-4,1), xres = 800, yres = 600, raydepth = 12, aspectratio=.75, antialiasing = True)
+t6.light((0.02,0.012,0.001), 0.01, (1,0,0))
+t6.light((0,0,10), 0.01, (0,0,1))
+t6.texture('s', color = (.8,1,1), opacity = .9, specular = .95, diffuse = .3, ambient = 0.05)
+t6.texture('p', color = (0,0,1), opacity = 1, specular = .2)
+t6.sphere((-1,-.57735,-0.7071),1,'s')
+t6.sphere((1,-.57735,-0.7071),1,'s')
+t6.sphere((0,1.15465,-0.7071),1,'s')
+t6.sphere((0,0,0.9259),1,'s')
+t6.plane((0,0,-1.9259),(0,0,1),'p')
+t6.save('Graph.png')
+\end{sagesilent}
+Sagetex let's you borrow the power of Sage in creating pictures. This
+example comes from:
+\begin{verbatim}
+http://wiki.sagemath.org/pics#Mirrored_balls_in_tachyon
+\end{verbatim}
+and it's running in \LaTeX \,with the power of the sagetex package.
+\begin{center}
+\includegraphics[width=5in,height=4in]{Graph.png}
+\end{center}
+\end{document}
+
+%sagemathcloud={"zoom_width":130}

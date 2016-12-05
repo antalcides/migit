@@ -1,0 +1,225 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage[T1]{fontenc}
+%\usepackage[utf8]{inputenc}
+
+\usepackage{tgpagella}
+\usepackage{tgadventor}
+\usepackage{inconsolata}
+
+\usepackage[makestderr]{pythontex}
+
+
+\usepackage{hyperref}
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\begin_local_layout
+#\DeclareLyXModule{teorema}
+#DescriptionBegin
+#Defines some styles for movies.....
+#DescriptionEnd
+#Author: Antalcides Olivo
+
+Format 49
+Style Teorema
+Category              Reasoning
+Margin                First_Dynamic
+LatexType             Environment
+LatexName             teo
+NextNoIndent          1
+LeftMargin            MMM
+RightMargin           MMM
+ParIndent             MMM
+ParSkip               0.4
+ItemSep               0.2
+TopSep                0.7
+BottomSep             0.7
+ParSep                0.3
+Align                 Block
+AlignPossible         Right
+LabelType             Static
+LabelSep              xx
+LabelString           "Teorema \theteorema."
+LabelFont
+  Shape               Up
+  Series              Bold
+EndFont
+Font
+  Shape               Italic
+  Size                Normal
+EndFont
+Argument 1
+LabelString    "Additional Teorema Text"
+Tooltip        "Additional text appended to the theorem header"
+EndArgument
+Argument 2
+LabelString    "Additional Teorema Text"
+Tooltip        "Additional text appended to the theorem header"
+EndArgument
+Preamble
+\usepackage{multicol}
+\usepackage{etoolbox}%
+\usepackage{blindtext}%
+\usepackage{tikz}
+\usepackage[many,most]{tcolorbox}%
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{shadows,calc}
+\usetikzlibrary{shadows.blur}
+\usetikzlibrary{tikzmark,decorations.pathreplacing}
+\tcbuselibrary{breakable,minted}
+\usetikzlibrary{shapes.misc}
+\usetikzlibrary{decorations.pathmorphing}
+\tcbuselibrary{skins,theorems}
+   \mtcbmaketheorem{theo}{Teorema}{lemstyle}{teorema}{th}
+    EndPreamble
+
+Argument 1
+LabelString	"Required Layout Argument 1"
+Mandatory	1
+EndArgument
+Argument 2
+LabelString	"Required Layout Argument 2"
+Mandatory	1
+EndArgument
+LangPreamble
+\providecommand{\teoremaname}{_(Teorema)}
+EndLangPreamble
+BabelPreamble
+ \addto\captions$$lang{\renewcommand{\teoremaname}{_(Teorema)}}
+EndBabelPreamble
+End
+\end_local_layout
+\language english
+\language_package none
+\inputencoding utf8x
+\fontencoding default
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 1
+\use_package mhchem 0
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{pyconcode}
+\end_layout
+
+\begin_layout Plain Layout
+
+import os
+\end_layout
+
+\begin_layout Plain Layout
+
+import sys
+\end_layout
+
+\begin_layout Plain Layout
+
+sys.path.append(os.getcwd()) 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{pyconcode}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{pyconsole}
+\end_layout
+
+\begin_layout Plain Layout
+
+import sayhi
+\end_layout
+
+\begin_layout Plain Layout
+
+sayhi.hi()
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{pyconsole}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

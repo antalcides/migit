@@ -1,0 +1,146 @@
+% Copyright 2015 http://www.highschoolmathandchess.com/
+% This program is free software: you can redistribute it and/or modify
+%   it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 3 of the License, or
+%    (at your option) any later version.
+%    This program is distributed in the hope that it will be useful,
+%   but WITHOUT ANY WARRANTY; without even the implied warranty of
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+\documentclass[11pt]{article}
+%\usepackage{fullpage}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\usepackage{latexsym,amsmath,amsfonts,amsthm,amssymb}
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{skins,listings}
+\newtheorem*{cor}{Corollary}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{lem}{Lemma}
+\pagestyle{empty}
+\usetikzlibrary{shapes}
+\usetikzlibrary{calc,trees,positioning,arrows,chains,shapes.geometric,%
+  decorations.pathreplacing,decorations.pathmorphing,shapes,%
+  matrix,shapes.symbols,plotmarks,decorations.markings,shadows}
+\RequirePackage[framemethod=tikz]{mdframed}
+\newmdenv[skipabove=7pt,
+skipbelow=7pt,
+roundcorner=10pt,
+shadow=true,
+shadowsize=6pt,
+rightline=true,
+leftline=true,
+topline=true,
+bottomline=true,
+backgroundcolor=green!10,
+outerlinewidth=.35pt,
+outerlinecolor=black,
+linecolor=black,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=5pt,
+innerbottommargin=5pt,
+leftmargin=0cm,
+rightmargin=0cm,
+linewidth=1pt]{hBox}
+
+\newmdenv[skipabove=7pt,
+skipbelow=7pt,
+roundcorner=10pt,
+shadow=true,
+shadowsize=6pt,
+rightline=true,
+leftline=true,
+topline=true,
+bottomline=true,
+backgroundcolor=red!20,
+outerlinewidth=.35pt,
+outerlinecolor=black,
+linecolor=black,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=5pt,
+innerbottommargin=5pt,
+leftmargin=0cm,
+rightmargin=0cm,
+linewidth=1pt]{wBox}
+\newenvironment{highlight}{\begin{hBox}}{\hfill{\color{green!20}}\end{hBox}}
+\begin{document}
+\begin{center}
+\Huge{Negative Times Negative is Positive}
+\large{\href{www.highscoolmathandchess.com}{http://www.highschoolmathandchess.com/}}
+\end{center}
+At some point in your study of mathematics you should have learned:\\
+``Negative times negative is positive.'' as well as
+``Negative times positive is negative.'' and
+``Positive times negative is negative.''\\\\
+Unfortunately, most students don't understand why it's true. Let's see how 
+those statements follow logically from the properties of real numbers.
+
+\begin{tcolorbox}[skin=beamer,beamer,colback=white,colframe=red!55!black,adjusted title=Properties of Real Numbers]
+Let $a, b, c$ be real numbers 
+\begin{enumerate}
+\item Closure of Addition: $a+b$ is a real number
+\item Closure of Multiplication: $ab$ is a real number
+\item Commutative Property of Addition: $a+b=b+a$
+\item Commutative Property of Multiplication: $ab=ba$
+\item Associative Property of Addition: $a+(b+c)=(a+b)+c$
+\item Associative Property of Multiplication: $a(b+c)=(a+b)c$
+\item Additive Identity Property: $a+0=a$
+\item Multiplicative Identity Property: $a(1)=a$
+\item Additive Inverse Property: $a+(-a)=0$
+\item Multiplicative Inverse Property: $a\left(\frac{1}{a}\right)=1$
+\item Distributive Property: $a(b+c)=ab+ac$
+\end{enumerate}
+\end{tcolorbox}
+
+Mathematicians can use deductive reasoning to discover new facts 
+from the older facts. Usually those facts are called 
+axioms, but in this case, the facts are the Properties of Real Numbers. 
+Let's see how a negative number times a negative number follows logically 
+from the rules of real numbers.
+
+\begin{tcolorbox}[skin=beamer,beamer,colback=white,colframe=orange!55!black,adjusted title=Theorem]
+\begin{theorem}
+A negative number multiplied by a positive number is a negative number.
+\end{theorem}
+\end{tcolorbox}
+\noindent\textbf{Proof:} Let $a, b, c$ be positive real numbers. First notice
+that the Distributive Property says $a(b+c)=ab+ac$ and, by the Commutative
+Property fo Multiplication this is $ba+ca$. Moreover, the Commutative Property
+of Multiplication says $a(b+c)=(b+c)a$ so combining these gives us 
+$(b+c)a = ba+ca$. With this background, it follows that $(-a)b+ab$ is equal 
+to $(-a+a)b$. Now the Additive Inverses Property says this is equivalent to 
+$(0)a$ which is equal to $0$. Combining all these gives $(-a)b +ab = 0$
+and so $(-a)b = -(ab)$. Since $a, b, c$ are positive real numbers we have 
+$-a$, a negative number, multiplied by $b$, a positive number results in 
+$-(ab)$, a negative number. $\Box$
+
+\begin{highlight}
+The multiplication of numbers is commutative so it follows that 
+a positive number multiplied by a negative number must be negative.
+\end{highlight}
+
+\begin{tcolorbox}[skin=beamer,beamer,colback=white,colframe=orange!55!black,adjusted title=Theorem]
+\begin{theorem}
+A negative number multiplied by a negative number is a positive number.
+\end{theorem}
+\end{tcolorbox}
+\noindent\textbf{Proof:} The expression $(-a)(-b)+[-(ab)]$ is equal to 
+$(-a)(b)+(-a)(b)$ since, by the previous result, a negative number times a 
+positive number is a negative number. The Distributive Property tells
+us that this is equivalent to $-a[(-b)+b]=-a(0)=0$. Putting all the steps 
+together we have $(-a)(-b)+[-(ab)]=0$ or just $(-a)(-b)=(ab)$. That is, 
+a negative number times a negative number is a positive number. $\Box$\\
+
+Proof is the essence of mathematics and the Properties of Real Numbers 
+provide us with some simple proofs that we can understand. And now you know 
+\emph{why} negative times
+negative must be positive.
+\end{document}
+

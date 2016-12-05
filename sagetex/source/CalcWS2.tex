@@ -1,0 +1,106 @@
+
+\documentclass[12pt]{article}%
+\usepackage{graphicx}
+\usepackage[a4paper,margin=.5in]{geometry}
+\usepackage{kpfonts}  %Changing the default fonts
+\usepackage[T1]{fontenc}
+\usepackage{epsfig,latexsym, amsfonts,amssymb,color}
+\def\mystrut(#1,#2){\vrule height #1pt depth #2pt width 0pt}
+\pagestyle{empty}
+
+\begin{document}
+\noindent Name \rule{80 mm}{.2pt} \hspace{35 mm} Date \rule{25 mm}{.2pt}\\\\
+Class \rule{30 mm}{.2pt} \hspace{10 mm}\textbf{More Problems with Calculators}\\
+
+In our first calculator worksheet we saw technology doesn't always give the correct answers.
+Overflow errors happened when a really small number was made equal to one. Overflow errors
+happened when numbers were too big to represented by the calculator. In general, the 
+calculator gave you the best answer it could from the numbers it could represent. In this 
+worksheet we'll see that sometimes calculators give answers which are just plain wrong. We'll
+also see that you need to know how to enter problems properly.
+\begin{enumerate}
+\item Calculators have lots of problems with exponentiation. Fill in the values in the table below.
+ \begin{table}[htbp]
+ \centering
+ \begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+ & \mystrut(14,7)  Your calculator & computer calculator & Google & Cool Math\\
+\hline
+\mystrut(14,7) $0^0$ & &  & &\\
+\hline
+\mystrut(14,7)  $(-1)^0$  & &  & &\\
+\hline
+\mystrut(17,7) $(-8)^{-\frac{1}{3}}$  & &  & &\\
+\hline
+\mystrut(14,7)  $(-1)^{-1}$  & &  & &\\
+\hline
+\mystrut(17,7) $(-1)^{\frac{6}{10}}$  & &  & &\\
+\hline
+\mystrut(21,10) $\left(-\frac{1}{3}\right)^{-\frac{1}{3}}$  & &  & &\\
+\hline
+\end{tabular}
+\end{table}
+\item Notice that technology is, in some cases, giving us different answers for the 
+same problem. Now it's your turn: What do you think are the correct answers to:\\\\
+$0^0$\\\\
+$(-1)^0$ \\\\
+$(-8)^{-\frac{1}{3}}$\\\\
+$(-1)^{-1}$\\\\
+$(-1)^{\frac{6}{10}}$ \\\\
+$\left(-\frac{1}{3}\right)^{-\frac{1}{3}}$ \\
+\begin{center}\underline{Make sure you've shown your work.}\end{center}
+\item 
+If you're going to use technology then you must know the orders of operation. These can
+be remembered using the mnemonic device PEMDAS (Please Excuse My Dear Aunt Sally) where:\\
+\textcolor{red}{P}: Parentheses, braces, brackets (from ``inside'' to ``outside'')\\
+\textcolor{red}{E}: Exponentiation\\
+\textcolor{red}{M}: Multiplication (from left to right)\\
+\textcolor{red}{D}: Division (from left to right)\\
+\textcolor{red}{A}: Addition (from left to right)\\
+\textcolor{red}{S}: Subtraction (from left to right)\\
+
+Multiplication and division rank equally. These should be carried out before additions and
+subtractions, which also rank equally. The insistence of from left to right is very important!
+It tells us that $3 \div 6 \div 3$ must be evaluated as $\frac{3}{6}\div 3=\frac{3}{3(6)}=
+\frac{1}{6}$ and NOT as $3 \div \frac{6}{3}=3\div 2= \frac{3}{2}$. 
+
+If you need to calculate $\sqrt[3]{-2}$ on your calculator then of course, you'll need to 
+know that it is equivalent to $(-2)^{\frac{1}{3}}$ and then be able to  enter that into
+the calculator.
+
+\item Use your calculator to determine the value of:
+\begin{enumerate}
+\item \verb!(-2)^1/3!  \hspace{40 mm}Answer: \rule{50 mm}{.2pt}
+\item \verb!(-2)^(1/3)! \hspace{36 mm}Answer: \rule{50 mm}{.2pt}
+\end{enumerate}
+Which calculation is equivalent to $(-2)^{\frac{1}{3}}$?\\
+
+\underline{Make sure you explain the reason behind your answer.}
+\item Notice the orders of operation don't say Exponentiation (from left to right). That's
+because this assumption is not standard. Whenever I have seen something like $3^{3^3}$ in
+print it has NOT been interpreted from left to right. Rather, it is interpreted 
+as $3^{(3^3)}$. Wikipedia reports that the TI-92 and TI-30XII give different results for this!
+In general, people reading math are expected to follow the order 
+of operations listed and use parentheses carefully
+to clarify the meaning of complicated expressions. The expression \verb!2^2!! could be
+interpreted as $2^{2!}$ or $2^{2}!$. When there is no standard you
+should use parentheses to avoid potential problems.\\
+
+Evaluate $2^{2!}$ \hspace{40 mm}Answer: \rule{50 mm}{.2pt}\\\\
+Evaluate $2^{2}!$ \hspace{40 mm}Answer: \rule{50 mm}{.2pt}
+\end{enumerate}
+
+After completing this worksheet you should be aware that 
+\begin{enumerate}
+\item Calculators don't always give the exact answer. Most of the time they give an
+approximation.
+\item Calculators can make mistakes.
+\item A good foundation in mathematics is essential to use technology properly.
+\item Only the basic orders of operation listed here are standard. 
+\item It is a good habit to use parentheses generously so the reader know what calculation
+you intend.
+\end{enumerate}
+
+The field of mathematics that studies the methods of computing mathematical answers
+accurately is called \textbf{numerical analysis.}
+\end{document}

@@ -1,0 +1,107 @@
+% Copyright 2015 http://www.highschoolmathandchess.com/
+% This program is free software: you can redistribute it and/or modify
+%   it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 3 of the License, or
+%    (at your option) any later version.
+%    This program is distributed in the hope that it will be useful,
+%   but WITHOUT ANY WARRANTY; without even the implied warranty of
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+\documentclass{standalone}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{pgfplots}
+\usepackage{sagetex}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{decorations}
+\pgfplotsset{compat=newest}% use newest version
+\begin{document}
+\begin{sagesilent}
+####### SCREEN SETUP #####################
+LowerX = -3
+UpperX = 3
+LowerY = -3
+UpperY = 3
+step = .01
+Scale = 1.0
+xscale=1.0
+yscale=1.0
+#####################TIKZ PICTURE SET UP ###########    
+output = r""
+output += r"\begin{tikzpicture}"
+output += r"[line cap=round,line join=round,x=8.75cm,y=8cm]"
+output += r"\begin{axis}["
+output += r"grid = both,"
+#Change "both" to "none" in above line to remove graph paper
+output += r"minor tick num=4,"
+output += r"every major grid/.style={Red!30, opacity=1.0},"
+output += r"every minor grid/.style={ForestGreen!30, opacity=1.0},"
+output += r"height= %f\textwidth,"%(yscale)
+output += r"width = %f\textwidth,"%(xscale)
+output += r"thick,"
+output += r"black,"
+#output += r"axis lines=center,"
+#Comment out above line to have graph in a boxed frame (no axes)
+output += r"domain=%f:%f,"%(LowerX,UpperX)
+output += r"line join=bevel,"
+output += r"xmin=%f,xmax=%f,ymin= %f,ymax=%f,"%(LowerX,UpperX,LowerY, UpperY)
+#output += r"xticklabels=\empty,"
+#output += r"yticklabels=\empty,"
+output += r"major tick length=5pt,"
+output += r"minor tick length=0pt,"
+output += r"major x tick style={black,very thick},"
+output += r"major y tick style={black,very thick},"
+output += r"minor x tick style={black,thin},"
+output += r"minor y tick style={black,thin},"
+#output += r"xtick=\empty,"
+#output += r"ytick=\empty"
+output += r"]"
+##############FUNCTIONS#################################
+##FUNCTION 1
+x,y = var('x,y')
+gridDim = 250
+xmin = -3
+xmax = 3
+deltax = (xmax-xmin)/(gridDim-1)
+ymin = -3
+ymax = 3
+deltay = (ymax-ymin)/(gridDim-1)
+xvals = []
+yvals = []
+
+f(x,y)= x^3-x-y^2
+P1=implicit_plot(f,(x,-2,1.5),(y,-1,1),plot_points=gridDim)
+C1 = P1._objects[0]
+for i in range(0,gridDim):
+    for j in range(0,gridDim):
+        if abs(C1.xy_data_array[i][j])<.02:
+            xvals += [-2+j*(3.5/(gridDim-1))]
+            yvals += [-1+i*(2/(gridDim-1))]
+
+P2=implicit_plot(f,(x,1.25,xmax),(y,1,3),plot_points=gridDim)
+C2 = P2._objects[0]
+for i in range(0,gridDim):
+    for j in range(0,gridDim):
+        if abs(C2.xy_data_array[i][j])<.02:
+            xvals += [1.25+j*(1.75/(gridDim-1))]
+            yvals += [1+i*(2/(gridDim-1))]
+
+P3=implicit_plot(f,(x,1.25,xmax),(y,-3,-1),plot_points=gridDim)
+C3 = P3._objects[0]
+for i in range(0,gridDim):
+    for j in range(0,gridDim):
+        if abs(C3.xy_data_array[i][j])<.02:
+            xvals += [1.25+j*(1.75/(gridDim-1))]
+            yvals += [-3+i*(2/(gridDim-1))]
+output += r"\addplot+[only marks,mark size=.20pt,NavyBlue] coordinates {"
+for i in range(0,len(xvals)):
+    output += r"(%f, %f) "%(xvals[i],yvals[i])
+output += r"};"
+##### COMMENT OUT A LINE BY STARTING WITH #
+output += r"\end{axis}"
+output += r"\end{tikzpicture}"
+\end{sagesilent}
+\sagestr{output}
+\end{document}

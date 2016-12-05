@@ -1,0 +1,95 @@
+The Sage module allows the use of the open source Sage mathematical
+>>> > platform
+>>> > for computations in Lyx (with results inserted in the final PDF file),
+>>> > in a
+>>> > somewhat similar way for R-project with the Sweave module.
+>>> >
+>>> > To be able to use it, you must have Sage installed on your computer and
+>>> > the
+>>> > "sage" command must be in the path.
+>>> > See : http://www.sagemath.org/
+>>> >
+>>> > Sage speaks Latex and can interact with it through the sagetex.sty
+>>> > package.
+>>> >
+>>> > See: http://www.sagemath.org/doc/tutorial/sagetex.html#sec-sagetex
+>>> >
+>>> > INSTALLATION
+>>> >
+>>> > 0/ You must have a working Sage system on your computer and the sage
+>>> > command
+>>> > must be on the PATH (open a console and type sage and RETURN key to
+>>> > check it
+>>> > this is the case).
+>>> >
+>>> > 1/Add the sage.module in the layouts folder of your local LyX
+>>> > configuration
+>>> > (depends on the system). Start LyX and reconfigure it.
+>>> > You can now add the Sage module to a new document. This module provides
+>>> >    - the environments: sageblock and sagesilent
+>>> >    - the commands: \sage (to be used in-line) and \sageplot (as an
+>>> > environment,
+>>> > can be included in a Figure float)
+>>> > and it needs the sagetex.sty package to be available in your local Tex
+>>> > installation.
+>>> > Justfollow the instructions given in the documentation of this package,
+>>> > for
+>>> > example
+>>> >
+>>> >
+>>> >
+>>> > 2/ Add the following sections elements in the preferences file that
+>>> > lives in
+>>> > your personal lyx config folder (depends on the system)
+>>> >
+>>> > # FORMATS SECTION ##########################
+>>> > #
+>>> >
+>>> > \format "pdf10" "pdf" "PDF" ""
+>>> > "\"/Applications/_Editiontextes/Skim.app/Contents/MacOS/Skim\"" ""
+>>> > "document,vector,menu=export"
+>>> > \format "sage" "sage" "Sage" "" "" "" "document"
+>>> > \default_view_format pdf10
+>>> >
+>>> > #
+>>> > # CONVERTERS SECTION ##########################
+>>> > #
+>>> >
+>>> >
+>>> > \converter "latex" "sage" "latex" "latex"
+>>> > \converter "sage" "pdf10" "compile-pdf-sage.sh $$b" ""
+>>> >
+>>> > 3/ You need a bash file for automatically running the .sage file and get
+>>> > the
+>>> > results in the final pdf file
+>>> >
+>>> > This compile-pdf-sage.sh should be on your path, with the following
+>>> > content:
+>>> > #!/bin/sh
+>>> >
+>>> > /Applications/_Recherche/Sage-4.7-OSX-64bit-10.6.app/Contents/Resources/sage/sage
+>>> >  $1.sage
+>>> > pdflatex $1.tex
+>>> > exit 0
+>>> >
+>>> > Otherwise,
+>>> > You can just convert your Lyx document to Sage and then go to the
+>>> > temporary
+>>> > folder and execute manually
+>>> >
+>>> > (pdf)latex mysagedoc.tex -> generates mysagedoc.sage
+>>> > sage mysagedoc.sage
+>>> > (pdf)latex mysagedoc.tex
+>>> >
+>>> > Remaining problems and questions:
+>>> > 1/ How to setup options for environments? Example:
+>>> > \sageplot[width=12cm]{plot(sin(x), 0, pi), axes=True} -> Bug fix by
+>>> > Richard
+>>> > 2/ How to insert Flex insets in math mode, in displayed equations?
+>>> >  $\dfrac{\partial^{4}y}{\partial
+>>> > x^{4}}=\sage{integral(x/(x^2+1),x,0,1)}$
+>>> > x^2 must not be interpreted by LyX in the second part of the equality,
+>>> > since
+>>> > Sage will need it for its computation.
+>>> > 3/ \sage{} does not automatically switch to the math mode. These insets
+>>> > must be

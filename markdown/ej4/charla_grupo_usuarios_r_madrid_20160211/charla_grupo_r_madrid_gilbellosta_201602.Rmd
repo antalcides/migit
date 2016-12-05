@@ -1,0 +1,261 @@
+---
+title: Modelos bayesianos con rstan
+author: Carlos J. Gil Bellosta
+date: 2016-02-11
+output: 
+  revealjs::revealjs_presentation:
+    theme: sky
+    highlight: pygments
+---
+
+# Pruebas de hipótesis clásicas
+
+## Pruebas de hipótesis: el contexto
+
+- Tiramos una moneda 100 veces y obtenemos 60 caras
+- ¿Compatible con `p=.5`?
+- Podemos hacer una prueba de hipótesis clásica con hipótesis nula ($H_0$): `p=0.5`
+- De otra manera: ¿cómo de raras son 60 caras en 100 tiradas si `p=.5`?
+
+
+## Prueba de hipótesis mediante remuestreos
+
+```{r, fig.width=6, fig.height=3.5}
+N <- 100; n <- 60; p <- 0.5
+muestras <- rbinom(10000, N, p)
+hist(muestras, breaks = 30, col = "gray", main = "", xlab = "")
+abline(v = n, col = "red")
+```
+
+
+## El p-valor: proporción de muestras que superan el valor obtenido
+
+```{r, fig.width=6, fig.height=3.5}
+mean(muestras >= n)
+```
+
+El p-valor es la proporción de muestras que exceden (en este caso) el valor obtenido.
+
+Conceptualmente, es $P(D|H_0)$, la probabilidad de tus datos dada la hipótesis nula.
+
+
+## Prueba de hipótesis como enseñan los libros
+
+```{r}
+binom.test(n, N, p, "greater")
+```
+
+
+
+# Pruebas de hipótesis con rstan
+
+
+## La perspectiva bayesiana
+
+- No nos interesa $P(D | p)$ (el p-valor), sino, más bien, $P(p|D)$, es decir, la probabilidad del parámetro dados los datos.
+- De otra manera, qué aprendemos sobre el parámetro a partir de la observación de unos datos.
+
+
+## rstan: código
+
+```{r, cache = TRUE, cache.path = "/tmp/r_cache", message=FALSE, results = "hide"}
+library(rstan)
+
+stanmodelcode <- '
+data {
+  int<lower=1> N;
+  int n;
+}
+ 
+parameters {
+  real<lower=0, upper = 1> p;
+}
+ 
+model {
+  // priori no informativa
+  p ~ beta(1,1);  
+
+  // verosimilitud
+  n ~ binomial(N, p);  
+}
+'
+
+fit <- stan(model_code = stanmodelcode, 
+            data = list(N = 100, n = 60),
+            iter=12000, warmup=2000, 
+            chains=4, thin=10)
+```
+
+
+## rstan: resultados
+
+```{r, fig.width=6, fig.height=3.5}
+res <- as.data.frame(fit)
+hist(res$p, breaks = 30, col = "gray", main = "", xlab = "")
+abline(v = 0.5, col = "red")
+```
+
+
+# Regresión lineal con rstan
+
+
+## La solución tradicional
+
+```{r, fig.width=6, fig.height=3.5}
+modelo <- lm(dist ~ speed, data = cars)
+plot(cars$speed, cars$dist, xlab = "velocidad", ylab = "distancia", main = "")
+abline(modelo, col = "red")
+```
+
+## La solución tradicional: coeficientes, etc.
+
+```{r, echo = FALSE}
+summary(modelo)
+```
+
+## rstan: código
+
+```{r, cache = TRUE, cache.path = "/tmp/r_cache", message=FALSE, results = "hide"}
+stanmodelcode <- '
+data {
+  int N;
+  vector[N] speed;
+  vector[N] dist;
+}
+
+parameters {
+  real a0;
+  real a1;
+  real<lower = 0, upper = 100> sigma;
+}
+
+model {
+  // prioris
+  a0 ~ cauchy(0, 100);
+  a1 ~ cauchy(0, 100);
+  sigma ~ cauchy(0, 5);
+
+  // verosimilitud
+  for (i in 1:N) 
+    dist[i] ~ normal(a0 + a1 * speed[i], sigma);
+}
+'
+
+fit <- stan(model_code = stanmodelcode, 
+            data = list(N = nrow(cars), speed = cars$speed, dist = cars$dist),
+            iter=12000, warmup=2000, 
+            chains=4, thin=10)
+```
+
+
+## rstan: resultados
+
+```{r, fig.width=6, fig.height=3}
+tmp <- as.data.frame(fit)$a1
+hist(tmp, breaks = 30, col = "gray", xlab = "", freq = FALSE, 
+     main = "coef speed: posteriori (hist) vs lm (red)")
+coefs <- summary(modelo)$coefficients[2,]
+curve(dnorm(x, coefs[1], coefs[2]), from = min(tmp), to = max(tmp), col = "red", add = TRUE)
+```
+
+## rstan: resultados
+
+```{r, fig.width=6, fig.height=4.5}
+library(ggplot2)
+tmp <- as.data.frame(fit)[, c("a0", "a1")]
+ggplot(cars, aes(x = speed, y = dist)) + geom_point() +
+  geom_abline(data = tmp, aes(slope = a1, intercept = a0), alpha = 0.01) +
+  geom_abline(intercept = coef(modelo)[1], slope = coef(modelo)[2], col = "red")
+```
+
+
+## rstanarm: rstan para todos
+
+```{r, eval = FALSE}
+library(rstanarm)
+
+post <- stan_lm(dist ~ speed, data = cars, 
+                prior = R2(location = 0.5, what = "median"), 
+                chains = 4, cores = 4, seed = 1234)
+```
+
+- Incluye funciones para versiones _estanizadas_ de `lm`, `glm`, `lmer`, etc.
+- Son más robustos, según los autores, que los que uno pueda construir _a mano_
+- Sobre todo, permiten especificar modelos con la interfaz habitual (con fórmulas)
+
+
+
+# Modelos de series temporales estructurales (filtro de Kalman)
+
+## Modelo clásico
+
+```{r, fig.width=6, fig.height=4.5}
+plot(Nile)
+
+fit <- StructTS(Nile, type = "level")
+lines(fitted(fit), lty = 2)
+```
+
+## Las matemáticas subyacentes
+
+Tenemos un proceso subyacente _real_
+
+$m_{t+1} = m_t + \epsilon_t$, donde $\epsilon_t \sim N(0, \sigma_0)$
+
+y observaciones (los datos) _generados_ por el proceso subyacente mediante
+
+$x_t = m_t + \eta_t$, donde $\eta_t \sim N(0, \sigma_1)$
+
+
+## El modelo
+
+```{r, cache = TRUE, cache.path = "/tmp/r_cache", message=FALSE, results = "hide"}
+codigo <- '
+data {
+  int N;
+  vector[N] nilo;
+}
+
+parameters {
+  vector[N] m;
+  real<lower=0, upper = 1000> sigma0;
+  real<lower=0, upper = 1000> sigma1;
+}
+
+model {
+  for (i in 1:N)
+    m[i] ~ normal(1000, 500);
+
+  nilo[1] ~ normal(m[1], sigma1);
+
+  for (i in 2:N){
+    m[i]    ~ normal(m[i-1], sigma0); 
+    nilo[i] ~ normal(m[i], sigma1);
+  }
+}
+'
+
+fit <- stan(model_code = codigo,
+            data = list(N = length(Nile), nilo = as.vector(Nile)),
+            iter=12000, warmup=2000, 
+            chains=4, thin=10)
+```
+
+## Resultados: 4000 trayectorias simuladas
+
+```{r, echo = FALSE, cache = TRUE, cache.path = "/tmp/r_cache", fig.width=8, fig.height=4.5}
+library(reshape2)
+tmp <- as.data.frame(fit)
+tmp <- tmp[,1:100,]
+colnames(tmp) <- 1:100
+tmp$id <- 1:nrow(tmp)
+
+tmp <- melt(tmp, id.vars = "id")
+tmp$variable <- as.numeric(tmp$variable)
+
+nilo <- data.frame(x = 1:length(Nile), nilo = as.vector(Nile))
+
+ggplot(nilo, aes(x = x, y = nilo)) + geom_line(col = "blue", alpha = 0.7) + geom_point(col = "blue", alpha = 0.7) + 
+  geom_line(data = tmp, aes(x = variable, y = value, group = id), alpha = 0.005) +
+  xlab("") + ylab("")
+```

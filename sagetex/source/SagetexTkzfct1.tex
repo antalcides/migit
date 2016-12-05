@@ -1,0 +1,22 @@
+\documentclass{scrartcl}
+\usepackage{sagetex}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tkz-fct}
+\pagestyle{empty}
+\begin{document}
+\begin{sagesilent}
+x=var('x')
+t = var('t')
+x_coords = [t for t in srange(-5.0,5.0,.1)]
+y_coords = [2*t^2/(t^2+1) for t in srange(-5.0,5.0,.1)]
+output = ""
+for i in range(0,len(x_coords)-1):
+    output += r"\draw[red, thick] (%f cm ,%f cm)--(%f cm ,%f cm);"%(x_coords[i],y_coords[i],x_coords[i+1],y_coords[i+1])
+\end{sagesilent}
+\begin{tikzpicture}[scale=1.25]
+\tkzInit[xmin=-5,xmax=5,ymax=2]
+\tkzGrid
+\tkzAxeXY
+\sagestr{output}
+\end{tikzpicture}
+\end{document}

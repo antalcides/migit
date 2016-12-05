@@ -1,0 +1,48 @@
+\ProvidesPackage{mxmgplt}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb} % therefore symbol
+\usepackage{graphicx} % for eps files
+\usepackage[hypcap]{caption} % link point to the top of the image
+\usepackage{color} % to change color of things
+\definecolor{links}{rgb}{0.21, 0.27, 0.45} % change color of links
+\usepackage[colorlinks=true,linkcolor=links]{hyperref} %to put links
+% text corresponding to the target's type
+\usepackage[nameinlink]{cleveref} % better references
+\usepackage{amsmath} % equations, sub-equations
+\usepackage[amsmath]{maxiplot} % maxima equations (and worksheet)
+\usepackage{subfiles} % allows to include files from anywhere
+\usepackage{subfigure} % multiple-figures in one
+
+%% Uncomment and copy next block to new file for an example (only first %),
+%% then run latex --shell-escape <file-without-extension> &&\
+%%          bibtex <file-without-extension>.aux &&\
+%%          latex --shell-escape <file-without-extension> &&\
+%%          latex --shell-escape <file-without-extension> &&\
+%%          dvips <file-without-extension> &&\
+%%          ps2pdf <file-without-extension>
+
+%\documentclass[a4paper]{article}
+%
+%\usepackage{mxmgplt} % maxima, gnuplot, references, subfiles, amsmath...
+%
+%\title{Methods}
+%\author{MyName}
+%\date{\today}
+%\begin{document}
+%\section{This is section 1}
+%This is the text of the section
+%
+%With some formulas \cite{Too90} \cite{Brown09} \cite{ShahinpoorKimEtAl07} \cite{GamezZarzosoEtAl08} \cite{LaFiandra08}
+%\subfile{sub-test}
+% 
+%% Change Bibliography for References, and put it in numbered section
+%% LaTeX/Bibliography Management - Wikibooks
+%% en.wikibooks.org/wiki/LaTeX/Bibliography_Management
+%%\renewcommand*{\bibname}{\vspace*{-1em}} % book: remove extra space
+%\renewcommand*{\refname}{\vspace*{-1em}} % article: remove extra space
+%\section{References}
+%\vspace*{-1em} % remove extra space
+%\bibliographystyle{giorgio} % http://www.podoblaz.net/cml/?id=39
+%\bibliography{../../../../References}
+%
+%\end{document}

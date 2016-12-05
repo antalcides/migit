@@ -1,0 +1,21 @@
+load("max-tex-init.mac")$
+:lisp(defprop $matrix amsmath-matrix tex)
+write_stdout("tmp.mxx")$
+append_stdout("tmp.mxx", print("\\newcommand{\\checkfor}[2]",lbracep)
+, print(" \\ifcsname\#1\\endcsname"), print(" \% "), print(" \\else"), print(" \ \ \#2"), print(" \\fi"), print(rbrace))$
+
+   plot2d([cos(x),sin(x^2)], [x,-3,3],
+          [plot_format, gnuplot],
+          [gnuplot_term, ps],
+          [run_viewer,false],
+          [gnuplot_out_file,"grafico1.eps"]);
+
+append_stdout("tmp.mxx", 
+print("\\checkfor{maximai}",lbracep), print("\\newcommand{\\maximai}",lbracep), 
+f:x/(x^3 - 3*x +2),
+ tex('integrate(f,x)),
+ print("="),
+ tex(integrate(f,x)),
+ print("+K")
+ 
+,print(rbrace),print(rbrace))$

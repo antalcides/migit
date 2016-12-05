@@ -1,0 +1,21 @@
+# Compiled source #
+###################
+*.aux
+*.log
+*.pdf
+*.pyc
+*.glo
+*.gls
+*.idx
+*.ilg
+*.ind
+*.out
+
+*.sout
+*.sympy
+
+# OS generated files #
+######################
+.DS_Store*
+*~
+sympy-plots-for*

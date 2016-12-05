@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage{sagetex}
+\usepackage{pgfplots}
+\usepackage{xcolor}
+\pagestyle{empty}
+\begin{document}
+\begin{sagesilent}
+x=var('x')
+t = var('t')
+x_coords = [t for t in srange(-1.2,1.2,.01)]
+y_coords = [t*sin(1/t).n(digits=7) for t in srange(-1.2,1.2,.01)]
+output = ""
+output += r"\begin{tikzpicture}[scale=1.25]"
+output += r"\begin{axis}[xmin=-1.2, xmax=1.2, ymin=-1.2, ymax=1.2,]"
+output += r"\addplot[thin,blue] coordinates {"
+
+for i in range(0,len(x_coords)):
+    output += r"(%f, %f) "%(x_coords[i],y_coords[i])
+
+output += r"};"
+output += r"\end{axis}"
+output += r"\end{tikzpicture}"
+\end{sagesilent}
+\sagestr{output}
+\end{document}

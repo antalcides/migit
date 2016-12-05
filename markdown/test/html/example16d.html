@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="John Doe" />
+  <meta name="dcterms.date" content="2005-03-22" />
+  <title>Habits</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.min.css"/>
+    <style type="text/css">code{white-space: pre;}</style>
+    <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+  <link rel="stylesheet" media="print" href="reveal.js/css/print/pdf.css" />
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Habits</h1>
+    <h2 class="author">John Doe</h2>
+    <h3 class="date">March 22, 2005</h3>
+</section>
+
+<section class="slide level1">
+
+<style>
+body{
+    background-image: url('image.png');
+    background-color: #6DB3F2;
+    background-size: 1350px 600px;
+                     }
+</style>
+</section>
+<section id="in-the-morning" class="slide level1">
+<h1>In the morning</h1>
+<h2 id="getting-up">Getting up</h2>
+<ul>
+<li class="fragment">Turn off alarm</li>
+<li class="fragment">Get out of bed</li>
+</ul>
+<h2 id="breakfast">Breakfast</h2>
+<ul>
+<li class="fragment">Eat eggs</li>
+<li class="fragment">Drink coffee</li>
+</ul>
+</section>
+<section id="in-the-evening" class="slide level1">
+<h1>In the evening</h1>
+</section>
+<section id="dinner" class="slide level1">
+<h1>Dinner</h1>
+<ul>
+<li class="fragment">Eat spaghetti</li>
+<li class="fragment">Drink wine
+<center>
+<IMG src="image.jpeg" width="600" height="400"/>
+</center> 
+</li>
+</ul>
+</section>
+<section id="going-to-sleep" class="slide level1">
+<h1>Going to sleep</h1>
+<ul>
+<li class="fragment">Get in bed</li>
+<li class="fragment">Count sheep To produce the slide show, simply type</li>
+</ul>
+<p>pandoc -t s5 -s habits.txt -o habits.html for S5,</p>
+<p>pandoc -t slidy -s habits.txt -o habits.html for Slidy,</p>
+<p>pandoc -t slideous -s habits.txt -o habits.html for Slideous,</p>
+<p>pandoc -t dzslides -s habits.txt -o habits.html for DZSlides,</p>
+</section>
+<section id="going-to-math" class="slide level1">
+<h1>Going to Math</h1>
+<p>En una línea</p>
+<p>$ + + x^{2} = z^{2} $ or $  $.</p>
+<p>Definición: Sea <span class="math">\(X\)</span> una variable aleatoria que asume los valores <span class="math">\(x_{1},x_{2},x_{3},\cdots x_{k}\)</span>, con iguales probabilidades, entonces * * * <span class="math">\[ \begin{equation} f\left(x,k\right)=\left\{ \begin{array}{ccc}
+\frac{1}{k} &amp; si &amp; x=x_{1},x_{2},x_{3},\cdots x_{k}\\
+0 &amp;  &amp; \text{si no}
+\end{array}\right.\end{equation}\]</span></p>
+</section>
+<section id="other-maths" class="slide level1">
+<h1>Other Maths</h1>
+<p>These render differently. For example, type <span class="math">\(\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}\)</span> (which is inline mode) or type <span class="math">\[\begin{equation}\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}\end{equation}\]</span></p>
+</section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.min.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+//          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+  </body>
+</html>

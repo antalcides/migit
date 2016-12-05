@@ -1,0 +1,74 @@
+% Copyright 2015 http://www.highschoolmathandchess.com/
+% This program is free software: you can redistribute it and/or modify
+%   it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 3 of the License, or
+%    (at your option) any later version.
+%    This program is distributed in the hope that it will be useful,
+%   but WITHOUT ANY WARRANTY; without even the implied warranty of
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+\documentclass{standalone}
+\usepackage[dvipsnames]{xcolor}%declare color here to avoid color clash with tikz
+\usepackage{pgfplots}% This uses tikz
+\usetikzlibrary{spy}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{decorations}
+\pgfplotsset{compat=newest}% use newest version
+\pgfmathdeclarefunction{f}{1}{%
+  \pgfmathparse{x^2-1}%
+}
+\pgfplotsset{compat=newest}% use newest version
+\pgfmathdeclarefunction{g}{1}{%
+  \pgfmathparse{sqrt(x)}%
+}
+\pgfplotsset{compat=newest}% use newest version
+\pgfmathdeclarefunction{h}{1}{%
+  \pgfmathparse{sin(deg(x))}%
+}
+\tikzset{f Line Style/.style={smooth,thick, samples=500}}
+\tikzset{g Line Style/.style={smooth,thick, samples=900}}
+\begin{document}
+\begin{tikzpicture}
+[line cap=round,line join=round,x=8.75cm,y=8cm,
+     %change scale= to the desired magnification, circle/rectangle
+     spy using outlines={circle,lens={scale=2.5},connect spies}]
+\begin{axis}[
+    grid = both,%grid for major ticks (every integer) and minor ticks
+    minor tick num=4,% number of hor/vert lines in a box
+    every major grid/.style={Red!30, opacity=1.0},%set the color for major grid
+    every minor grid/.style={ForestGreen!30, opacity=1.0},%set the color for minor grid
+    height= 1\textwidth,%compress height: eg height=0.5\textwidth
+    width = 1\textwidth,%compress width: eg width=0.5\textwidth
+    thick,
+    black,%Set the color of the main axes and numbers
+    scale=1.0,
+    axis lines=center,
+    domain=-2:4
+    samples=500,
+    line join=bevel,
+    xmin=-2,
+    xmax=4,
+    ymin=-2,
+    ymax=4,
+    %xticklabels=\empty,% remove % at beginning of line to remove x labels
+    %yticklabels=\empty,% remove % at beginning of line to remove x labels
+    major tick length=0pt,% Increase number adds tick mark and increases distance of numbers from the x/y axis
+    minor tick length=0pt,% Increase number adds minor tick marks
+    %xtick=\empty,
+    %ytick=\empty,
+] 
+    \addplot[f Line Style, color=Orchid, domain=-2:4] (\x,{f(\x)}); %color names determined by dvipsnames
+    \addlegendentry{$y=x^2-1$}
+    \addplot[g Line Style, color=NavyBlue, domain=-2:4] (\x,{g(\x)});% in the xcolor package
+    \addlegendentry{$y=\sqrt{x}$}
+    \addplot[g Line Style, color=Peach, domain=-2:4] (\x,{h(\x)});
+    \addlegendentry{$y=\sin(x)$}
+    %using the 'spy' to magnify a piece of the picture
+    \draw[dashed, color=BrickRed] (axis cs:0.5,-3)--(axis cs:0.5,4){};%vertical asymptote
+    \spy [black!75,size=2.5in] on (.5,.5) in node [left] at (2.0,.75);
+\end{axis}
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,87 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym, amsmath,amsfonts,amssymb}
+\usepackage[margin=.75in]{geometry}
+\usepackage{kpfonts}  %Changing the default fonts
+\usepackage[T1]{fontenc}
+\setlength{\parskip}{1.2ex} %space between paragraphs
+\setlength{\parindent}{1em} %Paragraph indentation
+\linespread{1.25} %spacing between lines
+\newtheorem{Theorem}{Theorem}
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+\Large{\textbf{The Real Numbers are Uncountable}}
+\end{center}
+\textbf{Theorem:} $[0,1]$ is uncountable.\\\\
+\textbf{"Proof":} If $[0,1]$ is countable then the 
+real numbers can be listed:\\\\
+$r_1=.r_{1,1}r_{1,2}r_{1,3}r_{1,4}r_{1,5}\,\ldots$\\
+$r_2=.r_{2,1}r_{2,2}r_{2,3}r_{2,4}r_{2,5}\,\ldots$\\
+$r_3=.r_{3,1}r_{3,2}r_{3,3}r_{3,4}r_{3,5}\,\ldots$\\
+$r_4=.r_{4,1}r_{4,2}r_{4,3}r_{4,4}r_{4,5}\,\ldots$\\
+$r_5=.r_{5,1}r_{5,2}r_{5,3}r_{5,4}r_{5,5}\,\ldots$\\\\
+and so on, where $r_{i,j}$ is the jth digit of the ith real 
+number. Consider the real number $x$ where the nth digit 
+is $1$ if  $r_{i,i} \neq 1$ and $2$ if $r_{i,i} = 1$.
+Since $x \in [0,1]$, it must be one of the $r_i$ listed above 
+but from the way $x$ is defined the nth digit of $x$ is 
+different from $r_{n,n}$. Therefore $x$ does not appear on 
+the list. This contradiction implies that $[0,1]$ is 
+uncountable.
+
+You've noticed, I hope that I typed "proof" because this 
+isn't really a proof. That's because it ignores the fact that the 
+decimal representation of two real numbers isn't unique. 
+Including that into the argument with any decent standard 
+of rigor is going to make the proof more complicated; 
+for example, it forces you think about numbers as the limit 
+of infinite sums which puts the proof out of the reach of most 
+high school students. Better to tell them that 
+mathematicians have determined that the only way 
+two different decimals can represent the same number is
+if one decimal ends in a block of repeating nines. 
+
+You'll need to make the "proof" more concrete, though, 
+because it's still too abstract for a typical class.
+So give them a list of real numbers in $[0,1]$:\\\\
+$r_1=.10112\,\ldots$\\
+$r_2=.23123\,\ldots$\\
+$r_3=.34784\,\ldots$\\
+$r_4=.95687\,\ldots$\\
+$r_5=.45565\,\ldots$\\\\
+and so on. There's no rhyme or reason why those as to 
+what the actual digits are of each number and in this 
+specific example $x=.21112\ldots$. It's clear that
+$x \neq r_1$ since the first digit is different. Similarly, 
+$x \neq r_2$ since the second digit is different. Likewise, 
+$x \neq r_3$ since the third digit is different. Now it should
+be a little clearer that the very way that $x$ is defined 
+means the ith digit of $x$ is different from the ith digit 
+of $r_i$ and $x$ doesn't end with a block of repeating nines.
+From this it follows that $x$ cannot appear in the list and 
+this contradiction means that the real numbers 
+in $[0,1]$ are uncountable.
+
+To get a feel for why two different decimal can represent
+the same real number only if one ends with a repeating
+block of nines, let $r_1$ and $r_2$ be two real numbers with 
+different decimal representations. Then we can write 
+$r_1=\lim_{n\to\infty} \sum_{i=0}^{n}\frac{a_i}{10^i}$
+and $r_2=\lim_{n\to\infty}\sum_{i=0}^{n}{b_i}{10^i}$
+and there exists a smallest integer $k$ such that 
+$a_k\neq b_k$. Since, by hypothesis, $r_1=r_2$ we know 
+$r_1-r_2=\lim_{n\to\infty}\sum_{i=0}^{n}\frac{a_i}{10^i}-
+\lim_{n\to\infty}\sum_{i=0}^{n}\frac{b_i}{10^i}=
+\lim_{n\to\infty}\sum_{i=0}^{n}\frac{a_i-b_i}{10^i}=0$
+but after adding up the sums to the $k^{th}$ digit the 
+numbers differ by $\left|\frac{a_k-b_k}{10^k}\right|\geq\frac{1}{10^k}$. Since the remaining sum 
+$\lim_{n\to\infty}\sum_{i=k+1}^{n}\left|\frac{a_i-b_i}{10^i}\right|
+\leq  \lim_{n\to\infty}\sum_{i=k+1}^{n}\frac{9}{10^i}=\frac{1}{10^k}$ the only way that two different decimals
+represent the same number is if one decimal has repeating
+block of nines. The construction in the "proof" above 
+creates a decimal with no nines so it can't have appeared on
+the list. Without this fact, $x$ not appearing on the list could
+still be equivalent to a number in the list and that needs to
+be avoided.
+\end{document}
+

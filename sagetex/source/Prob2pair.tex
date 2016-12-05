@@ -1,0 +1,45 @@
+\documentclass[12pt]{article}%
+\usepackage{latexsym,amsmath,amsfonts,amssymb}
+%\usepackage{concrete}% text font
+%\usepackage{euler}% math font
+\usepackage{graphicx}%insert pictures
+\usepackage{geometry}%setting margins
+\usepackage{fancybox}
+\usepackage{xcolor}
+\usepackage[colorinlistoftodos,shadow]{todonotes}
+\usepackage{tikz}
+\pagestyle{empty}
+\linespread{1.6}% double spacing to give room for the binomial coefficients
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% NOTATION %%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\FPC}{Fundamental Principle of Counting }
+%%%%%%%%%%%%%%%%%%%%%% END OF PREAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\noindent Suppose $5$ cards are dealt from a standard deck of $52$ cards. Find
+$P(2 \mbox{ pairs})$.\\\\
+\textbf{Solution:} Since order is not important and repetition of 
+cards is not allowed, this is a problem that will involve combinations and
+the denominator is $\binom{52}{5}$. To determine the numerator start by noting
+that $2$ pair does not refer to the same kind; that is, all $4$ twos would be
+four of a kind and not $2$ pairs. With this distinction made we proceed by
+using the \FPC to find the numerator. 
+
+\begin{center}
+\begin{tabular}{lcc}
+Event & Outcomes & Example\\
+\hline
+$E_1:$ Choose $2$ different kinds & $\binom{13}{2}$ & $2$, K\\
+$E_2:$ Choose $2$ specific cards for first pair & $\binom{4}{2}$ & 
+$2\,\clubsuit$, $2\,\diamondsuit$, K\\
+$E_3:$ Choose $2$ specific cards for second pair & $\binom{4}{2}$ & 
+$2\,\clubsuit$, $2\,\diamondsuit$, K\,$\spadesuit$, K\,$\clubsuit$ \\
+$E_4:$ Choose the final card & $\binom{44}{1}$ & 
+$2\,\clubsuit$, $2\;\diamondsuit$, K\,$\spadesuit$, K\,$\clubsuit$, $5\,\heartsuit$ \\
+\end{tabular}
+\end{center}
+By the \FPC there $\binom{13}{2}\binom{4}{2}\binom{4}{2}\binom{44}{1}$ different
+ways to choose $2$ pairs. Therefore, $P(2 \mbox{ pairs})=\frac{\binom{13}{2}\binom{4}{2}\binom{4}{2}\binom{44}{1}}{\binom{52}{5}}=\frac{123552}{2598960} \approx .0475390156$.\\\\
+\textbf{Note:} For $E_4$, the final card can't be the same kind as the two that
+have already been chosen because that would create three of a kind. Therefore, 
+from the original $52$ cards we must discard all $8$ cards of the kinds that form 
+the two pairs. 
+\end{document}

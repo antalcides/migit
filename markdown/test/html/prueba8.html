@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="slideous/slideous.css" />
+  <script src="slideous/slideous.js"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div id="statusbar">
+<span style="float:right;">
+<span style="margin-right:4em;font-weight:bold;"><span id="slideidx"></span> of {$slidecount}</span>
+<button id="homebutton" title="first slide">1</button>
+<button id="prevslidebutton" title="previous slide">&laquo;</button>
+<button id="previtembutton" title="previous item">&lsaquo;</button>
+<button id="nextitembutton" title="next item">&rsaquo;</button>
+<button id="nextslidebutton" title="next slide">&raquo;</button>
+<button id="endbutton" title="last slide">{$slidecount}</button>
+<button id="incfontbutton" title="content">A+</button>
+<button id="decfontbutton" title="first slide">A-</button>
+<select id="tocbox" size="1"><option></option></select>
+</span>
+<span id="eos">&frac12;</span>
+<span title="{$location}, {$date}">{$title}, {$author}</span>
+</div>
+<div id="mi-primer-documento-markdown" class="slide section level1">
+<h1>Mi primer documento Markdown</h1>
+<p>Este documento es para experimentar lo que es diagramar con texto <em>Markup</em>. Vamos ahora a realizar varios ensayos. * Insertaremos una imagen <img src="/home/antalcides/Escritorio/est/ejemplos/image/maple.png" title="Mi Imagen" alt="Imagen de prueba" /> * insertaremos una ecuación <EQ ENV="math">\intop_{1}^{2}x^{2}dx</EQ></p>
+</div>
+<div class="slide section level1">
+
+<ul>
+<li>imagenes [](/home/antalcides/Escritorio/est/ejemplos/image/maple.png &quot;title&quot;&quot;width:50px;height:50px&quot;)</li>
+<li><table>
+<thead>
+<tr class="header">
+<th align="left">In</th>
+<th align="left">se</th>
+<th align="left">rtar una imagen con el tamaño personalizado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">&lt;c</td>
+<td align="left">en</td>
+<td align="left">ter&gt;<IMG src="/home/antalcides/Escritorio/est/ejemplos/image/Professional_Social_Work-education.JPG" width="100" height="100"/></td>
+</tr>
+<tr class="even">
+<td align="left">**</td>
+<td align="left">*</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">![</td>
+<td align="left">][</td>
+<td align="left">id]</td>
+</tr>
+<tr class="even">
+<td align="left">[i</td>
+<td align="left">d]</td>
+<td align="left">: http://bit.ly/1g1oUFW &quot;title&quot; &quot;width:200px;height:100px&quot;</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+<p>[](http://bit.ly/1g1oUFW &quot;right&quot; &quot;width:200px;height:100px;float:right;padding-left:10px;&quot;)</p>
+<ul>
+<li><p>Insertaremos líneas de código en Python</p>
+<pre class="sourceCode python"><code class="sourceCode python">       <span class="kw">def</span> syntaxHighlight():
+    haroo = <span class="st">&quot;press&quot;</span>
+    <span class="kw">return</span> haroo</code></pre></li>
+<li><p>Insertan código LaTex</p></li>
+</ul>
+<pre class="tex"><code>\documentclass[12pt]{article}
+\usepackage{lingmacros}
+\usepackage{tree-dvips}
+\begin{document} </code></pre>
+<ul>
+<li>Código en php</li>
+</ul>
+<pre class="sourceCode php"><code class="sourceCode php"><span class="kw">&lt;?php</span>
+<span class="kw">$a1</span>=<span class="fu">array</span><span class="ot">(</span><span class="st">&quot;a&quot;</span>=&gt;<span class="st">&quot;red&quot;</span><span class="ot">,</span><span class="st">&quot;b&quot;</span>=&gt;<span class="st">&quot;green&quot;</span><span class="ot">,</span><span class="st">&quot;c&quot;</span>=&gt;<span class="st">&quot;blue&quot;</span><span class="ot">);</span>
+<span class="kw">$a2</span>=<span class="fu">array</span><span class="ot">(</span><span class="st">&quot;a&quot;</span>=&gt;<span class="st">&quot;red&quot;</span><span class="ot">,</span><span class="st">&quot;c&quot;</span>=&gt;<span class="st">&quot;blue&quot;</span><span class="ot">,</span><span class="st">&quot;d&quot;</span>=&gt;<span class="st">&quot;pink&quot;</span><span class="ot">);</span>
+
+<span class="kw">$result</span>=<span class="fu">array_intersect_key</span><span class="ot">(</span><span class="kw">$a1</span><span class="ot">,</span><span class="kw">$a2</span><span class="ot">);</span>
+<span class="fu">print_r</span><span class="ot">(</span><span class="kw">$result</span><span class="ot">);</span>
+<span class="kw">?&gt;</span></code></pre>
+</div>
+<div class="slide section level1">
+
+<pre class="sourceCode ruby"><code class="sourceCode ruby">code block</code></pre>
+<pre class="sourceCode cpp"><code class="sourceCode cpp">fenced code block</code></pre>
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">function</span> <span class="fu">syntaxHighlight</span>(code, lang) {
+   <span class="kw">var</span> foo = <span class="st">&#39;rhio&#39;</span>;
+   <span class="kw">var</span> bar = <span class="dv">33</span>;
+}</code></pre>
+<ul>
+<li><p>Tablas | Column | Column | Column | |--------|--------|--------| | value | value | value |</p></li>
+<li>Insertar media rich @<a href="https://twitter.com/haroopad/status/337257711827841024">media</a> @<a href="https://twitter.com/haroopad/status/337257711827841024" title="width:200px;margin:1em">caption</a></li>
+<li>Audio y video <embed src="http://v2v.cc/~j/theora_testsuite/320x240.ogg" /> <embed src="http://www.html5rocks.com/en/tutorials/video/basics/devstories.webm" /></li>
+<li>Otros</li>
+<li>[x] send email</li>
+<li>[ ] meet with my boss</li>
+<li>[ ] date with my girl friend</li>
+<li><p>[ ] write techical reporting about javascript</p></li>
+</ul>
+</div>
+<div class="slide section level1">
+
+<p>graph LR; A[Hard edge]--&gt;|Link text|B(Round edge); B--&gt;C{Decision}; C--&gt;|One|D[Result one]; C--&gt;|Two|E[Result two];</p>
+</div>
+<div id="other-maths" class="slide section level1">
+<h1>Other Maths</h1>
+<p>En una línea</p>
+<p>$ + + x^{2} = z^{2} $ or $  $.</p>
+<p>Definición: Sea <EQ ENV="math">X</EQ> una variable aleatoria que asume los valores <EQ ENV="math">x_{1},x_{2},x_{3},\cdots x_{k}</EQ>, con iguales probabilidades, entonces * * * <EQ ENV="displaymath"> \begin{equation} f\left(x,k\right)=\left\{ \begin{array}{ccc}
+\frac{1}{k} & si & x=x_{1},x_{2},x_{3},\cdots x_{k}\\
+0 &  & \text{si no}
+\end{array}\right.\end{equation}</EQ></p>
+</div>
+<div class="slide section level1">
+
+<p>These render differently. For example, type <EQ ENV="math">\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}</EQ> (which is inline mode) or type <EQ ENV="displaymath">\begin{equation}\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}\end{equation}</EQ></p>
+</div>
+</body>
+</html>

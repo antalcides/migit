@@ -1,0 +1,93 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym, amsmath,amsfonts,amssymb}
+\usepackage{xcolor}
+\usepackage[margin=.75in]{geometry}
+\usepackage{kpfonts}  %Changing the default fonts
+\usepackage[T1]{fontenc}
+\setlength{\parskip}{1.2ex} %space between paragraphs
+\setlength{\parindent}{1em} %Paragraph indentation
+\linespread{1.4} %spacing between lines
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+\textbf{{\Large Ordering the Rationals in $[0,1]$}}
+\end{center}
+The ordering of the rationals in $[0,1]$ depends on a series result
+posted earlier:
+ \[\sum_{i=1}^{n}i=\frac{n(n+1)}{2}\]
+Next, list all the rational numbers in $(0,1]$:\\\\
+$\frac{1}{1}$\\
+$\frac{1}{2}\hspace{2ex} \frac{2}{2}$\\
+$\frac{1}{3}\hspace{2ex} \frac{2}{3} \hspace{2ex} 
+\frac{3}{3}$\\
+$\frac{1}{4}\hspace{2ex} \frac{2}{4} \hspace{2ex} 
+\frac{3}{4} \hspace{2ex} \frac{4}{4}$\\
+$\frac{1}{5}\hspace{2ex} \frac{2}{5} \hspace{2ex} 
+\frac{3}{5}\hspace{2ex}\frac{4}{5}\hspace{2ex}\frac{5}{5}$\\
+$\vdots  \hspace{2ex}\cdots$\\\\
+Explain how every rational number in the interval $(0,1]$
+has been represented because every possible denominator is listed 
+and, for each denominator, every possible numerator is listed that 
+results in a number bigger than $0$ and no bigger than $1$. Note
+that, by examining the first column, the number of rationals in 
+$(0,1]$ is infinite since $\frac{1}{1}>\frac{1}{2}> \frac{1}{3}>
+ \frac{1}{4}>\frac{1}{5}> \cdots$ so the only question is whether
+ every rational number can be included in some list. There are 
+ some rational numbers that get listed more than once 
+ $\left(\mbox{e.g. }\frac{1}{1}=\frac{2}{2}=\frac{3}{3}\right)$
+ but clearly if
+every rational number above can be listed then all the rationals in
+ $(0,1]$ will be listed as well. Finally, notice that there is 1 term in 
+the first row, 2 terms in the second row, 3 terms in the third row and, 
+in general, $n$ terms are in the $\mbox{n}^{\tiny\mbox{th}}$ row. 
+Now write the terms row by row to create the 
+sequence: $\frac{1}{1}, \frac{1}{2},
+\frac{2}{2}, \frac{1}{3}, \frac{2}{3}, \frac{3}{3}, \frac{1}{4},
+\frac{2}{4}, \frac{3}{4}, \frac{4}{4}, \frac{1}{5}, \frac{2}{5},
+\frac{3}{5}, \frac{4}{5}, \frac{5}{5}, \cdots$\\\\
+WARNING: At this point you've gotten the basic idea across to 
+your class that all the rational in $[0,1]$ can be listed.
+The details that follow have been included because the lesson is
+built from pieces put together over a long period of time
+before they finally get put together so they aren't essential to the
+explanation. When you're teaching or reviewing functions you could, 
+for example, work in an example using the functions below. That 
+way, when it's finally time to demonstrate the rationals have 
+measure $0$ you can simply remind the class of math done 
+previously. Unless you've got an excellent class, this information
+may be too complicated.
+
+Define the function from the different fractional representations
+of rationals in $(0,1]$ to the positive integers by 
+$f\left(\frac{m}{n}\right)=m+\sum_{i=1}^{n-1} i$.
+It's easy to see why this formula works; the summation 
+$\sum_{i=1}^{n-1} i$ counts up all the terms that 
+appeared in earlier rows and adds it to $m$, the number of
+terms in the current row. Use the series formula to rewrite the 
+function as $f\left(\frac{m}{n}\right)=m+\frac{(n-1)n}{2}$. 
+Show how this function gives:
+$f\left(\frac{1}{1}\right)=1+\frac{(0)1}{2}=1, 
+f\left(\frac{1}{2}\right)=1+\frac{(1)2}{2}=2,
+f\left(\frac{2}{2}\right)=2+\frac{(1)2}{2}=3,
+f\left(\frac{1}{3}\right)=1+\frac{(2)3}{2}=4,
+f\left(\frac{2}{3}\right)=2+\frac{(2)3}{2}=5$, and so on. All
+the rationals in $(0,1]$ have been listed. To make sure we get the
+number of $0$ as well, just put it at the beginning of the sequence
+to get $ 0, \frac{1}{1}, \frac{1}{2}, \frac{2}{2}, 
+\frac{1}{3}, \frac{2}{3}, \frac{3}{3}, \frac{1}{4},
+\frac{2}{4}, \frac{3}{4}, \frac{4}{4}, \frac{1}{5}, \frac{2}{5},
+\frac{3}{5}, \frac{4}{5}, \frac{5}{5}, \cdots$
+
+Now define $g(0)=1$ and 
+$g\left(\frac{m}{n}\right)=m+\frac{(n-1)n}{2} +1$. 
+Work through the following:
+$g(0)=1$\\
+$g\left(\frac{1}{1}\right)=1+\frac{(0)1}{2} +1=2, 
+g\left(\frac{1}{2}\right)=1+\frac{(1)2}{2} +1=3,
+g\left(\frac{2}{2}\right)=2+\frac{(1)2}{2}+1=4,
+g\left(\frac{1}{3}\right)=1+\frac{(2)3}{2}+1=5,
+g\left(\frac{2}{3}\right)=2+\frac{(2)3}{2}+1=6$
+
+This function, $g$, shows (but doesn't prove) that the rational 
+numbers in $[0,1]$ can be listed. 
+\end{document}

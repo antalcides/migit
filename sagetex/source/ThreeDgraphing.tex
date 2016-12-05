@@ -1,0 +1,29 @@
+\documentclass[11pt]{article}
+\usepackage{pgfplots}
+\usepackage{sagetex}
+\pagestyle{empty}
+\begin{document}
+\begin{sagesilent}
+x = var('x')
+y = var('y')
+step = .20
+x1 = -3
+x2 = 3
+y1 = -3
+y2 = 6.20
+
+output = ""
+output += r"\begin{tikzpicture}[scale=1.0]"
+output += r"\begin{axis}[xmin=%d, xmax=%d, ymin=%d, ymax=%d]"%(x1,x2,y1,y2-step)
+output += r"\addplot3[surf,mesh/rows=%d] coordinates {"%((y2-step-y1)/step+1)
+# rows is the number of y values
+for y in srange(y1,y2,step):
+    for x in srange(x1,x2,step):
+        output += r"(%f, %f, %f) "%(x,y,sin(x)*sin(y))
+
+output += r"};"
+output += r"\end{axis}"
+output += r"\end{tikzpicture}"
+\end{sagesilent}
+\sagestr{output}
+\end{document}

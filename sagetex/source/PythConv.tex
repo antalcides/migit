@@ -1,0 +1,56 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym, amsmath,amsfonts,amssymb}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{kpfonts}  %Changing the default fonts
+\usepackage[T1]{fontenc}
+\usepackage{tkz-euclide}
+\usetkzobj{all} % all the objects
+\setlength{\parskip}{1.2ex} %space between paragraphs
+\setlength{\parindent}{1em} %Paragraph indentation
+\usetikzlibrary{calc,trees,positioning,arrows,chains,shapes.geometric,%
+  decorations.pathreplacing,decorations.pathmorphing,shapes,%
+  matrix,shapes.symbols,plotmarks,decorations.markings,shadows}
+\linespread{1.25} %spacing between lines
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+\Large{\textbf{The Converse of the Pythagorean Theorem}}
+\end{center}
+\textbf{The Converse of the Pythagorean Theorem:} Let $ABC$ be a triangle with sides of length $a$, $b$, and $c$ (the longest). If $c^2=a^2+b^2$ then 
+$ABC$ is a right triangle.
+\begin{center}
+\begin{tikzpicture}[scale=2]
+\tkzInit[xmin=-1.2,xmax=2.7,ymin=-1.2,ymax=2.5]
+\tkzDefPoint(0,0){A}
+\tkzDefPoint(1.5,2){B}
+\tkzDefPoint(2.5,0){C}
+\tkzDrawSegment(A,B)
+\tkzDrawSegment(B,C)
+\tkzDrawSegment(A,C)
+\tkzLabelPoints[above](B)
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[below](C)
+\tkzDefLine[orthogonal=through C](B,C) \tkzGetPoint{D}
+\tkzLabelPoints[right](D)
+\tkzDrawPolySeg(D,C)
+\tkzDrawPolySeg(D,B)
+\tkzMarkRightAngle(B,C,D)
+\tkzLabelSegment[below](A,C){$b$}
+\tkzLabelSegment[above left](A,B){$c$}
+\tkzLabelSegment[below left](B,C){$a$}
+\tkzLabelSegment[below](C,D){$b$}
+\end{tikzpicture}
+\end{center}
+
+\noindent\textbf{Proof:} Draw a line segment $\overline{CD}$ which is 
+perpendicular to $\overline{BC}$ and has length $b$ and then draw
+$\overline{BD}$. Now $\overline{AC} \cong \overline{CD}$ and, by the
+Reflexive Property, $\overline{BC} \cong \overline{BC}$. Applying the
+Pythagorean Theorem to triangle $BCD$ yields $BD^2=BC^2+CD^2$.
+Since $BC=a$ and $CD=b$ this is equivalent to $BD^2=a^2+b^2$.
+By hypothesis, in triangle $ABC$ we have $c^2=a^2+b^2$, hence
+$BD^2=c^2$. Since length is never negative, this means $BD=c$. 
+Therefore, triangles $ACB$ and $DCB$ are congruent by $SSS$; it follows
+that triangle $ABC$ is a right triangle.
+\end{document}

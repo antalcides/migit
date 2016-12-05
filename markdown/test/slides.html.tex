@@ -1,0 +1,214 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\usepackage{longtable,booktabs}
+\usepackage{graphicx}
+% Redefine \includegraphics so that, unless explicit options are
+% given, the image width will not exceed the width of the page.
+% Images get their normal width if they fit onto the page, but
+% are scaled down if they would overflow the margins.
+\makeatletter
+\def\ScaleIfNeeded{%
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+\let\Oldincludegraphics\includegraphics
+{%
+ \catcode`\@=11\relax%
+ \gdef\includegraphics{\@ifnextchar[{\Oldincludegraphics}{\Oldincludegraphics[width=\ScaleIfNeeded]}}%
+}%
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\section{Presentation Title}\label{presentation-title}
+
+\emph{\href{}{Yours Truly}, Famous Inc. Thundercats ennui messenger bag,
+squid carles chillwave shoreditch pickled cliche letterpress. DIY beard
+locavore occupy salvia, whatever single-origin coffee fanny pack 3 wolf
+moon typewriter gastropub kale chips. Ennui keffiyeh thundercats jean
+shorts biodiesel. Terry richardson, swag blog locavore umami vegan
+helvetica. Fingerstache kale chips.}
+
+\includegraphics{http://bit.ly/1uGE8FI} *** \# Header
+
+\emph{Typewriter etsy messenger bag \href{}{fingerstache}, aesthetic
+vinyl semiotics twee \textbf{DIY} forage chillwave. Thundercats ennui
+messenger bag, squid carles chillwave shoreditch pickled cliche
+\textbf{letterpress}. DIY beard locavore occupy salvia, whatever
+single-origin ==coffee== fanny pack 3 wolf moon typewriter gastropub1
+kale H20 chips. Ennui keffiyeh thundercats jean shorts biodiesel. Terry
+richardson, swag blog locavore umami vegan helvetica. Fingerstache kale
+chips.}
+\includegraphics{http://www.dvd-ppt-slideshow.com/images/ppt-background/background-6.jpg}
+
+DIY beard locavore occupy salvia, whatever single-origin coffee fanny
+pack 3 wolf moon typewriter gastropub1 kale H20 chips. Ennui keffiyeh
+thundercats jean shorts biodiesel. Terry richardson, swag blog locavore
+umami vegan helvetica. Fingerstache kale chips.
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\subsection{Header}\label{header}
+
+Thundercats ennui messenger bag, squid carles chillwave shoreditch
+pickled cliche letterpress. DIY beard locavore occupy salvia, whatever
+single-origin coffee fanny pack 3 wolf moon typewriter gastropub kale
+chips. Ennui keffiyeh thundercats jean shorts biodiesel. Terry
+richardson, swag blog locavore umami vegan helvetica. Fingerstache kale
+chips.
+
+Typewriter etsy messenger bag fingerstache.
+\includegraphics{http://www.dvd-ppt-slideshow.com/images/ppt-background/background-6.jpg}
+***
+
+\section{Lists in English typography}\label{lists-in-english-typography}
+
+\includegraphics{http://www.dvd-ppt-slideshow.com/images/ppt-background/background-6.jpg}
+* Ennui keffiyeh thundercats * Jean shorts biodiesel * Terry richardson,
+swag blog 1. Locavore umami vegan helvetica 2. Fingerstache kale chips
+3. Keytar sriracha gluten-free * Before they sold out master
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\subsection{Lists in Russian
+typography}\label{lists-in-russian-typography}
+
+\includegraphics{http://www.dvd-ppt-slideshow.com/images/ppt-background/background-6.jpg}
+- Ennui keffiyeh thundercats - Jean shorts biodiesel - Terry richardson,
+swag blog 1. Locavore umami vegan helvetica 2. Fingerstache kale chips
+3. Keytar sriracha gluten-free - Before they sold out master
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\subsection{Lists in English
+typography}\label{lists-in-english-typography-1}
+
+\includegraphics{http://www.dvd-ppt-slideshow.com/images/ppt-background/background-6.jpg}
+1. Locavore umami vegan helvetica 2. Fingerstache kale chips 3. Keytar
+sriracha gluten-free
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Ennui keffiyeh thundercats
+\item
+  Jean shorts biodiesel
+\item
+  Terry richardson, swag blog
+\end{itemize}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\subsection{Quote}\label{quote}
+
+\begin{quote}
+Typewriter etsy messenger bag fingerstache, aesthetic vinyl semiotics
+twee DIY forage chillwave. Thundercats ennui messenger bag, squid carles
+chillwave shoreditch pickled cliche letterpress. \emph{\textbf{Author
+Name}}
+\end{quote}
+
+DIY beard locavore occupy salvia, whatever single-origin coffee fanny
+pack 3 wolf moon typewriter gastropub kale chips.
+\includegraphics{http://www.dvd-ppt-slideshow.com/images/ppt-background/background-6.jpg}
+***
+
+\subsection{Table}\label{table}
+
+\begin{longtable}[c]{@{}llll@{}}
+\toprule\addlinespace
+Locavore & Umami & Helvetica & Vegan
+\\\addlinespace
+\midrule\endhead
+Fingerstache & Kale & Chips & Keytar
+\\\addlinespace
+Sriracha & Gluten-free & Ennui & Keffiyeh
+\\\addlinespace
+Thundercats & Jean & Shorts & Biodiesel
+\\\addlinespace
+Terry & Richardson & Swag & Blog
+\\\addlinespace
+\bottomrule
+\end{longtable}
+
+Typewriter etsy messenger bag fingerstache.
+\includegraphics{http://www.dvd-ppt-slideshow.com/images/ppt-background/background-6.jpg}
+***
+
+\subsection{Numbered code listing}\label{numbered-code-listing}
+
+\begin{verbatim}
+<html lang="en">
+<head> <!--Comment-->
+    <title>Shower</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="s/screen.css">
+    <script src="j/jquery.js"></script>
+</head>
+\end{verbatim}
+
+\includegraphics{http://www.dvd-ppt-slideshow.com/images/ppt-background/background-6.jpg}
+***
+
+\subsection{You Can Shout This Way}\label{you-can-shout-this-way}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\subsection{\href{}{Linked Shout}}\label{linked-shout}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\subsection{Growing Shout}\label{growing-shout}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\subsection{Shrinking Shoutslides}\label{shrinking-shoutslides}
+
+\end{document}

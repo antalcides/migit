@@ -1,0 +1,97 @@
+\documentclass[a4paper,addpoints,12point]{exam}%
+% -----------------------------The preamble ------------------------------------
+\usepackage{xcolor}% allows for color 
+\usepackage{fix-cm}% allow for a bigger font
+%  mathematical typesetting, fonts, and symbols
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage[T1]{fontenc}% change the fonts
+\usepackage[margin=.5in]{geometry}%  sets the margins
+\usepackage{graphicx}%  for including pictures
+\usepackage{tikz} %tikz pictures, graph paper.
+\pagestyle{empty} % remove the page numbers
+\pagestyle{head}
+\printanswers % If you want to print answers
+%\noprintanswers % If you don't want to print answers
+\addpoints % if you want to count the points
+% \noaddpoints % if you don't want to count the points
+% Specifies the way question are displayed:
+%\qformat{\textbf{\thequestion.}\quad(\thepoints)\hfill}
+\shadedsolutions % defines the style of the solution environment
+% \framedsolutions % defines the style of the solution environment
+\definecolor{SolutionColor}{rgb}{0.8,0.9,1} % light blue
+% Defines the title of the solution environment:
+\renewcommand{\solutiontitle}{\noindent\textbf{Solution:}\par\noindent}
+% **************** BEGIN INPUT ASSIGNMENT INFO *******************
+\newcommand{\course}{My Math Course}
+\newcommand{\assignment}{Quiz: fractions}
+\newcommand{\teacher}{Mr. Ima Putz}
+% **************** END INPUT ASSIGNMENT INFO *******************
+\runningheadrule
+\runningheader{\course}{\assignment}{\teacher}
+\setlength{\parskip}{1.2ex} %space between paragraphs
+\setlength{\parindent}{1em} %Paragraph indentation
+\linespread{1.2} %spacing between lines
+\widowpenalty = 10000   %penalty for a broken page
+\newcommand\T{\rule{0pt}{2ex}} % \T will create extra space above (used to fix tables)
+\newcommand\B{\rule[-1.5ex]{0pt}{0pt}}% \B will create extra space below (used to fix tables)
+% -----------------------------End of the preamble ------------------------------
+\begin{document}
+\fontsize{17pt}{20pt}\selectfont %sets font size and line spacing
+\noindent
+\begin{tabular}{@{}l p{1.6in}r @{}}
+Name: \vrule height 0 pt depth 0.4 pt width 3.0 in & & Period: \vrule height 0 pt depth 0.4 pt width .75 in \\\\
+\teacher &  &Date: \hrulefill \\
+\end{tabular}
+\begin{center}
+To receive full credit, show all your work.\\ \vspace{.1in}
+	{\bf \assignment}
+\end{center}
+\noindent Show the solution to each problem. Leave your answer as a fraction, not a decimal. Put your answer in the space provided.
+\begin{questions}
+\bracketedpoints
+\question[3]
+The first question.
+\answerline
+\begin{tikzpicture}
+[My grid/.style ={help lines,color=#1!90},
+My grid/.default=black]
+\draw[step=.5cm,My grid]
+ (0,0) grid (5,5);
+\end{tikzpicture}
+\vspace{.15in}
+\question[2]
+The second question. 
+\answerline
+\includegraphics[width=2.5in,height=2.5in]{MyPic.pdf}
+\vspace{0.15in}
+\question[2]
+The third question.
+\vspace{0.5in}
+%insert the blank line to have choices on a different line than the question
+\begin{oneparcheckboxes}
+\choice A
+\choice B
+\choice C
+\choice D
+\end{oneparcheckboxes}
+\question[1]
+The fourth question.
+\begin{oneparcheckboxes}
+\choice True
+\choice False
+\end{oneparcheckboxes}
+\newpage
+\begin{center}
+{\large Answers}
+\end{center}
+\begin{solution}
+First answer.
+\end{solution}
+\begin{solution}
+Second answer.
+\end{solution}
+\begin{solution}
+Third answer
+\end{solution}
+\end{questions}
+\end{document}

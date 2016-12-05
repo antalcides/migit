@@ -1,0 +1,141 @@
+
+\documentclass[12pt]{article}%
+\usepackage{graphicx,hyperref,amsmath,natbib,bm,url,microtype,todonotes}
+%\usepackage[a4paper,text={16.5cm,25.2cm},centering]{geometry}
+\usepackage[a4paper,margin=.75in]{geometry}
+\usepackage[compact,small]{titlesec}
+\setlength{\parskip}{1.2ex} %space between paragraphs
+\setlength{\parindent}{1em} %Paragraph indentation
+\clubpenalty = 10000
+\widowpenalty = 10000
+\newcommand\T{\rule{0pt}{3ex}} % \T will create extra space above (used to fix tables)
+\newcommand\B{\rule[-1.5ex]{0pt}{0pt}}% \B will create extra space below (used to fix tables)
+\usepackage{kpfonts}  %Changing the default fonts
+\usepackage[T1]{fontenc}
+\usepackage{epsfig,latexsym, amsfonts,amssymb,color}
+\pagestyle{empty}
+
+\begin{document}
+\noindent Name \rule{80 mm}{.2pt} \hspace{35 mm} Date \rule{25 mm}{.2pt}\\\\
+Class \rule{30 mm}{.2pt} \hspace{10 mm}\textbf{Introduction to Calculators and Computers}\\
+
+Throughout high school and college you'll find calculators and computers are an important
+tool of math, physics, biology, chemistry, and computer science. When you're finished with 
+school you'll find many jobs require you to work with calculators, computers, and/or
+spreadsheets. Working with technology is just a fact of modern life. But there's a ``dirty
+little secret'' to technology: it doesn't always work properly. This worksheet will look
+at some of the problems with technology. You will compare the calculator we use in class 
+with the calculator on our school computer, the calculator in Google search, and the 
+``Cool Math'' calculator at http://www.coolmath.com/graphit/
+
+When you're working with technology in mathematics, you should be aware that although 
+$+$ and $-$ represent addition and subtraction, either
+$\times$ or $\ast$ is used to represent multiplication and $\div$ or $\slash$ is used to
+represent division. Finally, most math technology uses either \verb!^! or $\ast \ast$ 
+for exponentiation.
+
+\begin{enumerate}
+ \item Determine the symbols used for multiplication, division, and exponentiation.
+ \begin{table}[htbp]
+ \centering
+ \begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+ & \T \B Your calculator & computer calculator & Google & Cool Math\\
+\hline
+\T \B Mult. & &  & &\\
+\hline
+\T \B Div. & &  & &\\
+\hline
+\T \B Exp. & & &  Both &\\
+\hline
+\end{tabular}
+\end{table}
+
+\item Most math technology has a maximum number of digits that 
+will be displayed. For a handheld calculator we can easily see the 
+the number of digits. For the Google search calculator the answer 
+varies. If I try typing in $1.123456789101112 \ast 1$ I'll get the 
+answer $1.2345679101$. Therefore, I'll record that Google 
+shows us a maximum of 12 digits.  Complete the rest of the table:
+ \begin{table}[htbp]
+ \centering
+ \begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+ & \T \B Your calculator & computer calculator & Google & Cool Math\\
+\hline
+\T \B Max digits  & & & 10 &\\
+\hline
+\end{tabular}
+\end{table}
+\item The maximum number of digits poses a problem: What happens if the answer is a little
+bit bigger? Since Google gives 12 digits, try adding 
+$100000000000+.1$. Although you have 
+no trouble getting the correct answer $100000000000.1$, Google 
+will give $100000000000$. Confirm that if you add try and make 
+the number a little bit bigger than the maximum number of digits 
+that your calculator has then your calculator will give you the 
+exact answer either.
+\item In general, if the numbers have more than the maximum number of digits displayed then
+you get an approximate answer. However, the Google results are harder to make sense of.
+Type the following into Google and report the answers below:
+\begin{enumerate}
+\item .123456789101+.000000000001  \hspace{20 mm}Answer: \rule{50 mm}{.2pt}
+\item .123456789101+.0000000000009  \hspace{20 mm}Answer: \rule{50 mm}{.2pt}
+\item 1234567891011 + 1 \hspace{45 mm}Answer: \rule{50 mm}{.2pt}
+\item 123456789101112+1 \hspace{43 mm}Answer: \rule{50 mm}{.2pt}
+\end{enumerate}
+Circle the answer(s) which are correct, as opposed to approximately correct.
+\item The fact that there is a maximum number of digits in any number the calculator 
+displays means there will always be a smallest possible nonzero number. That number will 
+be in the form of $1 \times 10^{-k}$, for some power of $k$ and any number 
+smaller than it will be considered equal to $0$. Find the largest value of
+$k$ for which $1 \times 10^{-k}>0$. 
+ \begin{table}[htbp]
+ \centering
+ \begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+ & \T \B Your calculator & computer calculator & Google & Cool Math\\
+\hline
+\T \B $k$  & & &  &\\
+\hline
+\end{tabular}
+\end{table}
+
+An \textbf{underflow over error} is when the answer is very small (but nonzero) and 
+the calculator thinks the answer is equal to $0$.
+\item Likewise, every calculator will have a biggest positive number that it can represent.
+Any number bigger than that will cause the calculator to issue a warning. Find the largest
+value of $k$ for which $10^k$ is still a number the calculator can represent.
+ \begin{table}[htbp]
+ \centering
+ \begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+ & \T \B Your calculator & computer calculator & Google & Cool Math\\
+\hline
+\T \B $k$  & & &  &\\
+\hline
+\end{tabular}
+\end{table}
+
+In a similar manner there is a smallest negative number so that $-1 \times 10^{k}$ is
+still a number the calculator accepts. An \textbf{overflow error} occurs when the value 
+of $k$ is so large that the calculator issues an error. Essentially the calculator 
+concludes the answer is infinitely positive (or negative).
+\end{enumerate}
+Since there is a smallest positive number, a largest positive number, and a smallest negative
+number it follows that a calculator can only represent a finite number of numbers.
+After completing this worksheet you should be aware that 
+\begin{enumerate}
+\item Calculators don't always give the exact answer. Many times they give the
+approximate answer.
+\item When the calculator says a very small nonzero number is actually zero then an
+underflow error has occurred.
+\item If a calculator gives an error because a number is too big to calculate then an
+overflow error occurred.
+\item A calculator can only properly represent a finite number of numbers.
+\end{enumerate}
+All calculators and computers suffer from overflow and 
+underflow errors, so you still need to be able to do the 
+verify that your calculator is correct. The field of mathematics 
+that studies how to calculate accurately with computers/calculators is called \textbf{numerical analysis}.
+\end{document}

@@ -1,0 +1,32 @@
+\documentclass{article}
+\usepackage{sagetex}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pagestyle{empty}
+\begin{document}
+\begin{sagesilent}
+var('y')
+f(x,y)=x^3-x-y^2
+p = implicit_plot(f(x,y),(x,-3,3),(y,-3,3),plot_points=300)
+P = p.matplotlib()
+R = P.get_children()[1]
+S = R.collections[0]
+
+output = ""
+output += r"\begin{tikzpicture}"
+output += r"\begin{axis}[xmin=-3,xmax=3,ymin=-3,ymax=3]"
+for j in range(0,len(R.collections)):
+    r = S.get_paths()[j]
+    v = r.vertices
+    xvals=v[:,0]
+    yvals=v[:,1]
+    output += r"\addplot+[blue,mark size=0.17pt] coordinates {"
+    for i in range(0,len(xvals)):
+        output += r"(%f, %f) "%(xvals[i],yvals[i])
+    output += r"};"
+output += r"\end{axis}"
+output += r"\end{tikzpicture}"
+\end{sagesilent}
+\sagestr{output}
+\end{document}
