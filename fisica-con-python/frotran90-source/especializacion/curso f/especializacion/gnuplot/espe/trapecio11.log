@@ -1,0 +1,351 @@
+This is pdfTeX, Version 3.14159-14f-released-20000525 (MiKTeX 2.1) (preloaded format=latex 2000.11.28)  27 OCT 2003 15:19
+**trapecio11.tex
+(trapecio11.tex{pdftex.cfg}
+LaTeX2e <2001/06/01>
+Babel <v3.7h> and hyphenation patterns for english, french, german, ngerman, du
+mylang, nohyphenation, loaded.
+(C:\texmf\tex\latex\base\article.cls
+Document Class: article 2001/04/21 v1.4e Standard LaTeX document class
+(C:\texmf\tex\latex\base\size12.clo
+File: size12.clo 2001/04/21 v1.4e Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (C:\texmf\tex\latex\amsmath\amsmath.sty
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+(C:\texmf\tex\latex\amsmath\amstext.sty
+Package: amstext 2000/06/29 v2.01
+ (C:\texmf\tex\latex\amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks14
+\ex@=\dimen103
+)) (C:\texmf\tex\latex\amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen104
+)
+(C:\texmf\tex\latex\amsmath\amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count87
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count88
+\leftroot@=\count89
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count90
+\DOTSCASE@=\count91
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen105
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count92
+\c@MaxMatrixCols=\count93
+\dotsspace@=\muskip10
+\c@parentequation=\count94
+\dspbrk@lvl=\count95
+\tag@help=\toks15
+\row@=\count96
+\column@=\count97
+\maxfields@=\count98
+\andhelp@=\toks16
+\eqnshift@=\dimen106
+\alignsep@=\dimen107
+\tagshift@=\dimen108
+\tagwidth@=\dimen109
+\totwidth@=\dimen110
+\lineht@=\dimen111
+\@envbody=\toks17
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks18
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+(C:\texmf\tex\latex\graphics\graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\texmf\tex\latex\graphics\keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks19
+)
+(C:\texmf\tex\latex\graphics\graphics.sty
+Package: graphics 2001/07/07 v1.0n Standard LaTeX Graphics (DPC,SPQR)
+ (C:\texmf\tex\latex\graphics\trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+) (C:\texmf\tex\latex\00miktex\graphics.cfg)
+Package graphics Info: Driver file: pdftex.def on input line 80.
+
+(C:\texmf\tex\latex\graphics\pdftex.def
+File: pdftex.def 2001/11/29 v0.03i graphics/color for pdftex
+\Gread@gobject=\count99
+))
+\Gin@req@height=\dimen112
+\Gin@req@width=\dimen113
+)
+(C:\texmf\tex\latex\TCITeX\TeX\LaTeX\Babel\babel.sty
+Package: babel 1997/01/23 v3.6h The Babel package
+
+(C:\texmf\tex\latex\TCITeX\TeX\LaTeX\Babel\spanish.ldf
+File: spanish.ldf 1997/01/15 v3.4g Spanish support from the babel system
+
+(C:\texmf\tex\latex\TCITeX\TeX\LaTeX\Babel\babel.def
+File: babel.def 1997/01/23 v3.6h Babel common definitions
+\babel@savecnt=\count100
+\U@D=\dimen114
+)
+
+Package babel Warning: No hyphenation patterns were loaded for
+(babel)                the language `Spanish'
+(babel)                I will use the patterns loaded for \language=0 instead.
+
+\l@spanish = a dialect from \language0
+Package babel Info: Making " an active character on input line 104.
+Warning: You are using encoding OT1 instead of T1.
+Some word breaks will not be found.
+)) (C:\texmf\tex\latex\graphics\color.sty
+Package: color 1999/02/16 v1.0i Standard LaTeX Color (DPC)
+
+(C:\texmf\tex\latex\00miktex\color.cfg)
+Package color Info: Driver file: pdftex.def on input line 125.
+
+(C:\texmf\tex\latex\graphics\dvipsnam.def
+File: dvipsnam.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+))
+(C:\texmf\tex\latex\fancybox\fancybox.sty
+Package: fancybox 2000/09/19 1.3
+
+Style option: `fancybox' v1.3 <2000/09/19> (tvz)
+\@fancybox=\box28
+\shadowsize=\dimen115
+\@Sbox=\box29
+\do@VerbBox=\toks20
+\the@fancyput=\toks21
+\this@fancyput=\toks22
+\EndVerbatimTokens=\toks23
+\Verbatim@Outfile=\write3
+\Verbatim@Infile=\read1
+) (C:\texmf\tex\latex\base\inputenc.sty
+Package: inputenc 2001/07/10 v0.99a Input encoding file 
+ (C:\texmf\tex\latex\base\ansinew.def
+File: ansinew.def 2001/07/10 v0.99a Input encoding file 
+))
+(C:\texmf\tex\latex\amsfonts\amsfonts.sty
+Package: amsfonts 2001/10/25 v2.2f
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 132.
+)
+(C:\texmf\tex\latex\amsfonts\amssymb.sty
+Package: amssymb 2002/01/22 v2.2d
+)
+\c@theorem=\count101
+ (trapecio11.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+
+(C:\texmf\tex\context\base\supp-pdf.tex (C:\texmf\tex\context\base\supp-mis.tex
+loading : Context Support Macros / Missing
+\protectiondepth=\count102
+\scratchcounter=\count103
+\scratchdimen=\dimen116
+\scratchskip=\skip46
+\scratchmuskip=\muskip11
+\scratchbox=\box30
+\scratchread=\read2
+\scratchwrite=\write4
+\nextbox=\box31
+\nextdepth=\dimen117
+\everyline=\toks24
+\!!counta=\count104
+\!!countb=\count105
+\recursecounter=\count106
+)
+loading : Context Support Macros / PDF
+\nofMPsegments=\count107
+\nofMParguments=\count108
+) [1
+
+{psfonts.map}] [2]
+LaTeX Font Info:    Try loading font information for U+msa on input line 91.
+ (C:\texmf\tex\latex\amsfonts\umsa.fd
+File: umsa.fd 2002/01/19 v2.2g AMS font definitions
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 91.
+
+(C:\texmf\tex\latex\amsfonts\umsb.fd
+File: umsb.fd 2002/01/19 v2.2g AMS font definitions
+) [3]
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 146.
+
+<fortran.jpg, id=44, 197.0562pt x 129.3633pt>
+File: fortran.jpg Graphic file (type jpg)
+ <use fortran.jpg>
+<plano.jpg, id=45, 203.0787pt x 153.4533pt>
+File: plano.jpg Graphic file (type jpg)
+ <use plano.jpg> [4 <fortran.jpg>]
+! Undefined control sequence.
+<argument> ... en }x & :\ \ ma\ =Wsen30\U 
+                                          {ba}-f_{s}-f_{r}\\ f_{r} & ...
+l.214 \end{align*}
+                  
+? r
+OK, entering \nonstopmode...
+! Undefined control sequence.
+<argument> ...xt {en }y & :0=N-W\cos 30\U 
+                                          {ba}
+l.214 \end{align*}
+                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ... en }x & :\ \ ma\ =Wsen30\U 
+                                          {ba}-f_{s}-f_{r}\\ f_{r} & ...
+l.214 \end{align*}
+                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...xt {en }y & :0=N-W\cos 30\U 
+                                          {ba}
+l.214 \end{align*}
+                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[5 <plano.jpg>]
+Overfull \hbox (20.77074pt too wide) detected at line 270
+[]  /cmmi12/t/cmr12/(/cmmi12/v/cmr12/) /cmmi12/dv /cmsy10@12.0pt/ /cmmi12/T[] 
+/cmr12/= [] []
+ []
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 317--322
+
+ []
+
+<trap15.jpg, id=55, 221.1462pt x 138.5175pt>
+File: trap15.jpg Graphic file (type jpg)
+ <use trap15.jpg>
+<trap50.jpg, id=56, 221.1462pt x 138.5175pt>
+File: trap50.jpg Graphic file (type jpg)
+ <use trap50.jpg>
+Overfull \hbox (100.24887pt too wide) in paragraph at lines 325--369
+[][] 
+ []
+
+[7] [8 <trap15.jpg> <trap50.jpg>]
+Overfull \hbox (17.5502pt too wide) in paragraph at lines 516--516
+[]/cmtt12/write(*,*)'******************************************************'[] 
+
+ []
+
+
+Overfull \hbox (17.5502pt too wide) in paragraph at lines 516--516
+[]/cmtt12/write(6,*)'******************************************************'[] 
+
+ []
+
+
+Overfull \hbox (17.5502pt too wide) in paragraph at lines 516--516
+[]/cmtt12/write(6,*)'Ingrese el valor de vf mayor que v0 y menor que 27.215'[] 
+
+ []
+
+
+Overfull \hbox (48.42522pt too wide) in paragraph at lines 516--516
+[]/cmtt12/c Empieza el algoritmo para calcular la integral usando N subinterval
+os[] 
+ []
+
+[9]
+Overfull \hbox (11.3752pt too wide) in paragraph at lines 516--516
+[]/cmtt12/&'?????????????????????????????????????????????????????????????',[] 
+ []
+
+
+Overfull \hbox (11.3752pt too wide) in paragraph at lines 516--516
+[]/cmtt12/&'?????????????????????????????????????????????????????????????',[] 
+ []
+
+
+Overfull \hbox (17.5502pt too wide) in paragraph at lines 516--516
+[]/cmtt12/write(10,201)'***************************************************'[] 
+
+ []
+
+[10]
+Overfull \hbox (17.5502pt too wide) in paragraph at lines 516--516
+[]/cmtt12/write(10,209)'***************************************************'[] 
+
+ []
+
+[11] [12] [13] [14]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 678.
+
+ (C:\texmf\tex\latex\base\omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 678.
+
+Overfull \hbox (29.9002pt too wide) in paragraph at lines 830--830
+[]/cmtt12/c **Este programa halla las raices de una ecuaci?n cuadr?tica por el[
+] 
+ []
+
+[15] [16]
+Overfull \hbox (17.5502pt too wide) in paragraph at lines 830--830
+[]/cmtt12/write(10,201)'***************************************************'[] 
+
+ []
+
+
+Overfull \hbox (17.5502pt too wide) in paragraph at lines 830--830
+[]/cmtt12/write(10,205)'***************************************************'[] 
+
+ []
+
+<bisec1.jpg, id=95, 185.7339pt x 134.4222pt>
+File: bisec1.jpg Graphic file (type jpg)
+ <use bisec1.jpg> [17] [18 <bisec1.jpg>] (trapecio11.aux) )<msam10.pfb><cmtt12.
+pfb><cmti12.pfb><cmex10.pfb><cmr6.pfb><cmmi6.pfb><cmsy8.pfb><cmsy10.pfb><cmr8.p
+fb><cmmi8.pfb><cmmi12.pfb><cmbx12.pfb><cmr12.pfb>
+Output written on trapecio11.pdf (18 pages, 330256 bytes).

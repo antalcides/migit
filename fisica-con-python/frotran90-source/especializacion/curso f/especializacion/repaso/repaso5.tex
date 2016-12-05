@@ -1,0 +1,113 @@
+%% This document created by Scientific Word (R) Version 3.5
+
+%TCIDATA{LaTeXparent=0,0,Est12.tex}
+%TCIDATA{ChildDefaults=%
+%chapter:5,page:150
+%}
+
+
+\section{Distribuciones}
+
+\subsection{Algunas distribuciones discretas importantes}
+
+\subsubsection{Distribuci\'{o}n binomial}
+
+Se dice que una variable aleatoria $X$ tiene una distribuci\'{o}n binomial de
+pr\'{a}metros $n,p$ si $X=\sum_{i=1}^{n}X_{i}$ donde cada $X_{i}%
+\leadsto\mathbb{B}\left(  p,pq\right)  $ y se denota $B\left(  np,npq\right)  $%
+
+\begin{definition}
+Supongase que se realiza un experimento de Bernoulli n veces , donde en todas
+ellas, la probabilidad de \'{e}xito es la misma (p), y queremos calcular el
+n\'{u}mero de \'{e}xitos, X obtenidos en el total de n pruebas, entonces su
+funci\'{o}n de probabilidad es \[ f\left(    x\right)    =\left\{
+\begin{array}
+[c]{ccc} \binom{n}{x}p^xq^n-x & si & x=0,1,2,\cdots,n\\ 0 &  & \text{en otro
+caso}
+\end{array}
+\right.   \] Por tanto, su funci\'{o}n de distribuci\'{o}n es \[ F\left(
+x\right)    =\left\{
+\begin{array}
+[c]{ccc} 0 & si & x<0\\ \sum_k=0^[x]\binom{n}{k}p^kq^n-k & si & n\geq x\geq0\\
+1 & si & x\geq n
+\end{array}
+\right.   \] La esperanza y la varianza se calcularon en los ejemplos 4.23 y
+4.27 \[ E\left(    X\right)    =np,V\left(    X\right)    =npq \]
+\end{definition} 
+
+\subsubsection{Distribucci\'{o}n de Poisson}
+
+Sea $X$ una variable aleatoria con una distribuci\'{o}n discreta y
+sup\'{o}ngase que el valor de $X$ debe ser un entero no negativo. Se dice que
+$X$ tiene una distribuci\'{o}n de Poisson con media $\lambda$ si la f.p de $X$
+es
+\[
+f\left(  x\right)  =\left\{
+\begin{array}
+[c]{ccc}%
+\frac{e^{-\lambda}\lambda^{x}}{x!} & si & x=1,2,3,\cdots\\
+0 &  & \text{ en otro caso}%
+\end{array}
+\right.
+\]
+Se denota $X\leadsto P\left(  \lambda,\lambda\right)  $
+
+\subsection{Algunas distribuciones continuas}
+
+\subsubsection{Distribuci\'{o}n exponencial}
+
+La distribuci\'{o}n exponencial es el equivalente continuo por asi decirlo de
+la distribuci\'{o}n geom\'{e}trica discreta, Esta describe un proceso en el que.
+
+Nos interesa saber el tiempo hasta que ocurre determinado evento, sabiendo que
+el tiempo que pueda ocurrir desde cualquier instante dado $t$, hasta que ello
+acurra en un instante $t_{f}$, no depende del tiempo trascurrido anteriormente
+en el que no pas\'{o} nada
+
+Si $X$ es una v.a se dice que tiene una distribuci\'{o}n exponencial si
+\[
+f\left(  x\right)  =\left\{
+\begin{array}
+[c]{ccc}%
+\lambda e^{-\lambda x} & si & x>0\\
+0 &  & \text{si no}%
+\end{array}
+\right.
+\]
+Su experanza y su varianza son
+\begin{align*}
+E\left(  X\right)   &  =\frac{1}{\lambda}\\
+V\left(  X\right)   &  =\frac{1}{\lambda^{2}}%
+\end{align*}
+Distribuci\'{o}n normal o Gaussiana
+
+Se dice que una v.a tiene una distribuci\'{o}n normal de param\'{e}tros $\mu$
+y $\sigma^{2}$ lo que se denota $X\leadsto N\left(  \mu,\sigma^{2}\right)  $
+si su funci\'{o}n de densidad es
+\[
+F\left(  x\right)  =P\left(  x\geq X\right)  =\int_{-\infty}^{x}f\left(
+x\right)  dx
+\]
+La media y la varianza son
+\begin{align*}
+E\left(  X\right)   &  =\mu\\
+V\left(  X\right)   &  =\sigma^{2}%
+\end{align*}
+
+\begin{itemize}
+\item Estas variables tienen una propiedad importante que se llama
+reproductividad, es decir la suma de variables aleatorias \ e independientes
+normales tambi\'{e}n es normal
+
+\item Una propiedad de esta distribuci\'{o}n es que es sim\'{e}trica con
+respecto a la media
+
+\item Si $X\leadsto N\left(  0,1\right)  $ se dice que $X$ tiene una
+distribuci\'{o}n normal est\'{a}ndar y su f.d se denota $\varphi\left(
+X\right)  $ y su funci\`{o}n de distribuci\'{o}n $\Phi\left(  X\right)  $
+
+\item Los puntos de inflexi\'{o}n est\'{a}n en $x=\mu\pm\sigma$
+
+\item $\lim_{x\longrightarrow+\infty}f\left(  x\right)  =0\;\;$y$\;\;\lim
+_{x\longrightarrow-\infty}f\left(  x\right)  =0$
+\end{itemize}

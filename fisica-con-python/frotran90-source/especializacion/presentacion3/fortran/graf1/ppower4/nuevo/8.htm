@@ -1,0 +1,458 @@
+<title>source code for ProsperTeachingDemo</title>
+<body bgcolor=aqua>
+<h2 align=center>source code for ProsperTeachingDemo</h2>
+<a href="ProsperTeachingDemo.pdf">This demo</a>
+(about Krylov subspaces),
+created by Matthias Heil and Andrew L. Hazel
+(Department of Mathematics, University of Manchester)
+features overlays and colored text
+(making use of the <font color="#df5f00">color</font> package).
+The source code of the LaTeX file,
+<a href="ProsperTeachingDemo.tex"><tt>ProsperTeachingDemo.tex</tt></a>,
+is displayed below.  No PostScript graphics are imported.
+
+<p><hr>
+<pre><b>\documentclass</b>[<font color=red>HeilHazel,pdf,final,colorBG,slideColor</font>]{<font color=blue>prosper</font>}</b>
+\usepackage{<font color=red>epsfig</font>}
+\usepackage{<font color=red>amsbsy,amsmath</font>}
+\usepackage{<font color=red>rotating</font>}
+\usepackage{<font color=red>graphicx</font>}
+\usepackage[<font color=red>dvips</font>]{<font color=red>color</font>}
+\usepackage{<font color=red>amsbsy</font>}
+\usepackage{<font color=red>epsfig</font>}
+\usepackage{<font color=red>natbib</font>}
+
+\setlength{\unitlength}{1cm}
+
+\newcommand{\bc}{\begin{center}} 
+\newcommand{\ec}{\end{center}} 
+\newcommand{\bi}{\begin{itemize}} 
+\newcommand{\ei}{\end{itemize}} 
+
+\title{Example slides from a few {\tt Prosper}-based lectures}
+\subtitle{ }
+\author{Matthias Heil \& Andrew L. Hazel}
+\institution{Department of Mathematics \\ University of Manchester}
+\email{. \\ M.Heil@maths.man.ac.uk \ \ \  \& \ \ \ ahazel@maths.man.ac.uk \\ 
+http://www.maths.man.ac.uk/$\tilde{\ }$mheil}
+\slideCaption{Matthias Heil \& Andrew L. Hazel, Department of Mathematics,
+	University of Manchester, UK \hspace{0.5cm}
+	{\tt http://www.maths.man.ac.uk/$\tilde{\ }$mheil}
+	}
+
+\begin{document}
+\maketitle
+
+<font color=blue>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</font>
+
+\overlays{6}{%
+\begin{slide}[R]{What are Krylov subspaces and why do they matter?}
+\vspace{-1cm}
+We want to solve
+$$
+{\bf A} {\bf x} = {\bf b}
+$$
+\fromSlide*{2}{%
+\bi 
+\item Consider the elementary splitting: 
+$$
+{\bf I} {\bf x} = ({\bf I} - {\bf A}) {\bf x} + {\bf b}
+$$
+\ei
+}
+\fromSlide*{3}{%
+\bi
+\item Write this as a fixpoint iteration:
+$$
+{\bf x}_{n+1} = ({\bf I} - {\bf A}) {\bf x}_{n} + {\bf b}
+$$
+\ei
+}
+\fromSlide*{4}{%
+\bi
+\item Rewrite as
+$$
+{\bf x}_{n+1} = {\bf x}_{n} + ({\bf b}- {\bf A} {\bf x}_{n}) 
+$$
+\ei
+}
+\fromSlide*{5}{%
+\bi
+\item or:
+$$
+{\bf x}_{n+1} ={\bf x}_{n} + {\bf r}_n
+$$
+where ${\bf r}_n = {\bf b}- {\bf A} {\bf x}_{n}$ is the residual.
+\ei
+}
+\fromSlide*{6}{%
+\bi
+\item For simplicity assume ${\bf x}_0={\bf 0}$, then:
+$$
+{\bf x}_{n+1} = \sum_{i=0}^n {\bf r}_i \mbox{ \ \ \ where ${\bf r}_0={\bf b}$.}
+$$
+\ei
+}
+\end{slide}
+}
+
+<font color=blue>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</font>
+
+\overlays{7}{%
+\begin{slide}[R]{What are Krylov subspaces and why do they matter? \ \
+\ \ (2)}
+\vspace{-1cm}
+$$
+{\bf x}_{n+1} = ({\bf I} - {\bf A}) {\bf x}_{n} + {\bf b} \ \ \ \ \ \ 
+(1)\hspace{1cm}
+{\bf x}_{n+1} ={\bf x}_{n} + {\bf r}_n  \ \ \ \ \ \ (2)
+\hspace{1cm} {\bf x}_{n+1} = \sum_{i=0}^n {\bf r}_i  \ \ \ \ \ \ (3)
+$$
+\fromSlide*{2}{%
+\bi 
+\item Multiply (2) by ${\blue -{\bf A}}$ and add ${\blue \bf b}$:
+$$
+{\blue {\bf b}} - {\blue {\bf A}}{\bf x}_{n+1} = {\blue {\bf b}} - {\blue \bf A} {\bf x}_n
+- {\blue \bf A} {\bf r}_n
+$$
+\fromSlide*{3}{%
+$$
+{\bf r}_{n+1} = {\bf r}_{n} - {\bf A} {\bf r}_n
+$$
+}
+\fromSlide*{4}{%
+$$
+{\bf r}_{n+1} = ({\bf I} - {\bf A}) {\bf r}_n
+$$
+}
+\onlySlide*{5}{%
+$$
+{\bf r}_{n+1} = ({\bf I} - {\bf A})^{n+1} {\bf r}_0 
+$$
+Note that this shows that the iteration only converges if 
+$\rho({\bf I} - {\bf A}) < 1.$
+}
+\ei
+}
+\fromSlide*{6}{%
+$$
+{\bf r}_{i} = ({\bf I} - {\bf A})^{i} {\bf r}_0 \ \ \ \ \ \ (4)
+$$
+}
+\fromSlide*{7}{%
+\bi 
+\item Insert (4) into (3):
+$$
+{\bf x}_{n+1} = \sum_{i=0}^n ({\bf I} - {\bf A})^{i} {\bf r}_0
+= \sum_{i=0}^n ({\bf I} - {\bf A})^{i} {\bf b}
+$$
+\ei
+}
+\end{slide}
+}
+
+<font color=blue>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</font>
+
+\overlays{3}{%
+\begin{slide}[R]{What are Krylov subspaces and why do they matter?
+ \ \ \ \ (3)}
+\vspace{-1cm}
+\bi 
+\item So while we're carrying out the iteration
+$$
+{\bf x}_{n} = ({\bf I} - {\bf A}) {\bf x}_{n-1} + {\bf b} 
+$$
+the method generates the iterates
+$$
+{\bf x}_{n} = \sum_{i=0}^{n-1} ({\bf I} - {\bf A})^{i} {\bf b}
+$$
+\ei
+\fromSlide*{2}{%
+\bi 
+\item Expanding this gives
+$$
+{\bf x}_{n} = \sum_{i=0}^{n-1} \alpha_i {\bf A}^{i} {\bf b}
+$$
+for some coefficients $\alpha_i$.
+\ei
+}
+\fromSlide*{3}{%
+\bi 
+\item In other words:
+$$
+{\bf x}_{n} \in span({\bf b}, {\bf A}{\bf b}, {\bf A}^2{\bf b},
+... , {\bf A}^{n-1}{\bf b}) =: {\cal K}_n({\bf A}, {\bf b})
+$$
+where ${\cal K}_n({\bf A}, {\bf b})$ is the {\blue Krylov subspace}.
+\ei
+}
+\end{slide}
+}
+
+<font color=blue>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</font>
+
+\overlays{5}{%
+\begin{slide}[R]{What are Krylov subspaces and why do they matter? \ \ \ \ (4)}
+\vspace{-1cm}
+\bi 
+\item Our (well, Richardson's...) method produces:
+$$
+{\bf x}_{n} = \sum_{i=0}^{n-1} \alpha_i {\bf A}^{i} {\bf b} \ \ \ \in \
+\ \ {\cal K}_n({\bf A}, {\bf b})
+$$
+for some coefficients $\alpha_i$.
+\ei
+\fromSlide*{2}{%
+\bi 
+\item Are there any `better' choices for the coefficients $\alpha_i$?
+\ei
+}
+\fromSlide*{3}{%
+\bi 
+\item Yes, but it depends how you define `better', or indeed `best'
+as we're trying to find the `best' approximation in a given Krylov
+subspace.
+\ei
+}
+\fromSlide*{4}{%
+\bi
+\item Various approaches and the resulting schemes:
+\bi 
+\item Minimise the residual (MINRES, GMRES)
+\item Minimise the error (GMERR)
+\item Make the residual orthogonal to the Krylov subspace
+(Ritz/Galerkin: CG, CGS)
+\item  ...
+\ei
+\ei
+}
+\fromSlide*{5}{%
+\bi 
+\item An important technical question is how to construct the
+basis for the Krylov subspace if we abandon our simple iterative
+scheme. 
+\ei
+}
+\end{slide}
+}
+
+<font color=blue>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</font>
+
+\overlays{2}{%
+\begin{slide}[R]{How quickly do the methods converge?}
+%\vspace{-1cm}
+
+\bi 
+\item Most iterative methods perform poorly if applied directly
+to the original problem ${\bf A}{\bf x}={\bf b}$.
+\ei
+\fromSlide*{2}{%
+\bi 
+\item Idea: Solve a `preconditioned' problem
+$$
+{\bf \cal P} {\bf A}{\bf x}={\bf \cal P} {\bf b}
+$$
+where ${\bf \cal P}$ is chosen such that the iterative method applied to
+${\bf \cal P} {\bf A}$ converges more quickly.
+\ei
+}
+\end{slide}
+}
+
+<font color=blue>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</font>
+
+\overlays{5}{%
+\begin{slide}[R]{How quickly do the methods converge? \ \ \ \ \ (2)}
+\vspace{-1cm}
+Preconditioned problem
+$$
+{\bf \cal P} {\bf A}{\bf x}={\bf \cal P} {\bf b}
+$$
+\fromSlide*{2}{%
+\bi 
+\item How do we choose/construct  ${\bf \cal P}$?
+\ei
+}
+\fromSlide*{3}{%
+\bi 
+\item Simple idea: Use a (cheap!) approximation to the inverse.
+$$
+{\bf \cal P} \approx {\bf A}^{-1}.
+$$
+\ei
+}
+\fromSlide*{4}{%
+\bi 
+\item Pointless in its exact form!
+\ei
+}
+\fromSlide*{5}{%
+\bi
+\item Some popular choices:
+\bi
+\item Diagonal preconditioner (also in block form):
+$$
+{\bf \cal P} = (diag{\bf A})^{-1}
+$$
+\item Incomplete LU factorisation:
+$$
+{\bf \cal P} = ( {\bf L}_{inc} {\bf U}_{inc} )^{-1}
+$$
+\ei
+\ei
+}
+\fromSlide*{5}{%
+\bi
+\item In general, the choice of preconditioner is very problem
+dependent.
+\ei
+}
+\end{slide}
+}
+
+<font color=blue>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</font>
+
+\overlays{6}{%
+\begin{slide}[R]{Assessing the convergence: The minimal polynomial}
+\vspace{-1cm}
+\onlySlide*{1}{%
+\bi 
+\item We have already seen that the convergence is related
+to the eigenvalues of the iteration matrix; $\rho({\bf I}-{\bf A}) <
+1$ for the Richardson iteration.
+\ei
+}
+\fromSlide*{2}{%
+\bi
+\item How exactly are the eigenvalues of the matrix related to the
+convergence of Krylov subspace methods?
+\ei
+}
+\fromSlide*{3}{%
+\bi 
+\item {\bf Definition:} The minimal polynomial of a $N \times N$ 
+nonsingular (diagonalisable)  matrix ${\bf B}$ with $m \le N$ 
+distinct eigenvalues $\lambda_j$ is given by
+$$
+q(t) = \Pi_{j=1}^{m} (t-\lambda_j).
+$$
+\ei
+}
+\fromSlide*{4}{%
+\bi 
+\item The minimal polynomial has the (obvious) property that 
+$$
+q({\bf B}) = \Pi_{j=1}^{m} ({\bf B}-{\bf I} \lambda_j) = 0.
+$$
+\ei
+}
+\fromSlide*{5}{%
+\bi 
+\item Expanding out the polynomial gives
+$$
+q(t) = \Pi_{j=1}^{m} (t-\lambda_j) = \sum_{j=0}^m \beta_j t^j
+$$
+for some coefficients $\beta_j$.
+\ei
+}
+\fromSlide*{6}{%
+\bi 
+\item Applying this to $q({\bf B}) = 0$ gives:
+$$
+0 = \beta_0 {\bf I} + \beta_1 {\bf B} + ... +  \beta_N {\bf B}^m
+$$
+\ei
+}
+\end{slide}
+}
+
+<font color=blue>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</font>
+
+\overlays{4}{%
+\begin{slide}[R]{Assessing the convergence: The minimal polynomial\ \ \ \ \ (2)}
+\vspace{-1cm}
+$$
+0 = \beta_0 {\bf I} + \beta_1 {\bf B} + ... +  \beta_m {\bf B}^m
+$$
+\fromSlide*{2}{%
+\bi 
+\item Multiply through by ${\bf B}^{-1}$:
+$$
+{\bf B}^{-1} = - \frac{1}{\beta_0} \sum_{j=0}^{m-1} \beta_j {\bf B}^j.
+$$ 
+\ei
+}
+\fromSlide*{3}{%
+\bi 
+\item So the solution of ${\bf B} {\bf x} = {\bf b}$ can be
+represented as
+$$
+ {\bf x} = {\bf B}^{-1}  {\bf b}= - \frac{1}{\beta_0} \sum_{j=0}^{m-1}
+ \beta_j {\bf B}^j {\bf b}.
+$$ 
+\ei
+}
+\fromSlide*{4}{%
+\bi 
+\item This shows that
+$$
+ {\bf x} \in {\cal K}_{m}({\bf B}, {\bf b}).
+$$ 
+\ei
+}
+\end{slide}
+}
+
+<font color=blue>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</font>
+
+\overlays{5}{%
+\begin{slide}[R]{Assessing the convergence: The minimal polynomial\ \ \ \ \ (3)}
+\vspace{-1cm}
+
+\bi 
+\item This characterises the solution to ${\bf B}{\bf x}={\bf b}$ as a
+member of a Krylov subspace
+$$
+ {\bf x} \in {\cal K}_{m}({\bf B}, {\bf b}),
+$$ 
+where $m$ is the number of distinct eigenvalues of the matrix ${\bf
+B}$.
+\ei
+\fromSlide*{2}{%
+\bi 
+\item The fewer distinct eigenvalues the (preconditioned) matrix ${\bf B} =
+{\cal P} {\bf A}$ has, the lower the degree of the minimal polynomial
+and the smaller the Krylov subspace, the solution ${\bf x}$ lives in.
+\ei
+}
+\fromSlide*{3}{%
+\bi 
+\item Recall that during the $n$-th iteration, a Krylov subspace method 
+will determine the `best' approximate solution in the Krylov subspace
+${\cal K}_{n}({\bf B}, {\bf b})$.
+\ei
+}
+\fromSlide*{4}{%
+\bi 
+\item $\Longrightarrow$ The solution will be found in at most $m$ iterations!
+\ei
+}
+\fromSlide*{5}{%
+\bi 
+\item This provides an alternative characterisation of a good
+preconditioner:
+\fbox{\parbox{10cm}{\begin{center}\parbox{9cm}{
+`A sufficient condition for a good preconditioner is that the
+preconditioned
+matrix ${\bf B} = {\cal P} {\bf A}$ has a low degree minimal polynomial.'
+(Murphy {\em et al.} 2000)}\end{center}}}
+\ei
+}
+\end{slide}
+}
+
+<font color=blue>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</font>
+
+\end{document}
+</pre>
+</body>

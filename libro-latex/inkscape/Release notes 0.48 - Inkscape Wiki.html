@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<!-- saved from url=(0094)http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#New_LaTeX_export_for_PDF.2FEPS.2FPS -->
+<html lang="en" dir="ltr" class="client-js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Release notes/0.48 - Inkscape Wiki</title>
+<meta charset="UTF-8">
+<meta name="generator" content="MediaWiki 1.18.0">
+<link rel="shortcut icon" href="http://wiki.inkscape.org/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="http://wiki.inkscape.org/wiki/opensearch_desc.php" title="Inkscape Wiki (en)">
+<link rel="EditURI" type="application/rsd+xml" href="http://wiki.inkscape.org/wiki/api.php?action=rsd">
+<link rel="alternate" type="application/atom+xml" title="Inkscape Wiki Atom feed" href="http://wiki.inkscape.org/wiki/index.php?title=Special:RecentChanges&feed=atom">
+<link rel="stylesheet" href="http://wiki.inkscape.org/wiki/load.php?debug=false&lang=en&modules=mediawiki.legacy.commonPrint%2Cshared%7Cskins.vector&only=styles&skin=vector&*">
+<style type="text/css" media="all">.mw-collapsible-toggle{float:right} li .mw-collapsible-toggle{float:none} .mw-collapsible-toggle-li{list-style:none}
+
+/* cache key: inkscape_wiki-mw01_:resourceloader:filter:minify-css:4:4250852ed2349a0d4d0fc6509a3e7d4c */
+</style><style type="text/css" media="all">.js-messagebox{margin:1em 5%;padding:0.5em 2.5%;border:1px solid #ccc;background-color:#fcfcfc;font-size:0.8em}.js-messagebox .js-messagebox-group{margin:1px;padding:0.5em 2.5%;border-bottom:1px solid #ddd}.js-messagebox .js-messagebox-group:last-child{border-bottom:thin none transparent}
+
+/* cache key: inkscape_wiki-mw01_:resourceloader:filter:minify-css:4:8b08bdc91c52a9ffba396dccfb5b473c */
+</style><meta name="ResourceLoaderDynamicStyles" content="">
+<style>a:lang(ar),a:lang(ckb),a:lang(fa),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}a.new,#quickbar a.new{color:#ba0000}
+
+/* cache key: inkscape_wiki-mw01_:resourceloader:filter:minify-css:4:c88e2bcd56513749bec09a7e29cb3ffa */
+</style>
+<script src="./Release notes 0.48 - Inkscape Wiki_files/load.php"></script><style type="text/css"></style><style type="text/css"></style><script src="./Release notes 0.48 - Inkscape Wiki_files/load(1).php"></script>
+<script>if(window.mw){
+	mw.config.set({"wgCanonicalNamespace": "", "wgCanonicalSpecialPageName": false, "wgNamespaceNumber": 0, "wgPageName": "Release_notes/0.48", "wgTitle": "Release notes/0.48", "wgCurRevisionId": 83474, "wgArticleId": 13785, "wgIsArticle": true, "wgAction": "view", "wgUserName": null, "wgUserGroups": ["*"], "wgCategories": ["Marketing"], "wgBreakFrames": false, "wgRestrictionEdit": [], "wgRestrictionMove": []});
+}
+</script><script>if(window.mw){
+	mw.loader.load(["mediawiki.page.startup"]);
+}
+</script><script type="text/javascript" src="./Release notes 0.48 - Inkscape Wiki_files/load(2).php"></script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/wiki/skins/vector/csshover.min.htc")}</style><![endif]--><script type="text/javascript" src="./Release notes 0.48 - Inkscape Wiki_files/MathJax.js"></script><script type="text/javascript" src="http://static.ver-pelis.net/player/ready.js"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Hover_Arrow {position: absolute; width: 15px; height: 11px; cursor: pointer}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_Menu_Close {position: absolute; width: 31px; height: 31px; top: -15px; left: -15px}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Release_notes_0_48 action-view skin-vector"><div id="MathJax_Message" style="display: none;"></div>
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<!-- content -->
+		<div id="content">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;" class="js-messagebox"></div>
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">Release notes/0.48</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+								<!-- tagline -->
+				<div id="siteSub">From Inkscape Wiki</div>
+				<!-- /tagline -->
+								<!-- subtitle -->
+				<div id="contentSub"></div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav">
+					Jump to: <a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#mw-head">navigation</a>,
+					<a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodycontent -->
+				<div lang="en" dir="ltr" class="mw-content-ltr"><p><span class="plainlinks" style="margin:0.5em;padding:0.5em;background:#EEFFEE">
+<small><i>Other languages:</i>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="http://wiki.inkscape.org/wiki/index.php?title=Release_notes/0.48/ca&action=edit&redlink=1" class="new" title="Release notes/0.48/ca (page does not exist)">Català</a>
+ <a href="http://wiki.inkscape.org/wiki/index.php?title=Release_notes/0.48/cs&action=edit&redlink=1" class="new" title="Release notes/0.48/cs (page does not exist)">Česky</a>
+ 
+ <a href="http://wiki.inkscape.org/wiki/index.php?title=Release_notes/0.48/de&action=edit&redlink=1" class="new" title="Release notes/0.48/de (page does not exist)">Deutsch</a>
+ 
+  <strong class="selflink">English</strong>
+ 
+ <a href="http://wiki.inkscape.org/wiki/index.php?title=Release_notes/0.48/es&action=edit&redlink=1" class="new" title="Release notes/0.48/es (page does not exist)">Español</a>
+ 
+ 
+ <a href="http://wiki.inkscape.org/wiki/index.php?title=Release_notes/0.48/fr&action=edit&redlink=1" class="new" title="Release notes/0.48/fr (page does not exist)">Français</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="http://wiki.inkscape.org/wiki/index.php?title=Release_notes/0.48/it&action=edit&redlink=1" class="new" title="Release notes/0.48/it (page does not exist)">Italiano</a>
+ <a href="http://wiki.inkscape.org/wiki/index.php?title=Release_notes/0.48/ja&action=edit&redlink=1" class="new" title="Release notes/0.48/ja (page does not exist)">日本語</a>
+ 
+ 
+ <a href="http://wiki.inkscape.org/wiki/index.php?title=Release_notes/0.48/ko&action=edit&redlink=1" class="new" title="Release notes/0.48/ko (page does not exist)">한국어</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <a href="http://wiki.inkscape.org/wiki/index.php?title=Release_notes/0.48/pt&action=edit&redlink=1" class="new" title="Release notes/0.48/pt (page does not exist)">Português</a>
+ 
+ <a href="http://wiki.inkscape.org/wiki/index.php?title=Release_notes/0.48/ru&action=edit&redlink=1" class="new" title="Release notes/0.48/ru (page does not exist)">Русский</a>
+ <a href="http://wiki.inkscape.org/wiki/index.php?title=Release_notes/0.48/sk&action=edit&redlink=1" class="new" title="Release notes/0.48/sk (page does not exist)">Slovenčina</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+</small>
+</span>
+</p>
+<table id="toc" class="toc"><tbody><tr><td><div id="toctitle"><h2>Contents</h2><span class="toctoggle">&nbsp;[<a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#" class="internal" id="togglelink">hide</a>]&nbsp;</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#Inkscape_0.48"><span class="tocnumber">1</span> <span class="toctext">Inkscape 0.48</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#Release_highlights"><span class="tocnumber">2</span> <span class="toctext">Release highlights</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#Tools"><span class="tocnumber">3</span> <span class="toctext">Tools</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#Node_Tool"><span class="tocnumber">3.1</span> <span class="toctext">Node Tool</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#Text_Tool"><span class="tocnumber">3.2</span> <span class="toctext">Text Tool</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#Spray_Tool"><span class="tocnumber">3.3</span> <span class="toctext">Spray Tool</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#Connector_Tool"><span class="tocnumber">3.4</span> <span class="toctext">Connector Tool</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#Import.2FExport"><span class="tocnumber">4</span> <span class="toctext">Import/Export</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#Improved_bitmap_image_import"><span class="tocnumber">4.1</span> <span class="toctext">Improved bitmap image import</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="./Release notes 0.48 - Inkscape Wiki_files/Release notes 0.48 - Inkscape Wiki.html"><span class="tocnumber">4.2</span> <span class="toctext">New LaTeX export for PDF/EPS/PS</span></a>
+<ul>
+<li class="toclevel-3 tocsection-11"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#From_the_GUI"><span class="tocnumber">4.2.1</span> <span class="toctext">From the GUI</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#Command_line_option"><span class="tocnumber">4.2.2</span> <span class="toctext">Command line option</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-13"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#Fixed_PDF.2FEPS.2FPS_export_of_non-integer_sized_documents"><span class="tocnumber">4.3</span> <span class="toctext">Fixed PDF/EPS/PS export of non-integer sized documents</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#Extensions"><span class="tocnumber">5</span> <span class="toctext">Extensions</span></a>
+<ul>
+<li class="toclevel-2 tocsection-15"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#New_and_improved_extensions"><span class="tocnumber">5.1</span> <span class="toctext">New and improved extensions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#SVG_Support"><span class="tocnumber">6</span> <span class="toctext">SVG Support</span></a></li>
+<li class="toclevel-1 tocsection-17"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#Other_features"><span class="tocnumber">7</span> <span class="toctext">Other features</span></a>
+<ul>
+<li class="toclevel-2 tocsection-18"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#Extended_input_device_configuration"><span class="tocnumber">7.1</span> <span class="toctext">Extended input device configuration</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-19"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#User_interface"><span class="tocnumber">8</span> <span class="toctext">User interface</span></a>
+<ul>
+<li class="toclevel-2 tocsection-20"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#Adaptive_UI"><span class="tocnumber">8.1</span> <span class="toctext">Adaptive UI</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#Custom_Swatches"><span class="tocnumber">8.2</span> <span class="toctext">Custom Swatches</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#CMYK_and_ICC_support"><span class="tocnumber">8.3</span> <span class="toctext">CMYK and ICC support</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#Icon_Dialog"><span class="tocnumber">8.4</span> <span class="toctext">Icon Dialog</span></a>
+<ul>
+<li class="toclevel-3 tocsection-24"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#Preferences"><span class="tocnumber">8.4.1</span> <span class="toctext">Preferences</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-25"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#Glyphs_Dialog"><span class="tocnumber">8.5</span> <span class="toctext">Glyphs Dialog</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#New_cursors_in_Selector"><span class="tocnumber">8.6</span> <span class="toctext">New cursors in Selector</span></a></li>
+<li class="toclevel-2 tocsection-27"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#Translations"><span class="tocnumber">8.7</span> <span class="toctext">Translations</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-28"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#Tutorials"><span class="tocnumber">9</span> <span class="toctext">Tutorials</span></a></li>
+<li class="toclevel-1 tocsection-29"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#Windows_port_improvements"><span class="tocnumber">10</span> <span class="toctext">Windows port improvements</span></a>
+<ul>
+<li class="toclevel-2 tocsection-30"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#Command_line_interface"><span class="tocnumber">10.1</span> <span class="toctext">Command line interface</span></a></li>
+<li class="toclevel-2 tocsection-31"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#Stability_improvements"><span class="tocnumber">10.2</span> <span class="toctext">Stability improvements</span></a></li>
+<li class="toclevel-2 tocsection-32"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#Unicode_compatibility"><span class="tocnumber">10.3</span> <span class="toctext">Unicode compatibility</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-33"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#Notable_bug_fixes"><span class="tocnumber">11</span> <span class="toctext">Notable bug fixes</span></a></li>
+<li class="toclevel-1 tocsection-34"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#Known_issues"><span class="tocnumber">12</span> <span class="toctext">Known issues</span></a>
+<ul>
+<li class="toclevel-2 tocsection-35"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#Floating_Toolbars"><span class="tocnumber">12.1</span> <span class="toctext">Floating Toolbars</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-36"><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#Previous_releases"><span class="tocnumber">13</span> <span class="toctext">Previous releases</span></a></li>
+</ul>
+</td></tr></tbody></table>
+<h2> <span class="mw-headline" id="Inkscape_0.48">Inkscape 0.48</span></h2>
+<p><b><a href="http://wiki.inkscape.org/wiki/index.php/AnnouncePlanning048" title="AnnouncePlanning048">AnnouncePlanning048</a></b>
+</p>
+<h2> <span class="mw-headline" id="Release_highlights">Release highlights</span></h2>
+<p>The release marks returning to shorter release cycles to speed up availability of new technologies often developed as part of Google Summer of Code projects.
+</p><p>The highlights of this release are:
+</p>
+<ul><li> <b>multipath</b> editing
+</li><li> improved text tool: subscript, superscript, numerical input for text kerning, tracking and more
+</li><li> new <b>Spray</b> tool
+</li><li> <b>LaTeX export</b> with PDF/PS/EPS
+</li><li> <b>JessyInk</b> extension to create presentations
+</li><li> numerous bugfixes
+</li></ul>
+<h2> <span class="mw-headline" id="Tools">Tools</span></h2>
+<h3> <span class="mw-headline" id="Node_Tool">Node Tool</span></h3>
+<p>During Google Summer of Code 2009, the node tool underwent an extensive rewrite. Along with more maintainable code, it brings several new features.
+</p>
+<dl><dt> <b>Multi-path editing</b>
+</dt><dd> Any number of paths can be selected for node editing at once.
+</dd><dt> <b>Improved clippath / mask editing</b>
+</dt><dd> The clipping path or mask of an object can be edited at the same time as the object. The clip / mask editing buttons in the node tool are now toggle buttons, rather than mode switch buttons. If the object is transformed after applying a clipping path, the clipping path is no longer offset when editing it in the node tool. If the clipping path is a group, all paths in the group can be edited simultaneously.
+</dd><dt> <b>Improved node join</b>
+</dt><dd> It is now possible to join nodes from different paths. More than two endnodes can be joined at once—the distances between nodes will be used to determine which nodes to join, with the closest pairs being joined first. When nothing can be joined (less than 2 endnodes in selection), each selected stretch of nodes will be joined into one node.
+</dd><dt> <b>Improved segment join</b>
+</dt><dd> It is now possible to create a segment between endnodes from different paths. More than one segment can be created at once—the distances between nodes will be used to determine which nodes to join with a segment, with the closest pairs being joined first. When nothing can be joined (less than 2 endnodes in selection), each selected stretch of nodes will have its middle nodes removed, leaving only one segment.
+</dd><dt> <b>Node transforms</b>
+</dt><dd> It is now possible to transform the nodes using the mouse and transformation handles similar to those in the selector tool. They can be turned on and off using the button in the node toolbar. When the handles are visible, clicking on a selected node will switch between scaling and rotation mode, instead of selecting only that node. You can also use Shift+H to switch the mode. All other operations work normally when transform handles are shown.
+</dd><dt> <b>Path direction tools</b>
+</dt><dd> Little harpoons are optionally shown in the middle of each segment, visualizing the direction of the path. This is useful when preparing a guide path for text, setting markers, and debugging extensions and Inkscape itself. The "Reverse" command (Shift+R) reverses the direction of subpaths that have some selected nodes, or all subpaths if the node selection is empty. To turn on, select "Always show outline" and "Show path direction on outlines" in Node section of the Inkscape Preferences dialog.
+</dd><dt> <b>Customizable path update</b>
+</dt><dd> Two new preferences allow you to specify when the path and its outline should be updated. Turning off live update of paths will improve performance for complex drawings.
+</dd><dt> <b>Improved tips</b>
+</dt><dd> The tips displayed for nodes and handles are more concise and affected by what modifier keys are pressed.
+</dd></dl>
+<p>For a detailed feature comparison between the old and new tool, see <a href="http://wiki.inkscape.org/wiki/index.php/GSoC2009_Node_Tool_Rewrite" title="GSoC2009 Node Tool Rewrite">GSoC2009 Node Tool Rewrite</a>.
+</p>
+<h3> <span class="mw-headline" id="Text_Tool">Text Tool</span></h3>
+<p>The text toolbar has been overhauled with many bug fixes and improvements. One can now directly access a number of text layout parameters:
+</p>
+<ul><li>"Line Spacing:" Distance between baselines of adjacent lines.
+</li><li>"Letter Spacing:" Spacing between letters.
+</li><li>"Word Spacing:" Spacing between words.
+</li><li>"Horizontal kerning"
+</li><li>"Vertical shift"
+</li><li>"Character rotation" 
+</li></ul>
+<p>In addition, support has been added for superscripts and subscripts.
+</p><p><br>
+This work was sponsored in part by Inkscape users through LinuxFund.org.
+</p>
+<h3> <span class="mw-headline" id="Spray_Tool">Spray Tool</span></h3>
+<p>You first need to select one or several items, then select the Spray Tool. To spray, click on the canvas, then move the mouse or scroll the mouse wheel.
+</p><p>Three modes are available.
+</p>
+<ul><li><i>Spray Copy mode&nbsp;:</i> each sprayed item is independent from the others.
+</li><li><i>Spray Clone mode&nbsp;:</i> each sprayed item is a clone of the selected item. Changing the properties of the original item will affect the clones.
+</li><li><i>Spray Single Path Mode&nbsp;:</i> everything you spray is in a single path. You may need to convert your item into a path to make it work properly.
+</li></ul>
+<p><b>Spray options</b>
+</p>
+<ul><li>Amount&nbsp;: spray more or less items.
+</li></ul>
+<ul><li>Rotation&nbsp;: randomly rotates items around the original rotation value. 
+</li><li>Scale&nbsp;: randomly scales items around the original scale value. 
+</li></ul>
+<ul><li>Scatter&nbsp;: low values to spray items under the cursor, high values for a more uniform repartition over the spray zone.
+</li><li>Focus&nbsp;: items are sprayed following a ring. This parameters modifies the radius of the circle. Default at 0 to spray a spot. 
+</li></ul>
+<p>Use keys ↑ and ↓ to control the size of of sprayed items. Use ← and → to set the width of the cursor.
+</p><p><br>
+The Spray tool is a perfect match for the transforming, duplicating, and deleting modes of the Tweak tool.
+</p>
+<h3> <span class="mw-headline" id="Connector_Tool">Connector Tool</span></h3>
+<p>The connector tool can now produce orthogonal connectors (those made up from vertical and horizontal line segments, e.g. as seen in circuit diagrams).  There is an additional button on the connector toolbar that can toggle selected connector types between "polyline" and "orthogonal".
+</p><p>Also included are several bug and crash fixes to the connector routing code.
+</p>
+<h2> <span class="mw-headline" id="Import.2FExport">Import/Export</span></h2>
+<h3> <span class="mw-headline" id="Improved_bitmap_image_import">Improved bitmap image import</span></h3>
+<p>Bitmaps are now always embedded when pixel data is pasted or dragged into Inkscape's window (for example when copying parts of an image from GIMP). Files with automatically generated names like "inkscape_pasted_image_..." are no longer created in the document directory. When importing or opening bitmap images, a dialog is displayed that asks whether you want to link the image or embed it.
+</p>
+<h3> <span class="mw-headline" id="New_LaTeX_export_for_PDF.2FEPS.2FPS">New LaTeX export for PDF/EPS/PS</span></h3>
+<p>Similar to GNUPlot's `epslatex' output terminal and Xfig's combined PDF/LaTeX output, Inkscape can now export graphics to PDF with an accompanying LaTeX file that overlays the text over the PDF when inputted in LaTeX. The image's text is typeset by LaTeX, so for example mathematical expressions are rendered correctly, and all text will be in the font and style of the LaTeX document (even when changing the document's font afterwards).
+</p><p><i>(the following description assumes export to PDF, but will work the same for EPS and PS)</i>
+Two files will be created: a PDF file containing all graphics, without text; and a LaTeX file with the same name (with extension ".pdf_tex"), containing all text, and code to include the PDF and overlay the text. To include the exported image in LaTeX, one writes
+</p>
+<pre> \begin{figure} 
+   \centering
+   \def\svgwidth{\columnwidth}&nbsp;% sets the image width, this is optional
+   \input{image.pdf_tex}
+ \end{figure}
+</pre>
+<p>A more thorough description of how to use the new feature (and automate the exporting/inclusion of the image in LaTeX) is given in this document: <a rel="nofollow" class="external text" href="http://tug.ctan.org/tex-archive/info/svg-inkscape/">svg-inkscape on CTAN</a>.
+</p>
+<h4> <span class="mw-headline" id="From_the_GUI">From the GUI</span></h4>
+<p>When exporting to PDF/EPS/PS from Inkscape's GUI, the usual dialog pops up after selecting to which PDF/EPS/PS file to export to. In this dialog, you can find the PDF/EPS/PS+LaTeX option.
+</p>
+<h4> <span class="mw-headline" id="Command_line_option">Command line option</span></h4>
+<p>When exporting to PDF/EPS/PS from the command line, adding --export-latex will turn the LaTeX export on. For example
+</p>
+<pre> inkscape image.svg -z -D --export-pdf=image.pdf --export-latex
+</pre>
+<h3> <span class="mw-headline" id="Fixed_PDF.2FEPS.2FPS_export_of_non-integer_sized_documents">Fixed PDF/EPS/PS export of non-integer sized documents</span></h3>
+<p>The long standing <a rel="nofollow" class="external text" href="https://bugs.launchpad.net/inkscape/+bug/168275">bug 168275</a> has now been fixed. Documents with a non-integer height or width are now correctly exported to PDF, EPS and PS.
+</p>
+<h2> <span class="mw-headline" id="Extensions">Extensions</span></h2>
+<h3> <span class="mw-headline" id="New_and_improved_extensions">New and improved extensions</span></h3>
+<ul><li> The new <b>Generate from Path &gt; Voronoi Pattern</b> extension creates a random pattern of Voronoi cells. The pattern will be accessible from the Fill and Stroke dialog. The pattern can be made to be smooth at the edges by choosing a positive border, or sparse at the edges by using a negative border.
+</li><li> The new <b>Render &gt; Wireframe Sphere</b> extension draws the globe as a collection of ellipses representing a sphere's latitude and longitude lines. The number of lines is adjustable, as well as the tilt and rotation. There is an option to hide the lines at the back of the sphere.
+</li><li> The new <b>Render &gt; Barcode - Datamatrix</b> extension renders a DataMatrix 2D barcode, as specified in BS ISO/IEC 16022:2006. The number of rows and columns of the DataMatrix is adjustable. If more data is given than can be contained in one DataMatrix, more than one DataMatrix will be produced.
+</li><li> The new <b>Modify Path &gt; Pixelsnap</b> extension aligns rectangles and paths to pixel boundaries, to create sharp web and digital graphics.
+</li><li> The new <b>Color &gt; Black and White</b> extension turns the selection colors into black and white.
+</li><li> The new <b>Text &gt; Split Text</b> extension splits texts into different lines, words or letters.
+</li><li> The new <b>JessyInk</b> extension for creating presentations viewable in browsers, See <a rel="nofollow" class="external free" href="https://launchpad.net/jessyink">https://launchpad.net/jessyink</a>.
+</li><li> The new <b>Web &gt; Slicer</b> extensions to slice web layouts into multiple images and help the HTML+CSS creation.
+</li><li> <b>Images &gt; Extract Image</b>: all relative paths (or filenames without path) are now relative to the user's home directory.
+</li><li> <b>Visualize Path &gt; Measure Path</b>: new option to calculate area.
+</li></ul>
+<p><br>
+</p>
+<h2> <span class="mw-headline" id="SVG_Support">SVG Support</span></h2>
+<p>The baseline-shift attribute is supported! The Text toolbar uses the "super" and "sub" values for implementing superscripts and subscripts. At the moment there is no other GUI access to the attribute.
+</p><p><br>
+</p>
+<h2> <span class="mw-headline" id="Other_features">Other features</span></h2>
+<ul><li> Arch paper sizes are added in the Document Properties dialog
+</li><li> Displaying the <b>font samples</b> in the drop-down list of the Text tool is now optional. In Inkscape Preferences, go to Tools, Text, and uncheck "Show font samples in the drop-down list" if you don't want to see the samples. This will speed up displaying the list the first time you open it
+</li><li> Items in the File &gt; Open Recent menu, when mouseovered, show tooltips with the full URI of each file in the list. Also, files that are in the list but are missing or unaccessible are automatically hidden
+</li><li> When a flowed text is truncated (i.e. the frame is too small for the entire text), the frame is shown red, and the statusbar hint includes <b>[truncated]</b>. You need to resize the frame to see the truncated end of the text. Analogously, if the path of a text-on-path object is too short to display the entire text, the statusbar will report it as <b>[truncated]</b>
+</li><li> Clicking the text alignment buttons (Left, Center, Right) on the Text tool's controls bar now does not let the text jump: it stays within the same bounding box as before, only changing the alignment
+</li><li> The position of text's baseline anchor (the small square) is now dependent of the alignment: for left-aligned text it is, as before, at the left end, for centered text in the middle, and for the right-aligned text it is at the right end of the text's first line (this is for horizontal text; for vertical, it is correspondingly at top, middle, or bottom of the first column). This allows snapping, aligning and distributing of text relative the side to which it's aligned
+</li><li> Snapping of gradient handles has been improved and now behaves similar to the snapping of all other handles and objects
+</li><li> When snapping to a bounding box, that bounding box will be shown for a moment (tied to the snap indicator)
+</li><li> If a new object is being created on the canvas with snapping enabled, then a snap indicator will also be shown for the first point
+</li><li> There are now options for Margins when resizing a document to a selection or the drawing in Document Properties
+</li><li> Preferences have been added to allow automatic grouping when setting a Clippath or Mask
+</li><li> Bitmap copies created using the Make a Bitmap Copy command (Alt+B) are now embedded. Previously they were saved in an automatically generated file and linked
+</li><li> The file preview size limit (in the File &gt; Open and File &gt; Import dialog box) is now 10 MB (1.3 MB in 0.47)
+</li><li> Blur, transformation, and layer visibility and opacity support in XAML export
+</li><li> Added preference in Filters section of Preferences for multi-threaded gaussian blur.
+</li></ul>
+<h3> <span class="mw-headline" id="Extended_input_device_configuration">Extended input device configuration</span></h3>
+<p>The stock Input Devices dialog has been replaced with a completely redone version that provides a more useful representation of settings. It also contains a simple area for testing different inputs of different devices.
+</p><p>Additionally hardware setup itself has been separated from general settings to allow for easier dynamic switching of settings appropriate to the task at hand.
+</p>
+<h2> <span class="mw-headline" id="User_interface">User interface</span></h2>
+<h3> <span class="mw-headline" id="Adaptive_UI">Adaptive UI</span></h3>
+<p>Initial implementation of adaptive user interface has been introduced. This has internal work done to collect system and runtime information on the user and allow for decisions on how best to assist the user in working. The visible control is a menu to pick from different arrangements, including one optimized for wide-screen computers such as netbooks. Currently the system will detect the screen layout and set the appropriate default. Other minor internals are also run by this.
+</p>
+<h3> <span class="mw-headline" id="Custom_Swatches">Custom Swatches</span></h3>
+<p>Custom swatches can be created and used on a per-document basis. An "Auto" color palette will track swatches in the current document and allow them to be set and used. The use is "live" with changes to the swatch being applied automatically to all objects set to it. The swatches can also be gradients and not just simple colors.
+</p><p>This iteration has been implemented via single-stop gradients. This results in fully SVG 1.1 compliant files that remain editable.
+</p>
+<h3> <span class="mw-headline" id="CMYK_and_ICC_support">CMYK and ICC support</span></h3>
+<p>Support for using icc-color has been extended to more areas of the UI, including the use in gradient stops. This helps preserve custom colors, including CMYK.
+</p>
+<h3> <span class="mw-headline" id="Icon_Dialog">Icon Dialog</span></h3>
+<p>The icon preview dialog has gone through a round of refinement. The newer functionality has been set to the most common defaults, but some behavior can be modified via preference settings.
+</p>
+<ul><li> Auto Refresh. The icon preview dialog will now auto-refresh as the document is edited.
+</li><li> Holding initial selection. When the "Selection" checkbox is enabled, the currently selected item selected will be remembered and tracked. Inkscape will use this item's bounding box as an area to be included in the Icon Preview dialog. To change the preview to track a new selection, uncheck and recheck the "Selection" checkbox.
+</li><li> Layout refinements. The icon previews have been updated, including the addition of visual frames and defaulting to a more compact arrangement.
+</li></ul>
+<h4> <span class="mw-headline" id="Preferences">Preferences</span></h4>
+<p>You can change the following attributes in <code>group id="iconpreview"</code> in your preferences.xml file:
+</p>
+<ul><li> <code>autoRefresh</code> (default 1) to enable (1) or disable (0) automatic refresh of preview.
+</li><li> <code>pack</code> (default 1) to arrange preview thumbnails in a more compact manner (1) to to force the previous vertical stacking (0)
+</li><li> <code>selectionHold</code> (default 1) to keep preview locked to the initial selection (1) or switch to each newly selected item (0)
+</li><li> <code>showFrames</code> (default 1) to paint outlines around thumbnails (1) or to suppress them (0)
+</li></ul>
+<h3> <span class="mw-headline" id="Glyphs_Dialog">Glyphs Dialog</span></h3>
+<p>A basic glyph selection dialog has been added. This allows for viewing which Unicode codepoints are represented in a given font, and to allow individual glyphs to be selected and included. Characters can be selected and inserted via copy and paste or inserted directly using the append button in the dialog. Text will be appended to the currently selected text object on the active canvas.
+</p><p>The range of glyphs/characters being viewed can be filtered by Unicode range and/or language 'script'. When an individual glyph is selected, the dialog status area shows the glyph's Unicode value and script name.
+</p><p>There is a known limitation where the list of glyphs in the dialog are not yet rendered in the selected font, but still in the system font (this mainly is an issue for fonts non-standard characters). When a font with a large character repertoire is selected for viewing, such as a CJK font set to show 'all', the display may pause momentarily as previews are generated.
+</p>
+<h3> <span class="mw-headline" id="New_cursors_in_Selector">New cursors in Selector</span></h3>
+<p>Selector tool has a new mouse cursor (arrow with an open hand) for when your mouse is over a selectable object, and another (arrow with clinched hand) for when you're dragging an object. This improves precision of selection and UI consistency (previously, the mouse cursor over a selectable object was different across platforms, e.g. hand icon on Linux or four-way arrow on Windows).
+</p>
+<h3> <span class="mw-headline" id="Translations">Translations</span></h3>
+<p>New Farsi (fa) and Telugu (te_IN) translations (in progress).
+</p>
+<h2> <span class="mw-headline" id="Tutorials">Tutorials</span></h2>
+<ul><li> SVG files are now optimized with Scour (filesize reduced by 40%).
+</li><li> Bitstream Vera fonts replaced with generic sans and serif fonts (solves many font substitution issues).
+</li><li> New Interpolate tutorial (Help &gt; Tutorials &gt; Inkscape: Interpolate).
+</li><li> New translations in Belarussian, Dutch, Farsi and Indonesian.
+</li></ul>
+<h2> <span class="mw-headline" id="Windows_port_improvements">Windows port improvements</span></h2>
+<p>The quality of the Windows port was improved substantially.
+</p>
+<h3> <span class="mw-headline" id="Command_line_interface">Command line interface</span></h3>
+<p>Command line functionality on Windows is now on par with Unix.
+</p><p><b>Single executable</b>
+</p>
+<dl><dd>It's no longer needed to compile Inkscape with special flags or use third-party wrapper executables to see the command line output. Just type "inkscape" (without any extension) in the command prompt. This is made possible by a command-line wrapper named <tt>inkscape.com</tt>.
+</dd></dl>
+<p><b>Relative paths</b>
+</p>
+<dl><dd>You can now specify relative paths to files in options like <tt>--export-png</tt>. Commands like this will now execute correctly:
+</dd></dl>
+<pre>C:\svg&gt; inkscape tiger.svgz --export-png=tiger.png
+</pre>
+<h3> <span class="mw-headline" id="Stability_improvements">Stability improvements</span></h3>
+<p>Thanks to library updates, Inkscape should no longer randomly crash when editing documents. Most of them were caused by a GDI resource leak in Pango. It will also no longer crash when trying to import a corrupted image.
+</p>
+<h3> <span class="mw-headline" id="Unicode_compatibility">Unicode compatibility</span></h3>
+<p>Inkscape will now work correctly regardless of installation path. Previously, it was unusable when installed into a directory that contains characters not representable in the system codepage (icons were not shown in the UI, and no language files were found).
+</p>
+<h2> <span class="mw-headline" id="Notable_bug_fixes">Notable bug fixes</span></h2>
+<ul><li> The 3D tool no longer inserts an inkscape:perspective element into SVG when it is not needed (i.e. when the document has no 3D box objects).
+</li><li> Wrong clippaths and masks with cyclic recursion (i.e. clippaths or masks that refer to themselves via other clippaths or masks) no longer crash Inkscape.
+</li><li> Default unit setting for the XY grid is now respected when creating a new grid.
+</li><li> Pasting Live Path Effect stacks now works. It adds the stack of the copied object to the end of the LPE stack (if present) of the object it is pasted to.
+</li><li> The accuracy of the bounding box calculation has been significantly improved when converting objects to patterns or markers. This should make it much easier to create patterns where the tiles should 'connect' to each other, e.g. a tile with a plus sign to create a hatched pattern.
+</li><li> The default font has been changed to <i>Sans</i>, eliminating problems when the former default font, <i>Bitstream Vera Sans</i>, is not available. (<i>Sans</i> is a Pango pseudo-font.)
+</li><li> The Text toolbar bold and italic/oblique buttons are more likely to work as expected.
+</li><li> Bitmaps with transparency are now shown (and exported) correctly.
+</li><li> The emergency save function no longer mangles the file names (which used to make it fail quite often).
+</li></ul>
+<h2> <span class="mw-headline" id="Known_issues">Known issues</span></h2>
+<h3> <span class="mw-headline" id="Floating_Toolbars">Floating Toolbars</span></h3>
+<p>Floating toolbars had been found to present problems on a few window managers. By default floating has been turned off in response on MS Windows and the default KDE window manager. To re-enable, the <code>preferences.xml</code> file has an <code>options</code> group called <code>workarounds</code> with a setting called <code>floatallowed</code>. Setting this to <code>"1"</code> will re-enable floating on these problematic systems. Valid values are <code>"0"</code> and <code>"1"</code>.
+</p>
+<h2> <span class="mw-headline" id="Previous_releases">Previous releases</span></h2>
+<ul><li> <a href="http://wiki.inkscape.org/wiki/index.php/ReleaseNotes047" title="ReleaseNotes047" class="mw-redirect">ReleaseNotes047</a>
+</li><li> <a href="http://wiki.inkscape.org/wiki/index.php/ReleaseNotes046" title="ReleaseNotes046" class="mw-redirect">ReleaseNotes046</a>
+</li><li> <a href="http://wiki.inkscape.org/wiki/index.php/ReleaseNotes045" title="ReleaseNotes045" class="mw-redirect">ReleaseNotes045</a>
+</li><li> <a href="http://wiki.inkscape.org/wiki/index.php/ReleaseNotes044" title="ReleaseNotes044" class="mw-redirect">ReleaseNotes044</a>
+</li><li> <a href="http://wiki.inkscape.org/wiki/index.php/ReleaseNotes043" title="ReleaseNotes043" class="mw-redirect">ReleaseNotes043</a>
+</li><li> <a href="http://wiki.inkscape.org/wiki/index.php/ReleaseNotes042" title="ReleaseNotes042" class="mw-redirect">ReleaseNotes042</a>
+</li><li> <a href="http://wiki.inkscape.org/wiki/index.php/ReleaseNotes041" title="ReleaseNotes041" class="mw-redirect">ReleaseNotes041</a>
+</li><li> <a href="http://wiki.inkscape.org/wiki/index.php/ReleaseNotes040" title="ReleaseNotes040" class="mw-redirect">ReleaseNotes040</a>
+</li><li> <a href="http://wiki.inkscape.org/wiki/index.php/ReleaseNotes039" title="ReleaseNotes039" class="mw-redirect">ReleaseNotes039</a>
+</li><li> <a href="http://wiki.inkscape.org/wiki/index.php/ReleaseNotes038" title="ReleaseNotes038" class="mw-redirect">ReleaseNotes038</a>
+</li><li> <a href="http://wiki.inkscape.org/wiki/index.php/ReleaseNotes037" title="ReleaseNotes037" class="mw-redirect">ReleaseNotes037</a>
+</li><li> <a href="http://wiki.inkscape.org/wiki/index.php/ReleaseNotes036" title="ReleaseNotes036" class="mw-redirect">ReleaseNotes036</a>
+</li><li> <a href="http://wiki.inkscape.org/wiki/index.php/ReleaseNotes035" title="ReleaseNotes035" class="mw-redirect">ReleaseNotes035</a>
+</li></ul>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 285/1000000
+Post-expand include size: 2969/2097152 bytes
+Template argument size: 216/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key inkscape_wiki-mw01_:pcache:idhash:13785-0!*!0!!en!*!* and timestamp 20130808221317 -->
+</div>				<!-- /bodycontent -->
+								<!-- printfooter -->
+				<div class="printfooter">
+				Retrieved from "<a href="http://wiki.inkscape.org/wiki/index.php?title=Release_notes/0.48&oldid=83474">http://wiki.inkscape.org/wiki/index.php?title=Release_notes/0.48&amp;oldid=83474</a>"				</div>
+				<!-- /printfooter -->
+												<!-- catlinks -->
+				<div id="catlinks" class="catlinks"><div id="mw-normal-catlinks"><a href="http://wiki.inkscape.org/wiki/index.php/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="http://wiki.inkscape.org/wiki/index.php/Category:Marketing" title="Category:Marketing">Marketing</a></li></ul></div></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+				<!-- debughtml -->
+								<!-- /debughtml -->
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		<div id="mw-head" class="noprint">
+			
+<!-- 0 -->
+<div id="p-personal" class="">
+	<h5>Personal tools</h5>
+	<ul>
+		<li id="pt-login"><a href="http://wiki.inkscape.org/wiki/index.php?title=Special:UserLogin&returnto=Release_notes%2F0.48" title="You are encouraged to log in; however, it is not mandatory [alt-o]" accesskey="o">Log in</a></li>
+	</ul>
+</div>
+
+<!-- /0 -->
+			<div id="left-navigation">
+				
+<!-- 0 -->
+<div id="p-namespaces" class="vectorTabs">
+	<h5>Namespaces</h5>
+	<ul>
+					<li id="ca-nstab-main" class="selected"><span><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48" title="View the content page [alt-c]" accesskey="c">Page</a></span></li>
+					<li id="ca-talk" class="new"><span><a href="http://wiki.inkscape.org/wiki/index.php?title=Talk:Release_notes/0.48&action=edit&redlink=1" title="Discussion about the content page [alt-t]" accesskey="t">Discussion</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-variants" class="vectorMenu emptyPortlet">
+		<h5><span>Variants</span><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+			</div>
+			<div id="right-navigation">
+				
+<!-- 0 -->
+<div id="p-views" class="vectorTabs">
+	<h5>Views</h5>
+	<ul>
+					<li id="ca-view" class="selected"><span><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48">Read</a></span></li>
+					<li id="ca-viewsource"><span><a href="http://wiki.inkscape.org/wiki/index.php?title=Release_notes/0.48&action=edit" title="This page is protected.
+You can view its source [alt-e]" accesskey="e">View source</a></span></li>
+					<li id="ca-history" class="collapsible"><span><a href="http://wiki.inkscape.org/wiki/index.php?title=Release_notes/0.48&action=history" title="Past revisions of this page [alt-h]" accesskey="h">View history</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-cactions" class="vectorMenu emptyPortlet">
+	<h5><span>Actions</span><a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.48#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+
+<!-- 2 -->
+<div id="p-search">
+	<h5><label for="searchInput">Search</label></h5>
+	<form action="http://wiki.inkscape.org/wiki/index.php" id="searchform">
+		<input type="hidden" name="title" value="Special:Search">
+				<input type="search" name="search" title="Search Inkscape Wiki [alt-f]" accesskey="f" id="searchInput">		<input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchGoButton" class="searchButton">		<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton">			</form>
+</div>
+
+<!-- /2 -->
+			</div>
+		</div>
+		<!-- /header -->
+		<!-- panel -->
+			<div id="mw-panel" class="noprint">
+				<!-- logo -->
+					<div id="p-logo"><a style="background-image: url(http://www.inkscape.org/images/logo.png);" href="http://wiki.inkscape.org/wiki/index.php/Inkscape" title="Visit the main page"></a></div>
+				<!-- /logo -->
+				
+<!-- navigation -->
+<div class="portal" id="p-navigation">
+	<h5>Navigation</h5>
+	<div class="body">
+		<ul>
+			<li id="n-mainpage-description"><a href="http://wiki.inkscape.org/wiki/index.php/Inkscape" title="Visit the main page [alt-z]" accesskey="z">Main page</a></li>
+			<li id="n-currentevents"><a href="http://wiki.inkscape.org/wiki/index.php/Inkscape_Wiki:Current_events" title="Find background information on current events">Current events</a></li>
+			<li id="n-recentchanges"><a href="http://wiki.inkscape.org/wiki/index.php/Special:RecentChanges" title="A list of recent changes in the wiki [alt-r]" accesskey="r">Recent changes</a></li>
+			<li id="n-randompage"><a href="http://wiki.inkscape.org/wiki/index.php/Special:Random" title="Load a random page [alt-x]" accesskey="x">Random page</a></li>
+			<li id="n-help"><a href="http://wiki.inkscape.org/wiki/index.php/Help:Contents" title="The place to find out">Help</a></li>
+		</ul>
+	</div>
+</div>
+
+<!-- /navigation -->
+
+<!-- SEARCH -->
+
+<!-- /SEARCH -->
+
+<!-- TOOLBOX -->
+<div class="portal" id="p-tb">
+	<h5>Toolbox</h5>
+	<div class="body">
+		<ul>
+			<li id="t-whatlinkshere"><a href="http://wiki.inkscape.org/wiki/index.php/Special:WhatLinksHere/Release_notes/0.48" title="A list of all wiki pages that link here [alt-j]" accesskey="j">What links here</a></li>
+			<li id="t-recentchangeslinked"><a href="http://wiki.inkscape.org/wiki/index.php/Special:RecentChangesLinked/Release_notes/0.48" title="Recent changes in pages linked from this page [alt-k]" accesskey="k">Related changes</a></li>
+			<li id="t-specialpages"><a href="http://wiki.inkscape.org/wiki/index.php/Special:SpecialPages" title="A list of all special pages [alt-q]" accesskey="q">Special pages</a></li>
+			<li><a href="http://wiki.inkscape.org/wiki/index.php?title=Release_notes/0.48&printable=yes" rel="alternate">Printable version</a></li>
+			<li id="t-permalink"><a href="http://wiki.inkscape.org/wiki/index.php?title=Release_notes/0.48&oldid=83474" title="Permanent link to this revision of the page">Permanent link</a></li>
+		</ul>
+	</div>
+</div>
+
+<!-- /TOOLBOX -->
+
+<!-- LANGUAGES -->
+
+<!-- /LANGUAGES -->
+			</div>
+		<!-- /panel -->
+		<!-- footer -->
+		<div id="footer">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 7 May 2012, at 15:23.</li>
+											<li id="footer-info-viewcount">This page has been accessed 35,518 times.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="http://wiki.inkscape.org/wiki/index.php/Inkscape_Wiki:Privacy_policy" title="Inkscape Wiki:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="http://wiki.inkscape.org/wiki/index.php/Inkscape_Wiki:About" title="Inkscape Wiki:About">About Inkscape Wiki</a></li>
+											<li id="footer-places-disclaimer"><a href="http://wiki.inkscape.org/wiki/index.php/Inkscape_Wiki:General_disclaimer" title="Inkscape Wiki:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+					<li id="footer-poweredbyico">
+						<a href="http://www.mediawiki.org/"><img src="./Release notes 0.48 - Inkscape Wiki_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31"></a>
+					</li>
+				</ul>
+						<div style="clear:both"></div>
+		</div>
+		<!-- /footer -->
+		<!-- fixalpha -->
+		<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script>
+		<!-- /fixalpha -->
+		<script src="./Release notes 0.48 - Inkscape Wiki_files/load(3).php"></script>
+<script>if(window.mw){
+	mw.loader.load(["mediawiki.user", "mediawiki.util", "mediawiki.page.ready", "mediawiki.legacy.wikibits", "mediawiki.legacy.ajax"]);
+}
+</script><script type="text/javascript" src="./Release notes 0.48 - Inkscape Wiki_files/load(4).php"></script>
+<script>if(window.mw){
+	mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":1,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"highlightbroken":1,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":1,"showtoolbar":1,"skin":"vector","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion":0,"watchlistdays":3,"watchlisthideanons":0,
+	"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"variant":"en","language":"en","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false});;mw.user.tokens.set({"editToken":"+\\","watchToken":false});;mw.loader.state({"user.options":"ready","user.tokens":"ready"});
+	
+	/* cache key: inkscape_wiki-mw01_:resourceloader:filter:minify-js:4:19a4b18a9ac79a6b8c60b24af4668814 */
+}
+</script><!-- Served in 0.201 secs. -->
+	
+
+</body></html>

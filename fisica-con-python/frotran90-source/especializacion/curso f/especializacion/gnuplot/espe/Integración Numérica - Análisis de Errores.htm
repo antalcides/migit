@@ -1,0 +1,277 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0064)http://uprhmate01.upr.clu.edu/~pnm/notas4061/numint2/numint2.htm -->
+<HTML><HEAD><TITLE>Integración Numérica - Análisis de Errores</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=ISO-8859-1">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff>
+<CENTER><B>Integración Numérica - Análisis de Errores</B> </CENTER>
+<P>Pasamos ahora a estudiar formalmente el error de aproximación en las 
+fórmulas: 
+<CENTER><IMG 
+src="Integración Numérica - Análisis de Errores_archivos/IMG00001.gif"> 
+</CENTER>
+<P><B>Regla del Trapezoide</B>: Usando el teorema sobre el error de 
+interpolación discutido anteriormente, tenemos que si p<SUB>1</SUB>(x) es el 
+polinomio que interpola a f(x) en x<SUB>j-1</SUB>, x<SUB>j</SUB> entonces 
+<CENTER><IMG 
+src="Integración Numérica - Análisis de Errores_archivos/IMG00002.gif"> 
+</CENTER>
+<P>De modo que 
+<CENTER><IMG 
+src="Integración Numérica - Análisis de Errores_archivos/IMG00003.gif"> 
+</CENTER>
+<P>donde usamos el Teorema del Valor Medio para integrales. Tenemos pues que el 
+error en la fórmula del método del trapezoide esta dado por 
+<CENTER><IMG 
+src="Integración Numérica - Análisis de Errores_archivos/IMG00004.gif"> (*) 
+</CENTER>
+<P>Suponiendo que <IMG 
+src="Integración Numérica - Análisis de Errores_archivos/IMG00005.gif"> 
+(continua en [a,b]) y aplicando el Teorema del Valor Medio para funciones, 
+obtenemos que 
+<CENTER><IMG 
+src="Integración Numérica - Análisis de Errores_archivos/IMG00006.gif"> 
+</CENTER>
+<P>Usando este resultado en la fórmula del error de arriba obtenemos que 
+<CENTER><IMG 
+src="Integración Numérica - Análisis de Errores_archivos/IMG00007.gif"> 
+</CENTER>
+<P>Esta fórmula se conoce como la <I>fórmula exacta del error</I> y establece 
+que la fórmula del trapezoide T<SUB>n</SUB>(f) tiene un orden de convergencia de 
+O(h<SUP>2</SUP>) lo que confirma nuestros resultados numéricos de la sección 
+anterior. Esta fórmula aparte de su valía teorica, no nos proporciona un 
+estimador práctico del error ya que f '' puede no ser accesible y el punto <FONT 
+face=Symbol>x </FONT>de la fórmula es desconocido. Para obtener un estimador 
+práctico del error utilizamos la llamada fórmula asintótica que se obtiene de la 
+siguiente manera. Si f '' es continua, entonces 
+<CENTER><IMG 
+src="Integración Numérica - Análisis de Errores_archivos/IMG00008.gif"> 
+</CENTER>
+<P>Asi que usando esto y la fórmula (*) obtenemos que 
+<CENTER><IMG 
+src="Integración Numérica - Análisis de Errores_archivos/IMG00009.gif"> 
+</CENTER>
+<P>La fórmula <IMG 
+src="Integración Numérica - Análisis de Errores_archivos/IMG00010.gif"> se 
+conoce como el <I>estimador asintótico</I> del error. Note que si f ' es 
+accesible, esta fórmula envuelve cantidades conocidas y es posible calcularla 
+como parte del proceso de aproximación. Más aun podemos utilizar el estimador 
+para corregir la fórmula del trapezoide obteniendo asi la <I>fómula del 
+trapezoide corregida</I>: 
+<CENTER><IMG 
+src="Integración Numérica - Análisis de Errores_archivos/IMG00011.gif"> 
+</CENTER>
+<P>la cúal en general debe ser una mejor aproximación a I(f) que 
+T<SUB>n</SUB>(f). 
+<P><B>Ejemplo 1</B>: Consideremos nuevamente el problema de aproximar 
+<CENTER><IMG 
+src="Integración Numérica - Análisis de Errores_archivos/IMG00012.gif"> 
+</CENTER>
+<P>En este caso f(x)=1/x de modo que f'(x)=-1/x<SUP>2</SUP>, asi que el 
+estimador asintótico del error esta dado por la fórmula 
+<CENTER><IMG 
+src="Integración Numérica - Análisis de Errores_archivos/IMG00013.gif"> 
+</CENTER>
+<P>Como en este problema el valor exacto del error <IMG 
+src="Integración Numérica - Análisis de Errores_archivos/IMG00014.gif"> se 
+conoce, podemos compararlo con la fórmula asintótica. Veamos los resultados:<BR>
+<CENTER>
+<TABLE borderColor=#000000 border=1>
+  <TBODY>
+  <TR>
+    <TD width=55>
+      <CENTER>n </CENTER></TD>
+    <TD width=83>
+      <CENTER><IMG 
+      src="Integración Numérica - Análisis de Errores_archivos/IMG00015.gif"> 
+      </CENTER></TD>
+    <TD width=83>
+      <CENTER><IMG 
+      src="Integración Numérica - Análisis de Errores_archivos/IMG00016.gif"> 
+      </CENTER></TD>
+    <TD width=120>
+      <CENTER><IMG 
+      src="Integración Numérica - Análisis de Errores_archivos/IMG00017.gif"> 
+      </CENTER></TD>
+    <TD width=120>
+      <CENTER><IMG 
+      src="Integración Numérica - Análisis de Errores_archivos/IMG00018.gif"> 
+      </CENTER></TD></TR>
+  <TR>
+    <TD width=55>
+      <CENTER>2 </CENTER></TD>
+    <TD width=83>
+      <CENTER><B>0.708333</B> </CENTER></TD>
+    <TD width=83>
+      <CENTER><B>0.692708</B> </CENTER></TD>
+    <TD width=120>
+      <CENTER><B>-0.0151862</B> </CENTER></TD>
+    <TD width=120>
+      <CENTER><B>-0.015625</B> </CENTER></TD></TR>
+  <TR>
+    <TD width=55>
+      <CENTER>4 </CENTER></TD>
+    <TD width=83>
+      <CENTER><B>0.697024</B> </CENTER></TD>
+    <TD width=83>
+      <CENTER><B>0.693118</B> </CENTER></TD>
+    <TD width=120>
+      <CENTER><B>-0.00387663</B> </CENTER></TD>
+    <TD width=120>
+      <CENTER><B>-0.00390625</B> </CENTER></TD></TR>
+  <TR>
+    <TD width=55>
+      <CENTER>8 </CENTER></TD>
+    <TD width=83>
+      <CENTER><B>0.694122</B> </CENTER></TD>
+    <TD width=83>
+      <CENTER><B>0.693145</B> </CENTER></TD>
+    <TD width=120>
+      <CENTER><B>-0.00097467</B> </CENTER></TD>
+    <TD width=120>
+      <CENTER><B>-0.000976562</B> </CENTER></TD></TR>
+  <TR>
+    <TD width=55>
+      <CENTER>16 </CENTER></TD>
+    <TD width=83>
+      <CENTER><B>0.693391</B> </CENTER></TD>
+    <TD width=83>
+      <CENTER><B>0.693147</B> </CENTER></TD>
+    <TD width=120>
+      <CENTER><B>-0.000244022</B> </CENTER></TD>
+    <TD width=120>
+      <CENTER><B>-0.000244141</B> </CENTER></TD></TR>
+  <TR>
+    <TD width=55>
+      <CENTER>32 </CENTER></TD>
+    <TD width=83>
+      <CENTER><B>0.693208</B> </CENTER></TD>
+    <TD width=83>
+      <CENTER><B>0.693147</B> </CENTER></TD>
+    <TD width=120>
+      <CENTER><B>-0.0000610277</B> </CENTER></TD>
+    <TD width=120>
+      <CENTER><B>-0.0000610352</B> </CENTER></TD></TR>
+  <TR>
+    <TD width=55>
+      <CENTER>64 </CENTER></TD>
+    <TD width=83>
+      <CENTER><B>0.693162</B> </CENTER></TD>
+    <TD width=83>
+      <CENTER><B>0.693147</B> </CENTER></TD>
+    <TD width=120>
+      <CENTER><B>-0.0000152583</B> </CENTER></TD>
+    <TD width=120>
+      <CENTER><B>-0.0000152588</B> </CENTER></TD></TR>
+  <TR>
+    <TD width=55>
+      <CENTER>128 </CENTER></TD>
+    <TD width=83>
+      <CENTER><B>0.693151</B> </CENTER></TD>
+    <TD width=83>
+      <CENTER><B>0.693147</B> </CENTER></TD>
+    <TD width=120>
+      <CENTER><B>-3.81467e-006</B> </CENTER></TD>
+    <TD width=120>
+      <CENTER><B>-3.8147e-006</B> </CENTER></TD></TR>
+  <TR>
+    <TD width=55>
+      <CENTER>256 </CENTER></TD>
+    <TD width=83>
+      <CENTER><B>0.693148</B> </CENTER></TD>
+    <TD width=83>
+      <CENTER><B>0.693147</B> </CENTER></TD>
+    <TD width=120>
+      <CENTER><B>-9.53672e-007</B> </CENTER></TD>
+    <TD width=120>
+      <CENTER><B>-9.53674e-007</B> </CENTER></TD></TR>
+  <TR>
+    <TD width=55>
+      <CENTER>512 </CENTER></TD>
+    <TD width=83>
+      <CENTER><B>0.693147</B> </CENTER></TD>
+    <TD width=83>
+      <CENTER><B>0.693147</B> </CENTER></TD>
+    <TD width=120>
+      <CENTER><B>-2.38418e-007</B> </CENTER></TD>
+    <TD width=120>
+      <CENTER><B>-2.38419e-007</B> </CENTER></TD></TR>
+  <TR>
+    <TD width=55>
+      <CENTER>1024 </CENTER></TD>
+    <TD width=83>
+      <CENTER><B>0.693147</B> </CENTER></TD>
+    <TD width=83>
+      <CENTER><B>0.693147</B> </CENTER></TD>
+    <TD width=120>
+      <CENTER><B>-5.96046e-008</B> </CENTER></TD>
+    <TD width=120>
+      <CENTER><B>-5.96046e-008</B> </CENTER></TD></TR></TBODY></TABLE></CENTER>
+<P>Podemos ver de esta tabla que la fórmula asintótica del error predice 
+bastante bien el error real en este ejemplo. También podemos observar que la 
+fórmula corregida del trapezoide produce seis cifras correctas en la 
+aproximación con apenas n=16 mientras que la fórmula sin corregir requiere hasta 
+n=512. &lt;&gt; 
+<P>De la fórmula asintótica <IMG 
+src="Integración Numérica - Análisis de Errores_archivos/IMG00019.gif"> tenemos 
+que 
+<CENTER><IMG 
+src="Integración Numérica - Análisis de Errores_archivos/IMG00020.gif"> 
+</CENTER>
+<P>lo cual fué lo que observamos en nuestros computos numéricos. Note también 
+que si casualmente f '(a)=f '(b) , entonces la convergencia del método será más 
+rápida. 
+<P><B>Método de Simpson</B>: En este caso el análisis de los errores es similar 
+al del método del trapezoide pero más extenso. Simplemente pues resumimos los 
+resultados en este caso. Si <IMG 
+src="Integración Numérica - Análisis de Errores_archivos/IMG00021.gif"> entonces 
+la fórmula exacta del error esta dada por 
+<CENTER><IMG 
+src="Integración Numérica - Análisis de Errores_archivos/IMG00022.gif"> 
+</CENTER>
+<P>y la fórmula asintótica por 
+<CENTER><IMG 
+src="Integración Numérica - Análisis de Errores_archivos/IMG00023.gif"> 
+</CENTER>
+<P>La fórmula corregida de Simpson es pues 
+<CENTER><IMG 
+src="Integración Numérica - Análisis de Errores_archivos/IMG00024.gif"> 
+</CENTER>
+<P>De la fórmula del error exacto se obtiene que el método tiene un orden de 
+convergencia O(h<SUP>4</SUP>) y empleando la fórmula asintótica podemos ver que 
+los cocientes <IMG 
+src="Integración Numérica - Análisis de Errores_archivos/IMG00025.gif"> son 
+aproximadamente 16.<BR>
+<P><B>Ejercicios</B>:<BR>
+<OL>
+  <LI>Repita los cálculos del Ejemplo 1 pero para el método de Simpson. 
+  <LI>Para la formulas básica y compuesta de la regla del punto medio (problema 
+  2, sección anterior) haga un análisis de errores y derive las fórmulas exactas 
+  y asintóticas del error y la fórmula corregida del método. 
+  <LI>Si la regla del trapezoide se utiliza para aproximar 
+  <CENTER><IMG 
+  src="Integración Numérica - Análisis de Errores_archivos/IMG00026.gif"> 
+  </CENTER>
+  <P>con h=0.01, halle una cota para el error en dicha aproximación y un 
+  estimado asintótico del mismo. </P>
+  <LI>Si los puntos <IMG 
+  src="Integración Numérica - Análisis de Errores_archivos/IMG00027.gif"> no 
+  estan uniformemente distribuidos en [a,b], es posible generalizar la fórmula 
+  del trapezoide en este caso como sigue: sean <IMG 
+  src="Integración Numérica - Análisis de Errores_archivos/IMG00028.gif">. 
+  Entonces definimos 
+  <CENTER><IMG 
+  src="Integración Numérica - Análisis de Errores_archivos/IMG00029.gif"> 
+  </CENTER>
+  <P>Verifique la siguiente fórmula para el error exacto de este método 
+  <CENTER><IMG 
+  src="Integración Numérica - Análisis de Errores_archivos/IMG00030.gif"> 
+  </CENTER>
+  <P>donde <IMG 
+  src="Integración Numérica - Análisis de Errores_archivos/IMG00031.gif">. 
+  </P></LI></OL>
+<P>
+<HR>
+<A href="http://uprhmate01.upr.clu.edu/~pnm/notas4061/index.htm"><IMG 
+src="Integración Numérica - Análisis de Errores_archivos/arriba.gif"></A> 
+</BODY></HTML>

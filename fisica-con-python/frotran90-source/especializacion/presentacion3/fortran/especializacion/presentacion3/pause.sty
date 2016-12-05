@@ -1,0 +1,23 @@
+%% pause.sty                                        11 Jun 99
+%%-----------------------------------------------------------
+%%
+%% insert small colored chunks to mark spots in the pdf file,
+%% where a break should be made during display.
+%% This method needs postprocessing by another program.
+%% But one can preview the formatted text, where stops are indicated
+%% as small colored chunks. These will vanish during postprocessing.
+%% As this is specific for pdf, we will ignore \pause tags, if we do
+%% not create pdf.
+%%
+%% Take care: because we have to insert pdf comments starting with
+%% the letter '%' the catcode of '%' will be changed temporarily.
+
+%% leave, if not creating pdf
+
+\ifx\pdfoutput\undefined
+\let\pause=\relax\expandafter\endinput
+\fi
+%%\definecolor{myred}{rgb}{0.9,0.5,0}
+\definecolor{menucolor}{rgb}{1,.25,0}
+{\catcode`\%=11
+\gdef\pause{\vbox to 0pt{\vss\hbox to 0pt{{\pdfliteral{%pause}\color{menucolor}\vrule width 2truemm height 5truemm\hss\pdfliteral{%esuap}}}}}}

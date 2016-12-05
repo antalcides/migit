@@ -1,0 +1,671 @@
+\chapter{Lo que necesita saber}
+\begin{intro}
+En la primera parte de este cap'itulo tendr'a una visi'on general de
+la filosof'ia e historia de \textrm{\LaTeXe}. La segunda parte incide
+en las estructuras b'asicas de un documento de \LaTeX. Tras
+leer este cap'itulo, tendr'a un conocimiento b'asico del modo de
+funcionamiento de \LaTeX. Cuando contin'ue leyendo, la informaci'on
+del presente cap'itulo le ayudar'a a integrar toda la informaci'on
+adicional que pueda obtener sobre \LaTeX, tanto en cap'itulos
+posteriores como de otros sitios.
+\end{intro}
+
+\section{El nombre del juego}
+
+\subsection{\TeX}
+ 
+\TeX\ es un programa de ordenador de Donald E.~Knuth~\cite{texbook}.
+Est'a orientado a la composici'on e impresi'on textos y f'ormulas
+matem'aticas.
+
+\TeX{} se pronuncia ``Tech'', con una ``ch'' como en la palabra
+alemana ``Buch'' o en la escocesa ``Loch''. Este es el sonido de una
+`h'\ aspirada, como en la onomatopeya ``argh''. En un entorno
+\texttt{ASCII} \TeX{} se escribe \texttt{TeX}.
+
+% ``Buch'', --libro--, casi seguro que se conoce m'as que ``Ach''.
+% En las Canarias, Andaluc'ia (?) y en toda Latinoam'erica este sonido
+% es m'as utilizado que la cl'asica `j' castellana, que es bastante
+% m'as fuerte.
+
+\subsection{\LaTeX}
+ 
+\LaTeX\ es un paquete de macros que le permite al autor de un texto
+componer e imprimir su documento con la mayor calidad tipogr'afica,
+empleando para ello patrones previamente definidos. Originalmente,
+\LaTeX{} fue escrito por \index{Lamport, Leslie}Leslie
+Lamport~\cite{manual}. Utiliza el cajista \TeX{} como su elemento de
+composici'on.
+
+Desde diciembre de 1994, el paquete \LaTeX{} est'a siendo actualizado
+por el equipo \index{LaTeX3@\LaTeX 3}\LaTeX 3, que dirige por
+\index{Mittelbach, Frank}Frank Mittelbach, para incluir algunas de las
+mejoras que se hab'ian solicitado desde hace tiempo, y para reunificar
+todas las versiones retocadas
+% Ya, ya s'e que entre nosotros decimos ``parcheadas''
+que han surgido desde que apareciera \index{LaTeX 2.09@\LaTeX{}
+  2.09}\LaTeX{} 2.09 hace ya algunos a~nos. Para distinnguir la nueva
+versi'on de la vieja se le llama \index{LaTeX 2e@\LaTeXe}\LaTeXe. Este
+documento trata sobre \LaTeXe.
+
+\LaTeX{} se pronuncia ``Lei-tegh'', aunque entre los
+hispanohablantes se ha aceptado ``La-tegh''. Para referirnos a
+\LaTeX{} en un entorno \texttt{ASCII} escribiremos \texttt{LaTeX}.
+\LaTeXe{} se pronuncia ``Lei-tegh tu 'ii'' ---aunque muchos nos
+empe~namos en leer ``Lategh dos e''--- y se puede escribir
+\texttt{LaTeX2e}.
+
+\subsection{Conceptos b'asicos}
+ 
+\subsubsection{Autor, dise~nador y cajista}
+ 
+Normalmente, para una publicaci'on el autor le entrega a una editorial
+un escrito a m'aquina. El dise~nador de libros de la editorial
+decide entonces sobre el formato del documento (longitud de los
+renglones, tipo de letra, espacios antes y despu'es de cada cap'itulo,
+etc.)\ y le da estas instrucciones al cajista para producir este
+formato.
+
+Un dise~nador de libros humano intenta averiguar las intenciones del
+autor mientras ha realizado el escrito. Entonces decide sobre el modo
+de presentar los t'itulos de cap'itulos, citas, ejemplos, f'ormulas,
+etc.,\ bas'andose en su saber profesional y sobre el contenido del
+escrito.
+
+En un entorno de \LaTeX, \LaTeX{} realiza el papel del dise~nador de
+libros y emplea a \TeX{} como cajista. Pero \LaTeX{} \emph{s'olo} es
+un programa y, por tanto, necesita m'as ayuda para sus decisiones que
+un dise~nador humano de libros. El autor tiene que proporcionar
+informaci'on adicional que describa la estructura l'ogica del texto.
+Esta informaci'on se indica dentro del texto a trav'es de las
+\emph{instrucciones} u \emph{'ordenes} de \LaTeX.
+
+Esto es bastante diferente del enfoque \wi{WYSIWYG}\footnote{Siglas
+  que significan \emph{What you see is what you get,} lo que ve es lo
+  que obtendr'a.} de la mayor'ia de los procesadores de textos tales
+como \emph{Microsoft Word} o \emph{WordPerfect}. Con estas
+aplicaciones, el autor establece el formato del texto con la entrada
+interactiva al introducirlo en el ordenador. En cada momento, el autor
+verá en pantalla el aspecto que tendrá el trabajo final cuando lo
+imprima.
+% En algunos casos no tan ``exactamente'', pero bueno...
+
+Por regla general, al emplear \LaTeX{} el autor no ve, al introducir
+el texto, c'omo va a resultar la composici'on final que resultar'a.
+Sin embargo, existen herramientas que permiten mostrar en pantalla lo
+que finalmente se obtiene de haber procesado sus ficheros con \LaTeX.
+Con ellas se pueden realizar correcciones antes de enviar el documento
+a la impresora.
+
+\subsubsection{Dise~no del formato}
+ 
+El dise~no tipogr'afico es una artesan'ia que se debe aprender.  Los
+autores inexpertos con frecuencia cometen graves errores de dise'no.
+Muchos profanos creen err'oneamente que el dise'no tipogr'afico es,
+ante todo, una cuesti'on de est'etica: si el documento presenta un
+buen aspecto desde el punto de vista art'istico, entonces est'a bien
+``dise~nado''. Sin embargo, ya que los documentos se van a leer y no a
+colgarse en un museo, es m'as importante una mayor legibilidad y una
+comprensi'on mejor que un aspecto m'as agradable.
+
+Por ejemplo:
+\begin{itemize}
+\item Se debe elegir el tama~no de las letras y la numeraci'on de los
+  t'itulos de modo que la estructura de los cap'itulos y las secciones
+  sea f'acilmente reconocible.
+\item Se debe elegir la longitud de los renglones de modo que se evite
+  el movimiento fatigoso de los ojos del lector y no para que
+  rellenen, a ser posible, las p'aginas con un aspecto est'eticamente
+  bueno.
+\end{itemize}
+
+Con los sistemas \wi{WYSIWYG} los autores producen, en general,
+documentos est'eticamente bonitos pero con una estructura muy escasa o
+inconsistente. \LaTeX{} evita estos errores de formato, ya que con
+\LaTeX{} el autor est'a obligado a indicar la estructura
+\emph{l'ogica} del texto. Entonces \LaTeX{} elige el formato m'as
+apropiado para 'este.
+
+
+\subsubsection{Ventajas e inconvenientes}
+
+Una cuesti'on que se discute a menudo cuando la gente del mundo
+\mbox{\wi{WYSIWYG}} se encuentra con la gente que utiliza \LaTeX{} es
+sobre ``las \wi{ventajas de \LaTeX} sobre un procesador de textos
+normal'' o al rev'es. Cuando comienza una discusi'on como 'esta, lo
+mejor que se puede hacer es mantener una postura de asentimiento, ya
+que las cosas se suelen salir de control. Pero a veces no se puede
+huir\ldots
+
+\medskip\noindent Las principales vetajas de \LaTeX\ sobre los
+procesadores de texto normales son las siguientes:
+
+\begin{itemize}
+\item Existe mayor cantidad de dise'nos de texto profesionales a
+  disposici'on, con los que realmente se pueden crear documentos
+  como si fueran ``de imprenta''.
+
+\item Se facilita la composici'on de f'ormulas con un cuidado
+  especial.
+
+\item El usuario s'olo necesita introducir instrucciones sencillas de
+  entender con las que se indica la estructura del documento.  Casi
+  nunca hace falta preocuparse por los detalles de creaci'on con
+  t'ecnicas de impresi'on.
+  
+\item Tambi'en las estructuras complejas como notas a pie de p'agina,
+  bibliograf'ia, 'indices, tablas y muchas otras se pueden producir
+  sin gran esfuerzo.
+  
+\item Existen paquetes adicionales sin coste alguno para muchas tareas
+  tipogr'aficas que no se facilitan directamente por el \LaTeX{}
+  b'asico. Por ejemplo, existen paquetes para incluir gr'aficos en
+  formato \mbox{\textsc{PostScript}} o para componer bibliograf'ias
+  conforme a determinadas normas. Muchos de estos paquetes se
+  describen en \companion.
+
+\item \LaTeX{} hace que los autores tiendan a escribir textos bien
+  estructurados porque as'i es como trabaja \LaTeX, o sea,
+  indicando su estructura.
+
+\item \TeX, la m'aquina de composici'on de \LaTeXe, es altamente
+  portable y gratis. Por esto, el sistema funciona pr'acticamente en
+  cualquier en cualquier plataforma.
+
+\end{itemize}
+
+\LaTeX\ tiene, naturalmente, tambi'en inconvenientes:
+
+\begin{itemize}
+
+\item Para hacer funcionar un sistema de \LaTeX, se necesitan m'as
+  recursos (memoria, espacio de disco y potencia de procesamiento, y
+  espacio de almacenamiento) que para un procesador de texto simple.
+  Pero las cosas van siendo cada vez mejores, y \emph{Word for Windows
+    6.0} necesita cada vez m'as espacio de disco que un sistema de
+  \LaTeX{} normal. Cuando analizamos el uso del procesador, podemos
+  ver que \LaTeX{} supera en prestaciones cualquier sistema
+  \wi{WYSIWYG} ya que necesita mucha cantidad de CPU pero 'unicamente
+  cuando el documento se procesa, mientras que los paquetes
+  \wi{WYSIWYG} tienen ocupada la CPU continuamente.
+
+\item Si bien se pueden ajustar algunos par'ametros de un dise~no de
+  documento predefinido, la creaci'on de un dise~no entero es dif'icil
+  y lleva mucho tiempo\footnote{Los rumores dicen que este es uno de
+    los puntos claves sobre el que se har'a hincapi'e en el pr'oximo
+    sistema LaTeX 3.}.\index{LaTeX3@\LaTeX 3}
+
+\end{itemize}
+
+\section{Ficheros de entrada de \LaTeX}
+
+La entrada para \LaTeX{} es un fichero de texto en formato
+\texttt{ASCII}. Se puede crear con cualquier editor de textos.
+Contiene tanto el texto que se debe imprimir como las
+``instrucciones'', con las cuales \LaTeX\ interpreta c'omo debe
+disponer el texto.
+
+\subsection{Signos de espacio}
+
+Los caracteres ``invisibles'', como el espacio en blanco, el tabulador
+y el final de l'inea, son tratados por \LaTeX\ como signos de
+\wi{espacio} propiamente dichos. \emph{Varios} espacios seguidos se
+tratan como \emph{un} \wi{espacio en blanco}. Generalmente, un espacio
+en blanco al comienzo de una l'inea se ignora, y \emph{varios}
+renglones en blanco se tratan como un rengl'on en blanco.
+\index{espacio en blanco!al comienzo de una l'inea}
+
+Un rengl'on en blanco entre dos l'ineas de texto definen el final de
+un p'arrafo. \emph{Varias} l'ineas en blanco se tratan como \emph{una
+  sola} l'inea en blanco. El texto que mostramos a continuaci'on es un
+ejemplo. A la derecha se encuentra el texto del fichero de entrada y a
+la izquierda la salida formateada.
+
+\begin{example}
+No importa si introduce
+varios        espacios tras
+una palabra.
+
+Con una l'inea vac'ia se empieza un
+nuevo p'arrafo.
+\end{example}
+ 
+\subsection{Caracteres especiales}
+
+Los s'imbolos siguientes son \wi{caracteres reservados} que tienen un
+significado especial para \LaTeX{} o que no est'an disponibles en
+todos los tipos. Si los introduce en su fichero directamente es muy
+probable que no se impriman o que fuercen a \LaTeX{} a hacer cosas que
+Vd.\ no desea.
+%
+\begin{code}
+\verb.$ & % # _ { }  ~  ^  \ . 
+\end{code}
+
+Como puede ver, estos caracteres se pueden incluir en sus documentos
+anteponiendo el car'acter \verb|\| (\emph{barra invertida}):
+%
+\begin{example}
+\$ \& \% \# \_ \{ \}
+\end{example}
+
+Los restantes s'imbolos y otros muchos caracteres especiales se pueden
+imprimir en f'ormulas matem'aticas o como acentos con 'ordenes
+espec'ificas.
+
+\subsection{Las 'ordenes de \LaTeX{}}
+
+En las 'ordenes\index{ordenes@'ordenes} de \LaTeX{} se distinguen las
+letras may'usculas y las min'usculas. Toman uno de los dos formatos
+siguientes:
+
+\begin{itemize}
+\item Comienzan con una \emph{barra invertida}\index{barra invertida}
+  \verb|\|\cih{\bs} y tienen un nombre compuesto s'olo por letras. Los
+    nombres de las 'ordenes acaban con uno o m'as espacios en blanco,
+    un car'acter especial o una cifra.
+\item Se compone de una \emph{barra invertida} y un car'acter
+  especial.
+\end{itemize}
+
+%
+% No se tiene en cuenta \\*
+%
+
+%
+% ?`Puede \3 ser una instrucci'on v'alida? (jacoboni)
+% En ``LaTeX: eine Einf"uhrung'', de Helmut Kopka, 1988 existe
+% en la p'agina 13 una posible definici'on de este comando.
+% Esto es para LaTeX 2.09, pero funcionar'ia con LaTeX2e?
+% (Tom'as Bautista)
+%
+
+
+\LaTeX{} ignora los espacios en blanco que van tras las 'ordenes. Si
+se desea introducir \index{espacio en blanco!tras instrucci'on} un
+espacio en blanco tras una instrucci'on, se debe poner o bien
+\verb|{}| y un espacio, o bien una instrucci'on de espaciado despu'es
+de la orden. Con \verb|{}| se fuerza a \LaTeX{} a dejar de ignorar el
+resto de espacios que se encuentren despu'es de la instrucci'on.
+
+
+\begin{example}
+He le'ido que Knuth distingue a la
+gente que trabaja con \TeX{} en
+\TeX{}nicos y \TeX pertos.\\
+Hoy es \today.
+\end{example}
+
+Algunas instrucciones necesitan un \wi{par'ametro} que se debe poner
+entre \wi{llaves} \verb|{ }| tras la instrucci'on. Otras 'ordenes
+pueden llevar \wi{par'ametros opcionales} que se a~naden a la
+instrucci'on entre \wi{corchetes}~\verb|[ ]| o no. El siguiente
+ejemplo usa algunas 'ordenes de \LaTeX{} que explicaremos m'as
+adelante.
+
+\begin{example}
+!`Te puedes \textsl{apoyar} en m'i!
+\end{example}
+\begin{example}
+!`Por favor, comienza una nueva
+l'inea justamente aqu'i!%
+\linebreak[3] Gracias.
+\end{example}
+
+\subsection{Comentarios}
+\index{comentarios}
+
+Cuando \LaTeX{} encuentra un car'acter \verb|%| mientras procesa un
+fichero de entrada, ignora el resto de la l'inea. Esto suele ser 'util
+para introducir notas en el fichero de entrada que no se mostrar'an en
+la versi'on impresa.
+
+\begin{example}
+Esto es un % tonto
+% Mejor: instructivo <----
+ejemplo.
+\end{example}
+
+Esto a veces puede resultar 'util cuando nos encontramos con l'ineas
+demasiado largas en el fichero fuente. Si no quisi'esemos introducir
+un espacio entre dos palabras, y perferimos tener dos renglones,
+entonces el signo \verb|%| debe ir justo al final del rengl'on pero
+pegado al 'ultimo car'acter. De este modo comentamos el car'acter de
+``salto de l'inea'', que de otro modo se hubiese tratado como un
+espacio en blanco.
+
+\begin{example}
+Este es otro ejem% y
+% ahora el resto
+plo.
+\end{example}
+
+\section{Estructura de un fichero de entrada}
+
+Cuando \LaTeXe{} procesa un fichero de entrada, espera de 'el que siga
+una determinada \wi{estructura}. Todo fichero de entrada debe comenzar
+con la orden
+\begin{code}
+\verb|\documentclass{...}|
+\end{code}
+Esto indica qu'e tipo de documento es el que se pretende crear. Tras
+esto, se pueden incluir 'ordenes que influir'an sobre el estilo del
+documento entero, o puede cargar \wi{paquete}s que a~nadir'an nuevas
+propiedades al sistema de \LaTeX. Para cargar uno de estos paquetes se
+usar'a la instrucci'on
+\begin{code}
+\verb|\usepackage{...}|
+\end{code}
+
+Cuando todo el trabajo de configuraci'on est'e realizado\footnote{El
+  'area entre \texttt{\bs documentclass} y \texttt{\bs
+    begin$\mathtt{\{}$document$\mathtt{\}}$} se llama
+  \emph{\wi{pre'ambulo}}.} entonces comienza el cuerpo del texto con
+la instrucci'on
+\begin{code}
+\verb|\begin{document}|
+\end{code}
+
+A partir de entonces se introducir'a el texto mezclado con algunas
+instrucciones 'utiles de \LaTeX. Al finalizar el documento debe
+ponerse la orden
+\begin{code}
+\verb|\end{document}|
+\end{code}
+LaTeX{} ingorar'a cualquier cosa que se ponga tras esta instrucci'on.
+
+La figura~\ref{mini} muestra el contenido m'inimo de un fichero de
+\LaTeXe. En la figura~\ref{document} se expone un \wi{fichero de
+  entrada} algo m'as complejo.
+
+\begin{figure}[!bp]
+\begin{lined}{6cm}
+\begin{verbatim}
+\documentclass{article}
+\begin{document}
+Lo peque~no es bello.
+\end{document}
+\end{verbatim}
+\end{lined}
+\caption{Un fichero m'inimo de \LaTeX} \label{mini}
+\end{figure}
+ 
+\begin{figure}[!bp]
+\begin{lined}{10cm}
+\begin{verbatim}
+\documentclass[a4paper,11pt]{article}
+\usepackage{latexsym}
+\usepackage[activeacute,spanish]{babel}
+\author{H.~Partl}
+\title{Minimizando}
+\frenchspacing
+\begin{document}
+\maketitle
+\tableofcontents
+\section{Inicio}
+Bien\ldots{} y aqu'i comienza mi art'iculo tan
+estupendo.
+\section{Fin}
+\ldots{} y aqu'i acaba.
+\end{document}
+\end{verbatim}
+\end{lined}
+\caption{Ejemplo para un art'iculo cient'ifico en espa~nol.} \label{document}
+\end{figure}
+ 
+\section{El formato del documento}
+ 
+\subsection{Clases de documentos}\label{sec:documentclass}
+
+Cuando procesa un fichero de entrada, lo primero que necesita saber
+\LaTeX{} es el tipo de documento que el autor quiere crear. Esto se
+indica con la instrucci'on \ci{documentclass}.
+\begin{command}
+\ci{documentclass}\verb|[|\emph{opciones}\verb|]{|\emph{clase}\verb|}|
+\end{command}
+\noindent En este caso, la \emph{clase} indica el tipo de documento
+que se crear'a. En la tabla~\ref{documentclasses} se muestran las
+clases de documento que se explican en esta introducci'on. La
+distribuci'on de \LaTeXe{} proporciona m'as clases para otros
+documentos, como cartas y transparencias. El par'ametro de
+\emph{\wi{opciones}} personaliza el comportamiento de la clase de
+documento elegida. Las opciones se deben separar con comas. En la
+tabla~\ref{options} se indican las opciones m'as comunes de las clases
+de documento est'andares.
+
+
+\begin{table}[!bp]
+\caption{Clases de documentos} \label{documentclasses}
+\begin{lined}{12cm}
+\begin{description}
+ 
+\item [\normalfont\texttt{article}] para art'iculos de revistas
+  especializadas, ponencias, trabajos de pr'acticas de formaci'on,
+  trabajos de seminarios, informes peque'nos, solicitudes,
+  dict'amenes, descripciones de programas, invitaciones y muchos
+  otros.\index{articulo@art'iculo}%
+\index{clase \texttt{article}@clase article}
+\item [\normalfont\texttt{report}] para informes mayores que constan
+  de m'as de un cap'itulo, proyectos fin de carrera, tesis doctorales,
+  libros peque'nos, disertaciones, guiones y
+  similares.\index{informe}\index{clase \texttt{report}@clase report}
+\item [\normalfont\texttt{book}] para libros de
+  verdad\index{libro}\index{clase \texttt{book}@clase book}
+\item [\normalfont\texttt{slide}] para transparencias. Esta clase emplea
+  tipos grandes \textsf{sans serif}.
+  \index{transparencias}\index{clase \texttt{slide}@clase slide}
+\end{description}
+\end{lined}
+\end{table}
+
+\begin{table}[!bp]
+\caption{Opciones de clases de documento} \label{options}
+\begin{lined}{12cm}
+\begin{flushleft}
+\begin{description}
+\item[\normalfont\texttt{10pt}, \texttt{11pt}, \texttt{12pt}] \quad
+  Establecen el tama~no (cuerpo) para los tipos. Si no se especifica
+  ninguna opci'on, se toma \texttt{10pt}.\index{tama~no de los
+    tipos!del documento}
+\item[\normalfont\texttt{a4paper}, \texttt{letterpaper}, \ldots] \quad
+  Define el tama~no del papel. Si no se indica nada, se toma
+  \texttt{letterpaper}. Aparte de 'este se puede elegir
+  \texttt{a5paper}, \texttt{b5paper}, \texttt{executivepaper} y
+  \texttt{legalpaper}. \index{papel legal} \index{tama~no del
+    papel}\index{papel DIN-A4} \index{papel de carta} \index{papel DIN-A5}\
+  \index{papel DIN-B5} \index{papel ejecutivo}
+
+\item[\normalfont\texttt{fleqn}] \quad Dispone las ecuaciones hacia la
+  izquierda en vez de centradas.
+
+\item[\normalfont\texttt{leqno}] \quad Coloca el n'umero de las
+  ecuaciones a la izquierda en vez de a la derecha.
+
+\item[\normalfont\texttt{titlepage}, \texttt{notitlepage}] \quad
+  Indica si se debe comenzar una p'agina nueva tras el \wi{t'itulo del
+    documento} o no. Si no se indica otra cosa, la clase
+  \texttt{article} no comienza una p'agina nueva, mientras que \texttt{report}
+  y \texttt{book} s'i.\index{titlepage@\texttt{titlepage}}
+
+\item[\normalfont\texttt{twocolumn}] \quad Le dice a \LaTeX{} que
+  componga el documento en \wi{dos columnas}.
+  
+\item[\normalfont\texttt{twoside, oneside}] \quad Especifica si se
+  debe generar el documento a una o a dos caras.  En caso de no
+  indicarse otra cosa, las clases \texttt{article} y \texttt{report}
+  son a una cara y la clase \texttt{book} es a dos.
+  
+\item[\normalfont\texttt{openright, openany}] \quad Hace que los
+  cap'itulos comienzen o bien s'olo en p'aginas a la derecha, o bien
+  en la pr'oxima que est'e disponible. Esto no funciona con la clase
+  \texttt{article}, ya que en esta clase no existen cap'itulos. De
+  modo predeterminado, la clase \texttt{report} comienza los
+  cap'itulos en la pr'oxima p'agina disponible y la clase
+  \texttt{book} las comienza en las p'aginas a la derecha.
+\end{description}
+\end{flushleft}
+\end{lined}
+\end{table}
+
+Por ejemplo: un fichero de entrada para un documento de \LaTeX{}
+podr'ia comenzar con
+\begin{code}
+\ci{documentclass}\verb|[11pt,twoside,a4paper]{article}|
+\end{code}
+Esto le indica a \LaTeX{} que componga el documento como un
+\emph{art'iculo} utilizando tipos del cuerpo 11, y que produzca un
+formato para impresi'on a \emph{doble cara} en \emph{papel DIN-A4}.
+
+\pagebreak[2]
+\subsection{Paquetes}
+\index{paquete} Mientras escribe su documento, probablemente se
+encontrar'a en situaciones donde el \LaTeX{} b'asico no basta para
+solucionar su problema. Si desea incluir \wi{gr'aficos}, \wi{texto en
+  color} o el c'odigo fuente de un fichero, necesita mejorar las
+capacidades de \LaTeX. Tales mejoras se realizan con ayuda de los llamados
+\emph{paquetes.} Los paquetes se activan con la orden
+\begin{command}
+\ci{usepackage}\verb|[|\emph{opciones}\verb|]{|\emph{paquete}\verb|}|
+\end{command}
+\noindent donde \emph{paquete} es el nombre del paquete y
+\emph{opciones} es una lista palabras clave que activan funciones
+especiales del paquete, a las que \LaTeX{} les a~nade las opciones que
+previamente se hayan indicado en la orden \verb|\documentclass|.
+Algunos paquetes vienen con la distribuci'on b'asica de \LaTeXe{}
+(v'ease la tabla~\ref{packages}). Otros se proporcionan por separado.
+En la \guia{} puede encontrar m'as informaci'on sobre los paquetes
+disponibles en su instalaci'on local. La fuente principal de
+informaci'on sobre \LaTeX{} es \companion. Contiene descripciones de
+cientos de paquetes, as'i como informaci'on sobre c'omo escribir sus
+propias extensiones a \LaTeXe.
+
+\begin{table}[!hbp]
+\caption{Algunos paquetes distribuidos con \LaTeX} \label{packages}
+\begin{lined}{11cm}
+\begin{description}
+\item[\normalfont\pai{doc}] Permite la documentaci'on de paquetes y
+  otros ficheros de \LaTeX.\\ Se describe en \texttt{doc.dtx} y en
+  \companion.
+
+\item[\normalfont\pai{exscale}] Proporciona versiones escaladas de
+  los tipos adicionales para matem'aticas.\\ 
+ Descrito en \texttt{ltexscale.dtx}.
+
+\item[\normalfont\pai{fontenc}] Especifica qu'e \wi{codificaci'on de
+    tipo} debe usar \LaTeX.\\ Descrito en \texttt{ltoutenc.dtx}.
+
+\item[\normalfont\pai{ifthen}] Proporciona instrucciones de la forma\\
+  `si\ldots{} entonces\ldots{} si no\ldots'\\ Descrito en
+  \texttt{ifthen.dtx} y en \companion.
+
+\item[\normalfont\pai{latexsym}] Para que \LaTeX{} acceda al tipo
+  de s'imbolos, se debe usar el paquete \texttt{latexsym}.\\ Descrito
+  en \texttt{latexsym.dtx} y en \companion.
+ 
+\item[\normalfont\pai{makeidx}] Proporciona instrucciones para
+  producir 'indices de materias.\\ Descrito en el
+  apartado~\ref{sec:indexing} y en \companion.
+
+\item[\normalfont\pai{syntonly}] Procesa un documento sin
+  componerlo.\\ Se describe en \texttt{syntonly.dtx} y en \companion.
+  Es 'util para la verificaci'on r'apida de errores.
+  
+\item[\normalfont\pai{inputenc}] Permite la especificaci'on de una
+  codificaci'on de entrada como ASCII (con la opci'on \pai{ascii}),
+  ISO Latin-1 (con la opci'on \pai{latin1}), ISO Latin-2 (con la
+  opci'on \pai{latin2}), p'aginas de c'odigo de 437/850 IBM (con las
+  opciones \pai{cp437} y \pai{cp580}, respectivamente), Apple
+  Macintosh (con la opci'on \pai{applemac}), Next (con la opci'on
+  \pai{next}), ANSI-Windows (con la opci'on \pai{ansinew}) o una
+  definida por el usuario.  Descrito en \texttt{inputenc.dtx}.
+
+\end{description}
+\end{lined}
+\end{table}
+
+\clearpage
+%
+% Puntero a informaci'on de los paquetes
+%
+
+\subsection{Estilo de p'agina}
+
+Con \LaTeX{} existen tres combinaciones predefinidas de \wi{cabeceras}
+y \wi{pies de p'agina}, a las que se llaman estilos de
+p'agina.\index{estilo de pagina@estilo de p'agina} El par'ametro
+\emph{estilo} de la instrucci'on
+\index{estilo de pagina@estilo de p'agina!plain@\texttt{plain}}%
+\index{plain@\texttt{plain}}%
+\index{estilo de pagina@estilo de p'agina!headings@\texttt{headings}}%
+\index{headings@\texttt{headings}}%
+\index{estilo de pagina@estilo de p'agina!empty@\texttt{empty}}%
+\index{empty@\texttt{empty}}%
+\begin{command}
+\ci{pagestyle}\verb|{|\emph{estilo}\verb|}|
+\end{command}
+\noindent define cu'al emplearse. La tabla~\ref{pagestyle} muestra los
+estilos de p'agina predefinidos.
+
+\begin{table}[!hbp]
+\caption{Estilos de p'agina predefinidos en \LaTeX} \label{pagestyle}
+\begin{lined}{12cm}
+\begin{description}
+
+\item[\normalfont\texttt{plain}] imprime los n'umeros de p'agina en el
+  centro del pie de las p'aginas. Este es el estilo de p'agina que se
+  toma si no se indica ning'un otro.
+
+\item[\normalfont\texttt{headings}] en la cabecera de cada p'agina
+  imprime el cap'itulo que se est'a procesando y el n'umero de
+  p'agina, mientras que el pie est'a vac'io. (Este estilo es similar
+  al empleado en este documento).
+
+\item[\normalfont\texttt{empty}] deja tanto la cabecera como el pie
+  de las p'aginas vac'ios.
+
+\end{description}
+\end{lined}
+\end{table}
+
+Es posible cambiar el estilo de p'agina de la p'agina actual con la
+instrucci'on
+\begin{command}
+\ci{thispagestyle}\verb|{|\emph{estilo}\verb|}|
+\end{command}
+En \companion{} hay una descripci'on de c'omo crear sus propias
+cabeceras y pies de p'agina.
+%
+% Puntero a la descripci'on del paquete fancyhdr
+%
+% Informaci'on sobre la numeraci'on de p'aginas, ...
+% \pagenumbering
+
+\section{Proyectos grandes}
+
+Cuando trabaje con documentos grandes, podr'ia, si lo desea, dividir
+el fichero de entrada en varias partes. \LaTeX{} tiene dos
+instrucciones que le ayudan a realizar esto.
+
+\begin{command}
+\ci{include}\verb|{|\emph{fichero}\verb|}|
+\end{command}
+\noindent se puede utilizar en el cuerpo del documento para introducir el
+contenido de otro fichero. En este caso, \LaTeX{} comenzar'a una p'agina
+nueva antes de procesar el texto del \emph{fichero}.
+
+La segunda instrucci'on s'olo puede ser empleada en el pre'ambulo.
+Permite indicarle a \LaTeX{} que s'olo tome la entrada de algunos
+ficheros de los indicados con \verb|\include|.
+
+\begin{command}
+\ci{includeonly}\verb|{|\emph{fichero}\verb|,|\emph{fichero}%
+\verb|,|\ldots\verb|}|
+\end{command}
+
+Una vez que esta instrucci'on se ejecute en el pre'ambulo del
+documento, s'olo se procesar'an las instrucciones \ci{include} con los
+ficheros indicados en el argumento de la orden \ci{includeonly}.
+Observe que no hay espacios entre los nombres de los ficheros y las
+comas.
+
+\endinput

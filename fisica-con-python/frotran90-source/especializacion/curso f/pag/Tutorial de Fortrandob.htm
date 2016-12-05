@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0054)http://garota.fismat.umich.mx/mn1/tutor_fort/data.html -->
+<HTML><HEAD><TITLE>Tutorial de Fortran</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY background="Tutorial de Fortrandob_archivos/default.gif">
+<HR>
+&nbsp;[16. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/common.html">Bloques comunes 
+</A>] &nbsp;[<A href="http://fismat.umich.mx/mn1/tutor_fort/index.html">Tutorial 
+de Fortran</A>] &nbsp;[18. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/style.html">Estilo de 
+programación</A> ] 
+<HR>
+
+<H2>17. Datos y bloques de datos </H2>
+<H3>La sentencia <TT>data</TT> </H3>La sentencia <TT>data</TT> es otra forma de 
+introducir datos que son conocidos cuando se esta escribiendo el programa. Es 
+similar a la sentencia de asignación. La sintaxis es: <PRE>      data <EM>lista_de_variables</EM>/ <EM>lista_de valores</EM>/, ...
+</PRE>donde los puntos suspensivos significar que el patrón puede ser repetido. 
+Se muestra a continuación un ejemplo: <PRE>      data m/10/, n/20/, x/2.5/, y/2.5/
+</PRE>Se podría haber escrito también como: <PRE>      data m,n/10,20/, x,y/2*2.5/
+</PRE>Se podría haber hecho también lo mismo usando asignaciones <PRE>      m = 10
+      n = 20
+      x = 2.5
+      y = 2.5
+</PRE>La sentencia <TT>data</TT> es más compacta y por lo tanto mas conveniente. 
+Observar la forma compacta para la asignación de valores iguales varias veces. 
+<P>La sentencia <TT>data</TT> es hecha sólo una vez, exactamente antes de que la 
+ejecución del programa inicie. Por esta razón, la sentencia <TT>data</TT> es 
+usada principalmente en el programa principal y no en las subrutinas. 
+<P>La sentencia data puede ser usada también para inicializar arreglos 
+(vectores, matrices). El siguiente ejemplo muestra como se puede asegurar que 
+una matriz este llena de ceros antes de iniciar la ejecución del programa: <PRE>      real A(10,20)
+      data A/200*0.0/
+</PRE>Algunos compiladores inicializarán automáticamente los arreglos como en el 
+ejemplo, pero no todos, por lo que si se quiere asegurar de los elementos del 
+arreglo son cero, se deberá hacer algo como lo anterior. Por supuesto que los 
+arreglos pueden ser inicializados con otro valor diferente de cero, o aún, 
+inicializar los elementos individualmente, como se muestra a continuación: <PRE>      data A(1,1)/ 12.5/, A(2,1)/ -33.3/, A(2,2)/ 1.0/
+</PRE>O se pueden listar todos los elementos para arreglos pequeños como se 
+muestra enseguida: <PRE>      integer v(5)
+      real B(2,2)
+      data v/10,20,30,40,50/, B/1.0,-3.7,4.3,0.0/
+</PRE>Los valores para arreglos bidimensionales serán asignados en el orden de 
+primero columna como se acostumbra. 
+<P>
+<H3>La sentencia <TT>block data</TT></H3>La sentencia <TT>data</TT> no puede ser 
+usada para contenidas en un <TT>common block</TT>. Hay una "subrutina" especial 
+para este caso, llamada <TT>block data</TT>. Esta no es realmente una subrutina, 
+pero es parecida porque se da en una unidad de programa separada. Se muestra el 
+ejemplo: <PRE>      block data
+      integer nmax
+      parameter (nmax=20)
+      real v(nmax), alpha, beta
+      common /vector/v,alpha,beta
+      data v/20*100.0/, alpha/3.14/, beta/2.71/
+      end
+</PRE>Tal como en la sentencia <TT>data</TT>, el <TT>block data</TT> es 
+ejecutado antes de que la ejecución del programa inicie. La posición de la 
+"subrutina" <TT>block data</TT> en el código fuente es irrelevante (siempre y 
+cuando no este anidada en el progrma principal o un subprograma). 
+<HR>
+&nbsp;[16. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/common.html">Bloques comunes 
+</A>] &nbsp;[<A href="http://fismat.umich.mx/mn1/tutor_fort/index.html">Tutorial 
+de Fortran</A>] &nbsp;[18. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/style.html">Estilo de 
+programación</A> ] </BODY></HTML>

@@ -1,0 +1,102 @@
+{\rtf1\ansi\deff0\deftab720{\fonttbl{\f0\fmodern Courier New;}}
+{\colortbl\red0\green128\blue0;\red0\green0\blue255;\red0\green0\blue0;\red255\green0\blue0;}
+{\info{\comment Creado por Force 2.0 - www.forceproject.hpg.com.br}
+{\title TRAPECIO2.rtf}}
+\deflang1033\pard\plain\f0\fs20 \cf0 c     Este programa utiliza la regla del trapecio
+\par c     para resolver el movimiento de un cuerpo
+\par c     sobre un plano inclinado considerando la
+\par c     resistencia del aire y la fricci¢n
+\par       \cf1\b program \b0\cf0 trapecio
+\par       \cf1\b real \b0\cf0 a\cf2 ,\cf0 b\cf2 ,\cf0 d\cf2 ,\cf0 suma\cf2 ,\cf0 Ia\cf2 ,\cf0 In\cf2 ,\cf0 et\cf2 ,\cf0 h\cf2 ,\cf0 sum\cf2 ,\cf0 Ln\cf2 ,\cf0 La\cf2 ,\cf0 el
+\par       \cf1\b integer \b0\cf0 i\cf2 ,\cf0 n\cf2 ,\cf0 j \cf2 ,\cf0 res
+\par             res \cf2 =\cf3 1
+\par 20     \cf1\b if \b0\cf2 (\cf0 res\cf1\b .eq.\b0\cf3 1\cf2 )\cf1\b then
+\par       write\b0\cf2 (*,*)\cf3 '***************************************************'
+\par       \cf1\b write\b0\cf2 (*,*)\cf3 'Integracion numerica'
+\par       \cf1\b write\b0\cf2 (*,*)\cf3 'regla del Trapecio'
+\par       \cf1\b write\b0\cf2 (*,*)\cf3 '***********************'
+\par       \cf1\b write\b0\cf2 (*,*) \cf3 'Ingrese el limite inferior entre 0 y L'
+\par       \cf1\b read\b0\cf2 (*,*) \cf0 a
+\par       \cf1\b write\b0\cf2 (*,*) \cf3 'Ingrese el limite superior entre 0 y L'
+\par       \cf1\b read\b0\cf2 (*,*) \cf0 b
+\par       \cf1\b write\b0\cf2 (*,*) \cf3 'Ingrese el numero N de puntos en [a,b], N es natural'
+\par       \cf1\b read\b0\cf2 (*,*) \cf0 n
+\par       d\cf2 =(\cf0 b\cf2 -\cf0 a\cf2 )/(\cf3 2\cf2 *(\cf0 n\cf2 -\cf3 1\cf2 ))
+\par       \cf0 suma\cf2 =\cf3 0
+\par       \cf1\b do \b0\cf3 2  \cf0 i\cf2 =\cf3 1\cf2 ,\cf0 n\cf2 -\cf3 2
+\par       \cf0 suma\cf2 =\cf0 suma\cf2 +\cf0 y\cf2 (\cf0 a\cf2 +\cf0 i\cf2 *(\cf3 2\cf2 *\cf0 d\cf2 ))
+\par \cf3 2      \cf1\b continue
+\par       \b0\cf0 In\cf2 =\cf0 d\cf2 *(\cf0 Y\cf2 (\cf0 a\cf2 )+(\cf3 2.\cf2 *\cf0 suma\cf2 )+\cf0 Y\cf2 (\cf0 b\cf2 ))
+\par       \cf0 Ia\cf2 =\cf0 g\cf2 (\cf0 b\cf2 )-\cf0 g\cf2 (\cf0 a\cf2 )
+\par       \cf0 et\cf2 =\cf0 abs\cf2 ((\cf0 Ia\cf2 -\cf0 In\cf2 )/\cf0 Ia\cf2 )*\cf3 100
+\par \cf0 c     definimos en esta parte la forma para determinar la distancia
+\par       h\cf2 =\cf0 In\cf2 /(\cf3 2\cf2 *(\cf0 n\cf2 -\cf3 1\cf2 ))
+\par       \cf0 sum\cf2 =\cf3 0
+\par       \cf1\b do \b0\cf3 3 \cf0 j\cf2 =\cf3 1\cf2 ,\cf0 n\cf2 -\cf3 2
+\par       \cf0 sum\cf2 =\cf0 sum\cf2 +\cf0 R\cf2 (\cf0 j\cf2 *(\cf3 2\cf2 *\cf0 h\cf2 ))
+\par \cf3 3     \cf1\b continue
+\par       \b0\cf0 Ln\cf2 =\cf0 h\cf2 *(\cf0 R\cf2 (\cf3 0\cf2 )+(\cf3 2\cf2 *\cf0 sum\cf2 )+\cf0 R\cf2 (\cf0 In\cf2 ))
+\par       \cf0 La\cf2 =\cf0 T\cf2 (\cf0 In\cf2 )-\cf0 T\cf2 (\cf3 0\cf2 )
+\par       \cf0 el\cf2 =\cf0 abs\cf2 ((\cf0 La\cf2 -\cf0 Ln\cf2 )/\cf0 La\cf2 )*\cf3 100.
+\par       
+\par       \cf1\b write\b0\cf2 (\cf3 6\cf2 ,*)\cf3 'Resultado para N='\cf2 ,\cf0 N\cf2 ,\cf3 ':'
+\par       \cf1\b WRITE\b0\cf2 (*,\cf3 '(3(T3,A/),3(T3,A/T3,(3(A,1PE13.6))/))'\cf2 )
+\par      \cf0 &\cf3 '              ³ Valor numerico³ Valor analit. ³              '\cf2 ,
+\par      \cf0 &\cf3 '              ³ estimado de la³ de la integral³   Diferencia '\cf2 ,
+\par      \cf0 &\cf3 '              ³ integral      ³               ³   en %       '\cf2 ,
+\par      \cf0 &\cf3 'ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄ'\cf2 ,
+\par      \cf0 &\cf3 'Tiempo        ³ ' \cf2 ,\cf0 In    \cf2 ,  \cf3 ' ³ ' \cf2 ,\cf0 Ia    \cf2 ,  \cf3 ' ³ '\cf2 ,\cf0 et          \cf2 ,
+\par      \cf0 &\cf3 'ÄÄÄÄÄÄÄÄÄÄÄÄÄÄ³ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ³ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ³ÄÄÄÄÄÄÄÄÄÄÄÄÄÄ'\cf2 ,
+\par      \cf0 &\cf3 'Dista.        ³ ' \cf2 ,\cf0 Ln    \cf2 ,  \cf3 ' ³ ' \cf2 ,\cf0 La    \cf2 ,  \cf3 ' ³ '\cf2 ,\cf0 el
+\par       \cf1\b WRITE\b0\cf2 (\cf3 6\cf2 ,*)\cf3 'El programa termino!'
+\par        \cf1\b print\b0\cf2 *, \cf3 'Si quiere continuar digie 1 si no cero'
+\par        \cf1\b read\b0\cf2 *,  \cf0 res
+\par        \cf1\b goto \b0\cf3 20
+\par       \cf1\b ENDIF
+\par       open\b0\cf2 (\cf3 10\cf2 ,\cf0 file\cf2 =\cf3 'trapecio21.txt'\cf2 ,\cf0 status\cf2 =\cf3 'old'\cf2 )
+\par       \cf1\b write\b0\cf2 (\cf3 10\cf2 ,\cf3 200\cf2 )\cf3 'Resultado para N='\cf2 ,\cf0 N\cf2 ,\cf3 ':'
+\par       \cf1\b write\b0\cf2 (\cf3 10\cf2 ,\cf3 201\cf2 )\cf3 '***************************************************'
+\par       \cf1\b write\b0\cf2 (\cf3 10\cf2 ,\cf3 202\cf2 ) \cf3 ' Resultado de la Integral numerica para t: '\cf2 ,\cf0 In
+\par       \cf1\b write\b0\cf2 (\cf3 10\cf2 ,\cf3 203\cf2 ) \cf3 ' Resultado de la Integral analitica para t: '\cf2 ,\cf0 Ia
+\par       \cf1\b write\b0\cf2 (\cf3 10\cf2 ,\cf3 204\cf2 ) \cf3 ' Diferencia = '\cf2 ,\cf0 et\cf2 ,\cf3 '%'
+\par       \cf1\b write\b0\cf2 (\cf3 10\cf2 ,\cf3 205\cf2 ) \cf3 ' Resultado de la Integral numerica para L: '\cf2 ,\cf0 Ln
+\par       \cf1\b write\b0\cf2 (\cf3 10\cf2 ,\cf3 206\cf2 ) \cf3 ' Resultado de la Integral analitica para L: '\cf2 ,\cf0 La
+\par       \cf1\b write\b0\cf2 (\cf3 10\cf2 ,\cf3 207\cf2 ) \cf3 ' Diferencia = '\cf2 ,\cf0 el\cf2 ,\cf3 '%'
+\par       \cf1\b write\b0\cf2 (\cf3 10\cf2 ,\cf3 208\cf2 )\cf3 '***************************************************'
+\par 
+\par 
+\par 200   \cf1\b format\b0\cf2 (\cf0 a20\cf2 ,\cf0 i4\cf2 ,\cf0 a2\cf2 )
+\par \cf3 201   \cf1\b format\b0\cf2 (\cf0 a50\cf2 )
+\par \cf3 202   \cf1\b format\b0\cf2 (\cf0 a45\cf2 ,\cf0 f8\cf3 .7\cf2 )
+\par \cf3 203   \cf1\b format\b0\cf2 (\cf0 a45\cf2 ,\cf0 f8\cf3 .7\cf2 )
+\par \cf3 204   \cf1\b format\b0\cf2 (\cf0 a15\cf2 ,\cf0 f8\cf3 .7\cf2 ,\cf0 a2\cf2 )
+\par \cf3 205   \cf1\b format\b0\cf2 (\cf0 a45\cf2 ,\cf0 f8\cf3 .7\cf2 )
+\par \cf3 206   \cf1\b format\b0\cf2 (\cf0 a45\cf2 ,\cf0 f8\cf3 .7\cf2 )
+\par \cf3 207   \cf1\b format\b0\cf2 (\cf0 a15\cf2 ,\cf0 f8\cf3 .7\cf2 ,\cf0 a2\cf2 )
+\par \cf3 208   \cf1\b format\b0\cf2 (\cf0 a50\cf2 )
+\par 
+\par       \cf1\b end
+\par       
+\par \b0\cf0 c      Declaracion de funciones
+\par       \cf1\b function \b0\cf0 y\cf2 (\cf0 x\cf2 )
+\par       \cf1\b real \b0\cf0 x
+\par       y\cf2 = \cf3 3.\cf2 /(\cf3 48\cf2 -(\cf3 12\cf2 *(\cf0 sqrt\cf2 (\cf3 3.\cf2 )))-\cf0 x\cf2 )
+\par       \cf1\b end
+\par       
+\par       
+\par       function \b0\cf0 g\cf2 (\cf0 z\cf2 )
+\par       \cf1\b real \b0\cf0 z
+\par       g\cf2 = \cf3 3\cf2 *(\cf3 3.3038\cf2 -\cf0 log\cf2 (\cf3 48.\cf2 -(\cf3 12\cf2 *(\cf0 sqrt\cf2 (\cf3 3.\cf2 )))-\cf0 z\cf2 ))
+\par       \cf1\b end
+\par       
+\par       function \b0\cf0 R\cf2 (\cf0 t\cf2 )
+\par       \cf1\b real \b0\cf0 t
+\par       R\cf2 = (\cf3 48\cf2 -\cf3 12\cf2 *(\cf0 sqrt\cf2 (\cf3 3.\cf2 )))*(\cf3 1\cf2 -\cf0 exp\cf2 (-(\cf0 t\cf2 /\cf3 3.\cf2 )))
+\par       \cf1\b END
+\par       
+\par       function \b0\cf0 T\cf2 (\cf0 w\cf2 )
+\par       \cf1\b real \b0\cf0 w
+\par       T\cf2 = (\cf3 48\cf2 -\cf3 12\cf2 *(\cf0 sqrt\cf2 (\cf3 3.\cf2 )))*(\cf0 w\cf2 +\cf3 3\cf2 *\cf0 exp\cf2 (-(\cf0 w\cf2 /\cf3 3.\cf2 ))-\cf3 3\cf2 )
+\par       \cf1\b END
+\par       
+\par }

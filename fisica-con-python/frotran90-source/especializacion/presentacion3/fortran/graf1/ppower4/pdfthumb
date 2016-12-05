@@ -1,0 +1,3 @@
+#!/bin/sh
+basedir=/common/Java/lib/ppower4
+CLASSPATH=$basedir/pp4p.jar java de.tu_darmstadt.sp.pdftools.ThumbGen "$@"

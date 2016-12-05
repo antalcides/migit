@@ -1,0 +1,347 @@
+<title>source code for demo7</title>
+<body bgcolor=aqua>
+<h2 align=center>source code for demo7</h2>
+<a href="Prosper_Demo.pdf">This demo</a>,
+created by James R. Hopgood
+(Department of Engineering, University of Cambridge)
+features imported PostScript images and ``pstricks''.
+The source code of the LaTeX file,
+<a href="Prosper_Demo.tex"><tt>Prosper_Demo.tex</tt></a>,
+is displayed below.
+<p>
+The imported EPS files are
+<blockquote>
+<a href="ActualEstimatedResponse.eps">ActualEstimatedResponse.eps</a>, &nbsp
+<a href="BSAR2IIR2_Model.eps">BSAR2IIR2_Model.eps</a>, &nbsp
+<a href="EqualisedResponse.eps">EqualisedResponse.eps</a>, &nbsp
+<a href="Reverberation1.eps">Reverberation1.eps</a>, &nbsp
+<a href="Reverberation2.eps">Reverberation2.eps</a>, &nbsp
+<a href="SingleChannelDeconvolution.eps">SingleChannelDeconvolution.eps</a>, &nbsp
+<a href="UniversityLogo.eps">UniversityLogo.eps</a>, &nbsp
+<a href="ar2blk1.eps">ar2blk1.eps</a>, &nbsp
+<a href="ar2blk7.eps">ar2blk7.eps</a>, &nbsp
+<a href="ar2blkF.eps">ar2blkF.eps</a>,
+</blockquote>
+
+<p><hr>
+<pre><b>\documentclass</b>[<font color=red>pdf,slideColor,contemporain,colorBG,accumulate,total</font>]{<font color=blue>prosper</font>}</b>
+\usepackage{<font color=red>amsmath, amsfonts, amsbsy, pstricks, pst-node, pst-text, pst-3d</font>}
+
+\newcommand{\items}[1]{\begin{itemize} \item #1 \end{itemize}}
+\newcommand{\itemss}[2]{\begin{itemize} \item #1 \item #2 \end{itemize}}
+\newcommand{\itemsss}[3]{\begin{itemize} \item #1 \item #2 \item #3 \end{itemize}}
+\newcommand{\itemssss}[4]{\begin{itemize} \item #1 \item #2 \item #3 \item #4 \end{itemize}}
+\newcommand{\slidetextsize}{\footnotesize}
+\newcommand{\captionstyle}[1]{\scriptsize \textbf{#1}}
+
+\myitem{1}{\includegraphics[width=.4cm]{red-bullet-on-blue}}
+\myitem{2}{\includegraphics[width=.4cm]{green-bullet-on-blue}}
+\myitem{3}{\includegraphics[width=.4cm]{yellow-bullet-on-blue}}
+
+\newlength{\MiniPageLeft}
+\newlength{\MiniPageRight}
+\newlength{\ThisFigureWidth}
+
+\title{Blind Single Channel Deconvolution using Nonstationary Signal Processing}
+\subtitle{Reverberation Cancellation in Acoustic Environments}
+\author{James R. Hopgood}
+\email{http://www-sigproc.eng.cam.ac.uk/\~{}jrh1008/\\[-2mm]
+jrh1008@eng.cam.ac.uk}
+\institution{Signal Processing Laboratory, Department of Engineering, University of Cambridge}
+\slideCaption{Blind Deconvolution using Nonstationary Signal Processing. \today}
+\Logo(8.3,7.78){\includegraphics[scale=0.58]{UniversityLogo}}
+\DefaultTransition{Box}
+
+% ==================================
+% Start of Commands Used in Document
+% ==================================
+
+\DeclareSymbolFontAlphabet{\mathcalold}{symbols}
+\newcommand{\mc}[1]{{\ensuremath{\mathcal{#1}}}}
+\newcommand{\mco}[1]{{\ensuremath{\mathcalold{#1}}}}
+\newcommand{\mr}[1]{{\ensuremath{\mathrm{#1}}}}
+\newcommand{\mb}[1]{{\ensuremath{\mathbf{#1}}}}
+\newcommand{\bs}[1]{\ensuremath{\boldsymbol{#1}}}
+\newcommand{\ie}{\emph{i.e.}}
+\newcommand{\Bayes}{Bayes's}
+\newcommand{\field}[1]{\mathbb{#1}}
+\newcommand{\real}[1]{\ensuremath{{\field{R}}^{#1}}}
+\newcommand{\ints}[1]{\ensuremath{{\field{Z}}^{#1}}}
+\newcommand{\defas}{\ensuremath{\stackrel{\scriptscriptstyle{\triangle}}{=}}}
+\newcommand{\eye}[1]{\mr I_{#1}}
+\newcommand{\model}{\mco I}
+\newcommand{\pdf}[2][p]{\ensuremath{#1\left(#2\right)}}
+\newcommand{\cpdf}[3][p]{\ensuremath{\pdf[#1]{\left.#2\,\right|\,#3}}}
+\newcommand{\norm}[3]{\ensuremath{\mco N\left(#1\,\big|\,#2,\,#3\right)}}
+\newcommand{\simnorm}[2]{\ensuremath{\sim \mco N\left(#1,\,#2\right)}}
+\newcommand{\simIG}[2]{\ensuremath{\sim \mco{IG}\left(#1,\,#2\right)}}
+\newcommand{\BSAR}[1]{\ensuremath{\text{BSAR}(#1)}}
+\newcommand{\conv}{\ensuremath{\star}}
+
+% ================================
+% End of Commands Used in Document
+% ================================
+
+\begin{document}
+\maketitle
+
+\part{Go to full-screen mode now by hitting CTRL-L}
+
+\begin{slide}{Introduction to Blind Deconvolution}
+\slidetextsize
+\begin{itemize}
+\item Blind deconvolution fundamental in signal processing
+
+\item Observation, $\mb x = \{x(t),\,t\in\mc T\}$, modelled as the convolution of unknown source, $\{s(t),\,t\in\mc T\}$, with unknown distortion operator, $\mc A$; \ie\ $x(t) \defas s(t) \conv\ \mc A$
+\begin{figure}[t]
+\begin{center}
+        \includegraphics[width=0.5\textwidth]{SingleChannelDeconvolution}
+\end{center}
+\end{figure}
+\item Estimate $\mc A$, \emph{or} $\hat s(t) = a\,s(t - \tau)$, a scaled shifted version of $s(t)$, where $a,\,\tau\in\real{}$, given only the observations, $\mb x$
+\end{itemize}
+\end{slide}
+
+\overlays{3}{
+\begin{slide}[Box]{Acoustic Reverberation Cancellation}
+\slidetextsize
+\setlength{\MiniPageLeft}{0.4\textwidth}
+\setlength{\MiniPageRight}{\textwidth}\addtolength{\MiniPageRight}{-\MiniPageLeft}
+\begin{minipage}[t]{\MiniPageLeft}
+\begin{figure}[t]
+\begin{center}
+\onlySlide*{1}{\includegraphics[width=\MiniPageLeft]{Reverberation1}}
+\fromSlide{2}{\includegraphics[width=\MiniPageLeft]{Reverberation2}}
+\end{center}
+\end{figure}
+\end{minipage}%
+\begin{minipage}[t]{\MiniPageRight}
+\begin{itemize}
+\item Normal hearing: can concentrate on original sound despite:
+\begin{itemize}
+\item reverberation
+\fromSlide{2}{\item environmental noise}
+\end{itemize}
+
+\fromSlide{3}{\item Hearing aid users unable to distinguish one voice from another
+\item Sensori-neuro loss cannot be compensated for by simple
+amplifying hearing aids or surgery}
+
+\end{itemize}
+\end{minipage}
+\end{slide}}
+
+\part[Split]{Bayesian Blind Deconvolution}
+
+\overlays{4}{
+\begin{slide}[Replace]{\Bayes\ Theorem}
+\slidetextsize
+\items{The \emph{posterior probability}, \cpdf{\bs{\theta}}{\mb x,\,\model}, of the system parameters, \bs{\theta}, given the state of the system,
+  \mb x, and an underlying model, \model, is given by Bayes' theorem:
+\begin{equation*}
+\cpdf{\bs{\theta}}{\mb x,\,\model} = \frac{%
+\onlySlide*{1}{\rnode{NA}{\cpdf{\mb x}{\bs{\theta},\,\model}}}%
+\onlySlide*{2}{\rnode{NA}{\cpdf{\mb x}{\bs{\theta},\,\model}}}%
+\fromSlide*{3}{\rnode{NA}{\cpdf{\mb x}{\bs{\theta},\,\model}}}%
+\,%
+\untilSlide*{2}{\rnode{NB}{\cpdf{\bs{\theta}}{\model}}}%
+\onlySlide*{3}{\rnode{NB}{\cpdf{\bs{\theta}}{\model}}}%
+\fromSlide*{4}{\rnode{NB}{\cpdf{\bs{\theta}}{\model}}}%
+}{%
+\untilSlide*{3}{\rnode{NC}{\cpdf{\mb x}{\model}}}%
+\onlySlide*{4}{\rnode{NC}{\cpdf{\mb x}{\model}}}%
+}
+\end{equation*}}
+\begin{itemize}
+\item \fromSlide{2}{\rnode{MA}{\cpdf{\mb x}{\bs{\theta},\,\model}} is the \emph{likelihood}}
+\item \fromSlide{3}{\rnode{MB}{\cpdf{\bs{\theta}}{\model}} represents prior knowledge}
+\item \fromSlide{4}{\rnode{MC}{\cpdf{\mb x}{\model}} is the \emph{evidence} and, although usually
+regarded as a normalising constant, is of interest for model selection}
+\end{itemize}
+\onlySlide*{2}{\nccurve[linecolor=red,linewidth=1.5pt,angleA=90,angleB=270]{->}{MA}{NA}}
+\onlySlide*{3}{\nccurve[linecolor=red,linewidth=1.5pt,angleA=90,angleB=270]{->}{MB}{NB}}
+\onlySlide*{4}{\nccurve[linecolor=red,linewidth=1.5pt,angleA=90,angleB=270]{->}{MC}{NC}}
+\end{slide}}
+
+\overlays{6}{
+\begin{slide}[Replace]{Likelihood Function for System}
+\slidetextsize
+The likelihood function for the observed signal, $\mb x$, is:
+\begin{equation*}
+\cpdf{\mb x}{%
+\untilSlide*{5}{\rnode{NE}{\bs{\theta}}}%
+\onlySlide*{6}{\rnode{NE}{\pscirclebox[linecolor=red,linewidth=1.5pt,boxsep=false]{\bs{\theta}}}}%
+,\,\bs{\phi},\,\model} = \prod_{i=1}^M \frac
+  1{(\sqrt{2\pi}\sigma_i)^{T_i}}\exp{\left\{-\frac {(%
+\onlySlide*{1}{\rnode{NA}{\mb s_i}}%
+\onlySlide*{2}{\rnode{NA}{\pscirclebox[linecolor=red,linewidth=1.5pt,boxsep=false]{\mb s_i}}}%
+\fromSlide*{3}{\rnode{NA}{\mb s_i}}%
+ + %
+\untilSlide*{2}{\rnode{NB}{\mr S_i}}%
+\onlySlide*{3}{\rnode{NB}{\pscirclebox[linecolor=red,linewidth=1.5pt,boxsep=false]{\mr S_i}}}%
+\fromSlide*{4}{\rnode{NB}{\mr S_i}}%
+\mb b_i)^T\,(\mb s_i + \mr S_i%
+\untilSlide*{3}{\rnode{NC}{\mb b_i}}%
+\onlySlide*{4}{\rnode{NC}{\pscirclebox[linecolor=red,linewidth=1.5pt,boxsep=false]{\mb b_i}}}%
+\fromSlide*{5}{\rnode{NC}{\mb b_i}}%
+)}{2%
+\untilSlide*{4}{\rnode{ND}{\sigma_i}}%
+\onlySlide*{5}{\rnode{ND}{\pscirclebox[linecolor=red,linewidth=1.5pt,boxsep=false]{\sigma_i}}}%
+\fromSlide*{6}{\rnode{ND}{\sigma_i}}%
+^2}\right\}}
+\end{equation*}
+\hspace*{3mm}
+\begin{itemize}
+\onlySlide*{1}{\item Where $s(t) \equiv s(t, \mb a,\,\mb x)$ given by:
+\begin{equation*}
+s(t) = x(t) +  \sum\limits_{p\in\mc P} a(p)\,x(t - p)
+\end{equation*}}
+\fromSlide{2}{\item Data vector, \rnode{MA}{$\mb s_i$}: $[\mb s_i]_{t-t_i+1} = s(t),\,t\in\mc T_i,\,i\in\mc M$}%
+\onlySlide*{2}{\nccurve[linecolor=red,linewidth=1.5pt,angleA=90,angleB=270]{->}{MA}{NA}}
+\fromSlide{3}{\item Data matrix, \rnode{MB}{$\mr S_i$}: $[\mr S_i]_{t-t_i + 1, q} = \mb s(t - q),\,t\in\mc T_i,q\in\mc Q_i,\,i\in\mc M$}%
+\onlySlide*{3}{\nccurve[linecolor=red,linewidth=1.5pt,angleA=90,angleB=270]{->}{MB}{NB}}
+\fromSlide{4}{\item Source parameters, \rnode{MC}{$\mb b = \{\mb b_i,\,i\in\mc M\}$}: $[\mb b_i]_q = b_i(q),\,q\in \mc Q_i$}%
+\onlySlide*{4}{\nccurve[linecolor=red,linewidth=1.5pt,angleA=90,angleB=270]{->}{MC}{NC}}
+\fromSlide{5}{\item Excitation Variances, \rnode{MD}{$\bs{\sigma} = \{\sigma_i^2,\,i\in \mc M\}$}}
+\onlySlide*{5}{\nccurve[linecolor=red,linewidth=1.5pt,angleA=90,angleB=270]{->}{MD}{ND}}
+\fromSlide{6}{\item All source and channel parameters, \rnode{ME}{$\bs{\theta} = \{\mb a,\,\bs{\sigma}, \mb b\}$}}
+\onlySlide*{6}{\nccurve[linecolor=red,linewidth=1.5pt,angleA=90,angleB=270]{->}{ME}{NE}}
+\end{itemize}
+\end{slide}}
+
+\overlays{5}{
+\begin{slide}[Box]{Likelihood Function}
+\slidetextsize
+The likelihood function for the observed signal, $\mb x$, is:
+\begin{equation*}
+\cpdf{\mb x}{\bs{\theta},\,%
+\rnode{NF}{\pscirclebox[linecolor=red,linewidth=1.5pt,boxsep=false]{\bs{\phi}}}%
+,\,\model} = \prod_{i=1}^M \frac
+  1{(\sqrt{2\pi}\sigma_i)^{T_i}}\exp{\left\{-\frac {(\mb s_i + \mr S_i \mb b_i)^T\,(\mb s_i + \mr S_i \mb b_i)}{2\sigma_i^2}\right\}}
+\end{equation*}
+
+\begin{itemize}
+\item Other parameters: $\rnode{MF}{\bs{\phi}} = \rnode{NG}{\{\bs{\tau}},\,\rnode{NH}{\bs{\Xi}},\,\rnode{NI}{\bs{\delta}},\,\rnode{NJ}{\bs{\nu}},\,\rnode{NK}{\bs{\gamma}\}}$\nccurve[linecolor=red,linewidth=1.5pt,angleA=90,angleB=270]{->}{MF}{NF}
+\fromSlide{2}{\items{vector of changepoints: $\bs{\tau} = \{t_i,\,i\in\mc M\}$}}
+\fromSlide{3}{\items{vector of model orders: $\bs{\Xi} = \{Q_i,\,i\in\mc M\}$}}
+\fromSlide{4}{\items{vectors of hyperparameters: $\bs{\delta} = \{\delta_i,\,i\in\mc M\}$}}
+\fromSlide{5}{\items{vectors of hyper-hyperparameters: $\bs{\nu} = \{\nu_i,\,i\in\mc M\}$, and $\bs{\gamma} = \{\gamma_i,\,i\in\mc M\}$}}%}
+\end{itemize}
+\end{slide}}
+
+\overlays{2}{
+\begin{slide}[Wipe]{Posterior Distribution for System}
+\slidetextsize
+\begin{itemize}
+\item Apply \Bayes\ rule to obtain the posterior pdf for the unknown parameters $\bs{\theta}$ (assuming $\bs{\phi}$ is known):
+\begin{equation*}
+\cpdf{\bs{\theta}}{\mb x,\,\bs{\phi},\,\model} \propto\ \cpdf{\mb
+    x}{\bs{\theta},\,\bs{\phi},\,\model}\,\cpdf{\bs{\theta}}{\bs{\phi},\,\model}
+\end{equation*}
+
+\fromSlide*{2}{\item Assuming $\{b_j,\,\sigma_j\}$ are independent between blocks, the
+assigned priors are:
+\begin{equation*}
+\mb b_j\,|\,\sigma_j^2 \simnorm{\mb 0_{Q_j}}{\sigma_j^2\,\delta_j^2\,\eye{Q_j}},\,\delta_j\in\real{+}\,\,\text{and}\, \sigma_j^2 \simIG{\frac{\nu_j}2}{\frac{\gamma_j}2}
+\end{equation*}
+
+\item Hence:
+\begin{equation*}
+\cpdf{\bs{\theta}}{\bs{\phi},\,\model} = \cpdf{\mb a}{\bs{\phi},\,\model}\,\cpdf{\mb
+    b}{\bs{\sigma},\,\bs{\phi},\,\model}\,\cpdf{\bs{\sigma}}{\bs{\phi},\,\model}
+\end{equation*}}
+\end{itemize}
+\end{slide}}
+
+\begin{slide}[Dissolve]{Posterior Distribution for Channel}
+\slidetextsize
+\items{Only interested in estimating the channel, \mb a, so marginalise the \emph{nuisance} parameters $\mb b$ and $\bs{\sigma}$ by integrating over $\bs{\theta}_{-\mb a}$:}
+\begin{equation*}
+\begin{split}
+\cpdf{\bs{\theta}_{-\mb b}}{\mb x} &=
+  \int\limits_{\real{Q_1}}\!\!\cdots\!\!\int\limits_{\real{Q_M}}
+  \cpdf{\bs{\theta}_{-\mb b},\,\mb b}{\mb
+  x}\,d\mb b_M\,\dots\,d\mb b_1\\
+\cpdf{\mb a}{\mb x} &=
+  \int\limits_0^{\infty}\!\!\cdots\!\!\int\limits_0^{\infty}
+  \cpdf{\mb a,\,\bs{\sigma}}{\mb
+  x}\,d\sigma_M^2\dots\,d\sigma_1^2
+\end{split}
+\end{equation*}
+\end{slide}
+
+\begin{slide}[Glitter]{Posterior Distribution for Channel}
+\slidetextsize
+\items{Yields the posterior density for the channel parameters $\mb a$:
+\begin{equation*}
+\begin{split}
+&\cpdf{\mb a}{\mb x,\,\bs{\phi},\,\model} \propto
+\cpdf{\mb a}{\bs{\phi},\,\model}\\
+& \times \prod_{i=1}^{M}
+\frac {\left\{\gamma_i + \mb s_i^T \mb s_i
+  - \mb s_i^T \mr S_i\left(\mr S_i^T \mr S_i + \delta_i^{-2} \mr
+    I_{Q_i}\right)^{-1}\! \mr S_i^T \mb s_i\right\}^{-R_i}}{\left|\mr S_i^T\,\mr S_i + \delta_i^{-2} \mr
+    I_{Q_i}\right|^{\frac 12}}
+\end{split}
+\end{equation*}
+where $R_i = \frac{T_i + \nu_i + 1}2,\,i\in\mc M$}
+
+\items{Written in terms of $\mb s(t)$ to emphasise that it can be efficiently calculated by
+`inverse filtering' the data, $\mb x(t)$}
+\items{MMAP estimate used \ie\ $\arg\limits_{\mb a} \max \cpdf{\mb a}{\mb x,\,\bs{\phi},\,P,\,\model}$}
+\end{slide}
+
+\overlays{4}{
+\begin{slide}[Replace]{Principle Revisited}
+\slidetextsize
+\setlength{\MiniPageLeft}{0.5\textwidth}
+\setlength{\MiniPageRight}{\textwidth}\addtolength{\MiniPageRight}{-\MiniPageLeft}
+\begin{minipage}[t]{\MiniPageLeft}
+\begin{figure}[t]
+\begin{center}
+        \includegraphics[width = \MiniPageLeft]{BSAR2IIR2_Model}\\
+\textbf{$P = 2,\,Q_i = 2,\, N=10$ and $T_i = 1000,\,\forall i\in\mc M$}
+\end{center}
+\end{figure}
+\items{Phase and magnitude of the pole
+locations for this \BSAR{2} process change linearly with block number}
+\end{minipage}%
+\begin{minipage}[t]{\MiniPageRight}
+\begin{figure}[t]
+\begin{center}
+\onlySlide*{2}{\includegraphics[width=\MiniPageRight]{ar2blk1}\\
+\textbf{$\ln \cpdf[\hat p_1]{\mb r_{\mb a}}{\mb x_1,\,\mb x_0,\,\bs{\phi},\,\model}$}}%
+\onlySlide*{3}{\includegraphics[width=\MiniPageRight]{ar2blk7}\\
+\textbf{$\ln \cpdf[\hat p_7]{\mb r_{\mb a}}{\mb x_7,\,\mb x_6,\,\bs{\phi},\,\model}$}}%
+\onlySlide*{4}{\includegraphics[width=\MiniPageRight]{ar2blkF}\\
+\textbf{$\ln \cpdf[\hat p]{\mb r_{\mb a}}{\mb x,\,\bs{\phi},\,\model}$}}
+\end{center}
+\end{figure}
+\end{minipage}
+\end{slide}}
+
+
+\begin{slide}[Blinds]{A simple acoustic environment}
+\slidetextsize
+\setlength{\MiniPageLeft}{0.5\textwidth}
+\setlength{\MiniPageRight}{\textwidth}\addtolength{\MiniPageRight}{-\MiniPageLeft}
+\begin{minipage}[t]{\MiniPageLeft}
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=0.9\MiniPageLeft]{ActualEstimatedResponse}\\
+\end{center}
+\end{figure}
+\end{minipage}%
+\begin{minipage}[t]{\MiniPageRight}
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=0.9\MiniPageLeft]{EqualisedResponse}\\
+\end{center}
+\end{figure}
+\end{minipage}
+\items{$\nu_i = \gamma_i = 0, \delta_i \sim 10^6$, $Q_i = 100$, $T_i = 1000$ and $M=100$}
+\end{slide}
+
+\end{document}
+</pre>
+</body>

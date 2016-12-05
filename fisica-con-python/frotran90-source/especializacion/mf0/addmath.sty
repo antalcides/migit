@@ -1,0 +1,176 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{addmath}[2002/08/19 Macros matematicos adicionales (VM)]
+
+% Historia
+% v1.0 1998/09/30 Macros matematicos adicionales
+% v1.1 2002/08/19 \Reales, \Complejos, etc., redefinidos con \mathbb
+
+% Nuevos comandos
+%
+% \barit
+% \bkS
+% \cC
+% \cCo
+% \cosech
+% \cotg
+% \cF
+% \circrightarrow
+% \cL
+% \cS
+% \cSab
+% \Complejos
+% \DelOrdenD
+% \eH
+% \eL
+% \Enteros
+% \erf
+% \erfc
+% \factorial
+% \fHG
+% \fHGc
+% \Hipergeometrica
+% \HipergeometricaConfluente
+% \grados
+% \Imag
+% \intii
+% \intoi
+% \intC
+% \intP
+% \Key
+% \modulo
+% \moduloSimple
+% \Naturales
+% \norma
+% \orden
+% \prodInt
+% \promedio
+% \PRiemann
+% \Racionales
+% \rdp
+% \Real
+% \Reales
+% \Res
+% \sen
+% \senh
+% \sgn
+% \Si
+% \TFourier
+% \TLap
+% \TLapInv
+% \TLaplace
+% \TLaplaceInv
+% \usrdp
+
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{euscript}
+%\RequirePackage{bm}
+
+% Comentado hasta que agreguemos los nuevos fonts
+%
+%\DeclareFontFamily{OT1}{msimm}{\skewchar\font127}
+%\DeclareFontShape{OT1}{msimm}{m}{n}{%
+%                       <-8> ssub * cmr/m/n
+%                       <8-10> msimm8
+%                       <10-12> msimm10
+%                       <12-> msimm12
+%                       }{}
+%\DeclareFontShape{OT1}{msimm}{m}{it}{%
+%                       <-8> sub * cmr/m/n
+%                       <8-10> msimm8
+%                       <10-12> msimm10
+%                       <12-> msimm12
+%                       }{}
+%\DeclareSymbolFont{DoubleBar}{OT1}{msimm}{m}{n}
+%\DeclareSymbolFontAlphabet{\mathdbar}{DoubleBar}
+%\DeclareMathSymbol{\Complejos}{\mathdbar}{DoubleBar}{`C}
+%\DeclareMathSymbol{\Key}{\mathdbar}{DoubleBar}{`K}
+%\DeclareMathSymbol{\Naturales}{\mathdbar}{DoubleBar}{`N}
+%\DeclareMathSymbol{\Racionales}{\mathdbar}{DoubleBar}{`Q}
+%\DeclareMathSymbol{\Reales}{\mathdbar}{DoubleBar}{`R}
+%\DeclareMathSymbol{\Enteros}{\mathdbar}{DoubleBar}{`Z}
+
+\newcommand{\Complejos}{\mathbb{C}}
+\newcommand{\Key}{\mathbb{K}}
+\newcommand{\Naturales}{\mathbb{N}}
+\newcommand{\Racionales}{\mathbb{Q}}
+\newcommand{\Reales}{\mathbb{R}}
+\newcommand{\Enteros}{\mathbb{Z}}
+
+
+\newsavebox{\laplace}
+\newcommand{\TLaplace}{%
+\sbox{\laplace}{$\circ\hspace{-.5mm}\rule[.035in]{1cm}{.015in}\hspace{-.3mm}\bullet$}%
+\mathbin{\usebox{\laplace}}}
+\newcommand{\TLaplaceInv}{%
+\sbox{\laplace}{$\bullet\hspace{-.5mm}\rule[.035in]{1cm}{.015in}\hspace{-.3mm}\circ$}%
+\mathbin{\usebox{\laplace}}}
+
+\newcommand{\prodInt}[2]{\ensuremath \left(\, #1\, |\, #2\, \right ) }
+\newcommand{\bkS}[2]{\ensuremath \left\langle #1,#2 \right\rangle}
+\newcommand{\norma}[1]{\ensuremath \left\lVert\, #1 \,\right\rVert}
+\newcommand{\modulo}[1]{\ensuremath \left\lvert\, #1 \,\right\lvert}
+\newcommand{\moduloSimple}[1]{\ensuremath \lvert #1 \lvert}
+\newcommand{\cCo}[1][a,b]{\ensuremath {\mathcal C}_o\,[#1]}
+\newcommand{\cC}[1][a,b]{\ensuremath {\mathcal C}\,[#1]}
+\newcommand{\intP}{\text{\large \sf P}\hspace{-1.2em}\int}
+\newcommand{\intC}{{\sideset{^*}{}\int}} 
+\newcommand{\intii}{\int_{-\infty}^{\infty}}
+\newcommand{\intoi}{\int_{0}^{\infty}}
+\newcommand{\cS}{\ensuremath {\mathcal S}}
+\newcommand{\cL}{\ensuremath {\mathcal L}}
+\newcommand{\eL}{\EuScript{L}}
+\newcommand{\eH}{\EuScript{H}}
+\newcommand{\cSab}{\ensuremath \overline{\mathcal S}\,^*}
+\newcommand{\grados}{\ensuremath{^\circ}}
+\newcommand{\promedio}[1]{\langle #1 \rangle}
+\newcommand{\circrightarrow}{\longrightarrow 
+\hspace{-1.3em}\raisebox{-.8ex}{\rotatebox{90}{$\curvearrowleft$}}
+\hspace{.8em}}
+\newcommand{\barit}[1]{\ensuremath{\skew3\overline #1}}
+\newcommand{\rdp}{{\sqrt{2\pi}}}
+\newcommand{\usrdp}{\frac{1}{\rdp}}
+\newcommand{\TFourier}{{\ensuremath{\cal F}}}
+\newcommand{\TLap}[2]{\cL \left \{ #1, #2 \right \} }
+\newcommand{\TLapInv}[2]{\cL^{-1} \left \{ #1, #2 \right \} }
+\newcommand{\Hipergeometrica}[4]{{}_2F_1\left (#1, #2, #3\, ; #4\right )}
+\newcommand{\HipergeometricaConfluente}[3]{{}_1F_1\left (#1, #2\, ; #3\right )}
+\def\fHG{\Hipergeometrica}
+\def\fHGc{\HipergeometricaConfluente}
+\newcommand{\orden}[1]{O(#1)}
+\newcommand{\DelOrdenD}{\EuScript{O}}
+\newcommand{\factorial}[1]{#1 !}
+
+
+
+% Definicion de funcion P de Riemann
+\newcounter{PRiemannpos}
+\setcounter{PRiemannpos}{0}
+\newbox\PRa
+\newbox\PRb
+\newbox\PRc
+\newcommand{\buildcolumn}[1]{
+\setcounter{PRiemannpos}{0}
+\@for \@PRiemannarg:=#1\do{
+\ifcase\thePRiemannpos\global\setbox\PRa=\hbox{$\@PRiemannarg$}\or
+        \global\setbox\PRb=\hbox{$\@PRiemannarg$}\or
+        \global\setbox\PRc=\hbox{$\@PRiemannarg$}\fi
+\addtocounter{PRiemannpos}{1}}%
+}
+\newcommand{\PRiemann}[4]{P\left\{ \begin{array}{cccc}
+\buildcolumn{#1} \box\PRa &\box\PRb & \box\PRc \\
+\buildcolumn{#2} \box\PRa &\box\PRb & \box\PRc & #4\\
+\buildcolumn{#3} \box\PRa &\box\PRb & \box\PRc 
+\end{array} \right\}}
+
+\DeclareMathOperator{\sen}{sen}
+\DeclareMathOperator{\senh}{senh}
+\DeclareMathOperator{\cotg}{cotg}
+\DeclareMathOperator{\Real}{Re}
+\DeclareMathOperator{\Imag}{Im}
+\DeclareMathOperator{\Si}{Si}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\erfc}{erfc}
+\DeclareMathOperator{\cosech}{cosech}

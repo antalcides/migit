@@ -1,0 +1,275 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0088)http://mailweb.udlap.mx/~ccastane/Analisis_Numerico_html/Unidad3_html/Sub3_2/Sub3-2.html -->
+<HTML><HEAD><TITLE>3</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR>
+<META content="Mozilla/4.51 (Macintosh; I; PPC) [Netscape]" 
+name=GENERATOR></HEAD>
+<BODY background=3_archivos/lblue062.gif>
+<HR width="100%">
+<BR><A name=3_2></A><BR><B><FONT face=Times><FONT size=+1>3.2 INTERPOLACION 
+LINEAL INVERSA O FALSA</FONT></FONT></B> 
+<P><B><FONT face=Times><FONT size=+1>POSICION Y METODO DE LA 
+SECANTE</FONT></FONT></B> <BR>
+<HR width="100%">
+<BR><A name=3_2_1></A><BR><B><FONT face=Times>3.2.1 Método de la Interpolación 
+Lineal Inversa o Método de la falsa posición.</FONT></B> 
+<P>&nbsp;&nbsp;&nbsp; Se trata de encontrar la raíz de una ecuación. La ecuación 
+tiene la forma f(x), es decir, es una función de x. Además, f(x) esta definida 
+en el intervalo [a,b]. 
+<DIR>
+<DIR>
+<CENTER><IMG height=206 src="3_archivos/Image1.gif" width=277> 
+<P><B>Figura 3.5.- Intervalo de f(x).</B></CENTER>
+<P><BR></P></DIR></DIR>El método de la interpolación lineal inversa, requiere 
+varias condiciones: <BR>1.- f(a)*f(b) &lt; 0 <BR>&nbsp;&nbsp;&nbsp; Es decir, 
+que el producto de la función de x, f(x), evaluada en a, f(a), multiplicada por 
+la función de x, f(x), evaluada en b, f(b), sea negativo (menor a cero). <BR>2.- 
+Que la función f(x) se aproxime por otra función L(x). 
+<CENTER>
+<P>f(x) es aproximadamente igual a L(x)</CENTER>Donde L(x) es: <BR>L(x) = f(a) + 
+(x-a)*S <BR>Donde: S=Pendiente <BR>S= [f(b)-f(a)] / (b-a) <BR><FONT 
+face=Symbol>\</FONT> L(x) = f(a) + (x-a) *[(f(b)-f(a)) / (b-a)] 
+<BR>&nbsp;&nbsp;&nbsp; De lo que en realidad se trata es de que L(x) sea igual a 
+cero para cuando x sea igual a la raíz que se busca, o sea cuando x=C. 
+L(x)=L(C)=0 <BR><IMG height=276 src="3_archivos/Image2.gif" width=316> 
+<BR>&nbsp;&nbsp;&nbsp; Sin embargo como hicimos L(x)=0 para cuando x=C, es decir 
+cuando x sea igual a la raíz que se anda buscando, entonces la ecuación de 
+arriba se debe de escribir como: 
+<CENTER>
+<P><IMG height=30 src="3_archivos/Image3.gif" width=85> donde C es la raíz que 
+se anda buscando</CENTER>&nbsp;&nbsp;&nbsp; Después se calcula f(C) para ver su 
+valor. Si se obtiene cero, no se debe avanzar más, pero en caso de no ser así, 
+se realiza lo siguiente: <BR>&nbsp;&nbsp;&nbsp; Se calcula f(C)*f(a) si este 
+producto es menor a cero (negativo), entonces ahora C equivaldrá a b, y se 
+repite el cálculo para encontrar una nueva C. <BR>&nbsp;&nbsp;&nbsp; En el caso 
+de que f(C)*f(b) sea la que haya dado el producto menor a cero, o sea negativo, 
+entonces ahora a equivaldrá a c, y se repite el cálculo para encontrar una nueva 
+C. <BR>&nbsp;&nbsp;&nbsp; A este método, se le conoce como: Método de la falsa 
+posición. 
+<CENTER>
+<P><IMG height=429 src="3_archivos/Image4.gif" width=319> 
+<P><B>Figura 3.6.- Multiplicación de funciones.</B></CENTER>
+<P>Ejercicio: <BR>Encontrar la raíz de f(x)=cosx por el método de la falsa 
+posición en el intervalo [1,2] y <FONT face=Symbol>x</FONT> =0.001. 
+<P>Solución: <BR>a=1, b=2 <BR>f(a=1)=cos 1 = 0.5403 <BR>f(b=2)=cos 2 = -0.4161 
+<BR>f(a)*f(b) &lt; 0 <BR>(0.5403)*(-0.4161) &lt; 0 si <FONT face=Symbol>?</FONT> 
+hay raíz <BR>C_ant= 99999 para arrancar <BR>Itera=0 <BR><FONT 
+face=Symbol>x</FONT> = 0.001 <BR>Encontrado= False <BR>
+<HR width="100%">
+<BR>fa=f(a=1)=0.5403 <BR>fb=f(b=2)=-0.4161 <BR><IMG height=31 
+src="3_archivos/Image5.gif" width=270> <BR><B>f</B><SUB><FONT 
+face=Geneva>c</FONT></SUB><FONT face=Times>=f(C</FONT><SUB><FONT 
+face="Teletext,Courier New">act</FONT></SUB><FONT face=Times>=1.5649)= 
+cos(1.5649)= 0.005896</FONT> <BR><FONT face=Times>f(C</FONT><SUB><FONT 
+face="Teletext,Courier New">act</FONT></SUB><FONT face=Times>)= 0.005896 ¿no es 
+igual a 0? no</FONT> <BR><FONT face=Times>ERA (C</FONT><SUB><FONT 
+face="Teletext,Courier New">act</FONT></SUB><FONT face=Times>=1.5649, C_ant = 
+99999)= 1.5649 - 99999 / 1.5649 </FONT><FONT face=Symbol>?</FONT><FONT 
+face=Times> no es menor a </FONT><FONT face=Symbol>x</FONT> <BR><FONT 
+face=Times>fC*f(a) &lt; 0</FONT> <BR><FONT face=Times>(0.005896)*(0.5403) 
+</FONT><FONT face=Symbol>?</FONT><FONT face=Times> es diferente a cero 
+</FONT><FONT face=Symbol>\</FONT> <BR><FONT face=Times>a = C</FONT><SUB><FONT 
+face="Teletext,Courier New">act</FONT></SUB><FONT face=Times>= 1.5649</FONT> 
+<BR><FONT face=Times>b = 2</FONT> <BR><FONT face=Times>Itera = 1</FONT> 
+<BR><FONT face=Times>C_ant &lt;-- C</FONT><SUB><FONT 
+face="Teletext,Courier New">act</FONT></SUB><FONT face=Times> = 1.5649</FONT> 
+<BR>
+<HR width="100%">
+<BR><FONT face=Times>fa=f(a=1.5649)=0.005896</FONT> <BR><FONT 
+face=Times>fb=f(b=2)= -0.4161</FONT> <BR><IMG height=29 
+src="3_archivos/Image6.gif" width=234> <BR><FONT face=Times>f(C</FONT><SUB><FONT 
+face="Teletext,Courier New">act</FONT></SUB><FONT face=Times>=1.5709)= 
+cos(1.5709)= - 0.0001036</FONT> <BR><FONT face=Times>f(C)= - 0.0001036 no es 
+igual a 0</FONT> <BR><FONT face=Times>ERA (C_<SUB>act</SUB>=1.5709, C_ant = 
+1.5649)= (1.5709 - 1.5649) / 1.5709 = 0.0038194 </FONT><FONT 
+face=Symbol>?</FONT><FONT face=Times> no es menor a </FONT><FONT 
+face=Symbol>x</FONT> <BR><FONT face=Times>fC*f(a) &lt; 0</FONT> <BR><FONT 
+face=Times>(-0.0001036)*(0.005896) </FONT><FONT face=Symbol>?</FONT><FONT 
+face=Times> sí es menor a cero </FONT><FONT face=Symbol>\</FONT> <BR><FONT 
+face=Times>a = a =1.5649</FONT> <BR><FONT face=Times>b = C</FONT><SUB><FONT 
+face="Teletext,Courier New">act</FONT></SUB><FONT face=Times> = 1.5709</FONT> 
+<BR><FONT face=Times>Itera = 2</FONT> <BR><FONT face=Times>C_ant = 1.5709</FONT> 
+<BR>
+<HR width="100%">
+<BR><FONT face=Times>f(a=1.5649) = 0.005896</FONT> <BR><FONT 
+face=Times>f(b=1.5709)=cos 1.5709 = -0.0001036</FONT> <BR><IMG height=29 
+src="3_archivos/Image7.gif" width=278> <BR><FONT face=Times>f(C</FONT><SUB><FONT 
+face="Teletext,Courier New">act</FONT></SUB><FONT face=Times>=1.5707)=cos 
+(1.5707)= -0.00000006629</FONT> <BR><FONT face=Times>f(C</FONT><SUB><FONT 
+face="Teletext,Courier New">act</FONT></SUB><FONT face=Times>)*f(a) ¿ es igual? 
+no</FONT> <BR><IMG height=35 src="3_archivos/Image8.gif" width=503><FONT 
+face=Times>Raíz = 1.5707</FONT> 
+<P><FONT face=Times>Tarea:</FONT> <BR><FONT face=Times>1) Sea 
+f(x)=x<SUP>2</SUP>-6 con [2,3] encontrar la raíz por el método de la falsa 
+posición con </FONT><FONT face=Symbol>x</FONT><FONT face=Times> =0.001.</FONT> 
+<BR><FONT face=Times>R= 2.45454</FONT> <BR>&nbsp; <BR>&nbsp; <BR>&nbsp; 
+<BR>&nbsp; 
+<DIR>
+<DIR>
+<CENTER><IMG height=543 src="3_archivos/Image9.gif" width=392> 
+<P><FONT face=Times>Figura 3.7.- Diagramas de flujo de la Interpolación lineal 
+inversa</FONT></CENTER>
+<P><BR><A 
+href="http://mailweb.udlap.mx/~ccastane/Analisis_Numerico_html/Lindley.html#Regreso_3"></A></P></DIR></DIR><FONT 
+face=Times><A 
+href="http://mailweb.udlap.mx/~ccastane/Analisis_Numerico_html/Lindley.html#Regreso_3">Regreso 
+a la página principal.</A></FONT> <BR>&nbsp; 
+<P>
+<HR width="100%">
+<BR><A name=3_2_2></A><BR><B><FONT face=Times>3.2.2 Método de la 
+secante</FONT></B> 
+<CENTER>
+<P><IMG height=35 src="3_archivos/Image10.gif" width=138></CENTER><FONT 
+face=Times>Donde j = representa el número de iteraciones</FONT> 
+<CENTER>
+<P><IMG height=196 src="3_archivos/Image11.gif" width=465></CENTER>
+<DIR>
+<DIR>
+<CENTER><FONT face=Times>Figura 3.8.- Método de la secante</FONT></CENTER>
+<P><BR></P></DIR></DIR><FONT face=Times>Ejemplo:</FONT> 
+<P><FONT face=Times>&nbsp;&nbsp;&nbsp; Calcular la raíz por el método de la 
+secante de f(x)=cos x - x dentro del intervalo de 0 a 1con </FONT><FONT 
+face=Symbol>x</FONT><FONT face=Times> =0.001.Para aplicar este método, se supone 
+desde luego que debe de existir una raíz dentro del intervalo planteado por el 
+problema.</FONT> <BR><FONT face=Times>&nbsp;&nbsp;&nbsp; Para usar el método de 
+la secante, se toma como x<SUB>1</SUB> el límite inferior y como x<SUB>2</SUB> 
+el límite superior. x<SUB>3</SUB> será el primer valor calculado por el método 
+de la secante.</FONT> <BR><FONT face=Times>x<SUB>1</SUB>=0</FONT> <BR><FONT 
+face=Times>x<SUB>2</SUB>=1</FONT> <BR><FONT face=Times>x<SUB>3</SUB>= Primer 
+valor calculado por el método de la secante</FONT> 
+<P><FONT face=Times>Solución:</FONT> <BR><FONT face=Times>x<SUB>1</SUB>=0</FONT> 
+<BR><FONT face=Times>x<SUB>2</SUB>=1</FONT> <BR><FONT 
+face=Times>f(x<SUB>1</SUB>=0)*f(x<SUB>2</SUB>=1) &lt; 0 sí </FONT><FONT 
+face=Symbol>?</FONT><FONT face=Times> hay raíz</FONT> <BR><FONT 
+face=Times>Encontrado = False</FONT> <BR><FONT face=Times>J=0 (Itera)</FONT> 
+<BR><FONT face=Symbol>x</FONT><FONT face=Times> = 0.001</FONT> <BR><FONT 
+face=Times>fx<SUB>1</SUB> = f(x<SUB>1</SUB>=0)=cos 0-0 = 1</FONT> <BR><FONT 
+face=Times>fx<SUB>2</SUB> = f(x<SUB>2</SUB>=1)=cos 1- 1= -0.4596</FONT> <BR><IMG 
+height=32 src="3_archivos/Image12.gif" width=257> <BR><FONT 
+face=Times>fx<SUB>3</SUB> = f(x<SUB>3</SUB>=0.6850) = cos 0.6850 - 0.6850 = 
+0.08937</FONT> <BR><FONT face=Times>f(x<SUB>3</SUB>) ¿ es igual a cero? O no es 
+igual a 0</FONT> <BR><FONT face=Times>ERA (x<SUB>3</SUB>,x<SUB>2</SUB>) &lt; 
+</FONT><FONT face=Symbol>x</FONT> <BR><IMG height=30 
+src="3_archivos/Image13.gif" width=142> <BR><FONT face=Times>x<SUB>1</SUB> 
+&lt;-- x<SUB>2</SUB>=1</FONT> <BR><FONT face=Times>x<SUB>2</SUB> &lt;-- 
+x<SUB>3</SUB>=0.6850</FONT> <BR><FONT face=Times>J &lt;-- J+1=1</FONT> <BR><FONT 
+face=Times>fx<SUB>1</SUB> = f(x<SUB>1</SUB>=1) = -0.4596</FONT> <BR><FONT 
+face=Times>fx<SUB>2</SUB> = f(x<SUB>2</SUB>=0.685) = 0.08937</FONT> <BR><IMG 
+height=31 src="3_archivos/Image14.gif" width=214> <BR><FONT 
+face=Times>fx<SUB>3</SUB> = f(x<SUB>3</SUB>=0.7362) = cos 0.7362 - 0.7362 = 
+0.004825</FONT> <BR><FONT face=Times>f(x<SUB>3</SUB>) ¿ es igual a cero? O no es 
+igual a 0</FONT> <BR><FONT face=Times>ERA (x<SUB>3</SUB>=0.7362, 
+x<SUB>2</SUB>=0.6850) &lt; </FONT><FONT face=Symbol>x</FONT> <BR><IMG height=31 
+src="3_archivos/Image15.gif" width=172> <BR><FONT face=Times>x<SUB>1</SUB> 
+&lt;-- x<SUB>2</SUB>=0.6850</FONT> <BR><FONT face=Times>x<SUB>2 </SUB>&lt;-- 
+x<SUB>3</SUB>=0.7362</FONT> <BR><FONT face=Times>J &lt;-- J+1=2</FONT> <BR><FONT 
+face=Times>fx<SUB>1</SUB> = f(x<SUB>1</SUB>=0.6850) = 0.08937</FONT> <BR><FONT 
+face=Times>fx<SUB>2</SUB> = f(x<SUB>2</SUB>=0.7362) = 0.004825</FONT> <BR><IMG 
+height=33 src="3_archivos/Image16.gif" width=287> <BR><FONT 
+face=Times>fx<SUB>3</SUB> = f(x<SUB>3</SUB>=0.7391) = cos 0.7391 - 0.7391 = 
+-0.000024</FONT> <BR><FONT face=Times>f(x<SUB>3</SUB>) ¿es igual a cero? O no es 
+igual a 0</FONT> <BR><FONT face=Times>ERA (x<SUB>3</SUB>=0.7391, 
+x<SUB>2</SUB>=0.7362) no es menor a </FONT><FONT face=Symbol>x</FONT> <BR><IMG 
+height=30 src="3_archivos/Image17.gif" width=183> <BR><FONT 
+face=Times>x<SUB>1</SUB> &lt;-- x<SUB>2</SUB>=0.7362</FONT> <BR><FONT 
+face=Times>x<SUB>2</SUB> &lt;-- x<SUB>3</SUB>=0.7391</FONT> <BR><FONT 
+face=Times>J &lt;-- J+1=3</FONT> <BR><FONT face=Times>fx<SUB>1</SUB> = 
+f(x<SUB>1</SUB>=0.7362) = 0.004825</FONT> <BR><FONT face=Times>fx<SUB>2</SUB> = 
+f(x<SUB>2</SUB>=0.7391) = -0.000024</FONT> <BR><IMG height=29 
+src="3_archivos/Image18.gif" width=267> <BR><FONT face=Times>fx<SUB>3</SUB> = 
+f(x<SUB>3</SUB>=0.7390) = cos 0.7390 - 0.7390 = 0.0001424</FONT> <BR><FONT 
+face=Times>f(x<SUB>3</SUB>) ¿es igual a cero? O no es igual a 0</FONT> <BR><FONT 
+face=Times>ERA (x<SUB>3</SUB>=0.7390, x<SUB>2</SUB>=0.7391) es menor a 
+</FONT><FONT face=Symbol>x</FONT> <BR><IMG height=35 
+src="3_archivos/Image19.gif" width=264><FONT face=Times> &lt; </FONT><FONT 
+face=Symbol>x</FONT><FONT face=Times> si</FONT> <BR><FONT 
+face=Symbol>\</FONT><FONT face=Times> Raíz = 0.7390</FONT> 
+<P><FONT face=Times>Tarea:</FONT> 
+<P><FONT face=Times>Ejercicios</FONT> <BR><FONT face=Times>1) Sea f(x) = 
+x<SUP>2</SUP> - 6 con x<SUB>o</SUB>=3 y x<SUB>1</SUB>=2 encuentre x<SUB>3</SUB>. 
+Aplicar el método de secante con </FONT><FONT face=Symbol>x</FONT><FONT 
+face=Times> =0.001. (Raíz = 2.45454)</FONT> <BR><FONT face=Times>2) Sea f(x) = 
+x<SUP>3</SUP> - cos x con x<SUB>1</SUB>= -1 y x<SUB>2</SUB> = 0 encontrar 
+x<SUB>3</SUB> con el método de la secante. Probar para J=1,2,3 (3 
+iteraciones).</FONT> <BR>&nbsp; 
+<P><FONT face=Times>A continuación se presenta el procedimiento a seguir en 
+Turbo Pascal.</FONT> 
+<P><FONT face=Times>Procedure Secante( x<SUB>1</SUB>, x<SUB>2</SUB> : 
+real)</FONT> <BR><FONT face=Times>Var</FONT> <BR><FONT 
+face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; J,maxItera:byte;</FONT> 
+<BR><FONT face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Epsilon, 
+x<SUB>3</SUB>, fx, fx<SUB>2</SUB>, fx<SUB>3</SUB>:real;</FONT> <BR><FONT 
+face=Times>Begin</FONT> <BR><FONT 
+face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If 
+f(x<SUB>1</SUB>)*f(x<SUB>2</SUB>) &lt; 0</FONT> <BR><FONT 
+face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Then</FONT> <BR><FONT 
+face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Begin</FONT> 
+<BR><FONT 
+face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Encontrado:= False;</FONT> <BR><FONT 
+face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+J:= 0;</FONT> <BR><FONT 
+face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Epsilon := 0.001;</FONT> <BR><FONT 
+face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+maxItera:=10;</FONT> <BR><FONT 
+face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Repeat</FONT> <BR><FONT 
+face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+fx1 &lt;-- f(x<SUB>1</SUB>);</FONT> <BR><FONT 
+face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+fx2 &lt;-- f(x<SUB>2</SUB>);</FONT> <BR><FONT 
+face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+x3 &lt;-- (x<SUB>1</SUB>*f(x<SUB>2</SUB>) - x<SUB>2</SUB>*f(x<SUB>1</SUB>) / 
+(fx<SUB>2</SUB> - fx<SUB>1</SUB>);</FONT> <BR><FONT 
+face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+fx3 &lt;-- f(x<SUB>3</SUB>)</FONT> <BR><FONT 
+face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+If fx3=0</FONT> <BR><FONT 
+face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Then</FONT> <BR><FONT 
+face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Encontrado := True</FONT> <BR><FONT 
+face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Else</FONT> <BR><FONT 
+face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+If ERA (x<SUB>3</SUB>,x<SUB>2</SUB>) &lt; Epsilon</FONT> <BR><FONT 
+face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Then</FONT> <BR><FONT 
+face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Encontrado :=True</FONT> <BR><FONT 
+face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Else</FONT> <BR><FONT 
+face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Begin</FONT> <BR><FONT 
+face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+x<SUB>1</SUB> &lt;-- x<SUB>2</SUB></FONT> <BR><FONT 
+face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+x<SUB>2</SUB> &lt;-- x<SUB>3</SUB></FONT> <BR><FONT 
+face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+End;</FONT> <BR><FONT 
+face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Inc (J)</FONT> 
+<P><FONT 
+face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Until (J &gt;maxItera) or Encontrado;</FONT> <BR><FONT 
+face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Writeln (‘La raíz = ‘,x<SUB>3</SUB>)</FONT> <BR><FONT 
+face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+End</FONT> <BR><FONT 
+face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Else</FONT> <BR><FONT 
+face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Writeln(‘No hay raíz‘);</FONT> <BR><FONT 
+face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Readln</FONT> <BR><FONT 
+face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End;</FONT> 
+<P><FONT face=Times>Function f(x : real): real</FONT> <BR><FONT 
+face=Times>Begin</FONT> <BR><FONT 
+face=Times>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; f:= cos (x) + x</FONT> 
+<BR><FONT face=Times>End;</FONT> <BR>&nbsp; 
+<P><A 
+href="http://mailweb.udlap.mx/~ccastane/Analisis_Numerico_html/Lindley.html#Regreso_3">Regreso 
+a la página principal.</A> <BR>&nbsp; <BR>&nbsp; <BR>&nbsp; <BR>&nbsp; 
+<BR>&nbsp; </P></BODY></HTML>

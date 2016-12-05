@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0056)http://garota.fismat.umich.mx/mn1/tutor_fort/common.html -->
+<HTML><HEAD><TITLE>Tutorial de Fortran</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY background="Tutorial de Fortranb_archivos/default.gif">
+<HR>
+&nbsp;[15. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/arrays2.html">Arreglos en 
+subprogramas </A>] &nbsp;[<A 
+href="http://fismat.umich.mx/mn1/tutor_fort/index.html">Tutorial de Fortran</A>] 
+&nbsp;[17. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/data.html">Datos y bloques de 
+datos </A>] 
+<HR>
+
+<H2>16. Bloques Comunes</H2>Fortran 77 no tiene variables tipo <EM>global</EM>, 
+es decir, variables que se compartan en varias unidades del programa 
+(subrutinas). La única forma para pasar información entre subrutinas ya se ha 
+visto previamente, y es usando una lista de parámetros en la subrutina. Algunas 
+veces es inconveniente, por ejemplo cuando muchas subrutinas comparten un 
+conjunto grandes de parámetros. En tales casos se puede usar un <EM>bloque común 
+(common block)</EM>. Esta es una forma para indicar que ciertas variables 
+podrían compartirse en ciertas subrutinas. Se recomienda en lo general, 
+minimizar el uso de bloques comunes en los programas. 
+<P>
+<H3>Ejemplo</H3>Supongamos que se tienen dos parámetros <EM>alpha</EM> y 
+<EM>beta</EM>, los cuales son usados por varias subrutinas. El siguiente ejemplo 
+muestra como puede hacerse usando bloques comunes. <PRE>      program main
+         <EM>algunas declaraciones</EM>
+         real alpha, beta
+         common /coeff/ alpha, beta
+
+         <EM>sentencias</EM>
+         stop
+      end
+
+      subroutine sub1 (<EM>algunos argumentos</EM>)
+         <EM>declaraciones de argumentos</EM>
+         real alpha, beta
+         common /coeff/ alpha, beta
+
+         <EM>sentencias</EM>
+         return
+      end
+
+      subroutine sub2 (<EM>algunos argumentos</EM>)
+         <EM>declaraciones de argumentos</EM>
+         real alpha, beta
+         common /coeff/ alpha, beta
+
+         <EM>sentencias</EM>
+         return
+      end
+</PRE>En el código anterior se ha definido un bloque común con el nombre 
+<TT>coeff</TT>. El contenido del bloque común son las dos variables 
+<TT>alpha</TT> y <TT>beta</TT>. Un bloque común puede contener todas la 
+variables que se deseen, no se necesita que todas sean del mismo tipo. Cada 
+subrutina que quiere usar algunas de las variables del bloque común, tiene que 
+declarar todo el bloque. 
+<P>Se observa que en este ejemplo se pudo haber evitado fácilmente los bloques 
+comunes, pasando <EM>alpha</EM> y <EM>beta</EM> como argumentos. Una buena regla 
+es tratar de evitar los bloques comunes si es posible. Hay pocos casos donde no 
+es posible hacerlo. 
+<P>
+<H3>Sintaxis</H3><PRE>      common / <EM>nombre</EM> / <EM>lista_de_variables</EM>
+</PRE>Se debe tener presente que 
+<UL>
+  <LI>La sentencia <TT>common</TT> deberá aparecer junto a las declaraciones de 
+  variables, es decir antes de las sentencias de ejecución. 
+  <LI>A bloques comunes diferentes deberán corresponderles nombres diferentes 
+  (como se hace con las variables). Las variables pueden pertenecer a más de un 
+  bloque común. 
+  <LI>Las variables en un bloque común no necesitan tener los mismos nombres que 
+  tienen en el lugar que ocurren (sin embargo no es mala idea hacerlo), pero si 
+  deberán aparecer en el mismo orden y con el mismo tipo. </LI></UL>Para mostrar 
+lo anterior, se puede ver el siguiente ejemplo: <PRE>      subroutine sub3 (<EM>algunos argumentos</EM>)
+&nbsp;        <EM>declaraciones de argumentos</EM>
+         real a, b
+         common /coeff/ a, b
+
+         <EM>sentencias</EM>
+         return
+      end
+</PRE>Esta declaración es equivalente a la de la versión previa donde fue usada 
+<TT>alpha</TT> y <TT>beta</TT>. Se recomienda que siempre se use el mismo nombre 
+de la variable que aparece en el bloque común, para evitar confusión. Se muestra 
+un ejemplo de algo que no debe hacerse: <PRE>      subroutine sub4 (<EM>algunos argumentos</EM>)
+&nbsp;        <EM>declaraciones de argumentos</EM>
+         real alpha, beta
+         common /coeff/ beta, alpha
+
+         <EM>sentencias</EM>
+         return
+      end
+</PRE>Ahora <EM>alpha</EM> es la <EM>beta</EM> del programa principal y 
+viceversa. Si se ve algo como lo anterior, es probable que se tenga un error de 
+lógica. Tales errores son muy difíciles de encontrar. 
+<P>
+<H3>Arreglos en Bloques Comunes</H3>Los bloques comunes pueden incluir arreglos 
+también, pero nuevamente no es recomendado, la razón principal es por 
+flexibilidad. Un ejemplo que muestra porque es una mala idea. Suponiendo que se 
+tienen las siguientes declaraciones en el programa main: <PRE>      program main
+         integer nmax
+         parameter (nmax=20)
+         integer n
+         real A(nmax, nmax)
+         common /matriz/ A, n, nmax
+</PRE>Este bloque común contiene todos los elementos de A, y los enteros 
+<EM>n</EM> y <EM>nmax</EM>. Supongamos que se quiere usar la matriz A en algunas 
+subrutinas. Entonces se tiene que incluir la misma declaración en todas las 
+subrutinas, por ejemplo: <PRE>      subroutine sub1 (...)
+         integer nmax
+         parameter (nmax=20)
+         integer n
+         real A(nmax, nmax)
+         common /matriz/ A, n, nmax
+</PRE>Los arreglos con dimensiones variables no pueden aparecer en bloques 
+comunes, por lo tanto el valor de <EM>nmax</EM> tiene que ser exactamente el 
+mismo que el del programa principal. Recordar que el tamaño de la matriz tiene 
+que ser conocido en tiempo de compilación, por eso <EM>nmax</EM> pertenece al 
+bloque común, pero esto sera ilegal. 
+<P>El ejemplo muestra que no hay ganancia poniendo arreglos en bloques comunes. 
+Por lo que el método preferido en Fortran 77 es pasar arreglos como argumentos a 
+las subrutinas ( junto con las dimensiones principales). 
+<P>
+<HR>
+
+<H3>Ejercicios</H3>
+<DL>
+  <DT>Ejercicio A 
+  <DD>Reescribir el siguiente programa y subprograma de tal forma que no se usen 
+  bloques comunes. Conservar la estructura global. <PRE>      program main
+         real origo(3), x(3)
+         real d, dist
+         common /inutil/ origo
+      
+         read(*,*) origo(1), origo(2), origo(3)
+  10  continue
+         read(*,*) x(1), x(2), x(3)
+         d = dist(x)
+         write(*,*) 'La distancia es ', d
+      if (x(1) .ge. 0.0) goto 10
+
+         stop
+      end
+      
+      real function dist (x)
+         real x(3)
+         real x0, y0, z0
+         common /inutil/ x0, y0, z0
+
+         dist = sqrt((x(1)-x0)**2 + (x(2)-y0)**2 + (x(3)-z0)**2)
+
+         return
+      end
+</PRE>
+  <P></P></DD></DL>
+<HR>
+&nbsp;[15. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/arrays2.html">Arreglos en 
+subprogramas </A>] &nbsp;[<A 
+href="http://fismat.umich.mx/mn1/tutor_fort/index.html">Tutorial de Fortran</A>] 
+&nbsp;[17. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/data.html">Datos y bloques de 
+datos </A>] </BODY></HTML>

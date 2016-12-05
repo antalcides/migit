@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0080)http://www.sc.ehu.es/sbweb/fisica/cursoJava/numerico/integracion/integracion.htm -->
+<HTML><HEAD><TITLE>Integración numérica</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY>
+<H1 align=center>Integración numérica</H1>
+<P align=left><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/numerico/ejemplos.htm"><IMG 
+height=40 alt="chapter.gif (1105 bytes)" 
+src="Integración numérica1_archivos/chapter.gif" width=49></A><B><A 
+href="http://www.sc.ehu.es/sbweb/fisica/curso.htm"><IMG height=40 
+alt="home.gif (1232 bytes)" src="Integración numérica1_archivos/home.gif" 
+width=49></A><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/numerico/integracion/trapecio/trapecio.htm"><IMG 
+height=40 alt="next.gif (1211 bytes)" 
+src="Integración numérica1_archivos/next.gif" width=49></A></P></B>
+<P align=left><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/numerico/integracion/trapecio/trapecio.htm">El 
+método de los trapecios</A></P>
+<P align=left><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/numerico/integracion/simpson/simpson.htm">El 
+método de Simpson</A></P>
+<P align=left><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/numerico/integracion/fourier/fourier.htm">Análisis 
+de Fourier de una función periódica</A></P>
+<HR>
+
+<P>Pasaremos ahora al estudio de los procedimientos numéricos para hallar una 
+integral definida. Comenzaremos por el procedimiento más simple denominado de 
+los trapecios, y describiremos otro procedimiento más elaborado denominado de 
+Simpson, que produce muy buenos resultados con un poco más de código. 
+Terminaremos esta serie con una aplicación de la integración numérica al cálculo 
+de los <A 
+href="http://www.sc.ehu.es/sbweb/fisica/ondas/fourier/Fourier.html">coeficientes 
+de Fourier de una función periódica</A>, que tanta importancia tienen en las 
+Matemáticas, la Física y la Ingeniería.</P>
+<P>&nbsp;</P>
+<H3 align=left><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/numerico/integracion/trapecio/trapecio.htm">El 
+método de los trapecios</A></H3>
+<H3 align=left><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/numerico/integracion/simpson/simpson.htm">El 
+método de Simpson</A></H3>
+<P>Seguiremos el modelo adoptado para codificar el procedimiento para hallar las 
+<A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/numerico/raices/aproximaciones/aproximaciones.htm#La clase que describe el procedimiento">raíces 
+de una ecuación trascendente</A>. Crearemos una clase base abstracta con una 
+función miembro que describe el procedimiento numérico, y una clase derivada que 
+definirá la función a integrar. Para calcular la integral definida, crearemos un 
+objeto de la clase derivada y llamaremos desde éste al procedimiento numérico, 
+pasándole el principio y final del intervalo y el número de divisiones.</P>
+<P>Recordaremos brevemente, el concepto de integral definida antes de introducir 
+los métodos numéricos: si una función <I>f(x)</I> es continua en el intervalo 
+<I>[a,b]</I> y conocemos la función primitiva <I>F(x)</I>, la integral definida 
+de esta función de <I>a</I> a <I>b</I> se puede calcular mediante la 
+fórmula.</P>
+<P><IMG height=34 src="Integración numérica1_archivos/Image167.gif" 
+width=160></P>
+<P>Sin embargo, en muchos casos la función primitiva <I>F(x)</I> no puede 
+hallarse por medios elementales o resulta muy complicado, o bien, por que la 
+función <I>f(x)</I> viene especificada en forma tabular y entonces el concepto 
+de función primitiva carece de sentido. En estos casos, se recurre a sustituir 
+la función dada por un polinomio cuya función primitiva es fácil de calcular y 
+de esta forma se obtiene el valor aproximado de la integral de la función 
+<I>f(x)</I> extendida al intervalo <I>[a, b]</I>.</P>
+<P>&nbsp;</P>
+<H3 align=left><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/numerico/integracion/fourier/fourier.htm">Análisis 
+de Fourier de una función periódica</A></H3>
+<P>La aproximación de una función periódica mediante una suma de armónicos es un 
+problema importante en las Matemáticas, la Física y las Ingenierías, baste citar 
+todos los fenómenos vibratorios, ondulatorios que son fundamento de la acústica, 
+de las telecomunicaciones, etc.</P></BODY></HTML>

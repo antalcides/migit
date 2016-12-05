@@ -1,0 +1,14 @@
+package integral1;
+
+public class IntegralApp {
+    public static void main(String[] args) {
+        double resultado=new Funcion().integral(0.0, Math.PI/2, 10);
+        System.out.println("integral "+resultado);
+
+        try  {
+//espera la pulsación de una tecla y luego RETORNO
+            System.in.read();
+        }catch (Exception e) {  }
+    }
+}
+

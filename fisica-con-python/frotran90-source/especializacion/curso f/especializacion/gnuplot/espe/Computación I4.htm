@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0068)http://www.dcc.uchile.cl/~lmateu/CC10A99/Apuntes/archivos/index.html -->
+<HTML><HEAD><TITLE>Computación I</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY><RIGHT><EM>Lunes 19 de Abril</EM> </RIGHT>
+<CENTER>
+<H3>Archivos</H3>
+<P></CENTER>Objetivos: Mostrar cómo se pueden escribir y leer datos en archivos.
+<P>Temas:
+<P>
+<UL>
+  <LI>Clases TextWriter y TextReader. 
+  <LI>Lectura de un archivo por campos por medio de la clase FieldParser. 
+</LI></UL>
+<HR>
+
+<P><EM>Motivación.</EM>
+<P>Un vendedor desea crear una <EM>base de datos</EM> con los productos que 
+vende, las unidades disponibles y sus precios, con el propósito de no vender 
+productos que no están en bodega y no vender a precios equivocados.
+<P>El lugar lógico en donde almacenar esta base de datos es en un archivo en 
+disco. Esta información no se puede tener permanentemente en la memoria del 
+computador, porque (i) se borra cuando se apaga el computador, y (ii) su tamaño 
+es limitado (típicamente unos 64 megabytes, que equivalen a 1024*1024 bytes).
+<P>En cambio, el disco permite almacenar datos en forma (i) permanente o 
+persitente (no se borra al apagar el computador), y (ii) masiva (típicamente 
+unos 4 gigabytes, que equivalen a 4096 megabytes).
+<P>Desventaja del disco: la manipulación de datos en disco es mucho más lenta 
+que en la memoria del computador.
+<P>
+<H4>Escritura de Archivos</H4>
+<P>En este curso crearemos archivos mediante la clase TextWriter y podremos leer 
+su contenido mediante la clase TextReader. Por ejemplo, consideremos un programa 
+que escribe un archivo con nombres de productos que ingresa el usuario. El 
+diálogo entre programa y usuario será:
+<P><SAMPLE><PRE>    producto ? <U>jabon Lux</U>
+    producto ? <U>pasta de dientes Odontine</U>
+    producto ? ...
+</PRE></SAMPLE>El programa debe escribir el archivo ``productos.txt'' de tal 
+forma que su contenido al editarlo con NotePad o WordPad sea el siguiente: 
+<SAMPLE><PRE>    jabon Lux
+    pasta de dientes Odontine
+    ...
+</PRE></SAMPLE>El programa que realiza este diálogo y escribe el archivo es el 
+siguiente:
+<P><CODE><PRE>    <B>TextWriter escr= new TextWriter("producto.txt");</B>
+    print("Ingrese el nombre de un producto: ");
+    String prod= readLine();
+    while (compare(prod,"fin")!=0) {
+      <B>escr.println(prod);</B>
+      print("Ingrese el nombre de un producto: ");
+      prod= readLine();
+    }
+    <B>escr.close();</B>
+</PRE></CODE>En la primera línea el programa fabrica/construye un objeto 
+escritor del archivo ``productos.txt''. Este objeto es la clase TextWriter. Se 
+indica como argumento el nombre del archivo que se va a escribir. El objeto 
+construido queda referenciado por la variable escr, y con él se pueden realizar 
+las siguientes operaciones:
+<P>
+<UL>
+  <LI>escr.print(...) o escr.println(...): Ordena a escr escribir los argumentos 
+  en el archivo, de la misma forma que los procedimientos print(...) y 
+  println(...) despliegan datos en pantalla, con la diferencia que los datos se 
+  escriben en el archivo.
+  <P>El objeto escr no escribe los datos de inmediato en el disco, si no que 
+  espera a formar un lote grande y luego escribirlos en conjunto. Esto resulta 
+  más rápido que escribirlos de a uno, porque escribir un byte en disco toma el 
+  mismo tiempo que escribir 4 kilobytes.
+  <P></P>
+  <LI>escr.close(): ordena a escr concluir la escritura del archivo.
+  <P>Después de invocar close() no es posible volver a escribir con el objeto 
+  escr.
+  <P>(Se puede escribir más datos en productos.txt, pero construyento otro 
+  objeto.)
+  <P></P></LI></UL>
+<HR>
+
+<H4>Lectura de un archivo</H4>Se desea escribir un programa que despliegue en 
+pantalla los productos almacenados en el archivo ``productos.txt''. El programa 
+es:
+<P><CODE><PRE>    <B>TextReader lect= new TextReader("productos.txt");</B>
+    String prod= <B>lect.readLine()</B>;
+    while ( ! <B>lect.eofReached()</B> ) {
+      println(prod);
+      prod= <B>lect.readLine()</B>;
+    }
+    <B>lect.close()</B>;
+</PRE></CODE>En la primera línea se fabrica un objeto lector del archivo 
+``productos.txt''. El objeto es de la clase TextReader y queda referenciado por 
+la variable lect. Con él se pueden realizar las siguientes operaciones:
+<P>
+<UL>
+  <LI>lect.readLine(), lect.readString(), lect.readInt() o lect.readDouble(): 
+  leen un dato del archivo de la misma forma en que los procedimientos 
+  readLine(), readString(), etc. leen datos del teclado.
+  <P></P>
+  <LI>lect.eofReached(): consulta si se alcanzó el final del archivo (<EM>end of 
+  file</EM>). Esta operación retorna un valor booleano y por lo tanto se coloca 
+  como condición en un if o un while. Retorna verdadero (true) cuando la última 
+  operación de lectura (con lect.readLine(), etc.) se hizo más allá del final 
+  del archivo.
+  <P>El último dato leído es válido sólo si lect.eofReached() entrega falso 
+  (false).
+  <P></P>
+  <LI>lect.close(): ordena concluir la lectura del archivo. Después de invocar 
+  esta operación no es válido seguir leyendo datos.
+  <P>En realidad esta operación no es muy útil en archivos de lectura y se puede 
+  omitir.
+  <P></P></LI></UL>
+<HR>
+
+<P><EM>Ejercicio.</EM> Escribir un programa que dialogue con el usuario para 
+escribir un archivo ``productos-precios.txt'' que incluya producto y precio. El 
+programa debe aprovechar los productos almacenados en ``productos.txt'' para que 
+el usuario no tenga que digitarlos nuevamente. Diálogo:
+<P><SAMPLE><PRE>    Precio de jabon Lux ? <U>344</U>
+    Precio de pasta de dientes Odontine ? <U>415</U>
+    ...
+</PRE></SAMPLE>El archivo productos-precios.txt escrito debe ser:
+<P><SAMPLE><PRE>    jabon Lux 344
+    pasta de dientes Odontine 415
+    ...
+</PRE></SAMPLE>El programa es:
+<P><CODE><PRE>    TextReader lect= new TextReader("productos.txt");
+    TextWriter escr= new TextWriter("prodcutos-precios.txt");
+    String prod= lect.readLine();
+    while ( ! lect.eofReached() ) {
+      print("Precio de "+prod+" ? ");
+      int precio= readInt();
+      escr.println(prod+" "+precio); // (*)
+      prod= lect.readLine();
+    }
+    lect.close();
+    escr.close();
+</PRE></CODE>
+<HR>
+
+<P></P></BODY></HTML>

@@ -1,0 +1,108 @@
+.MATH {
+	FONT-FAMILY: "Century Schoolbook", serif
+}
+.MATH I {
+	FONT-STYLE: italic; FONT-FAMILY: "Century Schoolbook", serif
+}
+.BOLDMATH {
+	FONT-WEIGHT: bold; FONT-FAMILY: "Century Schoolbook", serif
+}
+SMALL.XTINY {
+	FONT-SIZE: xx-small
+}
+SMALL.TINY {
+	FONT-SIZE: x-small
+}
+SMALL.SCRIPTSIZE {
+	FONT-SIZE: smaller
+}
+SMALL.FOOTNOTESIZE {
+	FONT-SIZE: small
+}
+SMALL.SMALL {
+	
+}
+BIG.LARGE {
+	
+}
+BIG.XLARGE {
+	FONT-SIZE: large
+}
+BIG.XXLARGE {
+	FONT-SIZE: x-large
+}
+BIG.HUGE {
+	FONT-SIZE: larger
+}
+BIG.XHUGE {
+	FONT-SIZE: xx-large
+}
+H1 {
+	
+}
+H2 {
+	
+}
+H3 {
+	
+}
+H4 {
+	
+}
+H5 {
+	
+}
+DIV.displaymath {
+	
+}
+TD.eqno {
+	
+}
+DIV.navigation {
+	
+}
+SPAN.textit {
+	FONT-STYLE: italic
+}
+SPAN.arabic {
+	
+}
+A:link {
+	TEXT-DECORATION: none
+}
+A:visited {
+	TEXT-DECORATION: none
+}
+A:active {
+	TEXT-DECORATION: none
+}
+TABLE {
+	TEXT-ALIGN: left
+}
+.tblinks {
+	BORDER-RIGHT: 0pt; BORDER-TOP: 0pt; BORDER-LEFT: 0pt; WIDTH: 90%; BORDER-BOTTOM: 0pt; TEXT-ALIGN: left
+}
+THEAD {
+	FONT-WEIGHT: bolder; VERTICAL-ALIGN: middle
+}
+TD {
+	
+}
+.drc {
+	PADDING-RIGHT: 5pt; PADDING-LEFT: 5pt; PADDING-BOTTOM: 5pt; VERTICAL-ALIGN: top; PADDING-TOP: 5pt; BACKGROUND-COLOR: rgb(255,255,204); TEXT-ALIGN: justify
+}
+.izq {
+	PADDING-RIGHT: 5pt; PADDING-LEFT: 5pt; PADDING-BOTTOM: 5pt; VERTICAL-ALIGN: top; WIDTH: 200px; PADDING-TOP: 5pt; BACKGROUND-COLOR: rgb(230,230,255); TEXT-ALIGN: left
+}
+.link {
+	FONT-WEIGHT: bold; VERTICAL-ALIGN: top; WIDTH: 75pt; TEXT-ALIGN: right
+}
+.licencia {
+	VERTICAL-ALIGN: top; TEXT-ALIGN: center
+}
+.explain {
+	VERTICAL-ALIGN: top; TEXT-ALIGN: justify
+}
+BODY {
+	BACKGROUND-COLOR: white
+}

@@ -1,0 +1,115 @@
+20 Agosto 2002
+
+Archivos nuevos o modificados.
+
+
+Capitulos modificados:
+
+  Modificaciones relevantes en el texto:
+
+	  mfm0-01.tex
+	  mfm0-05.tex
+	  mfm0-02.tex
+	  mfm0-10.tex
+	  mfm0-11.tex
+	  mfm.tex
+
+	  Nota: Todos estos capitulos estan ahora rotulados como "version
+	  final".
+
+  Modificados solo para quitar extension explicita .eps a figuras
+incluidas:
+
+	mfm0-04.tex
+	mfm0-06.tex
+	mfm0-09.tex
+	mfm0-12.tex
+	mfm0-13.tex
+	mfm0-14.tex
+
+
+Scripts para hacer version pdf:
+
+	Makefile (ahora tiene todas las dependencias)
+
+Archivos de estilo
+
+	 mfm2.cls 
+	 addmath.sty (Redefinicion de \Reales, etc. usando \mathbb,
+	 compatible con tu version espero)
+
+Textos adicionales
+
+         octave.tex (Visualizacion de datos en Octave, posible
+	 de incluir en algun lugar apropiado en el Capitulo 4?)
+
+Pagina web
+
+         Todos estos materiales y los programas de ejemplo
+desarrollados en el curso estan en 
+  http://macul.ciencias.uchile.cl/~vmunoz/cursos/computacion/computacion.html
+para quien se interese.
+
+
+______________________________________________________________________
+
+31 julio 2002
+
+Archivos nuevos o modificados:
+
+Figura en Capitulo de TeX
+
+       figura.fig
+       figura.eps
+
+Textos que se incluyen como figuras en version pdf final (capitulo
+TeX)
+
+	carta_sola.tex
+	keys_example.tex
+
+Capitulos modificados:
+
+	  mfm0-01.tex
+	  mfm0-05.tex
+	  mfm0-02.tex
+	  mfm0-10.tex
+	  mfm0-11.tex
+	  mfm.tex
+
+	  Nota: Todos estos capitulos estan rotulados como "version
+	  preliminar", a la espera de que yo termine el curso 
+	  y les pueda dar una ultima revision y declararlos "version
+	  final" por ahora. Espero hacer eso esta semana o la
+	  proxima, y te mandaria estos archivos nuevamente.
+
+Scripts para hacer version pdf:
+
+	creaPDF.bash (fue modificado, pero ya no se necesita)
+	Makefile (este contiene todo lo necesario)
+
+
+Sugerencias:
+
+Para el capitulo de C++:
+
+     Hemos sido muy desordenados con el uso de main como int o void.
+     Seria conveniente hablar  de -Wall y dejar que main sea int siempre.
+
+     Falta la seccion de manejo de archivos, que agregue durante el
+     curso, pero que olvide escribir. 
+
+Para el capitulo de UNIX:
+
+Comandos a documentar o a documentar mejor:
+
+   sed
+   tr
+   paste
+   awk
+   bash scripts
+
+______________________________________________________________________
+
+
+

@@ -1,0 +1,10 @@
+C     PROGRAMA PARA IMPRIMIR ENTEROS IMPARES Y SUS CUADRADOS
+      INTEGER N
+      N=1
+   21 K=N*N
+      WRITE(*,23) N,K
+   23 FORMAT(2I12)
+      N=N+2
+      IF(N.LT.12) GO TO 21
+      STOP
+      END

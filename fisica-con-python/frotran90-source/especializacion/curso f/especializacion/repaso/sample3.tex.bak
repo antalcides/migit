@@ -1,0 +1,184 @@
+\documentclass[usenames,a4,landscape,semhelv]{seminar}
+\usepackage{pst-all}
+\usepackage{pst-blur}
+\usepackage{rotate}
+\usepackage{semcolor}
+\usepackage{semlayer}
+\input{seminar.bug}
+\input{seminar.bg2}
+\usepackage[activeacute,spanish]{babel}
+\usepackage{amsbsy}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage[latin1]{inputenc}
+\usepackage{pifont}
+\usepackage{marvosym}
+\usepackage[dvips]{graphicx}
+\newcommand{\BibTeX}{\textsc{Bib}\textrm{\TeX}}
+\newtheorem{theorem}{\color{blue}{Teorema}}[section]
+%\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algoritmo}
+\newtheorem{tarea}[theorem]{Tarea}
+\newtheorem{axiom}[theorem]{Axioma}
+\newtheorem{case}[theorem]{Caso}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusi\'on}
+\newtheorem{conjecture}[theorem]{Conjetura}
+\newtheorem{corollary}{Corolario}
+\newtheorem{criterion}[theorem]{\color{blue}{Criterio}}
+\newtheorem{definition}{\color{blue}{Definici\'on}}
+\newtheorem{example}{\color{blue}{Ejemplo}}
+\newtheorem{exercise}[theorem]{Ejercicios}
+\newtheorem{lemma}{Lema}
+\newtheorem{notation}[theorem]{Notaci\'on}
+\newtheorem{problem}[theorem]{Problema}
+\newtheorem{proposition}{Proposici\'on}
+\newtheorem{remark}{\color{blue}{Observaci\'on}}
+\newtheorem{solution}{\color{blue}{Soluci\'on}}[example]
+\newtheorem{summary}[theorem]{Sumario}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% directory from where eps-files are included
+%%% list of directories like {{dir1}{dir2}...}
+
+\graphicspath{{./}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% set some parameters
+
+\def\initials{AO}
+\def\name{Antalcides Olivo}
+\def\place{Estad\'{\i}stica} % `place' or 'conference, place'
+\def\month{07/2003} % format 'MM/YYYY'
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% page-style
+
+\renewcommand{\slidetopmargin}{-0.2in}
+\addtolength{\slidewidth}{1.5in} \extraslideheight{2mm}
+
+\newcommand{\footcolor}{\Black}
+\newcommand{\headtext}{}
+
+\newsavebox{\myLoewe}
+\sbox{\myLoewe}{\includegraphics[scale=0.14]{logofoto.eps}}
+
+\newpagestyle{mystyle}
+{%
+\rput[l]{0}(0,0)%
+   {\psframebox[fillstyle=gradient,
+                linecolor=White,
+                gradmidpoint=0.45,
+                gradlines=100,
+                gradangle=90]
+                {\begin{minipage}{0.98\textwidth}
+                 {\large\bf \initials}
+                 \quad
+                 \rput{0}(0.2,0.11){\usebox{\myLoewe}}
+                 \qquad\qquad
+                 {\bf \place - \month}
+                 \hfill\hfill\Red{\large\bf \headtext}
+                 \end{minipage}}}
+}% end header box
+{%
+\begin{minipage}{\textwidth}
+\vspace*{-4truemm}
+\hrulefill\\
+\phantom{.}\hfill \footcolor{\name, \month}\hfill --\thepage--
+\end{minipage}
+}% end footer box
+
+\slideframe{none}
+\pagestyle{mystyle}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% color-stuff
+
+\definecolor{LightGray}{rgb}{0.94,0.94,0.94}
+\definecolor{VeryLightBlue}{rgb}{0.9,0.9,1}
+\definecolor{LightBlue}{rgb}{0.8,0.8,1}
+\definecolor{DarkBlue}{rgb}{0,0,0.6}
+\definecolor{LightGreen}{rgb}{0.88,1,0.88}
+\definecolor{MidGreen}{rgb}{0.6,1,0.6}
+\definecolor{DarkGreen}{rgb}{0,0.6,0}
+\definecolor{VeryLightYellow}{rgb}{1,1,0.9}
+\definecolor{LightYellow}{rgb}{1,1,0.6}
+\definecolor{MidYellow}{rgb}{1,1,0.5}
+\definecolor{VeryLightRed}{rgb}{1,0.9,0.9}
+\definecolor{LightRed}{rgb}{1,0.8,0.8}
+
+\newcommand{\VeryLightBlue}[1]{{\color{VeryLightBlue}{#1}}}
+\newcommand{\LightBlue}[1]{{\color{LightBlue}{#1}}}
+\newcommand{\Blue}[1]{{\color{Blue}{#1}}}
+\newcommand{\DarkBlue}[1]{{\color{DarkBlue}{#1}}}
+\newcommand{\DarkGreen}[1]{{\color{DarkGreen}{#1}}}
+\newcommand{\VeryLightRed}[1]{{\color{VeryLightRed}{#1}}}
+\newcommand{\LightRed}[1]{{\color{LightRed}{#1}}}
+\newcommand{\Red}[1]{{\color{Red}{#1}}}
+\newcommand{\Gray}[1]{{\color{Gray}{#1}}}
+\newcommand{\Black}[1]{{\color{Black}{#1}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% newcommands
+
+\newcommand{\fnz}{\footnotesize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+% switch-on cumulative overlays
+\makeatletter
+\def\pst@initoverlay#1{%
+\pst@Verb{%
+/BeginOL {dup (all) eq exch TheOL le or {IfVisible not {Visible
+/IfVisible true def} if} {IfVisible {Invisible /IfVisible false def} if}
+ifelse} def
+\tx@InitOL /TheOL (#1) def}}
+\makeatother
+
+% set some style parameters
+\renewcommand{\headtext}{Universidad Del Norte}
+\psset{gradbegin=MidYellow,gradend=MidGreen}
+\renewcommand{\footcolor}{\DarkGreen}
+%\psblurbox[fillstyle=solid,fillcolor=yellow,linecolor=red]
+
+%%%%%%%%%%%%% slide 1 %%%%%%%%%%%%%
+\begin{center}
+\extraslideheight{1cm}
+\psblurbox[fillstyle=solid,fillcolor=yellow,linecolor=red]
+{\Blue{\huge\bf Repaso De Estad\'{\i}stica}} \vspace{5cm}
+\sffamily {\small \noindent  \\ Copyright ©{} 2003 Antalcides
+Olivo Burgos. Universidad Del Norte}
+  e-mail: aolivo@uninorte.edu.co
+\vspace*{6mm}
+\begin{center}
+%\begin{dinglist}{253}
+%\overlay{1}{%
+%\Blue{\item\Black{ {\Blue{\huge\bf ¿Qu\'{e} es la estadística?} }
+\begin{slide}
+\include{repaso12}
+%}}% end color
+%}% end overlay
+
+
+\end{center}
+\end{slide}
+
+%\begin{slide}
+%\begin{center}
+%
+%%\rotatebox{90}{\resizebox{!}{2cm}{%
+%%}
+%%\vspace{6mm}
+%%\begin{dinglist}{253}
+%%\overlay{2}{%
+%\Blue{\item\Black{ {\Blue{\huge\bf ¿Qué es la estadística?}}%
+%\include{repaso2}
+%%}}% end color
+%%}% end overlay
+%%\end{dinglist}
+%
+%\end{center}
+%\end{slide}
+\end{document}

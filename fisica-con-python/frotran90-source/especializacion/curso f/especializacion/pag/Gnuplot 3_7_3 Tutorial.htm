@@ -1,0 +1,316 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0041)http://www.duke.edu/~hpgavin/gnuplot.html -->
+<HTML><HEAD><TITLE>Gnuplot 3.7.3 Tutorial</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META name=keywords 
+value="Gnuplot, gnuplot, Gnuplot, gnuplot, Gnuplot, GNUPLOT, gnuplot, Gnuplot, GNUPLOT, gnuplot, GNUPLOT, gnuplot, GNUPLOT, gnuplot">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY>
+<P><IMG src="Gnuplot 3_7_3 Tutorial_archivos/psoe.jpg" align=left border=1> 
+<B><FONT face="Arial, Helvetica, sans-serif" size=4><NOBR>GNUPLOT - A Brief 
+Manual and Tutorial</NOBR></B><BR><BR><A href="http://cee.duke.edu/">Department 
+of Civil and Environmental Engineering</A><BR><A 
+href="http://pratt.duke.edu/">Edmund T. Pratt School of Engineering</A><BR><A 
+href="http://www.duke.edu/">Duke University</A> - Box 90287, <A 
+href="http://www.durham-nc.com/">Durham</A>, <A 
+href="http://www.visitnc.com/">NC</A> 27708-0287 </FONT></P><!--
+<p><i><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+<a href="http://www-cee.egr.duke.edu/people/faculty/gavin.shtml">Henri Gavin</a>
+- Associate Professor -
+<a href="&#109;&#097;&#105;&#108;&#116;&#111;&#058;&#072;&#101;&#110;&#114;&#105;&#046;&#071;&#097;&#118;&#105;&#110;&#064;&#068;&#117;&#107;&#101;&#046;&#101;&#100;&#117;">
+&#072;&#101;&#110;&#114;&#105;&#046;&#071;&#097;&#118;&#105;&#110;&#064;&#068;&#117;&#107;&#101;&#046;&#101;&#100;&#117;
+</a>
+- tel: 919-660-5201 - fax: 919-660-5219
+</font></i></p>
+--><BR>
+<HR>
+<B>1. <A href="http://www.gnuplot.info/">GNUPLOT - version 3.7.3</A></B> 
+<P><A href="http://www.gnuplot.info/">Gnuplot</A> is a free, command-driven, 
+interactive, function and data plotting program. Gnuplot can be run under <A 
+href="ftp://ftp.gnuplot.info/pub/gnuplot/gp373dj2.zip">DOS</A>, <A 
+href="ftp://ftp.gnuplot.info/pub/gnuplot/gp373w32.zip">Windows</A>, <A 
+href="http://homepage.mac.com/gnuplot/">Macintosh OS</A>, <A 
+href="http://www.beatjapan.org/mirror/www.be.com/beware/Graphics/Gnuplot.html">BeOS</A>, 
+<A href="ftp://ftp.gnuplot.info/pub/gnuplot/gp371os2.zip">OS2</A>, VMS, <A 
+href="http://www.rpmfind.net/linux/rpm2html/search.php?query=gnuplot">Linux</A>, 
+and many others. On Unix/Linux systems start Gnuplot by simply typing: <PRE> gnuplot  </PRE>Recent pre-compiled development versions of Gnuplot, 
+version 3.8*, may be downloaded <A 
+href="http://www.sci.muni.cz/~mikulik/gnuplot/gp38j-May14_2003-winbin.zip">here 
+for Windows</A>, <A 
+href="http://www.sci.muni.cz/~mikulik/gnuplot/gp38j-May14_2003-os2bin.zip">here 
+for OS2</A> and <A href="http://jean-luc.ncsa.uiuc.edu/Codes/gnuplot/">here for 
+Linux</A>. The important enhancements provided by version 3.8* are described <A 
+href="http://www.sci.muni.cz/~mikulik/gnuplot.html#mouseOS2">here</A>. 
+<P></P>
+<P>For help on any topic type <B>help</B> followed by the name of the topic. 
+Full documentation is provided <A 
+href="http://www.tipjar.com/doc/gnuplot.html">here.</A><BR><!--
+If you want to try out Gnuplot without downloading it first, you can use this 
+<a href="http://www.tipjar.com/rcgi/gnuplot/2dplotter">web-enabled Gnuplot interface</a>
+-->. 
+
+<HR>
+<B>2. FUNCTIONS </B>
+<P>In general, any mathematical expression accepted by C, FORTRAN, Pascal, or 
+BASIC may be plotted. The precedence of operators is determined by the 
+specifications of the C programming language. 
+<P>The supported functions include: <PRE>      __________________________________________________________
+      Function            Returns
+      -----------      ------------------------------------------
+      abs(x)            absolute value of x, |x|
+      acos(x)           arc-cosine  of x
+      asin(x)           arc-sine    of x  
+      atan(x)           arc-tangent of x
+      cos(x)            cosine      of x,  x is in radians.
+      cosh(x)           hyperbolic cosine of x, x is in radians
+      erf(x)            error function of x
+      exp(x)            exponential function of x, base e
+      inverf(x)         inverse error function of x
+      invnorm(x)        inverse normal distribution of x
+      log(x)            log of x, base e
+      log10(x)          log of x, base 10
+      norm(x)           normal Gaussian distribution function
+      rand(x)           pseudo-random number generator      
+      sgn(x)            1 if x &gt; 0, -1 if x &lt; 0, 0 if x=0
+      sin(x)            sine      of x, x is in radians
+      sinh(x)           hyperbolic sine of x, x is in radians
+      sqrt(x)           the square root of x
+      tan(x)            tangent of x, x is in radians
+      tanh(x)           hyperbolic tangent of x, x is in radians
+      ___________________________________________________________
+      Bessel, gamma, ibeta, igamma, and lgamma functions are also
+      supported.  Many functions can take complex arguments.
+      Binary and unary operators are also supported.  
+</PRE>
+<P>The supported operators in Gnuplot are the same as the corresponding 
+operators in the C programming language, except that most operators accept 
+integer, real, and complex arguments. The ** operator (exponentiation) is 
+supported as in FORTRAN. Parentheses may be used to change the order of 
+evaluation. The variable names x, y, and z are used as the default independent 
+variables. 
+<HR>
+
+<P><B>3. THE plot AND splot COMMANDS </B>
+<P><B>plot</B> and <B>splot</B> are the primary commands in Gnuplot. They plot 
+functions and data in many many ways. <B>plot</B> is used to plot 2-d functions 
+and data, while <B>splot</B> plots 3-d surfaces and data. <PRE>Syntax:
+       plot {[ranges]}
+            {[function] | {"[datafile]" {datafile-modifiers}}}
+            {axes [axes] } { [title-spec] } {with [style] }
+            {, {definitions,} [function] ...}
+</PRE>
+<P>where either a [function] or the name of a data file enclosed in quotes is 
+supplied. For more complete descriptions, type: help plot help plot with help 
+plot using or help plot smooth . 
+<P><B>3.1 Plotting Functions </B>
+<P>To plot functions simply type: plot [function] at the gnuplot&gt; prompt. 
+<P>For example, try: <PRE>      gnuplot&gt;  plot sin(x)   
+      gnuplot&gt;  splot sin(x)*cos(y)
+      gnuplot&gt;  plot sin(x) title 'Sine Function', tan(x) title 'Tangent'
+</PRE>
+<P><B>3.2 Plotting Data </B>
+<P>Discrete data contained in a file can be displayed by specifying the name of 
+the data file (enclosed in quotes) on the <B>plot</B> or <B>splot</B> command 
+line. Data files should have the data arranged in columns of numbers. Columns 
+should be separated by white space (tabs or spaces) only, (no commas). Lines 
+beginning with a # character are treated as comments and are ignored by Gnuplot. 
+A blank line in the data file results in a break in the line connecting data 
+points. 
+<P>For example your data file, force.dat , might look like: <PRE>      # This file is called   force.dat
+      # Force-Deflection data for a beam and a bar
+      # Deflection    Col-Force       Beam-Force 
+      0.000              0              0    
+      0.001            104             51
+      0.002            202            101
+      0.003            298            148
+      0.0031           290            149
+      0.004            289            201
+      0.0041           291            209
+      0.005            310            250
+      0.010            311            260
+      0.020            280            240
+</PRE>
+<P>You can display your data by typing: <PRE>      gnuplot&gt;  plot  "force.dat" using 1:2 title 'Column', \
+                      "force.dat" using 1:3 title 'Beam'
+</PRE>
+<P>Do not type blank space after the line continuation character, "\" .</P>Your 
+data may be in multiple data files. In this case you may make your plot by using 
+a command like: <PRE>      gnuplot&gt;  plot  "fileA.dat" using 1:2 title 'data A', \
+                      "fileB.dat" using 1:3 title 'data B'
+</PRE>For information on plotting 3-D data, type: <PRE>      gnuplot&gt;  help splot using   
+</PRE>
+<HR>
+
+<P><B>4. CUSTOMIZING YOUR PLOT </B>
+<P>Many items may be customized on the plot, such as the ranges of the axes, the 
+labels of the x and y axes, the style of data point, the style of the lines 
+connecting the data points, and the title of the entire plot. 
+<P><B>4.1 plot command customization </B>
+<P>Customization of the data columns, line titles, and line/point style are 
+specified when the <B>plot</B> command is issued. Customization of the data 
+columns and line titles were discussed in section 3. 
+<P>Plots may be displayed in one of eight styles: lines, points, linespoints, 
+impulses, dots, steps, fsteps, histeps, errorbars, xerrorbars, yerrorbars, 
+xyerrorbars, boxes, boxerrorbars, boxxyerrorbars, financebars, candlesticks or 
+vector To specify the line/point style use the <B>plot</B> command as follows: <PRE>      gnuplot&gt; plot "force.dat" using 1:2 title 'Column' with lines, \
+                    "force.dat" u 1:3 t 'Beam' w linespoints
+</PRE>
+<P>Note that the words: using , title , and with can be abbreviated as: u , t , 
+and w . Also, each line and point style has an associated number. 
+<P><B>4.2 set command customization </B>
+<P>Customization of the axis ranges, axis labels, and plot title, as well as 
+many other features, are specified using the set command. Specific examples of 
+the set command follow. (The numerical values used in these examples are 
+arbitrary.) To view your changes type: replot at the gnuplot&gt; prompt at any 
+time. <PRE>      Create a title:                  &gt; set title "Force-Deflection Data" 
+      Put a label on the x-axis:       &gt; set xlabel "Deflection (meters)"
+      Put a label on the y-axis:       &gt; set ylabel "Force (kN)"
+      Change the x-axis range:         &gt; set xrange [0.001:0.005]
+      Change the y-axis range:         &gt; set yrange [20:500]
+      Have Gnuplot determine ranges:   &gt; set autoscale
+      Move the key:                    &gt; set key 0.01,100
+      Delete the key:                  &gt; set nokey
+      Put a label on the plot:         &gt; set label "yield point" at 0.003, 260 
+      Remove all labels:               &gt; set nolabel
+      Plot using log-axes:             &gt; set logscale
+      Plot using log-axes on y-axis:   &gt; set nologscale; set logscale y 
+      Change the tic-marks:            &gt; set xtics (0.002,0.004,0.006,0.008)
+      Return to the default tics:      &gt; set noxtics; set xtics
+</PRE>
+<P>Other features which may be customized using the set command are: arrow, 
+border, clip, contour, grid, mapping, polar, surface, time, view, and many more. 
+The best way to learn is by reading the on-line help information, trying the 
+command, and reading the <A 
+href="http://www.ucc.ie/gnuplot/gnuplot.html">Gnuplot manual</A>. You may also 
+post questions to the newsgroup <I>comp.graphics.apps.gnuplot </I>
+<P>The <A href="http://chem.skku.ac.kr/~wkpark/tutor/gnuplot/gpdocs/">Gnuplot 
+demo page</A> and the <A href="http://www.cs.uni.edu/Help/gnuplot/">gnuplot 
+intro page</A> have many examples like this <A 
+href="http://www.duke.edu/~hpgavin/ce283/Hs.html">script for a transfer 
+function</A> producing this <A 
+href="http://www.duke.edu/~hpgavin/ce283/Hs.ps">postscript plot</A>. 
+<HR>
+
+<P><B>5. PLOTTING DATA FILES WITH OTHER COMMENT CHARACTERS </B>
+<P>If your data file has a comment character other than # you can pass your data 
+file through the tr filter as you plot it. For example, if your data file has % 
+comment characters (for Matlab compatability) typing <PRE>      gnuplot&gt;  plot "&lt; tr '%' '#' &lt; datafile"
+</PRE>
+<P>will replace all % characters with # characters prior to plotting. 
+<HR>
+
+<P><B>6. GNUPLOT SCRIPTS </B>
+<P>Sometimes, several commands are typed to create a particular plot, and it is 
+easy to make a typographical error when entering a command. To stream- line your 
+plotting operations, several Gnuplot commands may be combined into a single 
+script file. For example, the following file will create a customized display of 
+the force-deflection data: <PRE>      # Gnuplot script file for plotting data in file "force.dat"
+      # This file is called   force.p
+      set title "Force Deflection Data for a Beam and a Column"
+      set xlabel "Deflection (meters)"
+      set ylabel "Force (kN)"
+      set key 0.01,100
+      set label "Yield Point" at 0.003,260
+      set arrow from 0.0028,250 to 0.003,280
+      set xr [0.0:0.022]
+      set yr [0:325]
+      plot    "force.dat" using 1:2 title 'Column' with linespoints , \
+            "force.dat" using 1:3 title 'Beam' with points
+</PRE>
+<P>Then the total plot can be generated with the command: gnuplot&gt; load 
+'force.p' <IMG src="Gnuplot 3_7_3 Tutorial_archivos/force.gif" border=1> 
+<HR>
+
+<P><B>7. CURVE-FITTING WITH GNUPLOT </B>
+<P>To fit the data in force.dat with a function use the commands: <PRE>      f1(x) = a1*tanh(x/b1)            # define the function to be fit
+      a1 = 300; b1 = 0.005;            # initial guess for a1 and b1
+      fit f1(x) 'force.dat' using 1:2 via a1, b1
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a1      = 308.687                  +/- 10.62         (3.442%)
+b1      = 0.00226668               +/- 0.0002619     (11.55%)
+</PRE>
+<P>and the commands: <PRE>      f2(x) = a2 * tanh(x/b2)            # define the function to be fit
+      a2 = 300; b2 = 0.005;            # initial guess for a and b
+      fit f2(x) 'force.dat' using 1:3 via a2, b2
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a2      = 259.891                  +/- 12.82         (4.933%)
+b2      = 0.00415497               +/- 0.0004297     (10.34%)
+</PRE>
+<P>The curve-fit and data may now be plotted with the commands: <PRE>set key 0.018,150 title "F(x) = A tanh (x/B)"             # title to key!
+set title "Force Deflection Data \n and curve fit"      # note newline!
+set pointsize 1.5                              # larger point!
+set xlabel 'Deflection, {/Symbol D}_x (m)'            # Greek symbols!
+set ylabel 'Force, {/Times-Italic F}_A, (kN)'            # italics!
+
+plot    "force.dat" using 1:2 title 'Column data' with points 3, \
+      "force.dat" using 1:3 title 'Beam data'   with points 4, \
+      a1 * tanh( x / b1 ) title 'Column-fit: A=309, B=0.00227', \
+      a2 * tanh( x / b2 ) title 'Beam-fit: A=260, B=0.00415'
+</PRE><IMG src="Gnuplot 3_7_3 Tutorial_archivos/force-fit.gif" border=1> 
+<HR>
+
+<P><B>8. SPREAD-SHEET LIKE CALCULATIONS ON DATA </B>
+<P>Gnuplot can mathematically modify your data column by column: 
+<P>to plot sin( col.3 + col.1 ) vs. 3 * col.2 type: <PRE>        plot 'force.dat' using  (3*$2):(sin($3+$1))
+</PRE>
+<HR>
+
+<P><B>9. MULTI-PLOT </B>
+<P>Gnuplot can plot more than one figure in a frame ( like subplot in matlab ) 
+i.e., try: <PRE>      set multiplot;
+      set size 1,0.5;  
+      set origin 0.0,0.5;   plot sin(x); 
+      set origin 0.0,0.0;   plot cos(x)
+      set nomultiplot
+</PRE>
+<HR>
+
+<P><B>10. HARD-COPY (PLOTTING ON PAPER) </B>
+<P>You can create a Post-Script file of your plot by using the following files 
+and commands. First, create a general-purpose script file: <PRE>
+      # File name: saveplot - saves a plot as a PostScript file 
+      # to save the current plot as a postscript file issue the commands:
+      #  gnuplot&gt;   set out 'plotfile.ps'
+      #  gnuplot&gt;   load 'saveplot'
+      set size 1.0, 0.4
+      set terminal postscript portrait enhanced mono lw 2 "Helvetica" 14
+      replot
+      set terminal x11
+      set size 1,1
+
+</PRE>Then you can simply type the following commands to create and laser-print 
+the hard-copy. <PRE>      gnuplot&gt; set out "force.ps"
+      gnuplot&gt; load 'saveplot'
+      gnuplot&gt; !lpr -Pteerlp1 force.ps
+</PRE>
+<HR>
+
+<P><B>11. ADVANCED COMPUTATION AND VISUALIZATION </B>
+<P>Gnuplot is used for plotting in a free and open <A 
+href="http://www.duke.edu/~hpgavin/matlab.html">Matlab</A>-like programming 
+environment called <A href="http://www.octave.org/">Octave</A>. </P>
+<HR>
+
+<P><B>12. PRINTING TWO FIGURES ON ONE PAGE </B>
+<P>If you would like two figures to be laser-printed on the same page, you may 
+use the following shell script. Create file cat2 , below, and make the file 
+executable by typing: unix% chmod +x cat2 <PRE>      # cat2: Shell script for putting two Gnuplot plots on one page
+      echo %! &gt; g.ps
+      echo gsave &gt;&gt; g.ps 
+      echo 0 400 translate &gt;&gt; g.ps                  # for Gnuplot plots
+      cat $1 | sed -e "s/showpage//" &gt;&gt; g.ps 
+      echo grestore &gt;&gt; g.ps 
+      echo gsave &gt;&gt; g.ps 
+      echo 0 090 translate &gt;&gt; g.ps                  # for Gnuplot plots
+      cat $2 &gt;&gt; g.ps 
+      lpr -Phudsonlp1 g.ps
+</PRE>
+<P>To combine two Post-Script figures (plot1.ps and plot2.ps) on one page: <PRE>            cat2  plot1.ps  plot2.ps                     
+</PRE>
+<HR>
+<FONT face="Verdana, Arial" size=2>© 2000-2002 Henri P. Gavin; Last Updated: 
+Decmeber 18, 2002 </FONT><BR></BODY></HTML>

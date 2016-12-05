@@ -1,0 +1,62 @@
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Created=Thu Oct 02 09:46:34 2003}
+%TCIDATA{LastRevised=Thu Oct 02 09:47:05 2003}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="General\Blank Document">}
+%TCIDATA{CSTFile=LaTeX article (bright).cst}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{tcilatex}
+
+\begin{document}
+
+
+\begin{lemma}
+(de Frontera de Hopf) Sup\'{o}ngase que $\Omega $ satisface la condici\'{o}n
+de bola interior en $x_{0}\in \partial \Omega $ y $c\equiv 0$ en $L$ dado en 
+$\left( 13\right) $. Si $u\in C^{2}\left( \Omega \right) \cap C\left( \Omega
+\cup \left\{ x_{0}\right\} \right) $ satisface $Lu\geq 0$ en $\Omega $ y $%
+u\left( x_{0}\right) >u\left( x\right) $ $\forall x\in \Omega $, entonces 
+\begin{equation*}
+\lim \inf_{t\rightarrow 0^{-}}\frac{u\left( x_{0}+t\nu \right) -u\left(
+x_{0}\right) }{t}>0\text{,}
+\end{equation*}
+donde $\nu $ es la normal exterior a la bola interior en $x_{0}.$
+
+Si en las hip\'{o}tesis iniciales se cambia $c=0$ en $\Omega $ por $c\leq 0$
+en $\Omega $ y $u\left( x_{0}\right) \geq 0$, se obtiene la misma conclusi%
+\'{o}n.
+
+Si en las hip\'{o}tesis iniciales se cambia $c=0$ en $\Omega $ por $u\left(
+x_{0}\right) =0$ en $\Omega $, se obtiene la misma conclusi\'{o}n
+(independiente del signo de $c$).
+\end{lemma}
+
+\end{document}

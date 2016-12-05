@@ -1,0 +1,13 @@
+C     PROGRAMA QUE CALCULA NUMEROS PARES
+      write(*,*) 'Cuantos numeros pares deseas? '
+      read(*,*) n
+      c=0
+      l=0
+    2 c=c+1.
+      a=c/2.
+      if ((a-int(a)).ne.0) goto 2
+      l=l+1
+      write (*,*) l,c
+      if (l.lt.n) goto 2
+      stop
+      end

@@ -1,0 +1,12 @@
+   Resultado para N=   0 :
+**************************************************
+   Resultado de la Integral numerica para t: ********
+  Resultado de la Integral analitica para t: ********
+  Diferencia = 0.000176 %
+    Resultado de la Integral numerica para H:0.000000
+  Resultado de la Integral analitica para H: ********
+  Diferencia = 0.000000 %
+    Resultado de la Integral numerica para x:0.000000
+  Resultado de la Integral analitica para X: ********
+  Diferencia = 0.010000 %
+**************************************************

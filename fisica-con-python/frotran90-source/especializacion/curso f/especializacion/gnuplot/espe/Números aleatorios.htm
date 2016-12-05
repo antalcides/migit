@@ -1,0 +1,227 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0072)http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/azar.htm -->
+<HTML><HEAD><TITLE>Números aleatorios</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY>
+<H1 align=center>Los números aleatorios</H1>
+<TABLE width="100%">
+  <TBODY>
+  <TR>
+    <TD width="50%"><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/paquetes.htm"><IMG 
+      height=40 alt="prev.gif (997 bytes)" 
+      src="Números aleatorios_archivos/prev.gif" width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/fundamentos.htm"><IMG 
+      height=40 alt="chapter.gif (1105 bytes)" 
+      src="Números aleatorios_archivos/chapter.gif" width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/curso.htm"><IMG height=40 
+      alt="home.gif (1054 bytes)" src="Números aleatorios_archivos/home.gif" 
+      width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/poo1.htm"><IMG 
+      height=40 alt="next.gif (998 bytes)" 
+      src="Números aleatorios_archivos/next.gif" width=49></A></TD>
+    <TD width="50%">
+      <H3 align=right><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/intro_clases.htm">Clases 
+      y objetos</A></H3></TD></TR></TBODY></TABLE>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/azar.htm#La clase Random">La 
+clase <EM>Random</EM></A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/azar.htm#Comprobación de la uniformidad de los números aleatorios">Comprobación 
+de la uniformidad de los números aleatorios</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/azar.htm#Secuencias de números aleatorios">Secuencias 
+de números aleatorios</A></P>
+<HR>
+
+<H2><A name="La clase Random">La clase <EM>Random</EM></A></H2>
+<P><IMG height=32 alt="disco.gif (1035 bytes)" 
+src="Números aleatorios_archivos/disco.gif" width=32 
+align=middle><STRONG>azar</STRONG>: <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/codigo/AzarApp.java">AzarApp.java</A></P>
+<P>Del mismo modo que hemos visualizado el <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/string.htm#Las clases del lenguaje Java">código 
+fuente de la clase <EM>String</EM></A>, también la podemos obtener el de la 
+clase <EM>Random</EM>. Situamos el cursor en el nombre de la clase y 
+seleccionamos el primer elemento del menú flotante <STRONG>Browse symbol at 
+curso</STRONG>r que aparece cuando se pulsa el botón derecho del ratón.</P>
+<P>La clase <EM>Random</EM> proporciona un generador de números aleatorios que 
+es más flexible que la función estática <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/estatico/math/math.htm#azar"><EM>random</EM></A> 
+de la clase <EM>Math</EM>.</P>
+<P>Para crear una secuencia de números aleatorios tenemos que seguir los 
+siguientes pasos: 
+<OL>
+  <LI>Proporcionar a nuestro programa información acerca de la clase <EM>Random. 
+  </EM>Al principio del programa&nbsp; escribiremos la siguiente sentencia. 
+</LI></OL><PRE>	import java.util.Random;</PRE>
+<OL start=2>
+  <LI>Crear un objeto de la clase <EM>Random</EM> 
+  <LI>Llamar a una de las funciones miembro que generan un número aleatorio 
+  <LI>Usar el número aleatorio.<BR></LI></OL>
+<P>&nbsp;</P>
+<H3>Constructores</H3>
+<P>La clase dispone de dos constructores, el primero crea un generador de 
+números aleatorios cuya semilla es inicializada en base al instante de tiempo 
+actual.</P><PRE>    	Random rnd = new Random();</PRE>
+<P>El segundo, inicializa la semilla con un número del tipo 
+<STRONG>long</STRONG>. </P><PRE>   	Random rnd = new Random(3816L);</PRE>
+<P>El sufijo L no es necesario, ya que aunque 3816 es un número 
+<STRONG>int</STRONG> por defecto, es promocionado automáticamente a 
+<STRONG>long</STRONG>.</P>
+<P>Aunque no podemos predecir que números se generarán con una semilla 
+particular, podemos sin embargo, duplicar una serie de números aleatorios usando 
+la misma semilla. Es decir, cada vez que creamos un objeto de la clase 
+<EM>Random</EM> con la misma semilla obtendremos la misma secuencia de números 
+aleatorios. Esto no es útil en el caso de loterias, pero puede ser útil en el 
+caso de juegos,&nbsp; exámenes basados en una secuencia de preguntas aleatorias, 
+las mismas para cada uno de los estudiantes, simulaciones que se repitan de la 
+misma forma una y otra vez, etc.</P>
+<P>&nbsp;</P>
+<H3>Funciones miembro</H3>
+<P>Podemos cambiar la semilla de los números aleatorios en cualquier momento, 
+llamando a la función miembro <EM>setSeed</EM>.</P><PRE>    	rnd.setSeed(3816);</PRE>
+<P>Podemos generar números aleatorios en cuatro formas diferentes:</P><PRE>	rnd.nextInt();</PRE>
+<P>genera un número aleatorio entero de tipo <STRONG>int</STRONG> </P><PRE>	rnd.nextLong();</PRE>
+<P>genera un número aleatorio entero de tipo <STRONG>long</STRONG> </P><PRE>	rnd.nextFloat();</PRE>
+<P>genera un número aleatorio de tipo <STRONG>float </STRONG>entre 0.0 y 1.0, 
+aunque siempre menor que 1.0</P><PRE>	rnd.nextDouble();</PRE>
+<P>genera un número aleatorio de tipo <STRONG>double </STRONG>entre 0.0 y 1.0, 
+aunque siempre menor que 1.0</P>
+<P>Casi siempre usaremos esta última versión. Por ejemplo, para generar una 
+secuencia de 10 números aleatorios entre 0.0 y 1.0 escribimos</P><PRE>    for (int i = 0; i &lt; 10; i++) {
+        System.out.println(rnd.nextDouble());;
+    }</PRE>
+<P>Para crear una secuencia de 10 números aleatorios enteros comprendidos entre 
+0 y 9 ambos incluídos escribimos</P><PRE>    	int x;
+	for (int i = 0; i &lt; 10; i++) {
+        	x = (int)(rnd.nextDouble() * 10.0);
+        	System.out.println(x);
+    	}</PRE>
+<P><EM>(int)</EM> transforma un número decimal <STRONG>double</STRONG> en entero 
+<STRONG>int</STRONG> eliminando la parte decimal.</P>
+<P>&nbsp;</P>
+<H2><A 
+name="Comprobación de la uniformidad de los números aleatorios">Comprobación de 
+la uniformidad de los números aleatorios</A></H2>
+<P>Podemos comprobar la uniformidad de los números aleatorios generando una 
+secuencia muy grande de números aleatorios enteros comprendios entre 0 y 9 ambos 
+inclusive. Contamos cuantos ceros aparecen en la secuencia, cuantos unos, ... 
+cuantos nueves, y guardamos estos datos en los elementos de un array.</P>
+<P>Primero creamos un array <EM>ndigitos</EM> de 10 de elementos que son 
+enteros.</P><PRE>    int[] ndigitos = new int[10];</PRE>
+<P>Inicializamos los elementos del array a cero.</P><PRE>    for (int i = 0; i &lt; 10; i++) {
+        ndigitos[i] = 0;
+    }</PRE>
+<P>Creamos una secuencia de 100000 números aleatorios enteros comprendidos entre 
+0 y 9 ambos inclusive (véase el apartado anterior)</P><PRE>    for (long i=0; i &lt; 100000L; i++) {
+        n = (int)(rnd.nextDouble() * 10.0);
+        ndigitos[n]++;
+    }</PRE>
+<P>Si <EM>n</EM> sale cero suma una unidad al contador de ceros, 
+<EM>ndigitos[0]</EM>. Si <EM>n</EM> sale uno, suma una unidad al contador de 
+unos, <EM>ndigitos[1]</EM>, y así sucesivamente.</P>
+<P>Finalmente, se imprime el resultado, los números que guardan cada uno de los 
+elementos del array <EM>ndigitos</EM></P><PRE>    for (int i = 0; i &lt; 10; i++) {
+        System.out.println(i+": " + ndigitos[i]);
+    }</PRE>
+<P>Observaremos en la consola que cada número 0, 1, 2...9 aparece 
+aproximadamente 10000 veces. </P>
+<P>&nbsp;</P>
+<H2><A name="Secuencias de números aleatorios">Secuencias de números 
+aleatorios</A></H2>
+<P>En la siguiente porción de código, se imprime dos secuencias de cinco números 
+aleatorios uniformemente distribuídos entre [0, 1), separando los números de 
+cada una de las secuencias por un carácter tabulador.</P><PRE>    System.out.println("Primera secuencia");
+    for (int i = 0; i &lt; 5; i++) {
+        System.out.print("\t"+rnd.nextDouble());
+    }
+    System.out.println("");
+
+    System.out.println("Segunda secuencia");
+    for (int i = 0; i &lt; 5; i++) {
+        System.out.print("\t"+rnd.nextDouble());
+    }
+    System.out.println("");</PRE>
+<P>Comprobaremos que los números que aparecen en las dos secuencias son 
+distintos.</P>
+<P>En la siguiente porción de código, se imprime dos secuencias iguales de 
+números aleatorios uniformemente distribuídos entre [0, 1). Se establece la 
+semilla de los números aleatorios con la función miembro <EM>setSeed</EM>.</P><PRE><STRONG>    rnd.setSeed(3816);
+</STRONG>    System.out.println("Primera secuencia");
+    for (int i = 0; i &lt; 5; i++) {
+        System.out.print("\t"+rnd.nextDouble());
+    }
+    System.out.println("");
+
+<STRONG>    rnd.setSeed(3816);
+</STRONG>    System.out.println("Segunda secuencia");
+    for (int i = 0; i &lt; 5; i++) {
+        System.out.print("\t"+rnd.nextDouble());
+    }
+    System.out.println("");
+</PRE>
+<TABLE cellSpacing=0 width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="100%" bgColor=#f7f7f7><PRE>package azar;
+
+import java.util.Random;
+
+public class AzarApp {
+  public static void main (String[] args) {
+    int[] ndigitos = new int[10];
+    int n;
+    
+    Random rnd = new Random();
+
+// Inicializar el array
+    for (int i = 0; i &lt; 10; i++) {
+        ndigitos[i] = 0;
+    }
+
+// verificar que los números aleatorios están uniformente distribuídos
+    for (long i=0; i &lt; 100000L; i++) {
+// genera un número aleatorio entre 0 y 9
+        n = (int)(rnd.nextDouble() * 10.0);
+//Cuenta las veces que aparece un número
+        ndigitos[n]++;
+    }
+
+// imprime los resultados
+    for (int i = 0; i &lt; 10; i++) {
+        System.out.println(i+": " + ndigitos[i]);
+    }
+
+//Dos secuencias de 5 número (distinta semilla)
+    System.out.println("Primera secuencia");
+    for (int i = 0; i &lt; 5; i++) {
+        System.out.print("\t"+rnd.nextDouble());
+    }
+    System.out.println("");
+
+    System.out.println("Segunda secuencia");
+    for (int i = 0; i &lt; 5; i++) {
+        System.out.print("\t"+rnd.nextDouble());
+    }
+    System.out.println("");
+
+//Dos secuencias de 5 número (misma semilla)
+    rnd.setSeed(3816L);
+    System.out.println("Primera secuencia");
+    for (int i = 0; i &lt; 5; i++) {
+        System.out.print("\t"+rnd.nextDouble());
+    }
+    System.out.println("");
+
+    rnd.setSeed(3816);
+    System.out.println("Segunda secuencia");
+    for (int i = 0; i &lt; 5; i++) {
+        System.out.print("\t"+rnd.nextDouble());
+    }
+    System.out.println("");
+  }
+}
+</PRE></TD></TR></TBODY></TABLE></BODY></HTML>

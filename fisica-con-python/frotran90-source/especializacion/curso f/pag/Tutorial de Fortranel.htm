@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0057)http://garota.fismat.umich.mx/mn1/tutor_fort/logical.html -->
+<HTML><HEAD><TITLE>Tutorial de Fortran</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY background="Tutorial de Fortranel_archivos/default.gif">
+<H2>7. Expresiones Lógicas</H2>Una expresión lógica puede tener solamente el 
+valor de <TT>.TRUE.</TT> o de <TT>.FALSE.</TT>. Una valor lógico puede ser 
+obtenido al comparar expresiones aritméticas usando los siguientes 
+<EM>operadores relacionales</EM>: <PRE>.LT.  meaning &lt;
+.LE.          &lt;=
+.GT.          &gt;
+.GE.          &gt;=
+.EQ.          =
+.NE.          /=
+</PRE>Por lo que <EM>no</EM> se pueden usar símbolos como &lt; or = para 
+comparación en Fortran 77, por lo que se tienen que usar abreviaturas de dos 
+letras encerradas con puntos. Sin embargo en Fortran 90 ya pueden ser usados. 
+<P>Las expresiones lógicas pueden ser combinadas con los <EM>operadores 
+lógicos</EM> <TT>.AND. .OR. .NOT.</TT> que corresponden a los operadores lógicos 
+conocidos Y, O y negación respectivamente. 
+<H3>Asignación de Variables Lógicas </H3>Los valores booleanos pueden ser 
+guardados en <EM>variables lógicas</EM>. La asignación es de forma análoga a la 
+asignación aritmética. Ejemplo: <PRE>logical a, b
+a = .TRUE.
+b = a .AND. 3 .LT. 5/2
+</PRE>El order de precedencia es importante, como se muestra en el último 
+ejemplo. La regla es que las expresiones aritméticas son evaluadas primero, 
+después las que contienen operadores relacionales, y finalmente las de 
+operadores lógicos. Por lo que a <I>b</I> se le asigna <TT>.FALSE.</TT> en el 
+ejemplo anterior. 
+<P><!-- Logical variables are seldom used in Fortran. -->Las expresiones lógicas 
+son usadas frecuentemente en sentencias condicionales como <TT>if</TT>. 
+<HR>
+
+<H3>Ejercicio</H3>
+<DL>
+  <DT>Exercicio A 
+  <DD>Calcular el valor de las siguientes expresiones lógicas: <PRE>.TRUE. .AND. .FALSE. .OR. .TRUE.
+2.LT.2 .OR. 5 .EQ. 11/2
+</PRE>
+  <P></P></DD></DL>
+<HR>
+&nbsp;[6. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/expressions.html">Expresiones 
+y asignaciones </A>] &nbsp;[<A 
+href="http://fismat.umich.mx/mn1/tutor_fort/index.html">Tutorial de Fortran</A>] 
+&nbsp;[8. <A href="http://garota.fismat.umich.mx/mn1/tutor_fort/if.html">La 
+sentencia if </A>] </BODY></HTML>

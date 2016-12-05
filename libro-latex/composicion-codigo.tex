@@ -1,0 +1,484 @@
+ \makeatletter
+ % % % % % % % % % % %Bibliograf\'ia% % % % % % % % % %
+%\newcommand{\bibcmd}{\begin{tikzpicture}[remember picture, overlay]%
+%\pgftext[right,x=2cm,y=0.2cm]{\color{teal!30}\Huge\sc\bfseries \bibname};%
+%\draw[fill=teal!30,draw=teal!30] (-0.45,-.75) rectangle (2,1);%
+%\clip (-0.45,-.75) rectangle (2,1);
+%\pgftext[right,x=2cm,y=0.2cm]{\color{white}\Huge\sc\bfseries \bibname};%
+%\end{tikzpicture}}
+\renewenvironment{thebibliography}[1]
+     {\addcontentsline{toc}{chapter}{Bibliograf\'ia}%      Add to table-of-contents
+     \chapter*{\centering\bibname} %bibcmd}%
+     \bfseries
+      \@mkboth{\MakeUppercase\bibname}{\MakeUppercase\bibname}%
+      \list{\bfseries\@biblabel{\@arabic\c@enumiv}}%
+           {\settowidth\labelwidth{\@biblabel{#1}}%
+            \leftmargin\labelwidth
+            \advance\leftmargin\labelsep
+            \@openbib@code
+            \usecounter{enumiv}%
+            \let\p@enumiv\@empty
+            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+      \sloppy
+      \clubpenalty4000
+      \@clubpenalty \clubpenalty
+      \widowpenalty4000%
+      \sfcode`\.\@m}
+     {\def\@noitemerr
+       {\@latex@warning{Empty `thebibliography' environment}}%
+      \endlist}
+      \def\clearpage{\ifvmode
+\ifnum \@dbltopnum =\m@ne \ifdim \pagetotal <\topskip \hbox{} \fi
+\fi \fi
+\newpage
+\thispagestyle{empty} \write\m@ne{} \vbox{} \penalty -\@Mi }
+\renewenvironment{theindex}{%
+   \cleardoublepage%                               Start on a right-hand page
+   \if@twocolumn
+      \@restonecolfalse
+   \else
+      \@restonecoltrue
+   \fi
+   \columnseprule \z@
+   \columnsep 35\p@
+   \twocolumn[\phantom{\Large\bf\chaptername}%
+              \@makeschapterhead{\centering\indexname}] %\indexcmd}]%
+   %\@mkboth{\indexcmd}{\indexcmd}%           Headings not uppercased
+   \addcontentsline{toc}{chapter}{\'Indice}%      Add to table-of-contents
+   \thispagestyle{empty}\parindent\z@
+   \parskip\z@ \@plus .3\p@\relax
+   \let\item\@idxitem
+}{%
+   \if@restonecol\onecolumn\else\clearpage\fi
+}
+%%%%%%%%%%%%%%%%%%%%%%%%
+%original de ldesc2e.sty 
+\newcommand{\manual}{Manual de \emph{\LaTeX{}}~\cite{manual}} 
+\newcommand{\companion}{\emph{The \LaTeX{} Companion}~\cite{companion}} 
+\newcommand{\guia}{\emph{Gu\'{\i}a Local}~\cite{local}}
+\newcommand{\contrib}[3]{#1\quad$<$\texttt{#2}$>$%
+{\small\\\quad\textit{#3}}\\[1ex]}
+%
+% Algunas instrucciones para ayudar a la creaci'on del 'indice de
+% materias.
+%
+%\newcommand{\bs}{\symbol{'134}}%Print backslash
+\ifx\bs\undefined
+  \newcommand{\bs}{\symbol{92}}%Print backslash
+\else
+  \renewcommand{\bs}{\symbol{92}}%Print backslash
+\fi
+%\newcommand{\bs}{\ensuremath{\mathtt{\backslash}}}%Imprime barra invertida
+% Entrada en el 'indice para una orden
+%
+% Entrada de s'imbolo para la tabla de s'imbolos matem'aticos
+%
+\newcommand{\X}[1]{$#1$&\texttt{\string#1}\hspace*{1ex}}
+% Text normal.... 
+\newcommand{\SC}[1]{#1&\texttt{\string#1}\hspace*{1ex}}
+% para los acentos en modo texto
+\newcommand{\A}[1]{#1&\texttt{\string#1}\hspace*{1ex}}
+\newcommand{\B}[2]{#1#2&\texttt{\string#1{} #2}\hspace*{1ex}}
+
+\newcommand{\W}[2]{$#1{#2}$&
+  \texttt{\string#1}\texttt{\string{\string#2\string}}\hspace*{1ex}}
+\newcommand{\Y}[1]{$\big#1$ &\texttt{\string#1}}  %
+% Tabla de s'imbolos matem'aticos
+\newsavebox{\symbbox}
+\newenvironment{symbols}[1]%
+{\par\vspace*{2ex}
+\renewcommand{\arraystretch}{1.1}
+\begin{lrbox}{\symbbox}
+\hspace*{4ex}\begin{tabular}{@{}#1@{}}}%
+{\end{tabular}\end{lrbox}\makebox[\textwidth]{\usebox{\symbbox}}\par\medskip}
+%
+% Preparaci'on especial para imprimir los s'imblos de la AMS
+% Si no se encuentra AMS, deber'ia funcionar.
+%
+
+% No se tienen versiones PS de los tipos rsfs.
+% Por ello, esto no no se puede hacer para pdf
+\ifx\pdfoutput\undefined % No estamos corriendo pdftex
+\IfFileExists{mathrsfs.sty}
+  {\RequirePackage{mathrsfs}\let\MathRSFS\mathscr\let\mathscr\relax}{}
+\fi
+\IfFileExists{amssymb.sty}
+  {\let\noAMS\relax \RequirePackage{amssymb}}
+  {\def\noAMS{\endinput}\RequirePackage{latexsym}}
+
+\IfFileExists{euscript.sty}
+  {\RequirePackage{euscript}}{}
+%\IfFileExists{eufrak.sty}
+%  {\RequirePackage{eufrak}}{}
+
+
+%
+% Imprimir |--| para mostrar distancia
+%
+\newcommand{\demowidth}[1]{\rule{0.3pt}{1.3ex}\rule{#1}{0.3pt}\rule{0.3pt}{1.3ex}}
+\renewcommand{\cleardoublepage}
+    {\clearpage\if@twoside \ifodd\c@page\else
+    \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+
+\newcommand{\BibTeX}
+     {\textsc{Bib}\TeX}
+%%%%% hasta aqui original de ldesc2e.sty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\xcolortheorem[background=Tan!5 ,titlebackground=thered!40!black ,titleboxcolor=mybrown!40!black ,boxcolor=mybrown!40!black]{out1}{Salida}
+\DeclareCaptionFormat{ejer}{\colorbox{thered!40!black}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\color{white}Ejercicio \thesection .\ 
+\theejercicio\hfill #3}}}
+\captionsetup[ejer]{format=ejer,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
+\newcounter{ejercicio}[section]
+\newwrite\ejercicio@out
+\newenvironment{ejercicio}%
+ {\begingroup% Lets Keep the Changes Local
+  \@bsphack
+  \immediate\openout \ejercicio@out \jobname.exa
+  \let\do\@makeother\dospecials\catcode`\^^M\active
+  \def\verbatim@processline{%
+    \immediate\write\ejercicio@out{\the\verbatim@line}}%
+  \verbatim@start}%
+ {\immediate\closeout\ejercicio@out\@esphack\endgroup%
+%
+% Y aqu'i lo que se ha a~nadido
+
+ \setlength{\parindent}{0pt}
+    %\setlength{\parskip}{1ex plus 0.5ex minus 0.7ex}
+     \noindent
+  %  \hspace*{+2ex}
+%  \setlength{\parindent}{0pt}
+    \setlength{\parskip}{1ex plus 0.3ex minus 0.7ex}
+            \makebox[0.45\linewidth][t]{
+            \hspace{+2ex}
+            \setlength{\parindent}{0pt}
+              \begin{minipage}[t]{0.45\linewidth}
+              \vspace{-3.5ex}
+      \refstepcounter{ejercicio}
+   \captionsetup{options=ejer}
+   \lstset{%
+   caption=Entrada,basicstyle=\tiny\ttfamily\bf,language={[LaTeX]TeX}, numbersep=5mm, numbers=left, numberstyle=\tiny, % number style
+   breaklines=true,framexleftmargin=10mm, xleftmargin=10mm,
+   backgroundcolor=\color{Tan!5},frameround=fttt,escapeinside=??,
+   rulecolor=\color{thered!40!black},
+   morekeywords={% Give key words here                                         % keywords
+       maketitle},
+   keywordstyle=\color[rgb]{0,0,1},                    % keywords
+           commentstyle=\color[rgb]{0.133,0.545,0.133},    % comments
+           stringstyle=\color[rgb]{0.627,0.126,0.941}  % strings
+   %columns=fullflexible   
+   }
+    \lstinputlisting[]{\jobname.exa}
+         \end{minipage}}%
+      \hspace{30pt} 
+           \hfill
+  %
+   \setlength{\parindent}{0pt}
+   \setlength{\parskip}{1ex plus 0.5ex minus 0.7ex}
+%   
+  \makebox[0.5\linewidth][t]{%
+%  %\colorbox{ptcbackground!60}{
+  \setlength{\parindent}{0pt}
+    \setlength{\parskip}{1ex plus 0.3ex minus 0.7ex}
+      \begin{minipage}[t]{0.40\linewidth}
+         \setlength{\parindent}{0pt}
+  \setlength{\parskip}{1ex plus 0.4ex minus 0.7ex}
+  \vspace*{-3.5ex} 
+        \begin{trivlist}
+     \scriptsize\bf\ttfamily \item\begin{out1}{Pdf}\input{\jobname.exa}\end{out1}
+    \end{trivlist}
+      \end{minipage}%}
+      }
+    
+      \par\addvspace{3ex plus 1ex}\vskip -\parskip
+} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareCaptionFont{white}{\color{white}}
+\newcounter{example}[section]
+\DeclareCaptionFormat{out}{\colorbox{mybrown!40!black}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\color{white}C\'odigo del ejemplo\, \thesection .\ 
+\theexample\hfill #3}}}
+\captionsetup[out]{format=out,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
+\xcolortheorem[background=mybrown!5 ,titlebackground=mybrown!40!black ,titleboxcolor=mybrown!40!black ,boxcolor=mybrown!40!black]{out}{Salida}
+\newwrite\example@out
+\newenvironment{example}%
+ {\begingroup% Lets Keep the Changes Local
+  \@bsphack
+  \immediate\openout \example@out \jobname_ex.exa
+  \let\do\@makeother\dospecials\catcode`\^^M\active
+  \def\verbatim@processline{%
+    \immediate\write\example@out{\the\verbatim@line}}%
+  \verbatim@start}%
+ {\immediate\closeout\example@out\@esphack\endgroup%
+ % \par\small\addvspace{3ex plus 1ex}\vskip -\parskip
+ \setlength{\parindent}{0pt}
+    \setlength{\parskip}{1ex plus 0.5ex minus 0.7ex}
+  \noindent
+  \makebox[0.45\linewidth][t]{%
+  \hspace*{+2ex}
+  \setlength{\parindent}{0pt}
+    \setlength{\parskip}{1ex plus 0.3ex minus 0.7ex}
+  \begin{minipage}[t]{0.45\linewidth}
+   % \vspace*{-1ex}
+   \vspace*{-3.5ex}
+   \refstepcounter{example}
+   \captionsetup{options=out}
+   \lstset{%
+   caption=Entrada,basicstyle=\tiny\ttfamily\bf,language={[LaTeX]TeX}, numbersep=5mm, numbers=left, numberstyle=\tiny, % number style
+   breaklines=true,framexleftmargin=10mm, xleftmargin=10mm,
+   backgroundcolor=\color{mybrown!5},frameround=fttt,escapeinside=??,
+   rulecolor=\color{mybrown!40!black},
+   morekeywords={% Give key words here                                         % keywords
+       maketitle},
+   keywordstyle=\color[rgb]{0,0,1},                    % keywords
+           commentstyle=\color[rgb]{0.133,0.545,0.133},    % comments
+           stringstyle=\color[rgb]{0.627,0.126,0.941}  % strings
+   %columns=fullflexible   
+   }
+    \lstinputlisting[]{\jobname_ex.exa}
+         \end{minipage}}
+  \hfill
+  \hspace{30pt}%
+   \setlength{\parindent}{0pt}
+    \setlength{\parskip}{1ex plus 0.5ex minus 0.7ex}
+  \makebox[0.5\linewidth][t]{%
+  %\colorbox{ptcbackground!60}{
+  \setlength{\parindent}{0pt}
+    \setlength{\parskip}{1ex plus 0.3ex minus 0.7ex}
+      \begin{minipage}[t]{0.4\linewidth}
+   % \vspace*{0.5ex}
+    \setlength{\parindent}{0pt}
+      \noindent
+  \setlength{\parskip}{1ex plus 0.4ex minus 0.7ex}
+  \vspace*{-3.5ex} 
+        \begin{trivlist}
+             \scriptsize\bf\ttfamily \item \begin{out}
+             {Pdf}\input{\jobname_ex.exa}\end{out}
+    \end{trivlist}
+      \end{minipage}%}
+      }
+      \par\addvspace{3ex plus 1ex}\vskip -\parskip
+}
+%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareCaptionFormat{salid}{\colorbox{thered!40!black}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\color{white}Ejercicio \thesection .\ 
+\thesalida\hfill #3}}}
+\captionsetup[salid]{format=salid,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
+\xcolortheorem[background=mybrown!5 ,titlebackground=mybrown!40!black ,titleboxcolor=mybrown!40!black ,boxcolor=mybrown!40!black]{salid}{Salida}
+\newcounter{salida}[section]
+\newwrite\salida@out
+\newenvironment{salida}%
+  {\begingroup% Lets Keep the Changes Local
+  \@bsphack
+  \immediate\openout \salida@out \jobname_eps.tex
+  \let\do\@makeother\dospecials\catcode`\^^M\active
+  \def\verbatim@processline{%
+    \immediate\write\salida@out{\the\verbatim@line}}%
+  \verbatim@start}%
+ {\immediate\closeout\salida@out\@esphack\endgroup%
+ \immediate\write18{pdflatex \jobname_eps.tex \jobname_eps.pdf }
+ \immediate\write18{pdf2ps \jobname_eps.pdf \jobname_eps.eps }
+    
+  \setlength{\parindent}{0pt}
+    \setlength{\parskip}{1ex plus 0.3ex minus 0.7ex}
+     \begin{minipage}[t]{0.45\linewidth}
+   % \vspace*{-1ex}
+   %\vspace*{-3.5ex}
+   \refstepcounter{salida}
+   \captionsetup{options=salid}
+   \lstset{%
+   caption=Entrada,basicstyle=\tiny\ttfamily\bf,language={[LaTeX]TeX}, numbersep=5mm, numbers=left, numberstyle=\tiny, % number style
+   breaklines=true,framexleftmargin=10mm, xleftmargin=10mm,
+   backgroundcolor=\color{Tan!5},frameround=fttt,escapeinside=??,
+   rulecolor=\color{thered!40!black},
+   morekeywords={% Give key words here                                         % keywords
+       maketitle},
+   keywordstyle=\color[rgb]{0,0,1},                    % keywords
+           commentstyle=\color[rgb]{0.133,0.545,0.133},    % comments
+           stringstyle=\color[rgb]{0.627,0.126,0.941}  % strings
+   %columns=fullflexible   
+   }
+    \lstinputlisting[]{\jobname_eps.tex}
+         \end{minipage}
+  %\hspace{30pt}%
+   % \setlength{\parindent}{0pt}
+    %\setlength{\parskip}{1ex plus 0.4ex minus 0.2ex}
+    \hspace{20pt}
+     \begin{minipage}[t]{0.40\linewidth}
+   \begin{figure}[H]
+\fcolorbox{thered!40!black}{thered!5}{\includegraphics[scale=0.4]{\jobname_eps.eps}}\end{figure}\end{minipage}
+}
+% }
+
+  
+%}
+\newcounter{problema}[section]
+\DeclareCaptionFormat{prob}{\colorbox{thered!40!black}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\color{white}Ejercicio \thesection .\ 
+\theproblema\hfill #3}}}
+\captionsetup[prob]{format=prob,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
+\xcolortheorem[background=mybrown!5 ,titlebackground=mybrown!40!black ,titleboxcolor=mybrown!40!black ,boxcolor=mybrown!40!black]{prob}{Salida}
+\newwrite\problema@out
+\newenvironment{problema}[1]%
+ {\begingroup% Lets Keep the Changes Local
+   \label{#1}
+  \@bsphack
+  \immediate\openout \problema@out \jobname_pdf.tex
+  \let\do\@makeother\dospecials\catcode`\^^M\active
+  \def\verbatim@processline{%
+    \immediate\write\problema@out{\the\verbatim@line}}%
+  \verbatim@start}%
+ {\immediate\closeout\problema@out\@esphack\endgroup%
+ \immediate\write18{pdflatex \jobname_pdf.tex \jobname_pdf.pdf }
+   \par\small\addvspace{3ex plus 1ex}\vskip -\parskip
+\noindent
+    \vspace*{-2ex}%
+  \makebox[0.4\linewidth][l]{%
+  \begin{minipage}[t]{0.9\linewidth}
+  \refstepcounter{problema}
+  \captionsetup{options=prob}
+   \lstset{%
+   caption=Entrada,basicstyle=\tiny\ttfamily\bf,language={[LaTeX]TeX}, numbersep=5mm, numbers=left, numberstyle=\tiny, % number style
+   breaklines=true,framexleftmargin=10mm, xleftmargin=10mm,
+   backgroundcolor=\color{mybrown!5},frameround=fttt,escapeinside=??,
+   rulecolor=\color{mybrown!40!black},
+   morekeywords={% Give key words here                                         % keywords
+       maketitle},
+   keywordstyle=\color[rgb]{0,0,1},                    % keywords
+           commentstyle=\color[rgb]{0.133,0.545,0.133},    % comments
+           stringstyle=\color[rgb]{0.627,0.126,0.941}  % strings
+   %columns=fullflexible   
+   }
+  
+        \lstinputlisting[]{\jobname_pdf.tex}
+        \end{minipage}
+       }
+ \vspace{20pt}
+
+ \IfFileExists{\jobname_pdf.pdf}{% Si el fichero existe
+ \begin{minipage}[t]{0.8\linewidth}
+      \setlength{\parindent}{0pt}
+    \setlength{\parskip}{1ex plus 0.4ex minus 0.2ex}
+    \begin{figure}[H]
+    \centering
+           \caption{Salida}
+  \fcolorbox{mybrown!40!black}{mybrown!5}{ \includegraphics[scale=0.4]{\jobname_pdf.pdf}}
+\end{figure}\end{minipage}
+}
+
+
+  \par\addvspace{3ex plus 1ex}\vskip -\parskip
+}
+
+\newcommand{\figcaption}[1]{\def\@captype{figure}\caption{#1}}
+ \renewcommand\@seccntformat[1]%
+{\color{green}\csname the#1\endcsname.\quad}
+\newcommand{\helv}{\fontfamily{phv}\fontsize{9}{11}\selectfont}
+\newcommand{\helvi}{\fontfamily{phv}\fontseries{b}\fontsize{9}{11}\selectfont}
+%\newcounter{notas}
+% \newcommand{\notas }{\stepcounter{notas}\vskip 6pt \colorbox{red}{\thechapter.\thenotas.\color{blue}{Nota:}\vskip 6pt}
+%  }
+\newcommand{\margen }[1]{\marginpar{\parbox{4cm}{\small\emph{#1}}}}
+\newenvironment{marnota}[1]{\begin{minipage}{4cm}\small\emph{#1}
+}
+{\end{minipage}
+}
+\newcommand{\pie}[1]{\begin{changemargin}{6cm}{5cm}{-0.1cm}{5cm}{2cm}#1\end{changemargin}}
+%\renewenvironment{code}{\begin{quote}}{\end{quote}}
+\newcommand{\cih}[1]{%
+\index{instrucciones!#1@\texttt{\bs#1}}%
+\index{#1@\texttt{\hspace*{-1.2ex}\bs #1}}}
+\newcommand{\ci}[1]{\cih{#1}\texttt{\bs#1}}
+%Package
+\newcommand{\pai}[1]{%
+\index{paquetes!#1@\textsf{#1}}%
+\index{#1@\textsf{#1}}%
+\textsf{#1}}
+% Entrada en el 'indice de entorno
+\newcommand{\ei}[1]{%
+\index{entornos!\texttt{#1}}%
+\index{#1@\texttt{#1}}%
+\texttt{#1}}
+% Entrada en el 'indice para mensajes
+\newcommand{\wni}[1]{%
+\index{mensaje!\texttt{#1}}%
+\texttt{#1}}
+% Entrada en el 'indice de una palabra
+\newcommand{\wi}[1]{\index{#1}#1}
+%
+% Instrucciones de composici'on
+%
+\newenvironment{command}%
+    {\nopagebreak\par\small\addvspace{3.2ex plus 0.8ex minus 0.2ex}%
+     \vskip -\parskip
+     \noindent%
+      \setlength{\arrayrulewidth}{1mm}
+          \arrayrulecolor{mybrown!40!black}
+     \begin{tabular}{|l|}\rowcolor{mybrown!5}\hline\rule{0pt}{1em}\ignorespaces}%
+    {\\\hline\end{tabular}\par\nopagebreak\addvspace{3.2ex plus 0.8ex
+        minus 0.2ex}%
+     \vskip -\parskip}
+%
+% Composici'on de fragmentos de c'odigo
+%
+\newenvironment{code}%
+    {\nopagebreak\par\small\addvspace{3.2ex plus 0.8ex minus 0.2ex}%
+     \vskip -\parskip
+     \noindent%
+      \setlength{\arrayrulewidth}{1mm}
+          \arrayrulecolor{thered!40!black}
+     \begin{tabular}{|l|}\rowcolor{Tan!5}\hline\rule{0pt}{1pt}\ignorespaces}%
+    {\\\hline\end{tabular}\par\nopagebreak\addvspace{3.2ex plus 0.8ex
+        minus 0.2ex}%
+     \vskip -\parskip}
+% \cvhrulefill{<color>}{<thickness>}
+\newcommand*\cvhrulefill[2]{%
+  \leavevmode\color{#1}\leaders\hrule\@height#2\hfill \kern\z@\normalcolor}
+% \crule{<color>}{<width>}{<thickness>}
+\newcommand\crule[3]{%
+  \color{#1}\rule{#2}{#3}\normalcolor}
+\newcommand{\codigo}[1]{\lstinline!\\#1!}
+% Entorno Intro
+\newenvironment{intro}{\sffamily}{\vspace*{2ex minus 1.5ex}}
+%%%%%lined
+\NewEnviron{lined}[1]%
+ {\begin{center}
+  \begin{minipage}{#1}\crule{red!40!black}{#1 +0.1\linewidth}{2pt}\vspace{2ex}
+   \BODY 
+   \crule{red!40!black}{#1 +0.1\linewidth}{2pt}
+   \end{minipage}\vspace{2ex}
+ \end{center}\vspace{2ex}}
+%%%%%%
+\protected\def\PdfLaTeX{P\kern -.15em\raisebox{-0.21em}{D}\kern -.05em F\LaTeX}
+\protected\def\PdfTeX{P\kern -.15em\raisebox{-0.21em}{D}\kern -.05em F\TeX}
+\newenvironment{lcpar}{%
+\begingroup
+\setlength{\leftskip}{0pt plus 1fil}%
+\setlength{\rightskip}{-\leftskip}%
+\setlength{\parfillskip}{0pt plus 2fil}
+}{%
+\par\endgroup
+}
+\renewcommand*{\LettrineFontHook}
+{\bfseries}
+\renewcommand*{\LettrineTextFont}
+{\bfseries}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tikzstyle{mybox} = [draw=red!40!black, fill=mybrown!10, very thick,
+    rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
+\tikzstyle{fancytitle} =[fill=red!40!black, text=white]
+\NewEnviron{objetivos}{\vskip 5pt
+\begin{tikzpicture}
+
+% First box
+\node [mybox] (box1){%
+    \begin{minipage}{\textwidth}
+      \BODY
+    \end{minipage}
+    };
+    \node[fancytitle, rounded corners] at (box1.north) {\Large Objetivos};
+\end{tikzpicture}
+ }
+%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \makeatother

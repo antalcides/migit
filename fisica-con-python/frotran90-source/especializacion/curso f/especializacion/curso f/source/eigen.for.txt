@@ -1,0 +1,156 @@
+    	program eigensolver
+
+c-------generate eigenvalues and eigenvectors using TQLI subroutine
+c....... TRIDIAGONAL MATRIX
+
+c.......Parameters:
+c	mxpts: max number of rmesh points
+      	parameter (mxpts=10)
+   
+	common/bkmesh/npts
+
+	open(unit=10,file='eigvalues.out',status='unknown')
+		
+5	print*,'give the rank of the matrix:'
+	read*,npts
+	if(npts.gt.mxpts) then
+			print*,' rank should be less than :',mxpts+1
+			go to 5
+	endif
+
+c...... construction of Matrix
+	call constrM
+
+c....... diagonalization
+      	call diagM
+
+c....... output 
+	call printM
+
+	
+	stop
+	end
+
+c
+c**************************************************************************
+c
+	subroutine constrM
+	
+c-------Generates the Tri-diagonal Matrix
+
+	parameter (mxpts=10)
+	common/bkmesh/npts
+	common/bkhamilt/d(mxpts),e(mxpts)
+	dimension row(npts) 
+	
+c-------construct Matrix on the grid
+
+c.......diagonal terms
+	print*,' give a list of the diagonal elements'
+	read*, (d(i), i=1,npts)
+	
+c.......non-diagonal terms
+	print*,' give a list of the non-diagonal elements'
+	read*, (e(i), i=1,npts-1)
+	
+c....... display matrix
+	 do 10 irow=1,npts
+	 	do 20 jcol=1,npts
+			row(jcol) = 0
+			if (jcol.eq.irow-1) row(jcol) = e(irow-1)
+			if (jcol.eq.irow)   row(jcol) = d(irow)
+			if (jcol.eq.irow+1) row(jcol) = e(irow)
+20		continue
+		print99, (row(jcol),jcol=1,npts)	 	
+10	continue
+99	format(10(2x,f9.3))
+	
+c....... special correction for tqli only
+	do 150 i=npts,2,-1
+		e(i)=e(i-1)
+150	continue
+	e(1)=0
+
+	return
+	end
+c
+c**************************************************************************
+c
+	subroutine diagM
+
+c------- Matrix diagonalization.
+c------- Also stores the Eigenvalues and Eigenvectors.
+
+	parameter (mxpts=10)
+	common/bkmesh/npts
+	common/bkhamilt/d(mxpts),e(mxpts)
+	dimension  v(mxpts,mxpts)	! eigenvectors
+	common/bkeigen/ener(mxpts),chi(mxpts,mxpts)
+	dimension work(5*mxpts)
+	
+	data zero,one/0.0,1.0/
+
+
+c----------matrix diagonalization
+c.....lapack	   call sstev('V',npts,d,e,v,mxpts,work,ifail)
+	   call tqli(d,e,npts,mxpts,v)
+
+c------ store all bound state wavefunctions
+	do 50 nq=1,npts
+      		ener(nq) = d(nq)
+        	print45, nq,ener(nq)
+45      	format(5x,'n =:',i3,10x,'eigenvalue =:',f15.4)
+
+      		do 20 irow=1,npts
+20      	  chi(nq,irow)=v(irow,nq)
+50	continue
+	
+	return
+     	end
+c
+c**************************************************************************
+c
+	subroutine printM
+
+c-------Prints the energies and selected wavefunctions.
+
+	parameter (mxpts=10)
+	common/bkmesh/npts
+	common/bkeigen/ener(mxpts),chi(mxpts,mxpts)
+	character*30  outputfile
+	
+	write(10,5)
+5	format(/5x,'Results: ')
+
+	do 20 nq=1,npts
+	   write(10,45) nq,ener(nq)
+20	continue		
+45	format(5x,'n =:',i5,10x,'eigenvalue =: ',f15.4)
+
+	inptfile = 11
+	outputfile(1:5) = 'eigv.'
+50	format(a25)
+100	print*,'give the name of the output file (extension only)'
+	read(*,50) outputfile(6:30)
+52	print*,' give the eigenvalue number:'
+	read*, nq
+
+	open(unit=inptfile,file=outputfile,status='unknown')
+	do 75 irow=1,npts
+75	    write(inptfile,*) irow,' ',chi(nq,irow)
+
+
+	inptfile = inptfile+1
+	if (inptfile.gt.50) inptfile = 11
+	print*,' continue? (no=0) '
+	read*,icont
+	if (icont.ne.0) go to 100
+	
+	return
+     	end
+
+c
+c**************************************************************************
+c
+
+

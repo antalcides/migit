@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0061)http://www.df.uba.ar/users/dmitnik/teoricaII/unix/floppy.html -->
+<HTML><HEAD><TITLE>Cómo copiar archivos a diskette</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY>
+<H3 align=center>
+<H1 align=center>Cómo copiar archivos a diskette </H1></H3>
+<P>Básicamente, copiar archivos a diskette consta de dos operaciones. La primera 
+es <B>montar</B> el diskette, y asociarlo con un directorio llamado 
+<I>/mnt/floppy</I>: 
+<P>
+<TABLE cellSpacing=0 cellPadding=5 align=center bgColor=#ffcccc border=0>
+  <TBODY>
+  <TR>
+    <TD><PRE>problemas&gt;<B> mount /mnt/floppy</B>
+</PRE></TD></TR></TBODY></TABLE></P>
+<P>La segunda operación, es <B>copiar</B> el archivo al directorio: 
+<P>
+<TABLE cellSpacing=0 cellPadding=5 align=center bgColor=#ffcccc border=0>
+  <TBODY>
+  <TR>
+    <TD><PRE>problemas&gt;<B> cp archivoacopiar /mnt/floppy/.</B>
+</PRE></TD></TR></TBODY></TABLE></P>
+<P>Con esto queda copiado el archivo en el diskette. Al terminar, conviene 
+<B>desmontar</B> el directorio, haciendo desde cualquier otro directorio: 
+<P>
+<TABLE cellSpacing=0 cellPadding=5 align=center bgColor=#ffcccc border=0>
+  <TBODY>
+  <TR>
+    <TD><PRE>otrodirectorio&gt;<B> umount /mnt/floppy</B>
+</PRE></TD></TR></TBODY></TABLE></P>
+<P>Si queremos copiar un archivo desde un diskette, hacia nuestra cuenta, el 
+procedimiento es similar, excepto en la copia, donde hacemos: 
+<P>
+<TABLE cellSpacing=0 cellPadding=5 align=center bgColor=#ffcccc border=0>
+  <TBODY>
+  <TR>
+    <TD><PRE>directorio_donde_copiar&gt;<B> cp /mnt/floppy/archivoacopiar .</B>
+</PRE></TD></TR></TBODY></TABLE></P>
+<P>Si tuvieramos una grabadora de CD, el procedimiento a seguir para copiar un 
+archivo en un CD es el mismo, reemplazando <B>floppy</B> por <B>cdrom</B>. 
+</P></BODY></HTML>

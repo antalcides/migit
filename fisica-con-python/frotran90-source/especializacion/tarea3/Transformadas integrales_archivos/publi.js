@@ -1,0 +1,1 @@
+var dir='http://www.urbenalia.com/Publicidad/adframe.php?clientID=57';  document.write('<iframe src="'+dir+'" width="468" height="60" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" target="_top"></iframe>'); document.write('<ilayer src="'+dir+'" width="468" height="60"></ilayer>'); 

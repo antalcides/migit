@@ -1,0 +1,88 @@
+	program fourier
+	implicit real*8(a-h,o-z)
+	
+c.......simple slow-Fourier transform of function Yt
+c	by Dario Mitnik
+
+c	Yw(k+1) = Sum{j=0;N-1} Yt(j+1) exp(-2Pi eye j*k/N)
+
+
+	parameter (mxpts=1000)
+	dimension Yt(mxpts)
+	complex*16 Yw(mxpts)
+	complex*16 eye,zero,phasetr
+	data rzero,one,two/0.0d0,1.0d0,2.0d0/
+	common /bckph/twopi,frec,tau,phase,npts
+	
+	
+c.......Initialization of variables
+	pi   = two*asin(one)
+	twopi = two*pi
+	eye  = cmplx(rzero,one)
+	zero = cmplx(rzero,rzero)
+	
+c........input data
+	npts = mxpts
+	tau  = 0.2			   !! default
+	frec = 0.2			   !! default
+10	print*,' give number of points :'
+	read*,npts
+	if (npts.gt.mxpts) then
+		print*,' the maximum value  allowed is ',mxpts
+		go to 10
+	endif
+	print*,' give the time step interval :'
+	read*,tau
+	print*,' input function Yt(j+1)=sin(2Pi frec j*tau + phase)'
+	print*,' give the frequency frec:'
+	read*,frec
+	print*,' give the phase '
+	read*,phase
+	fintime = tau*npts
+
+c.......open files
+	open(unit=10,file='Yt.dat',status='unknown')
+	open(unit=11,file='Yw.dat',status='unknown')
+	
+c.......first calculate the function Y in time domine
+	do 20 i=1,npts
+		Yt(i) = Ytfunc(i)
+20	continue
+
+c.......main loop for the transformation
+	do 100 k=0,npts-1
+
+	  Yw(k+1) = zero
+	  do 50 j=0,npts-1
+	     phasetr = -twopi*eye*j*k/npts
+	     Yw(k+1) = Yw(k+1) + Yt(j+1)*exp(phasetr)
+50	  continue
+
+c.........print results
+	  write(10,*) k*tau,' ',Yt(k+1)
+	  ryw = dble(Yw(k+1))
+	  riyw=dimag(Yw(k+1))
+	  rywm=abs(Yw(k+1))
+	  write(11,999) k/fintime,ryw,riyw,rywm
+	  
+	  	
+100	continue
+999	format(4(1pg12.4,2x))
+	stop
+	end
+
+c-------------------------------------------------------------
+	real*8 function Ytfunc(j)
+	implicit real*8(a-h,o-z)
+
+c.......calculation of the function to be transformed
+
+c........Yt(j+1)=sin(2Pi frec j*t + phase)
+
+	common /bckph/twopi,frec,tau,phase,npts
+	
+	x = twopi*frec*(j-1)*tau + phase
+	Ytfunc = sin(x)
+	
+	return
+	end

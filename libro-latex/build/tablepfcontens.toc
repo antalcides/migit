@@ -1,0 +1,61 @@
+\contentsline {chapter}{\numberline {1}Introducci\'{o}n}{1}{chapter.1}
+\etoc@startlocaltoc {2}
+\contentsline {section}{\numberline {1.1}\textquestiondown Qu\'{e} es \TeX , \tmspace +\thinmuskip {.1667em} \LaTeX \tmspace +\thinmuskip {.1667em} y su familia ?}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Word Vs \LaTeX }{3}{section.1.2}
+\contentsline {section}{\numberline {1.3}\IeC {\textquestiondown } Porqu\'{e} Usar \LaTeX ?}{3}{section.1.3}
+\contentsline {section}{\numberline {1.4}Filosof\'{\i }a de \LaTeX }{4}{section.1.4}
+\contentsline {section}{\numberline {1.5}Que hace \LaTeX }{4}{section.1.5}
+\contentsline {subsubsection}{Autor, maquetador y compositor}{4}{subsubsection*.3}
+\contentsline {subsubsection}{Maquetaci\'on}{5}{subsubsection*.4}
+\contentsline {section}{\numberline {1.6}\IeC {\textquestiondown }Como usar \LaTeX \tmspace +\thinmuskip {.1667em}?}{5}{section.1.6}
+\contentsline {section}{\numberline {1.7}Herramientas para trabajar con \LaTeX }{5}{section.1.7}
+\contentsline {section}{\numberline {1.8}Instalaci\'on}{9}{section.1.8}
+\contentsline {subsection}{\numberline {1.8.1}Windows}{9}{subsection.1.8.1}
+\contentsline {subsection}{\numberline {1.8.2}Mac OS X}{9}{subsection.1.8.2}
+\contentsline {subsection}{\numberline {1.8.3}Linux}{9}{subsection.1.8.3}
+\contentsline {subsubsection}{Debian y sus derivados}{9}{subsubsection*.8}
+\contentsline {subsubsection}{Fedora y los derivados de Red Hat}{9}{subsubsection*.9}
+\contentsline {chapter}{\numberline {2}Edici\'{o}n B\'{a}sica}{11}{chapter.2}
+\etoc@startlocaltoc {3}
+\contentsline {section}{\numberline {2.1}Introducci\IeC {\'o}n}{11}{section.2.1}
+\contentsline {section}{\numberline {2.2}Ordenes en \TeX \tmspace +\thinmuskip {.1667em} y \LaTeX :}{11}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Ejemplos de comandos}{12}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Caracteres especiales}{12}{subsection.2.2.2}
+\contentsline {section}{\numberline {2.3}Mi primer documento}{12}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Estructura de un fichero de entrada}{12}{subsection.2.3.1}
+\contentsline {section}{\numberline {2.4}El formato del documento}{14}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Clases de documentos}{14}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Paquetes}{14}{subsection.2.4.2}
+\contentsline {subsection}{\numberline {2.4.3}Estilo de p\'agina}{18}{subsection.2.4.3}
+\contentsline {section}{\numberline {2.5}Proyectos grandes}{18}{section.2.5}
+\contentsline {section}{\numberline {2.6}resumen}{19}{section.2.6}
+\contentsline {chapter}{\numberline {3}tercer}{21}{chapter.3}
+\etoc@startlocaltoc {4}
+\contentsline {section}{\numberline {3.1}Reglas generales}{21}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Ejemplo 1}{21}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Ejemplo 2}{22}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}Acentos}{22}{subsection.3.1.3}
+\contentsline {subsection}{\numberline {3.1.4}F\'{o}rmulas en l\'{\i }neas}{23}{subsection.3.1.4}
+\contentsline {subsection}{\numberline {3.1.5}Mas ejemplos}{23}{subsection.3.1.5}
+\contentsline {subsection}{\numberline {3.1.6}Tipos de documentos}{23}{subsection.3.1.6}
+\contentsline {chapter}{\numberline {4}\LaTeX \tmspace +\thinmuskip {.1667em} con LYX}{25}{chapter.4}
+\contentsline {chapter}{\numberline {5}Composici\'on de f\'ormulas matem\'aticas}{27}{chapter.5}
+\contentsline {section}{\numberline {5.1}Generalidades}{27}{section.5.1}
+\contentsline {section}{\numberline {5.2}Agrupaciones en modo matem'atico}{29}{section.5.2}
+\contentsline {section}{\numberline {5.3}Elementos de las f'ormulas matem'aticas}{29}{section.5.3}
+\contentsline {section}{\numberline {5.4}Espaciado en modo matem'atico}{32}{section.5.4}
+\contentsline {section}{\numberline {5.5}Colocaci'on de signos encima de otros}{33}{section.5.5}
+\contentsline {section}{\numberline {5.6}Tama\nobreakspace {}no del tipo para ecuaciones}{34}{section.5.6}
+\contentsline {section}{\numberline {5.7}Descripci'on de variables}{35}{section.5.7}
+\contentsline {section}{\numberline {5.8}Teoremas, leyes\ldots }{36}{section.5.8}
+\contentsline {section}{\numberline {5.9}S'imbolos en negrita}{37}{section.5.9}
+\contentsline {chapter}{\numberline {6}Uso de los paquetes m\'as comunes}{39}{chapter.6}
+\etoc@startlocaltoc {5}
+\contentsline {section}{\numberline {6.1}Paquetes m\'{a}s usados}{39}{section.6.1}
+\contentsline {section}{\numberline {6.2}Fancyhdr}{39}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Introducci\IeC {\'o}n}{39}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Uso}{40}{subsection.6.2.2}
+\contentsline {subsubsection}{Detalles:}{41}{subsubsection*.17}
+\contentsline {subsubsection}{Lineas de adorno}{42}{subsubsection*.18}
+\contentsline {subsubsection}{Avanzado}{42}{subsubsection*.19}
+\contentsfinish 

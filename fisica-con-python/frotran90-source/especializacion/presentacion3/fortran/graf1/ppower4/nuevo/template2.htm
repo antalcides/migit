@@ -1,0 +1,64 @@
+<title>template2.tex</title>
+<body bgcolor="#7fbf7f">
+<h2 align=center>template2.tex</h2>
+The following LaTeX source file uses overlays
+either with <b><tt>itemstep</tt></b> or with
+the macros <tt><b>\fromSlide</b></tt>,
+<tt><b>\untilSlide</b></tt>, <tt><b>\onlySlide</b></tt>.
+<p>
+To create the PDF file
+<a href="template2.pdf"><tt>template2.pdf</tt></a>,
+(<b>1</b>) be sure to use the <tt>prosper</tt> class, then
+(<b>2</b>) execute the command <tt>latex&nbsp;template2.tex</tt>, and
+(<b>3</b>) the command <tt>dvipdf&nbsp;template2.dvi</tt>.
+
+<hr><pre>
+<font color="#005f00">%%%%%%%%%%%%%%%%%%%%%%%%%%% <a href="template2.tex">template2.tex</a> %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</font>
+\documentclass[bruce,pdf,colorBG,slideColor]{prosper}
+\hypersetup{pdfpagemode=FullScreen}
+
+\title{ your title }
+\subtitle{ optional subtitle }
+\author{ you }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DefaultTransition{Wipe}        %%% otherwise, it is "Replace"
+\begin{document}
+<font color=blue>\maketitle                              %%% = slide 1</font>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+<font color="#bf0000">\begin{slide}{Slide 2}                  %%% = slide 2
+        This is the first non-Title slide.
+\end{slide}</font>
+
+<font color=blue>\overlays{6}{                           %%% = slide 3 (images 3-8)
+\begin{slide}{itemized lists}
+    \begin{itemstep}
+        \item  For slides, the {\tt itemstep} environment
+                is an easy way to show list items incrementally.
+        \item  Here is item two (appears on new overlay)
+        \item  Here is item three (appears on new overlay)
+        \begin{itemize}
+            \item  A subitem (appears on new overlay)
+            \item  ...and another (new overlay)
+        \end{itemize}
+        \item  Final item
+    \end{itemstep}
+\end{slide}}</font>
+
+<font color="#bf0000">\overlays{3}{                           %%% = slide 4 (images 9-11)
+        \begin{slide}{slide 4; equations}
+        \onlySlide*{1}{This is the text for overlay 1 only.}
+        \fromSlide*{2}{This is the text starting at overlay 2.}
+        \fromSlide{1}{ $$ C = 2 \pi r $$ }
+        \fromSlide{2}{ $$ A = 4 \pi r^2 $$ }
+        \onlySlide{3}{ $$ V = \frac{4 \pi r^3}3 $$ }
+\end{slide}}</font>
+
+<font color=blue>\begin{slide}{Last Slide}               %%% = slide 5
+        The End.
+\end{slide}</font>
+
+\end{document}
+<font color="#005f00">%%%%%%%%%%%%%%%%%%%%%%%%%%%% end of <a href="template2.tex">template2.tex</a> %%%%%%%%%%%%%%%%%%%%%%%%%%%</font>
+</pre>
+</body>

@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0079)http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/subsection3_2_1.html -->
+<HTML><HEAD><TITLE>Summary - Use with <IMG ALIGN=BOTTOM ALT="" SRC="_9659_tex2html_wrap11982.xbm"></TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY 
+background="Summary - Use with IMG ALIGN=BOTTOM ALT= SRC=_9659_tex2html_wrap11982_xbm_archivos/summer_p.gif">
+<P>
+<HR>
+<A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/section3_3.html" 
+name=tex2html115><IMG 
+src="Summary - Use with IMG ALIGN=BOTTOM ALT= SRC=_9659_tex2html_wrap11982_xbm_archivos/next_motif.gif" 
+align=middle></A> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/section3_2.html" 
+name=tex2html113><IMG 
+src="Summary - Use with IMG ALIGN=BOTTOM ALT= SRC=_9659_tex2html_wrap11982_xbm_archivos/up_motif.gif" 
+align=middle></A> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_6.html" 
+name=tex2html109><IMG 
+src="Summary - Use with IMG ALIGN=BOTTOM ALT= SRC=_9659_tex2html_wrap11982_xbm_archivos/previous_motif.gif" 
+align=middle></A> <BR><B>Next:</B> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/section3_3.html" 
+name=tex2html116>Use with EEPIC</A> <B>Up:</B> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/section3_2.html" 
+name=tex2html114>Using GNUPLOT for </A><B>Previous:</B> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_6.html" 
+name=tex2html110>Line and point </A>
+<HR>
+
+<P>
+<H2><A name=SECTION0002100000000000000>Summary - Use with <IMG alt="" 
+src="Summary - Use with IMG ALIGN=BOTTOM ALT= SRC=_9659_tex2html_wrap11982_xbm_archivos/_9659_tex2html_wrap11982.xbm" 
+align=bottom></A></H2>
+<P>In summary, to use the <IMG alt="" 
+src="Summary - Use with IMG ALIGN=BOTTOM ALT= SRC=_9659_tex2html_wrap11982_xbm_archivos/_9659_tex2html_wrap11982.xbm" 
+align=bottom> facilities of GNUPLOT, the first command to GNUPLOT should be 
+<BLOCKQUOTE>terminal latex </BLOCKQUOTE>and the output of GNUPLOT should be 
+directed to a file, for example, <PRE><TT>
+    set output "plot.tex"</TT></PRE>This may be anything you like but it should 
+have a <TT>.tex</TT> extension, of course. Then the size of the plot should be 
+given. For example, the command <PRE><TT>
+    set size 1,2</TT></PRE>tells GNUPLOT to use a 5 inch wide by 6 inch high box 
+for the plot. The numbers given are <EM>scale factors</EM>, not the actual size. 
+The default is 5 inches by 3 inches. This is the size of the complete plot, 
+including all labels. 
+<P>When finished, the file will contain all of the plots you have specified (you 
+probably only want one plot per file). This file can then be used in a <IMG 
+alt="" 
+src="Summary - Use with IMG ALIGN=BOTTOM ALT= SRC=_9659_tex2html_wrap11982_xbm_archivos/_9659_tex2html_wrap11982.xbm" 
+align=bottom> document, <EM>e.g.</EM>, 
+<P><PRE><TT>
+    \begin {figure}
+      \begin{center}
+      \end{center}
+    \end {figure}</TT></PRE>
+<P>This puts the plot into a figure. 
+<P>You will also want to read about the following commands: <TT>set title, set 
+xlabel, set ylabel, set key, set label, set xtics, set ytics</TT>, and <TT>set 
+clip</TT>. These are all described in the regular GNUPLOT manual. 
+<P>
+<HR>
+
+<P>
+<ADDRESS>David.Kotz@dartmouth.edu </ADDRESS></BODY></HTML>

@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0056)http://www.dcc.uchile.cl/~lmateu/CC10A/Apuntes/integral/ -->
+<HTML><HEAD><TITLE>Computación I</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY>
+<CENTER>
+<H3>Cálculo de Áreas</H3></CENTER>Objetivos: Resolver el problema de cálculo del 
+área bajo la curva y utilizar subclases para poder formar una clase de 
+biblioteca que realiza el cálculo.
+<P>Temas:
+<P>
+<UL>
+  <LI>Cálculo de áreas. 
+  <LI>Método de los trapecios. 
+  <LI>Programación del método de los trapecios. 
+  <LI>Cálculo del área de múltiples funciones en base a subclases. 
+  <LI>Método de Simpson. </LI></UL>
+<P>
+<HR>
+
+<H4>Cálculo de áreas</H4>Uno de los problemas matamáticos más frecuentes es el 
+cálculo del área que se forma al graficar una función. Por ejemplo, se necesita 
+calcular el área A que aparece en la siguiente figura:
+<P>
+<CENTER><IMG src="Computación I_archivos/area.gif"></CENTER>
+<P>en donde la función f(x) y los valores a y b son conocidos.
+<P>En este tipo de problemas se pueden obtener dos tipos de soluciones:
+<P>
+<UL>
+  <LI>Soluciones algebraicas: se obtiene una fórmula precisa y exacta para el 
+  área solicitada. 
+  <LI>Soluciones numéricas: se calcula numéricamente una estimación del área. 
+  </LI></UL>Desde luego, la soluciones algebraicas son mejores que las numéricas, 
+porque son exactas. Pero a veces, la complejidad de las funciones hace imposible 
+(o difícil) obtener la solución algebraica, por lo que una solución numérica 
+permite ahorrar tiempo.
+<P>
+<HR>
+
+<H4>Método de los trapecios</H4>La estrategia más simple consiste en subdividir 
+el intervalo pedido para el cálculo del área en n subintervalos de pequeño 
+tamaño y aproximar el área como la suma de las área de los trapecios que se 
+forman:
+<P>
+<CENTER><IMG src="Computación I_archivos/trapecios.gif"></CENTER>
+<P>en donde delta=(a-b)/n. Si n es suficientemente grande (o equivalentemente 
+delta es suficientemente pequeño), el área de los trapecios será aproximadamente 
+el área pedida. El área de los trapecios se calcula de la siguiente forma:
+<P>
+<UL>
+  <LI>Se determinan los puntos del eje x que delimitarán cada trapecio. Estos 
+  puntos son:
+  <P>
+  <CENTER>xi= a+delta*i, i= 0, 1, 2, ..., n</CENTER>
+  <P></P>
+  <LI>Se evalúa la función f en cada uno de los puntos xi:
+  <P>
+  <CENTER>yi= f(xi), i= 0, 1, 2, ..., n</CENTER>
+  <P></P>
+  <LI>Se calcula el área de cada trapecio como:
+  <P>
+  <CENTER>ai= (yi+y(i+1))*delta/2, i= 0, 1, 2, ..., n-1</CENTER>
+  <P></P>
+  <LI>Se suman las áreas de los trapecios.
+  <P></P></LI></UL>
+<HR>
+
+<H4>Programación del método de los trapecios</H4>Supongamos que la función eval 
+evalúa la función f(x) (como se hizo cuando se calcularon la raíces de una 
+función). Entonces la siguiente fórmula permite calcular el área de los 
+trapecios:
+<P>
+<CENTER>area= delta*(f(a)/2+f(x1)+f(x2)+...+f(x(n-1))+f(b)/2)</CENTER>
+<P>Programa:
+<P><CODE><PRE>    double area(double a, double b, int n) {
+      double delta= (b-a)/n;
+      double sum= (eval(a)+eval(b))/2; // 1/2*(f(a)+f(b))
+      double x= a;
+      for (int i=1; i&lt;n; i++) {        // + f(a+i*delta), con i=1 ... n-1
+        x+= delta;
+        sum+= eval(x);
+      }
+      return delta*sum;
+    }
+    double eval(double x) {
+      ...
+      return ...;
+    }
+</PRE></CODE>Esta solución es análoga a la que se programó para buscar los ceros 
+de una función. El problema de esta solución es que sucede cuando se requiere 
+calcular la integral de varias funciones distintas. Hay que programar una 
+función para calcular el área de cada función.
+<P>
+<HR>
+
+<H4>Cálculo del área de múltiples funciones en base a subclases</H4>La idea 
+consiste en crear objetos para evaluar las múltiples funciones. Cada uno de 
+estos objetos poseerá un método <B>eval</B> para evaluar la función asignada. La 
+definición del método se hará en una subclase de un clase base común a todas las 
+funciones. Llamaremos a esta clase <B>Funcion</B>:
+<P><CODE><PRE>    class Funcion extends Program {
+      double eval(double x) {
+        return 0.0;
+      }
+      double area(double a, double b, int n) {
+        // el mismo método de antes
+        return ...;
+      }
+    }
+</PRE></CODE>Con esta clase ahora es posible calcular en un solo programa el 
+área de sin(x), de exp(x) y de x^k:
+<P><CODE><PRE>    class FunSin extends Funcion {
+      double eval(double x) {
+        return sin(x);
+      }
+      // area se hereda
+    }
+    class FunExp extends Funcion {
+      double eval(double x) {
+        return exp(x);
+      }
+      // area se hereda
+    }
+    class FunXk extends Funcion {
+      int k;
+      FunXk(int k) {
+        this.k= k;
+      }
+      double eval(double x) {
+        return pow(x, k);
+      }
+      // area se hereda
+    }
+    ...
+    void run() {
+      println("area sin(x)= " + new FunSin().area(0.0, PI/2, 100));
+      println("area exp(x)= " + new FunExp().area(0.0, 1.0, 100));
+      println("area x^3= " + new FunXk(3).area(0.0, 1.0, 100));
+    }
+</PRE></CODE>(Ver el programa completo en <A 
+href="http://www.dcc.uchile.cl/~lmateu/CC10A/Apuntes/integral/Trapecios.java">Trapecios.java</A>.)
+<P>En la clase Funcion también se pueden incluir otros métodos para:
+<P>
+<UL>
+  <LI>Graficar un intervalo de la función en una pizarra. 
+  <LI>Buscar el mínimo en un intervalo de la función. 
+  <LI>Buscar el máximo en un intervalo de la función. 
+  <LI>Buscar una raiz de la función en un intervalo. 
+  <LI>etc. </LI></UL>
+<HR>
+
+<H4>Método de Simpson</H4>El método de los trapecios no es preciso en su 
+resultado porque no es adecuado aproximar la curva por líneas rectas. Un método 
+más preciso es el de Simpson que toma pares de subintervalos y aproxima la 
+función en ese intervalo por un polinomio de grado 2 que pasa exactamente por 
+los puntos que delimitan cada subintervalo.
+<P>Cada subintervalo entre xi y x(i+2), con i un entero par, se aproxima por un 
+polinomio de la forma:
+<P>
+<CENTER>p(x)= ai*x²+bi*x+ci</CENTER>
+<P>en donde ai, bi y ci se calcula de tal forma que:
+<P>
+<CENTER>p(xi)=f(xi)</CENTER><BR>
+<CENTER>p(x(i+1))=f(x(i+1))</CENTER><BR>
+<CENTER>p(x(i+2))=f(x(i+2))</CENTER>
+<P>Al resolver el problema se llega a una formula bastante simple para el área:
+<P>
+<CENTER>area= 
+delta/3*(f(a)+4*f(xi)+2*f(x(i+1))+4*f(x(i+2))+2*f(x(i+3))+...+4*f(x(n-1))+f(b))</CENTER>
+<P><EM>Tarea</EM>:
+<P>Escriba el método <B>simpson</B> que calcula el área utilizando el método de 
+simpson.
+<P>(Compare su solución con el programa <A 
+href="http://www.dcc.uchile.cl/~lmateu/CC10A/Apuntes/integral/Simpson.java">Simpson.java</A>.)
+<P>
+<HR>
+
+<P></P></BODY></HTML>

@@ -1,0 +1,42 @@
+
+
+
+
+
+\begin{theorem}
+Sea $\left\vert \kappa\right\vert \lneqq\lambda_{1}$ ($\lambda_{1}$ valor
+propio principal de $-\Delta$), y sup\'{o}ngase que \linebreak$u\in
+C^{2}\left(  B\right)  \cap C(\overline{B})$ Lipschitz continua en
+$\overline{B}$ satisface
+\[
+\left(  P.V.F.\right)  \left\{
+\begin{array}
+[c]{c}%
+\Delta u+\kappa u=C_{0}\text{ \ \ en }B,\\
+u=0\text{ \ \ sobre }\partial B,
+\end{array}
+\right\}.
+\]
+donde $B:=B_{R}\left(  0\right)  $ y $C_{0}\in\mathbb{R}.$
+
+\begin{enumerate}
+\item Si $C_{0}=0,$ entonces el $\left(  P.V.F.\right)  $ tiene como \'{u}nica
+soluci\'{o}n $u\equiv0$ en $B.$
+
+\item Si $-\lambda_{1}\leq\kappa\leq0$, entonces existe una constante positiva
+$M$ tal que
+\[
+u\left(  x\right)  \leq M\left(  M-x^{2}\right)  \text{ \ \ en }B\text{.}%
+\]
+
+
+\item Si $C_{0}\leq0,$ $-\lambda_{1}\leq\kappa\leq0$ y existe un $\gamma>0$
+tal que $u(x)\geq$ $\gamma>0$ en $B_{\rho}\left(  0\right)  ,$ para un
+$0<\rho<R$. Entonces existen constantes positivas $M$ y $\delta$ tales que
+\[
+\delta\left(  R-\left\vert x\right\vert \right)  \leq u\left(  x\right)  \leq
+M\left(  M-x^{2}\right)  \text{ \ \ en }B\text{.}%
+\]
+
+\end{enumerate}
+\end{theorem}

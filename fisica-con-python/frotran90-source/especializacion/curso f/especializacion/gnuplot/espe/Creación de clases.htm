@@ -1,0 +1,254 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0072)http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/poo1.htm -->
+<HTML><HEAD><TITLE>Creación de clases</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY>
+<H1 align=center>Creación de clases</H1>
+<TABLE width="100%">
+  <TBODY>
+  <TR>
+    <TD width="50%"><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/azar.htm"><IMG 
+      height=40 alt="prev.gif (997 bytes)" 
+      src="Creación de clases_archivos/prev.gif" width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/fundamentos.htm"><IMG 
+      height=40 alt="chapter.gif (1105 bytes)" 
+      src="Creación de clases_archivos/chapter.gif" width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/curso.htm"><IMG height=40 
+      alt="home.gif (1054 bytes)" src="Creación de clases_archivos/home.gif" 
+      width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/estatico/estatico1.htm"><IMG 
+      height=40 alt="next.gif (998 bytes)" 
+      src="Creación de clases_archivos/next.gif" width=49></A></TD>
+    <TD width="50%">
+      <H3 align=right><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/intro_clases.htm">Clases 
+      y objetos</A></H3></TD></TR></TBODY></TABLE>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/poo1.htm#Definición de la clase Lista">Definición 
+de la clase <EM>Lista</EM></A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/poo1.htm#Los objetos de la clase Lista">Objetos 
+de la clase <EM>Lista</EM></A></P>
+<HR>
+
+<P>Crear una clase denominada <EM>Lista</EM> cuyo miembro dato sea un array de 
+números enteros y cuyas funciones miembro realicen las siguientes tareas: 
+<UL>
+  <LI>Hallar y devolver el valor mayor 
+  <LI>Hallar y devolver el valor menor 
+  <LI>Hallar y devolver el valor medio 
+  <LI>Ordenar los números enteros de menor a mayor 
+  <LI>Mostrar la lista ordenada separando los elementos por un tabulador 
+</LI></UL>
+<P><IMG height=32 alt="disco.gif (1035 bytes)" 
+src="Creación de clases_archivos/disco.gif" width=32 
+align=middle><STRONG>lista</STRONG>: <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/codigo/lista/Lista.java">Lista.java</A>, 
+<A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/codigo/lista/ListaApp.java">ListaApp.java</A></P>
+<P>&nbsp;</P>
+<H2><A name="Definición de la clase Lista">Definición de la clase 
+<EM>Lista</EM></A></H2>
+<P>Empezamos la definición de la clase escribiendo la palabra reservada 
+<STRONG>class</STRONG> y a continuación el nombre de la clase 
+<EM>Lista</EM>.<BR></P>
+<H3>Los miembros dato</H3>
+<P>Los miembros dato de la clase <EM>Lista</EM> serán un array de enteros 
+<EM>x</EM>, y opcionalmente la dimensión del array <EM>n</EM>.</P><PRE>public class Lista {
+    int[] x;     //array de datos
+    int n;      //dimensión</PRE>
+<H3><BR>El constructor</H3>
+<P>Al constructor de la clase <EM>Lista</EM> se le pasará un array de enteros 
+para inicializar los miembros dato</P><PRE>    public Lista(int[] x) {
+        this.x=x;
+        n=x.length;
+    }</PRE>
+<P>Como apreciamos basta una simple asignación para inicializar el miembro dato 
+<EM>x</EM> que es un array de enteros, con el array de enteros <EM>x</EM> que se 
+le pasa al constructor. Por otra parte, cuando se le pasa a una función un array 
+se le pasa implícitamente la dimensión del array, que se puede obtener a partir 
+de su miembro dato <EM>length</EM>.<BR></P>
+<H3>Las funciones miembro</H3>
+<P>Las funciones miembro tienen acceso a los miembros dato, el array de enteros 
+<EM>x</EM> y la dimensión del array <EM>n</EM>. 
+<UL>
+  <LI>El valor medio </LI></UL>
+<P>Para hallar el valor medio, se suman todos los elementos del array y se 
+divide el resultado por el número de elementos.</P><PRE>    double valorMedio(){
+        int suma=0;
+        for(int i=0; i&lt;n; i++){
+            suma+=x[i];
+        }
+        return (double)suma/n;
+    }</PRE>
+<P>Para codificar esta función se ha de tener algunas precauciones. La suma de 
+todos los elementos del array se guarda en la variable local <EM>suma</EM>. 
+Dicha variable local ha de ser inicializada a cero, ya que una variable local 
+contrariamente a lo que sucede a los miembros dato o variables de instancia es 
+inicializada con cualquier valor en el momento en que es declarada.</P>
+<P>La división de dos enteros <EM>suma</EM> y <EM>n</EM> (número de elementos 
+del array) es un número entero. Por tanto, se ha de <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/operadores.htm#La conversión automática y promoción (casting)">promocionar</A> 
+el entero <EM>suma</EM> de <STRONG>int</STRONG> a <STRONG>double</STRONG> para 
+efectuar la división y devolver el resultado de esta operación. 
+<UL>
+  <LI>El valor mayor </LI></UL><PRE>    int valorMayor(){
+        int mayor=x[0];
+        for(int i=1; i&lt;n; i++){
+            if(x[i]&gt;mayor)  mayor=x[i];
+        }
+        return  mayor;
+    }</PRE>
+<P>Se compara cada elemento del array con el valor de la variable local 
+<I>mayor</I>, que inicialmente tiene el valor del primer elemento del array, si 
+un elemento del array es mayor que dicha variable auxiliar se guarda en ella el 
+valor de dicho elemento del array. Finalmente, se devuelve el valor 
+<EM>mayor</EM> calculado 
+<UL>
+  <LI>El valor menor </LI></UL><PRE>    int valorMenor(){
+        int menor=x[0];
+        for(int i=1; i&lt;n; i++){
+            if(x[i]&lt;menor)  menor=x[i];
+        }
+        return  menor;
+    }</PRE>
+<P>El código es similar a la función <EM>valorMayor</EM> 
+<UL>
+  <LI>Ordenar un conjunto de números </LI></UL>
+<TABLE width="100%">
+  <TBODY>
+  <TR>
+    <TD width="34%"><IMG height=323 alt="intercambio.gif (2714 bytes)" 
+      src="Creación de clases_archivos/intercambio.gif" width=247></TD>
+    <TD width="66%">En el proceso de ordenación se ha de intercambiar los 
+      valores que guardan elementos del array. Veamos como sería el código 
+      correspondiente al intercambio de los valores que guardan dos variables 
+      <EM>x</EM> e <EM>y</EM>.
+      <P>Para intercambiar el contenido de dos recipientes <I>x</I> e <I>y</I> 
+      sin que se mezclen, precisamos de un recipiente auxiliar <I>aux</I> vacío. 
+      Se vuelca el contenido del recipiente <I>x</I> en el recipiente 
+      <I>aux</I>, el recipiente <I>y</I> se vuelca en <I>x</I>, y por último, el 
+      recipiente <I>aux</I> se vuelca en <I>y</I>. Al final del proceso, el 
+      recipiente <I>aux</I> vuelve a estar vacío como al principio. En la figura 
+      se esquematiza este proceso.</P><PRE>	aux=x;
+	x=y;
+	y=aux;</PRE></TD></TR></TBODY></TABLE>
+<P>&nbsp;</P>
+<TABLE width="100%">
+  <TBODY>
+  <TR>
+    <TD width="32%"><IMG height=308 alt="ordenar.gif (2050 bytes)" 
+      src="Creación de clases_archivos/ordenar.gif" width=230></TD>
+    <TD width="68%">Para ordenar una lista de números emplearemos el método de 
+      la burbuja, un método tan simple como poco eficaz. Se compara el primer 
+      elemento, índice 0, con todos los demás elementos de la lista, si el 
+      primer elemento es mayor que el elemento <I>j</I>, se intercambian sus 
+      valores, siguiendo el procedimiento explicado en la figura anterior. Se 
+      continua este procedimiento con todos los elementos del array menos el 
+      último. La figura explica de forma gráfica este procedimiento.<PRE>    void ordenar(){
+        int aux;
+        for(int i=0; i&lt;n-1; i++){
+            for(int j=i+1; j&lt;n; j++){
+                if(x[i]&gt;x[j]){
+                    aux=x[j];
+                    x[j]=x[i];
+                    x[i]=aux;
+                }
+            }
+        }
+    }
+</PRE></TD></TR></TBODY></TABLE>
+<P>Caben ahora algunas mejoras en el programa, así la función <I>ordenar</I> la 
+podemos utilizar para hallar el valor mayor, y el valor menor. Si tenemos una 
+lista ordenada en orden ascendente, el último elemento de la lista será el valor 
+mayor y el primero, el valor menor. De este modo, podemos usar una función en 
+otra funciones, lo que resulta en un ahorro de código, y en un aumento de la 
+legibilidad del programa.</P><PRE>    int valorMayor(){
+        ordenar();
+        return  x[n-1];
+    }</PRE><PRE>    int valorMenor(){
+        ordenar();
+        return  x[0];
+    }</PRE>
+<UL>
+  <LI>Imprimir la lista ordenada </LI></UL>
+<P>Imprimimos la lista ordenada separando sus elementos por un tabulador. 
+Primero, se llama a la función <EM>ordenar</EM>, y despues se imprime un 
+elemento a continuación del otro mediante <EM>System.out.print</EM>. Recuérdese, 
+que <EM>System.out.println</EM> imprime y a continuación pasa a la siguiente 
+línea.</P><PRE>    void imprimir(){
+        ordenar();
+        for(int i=0; i&lt;n; i++){
+            System.out.print("\t"+x[i]);
+        }
+        System.out.println("");
+    }
+</PRE>
+<P>El código completo de la clase <EM>Lista</EM>, es el siguiente</P>
+<TABLE cellSpacing=0 width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="100%" bgColor=#f7f7f7><PRE>public class Lista {
+    int[] x;     //array de datos
+    int n;      //dimensión
+    public Lista(int[] x) {
+        this.x=x;
+        n=x.length;
+    }
+    double valorMedio(){
+        int suma=0;
+        for(int i=0; i&lt;n; i++){
+            suma+=x[i];
+        }
+        return (double)suma/n;
+    }
+    int valorMayor(){
+        int mayor=x[0];
+        for(int i=1; i&lt;n; i++){
+            if(x[i]&gt;mayor)  mayor=x[i];
+        }
+        return  mayor;
+    }
+    int valorMenor(){
+        int menor=x[0];
+        for(int i=1; i&lt;n; i++){
+            if(x[i]&lt;menor)  menor=x[i];
+        }
+        return  menor;
+    }
+    void ordenar(){
+        int aux;
+        for(int i=0; i&lt;n-1; i++){
+            for(int j=i+1; j&lt;n; j++){
+                if(x[i]&gt;x[j]){
+                    aux=x[j];
+                    x[j]=x[i];
+                    x[i]=aux;
+                }
+            }
+        }
+    }
+    void imprimir(){
+        ordenar();
+        for(int i=0; i&lt;n; i++){
+            System.out.print("\t"+x[i]);
+        }
+        System.out.println("");
+    }
+}</PRE></TD></TR></TBODY></TABLE>
+<P>&nbsp;</P>
+<H2><A name="Los objetos de la clase Lista">Los objetos de la clase 
+<EM>Lista</EM></A></H2>
+<P>A partir de un array de enteros podemos crear un objeto <EM>lista</EM> de la 
+clase <EM>Lista</EM>.</P><PRE>        int[] valores={10, -4, 23, 12, 16};
+        Lista lista=new Lista(valores);</PRE>
+<P>Estas dos sentencias las podemos convertir en una</P><PRE>        Lista lista=new Lista(new int[] {10, -4, 23, 12, 16});</PRE>
+<P>En el resto del código, el objeto <EM>lista</EM> llama a las funciones 
+miembro</P><PRE>        System.out.println("Valor mayor "+lista.valorMayor());
+        System.out.println("Valor menor "+lista.valorMenor());
+        System.out.println("Valor medio "+lista.valorMedio());
+        lista.imprimir();
+</PRE>
+<P>&nbsp;</P></BODY></HTML>

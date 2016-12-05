@@ -1,0 +1,13 @@
+C     Programa que calcula suma y producto
+      INTEGER i,j,k,ls,lp
+      WRITE(*,1)
+    1 FORMAT(1X,'aaaaabbbbbccccc')
+      READ(*,10) i,j,k
+   10 FORMAT(3I5)
+      ls=i+j+k
+      lp=i*j*k
+C      PRINT, i,j,k,ls,lp
+      WRITE(*,31) i,j,k,ls,lp
+   31 FORMAT(5I12)
+      STOP
+      END

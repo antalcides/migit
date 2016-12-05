@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0076)http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/paquetes.htm -->
+<HTML><HEAD><TITLE>Los paquetes</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY>
+<H1 align=center>Los paquetes</H1>
+<TABLE width="100%">
+  <TBODY>
+  <TR>
+    <TD width="50%"><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/arays.htm"><IMG 
+      height=40 alt="prev.gif (997 bytes)" src="Los paquetes_archivos/prev.gif" 
+      width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/fundamentos.htm"><IMG 
+      height=40 alt="chapter.gif (1105 bytes)" 
+      src="Los paquetes_archivos/chapter.gif" width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/curso.htm"><IMG height=40 
+      alt="home.gif (1054 bytes)" src="Los paquetes_archivos/home.gif" 
+      width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/azar.htm"><IMG 
+      height=40 alt="next.gif (998 bytes)" src="Los paquetes_archivos/next.gif" 
+      width=49></A></TD>
+    <TD width="50%">
+      <H3 align=right><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/intro_clases.htm">Clases 
+      y objetos</A></H3></TD></TR></TBODY></TABLE>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/paquetes.htm#El paquete (package)">El 
+paquete (<STRONG>package</STRONG>)</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/paquetes.htm#El comando import">La 
+palabra reservada <STRONG>import</STRONG></A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/paquetes.htm#Los paquetes estándar">Paquetes 
+estándar</A></P>
+<HR>
+
+<H2><A name="El paquete (package)">El paquete 
+(<STRONG>package</STRONG>)</A></H2>
+<UL>
+  <LI>Los paquetes son una forma de organizar grupos de clases. Un paquete 
+  contiene un conjunto de clases relacionadas bien por finalidad, por ámbito o 
+  por herencia.<BR>
+  <LI>Los paquetes resuelven el problema del conflicto entre los nombres de las 
+  clases. Al crecer el número de clases crece la probabilidad de designar con el 
+  mismo nombre a dos clases diferentes. <BR>
+  <LI>Las clases tienen ciertos privilegios de acceso a los miembros dato y a 
+  las funciones miembro de otras clases dentro de un mismo paquete. </LI></UL>
+<P>En el Entorno Integrado de Desarrollo (IDE) JBuilder de Borland, un proyecto 
+nuevo se crea en un subdirectorio que tiene el nombre del proyecto. A 
+continuación, se crea la aplicación, un archivo .java que contiene el código de 
+una clase cuyo nombre es el mismo que el del archivo. Se pueden agregar nuevas 
+clases al proyecto, todas ellas contenidas en archivos .java situadas en el 
+mismo subdirectorio. La primera sentencia que encontramos en el código fuente de 
+las distintas clases que forman el proyecto es <STRONG>package</STRONG> o del 
+nombre del paquete.</P>
+<TABLE cellSpacing=0 width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="100%" bgColor=#eaeaea><PRE>//archivo MiApp.java
+
+<STRONG>package</STRONG> nombrePaquete;</PRE><PRE>public class MiApp{
+	//miembros dato
+	//funciones miembro
+}</PRE></TD></TR>
+  <TR>
+    <TD width="100%" bgColor=#f7f7f7><PRE>//archivo MiClase.java
+
+<STRONG>package</STRONG> nombrePaquete;</PRE><PRE>public class MiClase{
+	//miembros dato
+	//funciones miembro
+}</PRE></TD></TR></TBODY></TABLE>
+<P>&nbsp;</P>
+<H2><A name="El comando import">La palabra reservada <EM>import</EM></A></H2>
+<P>Para importar clases de un paquete se usa el comando <STRONG>import</STRONG>. 
+Se puede importar una clase individual </P><PRE>	import java.awt.Font;</PRE>
+<P>o bien, se puede importar las clases declaradas públicas de un paquete 
+completo, utilizando un arterisco (*) para reemplazar los nombres de clase 
+individuales.</P><PRE>	import java.awt.*;</PRE>
+<P>Para crear un objeto <EM>fuente</EM> de la clase <EM>Font</EM> podemos seguir 
+dos alternativas</P><PRE>	import java.awt.Font;
+	Font fuente=new Font("Monospaced", Font.BOLD, 36);</PRE>
+<P>O bien, sin poner la sentencia <STRONG>import</STRONG></P><PRE>	java.awt.Font fuente=new java.awt.Font("Monospaced", Font.BOLD, 36);</PRE>
+<P>Normalmente, usaremos la primera alternativa, ya que es la más económica en 
+código, si tenemos que crear varias fuentes de texto.</P>
+<P>Se pueden combinar ambas formas, por ejemplo, en la definición de la clase 
+<EM>BarTexto</EM></P><PRE>import java.awt.*;
+public class BarTexto extends Panel implements java.io.Serializable{
+//...
+}</PRE>
+<P><EM>Panel</EM> es una clase que está en el paquete <EM>java.awt</EM>, y 
+<EM>Serializable</EM> es un <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/herencia/interfaces.htm">interface</A> 
+que está en el paquete <EM>java.io</EM></P>
+<P>&nbsp;</P>
+<H2><A name="Los paquetes estándar">Los paquetes estándar </A></H2>
+<TABLE cellSpacing=0 width="87%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="14%"><STRONG>Paquete</STRONG></TD>
+    <TD width="86%"><STRONG>Descripción</STRONG></TD></TR>
+  <TR>
+    <TD width="14%">java.applet</TD>
+    <TD width="86%">Contiene las clases necesarias para crear applets que se 
+      ejecutan en la ventana del navegador</TD></TR>
+  <TR>
+    <TD width="14%">java.awt</TD>
+    <TD width="86%">Contiene clases para crear una aplicación GUI 
+      independiente de la plataforma</TD></TR>
+  <TR>
+    <TD width="14%">java.io</TD>
+    <TD width="86%">Entrada/Salida. Clases que definen distintos flujos de 
+      datos</TD></TR>
+  <TR>
+    <TD width="14%">java.lang</TD>
+    <TD width="86%">Contiene clases esenciales, se importa impícitamente sin 
+      necesidad de una sentencia <STRONG>import</STRONG>.</TD></TR>
+  <TR>
+    <TD width="14%">java.net</TD>
+    <TD width="86%">Se usa en combinación con las clases del paquete java.io 
+      para leer y escribir datos en la red.</TD></TR>
+  <TR>
+    <TD width="14%">java.util</TD>
+    <TD width="86%">Contiene otras clases útiles que ayudan al 
+  programador</TD></TR></TBODY></TABLE>
+<P>&nbsp;</P></BODY></HTML>

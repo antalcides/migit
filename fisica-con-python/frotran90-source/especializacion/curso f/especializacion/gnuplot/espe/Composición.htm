@@ -1,0 +1,222 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0079)http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/composicion.htm -->
+<HTML><HEAD><TITLE>Composición</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY>
+<H1 align=center>Composición</H1>
+<TABLE width="100%">
+  <TBODY>
+  <TR>
+    <TD width="50%"><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/clases.htm"><IMG 
+      height=40 alt="prev.gif (997 bytes)" src="Composición_archivos/prev.gif" 
+      width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/fundamentos.htm"><IMG 
+      height=40 alt="chapter.gif (1105 bytes)" 
+      src="Composición_archivos/chapter.gif" width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/curso.htm"><IMG height=40 
+      alt="home.gif (1054 bytes)" src="Composición_archivos/home.gif" 
+      width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/string.htm"><IMG 
+      height=40 alt="next.gif (998 bytes)" src="Composición_archivos/next.gif" 
+      width=49></A></TD>
+    <TD width="50%">
+      <H3 align=right><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/intro_clases.htm">Clases 
+      y objetos</A></H3></TD></TR></TBODY></TABLE>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/composicion.htm#La clase Punto">La 
+clase <EM>Punto</EM></A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/composicion.htm#La clase Rectangulo">La 
+clase <EM>Rectangulo</EM></A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/composicion.htm#Objetos de la clase Rectangulo">Objetos 
+de la clase <EM>Rectangulo</EM></A></P>
+<HR>
+
+<P>Hay dos formas de reutilizar el código, mediante la composición y mediante la 
+herencia. La composición significa utlizar objetos dentro de otros objetos. Por 
+ejemplo, un applet es un objeto que contiene en su interior otros objetos como 
+botones, etiquetas, etc. Cada uno de los controles está descrito por una 
+clase.</P>
+<P>Vamos a estudiar una nueva aproximación a la clase <EM>Rectangulo</EM> 
+definiendo el origen, no como un par de coordenadas <EM>x</EM> e <EM>y</EM> 
+(números enteros) sino como objetos de una nueva clase denominada 
+<EM>Punto</EM>.</P>
+<P><IMG height=32 alt="disco.gif (1035 bytes)" 
+src="Composición_archivos/disco.gif" width=32 
+align=middle><STRONG>rectangulo</STRONG>: <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/codigo/rectangulo/Punto.java">Punto.java</A>, 
+<A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/codigo/rectangulo/Rectangulo.java">Rectangulo.java</A>, 
+<A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/codigo/rectangulo/RectanguloApp.java">RectanguloApp.java</A> 
+</P>
+<P>&nbsp;</P>
+<H2><A name="La clase Punto">La clase <EM>Punto</EM></A></H2>
+<P>La clase <EM>Punto</EM> tiene dos miembros dato, la abscisa<EM> x</EM> y la 
+ordenada <EM>y</EM> de un punto del plano. Definimos dos constructores uno por 
+defecto que sitúa el punto en el origen, y otro constructor explícito que 
+proporciona las coordenadas <EM>x</EM> e <EM>y</EM> de un punto concreto.</P><PRE>public class Punto {
+    int x;
+    int y; 
+//funciones miembro
+}</PRE>
+<P>El constructor explícito de la clase <EM>Punto</EM> podemos escribirlo de dos 
+formas</P><PRE>  public Punto(int x1, int y1) {
+        x = x1;
+	y = y1;
+  }</PRE>
+<P>Cuando el nombre de los parámetros es el mismo que el nombre de los miembros 
+datos escribimos</P><PRE>  public Punto(int x, int y) {
+        this.x = x;
+	this.y = y;
+  }</PRE>
+<P><EM>this.x</EM> que está a la izquierda y que recibe el dato <EM>x</EM> que 
+se le pasa al constructor se refiere al miembro dato, mientras que <EM>x</EM> 
+que está a la derecha es el parámetro. <STRONG>this</STRONG> es una palabra 
+reservada que guarda una refrencia al objeto propio, u objeto actual. Tendremos 
+ocasión a lo largo del curso de encontrar esta palabra en distintas 
+situaciones.</P>
+<P>La función miembro <EM>desplazar</EM> simplemente cambia la posición del 
+punto desde <EM>(x, y)</EM> a <EM>(x+dx, y+dy)</EM>. La función 
+<EM>desplazar</EM> cuando es llamada recibe en sus dos parámetros <EM>dx</EM> y 
+<EM>dy</EM> el desplazamiento del punto y actualiza las coordenadas <EM>x</EM> e 
+<EM>y</EM> del punto. La función no retorna ningún valor</P><PRE>  public void desplazar(int dx, int dy){
+    	x+=dx;
+    	y+=dy;
+  }</PRE>
+<P>Para crear un objeto de la clase <EM>Punto</EM> cuyas coordenadas<EM> x</EM> 
+e <EM>y</EM> valgan repectivamente 10 y 23 escribimos</P><PRE>	Punto p=new Punto(10, 23);</PRE>
+<P>Para desplazar el punto <EM>p</EM> 10 unidades hacia la izquierda y 40 hacia 
+abajo, llamamos desde el objeto <EM>p</EM> a la función <EM>desplazar</EM> y le 
+pasamos el desplazamiento horizontal y vertical.</P><PRE>	p.desplazar(-10, 40);</PRE>
+<P>El código completo de la clase <EM>Punto</EM>, es el siguiente</P>
+<TABLE cellSpacing=0 width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="100%" bgColor=#f7f7f7><PRE>public class Punto {
+    int x = 0;
+    int y = 0;
+  public Punto(int x, int y) {
+        this.x = x;
+	this.y = y;
+  }
+  public Punto() {
+    	x=0;
+    	y=0;
+  }
+  void desplazar(int dx, int dy){
+    	x+=dx;
+    	y+=dy;
+  }
+}</PRE></TD></TR></TBODY></TABLE>
+<P>&nbsp;</P>
+<H2><A name="La clase Rectangulo">La clase <EM>Rectangulo</EM></A></H2>
+<P>La clase <EM>Rectangulo</EM> tiene como miembros dato, el <EM>origen</EM> que 
+es un objeto de la clase <EM>Punto</EM> y las dimensiones <EM>ancho</EM> y 
+<EM>alto</EM>.</P><PRE>public class Rectangulo {
+    Punto origen;
+    int ancho ;
+    int alto ;
+//funciones miembro
+}</PRE>
+<P>El constructor por defecto, crea un rectángulo situado en el punto 0,0 y con 
+dimensiones nulas</P><PRE>    public Rectangulo() {
+	    origen = new Punto(0, 0);
+	    ancho=0;
+	    alto=0;
+    }</PRE>
+<P>El constructor explícito crea un rectángulo situado en un determinado punto 
+<EM>p</EM> y con unas dimensiones que se le pasan en el constructor</P><PRE>    public Rectangulo(Punto p, int w, int h) {
+	    origen = p;
+	    ancho = w;
+	    alto = h;
+    }</PRE>
+<P>Podemos definir otros constructores en términos del constructor explícito 
+usando la palabra reservada <STRONG>this</STRONG>.</P><PRE>    public Rectangulo(Punto p) {
+	    this(p, 0, 0);
+    }
+    public Rectangulo(int w, int h) {
+	    this(new Punto(0, 0), w, h);
+    }</PRE>
+<P>El primero crea un rectángulo de dimensiones nulas situado en el punto 
+<EM>p</EM>. El segundo, crea un rectángulo de unas determinadas dimensiones 
+situándolo en el punto 0, 0. Dentro del cuerpo de cada constructor se llama al 
+constructor explícito mediante <STRONG>this</STRONG> pasándole en sus parámetros 
+los valores apropiados.</P>
+<P>Para desplazar un rectángulo, trasladamos su origen (esquina superior 
+izquierda) a otra posición, sin cambiar su anchura o altura. Desde el objeto 
+<EM>origen</EM>, llamamos a la función <EM>desplazar</EM> miembro de la clase 
+<EM>Punto</EM></P><PRE>    void desplazar(int dx, int dy) {
+	origen.desplazar(dx, dy);
+    }</PRE>
+<P>El código completo de la nueva clase <EM>Rectangulo</EM>, es el 
+siguiente.</P>
+<TABLE cellSpacing=0 width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="100%" bgColor=#f7f7f7><PRE>public class Rectangulo {
+      Punto origen;
+      int ancho ;
+      int alto ;
+
+    public Rectangulo() {
+	    origen = new Punto(0, 0);
+	    ancho=0;
+	    alto=0;
+    }
+    public Rectangulo(Punto p) {
+	    this(p, 0, 0);
+    }
+    public Rectangulo(int w, int h) {
+	    this(new Punto(0, 0), w, h);
+    }
+    public Rectangulo(Punto p, int w, int h) {
+	    origen = p;
+	    ancho = w;
+	    alto = h;
+    }   
+    void desplazar(int dx, int dy) {
+	    origen.desplazar(dx, dy);
+    }
+    int calcularArea() {
+	    return ancho * alto;
+    }
+}</PRE></TD></TR></TBODY></TABLE>
+<P>&nbsp;</P>
+<H2><A name="Objetos de la clase Rectangulo">Objetos de la clase 
+<EM>Rectangulo</EM></A></H2>
+<P>Para crear un rectángulo <EM>rect1</EM> situado en el punto (0, 0) y cuyas 
+dimensiones son 100 y 200 escribimos</P><PRE>        Rectangulo rect1=new Rectangulo(100, 200);</PRE>
+<P>Para crear un rectángulo <EM>rect2</EM>, situado en el punto de coordenadas 
+44, 70 y de dimensiones nulas escribimos</P><PRE>        Punto p=new Punto(44, 70);
+	Rectangulo rect2=new Rectangulo(p);</PRE>
+<P>O bien, en una sóla línea</P><PRE>        Rectangulo rect2=new Rectangulo(new Punto(44, 70));</PRE>
+<P>Para desplazar el rectángulo <EM>rect1</EM> desde el punto (100, 200) a otro 
+punto situado 40 unidades hacia la derecha y 20 hacia abajo, sin modificar sus 
+dimensiones, escribimos</P><PRE>        rect1.desplazar(40, 20);</PRE>
+<P>Para hallar y mostrar el área del rectángulo <EM>rect1</EM> podemos 
+escribir</P><PRE>        System.out.println("el área es "+rect1.calcularArea());</PRE>
+<P>Para hallar el área de un rectángulo de 100 unidades de largo y 50 de alto y 
+guardar el resultado en la variable entera <EM>areaRect</EM>, escribimos en una 
+sóla línea.</P><PRE>        int areaRect=new Rectangulo(100, 50).calcularArea();
+</PRE>
+<TABLE cellSpacing=0 width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="100%" bgColor=#f7f7f7><PRE>public class RectanguloApp {
+    public static void main(String[] args) {
+        Rectangulo rect1=new Rectangulo(100, 200);
+        Rectangulo rect2=new Rectangulo(new Punto(44, 70));
+        Rectangulo rect3=new Rectangulo();
+        rect1.desplazar(40, 20);
+        System.out.println("el área es "+rect1.calcularArea());
+        int areaRect=new Rectangulo(100, 50).calcularArea();
+        System.out.println("el área es "+areaRect);
+        }
+    }
+}</PRE></TD></TR></TBODY></TABLE>
+<P>&nbsp;</P></BODY></HTML>

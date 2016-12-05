@@ -1,0 +1,164 @@
+\documentclass{report}
+\usepackage[a4,screen]{tuepdfscreen}
+\usepackage{graphicx}
+\usepackage{fleqn}
+\usepackage[english]{babel}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+
+\usepackage{multicol}
+
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\vc}[1]{\mathbf{#1}}
+\newcommand{\R}{\mathbf{R}}
+
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\dds}{\frac{d}{ds}}
+\newcommand{\ddu}{\frac{\partial}{\partial u}}
+\newcommand{\ddv}{\frac{\partial}{\partial v}}
+\newcommand{\ddtI}{\frac{\partial}{\partial t_1}}
+\newcommand{\ddtII}{\frac{\partial}{\partial t_2}}
+\newcommand{\x}{\hat{\vc{x}}}
+
+\newcommand{\mysection}[1]{\vspace{1mm}\begin{center}\small\textbf{#1}\end{center}\vspace{1mm}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+
+\hypersetup{
+  pdfauthor={Stephan Houben}
+  pdftitle={Optimal Sweep Following},
+}
+
+\overlay{tuebgka4}
+
+\begin{document}
+
+\begin{slidetop}
+
+\begin{center}
+\tuebox{
+\begin{minipage}[c]{0.95\linewidth}
+  \begin{center}
+  {\large 
+  Simulating Multi-tone Free-running oscillators with Optimal Sweep Following}\\[5mm]
+  S.H.M.J. Houben\hspace{1cm}\texttt{stephanh@win.tue.nl}
+  \end{center}
+\end{minipage}}
+\end{center}
+
+\begin{multicols}{2} % use 2 columns for the rest of the poster
+
+\small
+
+With ever increasing operating frequencies of electric circuits, 
+it becomes more and more common that very different time scales occur
+in circuit simulation. 
+The fast frequency $f_f$ can be up to
+$10^3$ times the slow frequency $f_s$.
+This leads to transient behaviour as shown in Figure 1.
+\begin{center}
+  \shadowbox{%
+    \setlength{\fboxsep}{2mm}%
+    \colorbox{white}{%
+      \begin{minipage}[c]{0.8\linewidth}
+      \begin{center}
+      \includegraphics[width=0.6\linewidth,angle=-90]{sol1}\\
+      {\tiny Figure 1: Transient behaviour of multi-tone circuit}
+      \end{center}
+      \end{minipage}%
+    }%
+  }%
+\end{center}
+Traditional simulation techniques have problems
+with such widely separate time scales, since they require an amount of
+computation time $O(f_f/f_s)$.
+Therefore, there is much interest in methods that attempt to
+split the fast time scale from the slow time scale.
+Our new method,
+named Optimal Sweep Following, handles autonomous circuits in which 
+Frequency Modulation (FM) takes place. 
+Competing methods only handle
+Amplitude Modulated (AM) circuits.
+The method makes an optimal splitting of the time into
+low- and high-frequency components.
+\begin{center}
+  \shadowbox{%
+    \setlength{\fboxsep}{2mm}%
+    \colorbox{white}{%
+      \begin{minipage}[c]{0.8\linewidth}
+      \begin{center}
+        \includegraphics[width=0.6\linewidth,angle=-90]{tube1}\\
+        \vspace*{1mm}
+        {\tiny Figure 2: Surface traced out by solutions}
+      \end{center}
+      \end{minipage}%
+    }%
+  }%
+\end{center}
+
+%\mysection{Outline of the method}
+
+Suppose we have a set ${\cal C}_0$ of initial values, 
+parametrised by a parameter $s \in [0, 2\pi]$, i.e. 
+${\cal C}_0 = \{\x_0(s)\, |\, 0 \le s \le 2\pi\}$. 
+If we compute the solution, starting in each initial value in turn,
+we obtain a 2D surface in the ``solution space''.
+For a given $s \in [0,2\pi]$, consider the
+solution $\x(s,t)$  with initial condition $\x_0(s)$, i.e.
+the solution to the problem
+\begin{center}
+  \tuebox{
+    \begin{minipage}[c]{0.9\linewidth}
+    \vspace*{-4mm}
+    \begin{align*}
+      \ddt\vc{q}(\x(s,t)) + \vc{j}(\x(s,t)) &= \vc{s}(s, t),\\
+      \x(s,0) &= \x_0(s). 
+    \end{align*}
+    \vspace*{-4mm}
+    \end{minipage}
+  }
+\end{center}
+The parametrisation $\x$ of the sweep induces a coordinate system
+$(s,t)$ on the sweep. This coordinate system may be very skew.
+which means that
+information is not efficiently represented.
+Therefore, we will investigate coordinate transforms of
+the form
+\begin{center}
+ \tuebox{
+   \begin{minipage}[c]{0.9\linewidth}
+     \begin{equation*}
+     u = s + \alpha(t), \quad v = t,
+     \end{equation*} 
+     \vspace*{-5mm}
+   \end{minipage}
+ }
+\end{center}
+for some differentiable function $\alpha$.
+The function $\alpha$ can be selected in an optimal way, so as
+to ``straighten'' the curves in Figure 2 as much as possible. 
+\begin{center}
+  \shadowbox{%
+    \setlength{\fboxsep}{2mm}%
+    \colorbox{white}{%
+      \begin{minipage}[c]{0.8\linewidth}
+      \begin{center}
+      \includegraphics[width=0.6\linewidth,angle=-90]{tube2}\\
+      {\tiny Figure 3: Surface in $(u,v)$-coordinates}\\
+      \end{center}
+      \end{minipage}
+    }%
+  }%
+\end{center}
+The resulting curves are much smoother, which means that we can take
+larger steps in the $v$ (= $t$) coordinate. This in turn means faster 
+computations.
+
+\end{multicols}
+\end{slidetop}
+
+
+\end{document}
+

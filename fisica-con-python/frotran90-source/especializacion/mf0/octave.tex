@@ -1,0 +1,264 @@
+\documentclass[12pt]{article}
+\usepackage{addmath,agrandar}
+\usepackage[spanish]{babel}
+
+\begin{document}
+
+\section{Visualizaci\'on de datos con Octave}
+
+\hfill{\tiny Versi\'on final 1.0-19 agosto 2002}
+
+Octave es un poderoso software de c\'alculo num\'erico. 
+En este documento explicamos un subconjunto realmente peque\~no de
+sus comandos, centrados en la visualizaci\'on de datos. Para un
+estudio m\'as detallado de Octave, recomendamos 
+los apuntes de {\it ``Introducci\'on a los M\'etodos de la F\'{\i}sica
+  Matem\'atica''}, cap\'{\i}tulo 4
+ (``Una breve introducci\'on a Octave/Matlab''). 
+
+\subsection{Comandos b\'asicos}
+
+Digamos que tenemos un programa en C++, \verb+interpolacion.cc+, que
+toma tres puntos (pares de coordenadas $(x^0_i,y^0_i)$, $x^0_1<x^0_2<x^0_3$), 
+y construye una curva
+de interpolaci\'on cuadr\'atica en el intervalo $[x^0_1,x^0_3]$ con
+ellos. La salida del programa es un archivo \verb+curva.dat+, que
+contiene una lista de pares ordenados:
+\begin{verbatim}
+x_1    y_1
+x_2    y_2
+x_3    y_3
+etc.
+\end{verbatim}
+Deseamos ver esta curva de interpolaci\'on. Un modo de hacerlo es
+utilizar Octave. Para ello, primero abrimos Octave, luego cargamos el
+archivo de datos, y por \'ultimo graficamos los datos.
+
+Existen tres modos de usar Octave: en modo interactivo o por medio de
+scripts, y \'estos a su vez pueden ser aut\'onomos o no. Cada uno
+tiene sus propias virtudes y desventajas, y depender\'a del usuario
+cu\'al es el modo m\'as ventajoso en cada circunstancia particular.
+
+\subsubsection{Modo interactivo}
+
+Para abrir octave, basta escribir \verb+octave+ en la l\'{\i}nea de comandos:
+\begin{verbatim}
+vmunoz@llacolen:~/cursos/computacion$ octave
+GNU Octave, version 2.0.16 (i386-pc-linux-gnu).
+Copyright (C) 1996, 1997, 1998, 1999, 2000 John W. Eaton.
+This is free software with ABSOLUTELY NO WARRANTY.
+For details, type `warranty'.
+
+octave:1> 
+\end{verbatim}
+
+Despu\'es de la presentaci\'on aparece un prompt, y podemos comenzar a
+introducir comandos uno por uno. Esto es lo que se llama {\it modo
+  interactivo}. Para ver la curva dada por los datos en
+\verb+curva.dat+, basta escribir los siguientes comandos uno tras otro
+en el prompt de Octave:
+\begin{verbatim}
+octave:1>load curva.dat;
+octave:2>plot(curva(:,1),curva(:,2));
+\end{verbatim}
+
+La primera l\'{\i}nea carga los contenidos de \verb+curva.dat+,
+ley\'endolos como si fueran una matriz llamada \verb+curva+.
+As\'{\i}, dada la estructura del archivo de datos, \verb+curva+
+resulta ser una matriz de $N\times2$, de modo que las  abscisas
+de la curva est\'an en la primera columna, y las ordenadas en la
+segunda. El archivo de datos podr\'{\i}a llamarse de cualquier manera,
+y tener cualquier extensi\'on; Octave asignar\'a los datos contenidos
+en \'el a una matriz que se llama igual que el archivo, sin
+extensi\'on. La \'unica restricci\'on es que los datos deben
+efectivamente estar distribuidos formando una matriz, de $N$ filas por
+$M$ columnas, con $N,M\geq1$. 
+
+En la segunda l\'{\i}nea, el comando \verb+plot+ dibuja las ordenadas,
+contenidas en la segunda columna (\verb+curva(:,2)+ significa algo
+como ``tome los elementos de \verb+curva+ contenidos en todas las
+filas, para la columna \verb+2+''), versus las abscisas, contenidas en
+la primera columna (\verb+curva(:,1)+). En general, si \verb+x+,
+\verb+y+ son vectores, \verb+plot(x,y)+ grafica \verb+y+ vs.\
+\verb+x+. 
+
+Un n\'umero arbitrario de l\'{\i}neas de comandos de Octave se pueden
+colapsar en una sola usando \verb+;+ como separador. El ejemplo
+anterior es equivalente a:
+\begin{verbatim}
+octave:1>load curva.dat;plot(curva(:,1),curva(:,2));
+\end{verbatim}
+
+
+Para salir de Octave escribimos \verb+quit+ en el prompt.
+
+\vspace{.3cm}
+
+Digamos ahora que queremos, adem\'as de la curva, graficar los tres
+puntos que la generaron. Para ello podemos hacer que nuestro programa
+\verb+interpolacion.cc+ cree un segundo archivo, \verb+puntos.dat+,
+que tiene los pares ordenados de dichos puntos, en el mismo formato
+que \verb+curva.dat+ (abscisas en la primera columna, ordenadas en la
+segunda). Entonces damos las siguientes instrucciones en el prompt:
+\begin{verbatim}
+octave:1>load curva.dat;
+octave:2>plot(curva(:,1),curva(:,2));
+octave:3>hold on;
+octave:4>load puntos.dat;
+octave:5>plot(puntos(:,1),puntos(:,2),'ob');
+octave:6>hold off;
+\end{verbatim}
+
+La instrucci\'on \verb+hold on+ permite ``congelar'' el
+gr\'afico actual, permitiendo que todos los gr\'aficos sucesivos se
+superpongan al primero, en vez de borrarlo que es el comportamiento
+default. \verb+hold off+ ``descongela'' el gr\'afico, y el pr\'oximo
+gr\'afico reemplazar\'a al actual.
+
+Observamos tambi\'en que el segundo  \verb+plot+ tiene un argumento
+adicional. \'Esta es una cadena de caracteres que especifica el formato
+para graficar la familia de puntos especificados. Un car\'acter indica
+el tipo de punto con que se graficar\'a: \verb+'o'+ para c\'{\i}rculos, '.'
+para puntos, \verb+'x'+ para cruces, \verb+'-'+ para unir los puntos con
+l\'{\i}neas. El otro car\'acter indica el color: \verb+'b'+ es azul ({\it
+  blue\/}), \verb+'r'+ es rojo ({\it red\/}), \verb+'k'+
+ es negro ({\it black\/}),
+etc\@. Ambas especificaciones pueden ir en cualquier orden:
+\verb+'ob'+, \verb+'bo'+, \verb+'k-'+, etc\@. Si una o ambas
+especificaciones no se indican, se adopta el valor default, que es
+\verb+'-'+ para el tipo de l\'{\i}nea y \verb+'r'+ para el
+color. As\'{\i}, \verb+plot(x,y)+ dibujar\'a los puntos unidos por una
+l\'{\i}nea roja; \verb+plot(x,y,'b')+ har\'a una l\'{\i}nea azul,
+\verb+plot(x,y,'o')+ har\'a puntos rojos, etc. 
+
+Es muy posible que en una misma sesi\'on de Octave queramos cargar dos
+veces el mismo archivo. Por ejemplo, si corremos el programa en un
+terminal, y tenemos Octave abierto en otro para graficar los datos
+resultantes, podr\'{\i}amos querer correr el programa de nuevo en el
+primer terminal, y rehacer el gr\'afico con los datos actualizados. 
+\verb+load curva.dat+ dar\'a un error en ese caso, porque la matriz
+\verb+curva+ ya existe y no puede ser reescrita con nuevos datos de un
+archivo. Para forzar a Octave a reemplazar la matriz con los nuevos
+datos se debe usar \verb+load -force curva.dat+. 
+
+
+\subsubsection{Scripts}
+
+Existe otro modo de usar Octave, y es a trav\'es de {\it scripts}, que
+no son sino archivos con extensi\'on \verb+.m+, en los cuales cada
+l\'{\i}nea contiene una instrucci\'on o instrucciones para Octave, que
+se ejecutan igual que si fueran dadas en el prompt en modo
+interactivo.
+
+As\'{\i}, podemos rehacer el ejemplo de la curva de interpolaci\'on
+creando un archivo de texto, llamado por ejemplo
+\verb+interpolacion.m+ (la extensi\'on \verb+.m+ es obligatoria), con
+los siguientes contenidos:
+\begin{verbatim}
+% interpolacion.m
+%    Grafica los datos generados por interpolacion.cc
+
+load curva.dat;
+plot(curva(:,1),curva(:,2));
+hold on;
+load puntos.dat;
+plot(puntos(:,1),puntos(:,2),'ob');
+hold off;
+\end{verbatim}
+
+Las primeras dos l\'{\i}neas son comentarios. Octave ignora cualquier
+texto desde un \verb+%+ hasta el siguiente cambio de
+l\'{\i}nea. \verb+#+ tambi\'en sirve para introducir comentarios.
+La tercera l\'{\i}nea es una l\'{\i}nea en blanco. Podemos poner
+l\'{\i}neas en blanco a nuestro arbitrio dentro del archivo para 
+hacerlo m\'as claro. Son ignoradas por Octave. 
+
+En ocasiones necesitamos escribir una instrucci\'on que es demasiado 
+grande para que quepa en una sola l\'{\i}nea. Octave acepta que una
+misma l\'{\i}nea de instrucciones sea separada en dos, siempre que
+sean conectadas por puntos suspensivos (\verb+...+). Un ejemplo un
+poco in\'util es el siguiente:
+\begin{verbatim}
+load ...
+curva.dat;
+\end{verbatim}
+y
+\begin{verbatim}
+load ...
+    curva.dat;
+\end{verbatim}
+son equivalentes a \verb+load curva.dat;+
+
+Supongamos entonces que  hemos escrito nuestro archivo
+\verb+interpolacion.m+,
+y que est\'a en el directorio
+\verb+/home/vmunoz/cursos/computacion/+.
+Invocamos a Octave desde este directorio, y simplemente escribimos en
+el prompt \verb+interpolacion+ (sin extensi\'on). El efecto de esto es
+que Octave busca si existe una funci\'on interna con ese nombre; como
+no la encuentra, busca si existe en el directorio actual (o en el {\it
+  path\/} predefinido\footnote{Ojo: No es la misma variable
+  {\tt PATH} del shell.}), un archivo \verb+interpolacion.m+, y lo
+ejecuta. 
+
+\subsubsection{Scripts aut\'onomos}
+
+Una tercera manera de ver nuestros datos es usando scripts
+aut\'onomos. Para ello, modificamos nuestro script, agreg\'andole al
+comienzo la l\'{\i}nea:
+\begin{verbatim}
+#!/usr/bin/octave -q
+\end{verbatim}
+que indica d\'onde est\'a el ejecutable de Octave (podemos preguntarle
+al sistema operativo d\'onde est\'a en la m\'aquina que usamos dando
+en el prompt del shell la instrucci\'on \verb+which octave+). La
+opci\'on \verb+-q+ es simplemente para evitar que aparezca en pantalla
+la presentaci\'on de Octave (autor, versi\'on, etc.). A continuaci\'on
+damos permiso de ejecuci\'on a nuestro archivo:
+\begin{verbatim}
+vmunoz@llacolen:~/cursos/computacion$chmod u+x interpolacion.m 
+\end{verbatim}
+Ahora el script se puede ejecutar como si fuera un comando m\'as del
+shell, en la forma
+\begin{verbatim}
+vmunoz@llacolen:~/cursos/computacion$./interpolacion.m
+\end{verbatim}
+
+M\'as a\'un, ahora puede ser invocado como un comando del sistema
+desde el propio programa \verb+interpolacion.cc+, sin necesidad de
+abrir un terminal aparte para visualizar los datos. Esto se hace con
+el comando \verb+system+, disponible en \verb+stdlib.h+. As\'{\i}, 
+si \verb+interpolacion.cc+ tiene la forma:
+\begin{verbatim}
+#include <fstream.h>
+#include <stdlib.h>
+
+int main(){
+
+   ofstream archivo_curva("curva.dat");
+   ofstream archivo_puntos("puntos.dat");
+
+// Comandos de calculo de los datos
+//   y escritura de archivos de salida
+//   curva.dat y puntos.dat
+
+   archivo_curva.close();
+   archivo_puntos.close();
+
+   system("./interpolacion.m");
+}
+\end{verbatim}
+ser\'a nuestro propio programa el que se encargue de llamar al script
+y mostrar la visualizaci\'on de los datos. 
+
+El procedimiento anterior tiene la desventaja de que la ventana
+gr\'afica se cierra tan pronto como el programa
+\verb+interpolacion.cc+ termina. Por ello, si se llama a un script
+aut\'onomo, es conveniente poner una pausa para que tengamos tiempo de
+ver algo. Poniendo al final de \verb+interpolacion.m+ el comando
+\verb+pause(s); +, con \verb+s+ un n\'umero real o entero, la
+ejecuci\'on de Octave se detendr\'a durante \verb+s+ segundos, y de
+ese modo alcanzaremos a ver el resultado mientras nuestro programa en
+C++ se ejecuta.
+
+\end{document}

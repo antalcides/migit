@@ -1,0 +1,19 @@
+This is TeX, Version 3.141592 (MiKTeX 2.2) (preloaded format=latex 2000.11.28)  23 JUL 2003 18:42
+**repaso12.tex
+(repaso12.tex
+LaTeX2e <2001/06/01>
+Babel <v3.7h> and hyphenation patterns for spanish, loaded.
+! Undefined control sequence.
+l.11 \subsection
+                {Medidas de tendencia central}
+? x
+ 
+Here is how much of TeX's memory you used:
+ 6 strings out of 96079
+ 56 string characters out of 1197532
+ 44253 words of memory out of 1048577
+ 3037 multiletter control sequences out of 35000
+ 3640 words of font info for 14 fonts, out of 500000 for 1000
+ 2 hyphenation exceptions out of 607
+ 5i,0n,1p,75b,7s stack positions out of 1500i,500n,5000p,200000b,32768s
+No pages of output.

@@ -1,0 +1,241 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0055)http://personal.redestb.es/mgtalles/fortran/attribu.htm -->
+<HTML><HEAD><TITLE>Microsoft FORTRAN 5.1. Programacion avanzada.Atributos</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff 
+background="Microsoft FORTRAN 5_1_ Programacion avanzada_Atributos_archivos/formulas.jpg">
+<P>&nbsp;</P>
+<H1 align=center>TEMA 3: Microsoft FORTRAN 5.1</H1>
+<BLOCKQUOTE>
+  <H2>3.6 PROGRAMACION AVANZADA</H2></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>En este apartado veremos la programación avanzada, en la cual se emplean 
+  comandos y métodos que, si bien se salen del objetivo de este curso con vistas 
+  a examen, representan un conjunto de conceptos útiles que ayudarán al alumno a 
+  la hora de elaborar sus propios programas y aplicaciones. </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <H3>3.6.1 LOS ATRIBUTOS</H3></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Tanto las variables como los módulos tienen una serie de propiedades 
+  definidas y alterables mediante los <B>Atributos</B>. Podemos decir mediante 
+  estos, si un vector debe asignarse dinámicamente, o si ocupará más de 64 
+  Kbytes de memoria. Los atributos son los siguientes:</P>
+  <TABLE width="100%">
+    <TBODY>
+    <TR>
+      <TD align=middle width="10%"><A 
+        href="http://personal.redestb.es/mgtalles/fortran/attribu.htm#ALLOCATABLE"><B><TT>ALLOCATABLE</TT></B></A></TD>
+      <TD align=middle width="10%"><A 
+        href="http://personal.redestb.es/mgtalles/fortran/attribu.htm#FAR"><B><TT>FAR</TT></B></A></TD>
+      <TD align=middle width="10%"><A 
+        href="http://personal.redestb.es/mgtalles/fortran/attribu.htm#PASCAL"><B><TT>PASCAL</TT></B></A></TD>
+      <TD align=middle width="10%"><A 
+        href="http://personal.redestb.es/mgtalles/fortran/attribu.htm#ALIAS"><B><TT>ALIAS</TT></B></A></TD></TR>
+    <TR>
+      <TD align=middle width="10%"><A 
+        href="http://personal.redestb.es/mgtalles/fortran/attribu.htm#HUGE"><B><TT>HUGE</TT></B></A></TD>
+      <TD align=middle width="10%"><A 
+        href="http://personal.redestb.es/mgtalles/fortran/attribu.htm#REFERENCE"><B><TT>REFERENCE</TT></B></A></TD>
+      <TD align=middle width="10%"><A 
+        href="http://personal.redestb.es/mgtalles/fortran/attribu.htm#C"><B><TT>C</TT></B></A></TD>
+      <TD align=middle width="10%"><A 
+        href="http://personal.redestb.es/mgtalles/fortran/attribu.htm#LOADDS"><B><TT>LOADDS</TT></B></A></TD></TR>
+    <TR>
+      <TD align=middle width="10%"><A 
+        href="http://personal.redestb.es/mgtalles/fortran/attribu.htm#VALUE"><B><TT>VALUE</TT></B></A></TD>
+      <TD align=middle width="10%"><A 
+        href="http://personal.redestb.es/mgtalles/fortran/attribu.htm#EXTERN"><B><TT>EXTERN</TT></B></A></TD>
+      <TD align=middle width="10%"><A 
+        href="http://personal.redestb.es/mgtalles/fortran/attribu.htm#NEAR"><B><TT>NEAR</TT></B></A></TD>
+      <TD align=middle width="10%"><A 
+        href="http://personal.redestb.es/mgtalles/fortran/attribu.htm#VARYING"><B><TT>VARYING</TT></B></A></TD></TR></TBODY></TABLE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Para especificar un atributo determinado a una variable, debe situarse 
+  entre corchetes, separados por comas, tras el nombre, en la línea de 
+  definición de la variable o módulo. No todos los atributos se pueden 
+  especificar con variables o módulos. La siguiente tabla muestra cuando y con 
+  qué se pueden especificar los atributos: </P></BLOCKQUOTE>
+<DIV align=center>
+<CENTER>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TD align=middle><B>Atributo</B></TD>
+    <TD align=middle><B>Declaración de</B> <B>Variables y matrices</B> </TD>
+    <TD align=middle><B>Bloques COMMON</B> </TD>
+    <TD align=middle><B>Sentencias</B> <B>EXTERNAL</B> </TD></TR>
+  <TR>
+    <TD><FONT size=2>ALIAS</FONT></TD>
+    <TD align=middle>Si </TD>
+    <TD align=middle>Si</TD>
+    <TD align=middle>Si</TD></TR>
+  <TR>
+    <TD><FONT size=2>ALLOCATABLE</FONT> </TD>
+    <TD align=middle>Si (solo matrices) </TD>
+    <TD align=middle>No </TD>
+    <TD align=middle>No</TD></TR>
+  <TR>
+    <TD><FONT size=2>C</FONT></TD>
+    <TD align=middle>Si </TD>
+    <TD align=middle>Si</TD>
+    <TD align=middle>Si</TD></TR>
+  <TR>
+    <TD><FONT size=2>EXTERN</FONT></TD>
+    <TD align=middle>Si </TD>
+    <TD align=middle>No</TD>
+    <TD align=middle>No</TD></TR>
+  <TR>
+    <TD><FONT size=2>FAR</FONT></TD>
+    <TD align=middle>Si </TD>
+    <TD align=middle>Si</TD>
+    <TD align=middle>Si*</TD></TR>
+  <TR>
+    <TD><FONT size=2>HUGE</FONT></TD>
+    <TD align=middle>Si </TD>
+    <TD align=middle>No</TD>
+    <TD align=middle>No</TD></TR>
+  <TR>
+    <TD><FONT size=2>LOADDS</FONT></TD>
+    <TD align=middle>No </TD>
+    <TD align=middle>No</TD>
+    <TD align=middle>Si</TD></TR>
+  <TR>
+    <TD><FONT size=2>NEAR</FONT></TD>
+    <TD align=middle>Si </TD>
+    <TD align=middle>Si</TD>
+    <TD align=middle>Si*</TD></TR>
+  <TR>
+    <TD><FONT size=2>PASCAL</FONT></TD>
+    <TD align=middle>Si </TD>
+    <TD align=middle>Si</TD>
+    <TD align=middle>Si</TD></TR>
+  <TR>
+    <TD><FONT size=2>REFERENCE</FONT></TD>
+    <TD align=middle>Si </TD>
+    <TD align=middle>No</TD>
+    <TD align=middle>No</TD></TR>
+  <TR>
+    <TD><FONT size=2>VALUE</FONT></TD>
+    <TD align=middle>Si </TD>
+    <TD align=middle>No</TD>
+    <TD align=middle>No</TD></TR>
+  <TR>
+    <TD><FONT size=2>VARYING</FONT></TD>
+    <TD align=middle>No </TD>
+    <TD align=middle>No</TD>
+    <TD align=middle>Si</TD></TR></TBODY></TABLE></CENTER></DIV>
+<BLOCKQUOTE>
+  <P>*FAR y NEAR no pueden ser usados con la sentencia ENTRY. </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Veamos ahora una breve explicación de cada uno de ellos: </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P><B>-</B><A name=ALIAS><B>ALIAS</B></A><B>.</B> Define un <B>nombre 
+  externo</B> para una variable, un subprograma o un bloque común. Dentro del 
+  fichero fuente, el compilador solo conoce el nombre usado en la zona de 
+  declaración. Fuera de el, el compilador solo reconoce el nombre externo. 
+  También sirve, en la sentencia <B>INTERFACE TO</B> para redefinir el nombre de 
+  un subprograma de otro fichero fuente. </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Los nombres de ALIAS son "case sensitive", es decir, nombres con mayúsculas 
+  y minúsculas son distintos. Por ejemplo, PEPE es distinto de Pepe o de pepe o 
+  de pEpe. ALIAS no se puede aplicar a argumentos formales.</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P><B>-</B><A name=ALLOCATABLE><B>ALLOCATABLE</B></A> Permite la asignación 
+  dinámica de vectores y matrices en memoria en tiempo de ejecución. Puede 
+  usarse tanto en declaración de tipos como en el comando <B>DIMENSION. </B>Este 
+  atributo no se puede usar con NEAR ni puede ser aplicado a argumentos 
+  formales.</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P><B>-</B><A name=C><B>C</B></A> Permite la compatibilidad de variables 
+  enteras y módulos con el lenguaje C, el cual guarda las variables de forma 
+  distinta al FORTRAN.( Este sigue la norma del Pascal). En el caso de módulos: 
+  </P>
+  <UL>
+    <LI>Los argumentos se pasan por valor. 
+    <LI>Los argumentos se sitúan en la pila de llamada en orden inverso a como 
+    aparecen. 
+    <LI>Los nombres externos cambian a minúsculas y comienzan por subrayado "_". 
+
+    <LI>El código que restablece la pila a su estado original, sigue a la 
+    llamada (CALL). 
+    <LI>No se puede aplicar este atributo a variables no enteras. 
+</LI></UL></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P><B>-</B><A name=EXTERN><B>EXTERN</B></A> Determina, que la variable 
+  declarada, lo fue en otro lenguaje distinto del FORTRAN. El FORTRAN requiere 
+  el uso de EXTERN cuando accede a variables declaradas en otro 
+lenguaje.</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P><B>-</B><A name=FAR><B>FAR</B></A><B>. </B>Tiene dos efectos diferentes 
+  dependiendo del parámetro al que hace referencia:</P>
+  <UL>
+    <LI>Si se usa con argumentos formales, este atributo especifica que el 
+    argumento será pasado mediante una dirección segmentada. 
+    <LI>Si se usa con variables, especifica que estas están definidas en zonas 
+    de datos "lejanas",(fuera del segmento actual). </LI></UL></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>No se puede usar FAR con la sentencia <B>ENTRY.</B></P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P><B>-</B><A name=HUGE><B>HUGE</B></A>. Permite que un argumento formal o una 
+  variable dinámica (allocatable) supere las 64K bytes. (un segmento). No se 
+  puede aplicar a subprogramas ni bloques comunes.</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P><B>-</B><A name=LOADDS><B>LOADDS</B></A>. Se emplea solo con los 
+  subprogramas y funciones compilados separadamente, y sirve para decir al 
+  compilador que cree un área separada de datos en el segmento del 
+  procedimiento. Esto acelera la ejecución del procedimiento pues la dirección 
+  base de este segmento es cargada al cargar el procedimiento, lo que permite 
+  llamadas próximas (near) en lugar de lejanas (far). Solo es interesante en 
+  librerías de procesos dinámicas (. DLL) </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P><B>-</B><A name=NEAR><B>NEAR</B></A>. Especifica que el dato argumento 
+  actual está en el segmento por defecto y solo su posición relativa (offset) es 
+  enviada al subprograma. Este atributo puede ser usado con bloques comunes para 
+  que se sitúen en el segmento por defecto. En un subprograma, un argumento 
+  formal declarado con NEAR solo puede recibir variables NEAR. No aquellas con 
+  atributos HUGE, FAR, o variables definidas con el metacomando <B>$LARGE. 
+  </B>No esta permitido su uso con <B>ENTRY</B>.</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P><B>-</B><A name=PASCAL><B>PASCAL</B></A>. Define variables, subprogramas, 
+  argumentos formales y bloques comunes con la convención del PASCAL. Los 
+  argumentos son pasados por valor en lugar de por referencia (Por defecto en 
+  FORTRAN). El resto de propiedades en el paso de argumentos se 
+conserva.</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P><B>-</B><A name=REFERENCE><B>REFERENCE</B></A><B>.</B> Fuerza que el 
+  argumento sea pasado por referencia.( Por defecto en FORTRAN), en lugar de por 
+  valor. Aplicable solo a argumentos formales.</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P><B>-</B><A name=VALUE><B>VALUE</B></A><B>.</B>Fuerza que el argumento sea 
+  pasado por valor, en lugar de por referencia. Aplicable solo a argumentos 
+  formales, excluyendo aquellos definidos con el atributo C, matrices de tamaño 
+  variable (dinámicas), y subcadenas.</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P><B>-</B><A name=VARYING><B>VARYING</B></A><B>.</B>Permite que el número de 
+  argumentos pasados a un subprograma difiera de el de argumentos formales de 
+  este. Cualquier argumento sin su correspondiente parámetro formal es pasado 
+  por valor, sin conversión de tipo de dato. Solo es aplicable a subprogramas 
+  declarados con el atributo C. </P></BLOCKQUOTE>
+<HR width="75%">
+
+<DIV align=center>
+<CENTER>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD><A 
+      href="http://personal.redestb.es/mgtalles/fortran/tema3_51.htm"><IMG 
+      height=40 alt="Pasar al anterior" 
+      src="Microsoft FORTRAN 5_1_ Programacion avanzada_Atributos_archivos/anterior.jpg" 
+      width=110 align=bottom border=0></A> </TD>
+    <TD><A href="http://personal.redestb.es/mgtalles/fortran/index.htm"><IMG 
+      height=40 alt="Ir al indice" 
+      src="Microsoft FORTRAN 5_1_ Programacion avanzada_Atributos_archivos/indice.jpg" 
+      width=110 align=bottom border=0></A> </TD>
+    <TD><A 
+      href="http://personal.redestb.es/mgtalles/fortran/interfac.htm"><IMG 
+      height=40 alt="Pasar a la siguiente seccion" 
+      src="Microsoft FORTRAN 5_1_ Programacion avanzada_Atributos_archivos/sgente.jpg" 
+      width=110 align=bottom border=0></A> 
+</TD></TR></TBODY></TABLE></CENTER></DIV></BODY></HTML>

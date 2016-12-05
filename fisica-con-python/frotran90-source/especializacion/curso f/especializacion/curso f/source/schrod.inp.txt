@@ -1,0 +1,13 @@
+!                       input file for Schrodinger
+!
+!     nxpts  -- number of total spatial mesh points
+!     dx     -- space integration interval (a.u.)
+!     ntpts  -- number of total time steps
+!     dt     -- time step value (a.u.)
+!     ekin   -- incident electron energy in eV
+!     v0     -- incident electron velocity in a.u.
+!     x0     -- localization radius of initial wavepacket (a.u.)
+!     width  -- gaussian width of initial wavepacket (a.u.)
+!
+ &meshlist nxpts=100 dx=0.2 ntpts=1500 dt=0.001  v0=0 ekin=20
+           x0=5. width=1. &end

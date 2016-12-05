@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0054)http://garota.fismat.umich.mx/mn1/tutor_fort/unix.html -->
+<HTML><HEAD><TITLE>Tutorial de Fortran</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY background="Tutorial de Fortranlinux_archivos/default.gif">
+<H2>4. Como usar Fortran bajo Linux</H2>
+<H3>Detalles Prácticos</H3>Para realizar los ejemplos y los ejercicios se 
+requiere que se tenga instalado Linux (se recomienda una distribución reciente), 
+o bien, se pueden hacer en el Laboratorio de la Escuela de Ciencias 
+Físico-Matemáticas de la UMSNH, para este caso se necesita una cuenta en el 
+servidor <EM><A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/www.fismat.umich.mx">garota</A></EM>, 
+la cual se puede tramitar con el responsable del laboratorio. 
+<P>En este curso se usará Fortran bajo el sistema operativo Linux. Si no se 
+tiene experiencia previa con Linux, se tendrán que aprender las bases por su 
+propia cuenta. Se pueden ver algo de información en la siguiente&nbsp; <A 
+href="http://fismat.umich.mx/ls">liga</A>. 
+<P>Si se tiene instalado Linux en algún equipo, hay bastantes posibilidades de 
+que el compilador de Fortran 77 se encuentre disponible. Verificar tecleando <PRE>f77 --help</PRE>(teclearlo todo con mínúsculas). En caso de que se 
+encuentre aparece una pantalla de ayuda, caso contrario puede aparecer un 
+mensaje con la siguiente leyenda <PRE>command not found</PRE>
+<P>
+<H3>Código fuente, código objeto, compilación y ligado </H3>Un programa de 
+Fortran consiste de texto plano (sin secuencias de control) que observa ciertas 
+reglas (sintaxis). Este es llamado el <EM>código fuente</EM>. Se requiere usar 
+un programa <EM>editor</EM> para escribir el código fuente. Los editores más 
+comunes en el ambiente Unix son <EM>emacs</EM> y <EM>vi</EM>, pero pueden ser un 
+poco complicados para usuarios novatos. Afortunadamente dentro del ambiente 
+gráfico se pueden usar editores más amigables como <EM>xedit</EM>. Cuando se 
+escriba un programa en Fortran, se deberá guardar en un archivo con la extensión 
+<EM>.f</EM> o <EM>.for</EM>. Antes de que se pueda ejecutar el programa, se 
+requiere traducir el programa en una forma legible para la máquina. Esto se hace 
+con un programa especial conocido como <EM>compilador</EM>. El compilador de 
+Fortran 77 es usualmente conocido como <EM>f77</EM>. La salida del compilador es 
+un archivo con el nombre <EM>a.out</EM> por default, pero se puede escoger otro 
+nombre si así se desea. Para ejecutar el programa, se deberá teclear el nombre 
+del archivo ejecutable, por ejemplo <EM>a.out</EM>. (Esta parte esta un poco 
+simplificada, ya que realmente el compilador traduce el código fuente en 
+<EM>código objeto</EM> y entonces usando el ligador/cargador se genera un 
+archivo ejecutable.) 
+<H4>Ejemplos:</H4>En la <A 
+href="http://fismat.umich.mx/mn1/tutor_for/basics.html">sección anterior</A> hay 
+un pequeño código al principio. Copia el código en el editor que estes usando y 
+guarda el archivo con el nombre <EM>circulo.for</EM>. Para compilarlo y 
+ejecutarlo teclea lo siguiente: <PRE>f77 circulo.for
+a.out
+</PRE>Para compilar el programa fuente y generar el ejecutable con un nombre 
+diferente de <EM>a.out</EM>, se puede usar con la opción <EM>-o</EM>, por 
+ejemplo, <PRE>f77 circulo.for -o circulo
+</PRE>
+<P>En los ejemplos previos, no se ha distinguido entre <EM>compilar</EM> y 
+<EM>ligar</EM>. Estos son dos procesos diferentes, pero el compilador de Fortran 
+hace ambos, por lo que usualmente el usuario no se da cuenta. En el siguiente 
+ejemplo se usan <EM>dos</EM> códigos fuentes para obtener un sólo codigo 
+ejecutable. <PRE>f77 circulo1.for circulo2.for
+</PRE>En este caso el compilador genera dos códigos objetos los cuales son 
+borrados automáticamente al generar el código ejecutable <EM>a.out</EM>. Se 
+puede también hacer en dos pasos separados de la siguiente forma: <PRE>f77 -c circulo1.for circulo2.for
+f77 circculo1.o circculo2.o
+</PRE>Compilando archivos por separados es útil si hay muchos archivos y sólo 
+unos cuantos necesitan ser recompilados. En Unix hay una herramienta llamada 
+<EM>make</EM> la cual es usada para manejar proyectos grandes. Para lo anterior 
+se requiere de un archivo <EM>Makefile</EM> que instruya como se debe compilar y 
+cuales son las dependencias entre los distintos archivos. 
+<P>
+<HR>
+
+<H3>Ejercicios:</H3>
+<DL>
+  <DT>Ejercicio A 
+  <DD>Compilar y ejecutar el programa <EM>circulo.for</EM> 
+  <P></P>
+  <DT>Ejercicio B 
+  <DD>Modificar el programa anterior para que calcule el perímetro en vez del 
+  área. Compilarlo, ejecutarlo y verificar la salida del programa. </DD></DL>
+<HR>
+&nbsp;[3. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/basics.html">Introducción a 
+Fortran</A>] &nbsp;[<A 
+href="http://fismat.umich.mx/mn1/tutor_fort/index.html">Tutorial de Fortran</A>] 
+&nbsp;[5. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/variables.html">Variables, 
+declaraciones y tipos</A>] </BODY></HTML>

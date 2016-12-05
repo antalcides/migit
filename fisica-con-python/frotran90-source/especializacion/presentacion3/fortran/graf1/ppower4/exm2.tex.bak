@@ -1,0 +1,51 @@
+\documentclass[30pt,landscape]{foils}
+\usepackage[english,german]{babel}  % language support
+\usepackage[pdftex]{color}
+\usepackage[pdftex]{geometry}
+\geometry{headsep=3ex,hscale=0.9}
+\usepackage{hyperref}
+\hypersetup{pdftitle={PPower4Example},
+  pdfsubject={An example to demonstrate PPower4},
+  pdfauthor={Klaus Guntermann, Systems Programming Group,
+  Darmstadt University of Technology,
+  <guntermann@iti.informatik.tu-darmstadt.de>},
+  pdfkeywords={pdftex, acrobat},
+  pdfpagemode={FullScreen}
+  }
+\usepackage{pause}
+\usepackage{background}
+\usepackage{pp4slide}
+\begin{document}
+\definecolor{bgblue}{rgb}{0.04,0.39,0.53}
+\vpagecolor{bgblue}
+
+\foilhead{An example with colored background}
+\begin{itemize}
+\item Itemizations\pause
+  \begin{itemize}
+  \item are nested\pause
+  \item and labelled
+    \hypertarget{start}{} %mark any place on the page
+    \begin{itemize}
+    \item even nested deeply\pause
+    \end{itemize}
+  \item on different levels\pause
+  \end{itemize}
+\item with formulas like $\sum_{i=0}^\infty a_i\cdot x^i$
+
+\end{itemize}
+
+\foilhead{Different page transitions}
+\hypersetup{pdfpagetransition=Dissolve}
+\begin{itemize}
+\item Switch it on for a page\pause
+\item But must switch off explicitely
+\end{itemize}
+
+\foilhead{That's it} \hypersetup{pdfpagetransition=R}
+\begin{center}
+Just a small example.
+
+You may go \hyperlink{start}{back} to start.
+\end{center}
+\end{document}

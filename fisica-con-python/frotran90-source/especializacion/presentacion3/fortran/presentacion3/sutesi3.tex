@@ -1,0 +1,639 @@
+
+\documentclass{article}
+\usepackage{amssymb}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Created=Wed Oct 01 11:13:00 2003}
+%TCIDATA{LastRevised=Fri Oct 03 15:47:42 2003}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="General\Blank Document">}
+%TCIDATA{CSTFile=LaTeX article (bright).cst}
+
+\setcounter{MaxMatrixCols}{10}
+\newtheorem{theorem}{Teorema}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corolario}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definici\'{o}n}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Prueba]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{tcilatex}
+
+\begin{document}
+
+
+RESUMEN: En este trabajo se estudian principios del m\'{a}ximo para
+ecuaciones diferenciales parciales el\'{\i}pticas de segundo orden y sus
+aplicaciones.
+
+\section{Principio del M\'{a}ximo genearilazo}
+
+En lo siguiente $\Omega $ es un dominio acotado en $\mathbb{R}^{n}$ con $%
+\partial \Omega $ de clase $C^{1}$, y se considera el operador diferencial $%
+L $ en forma de divergencia 
+\begin{equation}
+L=\sum_{i,j=1}^{n}D_{i}\left( a^{ij}\left( x\right) D_{j}+b^{i}\left(
+x\right) \right) +\sum_{i=1}^{n}c^{i}\left( x\right) D_{i}+d\left( x\right) ,
+\tag{1}
+\end{equation}
+donde
+
+\begin{description}
+\item[a)]  $L$ es estrictamente el\'{\i}ptico, es decir, existe $\lambda
+_{0}>0$ tal que 
+\begin{equation}
+\sum_{i,j=1}^{n}a^{ij}\left( x\right) \xi _{i}\xi _{j}\geq \lambda
+_{0}\left\vert \xi \right\vert ^{2}\text{ para todo }x\in \Omega \text{ y }%
+\xi \in \mathbb{R}^{n}.  \tag{2}
+\end{equation}
+
+\item[b)]  Los coeficientes $a^{ij},b^{i},c^{i}$ y $d$ $\left(
+i,j=1,...,n\right) $ son funciones medibles sobre $\Omega $. Adem\'{a}s son 
+\textbf{acotadas}, esto es existen constantes positivas $\Lambda $ y $\rho $
+tales que para todo $x\in \Omega $ y $\lambda _{0}$ en $\left( 2\right) $ se
+cumple 
+\begin{equation}
+\sum_{i,j=1}^{n}\left\vert a^{ij}\left( x\right) \right\vert ^{2}\leq
+\Lambda ,\text{ \ }\lambda _{0}^{-2}\sum_{i=1}^{n}\left( \left\vert
+b^{i}\left( x\right) \right\vert ^{2}+\left\vert c^{i}\left( x\right)
+\right\vert ^{2}\right) +\lambda ^{-1}\left\vert d\left( x\right)
+\right\vert \leq \rho ^{2}  \tag{3}
+\end{equation}
+
+\item[c)]  
+\begin{equation}
+\int_{\Omega }\left( dv-\sum_{i=1}^{n}b^{i}D_{i}v\right) dx\leq 0\text{ \ }%
+\forall v\geq 0,v\in C_{0}^{1}\left( \Omega \right) .  \tag{4}
+\end{equation}
+\end{description}
+
+\begin{definition}
+Si $u\in W^{1,2}(\Omega )$ y $f\in L^{2}\left( \Omega \right) $, $u$ es una
+soluci\'{o}n d\'{e}bil (subsoluci\'{o}n d\'{e}bil, supersoluci\'{o}n
+d\'{e}bil), de 
+\begin{equation*}
+Lu=f\text{ \ \ en }\Omega ,
+\end{equation*}
+si para cada $v\in C_{0}^{1}\left( \Omega \right) $ con $v\geq 0$ se cumple 
+\begin{equation}
+\mathcal{L}\left( u,v\right) =F\left( v\right) \text{ \ }\left( \leq F\left(
+v\right) ,\geq F\left( v\right) \right) ,  \tag{5}
+\end{equation}
+donde 
+\begin{equation}
+\mathcal{L}\left( u,v\right) :=\int_{\Omega }\left\{ \sum_{i,j=1}^{n}\left(
+a^{ij}D_{j}u+b^{i}u\right) D_{i}v-\left( \sum_{i=1}^{n}c^{i}D_{i}u+du\right)
+v\right\} dx.  \tag{6}
+\end{equation}
+$\mathcal{L}$ se denomina la \textbf{forma bilineal asociada} a $L$, y 
+\begin{equation}
+F\left( v\right) :=-\int_{\Omega }fvdx\text{ \ }\forall v\in C_{0}^{1}\left(
+\Omega \right) .  \tag{7}
+\end{equation}
+\end{definition}
+
+\begin{theorem}
+(Principio del m\'{a}ximo generalizado) Sea $L$ el operador dado en $(1),$
+cuyos coeficientes satisfacen $\left( 2\right) ,\left( 3\right) $ y $\left(
+4\right) $. Si $u\in W^{1,2}\left( \Omega \right) $ es una soluci\'{o}n
+d\'{e}bil de $Lu\geq 0\left( \leq 0\right) $ en $\Omega $, entonces 
+\begin{equation*}
+\sup_{\Omega }u\leq \sup_{\partial \Omega }u^{+}\text{ \ }\left(
+\inf_{\Omega }u\geq \inf_{\partial \Omega }u^{+}\right) .
+\end{equation*}
+\end{theorem}
+
+\begin{proof}
+Se define $l:=\sup\limits_{\partial \Omega }u^{+}$, y se toma $k\in \mathbb{R%
+}$ tal que $l\leq k<\sup\limits_{\Omega }u$. Entonces $v:=\left( u-k\right)
+^{+}\in W_{0}^{1,2}\left( \Omega \right) $ y $m(\mathbf{supp\ }\nabla v)\neq
+0.$ Por otro lado existe un $C>0,$ independiente de $k,$ tal que $m(\mathbf{%
+supp\ }\nabla v)>C^{-n},$ $n\geq 2,$ esto es una contradicci\'{o}n. En
+consecuencia 
+\begin{equation*}
+\sup_{\Omega }u\leq l\text{.}
+\end{equation*}
+\end{proof}
+
+\begin{corollary}
+Si $u\in W_{0}^{1,2}\left( \Omega \right) $ y $Lu=0$ en $\Omega $ en el
+sentido d\'{e}bil, entonces $u=0$ en $\Omega $ en el sentido d\'{e}bil.
+\end{corollary}
+
+\section{ Problema de Dirichlet generalizado}
+
+Con el principio del m\'{a}ximo generalizado (colorario) se sigue que existe
+soluci\'{o}n d\'{e}bil \'{u}nica para el problema de Direchlet 
+generalizado. Adicionalmente en la prueba se utilizan los siguientes
+teoremas: la alternativa Fredholm, Lax-Milgram, y Rellich-Kondrackov el cual
+establece que 
+\begin{equation*}
+W_{0}^{1,2}\left( \Omega \right) \subset \subset L^{2}\left( \Omega \right) 
+\text{ \ si }n>2,
+\end{equation*}
+y $\Omega $ es abierto acotado en $\mathbb{R}^{n}$ con $\partial \Omega $ de
+clase $C^{1}$.
+
+\begin{definition}
+Sean $f\in L^{2}\left( \Omega \right) ,$ $g\in W^{1,2}\left( \Omega \right) $
+y $L$ el operador diferencial definido en $\left( 1\right) $, $u\in
+W^{1,2}\left( \Omega \right) $ es una \textbf{soluci\'{o}n d\'{e}bil} de 
+\begin{equation*}
+\left\{ 
+\begin{array}{c}
+Lu=f\text{ \ en }\Omega , \\ 
+u=g\text{ sobre }\partial \Omega ,
+\end{array}
+\right. 
+\end{equation*}
+si $u-g\in W_{0}^{1,2}\left( \Omega \right) $ y adem\'{a}s 
+\begin{equation}
+\mathcal{L}\left( u,v\right) =F\left( v\right) =-\int_{\Omega }fvdx\text{, }%
+\forall v\in C_{0}^{1}\left( \Omega \right) ,  \tag{8}
+\end{equation}
+donde $\mathcal{L}$ viene dado por $\left( 6\right) .$
+\end{definition}
+
+\begin{lemma}
+Si $I:W_{0}^{1,2}\left( \Omega \right) \longrightarrow \left(
+W_{0}^{1,2}\left( \Omega \right) \right) ^{\ast }$, $u\longrightarrow Iu$,
+donde 
+\begin{equation*}
+Iu\left( v\right) :=\int_{\Omega }uvdx\text{, }v\in W_{0}^{1,2}\left( \Omega
+\right) .
+\end{equation*}
+Entonces $I$ es una inmersi\'{o}n compacta.
+\end{lemma}
+
+\begin{theorem}
+Sea $L$ el operador diferencial dado en $\left( 1\right) $ con coeficientes
+satisfaciendo $\left( 2\right) ,\left( 3\right) $ y $\left( 4\right) $, y $%
+g\in W^{1,2}\left( \Omega \right) $. Entonces para cualquier $f\in
+L^{2}\left( \Omega \right) $ el \textbf{problema de Dirichlet generalizado} 
+\begin{equation*}
+\left( P.D.\right) \left\{ 
+\begin{array}{c}
+Lu=f\text{ \ en }\Omega , \\ 
+u=g\text{ sobre }\partial \Omega ,
+\end{array}
+\right.
+\end{equation*}
+tiene soluci\'{o}n d\'{e}bil \'{u}nica.
+\end{theorem}
+
+\begin{proof}
+Si $u$ es una soluci\'{o}n d\'{e}bil de $\left( P.D.\right) $, entonces $%
+w:=u-g\in W_{0}^{1,2}\left( \Omega \right) $ y adem\'{a}s para cada $v\in
+W_{0}^{1,2}\left( \Omega \right) :$%
+\begin{equation*}
+\mathcal{L}\left( w,v\right) =\widetilde{F}\left( v\right) ,\text{ \ }%
+\widetilde{F}\left( v\right) \in \left( W_{0}^{1,2}\left( \Omega \right)
+\right) ^{\ast }.
+\end{equation*}
+
+$\mathcal{L}\left( .,.\right) $ es una forma bilineal acotada sobre $%
+W_{0}^{1,2}\left( \Omega \right) \times W_{0}^{1,2}\left( \Omega \right) $ y
+existe $\sigma _{0}$ tal que 
+\begin{equation*}
+\mathcal{L}_{\sigma _{0}}\left( u,v\right) :=\mathcal{L}\left( u,v\right)
++\sigma _{0}\left( u,v\right)
+\end{equation*}
+es coerciva. Luego Lax-Milgram implica que para $F\in \left(
+W_{0}^{1,2}\left( \Omega \right) \right) ^{\ast }$ existe un \'{u}nico $u\in
+W_{0}^{1,2}\left( \Omega \right) $ tal que 
+\begin{equation*}
+\mathcal{L}_{\sigma _{0}}\left( u,v\right) =F\left( v\right) \text{ \ para
+todo }v\in W_{0}^{1,2}\left( \Omega \right) .
+\end{equation*}
+La aplicaci\'{o}n $L_{\sigma _{0}}:W_{0}^{1,2}\left( \Omega \right)
+\longrightarrow \left( W_{0}^{1,2}\left( \Omega \right) \right) ^{\ast }$,
+dada por 
+\begin{equation*}
+(L_{\sigma _{0}}u)\left( v\right) :=\mathcal{L}_{\sigma _{0}}\left(
+u,v\right) \text{ \ }\forall v\in W_{0}^{1,2}\left( \Omega \right)
+\end{equation*}
+es lineal, acotada uno-uno, sobre y $L_{\sigma _{0}}^{-1}$ tambi\'{e}n es
+acotada.
+
+As\'{\i} las ecuaciones $Lu=F$ y $u-\sigma _{0}L_{\sigma
+_{0}}^{-1}Iu=L_{\sigma _{0}}^{-1}F$ son equivalentes. El operador $T:=\sigma
+_{0}L_{\sigma _{0}}^{-1}I$ es compacto, debido al lema $5$, y por el
+corolario $3$ se deduce que $I-T$ es inyectiva. Luego por la alternativa de
+Fredholm se da la conclusi\'{o}n del teorema.
+\end{proof}
+
+\section{Principio del m\'{a}ximo cl\'{a}sico}
+
+Ahora las funci\'{o}nes $u\in C^{2}\left( \Omega \right) \cap C\left( 
+\overline{\Omega }\right) $ y el operador $L$ es 
+\begin{equation}
+Lu:=\sum_{i,j=1}^{n}a_{ij}\left( x\right)
+D_{ij}^{2}u+\sum_{i=1}^{n}b_{i}\left( x\right) D_{i}u+c\left( x\right) u, 
+\tag{9}
+\end{equation}
+donde los coeficientes $a_{ij},b_{i}$ y $c$ est\`{a}n definidos en un
+abierto, no vacio, $\Omega $ en $\mathbb{R}^{n}$, $n\geq 2$, y son acotados.
+Adem\'{a}s $A=\left[ a_{ij}\left( x\right) \right] $ simetr\'{\i}a $\forall
+x\in \Omega $ y $L$ es estrictamente el\'{\i}ptico, $\left( 2\right) $.
+
+\begin{theorem}
+(Principio del m\'{a}ximo d\'{e}bil para $c\leq 0$) si $Lu\geq 0$ $\left(
+Lu\leq 0\right) $ en $\Omega $ y $c\leq 0$, entonces 
+\begin{equation*}
+\max_{\overline{\Omega }}u\leq \max_{\partial \Omega }u^{+}\text{ \ }\left(
+\min_{\overline{\Omega }}u\geq \min_{\partial \Omega }u^{-}\right) .
+\end{equation*}
+\end{theorem}
+
+\begin{lemma}
+(de Frontera de Hopf) Sup\'{o}ngase que $\Omega $ satisface la condici\'{o}n
+de bola interior en $x_{0}\in \partial \Omega $ y $c\equiv 0$ en $L$ dado en 
+$\left( 9\right) $. Si $u\in C^{2}\left( \Omega \right) \cap C\left( \Omega
+\cup \left\{ x_{0}\right\} \right) $ satisface $Lu\geq 0$ en $\Omega $ y $%
+u\left( x_{0}\right) >u\left( x\right) $ $\forall x\in \Omega $, entonces 
+\begin{equation*}
+\lim \inf_{t\rightarrow 0^{-}}\frac{u\left( x_{0}+t\nu \right) -u\left(
+x_{0}\right) }{t}>0\text{,}
+\end{equation*}
+donde $\nu $ es la normal exterior a la bola interior en $x_{0}.$
+
+Si en las hip\'{o}tesis iniciales se cambia $c=0$ en $\Omega $ por $c\leq 0$
+en $\Omega $ y $u\left( x_{0}\right) \geq 0$, se obtiene la misma
+conclusi\'{o}n.
+
+Si en las hip\'{o}tesis iniciales se cambia $c=0$ en $\Omega $ por $u\left(
+x_{0}\right) =0$ en $\Omega $, se obtiene la misma conclusi\'{o}n
+(independiente del signo de $c$).
+\end{lemma}
+
+\begin{theorem}
+$\Omega $ es un dominio, no necesariamente acotado, $u\in C^{2}\left( \Omega
+\right) \cap C\left( \overline{\Omega }\right) $, no constante, satisface $%
+Lu\geq 0$ $\left( Lu\leq 0\right) $ en $\Omega $. Si $c=0$, $u$ no alcanza
+un m\'{a}ximo (m\'{\i}nimo) en el interior de $\Omega $. Si $c\leq 0$, $u$
+no alcanza un m\'{a}ximo no negativo (m\'{\i}nimo positivo) en el interior
+de $\Omega $. Independiente del signo de $c$, $u$ no puede ser cero en un
+m\'{a}ximo (m\'{\i}nimo) interior.
+\end{theorem}
+
+\section{Aplicaci\'{o}n a la teor\'{\i}a de valores propios}
+
+\begin{theorem}
+Dado $\Omega $ abierto acotado, $a_{ij}\in C^{\infty }\left( \overline{%
+\Omega }\right) $, $a_{ij}=a_{ji}$, $-L$ estrictamente el\'{\i}ptico, donde 
+\begin{equation*}
+Lu=-\sum_{i,j=1}^{n}\frac{\partial }{\partial x_{i}}\left( a_{ij}\left(
+x\right) \frac{\partial }{\partial x_{j}}u\right) ,
+\end{equation*}
+entonces
+
+\begin{enumerate}
+\item[$a)$]  El primer valor propio de $L$, $\lambda _{1},$ es positivo y
+adem\'{a}s 
+\begin{equation}
+\lambda _{1}=\left\{ \mathcal{L}\left( u,u\right) :u\in H_{0}^{1}\left(
+\Omega \right) ,\text{ }\left\Vert u\right\Vert _{L^{2}\left( \Omega \right)
+}=1\right\}  \tag{10}
+\end{equation}
+
+\item[$b)$]  El m\'{\i}nimo en $\left( 10\right) $ es alcanzado por una
+funci\'{o}n $w_{1}$ positiva en $\Omega $, que es soluci\'{o}in d\'{e}bil de 
+\begin{equation}
+\left\{ 
+\begin{array}{c}
+Lw_{1}=\lambda _{1}w_{1}\text{ \ en }\Omega , \\ 
+w_{1}=0\text{ \ sobre }\partial \Omega .
+\end{array}
+\right.  \tag{11}
+\end{equation}
+\end{enumerate}
+\end{theorem}
+
+\section{Un principio del m\'{a}ximo donde $c$ puede ser positivo}
+
+Sea $\Omega $ un dominio acotado en $\mathbb{R}^{n}$, $L$ el operador
+diferencial definido en $\left( 9\right) $ y $\left( S_{\Omega }\right) $ la
+condici\'{o}n: 
+\begin{equation*}
+\left( S_{\Omega }\right) \left\{ 
+\begin{array}{c}
+\text{Existen constantes }\lambda _{0}\text{ y }\Lambda _{0}\text{ tales que:%
+} \\ 
+\lambda _{0}\in \xi ^{2}\leq \xi ^{T}a\left( x\right) \xi \leq \Lambda
+_{0}\xi ^{2}\text{ para todo }\xi \in \mathbb{R}^{n}, \\ 
+\left\vert b_{i}\left( x\right) \right\vert \leq \Lambda _{0}\text{ y }%
+-\Lambda _{0}\leq c\left( x\right) \text{ en }\Omega \text{.}
+\end{array}
+\right.
+\end{equation*}
+Adicionalmente se considera la siguiente definici\'{o}n.
+
+\begin{definition}
+Usando la notaci\'{o}n $d\left( x\right) =dist\left( x,\partial \Omega
+\right) $, $x\in \Omega $, se dice que el conjunto $\Omega $ satisface la 
+\textbf{condici\'{o}n de bola interior uniforme en el sentido fuerte}, si
+para alg\'{u}n $r>0$, y todo $x\in \Omega $ con $d\left( x\right) \leq r$ le
+corresponde un punto m\'{a}s cercano $y\in \partial \Omega $, $d\left(
+x\right) =\left\vert x-y\right\vert $,con la propiedad que $B_{r}\left(
+z\right) \subset \Omega $, donde $z=y+\frac{r\left( x-y\right) }{\left\vert
+x-y\right\vert }$.
+\end{definition}
+
+\begin{theorem}
+Sup\'{o}ngase que $\Omega $ satisface la condici\'{o}n de bola interior
+uniforme en el sentido fuerte, $L$ dado por $\left( 9\right) $, $\left(
+S_{\Omega }\right) $ se cumple, $u\in C^{2}\left( \Omega \right) \cap
+C\left( \overline{\Omega }\right) $ satisfaciendo 
+\begin{equation*}
+Lu\leq 0\text{ \ en }\Omega \text{ \ y }u\geq 0\text{ \ sobre }\partial
+\Omega
+\end{equation*}
+es Lipschitz continua en $\overline{\Omega }$. Si $h\in C^{2}\left( \Omega
+\right) \cap C\left( \overline{\Omega }\right) $ satisface 
+\begin{equation*}
+Lh\leq 0\text{ \ y \ }h>0\text{ en }\Omega \text{,}
+\end{equation*}
+entonces 
+\begin{equation*}
+u=\beta h\text{ \ en }\Omega \text{ para un }\beta <0\text{ \ \'{o} \ }%
+u\equiv 0\text{ \ en }\Omega \text{ \ \'{o} }u>0\text{ \ en }\Omega \text{.}
+\end{equation*}
+\end{theorem}
+
+\section{Extensi\'{o}n del principio del m\'{a}ximo}
+
+Se considera el operador el\'{\i}ptico sim\'{e}trico 
+\begin{equation}
+Lu=\sum_{i,j=1}^{n}\frac{\partial }{\partial x_{i}}\left( a_{ij}\left(
+x\right) \frac{\partial }{\partial x_{j}}u\right) ,  \tag{12}
+\end{equation}
+donde $a_{ij}\left( x\right) \in C^{\infty }\left( \overline{\Omega }\right) 
+$ y $\partial \Omega $ es suave.
+
+Del teorema $10$ se tiene que $\lambda _{1}$, valor propio principal de $-L$%
+, es positivo y existe $w_{1}>0$ tal que 
+\begin{equation*}
+\left\{ 
+\begin{array}{c}
+Lw_{1}+\lambda _{1}w_{1}=0\text{ \ en }\Omega , \\ 
+w_{1}=0\text{ \ sobre }\partial \Omega .
+\end{array}
+\right.
+\end{equation*}
+Adem\'{a}s se sabe que 
+\begin{equation*}
+\left( PMF\right) \left\{ 
+\begin{array}{c}
+Lu+cu\leq 0\text{ \ en }\Omega \text{ y }u\geq 0\text{ sobre }\partial
+\Omega , \\ 
+\text{implica} \\ 
+u\equiv 0\text{ \ en }\Omega \text{ \ \'{o} \ }u>0\text{ \ en }\Omega \text{,%
+}
+\end{array}
+\right.
+\end{equation*}
+es verdadera si $c\leq 0$ y falsa si $c\equiv \lambda _{1}.$
+
+\begin{theorem}
+Dado $L$ en $\left( 12\right) $, los coeficientes de $L$, $\Omega $ y $u$
+satisfaciendo las mismas hip\'{o}tesis del teorema $12.$ Entonces $\left(
+PMF\right) $ es verdadero si $c(x)\lvertneqq \lambda _{1}$ en $\Omega .$
+\end{theorem}
+
+\begin{proof}
+Es consecuencia del teorema $12$ tomando $h:=w_{1}.$
+\end{proof}
+
+\section{Aplicaci\'{o}n: Estimaciones para la soluci\'{o}n de una
+ecuaci\'{o}n diferencial}
+
+\begin{theorem}
+Sea $\left\vert \kappa \right\vert \lneqq \lambda _{1}$ ($\lambda _{1}$
+valor propio principal de $-\Delta $), y sup\'{o}ngase que \linebreak $u\in
+C^{2}\left( B\right) \cap C(\overline{B})$ Lipschitz continua en $\overline{B%
+}$ satisface 
+\begin{equation*}
+\left( P.V.F.\right) \left\{ 
+\begin{array}{c}
+\Delta u+\kappa u=C_{0}\text{ \ \ en }B, \\ 
+u=0\text{ \ \ sobre }\partial B,
+\end{array}
+\right.
+\end{equation*}
+donde $B:=B_{R}\left( 0\right) $ y $C_{0}\in \mathbb{R}.$
+
+\begin{enumerate}
+\item  Si $C_{0}=0,$ entonces el $\left( P.V.F.\right) $ tiene como
+\'{u}nica soluci\'{o}n $u\equiv 0$ en $B.$
+
+\item  Si $-\lambda _{1}\leq \kappa \leq 0$, entonces existe una constante
+positiva $M$ tal que 
+\begin{equation*}
+u\left( x\right) \leq M\left( M-x^{2}\right) \text{ \ \ en }B\text{.}
+\end{equation*}
+
+\item  Si $C_{0}\leq 0,$ $-\lambda _{1}\leq \kappa \leq 0$ y existe un $%
+\gamma >0$ tal que $u(x)\geq $ $\gamma >0$ en $B_{\rho }\left( 0\right) ,$
+para un $0<\rho <R$. Entonces existen constantes positivas $M$ y $\delta $
+tales que 
+\begin{equation*}
+\delta \left( R-\left\vert x\right\vert \right) \leq u\left( x\right) \leq
+M\left( M-x^{2}\right) \text{ \ \ en }B\text{.}
+\end{equation*}
+\end{enumerate}
+\end{theorem}
+
+\section{Simetr\'{\i}a esf\'{e}rica y monoton\'{\i}a radial de soluciones
+positivas para la ecuacion de Poisson no-lineal en $\mathbb{R}^{n}$}
+
+\begin{lemma}
+Sean $R>0,$ $u\in C^{2}\left( \left| x\right| >R\right) \cap C\left( \left|
+x\right| \geq R\right) ,$ $u>0$ en $\left| x\right| \geq R$, tendiendo a
+cero en el infinito y satisfaciendo 
+\begin{equation*}
+Lu\equiv \left( \Delta +\sum_{j=1}^{n}b_{j}\left( x\right) \partial
+_{j}+c\left( x\right) \right) u\leq 0\text{ \ \ en }\left| x\right| >R,
+\end{equation*}
+donde $b_{j}=O\left( \left| x\right| ^{1-p}\right) $, $c\left( x\right)
+=O\left( \left| x\right| ^{-p}\right) $ en el infinito, $p>2,$ y adem\'{a}s
+continuas en $\left| x\right| \geq R$. Entonces, existe un $\mu >0$, tal que 
+\begin{equation*}
+u\left( x\right) \geq \frac{\mu }{\left| x\right| ^{n-2}}\text{.}
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+De la funci\'{o}n comparaci\'{o}n $z=\dfrac{1}{r^{n-2}}+\dfrac{1}{r^{s}},$
+donde $r=\left\vert x\right\vert $ y \linebreak $n-2<s<n-4+p,$ y el
+principio del m\'{a}ximo d\'{e}bil se obtiene la conclusi\'{o}n.
+\end{proof}
+
+\begin{lemma}
+Sean $u:\mathbb{R}^{n}\rightarrow \mathbb{R}$ es positiva y $C^{2}$ en $%
+\mathbb{R}^{n},$ $u=O(\left\vert x\right\vert ^{-m}),$ en el infinito, $m>0,$
+$b:\mathbb{R}^{n}\rightarrow \mathbb{R}$ acotado y $g:\mathbb{R}\rightarrow 
+\mathbb{R}$ es tal que en el intervalo $0\leq u\leq u_{0}=\max u$, $%
+g=g_{1}+g_{2}$ con $g_{1}\in C^{1}$, $g_{2}$ continua y mon\'{o}tona no
+decreciente. $u$ es soluci\'{o}n de 
+\begin{equation}
+\Delta u+b\left( x\right) u_{1}+g\left( u\right) =0\text{ \ \ en\ }\mathbb{R}%
+^{n}\text{.}  \tag{13}
+\end{equation}
+Sup\'{o}ngase que existe un $\lambda \in \left[ 0,\infty \right) $ tal que
+
+\textbf{1}. $b\left( x\right) \geq 0$ para todo $x\in \mathbb{R}^{n}$
+
+\textbf{2}. $u_{1}\left( x\right) \leq 0$ y $u\left( x\right) \leq u\left(
+x^{\lambda }\right) $ para todo $x\in \Sigma \left( \lambda \right) $,
+
+\textbf{3}. $u\left( z\right) \neq u\left( z^{\lambda }\right) $ para
+alg\'{u}n $z\in \Sigma \left( \lambda \right) $.
+
+Entonces 
+\begin{eqnarray*}
+u\left( x\right) &<&u\left( x^{\lambda }\right) \text{ \ \ para todo \ }x\in
+\Sigma \left( \lambda \right) \text{,} \\
+u_{1}\left( x\right) &<&0\text{ \ \ para todo \ }x\in T_{\lambda }\text{.}
+\end{eqnarray*}
+\end{lemma}
+
+\begin{proof}
+Se define $v:\Sigma ^{\prime }\left( \lambda \right) \longrightarrow \mathbb{%
+R}$ por $v:=u\left( x^{\lambda }\right) $ y se obtiene que 
+\begin{equation}
+\Delta v\left( x\right) -b\left( x^{\lambda }\right) v_{1}\left( x\right)
++g\left( v\left( x\right) \right) =0\text{ \ \ }\forall x\in \Sigma ^{\prime
+}\left( \lambda \right) \text{.}  \tag{14}
+\end{equation}
+$w:=v-u$ en $\Sigma ^{\prime }\left( \lambda \right) $ satisface $w\leq 0$ y 
+$w\neq 0$. Luego de $\left( 13\right) $, $\left( 14\right) $ y el principio
+del m\'{a}ximo fuerte se sigue que 
+\begin{equation*}
+u\left( x\right) <u\left( x^{\lambda }\right) \text{ \ \ para todo \ }x\in
+\Sigma \left( \lambda \right) .
+\end{equation*}
+Como $w=0$ sobre $T_{\lambda }$, del lema de frontera de Hopf se concluye 
+\begin{equation*}
+u_{1}\left( x\right) <0\text{ \ \ para todo \ }x\in T_{\lambda }\text{.}
+\end{equation*}
+\end{proof}
+
+\begin{lemma}
+Si $f\in C(\mathbb{R}^{n})$ satisface $f\left( y\right) =O\left( \left\vert
+y\right\vert ^{-q}\right) $ cerca al infinito, \linebreak $q>n+1$, $u\in
+C^{2}$ y existe un $C>0$ tal que 
+\begin{equation*}
+u\left( x\right) =C\int_{\mathbb{R}^{n}}\dfrac{1}{\left\vert x-y\right\vert
+^{n-2}}f\left( y\right) dy\text{, \ \ }x\in \mathbb{R}^{n}\text{,}
+\end{equation*}
+entonces
+
+\textbf{a)} 
+\begin{equation*}
+\left| x\right| ^{n-2}u(x)\longrightarrow C\int f\left( y\right) dy\text{, \
+\ cuando }\left| x\right| \rightarrow \infty .
+\end{equation*}
+
+\textbf{b)} 
+\begin{equation*}
+\frac{\left| x\right| ^{n}}{x_{1}}u_{1}\left( x\right) \longrightarrow
+-\left( n-2\right) C\int f\left( y\right) dy,\text{ \ cuando }\left|
+x\right| \rightarrow \infty ,\text{\ con }x_{1}\rightarrow \infty \text{.}
+\end{equation*}
+
+\textbf{c) }Si $\left\{ \lambda ^{i}\right\} \subset \mathbb{R}$ con $%
+\lambda ^{i}\longrightarrow \lambda $ y $\left\{ x^{i}\right\} $ es una
+sucesi\'{o}n en $\mathbb{R}^{n}$ tendiendo al infinito, con $%
+x_{1}^{i}<\lambda ^{i}$ $\ $para todo $i\in \mathbb{N}$, entonces 
+\begin{equation*}
+\frac{\left\vert x^{i}\right\vert ^{n}}{\lambda ^{i}-x_{1}^{i}}\left(
+u\left( x^{i}\right) -u\left( x^{i^{\lambda ^{i}}}\right) \right)
+\longrightarrow 2\left( n-2\right) C\int f\left( y\right) \left( \lambda
+-y_{1}\right) dy.
+\end{equation*}
+\end{lemma}
+
+\begin{theorem}
+Sea $u$ soluci\'{o}n positiva y de clase $C^{2}$ de 
+\begin{equation}
+-\Delta u=g\left( u\right) \text{ \ \ en }\mathbb{R}^{n}\text{, }n\geq 3, 
+\tag{15}
+\end{equation}
+con $u\left( x\right) =O\left( \left\vert x\right\vert ^{-m}\right) $ en el
+infinito, $m>0$.
+
+Sup\'{o}ngase: \textbf{(i)} En el intervalo $0\leq u\leq u_{0}$ donde $%
+u_{0}=\max u$, $g=g_{1}+g_{2}$ con $g_{1}\in C^{1}$, $g_{2}$ continua y
+mon\'{o}tona no decreciente. \textbf{(ii)} Para alg\'{u}n \linebreak $\alpha
+>\max \left\{ \frac{n+1}{m},\frac{2}{m}+1\right\} $, $g\left( u\right)
+=O\left( u^{\alpha }\right) $ cerca de $u=0$. Entonces $u\left( x\right) $
+es esf\'{e}ricamente sim\'{e}trica alrededor de alg\'{u}n punto de $\mathbb{R%
+}^{n}$ y $u_{r}<0$ para $r>0,$ donde $r$ es la coordenada radial alrededor
+de ese punto. Adem\'{a}s 
+\begin{equation}
+\lim_{\left\vert x\right\vert \rightarrow \infty }\left\vert x\right\vert
+^{n-2}u\left( x\right) =k>0\text{.}  \tag{16}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+$\left( 15\right) $ se puede escribir de la forma 
+\begin{equation*}
+\Delta u+c\left( x\right) u=0,
+\end{equation*}
+donde $p:=m\left( \alpha -1\right) >2$, y $c\left( x\right) =\frac{g\left(
+u\left( x\right) \right) }{u\left( x\right) }=O\left( \left\vert
+x\right\vert ^{-p}\right) .$ Luego de los lemas $15$ y $17a)$ se deduce que 
+\begin{equation}
+\int f\left( y\right) dy>0.  \tag{17}
+\end{equation}
+Con eso y el lema $17b)$ resulta: 
+\begin{equation}
+\text{existe un }\widetilde{\lambda }>0\text{ \ \ tal que \ \ }u_{1}\left(
+x\right) <0\text{ para }x_{1}\geq \widetilde{\lambda }\text{.}  \tag{18}
+\end{equation}
+Ahora, se hace una traslaci\'{o}n hasta un punto $\mathbf{q=}\left(
+q_{1},...,q_{n}\right) $ y se fijan las coordenadas radiales con respecto a
+\'{e}ste punto (nuevo origen) de modo que 
+\begin{equation}
+\int f\left( y\right) y_{j}dy=0,\text{ \ \ }j=1,...,n.  \tag{19}
+\end{equation}
+Luego existe un $\lambda _{0}>0$ tal que para todo $\lambda \geq \lambda
+_{0},$ 
+\begin{equation}
+u\left( x\right) >u\left( x^{\lambda }\right) \text{ \ \ si }x_{1}<\lambda 
+\text{.}  \tag{20}
+\end{equation}
+De $\left( 18\right) ,$ $\left( 20\right) $, el lema $16$ y el lema $17c)$
+resulta un intervalo m\'{a}ximal $\left( \lambda _{1},\infty \right) ,$ $%
+\lambda _{1}>0,$ donde $\left( 18\right) $ y $\left( 20\right) $ valen.
+Luego 
+\begin{equation*}
+u\left( x\right) \geq u\left( x^{\lambda _{1}}\right) \text{ para\ }%
+x_{1}<\lambda _{1}\text{ \ \ y \ \ }u_{1}<0\text{ para }x_{1}>\lambda _{1}%
+\text{.}
+\end{equation*}
+La simetr\'{\i}a de \ $u$ con respecto al hiperplano $x_{1}=0$ se sigue el
+lema $16$ y con eso el teorema queda probado.
+\end{proof}
+
+\end{document}

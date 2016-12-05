@@ -1,0 +1,61 @@
+
+\documentclass[a4paper]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{lucidabr}
+\usepackage{amsmath}
+\usepackage[pdftex]{graphicx}
+\usepackage[activeacute,spanish]{babel}
+\usepackage{amsbsy}
+%\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage[latin1]{inputenc}
+\usepackage[nocfg]{pdfslide}
+\usepackage{pause}
+\usepackage{url}
+\usepackage{fvrb-ex}
+\usepackage{zahlen}
+\newcommand{\BibTeX}{\textsc{Bib}\textrm{\TeX}}
+\newtheorem{theorem}{\color{blue}{Teorema}}[section]
+%\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algoritmo}
+\newtheorem{tarea}[theorem]{Tarea}
+\newtheorem{axiom}[theorem]{Axioma}
+\newtheorem{case}[theorem]{Caso}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusi\'on}
+\newtheorem{conjecture}[theorem]{Conjetura}
+\newtheorem{corollary}{Corolario}
+\newtheorem{criterion}[theorem]{\color{blue}{Criterio}}
+\newtheorem{definition}{\color{blue}{Definici\'on}}
+\newtheorem{example}{\color{blue}{Ejemplo}}
+\newtheorem{exercise}[theorem]{Ejercicios}
+\newtheorem{lemma}{Lema}
+\newtheorem{notation}[theorem]{Notaci\'on}
+\newtheorem{problem}[theorem]{Problema}
+\newtheorem{proposition}{Proposici\'on}
+\newtheorem{remark}{\color{blue}{Observaci\'on}}
+\newtheorem{solution}{\color{blue}{Soluci\'on}}[example]
+\newtheorem{summary}[theorem]{Sumario}
+%\input{tcilatex}
+\pagestyle{title}
+
+\begin{document}
+
+\title{\color{black}{\Large REPASO DE ESTADÍSTICA}}
+\author{\color{black}\bfseries Antalcides Olivo \\ \vspace{7cm} \sffamily {\small \noindent Copyright ©{} 2003 Antalcides Olivo
+Burgos. Universidad Del Norte}
+} \maketitle
+
+\orgname{\color{black}UNIVERSIDAD DEL NORTE} \orgurl{%
+\color{black}http://www.uninorte .edu .co}
+\address{\color{black}\large Julio de 2003}
+\overlay{figuras/estadis1.png}
+
+
+{\large\textbf{   \include{repaso1}  \include{repaso12}%
+%\include{repaso2}
+ \include{repaso3} \include{repaso4} %
+\include{repaso5}% \include{repaso06} \include{repaso07} %
+%\include{repaso08} \include{repaso09} }
+}}
+\end{document}

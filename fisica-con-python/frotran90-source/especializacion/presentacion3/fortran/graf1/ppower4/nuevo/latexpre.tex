@@ -1,0 +1,337 @@
+\documentclass[ps,eliz,slideColor,nocolorBG,accumulate]{prosper}
+\bibliographystyle{plain}                                                          
+\usepackage{pst-plot}
+\usepackage[metapost]{mfpic}
+\opengraphsfile{figs}
+
+\newcommand{\codeA}[2]{{\bfseries\texttt{\textbackslash #1%
+    #2}\index{#1@\texttt{\textbackslash #1}}}}        
+                          
+\email{ebrown@hsph.harvard.edu}
+
+\title{Making Powerpoint-like Presentations with \LaTeX}
+\author{Elizabeth Brown}
+\setlength{\axisheadlen}{0pt}
+
+\begin{document}
+\maketitle
+
+\overlays{7}{
+\begin{slide}{Overview}
+{\yellow Goal}: easily make presentation-quality slides \\
+\FromSlide{2}{\yellow Options}: \FromSlide{3}
+  \begin{itemize}
+  \item PowerPoint \FromSlide{4}- what to do about equations?
+\FromSlide{5}
+  \item \LaTeX $\rightarrow$ pdf  -several packages will do this
+    \begin{itemize}
+\FromSlide{6}
+    \item pdfslide or P$^4$ with pdflatex 
+\FromSlide{7}
+    \item \texttt{prosper} - most straight-forward; can easily convert existing \texttt{seminar} slides
+    \end{itemize}
+  \end{itemize}
+\end{slide}
+}
+\overlays{5}{
+\begin{slide}{Required packages for \texttt{prosper}}
+\LaTeX 
+  \begin{itemstep}
+  \item \texttt{seminar} 
+  \item \texttt{prosper} 
+  \item \texttt{hyperref} 
+  \item \texttt{pstricks} 
+  \end{itemstep}
+\FromSlide{5}
+Other
+\begin{itemize}
+\item dvips
+\item ps2pdf (ghostscript)
+\item Adobe Acrobat Reader (acroread)
+\end{itemize}
+\end{slide}
+}
+
+\begin{slide}{}
+\vspace{-1in}
+\begin{center}
+  \psframe[linestyle=none,fillstyle=solid,fillcolor=white](-2,-2)(12.5,11)
+  \resizebox{!}{3.8in}{\includegraphics{prosper-structure.eps}}
+\end{center}  
+\end{slide}
+
+%%% *********************************************************  %%%%
+\begin{slide}[Glitter]{slides}
+In seminar slides are constructed using
+\begin{verbatim}
+\begin{slide}
+slide contents here
+\end{slide}
+\end{verbatim}
+Since prosper uses seminar, slides are built the same way.  However, now we include a title.
+\begin{verbatim}
+\begin{slide}{title}
+slide contents here
+\end{slide}
+\end{verbatim}
+If the title is left out the letter s will become the title.
+\end{slide}
+
+%%% *********************************************************  %%%%
+\begin{slide}[Glitter]
+like this
+\begin{verbatim}
+\begin{slide}[Glitter]
+like this
+\end{slide}
+\end{verbatim}
+\end{slide}
+
+\begin{slide}[Dissolve]{}
+For no title, use
+\begin{verbatim}
+\begin{slide}[Dissolve]{}
+For no title, use
+\end{slide}
+\end{verbatim}
+
+\end{slide}
+%%% *********************************************************  %%%%
+
+\begin{slide}[Wipe]{Transitions}
+\begin{itemize}
+\item \texttt{Split}: two lines sweep across the screen 
+\item \texttt{Blinds}: multiple lines appear and synchronously sweep in the same direction 
+\item \texttt{Box}: a box sweeps from the center
+\item \texttt{Wipe}: a single line sweeps across the screen from one
+  edge to the other
+\item \texttt{Dissolve}: the old page image dissolves 
+\item \texttt{Glitter}: similar to \texttt{Dissolve}, except the
+  effect sweeps across the image 
+\item \texttt{Replace}: the effect is simply to replace the old page
+  with the new page.
+\end{itemize}      
+\end{slide}
+
+%%% *********************************************************  %%%%
+
+\overlays{5}{
+\begin{slide}{Overlays}
+With overlays, you can
+\begin{itemstep}
+\item incrementally add items to a page
+\item replace text or images on a slide in a smooth transition
+\end{itemstep}
+\FromSlide{3}
+How it works
+\begin{itemstep}
+\item each overlay treated as separate page
+\FromSlide{4} \item material is properly alligned from page to page to create illusion of adding material to slide
+\FromSlide{5} \item indexed as only one slide
+\end{itemstep}
+\end{slide}
+}
+%%% *********************************************************  %%%%
+
+\begin{slide}{Overlay commands}
+Every slide with overlays must be preceded by \codeA{overlays}{\{n\}}
+			and enclosed in brackets
+\begin{verbatim}
+\overlays{2}{
+  \begin{slide}
+    contents of slide
+  \end{slide}
+}
+\end{verbatim}
+\end{slide}
+%%% *********************************************************  %%%%
+
+\overlays{2}{
+\begin{slide}{Overlay commands, cont.}
+\begin{itemize}
+\item \codeA{fromSlide}{\{p\}\{mat\}}. Puts \texttt{mat} on slides
+  \texttt{p} through \texttt{n};
+\item \codeA{onlySlide}{\{p\}\{mat\}}. Puts \texttt{mat} on slide \texttt{p}
+  only;
+\item \codeA{untilSlide}{\{p\}\{mat\}}. Puts \texttt{mat} on slides
+  \texttt{1} through
+  \texttt{p};
+\FromSlide{2}
+\item  \codeA{FromSlide}{\{p\}}. All the material following this statement will be put on slides \texttt{p} through \texttt{n};
+\item \codeA{OnlySlide}{\{p\}}. All the material following this statement be put on slide \texttt{p} only;
+\item \codeA{UntilSlide}{\{p\}}. All the material following this statement  will be put on slides \texttt{1} through
+  \texttt{p}.
+\end{itemize}                                                               
+\end{slide}
+}
+
+%%% *********************************************************  %%%%
+\begin{slide}[Dissolve]{Overlay commands, cont.}
+\begin{itemize}
+\item \codeA{fromSlide{\yellow *}}{\{p\}\{mat\}} Puts \texttt{mat} on slides
+  \texttt{p} through \texttt{n};
+\item \codeA{onlySlide{\yellow *}}{\{p\}\{mat\}}. Puts \texttt{mat} on slide \texttt{p}
+  only;
+\item \codeA{untilSlide{\yellow *}}{\{p\}\{mat\}}. Puts \texttt{mat} on slides
+  \texttt{1} through
+  \texttt{p};
+\end{itemize}
+Adding an {\yellow $*$} to these commands causes the material to be replaced by the material on the next overlay.
+\end{slide}
+%%% *********************************************************  %%%%
+
+\overlays{4}{
+\begin{slide}{Text overlay -- no replacement}
+\begin{itemstep}
+\item one
+\item two
+\item three
+\item four
+\end{itemstep}
+\tiny
+\begin{minipage}[b]{2in}
+\textbackslash overlays \{ 4 \}\{ \\
+\textbackslash begin \{slide\}\{Text overlay -- no replacement\}  \\
+\textbackslash begin\{itemstep\}\\
+\textbackslash item one\\
+\textbackslash item two\\
+\textbackslash item three\\
+\textbackslash item four\\
+\textbackslash end \{itemstep\}\\
+\textbackslash end  \{slide\}\}\\
+\end{minipage}
+\hspace{.25in}
+\begin{minipage}[b]{2in}
+\textbackslash overlays \{ 4 \}\{ \\
+\textbackslash begin \{slide\}\{Text overlay -- no replacement\}  \\
+\textbackslash begin\{itemize\}\\
+\textbackslash item one\\
+\textbackslash FromSlide{2}
+\textbackslash item two\\
+\textbackslash FromSlide{3}
+\textbackslash item three\\
+\textbackslash FromSlide{4}
+\textbackslash item four\\
+\textbackslash end \{itemize\}\\
+\textbackslash end  \{slide\}\}\\
+\end{minipage}
+\end{slide}}
+%%% *********************************************************  %%%%
+
+\overlays{3}{
+\begin{slide}{Plot overlay example}
+\begin{center}
+\onlySlide*{1}{
+\begin{mfpic}[50][300]{-3.2}{3.2}{0}{.5}
+\pen{5pt}
+\axes
+\function{-3,3,0.1}{1/sqrt(2*pi)*exp(-.5*x*x)}
+\lines{(-3,0),(3,0)}
+\end{mfpic}}
+\onlySlide*{2}{
+\begin{mfpic}[50][300]{-3.2}{3.2}{0}{.5}
+\pen{5pt}
+\axes
+\function{-3.2,3.2,0.1}{1/sqrt(2*pi)*exp(-.5*x*x)}
+\gfill\btwnfcn{1.5,3,0.1}{1/sqrt(2*pi)*exp(-.5*x*x)}{0*x}
+\lines{(-3,0),(3,0)}
+\end{mfpic}}
+\onlySlide*{3}{
+\begin{mfpic}[50][300]{-3.2}{3.2}{0}{.5}
+\pen{5pt}
+\axes
+\function{-3,3,0.1}{1/sqrt(2*pi)*exp(-.5*x*x)}
+\lines{(-3,0),(3,0)}
+\pen{2pt} \drawcolor{blue} \headcolor{blue}
+\gfill\btwnfcn{1.5,3,0.1}{1/sqrt(2*pi)*exp(-.5*x*x)}{0*x}
+\arrow[l10]% [r45]
+\rotatepath{(1.7,.025),-120}\lines{(2.5,.02),(1.7,.025)}
+\tlabel(0,-.12){\blue Rejection region}
+\end{mfpic}\\
+\begin{flushleft}
+  \hyperlink{code}{{\green code}}
+\end{flushleft}
+}
+\end{center}
+\normalsize
+\hypertarget{back}{ }
+\end{slide}
+}
+
+\begin{slide}{\texttt{hyperref} package}
+Use this package to creat links to help you move around the document and load webpages
+\begin{description}
+\item [\textbackslash href\{\textit{URL}\}\{text\}] creates a link to a web page
+\item [\textbackslash hypertarget\{\textit{name}\}\{text\}] creates a target for a link in your document
+\item [\textbackslash hyperlink\{\textit{name}\}\{text\}] creates a link to a place in the presentation defined by \textbackslash hypertarget
+\end{description}
+\end{slide}
+\begin{slide}{\texttt{hyperref} examples}
+Examples:
+  \begin{itemize}
+  \item 
+    \href{http://www.biostat.harvard.edu/}{{\green Department homepage}}
+\tiny \begin{verbatim}
+    \href{http://www.biostat.harvard.edu/}
+          {{\green Department homepage}}
+\end{verbatim}
+\normalsize
+\item 
+\href{http://hsph-dl.harvard.edu:8080/ramgen/lecture16/trainer.rm}{{\green open applications}}
+\item citations\\
+a book I'm reading~\cite{garland}
+  \end{itemize}
+
+\end{slide}
+
+\begin{slide}{Making the presentation file}
+\psframe[linestyle=none,fillstyle=solid,fillcolor=white](-.5,-1)(10.5,2.5)
+\resizebox{4in}{!}{\includegraphics{compilation.eps}}
+
+\end{slide}
+
+
+\begin{slide}{More advanced topics}
+  \begin{itemize}
+  \item creating your own background
+  \end{itemize}
+\end{slide}
+
+\begin{slide}{Helpful links}
+\href{http://biosun1.harvard.edu/~ebrown/cwg6-6-01.html}{{\green Webpage for this talk.}}
+\end{slide}
+
+\begin{slide}{}
+\bibliography{pre}
+\Acrobatmenu{GoBack}{{\magenta \small Go Back}}
+\end{slide}
+
+%%%%   **********   EXTRA SLIDES  *********************  %%%%%%%%%%
+\begin{slide}{code}
+\hypertarget{code}{ }
+\tiny\vspace{-.35in}
+\begin{verbatim}
+\overlays{3}{
+\begin{slide}{Plot overlay example}
+\begin{center}
+\onlySlide*{1}{
+mfpic commands}
+\onlySlide*{2}{
+mfpic commands}
+\onlySlide*{3}{
+\begin{mfpic}[50][300]{-3.2}{3.2}{0}{.5}
+\pen{5pt}
+\axes
+\function{-3,3,0.1}{1/2/sqrt(pi)*exp(-.5*x*x)}
+\lines{(-3,0),(3,0)}
+\pen{2pt} \drawcolor{blue} \headcolor{blue}
+\gfill\btwnfcn{1.5,3,0.1}{1/sqrt(2*pi)*exp(-.5*x*x)}{0*x}
+\arrow[l10]
+\rotatepath{(1.7,.025),-120}\lines{(2.5,.02),(1.7,.025)}
+\tlabel(0,-.12){\blue Rejection region}
+\end{mfpic}} \end{center} \end{slide} }
+\end{verbatim}
+\hyperlink{back}{{\green back}}
+\end{slide}
+
+\end{document}

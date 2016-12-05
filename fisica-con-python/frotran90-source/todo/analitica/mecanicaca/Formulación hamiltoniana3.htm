@@ -1,0 +1,2552 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0073)http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwhamilton.html -->
+<HTML><HEAD><TITLE>Formulación hamiltoniana</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2716.2200" name=GENERATOR></HEAD>
+<BODY background="Formulación hamiltoniana3_archivos/fondolineas.gif">
+<H1 align=center><FONT color=#0000ff>Formulación hamiltoniana</FONT> </H1>
+<H3 align=center><FONT color=#0000ff>M<SUB><FONT 
+face=symbol>e</FONT></SUB>cFunN<SUB><FONT face=symbol>e</FONT></SUB>t</FONT> 
+</H3>
+<H2><A name=tth_sEc1>1</A>&nbsp;&nbsp;Ecuaciones de Hamilton</H2>
+<P>En sistemas lagrangianos holónomos, es decir en aquellos sistemas holónomos 
+posicionados por m coordenadas generalizadas independientes q<SUB>1</SUB>,<FONT 
+face=symbol>¼</FONT>,q<SUB>m</SUB> en los que el movimiento viene determinado 
+por las m ecuaciones 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle>
+            <TABLE border=0>
+              <TBODY>
+              <TR>
+                <TD noWrap align=middle>d </TD>
+                <TD noWrap align=middle><FONT face=symbol>¶</FONT>L
+                  <HR noShade>
+                  <FONT face=symbol>¶</FONT>q<FONT 
+                  face=symbol>¢</FONT><SUB>i</SUB><BR></TD></TR></TBODY></TABLE>
+            <HR noShade>
+            dt<BR></TD>
+          <TD noWrap align=middle><FONT face=symbol>-</FONT> </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>L
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>q<SUB>i</SUB><BR></TD>
+          <TD noWrap align=middle>= 0 &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+            <FONT face=symbol>"</FONT>i <FONT face=symbol>Î</FONT> {1,<FONT 
+            face=symbol>¼</FONT>,m 
+}</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>es posbible 
+reformular la dinámica de una manera más elegante. 
+<P>La evolución de un sistema mecánico viene determinada, junto a las ecuaciones 
+de Lagrange, por las condiciones iniciales q<SUB>10</SUB>,<FONT 
+face=symbol>¼</FONT>,q<SUB>m0</SUB>,q<FONT 
+face=symbol>¢</FONT><SUB>10</SUB>,<FONT face=symbol>¼</FONT>,q<FONT 
+face=symbol>¢</FONT><SUB>m0</SUB>. El conjunto de los posibles valores de las 
+2m-ernas constituye el <EM>espacio de fases</EM>. Estas 2m coordenadas 
+evolucionan en el tiempo satisfaciendo las ecuaciones dinámicas correspondiente, 
+trazando una familia de curvas que llenan el espacio de fases sin cortarse unas 
+a otras (congruencia de curvas). En este espacio de fases se pueden utilizar 
+diferentes sistemas de coordenadas. Si se elige el sistema de coordenadas 
+q<SUB>1</SUB>,<FONT face=symbol>¼</FONT>,q<SUB>m</SUB>,p<SUB>1</SUB>,<FONT 
+face=symbol>¼</FONT>,p<SUB>m</SUB> donde <A name=defip></A>
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>p<SUB>i</SUB> = </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>L
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>q<FONT 
+          face=symbol>¢</FONT><SUB>i</SUB><BR></TD>
+          <TD noWrap align=middle></TD></TR></TBODY></TABLE></TD>
+    <TD align=right width=100>(1)</TD></TR></TBODY></TABLE></CENTER>entonces se 
+llega a una formulación de la mecánica mucho más potente (en el sentido que 
+luego se precisará) que la basada en las ecuaciones de Lagrange. 
+<P>Sea la <EM>función hamiltoniana</EM> o <EM>hamiltoniano</EM> <A 
+name=defih></A>
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>H(q<SUB>1</SUB>,<FONT 
+            face=symbol>¼</FONT>,q<SUB>m</SUB>,p<SUB>1</SUB>,<FONT 
+            face=symbol>¼</FONT>,p<SUB>m</SUB>,t) = <FONT 
+            face=symbol>-</FONT>L(q<SUB>1</SUB>,<FONT 
+            face=symbol>¼</FONT>,q<SUB>m</SUB> ,q<FONT 
+            face=symbol>¢</FONT><SUB>1</SUB>,<FONT face=symbol>¼</FONT>,q<FONT 
+            face=symbol>¢</FONT><SUB>m</SUB> ,t) + </TD>
+          <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+            1</FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle>p<SUB>i</SUB> q<FONT 
+            face=symbol>¢</FONT><SUB>i</SUB> </TD></TR></TBODY></TABLE></TD>
+    <TD align=right width=100>(2)</TD></TR></TBODY></TABLE></CENTER>donde en el 
+segundo miembro las q<FONT face=symbol>¢</FONT><SUB>j</SUB> son las funciones de 
+q<SUB>1</SUB>,<FONT face=symbol>¼</FONT>,q<SUB>m</SUB>,p<SUB>1</SUB>,<FONT 
+face=symbol>¼</FONT>,p<SUB>m</SUB>,t obtenidas del sistema <A 
+href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwhamilton.html#defip">1</A>. 
+A continuación se van a demostrar tres propiedades que relacionan la función 
+lagrangiana con la hamiltoniana 
+<UL>
+  <P>
+  <LI>[(<FONT face=symbol>¶</FONT>L)/(<FONT face=symbol>¶</FONT>q<SUB>k</SUB>)] 
+  = <FONT face=symbol>-</FONT> [(<FONT face=symbol>¶</FONT>H)/(<FONT 
+  face=symbol>¶</FONT>q<SUB>k</SUB>)]&nbsp;&nbsp;&nbsp; <FONT 
+  face=symbol>"</FONT>k <FONT face=symbol>Î</FONT> {1,<FONT 
+  face=symbol>¼</FONT>,m } En efecto, si se tiene en cuenta que en la ecuación 
+  <A 
+  href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwhamilton.html#defih">2</A> 
+  las q<FONT face=symbol>¢</FONT><SUB>i</SUB> realmente representan funciones de 
+  q<SUB>j</SUB>,p<SUB>j</SUB>,t, se sigue 
+  <CENTER>
+  <TABLE align=center border=0>
+    <TBODY>
+    <TR>
+      <TD>
+        <TABLE align=left>
+          <TBODY>
+          <TR>
+            <TD noWrap align=middle></TD>
+            <TD noWrap align=middle><FONT face=symbol>¶</FONT>H
+              <HR noShade>
+              <FONT face=symbol>¶</FONT>q<SUB>k</SUB><BR></TD>
+            <TD noWrap align=middle>= <FONT face=symbol>-</FONT> </TD>
+            <TD noWrap align=middle><FONT face=symbol>¶</FONT>L
+              <HR noShade>
+              <FONT face=symbol>¶</FONT>q<SUB>k</SUB><BR></TD>
+            <TD noWrap align=middle><FONT face=symbol>-</FONT> </TD>
+            <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+              1</FONT>&nbsp;<BR></TD>
+            <TD noWrap align=middle></TD>
+            <TD noWrap align=middle><FONT face=symbol>¶</FONT>L
+              <HR noShade>
+              <FONT face=symbol>¶</FONT>q<FONT 
+              face=symbol>¢</FONT><SUB>i</SUB><BR></TD>
+            <TD noWrap align=middle></TD>
+            <TD noWrap align=middle><FONT face=symbol>¶</FONT>q<FONT 
+              face=symbol>¢</FONT><SUB>i</SUB>
+              <HR noShade>
+              <FONT face=symbol>¶</FONT>q<SUB>k</SUB><BR></TD>
+            <TD noWrap align=middle>+ </TD>
+            <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+              1</FONT>&nbsp;<BR></TD>
+            <TD noWrap align=middle>p<SUB>i</SUB> </TD>
+            <TD noWrap align=middle><FONT face=symbol>¶</FONT>q<FONT 
+              face=symbol>¢</FONT><SUB>i</SUB>
+              <HR noShade>
+              <FONT face=symbol>¶</FONT>q<SUB>k</SUB><BR></TD>
+            <TD noWrap 
+  align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>de 
+  donde, teniendo en cuenta la ecuación <A 
+  href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwhamilton.html#defip">1</A>, 
+  se obtiene 
+  <CENTER>
+  <TABLE align=center border=0>
+    <TBODY>
+    <TR>
+      <TD>
+        <TABLE align=left>
+          <TBODY>
+          <TR>
+            <TD noWrap align=middle></TD>
+            <TD noWrap align=middle><FONT face=symbol>¶</FONT>H
+              <HR noShade>
+              <FONT face=symbol>¶</FONT>q<SUB>k</SUB><BR></TD>
+            <TD noWrap align=middle>= <FONT face=symbol>-</FONT> </TD>
+            <TD noWrap align=middle><FONT face=symbol>¶</FONT>L
+              <HR noShade>
+              <FONT face=symbol>¶</FONT>q<SUB>k</SUB><BR></TD>
+            <TD noWrap align=middle><FONT face=symbol>-</FONT> </TD>
+            <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+              1</FONT>&nbsp;<BR></TD>
+            <TD noWrap align=middle>p<SUB>i</SUB> </TD>
+            <TD noWrap align=middle><FONT face=symbol>¶</FONT>q<FONT 
+              face=symbol>¢</FONT><SUB>i</SUB>
+              <HR noShade>
+              <FONT face=symbol>¶</FONT>q<SUB>k</SUB><BR></TD>
+            <TD noWrap align=middle>+ </TD>
+            <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+              1</FONT>&nbsp;<BR></TD>
+            <TD noWrap align=middle>p<SUB>i</SUB> </TD>
+            <TD noWrap align=middle><FONT face=symbol>¶</FONT>q<FONT 
+              face=symbol>¢</FONT><SUB>i</SUB>
+              <HR noShade>
+              <FONT face=symbol>¶</FONT>q<SUB>k</SUB><BR></TD>
+            <TD noWrap align=middle>= <FONT face=symbol>-</FONT> </TD>
+            <TD noWrap align=middle><FONT face=symbol>¶</FONT>L
+              <HR noShade>
+              <FONT face=symbol>¶</FONT>q<SUB>k</SUB><BR></TD>
+            <TD noWrap 
+  align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>como 
+  se quería demostrar. 
+  <LI>q<FONT face=symbol>¢</FONT><SUB>k</SUB> = [(<FONT 
+  face=symbol>¶</FONT>H)/(<FONT face=symbol>¶</FONT>p<SUB>k</SUB>)] en este 
+  caso, partiendo de la definición del hamiltoniano y derivando respecto a 
+  p<SUB>k</SUB> teniendo en cuenta que en la ecuación <A 
+  href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwhamilton.html#defih">2</A> 
+  las q<FONT face=symbol>¢</FONT><SUB>i</SUB> realmente representan funciones de 
+  q<SUB>j</SUB>,p<SUB>j</SUB>,t, se puede escribir 
+  <CENTER>
+  <TABLE align=center border=0>
+    <TBODY>
+    <TR>
+      <TD>
+        <TABLE align=left>
+          <TBODY>
+          <TR>
+            <TD noWrap align=middle></TD>
+            <TD noWrap align=middle><FONT face=symbol>¶</FONT>H
+              <HR noShade>
+              <FONT face=symbol>¶</FONT>p<SUB>k</SUB><BR></TD>
+            <TD noWrap align=middle>= <FONT face=symbol>-</FONT> </TD>
+            <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+              1</FONT>&nbsp;<BR></TD>
+            <TD noWrap align=middle></TD>
+            <TD noWrap align=middle><FONT face=symbol>¶</FONT>L
+              <HR noShade>
+              <FONT face=symbol>¶</FONT>q<FONT 
+              face=symbol>¢</FONT><SUB>i</SUB><BR></TD>
+            <TD noWrap align=middle></TD>
+            <TD noWrap align=middle><FONT face=symbol>¶</FONT>q<FONT 
+              face=symbol>¢</FONT><SUB>i</SUB>
+              <HR noShade>
+              <FONT face=symbol>¶</FONT>p<SUB>k</SUB><BR></TD>
+            <TD noWrap align=middle>+q<FONT face=symbol>¢</FONT><SUB>k</SUB>+ 
+            </TD>
+            <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+              1</FONT>&nbsp;<BR></TD>
+            <TD noWrap align=middle>p<SUB>i</SUB> </TD>
+            <TD noWrap align=middle><FONT face=symbol>¶</FONT>q<FONT 
+              face=symbol>¢</FONT><SUB>i</SUB>
+              <HR noShade>
+              <FONT face=symbol>¶</FONT>p<SUB>k</SUB><BR></TD>
+            <TD noWrap 
+  align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>e 
+  insertando <A 
+  href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwhamilton.html#defip">1</A> 
+  se obtiene 
+  <CENTER>
+  <TABLE align=center border=0>
+    <TBODY>
+    <TR>
+      <TD>
+        <TABLE align=left>
+          <TBODY>
+          <TR>
+            <TD noWrap align=middle></TD>
+            <TD noWrap align=middle><FONT face=symbol>¶</FONT>H
+              <HR noShade>
+              <FONT face=symbol>¶</FONT>p<SUB>k</SUB><BR></TD>
+            <TD noWrap align=middle>= <FONT face=symbol>-</FONT> </TD>
+            <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+              1</FONT>&nbsp;<BR></TD>
+            <TD noWrap align=middle>p<SUB>i</SUB> </TD>
+            <TD noWrap align=middle><FONT face=symbol>¶</FONT>q<FONT 
+              face=symbol>¢</FONT><SUB>i</SUB>
+              <HR noShade>
+              <FONT face=symbol>¶</FONT>p<SUB>k</SUB><BR></TD>
+            <TD noWrap align=middle>+q<FONT face=symbol>¢</FONT><SUB>k</SUB>+ 
+            </TD>
+            <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+              1</FONT>&nbsp;<BR></TD>
+            <TD noWrap align=middle>p<SUB>i</SUB> </TD>
+            <TD noWrap align=middle><FONT face=symbol>¶</FONT>q<FONT 
+              face=symbol>¢</FONT><SUB>i</SUB>
+              <HR noShade>
+              <FONT face=symbol>¶</FONT>p<SUB>k</SUB><BR></TD>
+            <TD noWrap align=middle>= q<FONT 
+            face=symbol>¢</FONT><SUB>k</SUB></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>que 
+  es el resultado buscado. 
+  <LI>[(<FONT face=symbol>¶</FONT>L)/(<FONT face=symbol>¶</FONT>t)] = <FONT 
+  face=symbol>-</FONT> [(<FONT face=symbol>¶</FONT>H)/(<FONT 
+  face=symbol>¶</FONT>t)]&nbsp;&nbsp;&nbsp; <FONT face=symbol>"</FONT>k <FONT 
+  face=symbol>Î</FONT> {1,<FONT face=symbol>¼</FONT>,m } En efecto, si se tiene 
+  en cuenta que en la ecuación <A 
+  href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwhamilton.html#defih">2</A> 
+  las q<FONT face=symbol>¢</FONT><SUB>i</SUB> realmente representan funciones de 
+  q<SUB>j</SUB>,p<SUB>j</SUB>,t, se sigue 
+  <CENTER>
+  <TABLE align=center border=0>
+    <TBODY>
+    <TR>
+      <TD>
+        <TABLE align=left>
+          <TBODY>
+          <TR>
+            <TD noWrap align=middle></TD>
+            <TD noWrap align=middle><FONT face=symbol>¶</FONT>H
+              <HR noShade>
+              <FONT face=symbol>¶</FONT>t<BR></TD>
+            <TD noWrap align=middle>= <FONT face=symbol>-</FONT> </TD>
+            <TD noWrap align=middle><FONT face=symbol>¶</FONT>L
+              <HR noShade>
+              <FONT face=symbol>¶</FONT>t<BR></TD>
+            <TD noWrap align=middle><FONT face=symbol>-</FONT> </TD>
+            <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+              1</FONT>&nbsp;<BR></TD>
+            <TD noWrap align=middle></TD>
+            <TD noWrap align=middle><FONT face=symbol>¶</FONT>L
+              <HR noShade>
+              <FONT face=symbol>¶</FONT>q<FONT 
+              face=symbol>¢</FONT><SUB>i</SUB><BR></TD>
+            <TD noWrap align=middle></TD>
+            <TD noWrap align=middle><FONT face=symbol>¶</FONT>q<FONT 
+              face=symbol>¢</FONT><SUB>i</SUB>
+              <HR noShade>
+              <FONT face=symbol>¶</FONT>t<BR></TD>
+            <TD noWrap align=middle>+ </TD>
+            <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+              1</FONT>&nbsp;<BR></TD>
+            <TD noWrap align=middle>p<SUB>i</SUB> </TD>
+            <TD noWrap align=middle><FONT face=symbol>¶</FONT>q<FONT 
+              face=symbol>¢</FONT><SUB>i</SUB>
+              <HR noShade>
+              <FONT face=symbol>¶</FONT>t<BR></TD>
+            <TD noWrap 
+  align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>de 
+  donde, teniendo en cuenta la ecuación <A 
+  href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwhamilton.html#defip">1</A>, 
+  se obtiene 
+  <CENTER>
+  <TABLE align=center border=0>
+    <TBODY>
+    <TR>
+      <TD>
+        <TABLE align=left>
+          <TBODY>
+          <TR>
+            <TD noWrap align=middle></TD>
+            <TD noWrap align=middle><FONT face=symbol>¶</FONT>H
+              <HR noShade>
+              <FONT face=symbol>¶</FONT>t<BR></TD>
+            <TD noWrap align=middle>= <FONT face=symbol>-</FONT> </TD>
+            <TD noWrap align=middle><FONT face=symbol>¶</FONT>L
+              <HR noShade>
+              <FONT face=symbol>¶</FONT>t<BR></TD>
+            <TD noWrap 
+  align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>como 
+  se quería demostrar. </LI></UL>
+<P>Partiendo de las ecuaciones del movimiento se tienen las <EM>ecuaciones de 
+Hamilton</EM> <A name=hamilton></A>
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD class=cl align=left><FONT 
+            face=symbol>ì<BR>ï<BR>ï<BR>ï<BR>ï<BR>ï<BR>í<BR>ï<BR>ï<BR>ï<BR>ï<BR>ï<BR>î 
+            </FONT></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle>
+            <TABLE>
+              <TBODY>
+              <TR>
+                <TD align=right>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>q<FONT 
+                        face=symbol>¢</FONT><SUB>k</SUB></TD></TR></TBODY></TABLE></TD>
+                <TD align=middle>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>= </TD></TR></TBODY></TABLE></TD>
+                <TD>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle></TD>
+                      <TD noWrap align=middle><FONT face=symbol>¶</FONT>H
+                        <HR noShade>
+                        <FONT face=symbol>¶</FONT>p<SUB>k</SUB><BR></TD>
+                      <TD noWrap align=middle></TD></TR></TBODY></TABLE></TD>
+              <TR>
+                <TD align=right>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle></TD></TR></TBODY></TABLE></TD>
+              <TR>
+                <TD align=right>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>p<FONT 
+                        face=symbol>¢</FONT><SUB>k</SUB></TD></TR></TBODY></TABLE></TD>
+                <TD align=middle>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>= </TD></TR></TBODY></TABLE></TD>
+                <TD>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle><FONT face=symbol>-</FONT> </TD>
+                      <TD noWrap align=middle><FONT face=symbol>¶</FONT>H
+                        <HR noShade>
+                        <FONT face=symbol>¶</FONT>q<SUB>k</SUB><BR></TD>
+                      <TD noWrap 
+              align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD>
+          <TD noWrap align=middle>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+            &nbsp;&nbsp;&nbsp; <FONT face=symbol>"</FONT>k <FONT 
+            face=symbol>Î</FONT> {1,<FONT face=symbol>¼</FONT>,m 
+      }</TD></TR></TBODY></TABLE></TD>
+    <TD align=right width=100>(3)</TD></TR></TBODY></TABLE></CENTER>que determinan 
+la evolución del sistema en el espacio de fases. Las ecuaciones de Lagrange 
+también definían la trayectoria del sistema en el epacio de fases, pero existen 
+algunas diferencias entre el sistema de ecuaciones de Hamilton y el de 
+ecuaciones de Lagrange: 
+<OL type=1>
+  <P>
+  <LI>las ecuaciones de Lagrange son m ecuaciones y las de Hamilton son 2m 
+  ecuaciones. 
+  <LI>las ecuaciones de Lagrange tienen m incógnitas q<SUB>1</SUB>(t),<FONT 
+  face=symbol>¼</FONT>,q<SUB>m</SUB>(t), en tanto que las ecuaciones de Hamilton 
+  tienen 2m incógnitas q<SUB>1</SUB>(t),<FONT 
+  face=symbol>¼</FONT>,q<SUB>m</SUB>(t), p<SUB>1</SUB>(t),<FONT 
+  face=symbol>¼</FONT>,p<SUB>m</SUB>(t) 
+  <LI>las ecuaciones de Lagrange son de segundo orden en sus incógnitas, es 
+  decir, se necesita conocer dos datos por incógnita para fijar las constantes 
+  arbitrarias (posición y velocidad inicial, por ejemplo); las ecuaciones de 
+  Hamilton son de primer orden en sus incógnitas, es decir,se necesita conocer 
+  un dato por incógnita para fijar las constantes arbitrarias (posición inicial, 
+  por ejemplo) </LI></OL>
+<P>Además, las ecuaciones de Hamilton son tan <I>sencillas</I> en su formato que 
+algunos autores las distinguen como más <I>elegantes</I> que las de Lagrange. 
+Subyaciendo bajo los aspectos estéticos, puede decirse que la forma de las 
+ecuaciones de Hamilton sugiere que los papeles de posición y momento pueden 
+intercambiarse dejando la forma de las ecuaciones sin variación. De hecho, el 
+conjunto de cambios de variables que pueden realizarse en las ecuaciones de 
+Hamilton sin alterarlas, es decir la variedad de perspectivas desde las que se 
+pueden contemplar y por tanto la cantidad de simetrías que se pueden utilizar es 
+infinitamente más grande que en las ecuaciones de Lagrange y en esto radica su 
+mayor potencia. Realmente el marco hamiltoniano es el más amplio bajo el que se 
+pueden contemplar los sistemas que evolucionan satisfaciendo un principio 
+variacional que en mecánica se identifica con el <EM>principio de Hamilton</EM> 
+obtenido en el epígrafe anterior. 
+<P>La formulación de Hamilton es más potente que la de Lagrange según el 
+criterio citado en el párrafo anterior y se emplea con preferencia cuando se 
+trata de resolver cuestiones sobre la existencia de integrales primeras de un 
+sistema, peridicidad de trayectorias, comportamientos estables, caóticos, etc; 
+no obstante, para la resolución de problemas elementales de mecánica, donde el 
+objetivo sea la obtención del sistema de ecuaciones diferenciales, aporta 
+frecuentemente un camino más largo que el lagrangiano. En el siguiente ejemplo 
+se muestra la obtención de las ecuaciones del movimiento de un punto material de 
+masa m que se mueve sobre el eje horizontal x de un sistema cartesiano unido al 
+origen mediante un resorte de constante elástica k y lonfitud natural nula. 
+<P>El lagrangiano de este problema es 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>L = T<FONT 
+        face=symbol>-</FONT>U</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>la 
+energía cinética es 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>T = </TD>
+          <TD noWrap align=middle>1
+            <HR noShade>
+            2<BR></TD>
+          <TD noWrap align=middle>m x<FONT 
+        face=symbol>¢</FONT><SUP>2</SUP></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>el 
+potencial es 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>U = </TD>
+          <TD noWrap align=middle>1
+            <HR noShade>
+            2<BR></TD>
+          <TD noWrap align=middle>k 
+  x<SUP>2</SUP></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>con lo 
+que 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>L = </TD>
+          <TD noWrap align=middle>1
+            <HR noShade>
+            2<BR></TD>
+          <TD noWrap align=middle>m x<FONT face=symbol>¢</FONT><SUP>2</SUP> 
+            <FONT face=symbol>-</FONT> </TD>
+          <TD noWrap align=middle>1
+            <HR noShade>
+            2<BR></TD>
+          <TD noWrap align=middle>k 
+  x<SUP>2</SUP></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>el 
+momento canónico p es 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>p = </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>L
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>x<FONT face=symbol>¢</FONT><BR></TD>
+          <TD noWrap align=middle>= mx<FONT face=symbol>¢</FONT> 
+            &nbsp;&nbsp;&nbsp; <FONT face=symbol>Þ</FONT> &nbsp;&nbsp;&nbsp; 
+            x<FONT face=symbol>¢</FONT> = </TD>
+          <TD noWrap align=middle>p
+            <HR noShade>
+            m<BR></TD>
+          <TD noWrap 
+align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>el 
+hamiltoniano es 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>H = p </TD>
+          <TD noWrap align=middle>p
+            <HR noShade>
+            m<BR></TD>
+          <TD noWrap align=middle><FONT face=symbol>-</FONT> (</TD>
+          <TD noWrap align=middle>1
+            <HR noShade>
+            2<BR></TD>
+          <TD noWrap align=middle>m </TD>
+          <TD class=cl align=left><FONT face=symbol>æ<BR>ç<BR>è </FONT></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle>p
+            <HR noShade>
+            m<BR></TD>
+          <TD class=cl align=left><FONT face=symbol>ö<BR>÷<BR>ø </FONT></TD>
+          <TD noWrap align=middle><FONT size=-1>2</FONT><!--sup
+--><BR><BR><FONT size=-1></FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle><FONT face=symbol>-</FONT> </TD>
+          <TD noWrap align=middle>1
+            <HR noShade>
+            2<BR></TD>
+          <TD noWrap align=middle>k x<SUP>2</SUP>) = </TD>
+          <TD noWrap align=middle>1
+            <HR noShade>
+            2m<BR></TD>
+          <TD noWrap align=middle>p<SUP>2</SUP> + </TD>
+          <TD noWrap align=middle>1
+            <HR noShade>
+            2<BR></TD>
+          <TD noWrap align=middle>k 
+  x<SUP>2</SUP></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>las 
+ecuaciones del movimiento son 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD class=cl align=left><FONT 
+            face=symbol>ì<BR>ï<BR>ï<BR>í<BR>ï<BR>ï<BR>î </FONT></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle>
+            <TABLE>
+              <TBODY>
+              <TR>
+                <TD align=right>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>q<FONT 
+                        face=symbol>¢</FONT><SUB>k</SUB></TD></TR></TBODY></TABLE></TD>
+                <TD align=middle>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>= </TD></TR></TBODY></TABLE></TD>
+                <TD>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle></TD>
+                      <TD noWrap align=middle>p
+                        <HR noShade>
+                        m<BR></TD>
+                      <TD noWrap align=middle></TD></TR></TBODY></TABLE></TD>
+              <TR>
+                <TD align=right>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>p<FONT 
+                        face=symbol>¢</FONT><SUB>k</SUB></TD></TR></TBODY></TABLE></TD>
+                <TD align=middle>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>= </TD></TR></TBODY></TABLE></TD>
+                <TD>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle><FONT face=symbol>-</FONT>k 
+                    x</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD>
+          <TD noWrap 
+align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>o 
+bien, eliminando p 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>m </TD>
+          <TD noWrap align=middle>..<BR>x<BR>&nbsp;<BR></TD>
+          <TD noWrap align=middle>= <FONT face=symbol>-</FONT> k 
+        x</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>ecuación obtenible 
+asímismo utilizando la formulación lagrangiana directamente a partir de la 
+función L hallada anteriormente. 
+<P>En el formalismo hamiltoniano la existencia de una variable cíclica se 
+traduce en la constancia del momento canónico conjugado. En efecto, a partir de 
+la primera propiedad demostrada en este epígrafe, se tiene 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>0 = </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>L
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>q<SUB>k</SUB><BR></TD>
+          <TD noWrap align=middle>= <FONT face=symbol>-</FONT> </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>H
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>q<SUB>k</SUB><BR></TD>
+          <TD noWrap 
+align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>y a 
+partir de la segunda ecuación de Hamilton para q<SUB>k</SUB> se deduce 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>p<FONT face=symbol>¢</FONT><SUB>k</SUB> = 0 
+            &nbsp;&nbsp;&nbsp; <FONT face=symbol>Þ</FONT> &nbsp;&nbsp;&nbsp; 
+            p<SUB>k</SUB> = 
+cte</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>Asímismo, cuando 
+la función lagrangiana no sea función explícita del tiempo, entonces, por la 
+propiedad tercera, el hamiltoniano tampoco lo será, ya que 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>0 = </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>L
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>t<BR></TD>
+          <TD noWrap align=middle>= <FONT face=symbol>-</FONT> </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>H
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>t<BR></TD>
+          <TD noWrap 
+align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>y se 
+deduce la conservación de la integral de Painlevé-Jacobi (como ya se ha visto). 
+Esta integral coincide precisamente con la función hamiltoniana, ya que 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>H = </TD>
+          <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+            1</FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>L
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>q<FONT 
+          face=symbol>¢</FONT><SUB>i</SUB><BR></TD>
+          <TD noWrap align=middle>q<FONT face=symbol>¢</FONT><SUB>i</SUB> 
+            <FONT face=symbol>-</FONT> L = 2L<SUB>2</SUB> + L<SUB>1</SUB> <FONT 
+            face=symbol>-</FONT>(L<SUB>0</SUB>+L<SUB>1</SUB>+L<SUB>2</SUB>) = 
+            L<SUB>2</SUB><FONT face=symbol>-</FONT>L<SUB>0</SUB> = 
+        P</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>lo que implica que 
+si un hamiltoniano no depende explícitamente del tiemo, entonces se conserva. 
+Además, esta identidad implica que en sistemas holónomos esclerónomos en los que 
+exista función lagrangiana, la función hamiltoniana coincide con la energía. 
+Este resultado también se obtiene directamente 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle>d H
+            <HR noShade>
+            dt<BR></TD>
+          <TD noWrap align=middle>= </TD>
+          <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+            1</FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>H
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>q<SUB>i</SUB><BR></TD>
+          <TD noWrap align=middle>q<FONT face=symbol>¢</FONT><SUB>i</SUB> + 
+</TD>
+          <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+            1</FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>H
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>p<SUB>i</SUB><BR></TD>
+          <TD noWrap align=middle>p<FONT face=symbol>¢</FONT><SUB>i</SUB> + 
+</TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>H
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>t<BR></TD>
+          <TD noWrap 
+align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>teniendo 
+en cuenta las ecuaciones de Hamilton <A 
+href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwhamilton.html#hamilton">3</A>, 
+se tiene 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle>d H
+            <HR noShade>
+            dt<BR></TD>
+          <TD noWrap align=middle>= </TD>
+          <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+            1</FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>H
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>q<SUB>i</SUB><BR></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>H
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>p<SUB>i</SUB><BR></TD>
+          <TD noWrap align=middle><FONT face=symbol>-</FONT> </TD>
+          <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+            1</FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>H
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>p<SUB>i</SUB><BR></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>H
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>q<SUB>i</SUB><BR></TD>
+          <TD noWrap align=middle>+ </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>H
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>t<BR></TD>
+          <TD noWrap 
+align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>de 
+donde 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle>d H
+            <HR noShade>
+            dt<BR></TD>
+          <TD noWrap align=middle>= </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>H
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>t<BR></TD>
+          <TD noWrap 
+align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>lo que 
+implica que <EM>si un hamiltoniano no depende explícitamente del tiempo, 
+entonces es una constante del movimiento</EM>. El principio del que se pueden 
+derivar las ecuaciones de Hamilton es la estacionariedad de la integral 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>A = </TD>
+          <TD class=cl align=left><FONT face=symbol>ó<BR>õ </FONT></TD>
+          <TD noWrap align=middle><FONT size=-1>t<SUB>1</SUB></FONT><!--sup
+--><BR><BR><FONT size=-1>t<SUB>0</SUB></FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle>(</TD>
+          <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+            1</FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle>p<SUB>i</SUB> q<FONT 
+            face=symbol>¢</FONT><SUB>i</SUB> <FONT face=symbol>-</FONT> H 
+        )dt</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>En efecto, las 
+ecuaciones de Euler -Lagrange proporcionan 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD class=cl align=left><FONT 
+            face=symbol>ì<BR>ï<BR>ï<BR>ï<BR>ï<BR>í<BR>ï<BR>ï<BR>ï<BR>ï<BR>î 
+            </FONT></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle>
+            <TABLE>
+              <TBODY>
+              <TR>
+                <TD align=right>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>q<FONT 
+                        face=symbol>¢</FONT><SUB>i</SUB> <FONT 
+                        face=symbol>-</FONT> </TD>
+                      <TD noWrap align=middle><FONT face=symbol>¶</FONT>H
+                        <HR noShade>
+                        <FONT face=symbol>¶</FONT>p<SUB>i</SUB><BR></TD>
+                      <TD noWrap align=middle></TD></TR></TBODY></TABLE></TD>
+                <TD align=middle>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>= </TD></TR></TBODY></TABLE></TD>
+                <TD>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>0 </TD></TR></TBODY></TABLE></TD>
+              <TR>
+                <TD align=right>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>p<FONT 
+                        face=symbol>¢</FONT><SUB>i</SUB> + </TD>
+                      <TD noWrap align=middle><FONT face=symbol>¶</FONT>H
+                        <HR noShade>
+                        <FONT face=symbol>¶</FONT>q<SUB>i</SUB><BR></TD>
+                      <TD noWrap align=middle></TD></TR></TBODY></TABLE></TD>
+                <TD align=middle>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>= </TD></TR></TBODY></TABLE></TD>
+                <TD>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap 
+              align=middle>0</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD>
+          <TD noWrap 
+align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>donde 
+no es necesario considerar la relación <A 
+href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwhamilton.html#defip">1</A>. 
+
+<P>
+<H2><A name=tth_sEc2>2</A>&nbsp;&nbsp;Transformaciones canónicas</H2>
+<P>La perspectiva hamiltoniana es tan general que permite la máxima 
+multiplicidad en el cambio de coordenadas. Sean (q<SUB>i</SUB>,p<SUB>i</SUB>) 
+las coordenadas en las que el hamiltoniano es H y sean 
+(Q<SUB>i</SUB>,P<SUB>i</SUB>) otras coordenadas en las que el hamiltoniano es K. 
+Si se parte del principio de Hamilton, debe respetarse que las trayectorias que 
+hagan estacionaria la integral 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>A = </TD>
+          <TD class=cl align=left><FONT face=symbol>ó<BR>õ </FONT></TD>
+          <TD noWrap align=middle><FONT size=-1>t<SUB>1</SUB></FONT><!--sup
+--><BR><BR><FONT size=-1>t<SUB>0</SUB></FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle>(</TD>
+          <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+            1</FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle>p<SUB>i</SUB> q<FONT 
+            face=symbol>¢</FONT><SUB>i</SUB> <FONT face=symbol>-</FONT> H 
+        )dt</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>deben hacer 
+estacionaria la integral 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>A<FONT face=symbol>¢</FONT> = </TD>
+          <TD class=cl align=left><FONT face=symbol>ó<BR>õ </FONT></TD>
+          <TD noWrap align=middle><FONT size=-1>t<SUB>1</SUB></FONT><!--sup
+--><BR><BR><FONT size=-1>t<SUB>0</SUB></FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle>(</TD>
+          <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+            1</FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle>P<SUB>i</SUB> Q<FONT 
+            face=symbol>¢</FONT><SUB>i</SUB> <FONT face=symbol>-</FONT> K 
+        )dt</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>lo cual implica 
+que <A name=fl></A>
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+            1</FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle>p<SUB>i</SUB> dq<SUB>i</SUB> <FONT 
+            face=symbol>-</FONT> H dt = <FONT face=symbol>l</FONT></TD>
+          <TD class=cl align=left><FONT face=symbol>æ<BR>ç<BR>è </FONT></TD>
+          <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+            1</FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle>P<SUB>i</SUB> dQ<SUB>i</SUB> <FONT 
+            face=symbol>-</FONT> K dt + </TD>
+          <TD noWrap align=middle>d F
+            <HR noShade>
+            dt<BR></TD>
+          <TD noWrap align=middle>dt </TD>
+          <TD class=cl align=left><FONT face=symbol>ö<BR>÷<BR>ø </FONT></TD>
+          <TD noWrap align=middle></TD></TR></TBODY></TABLE></TD>
+    <TD align=right width=100>(4)</TD></TR></TBODY></TABLE></CENTER>las 
+transformaciones que siguen la ecuación <A 
+href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwhamilton.html#fl">4</A> 
+se denominan <EM>transformaciones canónicas extensas</EM>. Aquéllas en las que 
+<FONT face=symbol>l</FONT>, es un factor de escala, es la unidad, reciben el 
+nombre de <EM>transformaciones canónicas propiamente dichas</EM> o, en adelante, 
+<EM>transformaciones canónicas</EM>. F es una función de las coordenadas del 
+espacio fásico y del tiempo. Supóngase que se consideran las transformaciones 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD class=cl align=left><FONT face=symbol>ì<BR>í<BR>î </FONT></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle>
+            <TABLE>
+              <TBODY>
+              <TR>
+                <TD align=right>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap 
+                align=middle>p<SUB>i</SUB></TD></TR></TBODY></TABLE></TD>
+                <TD align=middle>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>= </TD></TR></TBODY></TABLE></TD>
+                <TD>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap 
+                        align=middle>p<SUB>i</SUB>(q<SUB>j</SUB>,P<SUB>j</SUB>,t)</TD></TR></TBODY></TABLE></TD>
+              <TR>
+                <TD align=right>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap 
+                align=middle>Q<SUB>i</SUB></TD></TR></TBODY></TABLE></TD>
+                <TD align=middle>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>= </TD></TR></TBODY></TABLE></TD>
+                <TD>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap 
+                        align=middle>Q<SUB>i</SUB>(q<SUB>j</SUB>,P<SUB>j</SUB>,t)</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD>
+          <TD noWrap 
+align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>y se 
+parte de la ecuación <A 
+href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwhamilton.html#fl">4</A> 
+ligeramente transformada <A name=fl2></A>
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+            1</FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle>p<SUB>i</SUB> dq<SUB>i</SUB> <FONT 
+            face=symbol>-</FONT> H dt = <FONT face=symbol>-</FONT> </TD>
+          <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+            1</FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle>Q<SUB>i</SUB> dP<SUB>i</SUB> <FONT 
+            face=symbol>-</FONT> K dt + </TD>
+          <TD noWrap align=middle>
+            <TABLE border=0>
+              <TBODY>
+              <TR>
+                <TD noWrap align=middle>d F+</TD>
+                <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i 
+                  = 1</FONT>&nbsp;<BR></TD>
+                <TD noWrap align=middle>Q<SUB>i</SUB> 
+              P<SUB>i</SUB></TD></TR></TBODY></TABLE>
+            <HR noShade>
+            dt<BR></TD>
+          <TD noWrap align=middle>dt </TD></TR></TBODY></TABLE></TD>
+    <TD align=right width=100>(5)</TD></TR></TBODY></TABLE></CENTER>Sea S = F+ <FONT 
+face=symbol>å</FONT><SUB>i = 1</SUB><SUP>m</SUP> Q<SUB>i</SUB> P<SUB>i</SUB> 
+otra función del espacio de fases y el tiempo expresada en función de 
+q<SUB>i</SUB>,P<SUB>i</SUB>,t, es decir, S = S(q<SUB>i</SUB>,P<SUB>i</SUB>,t). 
+Entonces, la ecuación <A 
+href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwhamilton.html#fl2">5</A> 
+se escribe 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+            1</FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle></TD>
+          <TD class=cl align=left><FONT face=symbol>æ<BR>ç<BR>è </FONT></TD>
+          <TD noWrap align=middle>p<SUB>i</SUB><FONT face=symbol>-</FONT> </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>S
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>q<SUB>i</SUB><BR></TD>
+          <TD class=cl align=left><FONT face=symbol>ö<BR>÷<BR>ø </FONT></TD>
+          <TD noWrap align=middle>dq<SUB>i</SUB> <FONT face=symbol>-</FONT> 
+</TD>
+          <TD class=cl align=left><FONT face=symbol>æ<BR>ç<BR>è </FONT></TD>
+          <TD noWrap align=middle>H+ </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>S
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>t<BR></TD>
+          <TD class=cl align=left><FONT face=symbol>ö<BR>÷<BR>ø </FONT></TD>
+          <TD noWrap align=middle>dt = <FONT face=symbol>-</FONT> </TD>
+          <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+            1</FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle></TD>
+          <TD class=cl align=left><FONT face=symbol>æ<BR>ç<BR>è </FONT></TD>
+          <TD noWrap align=middle>Q<SUB>i</SUB>+ </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>S
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>P<SUB>i</SUB><BR></TD>
+          <TD class=cl align=left><FONT face=symbol>ö<BR>÷<BR>ø </FONT></TD>
+          <TD noWrap align=middle>dP<SUB>i</SUB> <FONT face=symbol>-</FONT> K 
+            dt </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>de donde 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD class=cl align=left><FONT 
+            face=symbol>ì<BR>ï<BR>ï<BR>ï<BR>ï<BR>ï<BR>ï<BR>ï<BR>í<BR>ï<BR>ï<BR>ï<BR>ï<BR>ï<BR>ï<BR>ï<BR>î 
+            </FONT></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle>
+            <TABLE>
+              <TBODY>
+              <TR>
+                <TD align=right>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>p<SUB>i</SUB> 
+                  </TD></TR></TBODY></TABLE></TD>
+                <TD align=middle>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>= </TD></TR></TBODY></TABLE></TD>
+                <TD>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle></TD>
+                      <TD noWrap align=middle><FONT face=symbol>¶</FONT>S
+                        <HR noShade>
+                        <FONT face=symbol>¶</FONT>q<SUB>i</SUB><BR></TD>
+                      <TD noWrap align=middle></TD></TR></TBODY></TABLE></TD>
+              <TR>
+                <TD align=right>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap 
+                align=middle>Q<SUB>i</SUB></TD></TR></TBODY></TABLE></TD>
+                <TD align=middle>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>= </TD></TR></TBODY></TABLE></TD>
+                <TD>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle><FONT face=symbol>-</FONT> </TD>
+                      <TD noWrap align=middle><FONT face=symbol>¶</FONT>S
+                        <HR noShade>
+                        <FONT face=symbol>¶</FONT>P<SUB>i</SUB><BR></TD>
+                      <TD noWrap align=middle></TD></TR></TBODY></TABLE></TD>
+              <TR>
+                <TD align=right>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>K </TD></TR></TBODY></TABLE></TD>
+                <TD align=middle>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>= </TD></TR></TBODY></TABLE></TD>
+                <TD>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>H+ </TD>
+                      <TD noWrap align=middle><FONT face=symbol>¶</FONT>S
+                        <HR noShade>
+                        <FONT face=symbol>¶</FONT>t<BR></TD>
+                      <TD noWrap 
+              align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD>
+          <TD noWrap 
+align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>es 
+decir, cualquier transformación canónica tiene una S y ésta define la 
+transformación. La función S se conoce como <EM>generadora</EM> de la 
+transformación. En este punto, puede preguntarse sobre la transformación de 
+coordenadas S que haga nulo el nuevo hamiltoniano, es decir, 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>H(q<SUB>i</SUB>,p<SUB>i</SUB>,t) + </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>S
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>t<BR></TD>
+          <TD noWrap align=middle>= 
+0</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>o bien <A 
+name=hj></A>
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>H(q<SUB>i</SUB>, </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>S
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>q<SUB>i</SUB><BR></TD>
+          <TD noWrap align=middle>)+ </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>S
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>t<BR></TD>
+          <TD noWrap align=middle>= 0</TD></TR></TBODY></TABLE></TD>
+    <TD align=right width=100>(6)</TD></TR></TBODY></TABLE></CENTER>ecuación que 
+recibe el nombre de <EM>ecuación de Hamilton-Jacobi</EM> . Si se encuentra una 
+solución S(q<SUB>i</SUB>,P<SUB>i</SUB>,t) donde P<SUB>i</SUB> sean m constantes, 
+entonces 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD class=cl align=left><FONT 
+            face=symbol>ì<BR>ï<BR>ï<BR>ï<BR>ï<BR>í<BR>ï<BR>ï<BR>ï<BR>ï<BR>î 
+            </FONT></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle>
+            <TABLE>
+              <TBODY>
+              <TR>
+                <TD align=right>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap 
+                align=middle>p<SUB>i</SUB></TD></TR></TBODY></TABLE></TD>
+                <TD align=middle>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>= </TD></TR></TBODY></TABLE></TD>
+                <TD>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle></TD>
+                      <TD noWrap align=middle><FONT face=symbol>¶</FONT>S
+                        <HR noShade>
+                        <FONT face=symbol>¶</FONT>q<SUB>i</SUB><BR></TD>
+                      <TD noWrap align=middle>= 
+                        f(q<SUB>i</SUB>,P<SUB>i0</SUB>,t)</TD></TR></TBODY></TABLE></TD>
+              <TR>
+                <TD align=right>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>Q<SUB>i0</SUB> 
+                  </TD></TR></TBODY></TABLE></TD>
+                <TD align=middle>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>= </TD></TR></TBODY></TABLE></TD>
+                <TD>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle><FONT face=symbol>-</FONT> </TD>
+                      <TD noWrap align=middle><FONT face=symbol>¶</FONT>S
+                        <HR noShade>
+                        <FONT face=symbol>¶</FONT>P<SUB>i</SUB><BR></TD>
+                      <TD noWrap align=middle>= 
+                        g(q<SUB>i</SUB>,P<SUB>i0</SUB>,t)</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD>
+          <TD noWrap 
+align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>el 
+segundo conjunto de m ecuaciones permite despejar las m q<SUB>i</SUB> en función 
+del tiempo y de las 2m constantes Q<SUB>i</SUB>,P<SUB>i</SUB> (su hamiltoniano 
+es nulo). EL primer conjunto de ecuaciones determina los momentos en función del 
+tiempo y las 2m constantes. 
+<P>Por lo tanto, una solución particular en función de m constantes 
+independientes (sin considerar la constante aditiva que siempre se puede 
+introducir) de la ecuación de Hamilton-Jacobi (lo que se conoce como una 
+solución completa de la misma), determina la solución general de las ecuaciones 
+de Hamilton. La función S recibe el nombre de <EM>función principal de 
+Hamilton</EM>. 
+<P>Por ejemplo, para un sistema formado por un punto material libre obligado a 
+moverse sobre un eje vertical en un campo gravitatorio, se tiene 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>H = </TD>
+          <TD noWrap align=middle>p<SUP>2</SUP>
+            <HR noShade>
+            2m<BR></TD>
+          <TD noWrap align=middle>+ mg 
+z</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>la ecuación de 
+Hamilton-Jacobi es 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle>1
+            <HR noShade>
+            2m<BR></TD>
+          <TD noWrap align=middle></TD>
+          <TD class=cl align=left><FONT face=symbol>æ<BR>ç<BR>è </FONT></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>S
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>z<BR></TD>
+          <TD class=cl align=left><FONT face=symbol>ö<BR>÷<BR>ø </FONT></TD>
+          <TD noWrap align=middle><FONT size=-1>2</FONT><!--sup
+--><BR><BR><FONT size=-1></FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle>+ mgz + </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>S
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>t<BR></TD>
+          <TD noWrap align=middle>= 
+0</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>como H,K son 
+constantes, entonces 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>S
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>t<BR></TD>
+          <TD noWrap align=middle>= <FONT face=symbol>-</FONT> 
+      E</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>y queda 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle>1
+            <HR noShade>
+            2m<BR></TD>
+          <TD noWrap align=middle></TD>
+          <TD class=cl align=left><FONT face=symbol>æ<BR>ç<BR>è </FONT></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>S
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>z<BR></TD>
+          <TD class=cl align=left><FONT face=symbol>ö<BR>÷<BR>ø </FONT></TD>
+          <TD noWrap align=middle><FONT size=-1>2</FONT><!--sup
+--><BR><BR><FONT size=-1></FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle>= E<FONT face=symbol>-</FONT> mgz 
+        </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>con lo que 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>S
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>z<BR></TD>
+          <TD noWrap align=middle>= m</TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=left>&nbsp;&nbsp;__<BR><FONT size=+1><FONT 
+            face=symbol>Ö</FONT></FONT>2g<BR>&nbsp;<BR></TD>
+          <TD noWrap align=middle></TD>
+          <TD class=cl align=left><FONT face=symbol>æ<BR>ç<BR>è </FONT></TD>
+          <TD noWrap align=middle>(</TD>
+          <TD noWrap align=middle>E
+            <HR noShade>
+            mg<BR></TD>
+          <TD noWrap align=middle><FONT face=symbol>-</FONT>z) </TD>
+          <TD class=cl align=left><FONT face=symbol>ö<BR>÷<BR>ø </FONT></TD>
+          <TD noWrap align=middle><FONT size=-1>[1/2]</FONT><!--sup
+--><BR><BR><FONT size=-1></FONT>&nbsp;<BR></TD>
+          <TD noWrap 
+align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>integrando 
+
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>S = <FONT face=symbol>-</FONT></TD>
+          <TD noWrap align=middle>2
+            <HR noShade>
+            3<BR></TD>
+          <TD noWrap align=middle>m </TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=left>&nbsp;&nbsp;__<BR><FONT size=+1><FONT 
+            face=symbol>Ö</FONT></FONT>2g<BR>&nbsp;<BR></TD>
+          <TD noWrap align=middle>(</TD>
+          <TD noWrap align=middle>E
+            <HR noShade>
+            mg<BR></TD>
+          <TD noWrap align=middle><FONT face=symbol>-</FONT>z)<SUP>3/2</SUP> 
+            <FONT face=symbol>-</FONT> 
+Et</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>con lo que, si A 
+es una consante arbitraria, 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>A = <FONT face=symbol>-</FONT></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=left>&nbsp;&nbsp;___<BR><FONT size=+1><FONT 
+            face=symbol>Ö</FONT></FONT>2/g<BR>&nbsp;<BR></TD>
+          <TD noWrap align=middle></TD>
+          <TD class=cl align=left><FONT face=symbol>æ<BR>ç<BR>è </FONT></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle>E
+            <HR noShade>
+            mg<BR></TD>
+          <TD noWrap align=middle><FONT face=symbol>-</FONT>z </TD>
+          <TD class=cl align=left><FONT face=symbol>ö<BR>÷<BR>ø </FONT></TD>
+          <TD noWrap align=middle><FONT size=-1>[1/2]</FONT><!--sup
+--><BR><BR><FONT size=-1></FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle><FONT face=symbol>-</FONT> 
+      t</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>con lo que 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>z = C+Dt<FONT 
+            face=symbol>-</FONT>t<SUP>2</SUP> 
+  g/2</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>como debía 
+suceder. 
+<P>La función S tiene un significado especial. Si se recuerda la expresión de la 
+integral de acción 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>A = </TD>
+          <TD class=cl align=left><FONT face=symbol>ó<BR>õ </FONT></TD>
+          <TD noWrap align=middle><FONT size=-1>t<SUB>1</SUB></FONT><!--sup
+--><BR><BR><FONT size=-1>t<SUB>0</SUB></FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle>(</TD>
+          <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+            1</FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle>p<SUB>i</SUB> q<FONT 
+            face=symbol>¢</FONT><SUB>i</SUB> <FONT face=symbol>-</FONT> H 
+        )dt</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>y se estudia su 
+variación al cambiar las coordenadas del punto de llegada y su tiempo, se tiene 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>dA = (</TD>
+          <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+            1</FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle>p<SUB>i</SUB> q<FONT 
+            face=symbol>¢</FONT><SUB>i</SUB> <FONT face=symbol>-</FONT> H 
+        )dt</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>de forma que 
+p<SUB>i</SUB> = [(<FONT face=symbol>¶</FONT>A)/(<FONT 
+face=symbol>¶</FONT>q<SUB>i</SUB>)], con lo que 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>A
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>t<BR></TD>
+          <TD noWrap align=middle>= <FONT face=symbol>-</FONT>H(q<SUB>i</SUB>, 
+          </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>A
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>q<SUB>i</SUB><BR></TD>
+          <TD noWrap 
+align=middle>,t)</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>es 
+decir, A satisface la ecuación de Hamilton-Jacobi. De hecho, cualquier solución 
+completa de esta ecuación representa la acción correspondiente a cada punto 
+desde una superficie origen determinada. 
+<P>
+<H2><A name=tth_sEc3>3</A>&nbsp;&nbsp;Ecuaciones de eikonal y de 
+Schroedinger</H2>
+<P>La ecuación de ondas para longitud <FONT face=symbol>l</FONT> = 2<FONT 
+face=symbol>p</FONT>/k es 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle><FONT face=symbol>Ñ</FONT><SUP>2</SUP> U = 
+          </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT><SUP>2</SUP> U
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>x<SUP>2</SUP><BR></TD>
+          <TD noWrap align=middle>+ </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT><SUP>2</SUP> U
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>y<SUP>2</SUP><BR></TD>
+          <TD noWrap align=middle>+ </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT><SUP>2</SUP> U
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>z<SUP>2</SUP><BR></TD>
+          <TD noWrap align=middle>= <FONT face=symbol>-</FONT>k<SUP>2</SUP> 
+          U</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>determina la 
+propagación ondulatoria del escalar U. Si se efectúa el cambio 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>U = A exp(i<FONT 
+        face=symbol>j</FONT>)</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>se 
+tiene entonces el par de ecuaciones 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle>1
+            <HR noShade>
+            A<BR></TD>
+          <TD noWrap align=middle><FONT face=symbol>Ñ</FONT><SUP>2</SUP> A 
+            <FONT face=symbol>-</FONT>( <FONT face=symbol>Ñ</FONT><FONT 
+            face=symbol>j</FONT>)<SUP>2</SUP> = <FONT 
+            face=symbol>-</FONT>k<SUP>2</SUP> 
+</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle>2
+            <HR noShade>
+            A<BR></TD>
+          <TD noWrap align=middle><FONT face=symbol>Ñ</FONT>A ·<FONT 
+            face=symbol>Ñ</FONT><FONT face=symbol>j</FONT>+ <FONT 
+            face=symbol>Ñ</FONT><SUP>2</SUP> <FONT face=symbol>j</FONT> = 
+        0</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>la primera de 
+ellas, en las zonas en que la función A varía poco en una longitud de onda, se 
+traduce en la ecuación <EM>eikonal</EM><A 
+href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwhamilton.html#tthFtNtAAB" 
+name=tthFrefAAB><SUP>1</SUP></A> 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>(<FONT face=symbol>Ñ</FONT><FONT 
+            face=symbol>j</FONT>)<SUP>2</SUP> = k<SUP>2</SUP> 
+      </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>que rige la 
+distribución espacial fase de la onda cuando se satisfacen las condiciones de la 
+óptica geométrica (<FONT face=symbol>l</FONT> es muy pequeña en comparación con 
+las dimensiones típicas del problema, como las longitudes de variabilidad de k, 
+dimensiones de los objetos, etc). Esta ecuación representa la propagación de un 
+campo con una velocidad k constante en el sentido que asigna a cada punto, la 
+longitud desde una superficie arbitraria, multiplicada por k. Refleja la imagen 
+de Huyghens del comportamiento de un frente de ondas esféricas en el que cada 
+punto se convierte asímismo en el centro de una nueva onda, determinando una 
+forma de propagación en la que el tiempo necesario para alcanzar un punto desde 
+una superficie inicial es <FONT face=symbol>j</FONT>/<FONT face=symbol>w</FONT>. 
+
+<P>La forma que tiene la ecuación eikonal 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>(<FONT face=symbol>Ñ</FONT><FONT 
+            face=symbol>j</FONT>)<SUP>2</SUP> = k<SUP>2</SUP> 
+      </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>y la de 
+Hamilton-Jacobi, para un punto material en un campo potencial cuando se usan 
+coordenadas cartesianas en un sistema de energía E es 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>(<FONT face=symbol>Ñ</FONT>S )<SUP>2</SUP> = 
+            2m( E<FONT 
+face=symbol>-</FONT>U)</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>lo 
+que evoca la similitud de las ecuaciones de la mecánica y la óptica, como fue 
+puesto de manifiesto por Hamilton. Si la similitud entre las ecuaciones entre la 
+mecánica del sólido y la óptica es válida para longitudes de onda pequeñas sin 
+más que cambiar k<SUP>2</SUP> por [(8<FONT face=symbol>p</FONT><SUP>2</SUP>m( 
+E<FONT face=symbol>-</FONT>U))/h] y la ecuación ondulatoria rige el 
+comportamiento de la óptica cuando se desea mayor precisión, es lógico pensar 
+que la ecuación de ondas puede regir también la evolución más fina de sistemas 
+mecánicos que evolucionen en espacios reducidos. Esta reflexión llevó al físico 
+austriaco Erwin Schroedinger a proponer la ecuación ondulatoria de la mecánica 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle><FONT face=symbol>Ñ</FONT><SUP>2</SUP> <FONT 
+            face=symbol>Y</FONT> = <FONT face=symbol>-</FONT></TD>
+          <TD noWrap align=middle>8<FONT face=symbol>p</FONT><SUP>2</SUP>m( 
+            E<FONT face=symbol>-</FONT>U)
+            <HR noShade>
+            h<SUP>2</SUP><BR></TD>
+          <TD noWrap align=middle><FONT 
+      face=symbol>Y</FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>donde 
+se ha utilizado la relación propuesta por De Broglie [k/(2<FONT 
+face=symbol>p</FONT>)] = [1/(<FONT face=symbol>l</FONT>)] = p/h = [(<FONT 
+face=symbol>Ö</FONT>[(2m(E<FONT face=symbol>-</FONT>U))])/h] 
+<H2><A name=tth_sEc4>4</A>&nbsp;&nbsp;Corchetes de Poisson</H2>
+<P>Si se considera el espacio de 2m + 1 dimensiones consistente en el espacio de 
+fases ampliado con la dimensión temporal, la forma lineal <A name=fl1></A>
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle><FONT face=symbol>w</FONT> = p<SUB>i</SUB> 
+            dq<SUB>i</SUB> <FONT face=symbol>-</FONT> H dt 
+    </TD></TR></TBODY></TABLE></TD>
+    <TD align=right width=100>(7)</TD></TR></TBODY></TABLE></CENTER>no es un 
+invariante canónico, a la vista de la ecuación <A 
+href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwhamilton.html#fl">4</A>. 
+Sin embargo, su derivada exterior sí lo es, considerando las transformaciones en 
+las que <FONT face=symbol>l</FONT> = 1. En efecto, por el lema de Poincaré, ddF 
+= 0. La restricción de d<FONT face=symbol>w</FONT> al espacio de fases 2m 
+dimensional también será un invariante, con lo que la forma 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+            1</FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle>dq<SUB>i</SUB> <FONT 
+            face=symbol>Ù</FONT>dp<SUB>i</SUB></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>es 
+un invariante canónico y define una estructura <EM>simpléctica </EM>en el 
+espacio de fases. Esta forma, según se ha visto en el apéndice B, asigna a cada 
+tangente del espacio de fases una forma lineal y a la inversa, asigna a cada 
+forma lineal, un vector tangente. Esto implica que se define una operación que a 
+cada dos formas lineales le asigna un escalar. Esta operación,que es, como se ha 
+dicho, un invariante canónico, puede aplicarse a cualquier función (a sus 
+gradientes) del espacio de fases y del tiempo. Esta operación bilineal se conoce 
+como <EM>corchetes de Poisson</EM> y se denota [f,g]. Se evalúa, obviamente, 
+mediante la siguiente fórmula 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>[f,g] = </TD>
+          <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+            1</FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>f
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>q<SUB>i</SUB><BR></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>g
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>p<SUB>i</SUB><BR></TD>
+          <TD noWrap align=middle><FONT face=symbol>-</FONT> </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>f
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>p<SUB>i</SUB><BR></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>g
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>q<SUB>i</SUB><BR></TD>
+          <TD noWrap 
+align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>Es 
+importante reivindicar el carácter intrínseco de esta operación, para lo que se 
+presentará un símil con otra operación bien conocida. En un espacio vectorial 
+euclídeo en el que se realice un estudio geométrico, la formulación de teoremas, 
+leyes, etc utilizando coordenadas cartesianas en una referencia determinada 
+exige la comprobación rigurosa de la invarianza frente a cambios de referencia; 
+sin embargo, si se formulan utilizando operaciones intrínsecas como el producto 
+escalar, esta comprobación no es necesaria, además de simplificar las 
+expresiones dado que el lenguaje utilizado es más próximo a las características 
+<I>intrínsecas</I> del sistema. Pues bien, Dado el carácter intrínseco del 
+corchete de Poisson entre funciones del espacio de fases, las leyes formuladas 
+utilizándolo, gozarán de validez en cualquier sistema canónico de coordenadas. 
+<P>Por ejemplo, dada una función del espacio de fases F = 
+F(q<SUB>i</SUB>,p<SUB>i</SUB>,t) y del tiempo, las ecuaciones de Hamilton <A 
+href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwhamilton.html#hamilton">3</A> 
+permiten calcular su derivada temporal a lo largo de una trayectoria cualquiera 
+que satisfaga dichas ecuaciones 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle>d F
+            <HR noShade>
+            dt<BR></TD>
+          <TD noWrap align=middle>= </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>F
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>t<BR></TD>
+          <TD noWrap align=middle>+ </TD>
+          <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+            1</FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>F
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>q<SUB>i</SUB><BR></TD>
+          <TD noWrap align=middle>q<SUB>i</SUB><FONT face=symbol>¢</FONT> + 
+</TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>F
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>p<SUB>i</SUB><BR></TD>
+          <TD noWrap align=middle>p<SUB>i</SUB><FONT 
+        face=symbol>¢</FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle>d F
+            <HR noShade>
+            dt<BR></TD>
+          <TD noWrap align=middle>= </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>F
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>t<BR></TD>
+          <TD noWrap align=middle>+ </TD>
+          <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+            1</FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>F
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>q<SUB>i</SUB><BR></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>H
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>p<SUB>i</SUB><BR></TD>
+          <TD noWrap align=middle><FONT face=symbol>-</FONT> </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>F
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>p<SUB>i</SUB><BR></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>H
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>q<SUB>i</SUB><BR></TD>
+          <TD noWrap 
+align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>es 
+decir <A name=poisson></A>
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle>d F
+            <HR noShade>
+            dt<BR></TD>
+          <TD noWrap align=middle>= </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>F
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>t<BR></TD>
+          <TD noWrap align=middle>+ [F,H]</TD></TR></TBODY></TABLE></TD>
+    <TD align=right width=100>(8)</TD></TR></TBODY></TABLE></CENTER>
+<P>La <A 
+href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwqm.html">mecánica 
+cuántica</A>, que contiene a la mecánica clásica como límite cuando h <FONT 
+face=symbol>®</FONT> 0, se formula con leyes que son transcriptibles a la 
+formulación hamiltoniana con corchetes de Poisson. La ecuación que rige la 
+evolución de los estados mecánica cuántica es 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>i </TD>
+          <TD noWrap align=middle>h
+            <HR noShade>
+            2<FONT face=symbol>p</FONT><BR></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle>d <FONT face=symbol>|</FONT><FONT 
+            face=symbol>Y</FONT> &gt; 
+            <HR noShade>
+            dt<BR></TD>
+          <TD noWrap align=middle>= H <FONT face=symbol>|</FONT><FONT 
+            face=symbol>Y</FONT> &gt; 
+</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>y para un 
+observable F, definido por un operador hermítico, se tiene, por definición 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle>d F
+            <HR noShade>
+            dt<BR></TD>
+          <TD noWrap align=middle>= 
+D</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>si y sólo si para 
+todo par de estados <FONT face=symbol>|</FONT><FONT face=symbol>Y</FONT> &gt; 
+,<FONT face=symbol>|</FONT><FONT face=symbol>F</FONT> &gt; 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle>d &lt; <FONT face=symbol>F</FONT><FONT 
+            face=symbol>|</FONT>F<FONT face=symbol>|</FONT><FONT 
+            face=symbol>Y</FONT> &gt; 
+            <HR noShade>
+            dt<BR></TD>
+          <TD noWrap align=middle>= &lt; <FONT face=symbol>F</FONT><FONT 
+            face=symbol>|</FONT>D<FONT face=symbol>|</FONT><FONT 
+            face=symbol>Y</FONT> &gt; 
+</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>de modo que 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle>d &lt; <FONT face=symbol>F</FONT><FONT 
+            face=symbol>|</FONT>F<FONT face=symbol>|</FONT><FONT 
+            face=symbol>Y</FONT> &gt; 
+            <HR noShade>
+            dt<BR></TD>
+          <TD noWrap align=middle>= &lt; </TD>
+          <TD noWrap align=middle>d <FONT face=symbol>F</FONT>
+            <HR noShade>
+            dt<BR></TD>
+          <TD noWrap align=middle><FONT face=symbol>|</FONT>F<FONT 
+            face=symbol>|</FONT><FONT face=symbol>Y</FONT> &gt; + &lt; <FONT 
+            face=symbol>F</FONT><FONT face=symbol>|</FONT> </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>F
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>t<BR></TD>
+          <TD noWrap align=middle><FONT face=symbol>|</FONT><FONT 
+            face=symbol>Y</FONT> &gt; + &lt; <FONT face=symbol>F</FONT><FONT 
+            face=symbol>|</FONT>F<FONT face=symbol>|</FONT> </TD>
+          <TD noWrap align=middle>d <FONT face=symbol>Y</FONT>
+            <HR noShade>
+            dt<BR></TD>
+          <TD noWrap align=middle>&gt; 
+</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>con lo que 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle>d &lt; <FONT face=symbol>F</FONT><FONT 
+            face=symbol>|</FONT>F<FONT face=symbol>|</FONT><FONT 
+            face=symbol>Y</FONT> &gt; 
+            <HR noShade>
+            dt<BR></TD>
+          <TD noWrap align=middle>= <FONT face=symbol>-</FONT>(i</TD>
+          <TD noWrap align=middle>h
+            <HR noShade>
+            2<FONT face=symbol>p</FONT><BR></TD>
+          <TD noWrap align=middle>)<SUP><FONT face=symbol>-</FONT>1</SUP> &lt; 
+            <FONT face=symbol>Y</FONT><FONT face=symbol>|</FONT>HF<FONT 
+            face=symbol>|</FONT><FONT face=symbol>Y</FONT> &gt; + &lt; <FONT 
+            face=symbol>F</FONT><FONT face=symbol>|</FONT> </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>F
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>t<BR></TD>
+          <TD noWrap align=middle><FONT face=symbol>|</FONT><FONT 
+            face=symbol>Y</FONT> &gt; +(i</TD>
+          <TD noWrap align=middle>h
+            <HR noShade>
+            2<FONT face=symbol>p</FONT><BR></TD>
+          <TD noWrap align=middle>)<SUP><FONT face=symbol>-</FONT>1</SUP> &lt; 
+            <FONT face=symbol>F</FONT><FONT face=symbol>|</FONT>FH<FONT 
+            face=symbol>|</FONT> </TD>
+          <TD noWrap align=middle>d <FONT face=symbol>Y</FONT>
+            <HR noShade>
+            dt<BR></TD>
+          <TD noWrap align=middle>&gt; 
+</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>y se puede escribir 
+
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle>d F
+            <HR noShade>
+            dt<BR></TD>
+          <TD noWrap align=middle>= </TD>
+          <TD noWrap align=middle>1
+            <HR noShade>
+
+            <TABLE border=0>
+              <TBODY>
+              <TR>
+                <TD noWrap align=middle>i</TD>
+                <TD noWrap align=middle>h
+                  <HR noShade>
+                  2<FONT face=symbol>p</FONT><BR></TD></TR></TBODY></TABLE></TD>
+          <TD noWrap align=middle>[F,H] + </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>F
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>t<BR></TD>
+          <TD noWrap 
+align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>que 
+recuerda a la ecuación <A 
+href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwhamilton.html#poisson">8</A>. 
+En efecto, se puede enunciar el principio de correspondencia entre el 
+anticonmutador de los operadores cuánticos A,B y el corchete de Poisson de sus 
+contrapartidas clásicas a,b 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>[A,B] <FONT face=symbol>Þ</FONT> i </TD>
+          <TD noWrap align=middle>h
+            <HR noShade>
+            2<FONT face=symbol>p</FONT><BR></TD>
+          <TD noWrap 
+align=middle>[a,b]</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>Por 
+ejemplo, [Q,P] = i h/(2<FONT face=symbol>p</FONT>) representa la imposibilidad 
+de conocer simultáneamente la posición y velocidad de un punto <EM>principio de 
+indeterminación de Heisenberg</EM>, que, si h = 0, desaparece. De hecho, toda la 
+mecánica clásica formulada con los corchetes de Poisson puede formularse a 
+partir de la cuántica , con la correspondencia citada y haciendo h <FONT 
+face=symbol>®</FONT> 0 
+<P>
+<H2><A name=tth_sEc5>5</A>&nbsp;&nbsp;Simetrías</H2>
+<P>Un grupo especial de transformaciones canónicas lo constituyen las 
+transformaciones canónicas infinitesimales. Sea S<SUB><FONT 
+face=symbol>a</FONT></SUB> la función generatriz de una familia de parámetro 
+<FONT face=symbol>a</FONT> de transformaciones canónicas. Para el valor <FONT 
+face=symbol>a</FONT> se pasa de las coordenadas Q<SUB>i</SUB>,P<SUB>i</SUB> a 
+las coordenadas q<SUB>i</SUB> , p<SUB>i</SUB> y para el valor <FONT 
+face=symbol>a</FONT>+<FONT face=symbol>D</FONT><FONT face=symbol>a</FONT> a 
+q<SUB>i</SUB>+<FONT face=symbol>D</FONT>q<SUB>i</SUB> , p<SUB>i</SUB>+<FONT 
+face=symbol>D</FONT>p<SUB>i</SUB> .Considerando que <FONT 
+face=symbol>D</FONT><FONT face=symbol>a</FONT> es infinitesimal, se tiene 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+            1</FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle>P<SUB>i</SUB> dQ<SUB>i</SUB> <FONT 
+            face=symbol>-</FONT> p<SUB>i</SUB> dq<SUB>i</SUB> = 
+            dS(q<SUB>i</SUB>,Q<SUB>i</SUB>,<FONT 
+        face=symbol>a</FONT>,t)</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+            1</FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle>P<SUB>i</SUB> dQ<SUB>i</SUB> <FONT 
+            face=symbol>-</FONT> (p<SUB>i</SUB> +<FONT 
+            face=symbol>D</FONT>p<SUB>i</SUB>)d(q<SUB>i</SUB> +<FONT 
+            face=symbol>D</FONT>q<SUB>i</SUB>) = dS(q<SUB>i</SUB>+<FONT 
+            face=symbol>D</FONT>q<SUB>i</SUB>,Q<SUB>i</SUB>, <FONT 
+            face=symbol>a</FONT>+<FONT face=symbol>D</FONT><FONT 
+            face=symbol>a</FONT>,t)</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>S(q<SUB>i</SUB>+<FONT 
+            face=symbol>D</FONT>q<SUB>i</SUB>,Q<SUB>i</SUB>, <FONT 
+            face=symbol>a</FONT>+<FONT face=symbol>D</FONT><FONT 
+            face=symbol>a</FONT>,t) = S(q<SUB>i</SUB>,Q<SUB>i</SUB>,<FONT 
+            face=symbol>a</FONT>,t)+</TD>
+          <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+            1</FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle>p<SUB>i</SUB><FONT 
+            face=symbol>D</FONT>q<SUB>i</SUB> + </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>S
+            <HR noShade>
+            <FONT face=symbol>¶</FONT><FONT face=symbol>a</FONT><BR></TD>
+          <TD noWrap align=middle><FONT face=symbol>D</FONT><FONT 
+            face=symbol>a</FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>restando 
+queda 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+            1</FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle><FONT face=symbol>D</FONT>p<SUB>i</SUB> 
+            dq<SUB>i</SUB> <FONT face=symbol>-</FONT><FONT 
+            face=symbol>D</FONT>q<SUB>i</SUB> dp<SUB>i</SUB> = d </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>S
+            <HR noShade>
+            <FONT face=symbol>¶</FONT><FONT face=symbol>a</FONT><BR></TD>
+          <TD noWrap align=middle><FONT face=symbol>D</FONT><FONT 
+            face=symbol>a</FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>expresando 
+G = <FONT face=symbol>-</FONT> [(<FONT face=symbol>¶</FONT>S)/(<FONT 
+face=symbol>¶</FONT><FONT face=symbol>a</FONT>)] en función de 
+q<SUB>i</SUB>,p<SUB>i</SUB>,<FONT face=symbol>a</FONT>,t, se tiene 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle><FONT face=symbol>D</FONT>q<SUB>i</SUB> = 
+</TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>G
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>p<SUB>i</SUB><BR></TD>
+          <TD noWrap align=middle><FONT face=symbol>D</FONT><FONT 
+            face=symbol>a</FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle><FONT face=symbol>D</FONT>p<SUB>i</SUB> = 
+            <FONT face=symbol>-</FONT> </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>G
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>q<SUB>i</SUB><BR></TD>
+          <TD noWrap align=middle><FONT face=symbol>D</FONT><FONT 
+            face=symbol>a</FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>Sea 
+F = F(q<SUB>i</SUB>,p<SUB>i</SUB>,t) una función a la que se desea aplicar la 
+transformación canónica elemental G. Se tiene entonces 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle><FONT face=symbol>D</FONT>F = </TD>
+          <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+            1</FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>F
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>q<SUB>i</SUB><BR></TD>
+          <TD noWrap align=middle><FONT face=symbol>D</FONT>q<SUB>i</SUB> + 
+</TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>F
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>p<SUB>i</SUB><BR></TD>
+          <TD noWrap align=middle><FONT face=symbol>D</FONT>p<SUB>i</SUB> 
+        </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle><FONT face=symbol>D</FONT>F = ( </TD>
+          <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+            1</FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>F
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>q<SUB>i</SUB><BR></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>G
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>p<SUB>i</SUB><BR></TD>
+          <TD noWrap align=middle><FONT face=symbol>-</FONT> </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>F
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>p<SUB>i</SUB><BR></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>G
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>q<SUB>i</SUB><BR></TD>
+          <TD noWrap align=middle>)d<FONT 
+      face=symbol>a</FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle><FONT face=symbol>D</FONT>F = [F,G]d<FONT 
+            face=symbol>a</FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>expresión 
+canónica que representa una transformación infinitesimal aplicada a cualquier 
+función del espacio de fases. 
+<P>Dada una transformación infinitesimal definida por la función generatriz 
+G(q<SUB>i</SUB>,p<SUB>i</SUB>) ésta determina un conjunto de transformaciones 
+con estructura de grupo. La función G(q<SUB>i</SUB>,p<SUB>i</SUB>) es la 
+generatriz del grupo. Un sistema hamiltoniano es simétrico respecto a un grupo G 
+cuando su hamiltoniano insensible a las transformaciones del grupo. Por ejemplo, 
+en un sistema formado por un electrón que se mueve en un campo eléctrico 
+constante, el hamiltoniano es invariante frente al grupo de translaciones 
+perpendiculares a la dirección del campo y por lo tanto este sistema es 
+simétrico respecto a dicho grupo. 
+<P>Si un sistema presenta simetría frente al grupo de transformaciones 
+G(q<SUB>i</SUB>,p<SUB>i</SUB>) entonces la función generatriz es una constante 
+del movimiento. En efecto, por hipótesis, para una transformación infinitesimal 
+se tiene 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle><FONT face=symbol>D</FONT>H = 
+      0</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>por lo que 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>[G,H] = 
+0</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>lo que implica que 
+
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle>d G
+            <HR noShade>
+            dt<BR></TD>
+          <TD noWrap align=middle>= 
+0</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>La búsqueda de 
+constantes del movimiento es equivalente a la búsqueda de simetrías de un 
+sistema mecánico. Las más importantes son las de translación y rotación. Las 
+translaciones forman un grupo de simetrías formado por tres grupos más simples 
+(las translaciones según tres direcciones no coplanarias del espacio). Cada una 
+de ellas viene representada por las funciones 
+<UL>
+  <P>
+  <LI>eje x: p<SUB>x</SUB> 
+  <LI>eje y: p<SUB>y</SUB> 
+  <LI>eje z: p<SUB>z</SUB> </LI></UL>
+<P>La simetría de un sistema frente a translaciones según una dirección x 
+origina la conservación del momento p<SUB>x</SUB>. La simetría frente a una 
+translación cualquiera determina la conservación de las tres cantidades 
+p<SUB>x</SUB>,p<SUB>y</SUB>,p<SUB>z</SUB>, es decir, lo que en mecánica 
+newtoniana constituye la cantidad de movimiento. 
+<P>Igualmente, las rotaciones están representadas por tres grupos elementales 
+<UL>
+  <P>
+  <LI>eje x: y&nbsp;p<SUB>z</SUB><FONT face=symbol>-</FONT>z&nbsp;p<SUB>y</SUB> 
+  <LI>eje y: z&nbsp;p<SUB>x</SUB><FONT face=symbol>-</FONT>x&nbsp;p<SUB>z</SUB> 
+  <LI>eje z: x&nbsp;p<SUB>y</SUB><FONT face=symbol>-</FONT>y&nbsp;p<SUB>x</SUB> 
+  </LI></UL>
+<P>La simetría de un sistema frente a rotaciones en torno a un punto eje z 
+determina la conservación de xp<SUB>y</SUB><FONT 
+face=symbol>-</FONT>yp<SUB>x</SUB> que en mecánica newtoniana equivale al 
+momento cinético áxico. Si la simetría es respecto a cualquier rotación en torno 
+al origen de coordenadas, se deduce la conservación de las cantidades 
+<UL>
+  <P>
+  <LI>y&nbsp;p<SUB>z</SUB><FONT face=symbol>-</FONT>z&nbsp;p<SUB>y</SUB> 
+  <LI>z&nbsp;p<SUB>x</SUB><FONT face=symbol>-</FONT>x&nbsp;p<SUB>z</SUB> 
+  <LI>x&nbsp;p<SUB>y</SUB><FONT face=symbol>-</FONT>y&nbsp;p<SUB>x</SUB> 
+</LI></UL>
+<P>es decir, lo que en mecánica newtoniana representa el momento cinético. Es 
+inmediato comprobar que el corchete de Poisson es antisimétrico y que <A 
+name=idjacobi></A>
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>[f,[g,h]]+[g,[h,f]]+[h,[f,g]] = 
+        0</TD></TR></TBODY></TABLE></TD>
+    <TD align=right width=100>(9)</TD></TR></TBODY></TABLE></CENTER>es decir 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>[f,[g,h]] = [[f,g],h]<FONT 
+            face=symbol>-</FONT>[[f,h],g]</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>lo 
+que nos dice que el corchete de Poisson representa el anticonmutador de las 
+transformaciones infinitesimales representadas por sus funciones generadoras 
+correspondientes. La ecuación <A 
+href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwhamilton.html#idjacobi">9</A> 
+se conoce como <EM>identidad de Jacobi</EM>. Existen numerosas operaciones 
+binarias antisimétricas que verifican la identidad de Jacobi, tales como los 
+anticonmutadores, el producto vectorial, etc. Estas operaciones definen 
+estructuras conocidas como Álgebras de Lie, importantes en los modelos 
+abstractos de la mecánica. 
+<P>De esta forma, se sigue que la búsqueda de simetrías es una herramienta 
+fundamental en la resolución de los problemas de dinámica de sistemas 
+hamiltonianos. En este punto, la mecánica clásica y la cuántica transcurren por 
+caminos formalmente idénticos, siendo transvasables los resultados de una a la 
+otra. 
+<P>De hecho, en la mecánica cuántica un operador F que represente un observable 
+realiza una transformación elemental en las funciones de onda 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>d<FONT face=symbol>|</FONT><FONT 
+            face=symbol>Y</FONT> &gt; = ( i </TD>
+          <TD noWrap align=middle>h
+            <HR noShade>
+            2<FONT face=symbol>p</FONT><BR></TD>
+          <TD noWrap align=middle>)<SUP><FONT face=symbol>-</FONT>1</SUP>F 
+            <FONT face=symbol>|</FONT><FONT face=symbol>Y</FONT> &gt; d<FONT 
+            face=symbol>a</FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>que 
+lleva aparejado un cambio en un observable cualquiera G que viene dado por 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>dG = (i </TD>
+          <TD noWrap align=middle>h
+            <HR noShade>
+            2<FONT face=symbol>p</FONT><BR></TD>
+          <TD noWrap align=middle>)<SUP><FONT face=symbol>-</FONT>1</SUP>[G,F] 
+            d<FONT 
+face=symbol>a</FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>Si 
+la transformación equivalente en mecánica clásica viene dada por la función f, 
+entonces, para una función g cualquiera del espacio de fases, se tiene 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>dg = [g,f] d<FONT 
+        face=symbol>a</FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>
+<P>Si se toman G,F como dos transformaciones, entonces (i [h/(2<FONT 
+face=symbol>p</FONT>)] )<SUP><FONT face=symbol>-</FONT>1</SUP>[G,F] representa 
+su anticonmutador, es decir, el resultado, en el límite, de la diferencia entre 
+las transformaciones compuestas en un orden y el inverso. Este anticonmutador es 
+otra transformación. Algunas transformaciones en mecánica cuántica tienen su 
+análogo en la mecánica clásica (translaciones, rotaciones sin espín, etc). Si 
+establecemos una relación entre las funciones clásicas y los observables 
+cuánticos consistente en representar la misma transformación, entonces 
+necesariamente se tiene que si F,G corresponden a las funciones clásicas f,g, 
+entonces (i [h/(2<FONT face=symbol>p</FONT>)] )<SUP><FONT 
+face=symbol>-</FONT>1</SUP>[F,G] corresponde a [f,g], por motivos puramente 
+geométricos ya que son los anticonmutadores de las transformaciones respectivas. 
+Por ejemplo, la relación 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>p<SUB>y</SUB> = 
+            [p<SUB>x</SUB>,<I>l</I><SUB>z</SUB>]</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>donde 
+l<SUB>z</SUB> = xp<SUB>y</SUB><FONT face=symbol>-</FONT>yp<SUB>z</SUB> 
+representa una rotación elemental en torno al eje z significa que una 
+translación elemental paralela al eje x, seguida de una rotación elemental 
+alrededor del eje z, una translación elemental opuesta a la primera (según el 
+nuevo eje x) y una rotación opuesta a la anterior, resulta en una translación 
+elemental según el eje y, quie es lo que representa p<SUB>y</SUB>. Obviamente, 
+esta relación geométrica debe preservarse en el formalismo cuántico, de modo que 
+
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>i </TD>
+          <TD noWrap align=middle>h
+            <HR noShade>
+            2<FONT face=symbol>p</FONT><BR></TD>
+          <TD noWrap align=middle>P<SUB>y</SUB> = 
+          [P<SUB>x</SUB>,L<SUB>z</SUB>]</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>Por 
+esta razón, la correspondencia entre observables cuánticos y funciones clásicas 
+lleva, de manera intrínseca (geométricamente hablando), a la relación entre 
+anticonmutadores y corchetes de Poisson<A 
+href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwhamilton.html#tthFtNtAAC" 
+name=tthFrefAAC><SUP>2</SUP></A>. 
+<P>Los corchetes de Poisson de las coordenadas canónicas (las transformaciones 
+dadas por sus anticonmutaciones) 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>[q<SUB>i</SUB>,p<SUB>j</SUB>] = <FONT 
+            face=symbol>d</FONT><SUB>ij</SUB> &nbsp;&nbsp;&nbsp;, 
+            &nbsp;&nbsp;&nbsp;[q<SUB>i</SUB>,q<SUB>j</SUB>] = 0 
+            &nbsp;&nbsp;&nbsp;, &nbsp;&nbsp;&nbsp; [p<SUB>i</SUB>,p<SUB>j</SUB>] 
+            = 0</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>originan bien la 
+transformación anulante o bien la identidad. Esta misma transformación ha de 
+resultar de la anticonmutación de las correspondientes transformaciones 
+canónicas. 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>[Q<SUB>i</SUB>,P<SUB>j</SUB>] = <FONT 
+            face=symbol>d</FONT><SUB>ij</SUB>i </TD>
+          <TD noWrap align=middle>h
+            <HR noShade>
+            2<FONT face=symbol>p</FONT><BR></TD>
+          <TD noWrap align=middle>&nbsp;&nbsp;&nbsp;, 
+            &nbsp;&nbsp;&nbsp;[Q<SUB>i</SUB>,Q<SUB>j</SUB>] = 0 
+            &nbsp;&nbsp;&nbsp;, &nbsp;&nbsp;&nbsp; [P<SUB>i</SUB>,P<SUB>j</SUB>] 
+            = 0</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>Existe una 
+formulación canónica de la mecánica cuántica, que partiendo de las relaciones de 
+anticonmutación anteriores, su bilinealidad, antisimetría y la identidad de 
+Jacobi <A 
+href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwhamilton.html#idjacobi">9</A>, 
+se desarrolla hasta la formulación dinámica de sus problemas. Esta formulación, 
+no obstante, se escapa del ámbito de este trabajo. 
+<P>
+<HR>
+
+<H3>Footnotes:</H3>
+<P><A name=tthFtNtAAB></A><A 
+href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwhamilton.html#tthFrefAAB"><SUP>1</SUP></A>del 
+griego <FONT face=symbol>e</FONT><FONT face=symbol>i</FONT><FONT 
+face=symbol>k</FONT><FONT face=symbol>w</FONT><FONT face=symbol>n</FONT> imagen, 
+retrato 
+<P><A name=tthFtNtAAC></A><A 
+href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwhamilton.html#tthFrefAAC"><SUP>2</SUP></A>Esta 
+correspondencia se matiza con algunas ideas de mecánica cuántica que en este 
+texto, por razones obvias, no se han presentado. 
+<P>
+<HR>
+<SMALL>File translated fromT<SUB><FONT size=-1>E</FONT></SUB>Xby <A 
+href="http://hutchinson.belmont.ma.us/tth/">T<SUB><FONT 
+size=-1>T</FONT></SUB>H</A>,version 2.56.<BR>On 23 Apr 2000, 16:45.</SMALL> 
+</BODY></HTML>

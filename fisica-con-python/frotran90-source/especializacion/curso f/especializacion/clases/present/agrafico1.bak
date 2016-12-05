@@ -1,0 +1,514 @@
+
+\begin{enumerate}
+\item Inverso
+%TCIMACRO{\FRAME{dtbpFU}{3in}{2.0003in}{0pt}{\Qcb{$m\in\gz^{-}$}}{}%
+%{Plot}{\special{ language "Scientific Word";  type "MAPLEPLOT";  width 3in;
+%height 2.0003in;  depth 0pt;  display "PICT";  plot_snapshots TRUE;
+%mustRecompute FALSE;  lastEngine "MuPAD";  xmin "-5";  xmax "5";
+%xviewmin "0.01";  xviewmax "5.000000";  yviewmin "0.001";  yviewmax "5.000";
+%viewset "XY";  plottype 4;  numpoints 49;  plotstyle "patch";
+%axesstyle "normal";  xis \TEXUX{x};  yis \TEXUX{y};  var1name \TEXUX{$x$};
+%var2name \TEXUX{$y$};  function \TEXUX{$x^{-1}$};  linecolor "black";
+%linestyle 1;  pointstyle "point";  linethickness 1;  lineAttributes "Solid";
+%var1range "-5,5";  num-x-gridlines 49;  curveColor "[flat::RGB:0000000000]";
+%curveStyle "Line";  rangeset "X";  valid_file "T";
+%tempfilename 'HJC6YZ01.wmf';tempfile-properties "XPR";}}}%
+%BeginExpansion
+%\\
+\centering
+\includegraphics[
+width=3in
+]%
+{HJC6YZ01.eps}
+%\\
+%$m\in\gz^{-}$%
+%EndExpansion
+\item Directamente proporcional
+%TCIMACRO{\FRAME{dhFU}{3in}{2.0003in}{0pt}{\Qcb{$m=1\ \ y=mx$}}{}%
+%{Plot}{\special{ language "Scientific Word";  type "MAPLEPLOT";  width 3in;
+%height 2.0003in;  depth 0pt;  display "PICT";  plot_snapshots TRUE;
+%mustRecompute FALSE;  lastEngine "MuPAD";  xmin "-5";  xmax "5";
+%xviewmin "0.001";  xviewmax "5.000000";  yviewmin "0.000000";
+%yviewmax "15.612000";  viewset "XY";  plottype 4;  numpoints 49;
+%plotstyle "patch";  axesstyle "normal";  xis \TEXUX{x};  yis \TEXUX{y};
+%var1name \TEXUX{$x$};  var2name \TEXUX{$y$};  function \TEXUX{$3x$};
+%linecolor "black";  linestyle 1;  pointstyle "point";  linethickness 1;
+%lineAttributes "Solid";  var1range "-5,5";  num-x-gridlines 49;
+%curveColor "[flat::RGB:0000000000]";  curveStyle "Line";  rangeset "X";
+%valid_file "T";  tempfilename 'HJC6Z202.wmf';tempfile-properties "XPR";}}}%
+%BeginExpansion
+%\\
+\centering
+\includegraphics[
+height=2.0003in, width=3in
+]%
+{HJC6Z202.eps}%
+%\\
+%$m=1\ \ y=mx$%
+%EndExpansion
+%\end{enumerate}
+\item Se llama modelo exponencial a
+%$y=ae^{mx},\;\;a,m\in\rz,\;a,m\neq
+%0$
+\newline%
+\begin{tabular}
+[c]{ll}%
+%TCIMACRO{\FRAME{itbpF}{4.6063cm}{5.0742cm}{0cm}{}{}{Plot}%
+%{\special{ language "Scientific Word";  type "MAPLEPLOT";  width 4.6063cm;
+%height 5.0742cm;  depth 0cm;  display "USEDEF";  plot_snapshots TRUE;
+%mustRecompute FALSE;  lastEngine "MuPAD";  xmin "-5";  xmax "5";
+%xviewmin "0.000012";  xviewmax "5.000000";  yviewmin "1.000";
+%yviewmax "3.440650";  viewset "XY";  plottype 4;  numpoints 49;
+%plotstyle "patch";  axesstyle "normal";  xis \TEXUX{x};  yis \TEXUX{y};
+%var1name \TEXUX{$x$};  var2name \TEXUX{$y$};  function \TEXUX{$e^{x}$};
+%linecolor "black";  linestyle 1;  pointstyle "point";  linethickness 1;
+%lineAttributes "Solid";  var1range "-5,5";  num-x-gridlines 49;
+%curveColor "[flat::RGB:0000000000]";  curveStyle "Line";  rangeset "X";
+%valid_file "T";  tempfilename 'HJC6Z303.wmf';tempfile-properties "XPR";}}}%
+%BeginExpansio
+%\\
+\centering
+\includegraphics[
+height=5.0742cm, width=4.6063cm
+]%
+{HJC6Z303.eps}%
+ %EndExpansion
+&
+%TCIMACRO{\FRAME{itbpF}{4.6063cm}{5.0742cm}{0cm}{}{}{Plot}%
+%{\special{ language "Scientific Word";  type "MAPLEPLOT";  width 4.6063cm;
+%height 5.0742cm;  depth 0cm;  display "USEDEF";  plot_snapshots TRUE;
+%mustRecompute FALSE;  lastEngine "MuPAD";  xmin "-5";  xmax "5";
+%xviewmin "0.000000";  xviewmax "5.000000";  yviewmin "0.004";
+%yviewmax "1.440650";  viewset "XY";  plottype 4;  numpoints 49;
+%plotstyle "patch";  axesstyle "normal";  xis \TEXUX{x};  yis \TEXUX{y};
+%var1name \TEXUX{$x$};  var2name \TEXUX{$y$};  function \TEXUX{$e^{-x}$};
+%linecolor "black";  linestyle 1;  pointstyle "point";  linethickness 1;
+%lineAttributes "Solid";  var1range "-5,5";  num-x-gridlines 49;
+%curveColor "[flat::RGB:0000000000]";  curveStyle "Line";  rangeset "X";
+%valid_file "T";  tempfilename 'HJC6Z404.wmf';tempfile-properties "XPR";}}}%
+%BeginExpansion
+\raisebox{-0cm}{\includegraphics[ height=5.0742cm, width=4.6063cm
+]%
+{HJC6Z404.eps}%
+}%
+%EndExpansion
+\end{tabular}
+\item Modelo logar\'{\i}tmico %$y=\frac{1}{m}\ln x\;m\in\rz,\;m\neq0$%
+%TCIMACRO{\FRAME{dhF}{3in}{2.0003in}{0pt}{}{}{Plot}%
+%{\special{ language "Scientific Word";  type "MAPLEPLOT";  width 3in;
+%height 2.0003in;  depth 0pt;  display "USEDEF";  plot_snapshots TRUE;
+%mustRecompute FALSE;  lastEngine "MuPAD";  xmin "-5";  xmax "5";
+%xviewmin "1.000000";  xviewmax "5.000000";  yviewmin "0.001";
+%yviewmax "2.018052";  viewset "XY";  plottype 4;  numpoints 49;
+%plotstyle "patch";  axesstyle "normal";  xis \TEXUX{x};  yis \TEXUX{y};
+%var1name \TEXUX{$x$};  var2name \TEXUX{$y$};  function \TEXUX{$\log x$};
+%linecolor "black";  linestyle 1;  pointstyle "point";  linethickness 1;
+%lineAttributes "Solid";  var1range "-5,5";  num-x-gridlines 49;
+%curveColor "[flat::RGB:0000000000]";  curveStyle "Line";  rangeset "X";
+%valid_file "T";  tempfilename 'HJC6Z405.wmf';tempfile-properties "XPR";}}}%
+%BeginExpansion
+%\\
+\centering
+\includegraphics[
+height=2.0003in, width=3in
+]%
+{HJC6Z405.eps}%
+\\
+%EndExpansion
+\item Modelo lineal% $y=mx+b\;\;m,b\in\rz,\;m\neq0$%
+%TCIMACRO{\FRAME{dhF}{3in}{2.0003in}{0pt}{}{}{Plot}%
+%{\special{ language "Scientific Word";  type "MAPLEPLOT";  width 3in;
+%height 2.0003in;  depth 0pt;  display "USEDEF";  plot_snapshots TRUE;
+%mustRecompute FALSE;  lastEngine "MuPAD";  xmin "-5";  xmax "5";
+%xviewmin "-5.01";  xviewmax "5.01";  yviewmin "-2.01";  yviewmax "8.01";
+%plottype 4;  numpoints 49;  plotstyle "patch";  axesstyle "normal";
+%xis \TEXUX{x};  yis \TEXUX{y};  var1name \TEXUX{$x$};  var2name \TEXUX{$y$};
+%function \TEXUX{$x+3$};  linecolor "black";  linestyle 1;
+%pointstyle "point";  linethickness 1;  lineAttributes "Solid";
+%var1range "-5,5";  num-x-gridlines 49;  curveColor "[flat::RGB:0000000000]";
+%curveStyle "Line";  valid_file "T";
+%tempfilename 'HJC6Z706.wmf';tempfile-properties "XPR";}}}%
+%BeginExpansion
+\centering
+\includegraphics[
+height=2.0003in, width=3in
+]%
+{HJC6Z706.eps} \\%
+%EndExpansion
+\item Modelo polinomico%
+%TCIMACRO{\FRAME{dtbpFUX}{3in}{2.0003in}{0pt}{\Qcb{$y=A_{n}x^{n}+A_{n-1}%
+%x^{n-1}+\cdots+A_{1}x+A_{0}$}}{}{Plot}{\special{ language "Scientific Word";
+%type "MAPLEPLOT";  width 3in;  height 2.0003in;  depth 0pt;
+%display "USEDEF";  plot_snapshots TRUE;  mustRecompute FALSE;
+%lastEngine "MuPAD";  xmin "-5";  xmax "5";  xviewmin "-5.01";
+%xviewmax "5.01";  yviewmin "-100.26";  yviewmax "160.26";  plottype 4;
+%numpoints 49;  plotstyle "patch";  axesstyle "normal";  xis \TEXUX{x};
+%yis \TEXUX{y};  var1name \TEXUX{$x$};  var2name \TEXUX{$y$};
+%function \TEXUX{$x^{3}+x^{2}+x+5$};  linecolor "black";  linestyle 1;
+%pointstyle "point";  linethickness 1;  lineAttributes "Solid";
+%var1range "-5,5";  num-x-gridlines 49;  curveColor "[flat::RGB:0000000000]";
+%curveStyle "Line";  valid_file "T";
+%tempfilename 'HJC75307.wmf';tempfile-properties "XPR";}}}%
+%BeginExpansion
+\centering
+\includegraphics[ height=2.0003in, width=3in
+]%
+{HJC75307.eps}%
+\\
+$y=A_{n}x^{n}+A_{n-1}x^{n-1}+\cdots+A_{1}x+A_{0}$%
+%EndExpansion
+\end{enumerate}
+\subsection{Ajuste de la curva}
+Al observar las gr\'{a}ficas notamos que muchas se parecen y a
+veces es d\'{\i}ficil estar seguro si el modelo que escogemos es
+adecuado, es m\'{a}s no conocemos todos los modelos. en esta
+secci\'{o}n explicaremos dos m\'{e}todos para ayudarnos a escoger
+un modelo que se aproxime de buena forma a los datos.
+\begin{enumerate}
+\item Linealizaci\'{o}n :\newline Este m\'{e}todo consiste en
+encontrar dos relaciones $h\left(  y\right)  $ y $f\left(
+x\right)  $ tales que al graficar $h\left(  y\right)  $ vs
+$f\left(  x\right)  $ se obtenga una linea recta, es decir si esto
+sucede el modelo es satisfactorio.\newline Por ejemplo si tenemos
+los datos
+\[%
+\begin{tabular}
+[c]{|l|l|l|l|l|l|}\hline $y\left(  cm\right)  $ & 1 & 4 & 9 & 16 &
+25\\\hline $x(s)$ & 1 & 2 & 3 & 4 & 5\\\hline
+\end{tabular}
+\]
+%TCIMACRO{\FRAME{dhF}{2.4111in}{1.8343in}{0pt}{}{}{potencial.wmf}%
+%{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "PICT";  valid_file "F";
+%width 2.4111in;  height 1.8343in;  depth 0pt;  original-width 3.0415in;
+%original-height 2.3056in;  cropleft "0";  croptop "1";  cropright "1";
+%cropbottom "0";  filename 'D:/Tacho/potencial.WMF';file-properties "XNPEU";}%
+%}}%
+%BeginExpansion
+\centering
+\includegraphics[
+height=1.8343in, width=2.4111in
+]%
+{potencial.eps} \\%
+%EndExpansion
+De acuerdo con la forma el modelo es $y=ax^{m}$, pero si
+analizamos los datos ellos nos hacen sospechar que $m=2,$ por lo
+que podr\'{\i}amos hacer $h\left( y\right)  =y$ y $f\left(
+x\right)  =x^{2}$ de lo que obtenemos la siguiente tabla
+\[%
+\begin{tabular}
+[c]{llllll}%
+$h\left(  y\right)  $ & 1 & 4 & 9 & 16 & 25\\
+$f\left(  x\right)  $ & 1 & 4 & 9 & 16 & 25
+\end{tabular}
+\]
+%TCIMACRO{\FRAME{dhF}{3.3088in}{2.2762in}{0pt}{}{}{cuadra.wmf}%
+%{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "PICT";  valid_file "F";
+%width 3.3088in;  height 2.2762in;  depth 0pt;  original-width 3.2638in;
+%original-height 2.2364in;  cropleft "0";  croptop "1";  cropright "1";
+%cropbottom "0";  filename 'D:/Tacho/cuadra.WMF';file-properties "XNPEU";}}}%
+%BeginExpansion
+\centering
+\includegraphics[
+height=2.2762in, width=3.3088in
+]%
+{cuadra.eps} \\%
+%EndExpansion
+Como se obtuvo una recta podemos decir que el modelo es aceptable
+y al determinar la ecuaci\'{o}n de la recta nos que al tomar dos
+puntos cualesquiera
+\[
+a=\frac{y_{1}-y_{2}}{x_{1}^{2}-x_{2}^{2}}=\frac{16-9}{16-9}=1
+\]
+como la relaci\'{o}n matem\'{a}tica es $h\left(  y\right)
+=af\left( x\right)  , $ entonces queda $y=x^{2}.$\newline Este
+m\'{e}todo no es pr\'{a}ctico en el sentido de que si no
+sospechamos nada acerca de la relaci\'{o}matem\'{a}tica es casi
+imposible determinar $h\left(  y\right)  $ y $f\left(  x\right)
+,$ afortunadamente para los modelos planteados ya existen estas
+relaciones
+\begin{enumerate}
+\item Para el modelo $y=ax^{m}$ son
+\[
+h\left(  y\right)  =\log y,\;f\left(  x\right)  =\log x
+\]
+al obtener la recta
+%TCIMACRO{\FRAME{dtbpFU}{3.435in}{2.2485in}{0pt}{\Qcb{$\log Y=m\log
+%x+b,a=10^{b}$}}{}{loglog.wmf}{\special{ language "Scientific Word";
+%type "GRAPHIC";  maintain-aspect-ratio TRUE;  display "PICT";
+%valid_file "F";  width 3.435in;  height 2.2485in;  depth 0pt;
+%original-width 3.3892in;  original-height 2.2087in;  cropleft "0";
+%croptop "1";  cropright "1";  cropbottom "0";
+%filename 'D:/Tacho/loglog.WMF';file-properties "XNPEU";}}}%
+%BeginExpansion
+\centering
+\includegraphics[
+height=2.2485in, width=3.435in
+]%
+{loglog.eps}%
+\\
+$\log Y=m\log x+b,a=10^{b}$%
+\end{center}
+%EndExpansion
+podemos encontrar
+\begin{align*}
+m  & =\frac{\log y_{i}-\log y_{j}}{\log x_{i}-\log x_{j}}\\
+a  & =\frac{y_{i}}{x_{i}^{m}}.
+\end{align*}
+En la pr\'{a}ctica debido a los errores al tomar diferentes
+parejas $\left( x_{i},y_{i}\right)  $ los valores de $m$ y $a$ no
+son constantes, por lo que hay que determinarlos varias veces y
+promediar los resultados, as\'{\i} la relaci\'{o}n matem\'{a}tica
+queda $y=\bar{a}x^{\bar{m}}$ \item Para el modelo $y=ae^{mx}$ se
+escogen las relaciones
+\[
+h\left(  y\right)  =\ln y,\;f\left(  x\right)  =x
+\]
+y si obtenemos la recta
+%TCIMACRO{\FRAME{dhFU}{3.435in}{2.2485in}{0pt}{\Qcb{$\ln Y=mX+b;\;a=e^{b}$}}%
+%{}{semilog.wmf}{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "PICT";  valid_file "F";  width 3.435in;
+%height 2.2485in;  depth 0pt;  original-width 3.3892in;
+%original-height 2.2087in;  cropleft "0";  croptop "1";  cropright "1";
+%cropbottom "0";  filename 'D:/Tacho/semilog.WMF';file-properties "XNPEU";}}}%
+%BeginExpansion
+\centering
+\includegraphics[
+height=2.2485in, width=3.435in
+]%
+{semilog.eps}%
+\\
+$\ln Y=mX+b;\;a=e^{b}$%
+\end{center}
+%EndExpansion
+podemos utilizar
+\begin{align*}
+m  & =\frac{\ln y_{i}-\ln y_{j}}{x_{i}-x_{j}}\\
+a  & =\frac{y_{i}}{e^{mx_{i}}}.
+\end{align*}
+y calculamos varios valores de $m$ y $a$ para promediarlos y
+obtener la relaci\'{o}n matem\'{a}tica $y=\bar{a}e^{\bar{m}x}$
+\item Si el modelo es $y=\frac{1}{m}\ln x$ las relaciones son
+\[
+h\left(  y\right)  =y,\;f\left(  x\right)  =\ln x
+\]
+si la gr\'{a}fica $f\left(  x\right)  \;vs\;h\left(  y\right)  $
+es lineal como se muestra en la figura
+%TCIMACRO{\FRAME{dhF}{2.6593in}{1.8334in}{0pt}{}{}{logm.wmf}%
+%{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "PICT";  valid_file "F";
+%width 2.6593in;  height 1.8334in;  depth 0pt;  original-width 6.1531in;
+%original-height 4.222in;  cropleft "0";  croptop "1";  cropright "1";
+%cropbottom "0";  filename 'D:/Tacho/logm.WMF';file-properties "XNPEU";}}}%
+%BeginExpansion
+\centering
+\includegraphics[
+height=1.8334in, width=2.6593in
+]%
+{logm.eps}%
+%EndExpansion
+podemos usar
+\[
+m=\frac{\ln x_{i}-\ln x_{j}}{y_{i}-y_{j}}%
+\]
+calculamos $m$ varias veces y obtenemos $y=\frac{1}{\bar{m}}\ln
+x.$ \item El modelo lineal es trivial por lo que dejamos de tarea
+al lector
+%\end{enumerate}
+\item Usando Data Studio es f\'{a}cil realizar el ajuste \newline
+Se seleciona la regi\'{o}n de la curva que nos intersa y lugego
+escogemos en la barra de herramienta fit y se escoge el modelo
+adecuado de acuerdcon los siguientes
+par\'{a}metros:%
+%TCIMACRO{\FRAME{fhF}{0.6356in}{1.0326in}{0pt}{}{}{ajuste.jpg}%
+%{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "USEDEF";  valid_file "F";
+%width 0.6356in;  height 1.0326in;  depth 0pt;  original-width 0.6045in;
+%original-height 0.9997in;  cropleft "0";  croptop "1";  cropright "1";
+%cropbottom "0";  filename 'ajuste.jpg';file-properties "XNPEU";}}}%
+%BeginExpansion
+\centering
+\includegraphics[
+height=1.0326in, width=0.6356in
+]%
+{ajuste.eps}%
+%EndExpansion
+\begin{enumerate}
+\item Si se escoge el modelo lineal obtenemos un display parecido
+al de la
+figura%
+%TCIMACRO{\FRAME{dhF}{1.8922in}{1.0326in}{0pt}{}{}{ajuste1.jpg}%
+%{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "USEDEF";  valid_file "F";
+%width 1.8922in;  height 1.0326in;  depth 0pt;  original-width 1.8542in;
+%original-height 0.9997in;  cropleft "0";  croptop "1";  cropright "1";
+%cropbottom "0";  filename 'ajuste1.jpg';file-properties "XNPEU";}}}%
+%BeginExpansion
+\centering
+\includegraphics[
+height=1.0326in, width=1.8922in
+]%
+{ajuste1.eps}%
+\end{center}
+%EndExpansion
+y se dice que el modelo es bueno si $r^{2}>0.95$
+\item Si se escoge otro modelo obtendremos un display como%
+%TCIMACRO{\FRAME{dbhF}{2.0807in}{1.2107in}{0pt}{}{}{ajuste2.jpg}%
+%{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "USEDEF";  valid_file "F";
+%width 2.0807in;  height 1.2107in;  depth 0pt;  original-width 2.0418in;
+%original-height 1.177in;  cropleft "0";  croptop "1";  cropright "1";
+%cropbottom "0";  filename 'ajuste2.jpg';file-properties "XNPEU";}}}%
+%BeginExpansion
+\centerin
+\includegraphics[
+height=1.2107in, width=2.0807in
+]%
+{ajuste2.eps}%
+%EndExpansion
+y decimos que el modelo es bueno si el mean Square Error es
+despreciable comparado con $\bar{y}$
+%\end{enumerate}
+\item Ajuste lineal\newline El ajuste lineal es un m\'{e}todo
+estad\'{\i}stico, parecido al anterior, pero usando herramientas
+diferentes.\newline En este caso no explicaremos mucho , s\'{o}lo
+plantearemos algunas f\'{o}rmulas e interpretaremos los resultados
+\newline Si tenemos dos conjuntos de datos
+\begin{align*}
+& x_{1},x_{2},x_{3},\cdots,x_{n}\\
+& y_{1},y_{2},y_{3},\cdots,y_{n}%
+\end{align*}
+definiremos la
+\begin{enumerate}
+\item Media aritm\'{e}tica
+\begin{align*}
+\bar{x}  & =\frac{\sum_{i=1}^{n}x_{i}}{n}\\
+\bar{y}  & =\frac{\sum_{i=1}^{n}y_{i}}{n}%
+\end{align*}
+\item Varianza
+\begin{align*}
+S_{xx}^{2}  & =\frac{\sum_{i=1}^{n}(x_{i}-\bar{x})^{2}}{n-1}\\
+S_{yy}^{2}  & =\frac{\sum_{i=1}^{n}(y_{i}-\bar{y})^{2}}{n-1}%
+\end{align*}
+\item Covarianza
+\[
+S_{xy}=\frac{\sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{n-1}%
+\]
+\item Coeficiente de correlaci\'{o}n
+\[
+r=\frac{S_{xy}}{\sqrt{S_{xx}^{2}S_{yy}^{2}}}%
+\]
+Cuando estudiamos dos variables $X\;$y $Y$, en realidad estas
+variables estas variables tienen desde el punto de vista
+geom\'{e}trico el comportamiento de dos vectores (rayos con
+direcci\'{o}n). Y se dice que existe un ajuste lineal si los
+vectores representados por las desviaciones est\'{a}n alineados o
+son paralelos.\newline Para determinar si esto sucede podemos
+utilizar la trigonometr\'{\i}a para determinar el \'{a}ngulo entre
+los vectores representados en la figura
+%TCIMACRO{\FRAME{dhF}{1.8152in}{1.4659in}{0pt}{}{}{veca.wmf}%
+%{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "PICT";  valid_file "F";
+%width 1.8152in;  height 1.4659in;  depth 0pt;  original-width 1.7781in;
+%original-height 1.4304in;  cropleft "0";  croptop "1";  cropright "1";
+%cropbottom "0";  filename 'D:/Tacho/veca.WMF';file-properties "XNPEU";}}}%
+%BeginExpansion
+\centering
+\includegraphics[
+height=1.4659in, width=1.8152in
+]%
+{veca.eps}%
+%EndExpansion
+\end{enumerate}
+%\end{enumerate}
+Utilizando una rama de las matem\'{a}ticas llamada algebra lineal
+se puede comprobar que si $\theta$ es el \'{a}ngulo entre los
+vectores entonces
+\[
+\cos\theta=r
+\]
+Es decir este coeficiente determina la relaci\'{o}n lineal entre
+las desviaciones de las variables y esta dependencia es perfecta
+cuando $r=\pm1$ existe el ajuste lineal en la practica esto no
+sucede debido a los errores pero decimos que el ajuste es
+aceptable si $r^{2}>0.95.\;$\newline Si el ajuste existe deben
+existir dos relaciones $h\left(  y\right)  $ y $f\left( x\right)
+$ tal que el modelo
+\[
+h\left(  y\right)  =mf\left(  x\right)  +b
+\]
+debe tener un $r$ adecuado \ y se puede calcular
+\[
+r=\frac{n\sum_{i.j=1}^{n}f\left(  x_{i}\right)  h\left(
+y_{j}\right) -\sum_{i=1}^{n}f\left(  x_{i}\right)
+\sum_{j=1}^{n}h\left(  y_{i}\right) }{\sqrt{\left[
+n\sum_{i=1}^{n}f^{2}\left(  x_{i}\right)  -\left(  \sum
+_{i=1}^{2}f\left(  x_{i}\right)  ^{2}\right)  \right]  }\left[
+n\sum _{j=1}^{n}h^{2}\left(  y_{j}\right)  -\left(
+\sum_{j=1}^{2}h\left(
+y_{j}\right)  ^{2}\right)  \right]  }%
+\]
+%
+\begin{align*}
+m  & =\frac{n\sum_{i.j=1}^{n}f\left(  x_{i}\right)  h\left(
+y_{j}\right) -\sum_{i=1}^{n}f\left(  x_{i}\right)
+\sum_{j=1}^{n}h\left(  y_{i}\right) }{n\sum_{i=1}^{n}f^{2}\left(
+x_{i}\right)  -\left(  \sum_{i=1}^{2}f\left(
+x_{i}\right)  ^{2}\right)  }\\
+b  & =\frac{\sum_{j=1}^{n}h\left(  y_{j}\right)
+-m\sum_{i=1}^{n}f\left(
+x_{i}\right)  }{n}%
+\end{align*}
+donde \ $a$ se obtiene
+\begin{itemize}
+\item $a=10^{b}$ en el modelo $y=ax^{m}$ \item $a=e^{b}$ en el
+modelo $y=ae^{mx}$
+\end{itemize}
+\subsection{Interpretaci\'{o}n geom\'{e}trica de la covarianza}
+Si consideramos una nube de puntos formados por las parejas de los
+datos concretos de dos variables $X$ e $Y$ $\left(
+x_{i},y_{i}\right)  $ el centro
+de gravedad de esta nube de puntos es $\left(  \overset{-}{x},\overset{-}%
+{y}\right)  $, ahora si trasladamos los ejes de tal forma que este
+punto sea el centro, la nube queda dividida en cuatro cuadrantes
+los que indica que los puntos que se encuentran en el pimer y
+tercer cuadrante contribuyen positivamente al valor de la
+covarianza y los que se encuentran en los otros dos cuadrantes
+contribuyen negativamente. como lo indica la figura.a y si los
+puntos se reparten con igual proporci\'{o}n la covarianza ser\'{a}
+negativa
+como indica la segunda gr\'{a}fica de la figura a%
+%TCIMACRO{\FRAME{ftbpFU}{3.0528in}{1.817in}{0pt}{\Qcb{fig a}}{}{fig4.wmf}%
+%{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "USEDEF";  valid_file "F";
+%width 3.0528in;  height 1.817in;  depth 0pt;  original-width 5.6351in;
+%original-height 3.333in;  cropleft "0";  croptop "1";  cropright "1";
+%cropbottom "0";  filename 'D:/Tacho/fig4.wmf';file-properties "XNPEU";}}}%
+%BeginExpansion
+\centering
+\includegraphics[
+height=1.817in, width=3.0528in
+]%
+{fig4.eps}%
+\caption{fig a}%
+%EndExpansion
+y no hay relaci\'{o}n matem\'{a}tica si la nube de puntos no tiene
+ninguna
+tendencia como en la fig b%
+%TCIMACRO{\FRAME{dhFU}{2.7743in}{1.817in}{0pt}{\Qcb{fig b}}{}{fig4cb.wmf}%
+%{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "USEDEF";  valid_file "F";
+%width 2.7743in;  height 1.817in;  depth 0pt;  original-width 5.6455in;
+%original-height 3.6772in;  cropleft "0";  croptop "1";  cropright "1";
+%cropbottom "0";  filename 'D:/Tacho/fig4cb.wmf';file-properties "XNPEU";}}}%
+%BeginExpansion
+\centering
+\includegraphics[
+height=1.817in, width=2.7743in
+]%
+{fig4cb.eps}%
+\\
+fig b
+%EndExpansion
+%\end{document}

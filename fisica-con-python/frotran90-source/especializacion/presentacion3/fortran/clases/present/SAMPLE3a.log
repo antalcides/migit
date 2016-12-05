@@ -1,0 +1,653 @@
+This is TeX, Version 3.141592 (MiKTeX 2.3) (preloaded format=latex 2000.11.28)  9 AUG 2003 10:09
+**SAMPLE3a.TEX
+(SAMPLE3a.TEX
+LaTeX2e <2001/06/01>
+Babel <v3.7h> and hyphenation patterns for spanish, loaded.
+(C:\texmf\tex\latex\seminar\seminar.cls
+Document Class: seminar 1997/10/13, 1.4
+Document Style: `seminar' v1.4 <1997/10/13> (tvz)
+\slidewidth=\dimen102
+\slideheight=\dimen103
+\footheight=\dimen104
+(C:\texmf\tex\latex\base\article.cls
+Document Class: article 2001/04/21 v1.4e Standard LaTeX document class
+(C:\texmf\tex\latex\base\size10.clo
+File: size10.clo 2001/04/21 v1.4e Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen105
+) (C:\texmf\tex\latex\seminar\sem-page.sty)
+\before@document=\toks14
+\after@document=\toks15
+\before@enddocument=\toks16
+\c@slide=\count87
+\slide@count=\count88
+\@slidebox=\box26
+\not@slidebox=\box27
+\slide@hook=\toks17
+\after@slide=\toks18
+\slide@footins=\insert233
+\slide@listdepth=\count89
+\saved@specials=\box28
+\before@newslide=\toks19
+\after@slidepage=\toks20
+\slidesep=\skip43
+\c@note=\count90
+\slideframewidth=\dimen106
+\slideframesep=\dimen107
+\semin=\dimen108
+\semcm=\dimen109
+) (C:\texmf\tex\latex\seminar\semhelv.sty
+Style Option: `semhelv' for the `seminar' doc style 1.4 <2000/05/08> (tvz)
+Modified by Stefan (see source for details)
+LaTeX Font Info:    Font shape `OT1/helvetica/m/n' will be
+(Font)              scaled to size 8.20007pt on input line 176.
+) (C:\texmf\tex\latex\pstricks\pst-all.sty
+Package: pst-all 1997/03/25 all pstricks tools
+
+(C:\texmf\tex\latex\graphics\pstcol.sty
+Package: pstcol 2001/06/20 v1.1 PSTricks color colompatibility (DPC)
+
+(C:\texmf\tex\latex\pstricks\pstricks.sty
+Package: pstricks 1997/03/25 package wrapper for PSTricks pstricks.tex
+
+(C:\texmf\tex\generic\pstricks\pstricks.tex
+`PSTricks' v97 patch 14  <1999/12/23> (tvz)
+\pst@dima=\dimen110
+\pst@dimb=\dimen111
+\pst@dimc=\dimen112
+\pst@dimd=\dimen113
+\pst@dimg=\dimen114
+\pst@dimh=\dimen115
+\pst@hbox=\box29
+\pst@boxg=\box30
+\pst@cnta=\count91
+\pst@cntb=\count92
+\pst@cntc=\count93
+\pst@cntd=\count94
+\pst@cntg=\count95
+\pst@cnth=\count96
+\pst@toks=\toks21
+(C:\texmf\tex\generic\pstricks\pstricks.con)
+\psunit=\dimen116
+\psxunit=\dimen117
+\psyunit=\dimen118
+\pslinewidth=\dimen119
+\pst@customdefs=\toks22
+\pslinearc=\dimen120
+\everypsbox=\toks23
+\psframesep=\dimen121
+\pslabelsep=\dimen122
+\theoverlaybox=\box31
+))
+(C:\texmf\tex\latex\graphics\color.sty
+Package: color 1999/02/16 v1.0i Standard LaTeX Color (DPC)
+ (C:\texmf\tex\latex\00miktex\color.cfg
+File: color.cfg 2003/03/08 v1.0 MiKTeX 'color' configuration
+)
+Package color Info: Driver file: dvips.def on input line 125.
+
+(C:\texmf\tex\latex\graphics\dvips.def
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+)
+(C:\texmf\tex\latex\graphics\dvipsnam.def
+File: dvipsnam.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+)))
+(C:\texmf\tex\latex\pstricks\pst-grad.sty
+Package: pst-grad 1997/03/25 package wrapper for PSTricks pst-grad.tex
+
+(C:\texmf\tex\generic\pstricks\pst-grad.tex  v97 patch 1, 1997/04/28
+Package color Info: Redefining color gradbegin on input line 45.
+Package color Info: Redefining color gradend on input line 49.
+))
+(C:\texmf\tex\latex\pstricks\pst-plot.sty
+Package: pst-plot 1997/03/25 package wrapper for PSTricks pst-plot.tex
+
+(C:\texmf\tex\generic\pstricks\pst-plot.tex  v97 patch 2, 1999/12/12
+(C:\texmf\tex\generic\pstricks\multido.tex  v1.4, 93/01/14 <tvz>
+\multido@count=\count97
+\multidocount=\count98
+\multido@stuff=\toks24
+)))
+(C:\texmf\tex\latex\pstricks\pst-coil.sty
+Package: pst-coil 1997/03/25 package wrapper for PSTricks pst-coil.tex
+
+(C:\texmf\tex\generic\pstricks\pst-coil.tex  v97 patch 2, 1998/03/19))
+(C:\texmf\tex\latex\pstricks\pst-text.sty
+Package: pst-text 1997/03/25 package wrapper for PSTricks pst-text.tex
+
+(C:\texmf\tex\generic\pstricks\pst-text.tex  v97, 1997/03/25))
+(C:\texmf\tex\latex\pstricks\pst-char.sty
+Package: pst-char 1997/03/25 package wrapper for PSTricks pst-char.tex
+
+(C:\texmf\tex\generic\pstricks\pst-char.tex  v97 patch 3, 1999/03/11))
+(C:\texmf\tex\latex\pstricks\pst-node.sty
+Package: pst-node 1997/03/25 package wrapper for PSTricks pst-node.tex
+
+(C:\texmf\tex\generic\pstricks\pst-node.tex  v97 patch 11, 2000/11/09
+\psrow=\count99
+\pscol=\count100
+\psmatrixcnt=\count101
+\psrowsep=\skip44
+\pscolsep=\skip45
+))
+(C:\texmf\tex\latex\pstricks\pst-3d.sty
+Package: pst-3d 1997/03/25 package wrapper for PSTricks pst-3d.tex
+
+(C:\texmf\tex\generic\pstricks\pst-3d.tex  v97, 1997/03/25))
+(C:\texmf\tex\latex\pstricks\pst-eps.sty
+Package: pst-eps 1997/03/25 package wrapper for PSTricks pst-eps.tex
+
+(C:\texmf\tex\generic\pstricks\pst-eps.tex  v97 patch 1, 1997/05/05
+\pst@epsout=\write3
+\pst@tempout=\write4
+))
+(C:\texmf\tex\latex\pstricks\pst-fill.sty
+Package: pst-fill 1997/04/08 package wrapper for PSTricks pst-fill package
+
+(C:\texmf\tex\generic\pstricks\pst-fill.tex  v97 patch 2, 1997/12/12
+\pst@fillbox=\box32
+))
+(C:\texmf\tex\latex\pstricks\pst-tree.sty
+Package: pst-tree 1997/03/25 package wrapper for PSTricks pst-tree.tex
+
+(C:\texmf\tex\generic\pstricks\pst-tree.tex  v97 patch 5, 1999/10/28
+\pstree@rootbox=\box33
+\pstree@box=\box34
+\psnodecnt=\count102
+\pstreelevel=\count103
+\pstreecnt=\count104
+\pstree@cnt=\count105
+\pstree@stop=\count106
+))
+(C:\texmf\tex\latex\pstricks\multido.sty
+Package: multido 1997/03/25 package wrapper for PSTricks multido.tex
+
+(C:\texmf\tex\generic\pstricks\multido.tex  v1.4, 93/01/14 <tvz>)))
+(C:\texmf\tex\latex\pstricks\pst-blur.sty
+Package: pst-blur 98/09/15: package wrapper for PSTricks pst-blur.tex
+
+(C:\texmf\tex\generic\pstricks\pst-blur.tex  v1.0, 98/09/15))
+(C:\texmf\tex\generic\dvips\rotate.sty
+\@rotdimen=\dimen123
+\@rotbox=\box35
+)
+(C:\texmf\tex\latex\seminar\semcolor.sty
+Style Option: `semcolor' for doc style `seminar' 1.0 <93/04/01> (tvz)
+(C:\texmf\tex\generic\pstricks\pstricks.tex))
+(C:\texmf\tex\latex\seminar\semlayer.sty
+\@@slidebox=\box36
+\c@overlay=\count107
+)
+(C:\texmf\tex\latex\seminar\seminar.bug)
+(C:\texmf\tex\latex\seminar\seminar.bg2
+seminar.bg2: various corrections for the Seminar document class added since sem
+inar.bug (waiting Seminar 98)
+(Version 1.6 of <November 20, 1997> (D.G.))
+) (C:\texmf\tex\generic\Babel\babel.sty
+Package: babel 2001/03/01 v3.7h The Babel package
+ (C:\texmf\tex\generic\Babel\spanish.ldf
+Language: spanish.ldf 2001/01/30 v4.1c Spanish support from the babel system
+(C:\texmf\tex\generic\Babel\babel.def
+File: babel.def 2001/03/01 v3.7h Babel common definitions
+\babel@savecnt=\count108
+\U@D=\dimen124
+)
+\es@quottoks=\toks25
+\es@quotdepth=\count109
+Package babel Info: Making . an active character on input line 464.
+Package babel Info: Making " an active character on input line 495.
+Package babel Info: Making < an active character on input line 581.
+Package babel Info: Making > an active character on input line 582.
+Package babel Info: Making ' an active character on input line 630.
+)) (C:\texmf\tex\latex\amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+(C:\texmf\tex\latex\amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks26
+\ex@=\dimen125
+)
+\pmbraise@=\dimen126
+)
+(C:\texmf\tex\latex\amsfonts\amssymb.sty
+Package: amssymb 2002/01/22 v2.2d
+
+(C:\texmf\tex\latex\amsfonts\amsfonts.sty
+Package: amsfonts 2001/10/25 v2.2f
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 132.
+))
+(C:\texmf\tex\latex\psnfss\pifont.sty
+Package: pifont 2002/09/08 PSNFSS-v9.0a Pi font support (SPQR) 
+LaTeX Font Info:    Try loading font information for U+pzd on input line 62.
+ (C:\texmf\tex\latex\psnfss\upzd.fd
+File: upzd.fd 2001/06/04 font definitions for U/pzd.
+)
+LaTeX Font Info:    Try loading font information for U+psy on input line 63.
+
+(C:\texmf\tex\latex\psnfss\upsy.fd
+File: upsy.fd 2001/06/04 font definitions for U/psy.
+)) (C:\texmf\tex\latex\base\inputenc.sty
+Package: inputenc 2001/07/10 v0.99a Input encoding file 
+
+(C:\texmf\tex\latex\base\ansinew.def
+File: ansinew.def 2001/07/10 v0.99a Input encoding file 
+))
+(C:\texmf\tex\latex\marvosym\marvosym.sty
+Package: marvosym 2000/05/01 v2.0 Martin Vogel's Symbols font definitions
+)
+(C:\texmf\tex\latex\graphics\graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\texmf\tex\latex\graphics\keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks27
+)
+(C:\texmf\tex\latex\graphics\graphics.sty
+Package: graphics 2001/07/07 v1.0n Standard LaTeX Graphics (DPC,SPQR)
+ (C:\texmf\tex\latex\graphics\trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+) (C:\texmf\tex\latex\00miktex\graphics.cfg
+File: graphics.cfg 2003/03/12 v1.1 MiKTeX 'graphics' configuration
+)
+Package graphics Info: Driver file: dvips.def on input line 80.
+)
+\Gin@req@height=\dimen127
+\Gin@req@width=\dimen128
+)
+\c@theorem=\count110
+\c@corollary=\count111
+\c@definition=\count112
+\c@example=\count113
+\c@lemma=\count114
+\c@proposition=\count115
+\c@remark=\count116
+\c@solution=\count117
+\myLoewe=\box37
+File: logofoto.eps Graphic file (type eps)
+ <logofoto.eps> (SAMPLE3a.aux
+(agrafico.aux
+
+LaTeX Warning: Label `figura3' multiply defined.
+
+))
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Font shape `OT1/helvetica/m/n' will be
+(Font)              scaled to size 17.00694pt on input line 154.
+LaTeX Font Info:    Font shape `OT1/helvetica/bx/n' in size <20.74> not availab
+le
+(Font)              Font shape `OT1/helvetica/b/n' tried instead on input line 
+154.
+LaTeX Font Info:    Font shape `OT1/helvetica/b/n' will be
+(Font)              scaled to size 17.00694pt on input line 154.
+LaTeX Font Info:    Try loading font information for U+msa on input line 154.
+ (C:\texmf\tex\latex\amsfonts\umsa.fd
+File: umsa.fd 2002/01/19 v2.2g AMS font definitions
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 154.
+ (C:\texmf\tex\latex\amsfonts\umsb.fd
+File: umsb.fd 2002/01/19 v2.2g AMS font definitions
+)
+LaTeX Font Info:    Font shape `OT1/helvetica/m/n' will be
+(Font)              scaled to size 14.16972pt on input line 156.
+LaTeX Font Info:    Font shape `OT1/helvetica/bx/n' in size <17.28> not availab
+le
+(Font)              Font shape `OT1/helvetica/b/n' tried instead on input line 
+156.
+LaTeX Font Info:    Font shape `OT1/helvetica/b/n' will be
+(Font)              scaled to size 14.16972pt on input line 156.
+LaTeX Font Info:    Font shape `OT1/helvetica/m/n' will be
+(Font)              scaled to size 7.38007pt on input line 162.
+LaTeX Font Info:    Try loading font information for OMS+helvetica on input lin
+e 162.
+LaTeX Font Info:    No file OMShelvetica.fd. on input line 162.
+
+
+LaTeX Font Warning: Font shape `OMS/helvetica/m/n' undefined
+(Font)              using `OMS/cmsy/m/n' instead on input line 162.
+
+LaTeX Font Info:    Font shape `OT1/helvetica/m/n' will be
+(Font)              scaled to size 9.84009pt on input line 186.
+LaTeX Font Info:    Font shape `OT1/helvetica/bx/n' in size <12> not available
+(Font)              Font shape `OT1/helvetica/b/n' tried instead on input line 
+186.
+LaTeX Font Info:    Font shape `OT1/helvetica/b/n' will be
+(Font)              scaled to size 9.84009pt on input line 186.
+LaTeX Font Info:    Font shape `OT1/helvetica/bx/n' in size <10> not available
+(Font)              Font shape `OT1/helvetica/b/n' tried instead on input line 
+186.
+LaTeX Font Info:    Font shape `OT1/helvetica/b/n' will be
+(Font)              scaled to size 8.20007pt on input line 186.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \hbox (1.73842pt too wide) has occurred while \output is active
+$[]$ 
+ []
+
+[0
+
+] (agrafico.tex
+LaTeX Font Info:    Font shape `OT1/helvetica/m/n' will be
+(Font)              scaled to size 11.80809pt on input line 38.
+LaTeX Font Info:    Font shape `OT1/helvetica/bx/n' in size <14.4> not availabl
+e
+(Font)              Font shape `OT1/helvetica/b/n' tried instead on input line 
+38.
+LaTeX Font Info:    Font shape `OT1/helvetica/b/n' will be
+(Font)              scaled to size 11.80809pt on input line 38.
+LaTeX Font Info:    Font shape `OT1/helvetica/m/it' will be
+(Font)              scaled to size 8.20007pt on input line 54.
+File: table.eps Graphic file (type eps)
+ <table.eps>
+LaTeX Font Info:    Font shape `OT1/helvetica/m/n' will be
+(Font)              scaled to size 5.74005pt on input line 69.
+LaTeX Font Info:    Font shape `OT1/helvetica/bx/n' in size <7> not available
+(Font)              Font shape `OT1/helvetica/b/n' tried instead on input line 
+69.
+LaTeX Font Info:    Font shape `OT1/helvetica/b/n' will be
+(Font)              scaled to size 5.74005pt on input line 69.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (14.96884pt too high) has occurred while \output is active []
+
+
+Overfull \hbox (1.21689pt too wide) has occurred while \output is active
+$[]$ 
+ []
+
+[1
+
+]
+File: table2.eps Graphic file (type eps)
+ <table2.eps>
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (14.96884pt too high) has occurred while \output is active []
+
+
+Overfull \hbox (1.21689pt too wide) has occurred while \output is active
+$[]$ 
+ []
+
+[2]
+File: datos1.eps Graphic file (type eps)
+ <datos1.eps>
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (14.96884pt too high) has occurred while \output is active []
+
+
+Overfull \hbox (1.21689pt too wide) has occurred while \output is active
+$[]$ 
+ []
+
+[3]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (14.96884pt too high) has occurred while \output is active []
+
+
+Overfull \hbox (1.21689pt too wide) has occurred while \output is active
+$[]$ 
+ []
+
+[4]
+File: ajuste1.eps Graphic file (type eps)
+ <ajuste1.eps>
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (14.96884pt too high) has occurred while \output is active []
+
+
+Overfull \hbox (1.21689pt too wide) has occurred while \output is active
+$[]$ 
+ []
+
+[5]
+File: ajuste2.eps Graphic file (type eps)
+ <ajuste2.eps>
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (14.96884pt too high) has occurred while \output is active []
+
+
+Overfull \hbox (1.21689pt too wide) has occurred while \output is active
+$[]$ 
+ []
+
+[6]
+
+LaTeX Warning: Slide 7 overfull by 21.58984pt on input line 177.
+
+
+Overfull \vbox (18.1117pt too high) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (14.96884pt too high) has occurred while \output is active []
+
+
+Overfull \hbox (1.21689pt too wide) has occurred while \output is active
+$[]$ 
+ []
+
+[7]
+File: ydes.eps Graphic file (type eps)
+ <ydes.eps>
+File: gdes.eps Graphic file (type eps)
+ <gdes.eps>
+
+LaTeX Warning: Slide 8 overfull by 35.33418pt on input line 215.
+
+
+Overfull \vbox (27.30511pt too high) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (14.96884pt too high) has occurred while \output is active []
+
+
+Overfull \hbox (1.21689pt too wide) has occurred while \output is active
+$[]$ 
+ []
+
+[8]
+File: destg.eps Graphic file (type eps)
+ <destg.eps>
+File: gdes1.eps Graphic file (type eps)
+ <gdes1.eps>
+
+LaTeX Warning: Slide 9 overfull by 27.83224pt on input line 250.
+
+
+Overfull \vbox (24.3541pt too high) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (14.96884pt too high) has occurred while \output is active []
+
+
+Overfull \hbox (1.21689pt too wide) has occurred while \output is active
+$[]$ 
+ []
+
+[9]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (14.96884pt too high) has occurred while \output is active []
+
+
+Overfull \hbox (1.21689pt too wide) has occurred while \output is active
+$[]$ 
+ []
+
+[10]
+File: datas.eps Graphic file (type eps)
+ <datas.eps>
+File: editable.eps Graphic file (type eps)
+ <editable.eps>
+
+LaTeX Warning: Slide 11 overfull by 20.0742pt on input line 291.
+
+
+Overfull \vbox (18.21599pt too high) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (14.96884pt too high) has occurred while \output is active []
+
+
+Overfull \hbox (1.21689pt too wide) has occurred while \output is active
+$[]$ 
+ []
+
+[11]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (14.96884pt too high) has occurred while \output is active []
+
+
+Overfull \hbox (1.21689pt too wide) has occurred while \output is active
+$[]$ 
+ []
+
+[12]
+File: graph.eps Graphic file (type eps)
+ <graph.eps>
+
+LaTeX Warning: Slide 13 overfull by 26.27295pt on input line 317.
+
+
+Overfull \vbox (23.62863pt too high) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (14.96884pt too high) has occurred while \output is active []
+
+
+Overfull \hbox (1.21689pt too wide) has occurred while \output is active
+$[]$ 
+ []
+
+[13]
+File: HJC61301.eps Graphic file (type eps)
+ <HJC61301.eps>
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (14.96884pt too high) has occurred while \output is active []
+
+
+Overfull \hbox (1.21689pt too wide) has occurred while \output is active
+$[]$ 
+ []
+
+[14])
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (14.96884pt too high) has occurred while \output is active []
+
+
+Overfull \hbox (1.21689pt too wide) has occurred while \output is active
+$[]$ 
+ []
+
+[15]
+
+*******************************************************
+***** !! PRINT THIS DOCUMENT IN LANDSCAPE MODE !! *****
+*******************************************************
+(SAMPLE3a.aux (agrafico.aux))
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 4684 strings out of 96079
+ 52630 string characters out of 1197532
+ 124951 words of memory out of 1127739
+ 7245 multiletter control sequences out of 35000
+ 14411 words of font info for 39 fonts, out of 500000 for 1000
+ 2 hyphenation exceptions out of 607
+ 33i,12n,25p,232b,965s stack positions out of 1500i,500n,5000p,200000b,32768s
+
+Output written on SAMPLE3a.dvi (16 pages, 24596 bytes).

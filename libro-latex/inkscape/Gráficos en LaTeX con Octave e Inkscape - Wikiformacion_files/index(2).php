@@ -1,0 +1,1 @@
+/* cambie este archivo para personalizar la piel monobook para el sitio entero */

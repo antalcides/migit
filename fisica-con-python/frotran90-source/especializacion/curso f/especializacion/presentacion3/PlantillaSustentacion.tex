@@ -1,0 +1,594 @@
+\documentclass[letter]{article}
+\usepackage[pdftex]{graphicx}
+\usepackage[ansinew]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsbsy}
+\usepackage{amssymb}
+\usepackage[spanish]{babel}
+\usepackage{float}
+\usepackage{fixseminar}
+%\usepackage[display]{texpower}
+%\usepackage[ams]{pdfslide3}
+\usepackage[ams]{pdfslide3}
+\newtheorem{theorem}{Teorema}
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{corollary}[theorem]{Corolario}
+\newtheorem{definition}[theorem]{Definici\'{o}n}
+\newenvironment{proof}[1][Prueba]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+%\newcommand{\@url}{}
+
+\newcommand{\thankyouslide}[1][Thank You!]{\pagestyle{empty}
+\mbox{}\vfill{\hfill\LARGE\scshape #1\hfill\mbox{}}\vfill{\hfill \@gjimenez@uninorte.edu.co\hfill\mbox{}}\vfill}
+
+
+
+
+%\url{http://www.yourwebpage.com/slidepresentation}
+
+\pagestyle{title}
+
+\begin{document}
+%\convenio{Convenio}
+\orgname{\color{black}Universidad Nacional de Colombia}
+%\udea{Universidad del Norte}
+\orgurl{\protect\color{black}http://www.unalmed.edu.co}
+
+
+\title{\color{black}El Principio Variacional De Ekeland Y Aplicaciones}
+\author{\scalebox{1}[1.3]{\emph{\textbf{\color{black}Autor: GERMAN ~JIMENEZ ~BLANCO} } }}
+\director{\scalebox{1}[1.3]{\emph{\textbf{\color{black}Director:
+Ph. D.  JORGE COSSIO BETANCUR }} }}
+\address{\color{black}Trabajo presentado como requisito parcial\\para optar al título de Magister en Matemáticas\\
+%  {\realfootnotesize(para optar al título de )}\\
+                           email: {\tt gjimenez@uninorte.edu.co}}
+%\address{Universidad del Norte - Barranquilla, Colombia\\
+%  {\realfootnotesize(Departamento de Matemáticas y Física)}
+%              email: {\tt gjimenez@uninorte.edu.co}}
+
+\notes{\emph{Esta presentación fue desarrollada usando pdfslide class bajo Mik\TeX{}}.
+\newline
+{\tiny{Copyright\copyright 2001 Dario Castro Castro. All rights
+reserved. \today{}}}}
+
+
+\overlay{fondo1.png} \maketitle
+%%%%%%%%%%%%%%%%%%%%%ACETATO 1%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagedissolve{Wipe /D 3 /Dm /V /M /O}%%%%%%%%%%%%%%%Efecto de transición de página
+\overlay{fondo1.png} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fondo
+\sffamily %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Tipo de letra
+\Large %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Tamaño de la letra
+\color{black} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Color de las letras
+\headskip=20pt%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Longitud del borde superior al título
+\section{\textcolor[rgb]{0.40,0.20,0.40}{RESUMEN}}
+ En este trabajo se estudia el Principio Variacional de
+Ekeland y algunas aplicaciones a la teor\'{\i}a de puntos
+cr\'{\i}ticos y a ecuaciones diferenciales parciales. Se prueba a
+partir del Principio Variacional de Ekeland el Teorema del Paso de
+la Monta\~{n}a y el Teorema de Punto de Silla; tambi\'{e}n se
+demuestra la existencia de soluciones d\'{e}biles para
+problemas de Dirichlet semilineales. %
+
+%%%%%%%%%%%%%%%%%%%%%ACETATO 2%%%%%%%%%%%%%%%%%%%%%%%%
+\headskip=10pt \pagedissolve{Wipe /D 3 /Di /V /M /O}
+\overlay{fondo1.png} \large \color{black}
+\section{{Principio Variacional de Ekeland -forma fuerte}}
+\begin{theorem}
+\label{t1}Sean $\left( X,d\right) $ un espacio m\'{e}trico
+completo y \newline$\phi :X\rightarrow \mathbb{R}\cup \left\{
++\infty \right\} $ una funci\'{o}n semicontinua inferiormente, no
+id\'{e}nticamente igual\ a$\ +\infty ,\;$ y acotada
+inferiormente.\newline
+Sean $\varepsilon >0$ y $\overline{u}\in X$ tales que $\phi \left( \overline{%
+u}\right) \leq \inf\limits_{X}\phi +\frac{\varepsilon
+}{2}$.\newline Entonces para cada $\lambda >0$ \ existe
+$u_{\lambda }\in X$ tal que se
+cumplen las siguientes condiciones:%
+\begin{equation}
+\phi (u_{\lambda })\leq \phi (\overline{u})  \label{e1}
+\end{equation}%
+\begin{equation}
+d\left( u_{\lambda },\overline{u}\right) \leq \lambda  \label{e2}
+\end{equation}%
+\begin{equation}
+\phi (u_{\lambda })<\phi (u)+\frac{\varepsilon }{\lambda }d\left(
+u_{\lambda },u\right) \quad \forall u\neq u_{\lambda }  \label{e3}
+\end{equation}
+\end{theorem}
+
+%%%%%%%%%%%%%%%%%%%%%ACETATO 34%%%%%%%%%%%%%%%%%%%%%%%%
+\headskip=20pt
+\section{{Prueba Forma Fuerte}}
+\overlay{fondo1.png}\Large \color{black} \pagedissolve{Wipe /D 1
+/Di /H /M /O}
+\begin{proof}
+Para $\lambda >0,\;$sea $d_{\lambda }(x,y):=\dfrac{d\left(
+x,y\right) }{ \lambda }$\newline
+Definamos la siguiente relaci\'{o}n en $X\;$%
+\[
+\ u\leq v\Longleftrightarrow \phi \left( u\right) \leq \phi \left(
+v\right) -\varepsilon d_{\lambda }\left( u,v\right) .
+\]%
+Evidentemente esta relaci\'{o}n es reflexiva antisime\-trica y
+transitiva por lo tanto es un orden parcial.\newline Partiendo de
+nuestro orden parcial construimos una sucesi\'{o}n $\left(
+S_{n}\right) $ de conjuntos tal que
+
+\begin{equation*}
+S_{1}\supset S_{2}\supset S_{3}......
+\end{equation*}
+
+Demostramos que los $S_{n}$ son cerrados y que
+$diamS_{n}\rightarrow 0.$
+
+Por lo tanto existe un \'{u}nico elemento $u_{\lambda }\in X$ tal que%
+\begin{equation*}
+\bigcap\limits_{n=1}^{\infty }S_{n}=\left\{ u_{\lambda }\right\}
+\end{equation*}
+
+Se prueba que este elemento $u_{\lambda }$ satisface las condiciones $(\ref%
+{e1})$, $(\ref{e2})$, $(\ref{e3}).$
+\end{proof}
+%%%%%%%%%%%%%%%%%%%%%ACETATO 5%%%%%%%%%%%%%%%%%%%%%%%%
+\headskip=10pt
+\section{{Principio Variacional de Ekeland-forma débil}}
+\pagedissolve{Wipe /D 1 /Di /H /M /O} \overlay{fondo1.png}
+\Large\color{black}
+\begin{theorem}
+ \label{t2} Sean $\left( X,d\right) $ un espacio m\'{e}trico
+completo y $\phi :X\rightarrow \mathbb{R}\cup
+\left\{ +\infty \right\} $ una funci\'{o}n semicontinua inferiormente, no id%
+\'{e}nticamente igual$\ $a$\ +\infty ,$ y acotada inferiormente.
+Entonces dado $\varepsilon >0$ existe $u_{\varepsilon }\in X$ tal
+que se cumplen las
+siguientes condiciones:%
+\begin{eqnarray}
+\phi \left( u_{\varepsilon }\right)  &\leq &\inf_{X}\phi
++\varepsilon
+\label{e5} \\
+\phi \left( u_{\varepsilon }\right)  &\leq &\phi \left( u\right)
++\varepsilon d(u,u_{\varepsilon })\;\forall u\neq u_{\varepsilon
+}. \label{e6}
+\end{eqnarray}
+\end{theorem}
+%%%%%%%%%%%%%%%%%%%%%ACETATO 6%%%%%%%%%%%%%%%%%%%%%%%%
+\headskip=20pt
+\section{{Prueba Forma Débil}}
+\pagedissolve{Wipe /D 1 /Di /H /M /O} \overlay{fondo1.png}
+\Large\color{black}
+\begin{proof}
+Sea $\varepsilon >0.$ Usando la definici\'{o}n de \'{\i}nfimo existe $%
+\overline{u}\in X\ $ tal que%
+\[
+\phi (\overline{u})\leq \inf\limits_{X}\phi +\frac{\varepsilon
+}{2}.
+\]%
+Aplicando el teorema anterior con $\lambda =1$ tenemos que existe $%
+u_{\varepsilon }$ tal que se cumplen $(\ref{e5})$ y $(\ref{e6})$
+\end{proof}
+%%%%%%%%%%%%%%%%%%%%%ACETATO 6%%%%%%%%%%%%%%%%%%%%%%%%
+\headskip=20pt
+\section{{Aplicación a la Teoría de Puntos Fijos.}}
+\pagedissolve{Wipe /D 1 /Di /H /M /O} \overlay{fondo1.png}
+\Large\color{black}
+\begin{theorem}
+ \label{t8}Sean $X$ un espacio m\'{e}trico completo y
+$f:X\rightarrow X$ una funci\'{o}n tal que
+\begin{equation}
+d(u,f\left( u)\right) \leq \phi \left( u\right) -\phi \left(
+f\left( u\right) \right) \ \ \forall u\in X,  \label{e10}
+\end{equation}%
+donde $\phi :X\rightarrow \mathbb{R}$ es una funci\'{o}n
+semicontinua inferiormente y acotada inferiormente.\newline
+Entonces existe $v\in X$ tal que $f\left( v\right) =v$
+\end{theorem}
+%%%%%%%%%%%%%%%%%%%%%ACETATO 7%%%%%%%%%%%%%%%%%%%%%%%%
+\headskip=10pt
+\section{{Puntos Fijos.}}
+\pagedissolve{Wipe /D 1 /Di /H /M /O} \overlay{fondo1.png}
+\Large\color{black}
+\begin{proof}
+
+Aplicando el Teorema $\ref{t2}$ (forma d\'{e}bil) con $\varepsilon
+=\frac{1
+}{2}$, existe $v\in X$ tal que%
+\[
+\phi \left( v\right) -\phi \left( w\right) <\frac{1}{2}d\left(
+v,w\right) \quad \forall w\in X.
+\]%
+Tomando $w=f(v)$ en la desigualdad anterior y aplicando $\left( \ref{e10}%
+\right) $ tenemos%
+\[
+d(v,f(v))\leq \phi \left( v\right) -\phi \left( f(v)\right)
+<\frac{1}{2} d\left( v,f\left( v\right) \right) .
+\]%
+Por lo tanto $d\left( v,f\left( v\right) \right) =0.$ Luego$\ \
+f\left( v\right) =v$\
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headskip=20pt
+\section{{Puntos Fijos .}}
+\pagedissolve{Wipe /D 1 /Di /H /M /O} \overlay{fondo1.png}
+\Large\color{black}
+\begin{corollary}
+ (Punto fijo de Banach) Sean $\left( X,d\right) $ un espacio m%
+\'{e}trico completo y $T:X\rightarrow X$ una contracci\'{o}n.
+Entonces existe $x_{0}$ tal que $T\left( x_{0}\right) =x_{0}$.
+
+\begin{proof}
+Se demuestra que
+\begin{eqnarray*}
+d\left( x,T\left( x\right) \right)  &\leq &\phi \left( x\right)
+-\phi \left(
+T\left( x\right) \right)  \\
+donde\ \ \phi \left( x\right)  &=&\frac{1}{1-k}d\left( x,T\left(
+x\right) \right)
+\end{eqnarray*}
+El resultado se sigue aplicando el Teorema $\ref{t8}$
+\end{proof}
+\end{corollary}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headskip=10pt
+\section{{Aplicación a la Optimización.}}
+\pagedissolve{Wipe /D 1 /Di /H /M /O} \overlay{fondo1.png}
+\large\color{black}
+\begin{theorem}
+\label{o1}Sean $X$ un espacio de Banach y $\phi :X\rightarrow \mathbb{R}$ una funci%
+\'{o}n semicontinua inferiormente, acotada inferiormente y
+Gateaux-diferenciable $\forall x\in X$. Entonces para cada
+$\varepsilon \,>0$ y $\overline{u}$ $\in X$ tales que
+\begin{equation}
+\phi (\overline{u})\leq \inf_{X}\phi +\varepsilon  \label{d4}
+\end{equation}%
+existe $u_{\varepsilon }\in X$ tal que%
+\begin{equation}
+\ \quad \phi \left( u_{\varepsilon }\right) \leq \phi
+(\overline{u})\quad \label{d1}
+\end{equation}%
+\begin{equation}
+\left\Vert \overline{u}-u_{\varepsilon }\right\Vert \leq
+\sqrt{\varepsilon } \label{d2}
+\end{equation}%
+\begin{equation}
+\quad \left\Vert \phi ^{\prime }\left( u_{\varepsilon }\right)
+\right\Vert _{X^{\ast }}\leq \sqrt{\varepsilon }  \label{d3}
+\end{equation}
+\end{theorem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headskip=20pt
+\section{{Palais-Smale}}
+\pagedissolve{Wipe /D 1 /Di /H /M /O} \overlay{fondo1.png}
+\Large\color{black}
+\begin{definition} Sean $X$ un espacio de Banach y\newline $\phi :X\rightarrow \mathbb{R}$ una
+funci\'{o}n de clase $C^{1}$. Decimos que $\phi $ satisface la
+condici\'{o}n de Palais-Smale si toda sucesi\'{o}n $(u_{n})$ en
+$X$ que satisface
+\begin{eqnarray*}
+\left\vert \phi \left( u_{n}\right) \right\vert  &\leq &k\text{, para algun }%
+k\in \mathbb{R}\quad  \\
+\phi ^{^{\prime }}\left( u_{n}\right)  &\rightarrow &0\;\text{en
+}X^{\ast }
+\end{eqnarray*}
+tiene una subsucesi\'{o}n convergente en
+$X$.\newline\newline\newline
+\end{definition}
+\begin{theorem}
+\label{d19}Sean $X$ un espacio de Banach y\newline $\phi
+:X\rightarrow \mathbb{R}$ un funcional de clase $C^{1}$ que
+satisface la condici\'{o}n de Palais-Smale y tal que $\phi $
+est\'{a} acotado inferiormente. Entonces existe $u_{0}\in X$
+tal que%
+\[
+\begin{tabular}{ccc}
+$\inf\limits_{X}\phi =\phi \left( u_{0}\right) $ & \ y & $\phi
+^{^{\prime
+}}\left( u_{0}\right) =0.$%
+\end{tabular}%
+\]%
+Es decir, el \'{\i}nfimo de $\phi $ se asume en $u_{0}\in X\ \ $y
+$u_{0}$ es un punto cr\'{\i}tico de $\phi .$
+\end{theorem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\headskip=00pt
+\section{{Teoremas de Minimax.}}
+\pagedissolve{Wipe /D 1 /Di /H /M /O} \overlay{fondo1.png}
+\large\color{black}
+\begin{theorem}
+\label{t4}(Teorema de Minimax) Sean $K$ un espacio m\'{e}trico
+compacto, $K_{0}\;\subset K$ un subconjunto cerrado de $K$, $X$ un
+espacio de Banach, $\chi \in C\left( K_{0},X\right) $ y $M$
+definido por
+\begin{eqnarray*}
+M &=&\left\{ g\in C\left( K,X\right) \left/ g\left( s\right) =\chi
+\left(
+s\right) \;\;\forall s\in K_{0}\right. \right\} . \\
+Sea\ \ \phi  &\in &C^{1}\left( X,R\right) .\quad
+c=\inf\limits_{g\in M}\max\limits_{s\in K}\phi \left( g\left(
+s\right) \right) \ \ y\ \ c_{1}=\max\limits_{\chi \left(
+K_{0}\right) }\phi .
+\end{eqnarray*}%
+\newline
+Si $c>c_{1}$ entonces para cada $\varepsilon \;>0$ y cada $f\in M$
+\ tales que
+\[
+\max_{s\in K}\phi \left( f\left( s\right) \right) \leq
+c+\varepsilon ,
+\]%
+existe $v\in X$ tal que
+\begin{equation}
+c-\varepsilon \mathcal{\;}\leq \phi \left( v\right) \leq
+\max_{s\in K}\phi \left( f\left( s\right) \right)   \label{d7}
+\end{equation}%
+\begin{equation}
+dist\left( v,f\left( K\right) \right) \leq \sqrt{\varepsilon
+}\quad y\quad
+\left\Vert \phi ^{^{\prime }}\left( v\right) \right\Vert \leq \sqrt{%
+\varepsilon }  \label{d8}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Definamos la funci\'{o}n $\Psi :M\rightarrow \mathbb{R}$ de la siguiente manera%
+\[
+\Psi \left( g\right) =\max_{S\in K}\phi \left( g\left( s\right)
+\right)
+\]%
+Sea $f\in M$ tal que%
+\[
+\Psi \left( f\right) =\max_{S\in K}\phi \left( f\left( s\right)
+\right) \leq c+\varepsilon .
+\]%
+Aplicando el Principio Variacional de Ekeland-forma fuerte, existe
+$h\in M$ tal que
+\begin{equation}
+\Psi \left( h\right) \leq \Psi \left( f\right) \leq c+\varepsilon
+\label{d11}
+\end{equation}%
+\begin{equation}
+d(h,f)\leq \sqrt{\varepsilon }  \label{d12}
+\end{equation}%
+\begin{equation}
+\Psi \left( h\right) <\Psi \left( g\right) +\sqrt{\varepsilon
+}d\left( h,g\right) ,\;\;\;\forall g\in M,\;g\neq h.  \label{d13}
+\end{equation}%
+Posteriormente demostramos que existe $s\in K$ tal que
+\begin{equation}
+c-\varepsilon \leq \phi \left( h\left( s\right) \right)\quad y\ \
+\ \ \ \left\Vert \phi ^{^{\prime }}\left( h\left( s\right) \right)
+\right\Vert \leq \sqrt{\varepsilon }. \label{d14}
+\end{equation}%
+A partir de (\ref{d14}) se sigue la conclusión del teorema.
+\end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\headskip=20pt
+\section{{Teoremas de Minimax.}}
+\pagedissolve{Wipe /D 1 /Di /H /M /O} \overlay{fondo1.png}
+\large\color{black}
+\begin{corollary}
+
+ \label{t5}Sean $K$, $K_{0}$, $X$, $\chi $, $M$, $\phi $,
+$c$ y $c_{1}$ definidas como en el teorema anterior y supongamos
+que existe $S\;\subset \;X $ tal que
+\begin{gather*}
+g\left( K\right) \cap S\neq \emptyset \;\text{para todo }g\in M \\
+\text{y sea }c_{0}=\inf_{S}\phi .
+\end{gather*}%
+Si $c_{1}<c_{0}$ entonces $c>c_{1}$ y por lo tanto se tienen todas
+las conclusiones del teorema anterior.
+\end{corollary}
+\begin{corollary}
+
+\label{t7}Supongamos las mismas hip\'{o}tesis del Teorema $\ref{t4}$. Si $%
+\phi $ satisface la condici\'{o}n de Palais-Smale entonces $c$ es un valor cr%
+\'{\i}tico de $\phi .$
+\end{corollary}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\headskip=40pt
+\section{{Teoremas de Minimax.}}
+\pagedissolve{Wipe /D 1 /Di /H /M /O} \overlay{fondo1.png}
+\Large\color{black}
+Escogencias adecuadas de $K,K_{0}\ y\ \chi $ en el Teorema $\ref%
+{t4}\ $y corolario $\ref{t5}$ nos proporcionan los dos teoremas
+siguientes, que son muy importantes en la teor\'{\i}a de puntos
+cr\'{\i}ticos.
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\headskip=00pt
+\section{{Teorema del Paso de Montaña.}}
+\pagedissolve{Wipe /D 1 /Di /H /M /O} \overlay{fondo1.png}
+\large\color{black}
+\begin{theorem}
+\label{pm} Sean $X$ un espacio de Banach y $\phi \in $\
+$C^{1}\left( X,\mathbb{R}\right) $.\newline
+Supongamos que existen $u_{0}\in X$, $u_{1}\in X$\ y una vecindad acotada $%
+\Omega \ $de $u_{0}$ tal que $u_{1}\in \left( X-\overline{\Omega }\right) $ y%
+\begin{gather*}
+\inf_{\partial \Omega }\phi >\max \left( \phi \left( u_{0}\right)
+,\;\phi
+\left( u_{1}\right) \right) . \\
+Sean\ \ \Gamma =\left\{ g\in C\left( \left[ 0,1\right] ,X\right) \
+\left/ \
+g\left( 0\right) =u_{0},g\left( 1\right) =u_{1}\right. \right\} \ y\  \\
+c=\inf_{g\in \Gamma }\max_{s\in \left[ 0,1\right] }\phi \left(
+g\left( s\right) \right) .
+\end{gather*}%
+Si $\phi $ satisface la condici\'{o}n de Palais-Smale entonces $c$
+es un
+valor cr\'{\i}tico de $\phi $ y%
+\[
+c>\max \left( \phi \left( u_{0}\right) ,\phi \left( u_{1}\right)
+\right)
+\]%
+Es decir, existe $u\in X$ tal que $\phi \left( u\right) =c$ y
+$\phi ^{^{\prime }}\left( u\right) =0.$
+\end{theorem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\headskip=20pt
+\section{{Teorema del Punto de Silla.}}
+\pagedissolve{Wipe /D 1 /Di /H /M /O} \overlay{fondo1.png}
+\large\color{black}
+\begin{theorem}
+\label{pds} Sean $X$ un espacio de Banach y $\phi
+:X\rightarrow \mathbb{R}$ $\ $un funcional de clase $C^{1}$ que satisface la condici%
+\'{o}n de Palais-Smale. Supongamos que $X=V\oplus W$, donde $V$ y
+$W$ son
+subespacios cerrados, con dim$V$ $<\infty $. Sean%
+\begin{eqnarray*}
+S_{R} &=&\left\{ u\in V\,\,\left/ \ \ \left\Vert u\right\Vert
+=R\right. \ \ \right\} \text{,}\quad \overline{B_{R}}=\left\{ u\in
+V\,\,\left/ \
+\left\Vert u\right\Vert \leq R\right. \right\} , \\
+M &=&\left\{ g\in C(\overline{B_{R}},X)\quad \left/ \ \ g(s)=s\text{ si }%
+s\in S_{R}\right. \right\} \quad y\quad  \\
+c &=&\inf_{f\in M}\max_{s\in \overline{B_{R}}}\phi \left( f\left(
+s\right) \right)
+\end{eqnarray*}%
+Si $\inf\limits_{W}\phi >\max\limits_{S_{R}}\phi \ \ $entonces $c$
+es un valor cr\'{\i}tico de $\phi .$
+\end{theorem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\headskip=20pt
+\section{{Aplicaciones a las Ecuaciones Diferenciales Parciales.}}
+\pagedissolve{Wipe /D 1 /Di /H /M /O} \overlay{fondo1.png}
+\large\color{black}
+\begin{equation}
+\left\{
+\begin{tabular}{lll}
+$-\Delta u$ & $=f(x,u)\;$ & en \ $\ \Omega $ \\
+$\;\;\;u$ & $=0\;\;\;\;\;\;$ & en$\text{ \ }\partial \Omega .$%
+\end{tabular}%
+\right.   \label{a1}
+\end{equation}%
+ Por una
+\textbf{soluci\'{o}n cl\'{a}sica} de (\ref{a1}) entendemos una
+funci\'{o}n\newline $u\in C^{2}\left( \Omega \right) \cap C\left( \overline{\Omega }%
+\right) $ que satisface (\ref{a1}).\newline Una
+\textbf{soluci\'{o}n d\'{e}bil} de (\ref{a1}) es una funci\'{o}n
+$u\in H_{0}^{1}(\Omega )$ que satisface
+\begin{equation}
+\int_{\Omega }\nabla u.\nabla v=\int_{\Omega }f\left( x,u\right)
+v\;\;\;\forall v\in H_{0}^{1}.  \label{a3}
+\end{equation}%
+Sea $\phi :H_{0}^{1}\rightarrow R$ el funcional definido por%
+\begin{equation}
+\phi \left( u\right) =\frac{1}{2}\int_{\Omega }\left\vert \nabla
+u\right\vert ^{2}-\int_{\Omega }F\left( x,u\right) .  \label{aa1}
+\end{equation}%
+Supongamos que existe una constante $c>0$ tal que%
+\begin{equation}
+\left\vert f\left( x,s\right) \right\vert \leq c\left\vert
+s\right\vert ^{p-1}+b\left( x\right) ,\ b\left( x\right) \in
+L^{p^{\prime }},\ 1\leq p\leq \frac{2N}{N-2} \label{ac1}
+\end{equation}%
+Entonces  $\phi $ es continuamente Fr\'{e}chet
+Diferenciable y%
+\begin{equation}
+\left\langle \phi ^{^{\prime }}\left( u\right) ,v\right\rangle
+=\int_{\Omega }\nabla u.\nabla v-\int_{\Omega }f\left( x,u\right)
+v\;\;\;\forall v\in H_{0}^{1}.  \label{aa2}
+\end{equation}%
+De (\ref{a3}) y (\ref{aa2}) se sigue que $u\ $es una soluci\'{o}n
+d\'{e}bil
+del problema (\ref{a1}) si y s\'{o}lo si $u$ es un punto cr\'{\i}tico de $%
+\phi .$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headskip=20pt
+\section{{Aplicación Utilizando El Principio Variacional de Ekeland}}
+\pagedissolve{Wipe /D 1 /Di /H /M /O} \overlay{fondo1.png}
+\Large\color{black}
+\begin{theorem}
+\label{45}Sea $f:\mathbb{R}\rightarrow \mathbb{R}\ \ $una funci\'{o}n continua tal que\newline $%
+\lim\limits_{s\rightarrow -\infty }\frac{f(s)}{s}=a\,\,$ y \ $%
+\lim\limits_{s\rightarrow \infty }\frac{f(s)}{s}=b, \newline $con
+$a$ y $b\in (0,\lambda _{1}).$ Entonces el problema
+\begin{equation}
+\left\{
+\begin{tabular}{rrr}
+$\Delta u+f(u)$ & $=0$ & en$\;\ $ $\Omega \ $ \\
+$u$ & $=0$ & en$\text{ \ \ }\partial \Omega $%}
+\end{tabular}%
+\right.   \label{a110}
+\end{equation}%
+tiene una soluci\'{o}n d\'{e}bil.
+\end{theorem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\headskip=20pt
+\section{{Aplicaci\'{o}n utilizando el Teorema de Punto de
+silla.}} \pagedissolve{Wipe /D 1 /Di /H /M /O}
+\overlay{fondo1.png} \large\color{black}
+\begin{theorem}{(Dolph).}
+Supongamos que $h\in C(\overline{\Omega })$ y $f:\mathbb{R}\rightarrow \mathbb{R}$ es una funci%
+\'{o}n continua tal que existen constantes $\alpha \ $y $\beta $ $\in R\ \ $%
+con\newline$\ \ \lambda _{k}<\alpha ,\beta <\lambda _{k+1}$,
+\begin{equation}
+\lim_{s\rightarrow -\infty }\frac{f(s)}{s}=\alpha \text{ \ \ y \ \ \ \ }%
+\lim_{s\rightarrow \infty }\frac{f(s)}{s}=\beta .  \label{a16}
+\end{equation}%
+Entonces el problema
+\begin{equation}
+\left\{
+\begin{tabular}{lll}
+$-\Delta u$ & $=f(u)+h(x)$ & en$\ \ \ \Omega $ \\
+$\ \ \ \ \ u$ & $=0\;\;\;\;\;\;\;\;\;\;$ & en$\text{ \ }\partial \Omega $%
+\end{tabular}%
+\right.   \label{a17}
+\end{equation}%
+tiene una soluci\'{o}n d\'{e}bil.
+\end{theorem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\headskip=00pt
+\section{{Aplicación Utilizando El Teorema del Paso de la Montaña}}
+\pagedissolve{Wipe /D 1 /Di /H /M /O} \overlay{fondo1.png}
+\large\color{black}
+\begin{theorem}{(A. Ambrosetti y P. Rabinowitz).}
+ Supongamos que $f$ sa\-tisface las siguientes condiciones
+\begin{equation*}
+\left\vert f\left( x,s\right) \right\vert \leq c\left\vert
+s\right\vert ^{p-1}+b\left( x\right) ,\ donde\ c>0,\; b\left(
+x\right) \in L^{p^{\prime }},\ 1\leq p<\frac{2N}{N-2}
+\end{equation*}%
+y$\ $supongamos que existen%
+\begin{equation*}
+\theta >2\ y\ s_{0}>0\ \ tales\ que\ \ 0<\theta F(x,s)\leq
+sf(x,s)\quad \forall x\in \overline{\Omega }\quad \forall
+\left\vert s\right\vert \geq s_{0}
+\end{equation*}%
+Adicionalmente supongamos que%
+\begin{equation}
+\lim_{s\rightarrow 0}\frac{f(x,s)}{s}<\lambda _{1}  \label{a20}
+\end{equation}%
+Entonces el problema
+\begin{equation}
+\left\{
+\begin{tabular}{lll}
+$-\Delta u$ & $=f(x,u)$ & en$\ \ \ \Omega $ \\
+$\ \ \ \ \ u$ & $=0\;\;\;\;\;\;\;\;\;\;$ & en$\text{ \ }\partial \Omega $%
+\end{tabular}%
+\right.   \label{a21}
+\end{equation}%
+tiene una soluci\'{o}n d\'{e}bil no trivial.
+\end{theorem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\thankyouslide[!`Gracias!]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

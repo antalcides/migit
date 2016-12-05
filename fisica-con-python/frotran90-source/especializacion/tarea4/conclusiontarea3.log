@@ -1,0 +1,165 @@
+This is TeX, Version 3.14159 (preloaded format=latex 97.9.16)  14 NOV 2003 16:46
+**&latex_ml C:/SWP30/Docs/irina/tarea4/conclusiontarea3.tex
+(C:/SWP30/Docs/irina/tarea4/conclusiontarea3.tex
+LaTeX2e <1997/06/01>
+Babel <v3.6h> and hyphenation patterns for american, english, french, dutch, ge
+rman, loaded.
+(C:\SWP30\TCITeX\tex\LaTeX\base\article.cls
+Document Class: article 1997/06/16 v1.3v Standard LaTeX document class
+(C:\SWP30\TCITeX\tex\LaTeX\base\size10.clo
+File: size10.clo 1997/06/16 v1.3v Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(C:\SWP30\TCITeX\tex\LaTeX\packages\graphics\graphicx.sty
+Package: graphicx 1997/06/09 v1.0d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\SWP30\TCITeX\tex\LaTeX\packages\graphics\keyval.sty
+Package: keyval 1995/09/21 v1.09 key=value parser (DPC)
+)
+(C:\SWP30\TCITeX\tex\LaTeX\packages\graphics\graphics.sty
+Package: graphics 1997/06/07 v1.0d Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\SWP30\TCITeX\tex\LaTeX\packages\graphics\trig.sty
+Package: trig 1994/10/16 v1.08 sin cos tan (DPC)
+)
+(C:\SWP30\TCITeX\tex\LaTeX\packages\graphics\graphics.cfg)
+Package graphics Info: Driver file: tcidvi.def on input line 84.
+
+(C:\SWP30\TCITeX\tex\LaTeX\packages\graphics\tcidvi.def
+File: tcidvi.def 1996/12/12 v3.0d Driver-dependant file (DPC,SPQR)
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+(C:\SWP30\TCITeX\tex\LaTeX\packages\amslatex\inputs\amsmath.sty
+Package: amsmath 1997/03/20 v1.2d AMS math features
+\@mathmargin=\skip43
+
+(C:\SWP30\TCITeX\tex\LaTeX\packages\amslatex\inputs\amstext.sty
+Package: amstext 1996/10/28 v1.2b
+
+(C:\SWP30\TCITeX\tex\LaTeX\packages\amslatex\inputs\amsgen.sty
+File: amsgen 1996/10/29 v1.2b
+\@emptytoks=\toks14
+\ex@=\dimen105
+))
+(C:\SWP30\TCITeX\tex\LaTeX\packages\amslatex\inputs\amsbsy.sty
+Package: amsbsy 1996/10/28 v1.2b
+\pmbraise@=\dimen106
+)
+(C:\SWP30\TCITeX\tex\LaTeX\packages\amslatex\inputs\amsopn.sty
+Package: amsopn 1996/10/28 v1.2b operator names
+)
+LaTeX Info: Redefining \frac on input line 188.
+\uproot@=\count87
+\leftroot@=\count88
+\classnum@=\count89
+\DOTSCASE@=\count90
+LaTeX Info: Redefining \dots on input line 335.
+LaTeX Info: Redefining \ldots on input line 418.
+LaTeX Info: Redefining \cdots on input line 422.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen107
+LaTeX Font Info:    Redeclaring font encoding OML on input line 500.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 501.
+\skewcharcount@=\count91
+\familycount@=\count92
+\pointcount@=\count93
+\accentdimen@=\dimen108
+\accentmu@=\count94
+\minaw@=\dimen109
+\c@MaxMatrixCols=\count95
+\dotsspace@=\muskip10
+\c@parentequation=\count96
+\dspbrk@lvl=\count97
+\tag@help=\toks15
+\row@=\count98
+\column@=\count99
+\maxfields@=\count100
+\andhelp@=\toks16
+\eqnshift@=\dimen110
+\alignsep@=\dimen111
+\tagshift@=\dimen112
+\tagwidth@=\dimen113
+\totwidth@=\dimen114
+\lineht@=\dimen115
+\@envbody=\toks17
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+)
+\c@theorem=\count101
+
+(C:\SWP30\TCITeX\tex\LaTeX\tci\tcilatex.tex
+TCILATEX Macros for Scientific Word 3.0 <05 August 1998>.
+NOTICE: This macro file is NOT proprietary and may be freely copied and distrib
+uted.
+\@hour=\count102
+\@minute=\count103
+\GRAPHICSTYPE=\count104
+\draft=\count105
+\dispkind=\count106
+\c@chapter=\count107
+\theight=\dimen116
+LaTeX Info: Redefining \rm on input line 556.
+LaTeX Info: Redefining \sf on input line 557.
+LaTeX Info: Redefining \tt on input line 558.
+LaTeX Info: Redefining \bf on input line 559.
+LaTeX Info: Redefining \it on input line 560.
+LaTeX Info: Redefining \sl on input line 561.
+LaTeX Info: Redefining \sc on input line 562.
+\c@equationnumber=\count108
+amsmath already loaded) (.\conclusiontarea3.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.51 \\
+       [0pt]
+? 
+! Emergency stop.
+ ...                                      
+                                          
+l.51 \\
+       [0pt]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Here is how much of TeX's memory you used:
+1283 strings out of 25902
+12542 string characters out of 248789
+61298 words of memory out of 262141
+4203 multiletter control sequences out of 20000
+4614 words of font info for 17 fonts, out of 300000 for 255
+14 hyphenation exceptions out of 607
+27i,3n,20p,250b,134s stack positions out of 300i,40n,60p,5000b,10000s
+No pages of output.

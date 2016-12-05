@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0056)http://garota.fismat.umich.mx/mn1/tutor_fort/format.html -->
+<HTML><HEAD><TITLE>Tutorial de Fortran</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY background="Tutorial de Fortranf_archivos/default.gif">
+<HR>
+&nbsp;[12. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/readwrite.html">Entrada/salida 
+Básica </A>] &nbsp;[<A 
+href="http://fismat.umich.mx/mn1/tutor_fort/index.html">Tutorial de Fortran</A>] 
+&nbsp;[14. <A href="http://garota.fismat.umich.mx/mn1/tutor_fort/files.html">E/S 
+de archivos </A>] 
+<HR>
+
+<H2>13. Sentencia <TT>Format</TT></H2>En las secciones anteriores se ha mostrado 
+el <EM>formato libre</EM> de entrada/salida. Éste caso sólo usa una reglas 
+predefinidas acerca de como los diferentes tipos (integers, reals, characters, 
+etc.) serán mostrados. Por lo general un programador desea indicar algún formato 
+de entrada o salida, por ejemplo, el número de decimales que tendrá un número 
+real. Para este propósito Fortran 77 tiene la sentencia <EM>format</EM>. La 
+misma sentencia format puede ser usada para la entrada o salida. 
+<H3>Sintaxis </H3><PRE>      write(*, <EM>etiqueta</EM>) <EM>lista_de_variables</EM>
+ <EM>etiq</EM> format <EM>códigos_de_formato</EM>
+</PRE>Un ejemplo simple muestra como trabaja. Supongamos que se tiene una 
+variable entera que se quiere mostrar con un ancho de 4 caracteres y un número 
+real que se quiere mostrar en notación de punto fijo con 3 decimales. <PRE>      write(*, 900) i, x
+  900 format (I4,F8.3)
+</PRE>La etiqueta 900 de la sentencia format es escogida en forma arbitraria, 
+pero es una práctica común numerar las sentencias format con números más grandes 
+que las etiquetas de control de flujo. Después de la palabra <TT>format</TT> se 
+ponen los códigos de formato encerrados entre paréntesis. El código <TT>I4</TT> 
+indica que un entero tendrá un ancho de 4 y <TT>F8.3</TT> significa que el 
+número deberá mostrarse en notación de punto fijo con un ancho de 8 y 3 
+decimales. 
+<P>La sentencia format puede estar en cualquier lugar dentro del programa. Hay 
+dos estilos de programación: agrupar por parejas las sentencias (como en el 
+ejemplo), o poner el grupo de sentencias format al final del (sub)programa. 
+<P>
+<H3>Códigos comunes de formato</H3>Las letras para códigos de formato más 
+comunes son: <PRE>   A - cadena de texto
+   D - números de doble precisión, notación científica
+   E - números reales, notación científica
+   F - números reales, formato de punto fijo
+   I - entero
+   X - salto horizontal (espacio)
+   / - salto vertical (nueva línea)
+</PRE>El código de formato F (y similarmente D y E) tiene la forma general 
+F<EM>a.d</EM> donde <EM>a</EM> es una constante entera indicando el ancho del 
+campo y <EM>d</EM> es un entero constante que indica el número de dígitos 
+significativos. 
+<P>Para los enteros solamente el campo de ancho es indicado, por lo que la 
+sintaxis es <TT>I</TT><EM>a</EM>. En forma parecida las cadenas de caracteres 
+pueden ser especificadas como <TT>A</TT> <EM>a</EM> pero el campo de ancho por 
+lo general no es usado. 
+<P>Si un número o cadena no llena todo el ancho del campo, espacios son 
+agregados. Usualmente el texto será ajustado a la derecha, pero las reglas 
+exactas varian de acuerdo a los códigos de formato. 
+<P>Para un espaciado horizontal, el código <EM>n</EM><TT>X</TT> es usado. Donde 
+<EM>n</EM> indica el número de espacios horizontales. Si <EM>n</EM> es omitido 
+se asume <EM>n=1</EM>. Para espaciado vertical (nuevas líneas) se usa el código 
+<TT>/</TT>. Cada diagonal corresponde a una nueva línea. Observar que cada 
+sentencia <TT>read</TT> o <TT>write</TT> por defecto termina con un salto de 
+línea (a diferencia de C). 
+<P>
+<H3>Algunos Ejemplos</H3>El siguiente código de Fortran <PRE>      x = 0.025
+      write(*,100) 'x=', x
+  100 format (A,F)
+      write(*,110) 'x=', x
+  110 format (A,F5.3)
+      write(*,120) 'x=', x
+  120 format (A,E)
+      write(*,130) 'x=', x
+  130 format (A,E8.1)
+</PRE>genera la siguiente salida una vez que es ejecutado: <PRE>x=      0.0250000
+x=0.025
+x=  0.2500000E-01
+x= 0.3E-01
+</PRE>Observar que espacios en blanco son automáticamente puestos del lado 
+izquierdo y que el ancho del campo por default para números tipo real es de 
+usualmente de 14. Se puede ver también que Fortran 77 sigue la regla de redondeo 
+donde los dígitos del 0-4 son redondeados hacia abajo y los dígitos del 5-9 son 
+redondeados hacia arriba. 
+<P>En este ejemplo cada sentencia write usa una sentencia format diferente. Pero 
+es correcto usar la misma sentencia format varias veces con distintas sentencias 
+write. De hecho, esta es una de las principales ventajes de usar sentencias 
+format. Esta característica es buena cuando se muestra el contenido de una tabla 
+por ejemplo, y se desea que cada renglón tenga el mismo formato. format. 
+<P>
+<H3>Cadenas de formato en las sentencias read/write</H3>En vez de indicar el 
+código de formato en una sentencia format por separado, se puede dar el código 
+de formato en la sentencia read/write directamente. Por ejemplo, la sentencia <PRE> 
+      write (*,'(A, F8.3)') 'La respuesta es x = ', x
+</PRE>que es equivalente a <PRE> 
+      write (*,990) 'La respuesta es x = ', x
+  990 format (A, F8.3)
+</PRE>Algunas veces cadenas de texto son dadas en las sentencias de formato, por 
+ejemplo la siguiente versión es también equivalente: <PRE> 
+      write (*,999) x
+  999 format ('La respuesta es x = ', F8.3)
+</PRE>
+<P>
+<H3>Ciclos Implícitos y Repetición de Formatos</H3>Ahora se mostrará un ejemplo 
+más complejo. Supongamos que se tiene un arreglo bidimensional de enteros y que 
+se desea mostrar la submatriz izquierda 5 por 10, con 10 valores cada 5 
+renglones. <PRE>      do 10 i = 1, 5
+         write(*,1000) (a(i,j), j=1,10)
+   10 continue
+ 1000 format (I6)
+</PRE>Se tiene un ciclo explícito do loop sobre los renglones y un ciclo 
+<EM>implícito</EM> sobre el índice j para la columna. 
+<P>Con frecuencia una sentencia format involucra repetición, por ejemplo: <PRE>  950 format (2X, I3, 2X, I3, 2X, I3, 2X, I3)
+</PRE>Hay una notación abreviada para lo anterior, que es: <PRE>  950 format (4(2X, I3))
+</PRE>Es también posible permitir la repetición sin hacerlo explícitamente 
+indicando las veces que el formato deberá repetirse. Supongamos que tenemos un 
+vector, del cual se desea mostrar los primeros 50 elementos, con 10 elementos en 
+cada línea. Se muestra una forma de hacerlo: <PRE>      write(*,1010) (x(i), i=1,50)
+ 1010 format (10I6)
+</PRE>La sentencia format dice que 10 números deberán ser mostrados. Pero en la 
+sentencia write, se hace con los primeros 50 números. Después de que los 
+primeros 10 números han sido mostrados, la misma sentencia format es 
+automáticamente usada para los siguientes 10 números y así sucesivamente. 
+<HR>
+
+<H3>Ejercicios</H3>
+<DL>
+  <DT>Ejercicio A 
+  <DD>Pueden suceder cosas extrañas si no hay una correspondencia adecuada con 
+  la sentencia format. Intentar los siguientes ejemplos: <PRE> 
+      write(*,100) 12, 12345
+      write(*,110) 0.12345
+      write(*,110) 123.45
+      write(*,110) 12345.0
+  100 format (I4, 2X, I4)
+  110 format (F6.2)
+</PRE>
+  <P><!--
+<DT> Ejercicio B
+<DD> Hacer un programa que genere el triángulo de PascalFind your program that generates Pascal's matrix (see section 10).
+At the end, print the upper left 6 by 6 submatrix. You should align
+the numbers in each row neatly in columns. Submit the code
+and the output.
+<P>
+--></P></DD></DL>
+<HR>
+&nbsp;[12. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/readwrite.html">Entrada/salida 
+Básica </A>] &nbsp;[<A 
+href="http://fismat.umich.mx/mn1/tutor_fort/index.html">Tutorial de Fortran</A>] 
+&nbsp;[14. <A href="http://garota.fismat.umich.mx/mn1/tutor_fort/files.html">E/S 
+de archivos </A>] </BODY></HTML>

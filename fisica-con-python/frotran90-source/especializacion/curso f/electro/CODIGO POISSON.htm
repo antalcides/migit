@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0051)http://www.cec.uchile.cl/FI33A-01/html/poisson.html -->
+<HTML><HEAD><TITLE>CODIGO POISSON</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2716.2200" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff>
+<CENTER>
+<H3>Algoritmo para integrar numéricamente la ecuación de Laplace </H3>
+<H4>Método de relajación </H4></CENTER><FONT color=#0000aa size=+1>A 
+continuación un seudocódigo que permite obtener el potencial en el caso 
+bidimensional dentro de un cuadrado con coordenadas (0,0) y (10,10) con las 
+siguientes condiciones de borde: el potencial en el perímetro cuadrado es nulo, 
+en el trazo desde (3,4) hasta (7,4) vale V=8[Volt] y en el trazo desde (3,6) 
+hasta (7,6) vale V=-8[Volt]. Se trabajará el caso en que la densidad de cargas 
+en el volumen es cero. La generalización a tres dimensiones es muy sencilla. 
+<P>La caja cuadrada descrita arriba se cuadricula en una malla de 100x100, de 
+tal modo que la celda básica es de 0.1x0.1. 
+<P>El método que se describe a continuación, llamado de relajación, da 
+inicialmente al potencial valores arbitrarios en todos los puntos de la malla de 
+100x100. Luego a los puntos que corresponden a bordes cuyos valores ya fueron 
+dados se les da esos valores conocidos y ellos no serán tocados durante la 
+ejecución del programa. Aunque parezca sorprendente, este método converge. 
+<P><PRE>N       = 100
+epsilon = 0.1
+/********************Inicializacion**********************/
+ for i=0 to 100
+ {
+   for j=0 to 100
+   {
+      V[i,j] = numero aleatorio entre -1 y 1
+   }
+ }
+ for i=0 to 100 do
+ {
+   V[i,0]  = 0.0
+   V[i,10] = 0.0
+   V[0,i]  = 0.0
+   V[10,i] = 0.0
+  }
+ for i=30 to 70 do
+ {
+   V[i,40] =  8.0
+   V[i,60] = -8.0
+ }
+/*****************************Loop*****************************/
+/** Tan pronto calcula cada V[i,j] puede ejecutar una        **/
+/** instruccion tipo pintar_pixel(i,j,color=entero(8+V[i,j]) **/
+/** que coloca en el sitio [i,j] de la pantalla un color     **/
+/** que varia segun el valor del potencial.                  **/
+
+iter = 0
+while (iter&lt;1000) do
+{
+ for i=1 to 29 do
+ {
+   for j=1 to 99 do
+   {
+     V[i,j]    = 0.25*(V[i+1,j]+V[i-1,j]+V[i,j+1]+V[i,j-1])
+     V(70+i,j) = 0.25*(V(i+71, j)+V(i+69,j)+V(i+70,j+1) + V(i+70,j-1)
+   }
+ }
+ for i=30 to 70 do
+ {
+   for j=1 to 39 do
+   {
+     V[i,j]    = 0.25*(V[i+1,j]+V[i-1,j]+V[i,j+1]+V[i,j-1])
+    V(i, j+60) = 0.25*(V(i+1,j+60) + V(i-1,j+60)+V(i,j+61)+V(i,j+59))
+
+   }
+   for j=41 to 59 do
+   {
+     V[i,j] = 0.25*(V[i+1,j]+V[i-1,j]+V[i,j+1]+V[i,j-1])
+   }
+ }
+iter = iter + 1
+}
+/************************************************************/
+</PRE>
+<HR>
+Si se va pintando los valores intermedios de V a medida que avanza la iteración 
+se podrá ver cómo evoluciona el arreglo V[i,j]. Estos valores intermedios no 
+tienen significado físico y solo representan la forma en que el algoritmo 
+particular se acerca a la solución numérica. La frontera entre dos colores es 
+una equipotencial y el campo eléctrico es ortogonal a las equipotenciales. 
+</FONT>
+<P>Regreso a <A 
+href="http://www.cec.uchile.cl/FI33A-01/index.html">Electromagnetismo 
+</A></P></BODY></HTML>

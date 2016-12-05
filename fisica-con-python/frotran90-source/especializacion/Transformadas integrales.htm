@@ -1,0 +1,1216 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0053)http://fisica.urbenalia.com/apuntsmat/trans/?selact=3 -->
+<!--Converted with jLaTeX2HTML 2002 (1.62) JA patch-1.4
+patched version by:  Kenshi Muto, Debian Project.
+LaTeX2HTML 2002 (1.62),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others --><HTML><HEAD><TITLE>Transformadas integrales</TITLE>
+<META content="Transformadas integrales" name=description>
+<META content=trans name=keywords>
+<META content=document name=resource-type>
+<META content=global name=distribution>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1276" name=GENERATOR>
+<META http-equiv=Content-Style-Type content=text/css><LINK 
+href="Transformadas integrales_archivos/trans.css" rel=STYLESHEET></HEAD>
+<BODY>
+<P><A name=arriba></A>
+<TABLE cellSpacing=5 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR style="VERTICAL-ALIGN: middle; HEIGHT: 65px">
+    <TD 
+    style="BACKGROUND-IMAGE: url(../../images/banner.gif); VERTICAL-ALIGN: middle; HEIGHT: 65px; BACKGROUND-COLOR: rgb(230,230,255); TEXT-ALIGN: right" 
+    colSpan=2>
+      <SCRIPT language=JavaScript 
+      src="Transformadas integrales_archivos/publi.js" type=text/javascript>      
+      </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD class=izq>
+      <CENTER><A href="http://fisica.urbenalia.com/index.php"><IMG 
+      alt=Canal#fisica src="Transformadas integrales_archivos/manzana.gif" 
+      border=0></A> </CENTER><BR><BR><B><A style="COLOR: rgb(0,0,255)" 
+      href="http://fisica.urbenalia.com/quees/?selact=quees">¿Qué es la Física? 
+      </A></B><BR><BR><B><A style="COLOR: rgb(0,0,255)" 
+      href="http://fisica.urbenalia.com/problemas/">Colección de problemas 
+      </A></B><BR><BR><B><A style="COLOR: rgb(0,0,255)" 
+      href="http://fisica.urbenalia.com/apuntsfis/?selact=3">Apuntes 
+      </A></B><BR>- <A style="COLOR: rgb(40,10,255)" 
+      href="http://fisica.urbenalia.com/apuntsfis/fluidosge/?selact=3"><SMALL>Física 
+      general de fluidos </SMALL></A><BR>- <A style="COLOR: rgb(40,10,255)" 
+      href="http://fisica.urbenalia.com/apuntsfis/relatividad/?selact=3"><SMALL>Relatividad 
+      especial </SMALL></A><BR>- <A style="COLOR: rgb(40,10,255)" 
+      href="http://fisica.urbenalia.com/apuntsfis/cuantica/?selact=3"><SMALL>Física 
+      cuántica </SMALL></A><BR>- <A style="COLOR: rgb(40,10,255)" 
+      href="http://fisica.urbenalia.com/apuntsfis/estadistica/?selact=3"><SMALL>Física 
+      estadística </SMALL></A><BR>- <A style="COLOR: rgb(40,10,255)" 
+      href="http://fisica.urbenalia.com/apuntsmat/campos/?selact=3"><SMALL>Teoria 
+      elemental de campos </SMALL></A><BR>- <A style="COLOR: rgb(40,10,255)" 
+      href="http://fisica.urbenalia.com/apuntsmat/probabilidad/?selact=3"><SMALL>Teoria 
+      de la Probabilidad </SMALL></A><BR>- <A style="COLOR: rgb(40,10,255)" 
+      href="http://fisica.urbenalia.com/apuntsmat/strum/?selact=3"><SMALL>Teoria 
+      de Strum-Liouville </SMALL></A><BR>- <A style="COLOR: rgb(40,10,255)" 
+      href="http://fisica.urbenalia.com/apuntsmat/trans/?selact=3"><SMALL>Transformadas 
+      integrales </SMALL></A><BR><BR><B><A style="COLOR: rgb(0,0,255)" 
+      href="http://fisica.urbenalia.com/ecs/">Diccionario de ecuaciones 
+      </A></B><BR><BR><B><A style="COLOR: rgb(0,0,255)" 
+      href="http://fisica.urbenalia.com/biblio/?selact=biblio">Bibliografia 
+      </A></B><BR><BR><B><A style="COLOR: rgb(0,0,255)" 
+      href="http://fisica.urbenalia.com/urss/?selact=urss">Editorial URSS 
+      </A></B><BR><BR><B><A style="COLOR: rgb(0,0,255)" 
+      href="http://fisica.urbenalia.com/trabajos/?selact=6">Trabajos 
+      </A></B><BR><BR><B><A style="COLOR: rgb(0,0,255)" 
+      href="http://fisica.urbenalia.com/arts/?selact=7">Artículos 
+      </A></B><BR><BR><B><A style="COLOR: rgb(0,0,255)" 
+      href="http://fisica.urbenalia.com/ebooks/">Biblioteca digital 
+      </A></B><BR><BR><B><A style="COLOR: rgb(0,0,255)" 
+      href="http://fisica.urbenalia.com/bio/?selact=9">Biografías 
+      </A></B><BR><BR><B><A style="COLOR: rgb(0,0,255)" 
+      href="http://fisica.urbenalia.com/tecno/?selact=10">Fundamentos de 
+      tecnología </A></B><BR><BR><B><A style="COLOR: rgb(0,0,255)" 
+      href="http://fisica.urbenalia.com/faq/">Preguntas más frecuentes 
+      </A></B><BR><BR><B><A style="COLOR: rgb(0,0,255)" 
+      href="http://fisica.urbenalia.com/chuletas/">Chuletarios 
+      </A></B><BR><BR><B><A style="COLOR: rgb(0,0,255)" 
+      href="http://fisica.urbenalia.com/practicas/">Prácticas de laboratorio 
+      </A></B><BR><BR><B><A style="COLOR: rgb(0,0,255)" 
+      href="http://fisica.urbenalia.com/software/?selact=11">Software para la 
+      física </A></B><BR><BR><B><A style="COLOR: rgb(0,0,255)" 
+      href="http://fisica.urbenalia.com/quees/links.php?selact=links">Links 
+      </A></B><BR><BR><B><A style="COLOR: rgb(0,0,255)" 
+      href="http://fisica.urbenalia.com/humor/?selact=12">Humor 
+      </A></B><BR><BR><B><A style="COLOR: rgb(0,0,255)" 
+      href="http://fisica.urbenalia.com/irc/">Acerca de Canal#fisica 
+      </A></B><BR><BR><!--<hr>
+
+  <b>Buscar en Canal#fisica</b><br>
+  <form method="get" action="/cgi-bin/perlfect/search/search.pl">
+    <input type="hidden" name="p" value="1">
+    <input type="hidden" name="lang" value="en">
+    <input type="hidden" name="include" value="">
+    <input type="hidden" name="exclude" value="">
+    <input type="hidden" name="penalty" value="0">
+    <input type="text" name="q"><input type="submit" value=" Ir "> <br>
+    
+    <table>
+      <tr>
+        <td rowspan="2">Buscar</td>
+        <td><input type="radio" name="mode" value="all" checked> Todas las palabras</td>
+      </tr>
+      <tr>
+        <td><input type="radio" name="mode" value="any"> Algunas palabras</td>
+      </tr>
+    </table>
+  </form>
+-->
+      <HR>
+
+      <CENTER><A href="http://fisica.urbenalia.com/index.php"><IMG 
+      style="BORDER-RIGHT: 0px solid; BORDER-TOP: 0px solid; BORDER-LEFT: 0px solid; BORDER-BOTTOM: 0px solid" 
+      alt=Volver src="Transformadas integrales_archivos/home.gif"></A> 
+    </CENTER></TD>
+    <TD class=drc>
+      <DIV style="WIDTH: 100%; TEXT-ALIGN: right; text-size: small"><A 
+      href="http://fisica.urbenalia.com/apuntsmat/trans/trans.ps">Bájatelo 
+      (formato ps) <IMG alt="Formato post-script" 
+      src="Transformadas integrales_archivos/flechaps.gif" align=middle 
+      border=0></A></DIV>
+      <P>
+      <H1 align=center><B>Transformadas integrales</B></H1>
+      <P align=center><STRONG>pod</STRONG></P><BR>
+      <P align=center><I>Date:</I> Marzo - abril de 2001</P>
+      <P align=left></P>
+      <P>
+      <H1><A name=SECTION00010000000000000000>Introducción</A> </H1>Este 
+      documento presenta brevemente los principios de la <SPAN 
+      class=textit>teoría de las transformadas integrales</SPAN>, en especial, 
+      de la <SPAN class=textit>transformada de Laplace</SPAN> y la de <SPAN 
+      class=textit>Fourier</SPAN>. La transformación de Laplace es de amplia 
+      aplicación en el campo de la electrónica y l teoría de circuitos. Por otra 
+      parte, la transformada de Fourier, es de amplia aplicación en el análisis 
+      de señales, así como en diferentes campos de la física (teoría de la 
+      difracción, mecánica cuántica, etc.). Las transformadas integrales se 
+      presentan en forma de apuntes esquemáticos y sin demostraciones. 
+      <P>
+      <H1><A name=SECTION00020000000000000000>1</SPAN> Transformadas 
+      integrales</A> </H1>
+      <P>
+      <DIV><B>Definición 1</SPAN>.1</SPAN></B> (Transformada integral) &nbsp; La 
+      transformada integral <!-- MATH
+ $\mathcal{I}$
+ --><SPAN class=MATH><IMG 
+      height=15 alt="$ \mathcal{I}$" 
+      src="Transformadas integrales_archivos/img1.png" width=15 align=bottom 
+      border=0></SPAN> respecto el núcleo <SPAN class=MATH><IMG height=34 
+      alt="$ K(s,x)$" src="Transformadas integrales_archivos/img2.png" width=60 
+      align=middle border=0></SPAN> en el intervalo <SPAN class=MATH><IMG 
+      height=34 alt="$ (a, b)$" src="Transformadas integrales_archivos/img3.png" 
+      width=42 align=middle border=0></SPAN> de la función <SPAN class=MATH><IMG 
+      height=34 alt="$ f(x)$" src="Transformadas integrales_archivos/img4.png" 
+      width=38 align=middle border=0></SPAN> se define de la forma <!-- MATH
+ \begin{displaymath}
+\bar{F}(s) =  \mathcal{I} \big[ f(x) \big] = \int_a^b\!\!f(x) K(s, x) \ensuremath{\mathrm{d}x}\ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=63 
+      alt="$\displaystyle \bar{F}(s) = \mathcal{I} \big[ f(x) \big] = \int_a^b\!\!f(x) K(s, x) \ensuremath{\mathrm{d}x}\ . $" 
+      src="Transformadas integrales_archivos/img5.png" width=286 align=middle 
+      border=0> </DIV>
+      <P></P>Donde <SPAN class=MATH><IMG height=16 alt="$ s$" 
+      src="Transformadas integrales_archivos/img6.png" width=13 align=bottom 
+      border=0></SPAN> es la variable transformada.</DIV>
+      <P></P>
+      <P>El operador de transformación <!-- MATH
+ $\mathcal{I}$
+ --><SPAN 
+      class=MATH><IMG height=15 alt="$ \mathcal{I}$" 
+      src="Transformadas integrales_archivos/img1.png" width=15 align=bottom 
+      border=0></SPAN> es lineal, así como el operación de transformación 
+      inversa <!-- MATH
+ $\mathcal{I}^{-1}$
+ --><SPAN class=MATH><IMG height=19 
+      alt="$ \mathcal{I}^{-1}$" src="Transformadas integrales_archivos/img7.png" 
+      width=33 align=bottom border=0></SPAN>. 
+      <P>
+      <H1><A name=SECTION00030000000000000000>2</SPAN> Transformada de 
+      Laplace</A> </H1>
+      <H2><A name=SECTION00031000000000000000>2</SPAN>.1</SPAN> Definición</A> 
+      </H2>
+      <P>
+      <DIV><B>Definición 2</SPAN>.1</SPAN></B> (Transformada de Laplace) &nbsp; 
+      La transformada de Laplace de una función <SPAN class=MATH><IMG height=34 
+      alt="$ f(t)$" src="Transformadas integrales_archivos/img8.png" width=35 
+      align=middle border=0></SPAN> se define por <!-- MATH
+ \begin{displaymath}
+F(s) = \ensuremath{ \mathcal{L} \left[ f(t) \right] }= \int_0^\infty \!\!f(t)\, e^{-st} \ensuremath{\mathrm{d}x}\ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=56 
+      alt="$\displaystyle F(s) = \ensuremath{ \mathcal{L} \left[ f(t) \right] }= \int_0^\infty \!\!f(t)\, e^{-st} \ensuremath{\mathrm{d}x}\ . $" 
+      src="Transformadas integrales_archivos/img9.png" width=264 align=middle 
+      border=0> </DIV>
+      <P></P></DIV>
+      <P></P>
+      <P>Algunos ejemplos son: <!-- MATH
+ \begin{displaymath}
+\ensuremath{ \mathcal{L} \left[ e^{at} \right] }= \frac{1}{s-a}\ \textrm{  si }s>a \quad \ensuremath{ \mathcal{L} \left[ t^n \right] }= \frac{n!}{s^{n+1}}\ \textrm{ si }s>0,\ n\ge 1
+\quad \ensuremath{ \mathcal{L} \left[ \mathbf{J}_0(t) \right] }= \frac{1}{\sqrt{1+s}} \ ,
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=56 
+      alt="$\displaystyle \ensuremath{ \mathcal{L} \left[ e^{at} \right] }= \frac{1}{s-a}\ ...&#10;...remath{ \mathcal{L} \left[ \mathbf{J}_0(t) \right] }= \frac{1}{\sqrt{1+s}} \ , $" 
+      src="Transformadas integrales_archivos/img10.png" width=602 align=middle 
+      border=0> </DIV>
+      <P></P><!-- MATH
+ \begin{displaymath}
+\ensuremath{ \mathcal{L} \left[ \sin at \right] }= \frac{a}{s^2+a^2}\ \textrm{  si }s>0 \qquad \ensuremath{ \mathcal{L} \left[ \cos at \right] }= \frac{s}{s^2+a^2}\ \textrm{  si }s>0  \ ,
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=46 
+      alt="$\displaystyle \ensuremath{ \mathcal{L} \left[ \sin at \right] }= \frac{a}{s^2+a...&#10;... \mathcal{L} \left[ \cos at \right] }= \frac{s}{s^2+a^2}\ \textrm{ si }s>0 \ , $" 
+      src="Transformadas integrales_archivos/img11.png" width=481 align=middle 
+      border=0> </DIV>
+      <P></P><!-- MATH
+ \begin{displaymath}
+\ensuremath{ \mathcal{L} \left[ \sinh at \right] }= \frac{a}{s^2-a^2}\ \textrm{  si }s>|a| \qquad \ensuremath{ \mathcal{L} \left[ \cosh at \right] }= \frac{s}{s^2-a^2}\ \textrm{  si }s>|a| \ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=46 
+      alt="$\displaystyle \ensuremath{ \mathcal{L} \left[ \sinh at \right] }= \frac{a}{s^2-...&#10;... \left[ \cosh at \right] }= \frac{s}{s^2-a^2}\ \textrm{ si }s>\vert a\vert \ . $" 
+      src="Transformadas integrales_archivos/img12.png" width=521 align=middle 
+      border=0> </DIV>
+      <P></P>
+      <P>
+      <P>
+      <DIV><B>Definición 2</SPAN>.2</SPAN></B> (Función de orden exponencial) 
+      &nbsp; La función <SPAN class=MATH><IMG height=34 alt="$ f(t)$" 
+      src="Transformadas integrales_archivos/img8.png" width=35 align=middle 
+      border=0></SPAN> es de orden exponencial si 
+      <!-- MATH
+ $\exists a>0$
+ --><SPAN class=MATH><IMG height=32 
+      alt="$ \exists a>0$" src="Transformadas integrales_archivos/img13.png" 
+      width=55 align=middle border=0></SPAN> tal que <!-- MATH
+ $e^{at} \big| f(x) \big|$
+ --><SPAN class=MATH><IMG height=37 
+      alt="$ e^{at} \big\vert f(x) \big\vert$" 
+      src="Transformadas integrales_archivos/img14.png" width=71 align=middle 
+      border=0></SPAN> está acotada <!-- MATH
+ $\forall t>T$
+ --><SPAN 
+      class=MATH><IMG height=32 alt="$ \forall t>T$" 
+      src="Transformadas integrales_archivos/img15.png" width=56 align=middle 
+      border=0></SPAN>. De otra manera, <!-- MATH
+ $\exists M >0$
+ --><SPAN 
+      class=MATH><IMG height=32 alt="$ \exists M >0$" 
+      src="Transformadas integrales_archivos/img16.png" width=65 align=middle 
+      border=0></SPAN> tal que <!-- MATH
+ $\forall t> T$
+ --><SPAN 
+      class=MATH><IMG height=32 alt="$ \forall t>T$" 
+      src="Transformadas integrales_archivos/img15.png" width=56 align=middle 
+      border=0></SPAN> se cumple 
+      <!-- MATH
+ $\big| f(t) \big| \le M e^{at}$
+ --><SPAN class=MATH><IMG 
+      height=37 alt="$ \big\vert f(t) \big\vert \le M e^{at}$" 
+      src="Transformadas integrales_archivos/img17.png" width=109 align=middle 
+      border=0></SPAN>. También se escribe 
+      <!-- MATH
+ $f(t) = o(e^{at})$
+ --><SPAN class=MATH><IMG height=36 
+      alt="$ f(t) = o(e^{at})$" 
+      src="Transformadas integrales_archivos/img18.png" width=101 align=middle 
+      border=0></SPAN>.</DIV>
+      <P></P>
+      <P>
+      <P>
+      <DIV><B>Teorema 2</SPAN>.3</SPAN></B> (Teorema de existencia) &nbsp; Sea 
+      <SPAN class=MATH><IMG height=34 alt="$ f(x)$" 
+      src="Transformadas integrales_archivos/img4.png" width=38 align=middle 
+      border=0></SPAN> continua a trozos en 
+      <!-- MATH
+ $\big[ 0, T \big]$
+ --><SPAN class=MATH><IMG height=37 
+      alt="$ \big[ 0, T \big]$" 
+      src="Transformadas integrales_archivos/img19.png" width=48 align=middle 
+      border=0></SPAN>, y de orden exponencial. Entonces, existe la transformada 
+      de Laplace <!-- MATH
+ $\mathcal{L} \left[ f(t) \right]$
+ --><SPAN 
+      class=MATH><IMG height=34 alt="$ \mathcal{L} \left[ f(t) \right] $" 
+      src="Transformadas integrales_archivos/img20.png" width=59 align=middle 
+      border=0></SPAN> para <SPAN class=MATH><IMG height=30 alt="$ s>a$" 
+      src="Transformadas integrales_archivos/img21.png" width=45 align=middle 
+      border=0></SPAN>.</DIV>
+      <P></P>
+      <P>
+      <H2><A name=SECTION00032000000000000000>2</SPAN>.2</SPAN> Teoremas 
+      fundamentales</A> </H2>Los siguientes teoremas serán útiles para resolver 
+      ecuaciones diferenciales así como hallar transformadas inversas. 
+      <P>
+      <P>
+      <DIV><B>Teorema 2</SPAN>.4</SPAN></B> (Teorema de traslación) &nbsp; Sea <!-- MATH
+ $F(s) = \ensuremath{ \mathcal{L} \left[ f(t) \right] }$
+ --><SPAN 
+      class=MATH><IMG height=34 
+      alt="$ F(s) = \ensuremath{ \mathcal{L} \left[ f(t) \right] }$" 
+      src="Transformadas integrales_archivos/img22.png" width=118 align=middle 
+      border=0></SPAN>, entonces se cumple <!-- MATH
+ \begin{displaymath}
+\ensuremath{ \mathcal{L} \left[ e^{et} f(t) \right] }= F(s-a) \ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=38 
+      alt="$\displaystyle \ensuremath{ \mathcal{L} \left[ e^{et} f(t) \right] }= F(s-a) \ . $" 
+      src="Transformadas integrales_archivos/img23.png" width=184 align=middle 
+      border=0> </DIV>
+      <P></P></DIV>
+      <P></P>
+      <P>
+      <P>
+      <DIV><B>Teorema 2</SPAN>.5</SPAN></B> (Segundo teorema de traslación) 
+      &nbsp; Sea <!-- MATH
+ $F(s) = \ensuremath{ \mathcal{L} \left[ f(t) \right] }$
+ --><SPAN 
+      class=MATH><IMG height=34 
+      alt="$ F(s) = \ensuremath{ \mathcal{L} \left[ f(t) \right] }$" 
+      src="Transformadas integrales_archivos/img22.png" width=118 align=middle 
+      border=0></SPAN> y <!-- MATH
+ $\theta(t-a)$
+ --><SPAN class=MATH><IMG 
+      height=34 alt="$ \theta(t-a)$" 
+      src="Transformadas integrales_archivos/img24.png" width=63 align=middle 
+      border=0></SPAN> la función escalón de Heaviside, entonces <!-- MATH
+ \begin{displaymath}
+\ensuremath{ \mathcal{L} \left[ \theta(t-a) f(t-a) \right] }= e^{-as} F(s)  \ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=37 
+      alt="$\displaystyle \ensuremath{ \mathcal{L} \left[ \theta(t-a) f(t-a) \right] }= e^{-as} F(s) \ . $" 
+      src="Transformadas integrales_archivos/img25.png" width=251 align=middle 
+      border=0> </DIV>
+      <P></P></DIV>
+      <P></P>
+      <P>
+      <P>
+      <DIV><B>Teorema 2</SPAN>.6</SPAN></B> (Teorema de escala) &nbsp; Si <!-- MATH
+ $F(s) = \ensuremath{ \mathcal{L} \left[ f(t) \right] }$
+ --><SPAN 
+      class=MATH><IMG height=34 
+      alt="$ F(s) = \ensuremath{ \mathcal{L} \left[ f(t) \right] }$" 
+      src="Transformadas integrales_archivos/img22.png" width=118 align=middle 
+      border=0></SPAN> y <SPAN class=MATH><IMG height=30 alt="$ c>0$" 
+      src="Transformadas integrales_archivos/img26.png" width=44 align=middle 
+      border=0></SPAN>, entonces <!-- MATH
+ \begin{displaymath}
+\ensuremath{ \mathcal{L} \left[ f(ct) \right] }= \frac{1}{c} F \left( \frac{s}{c} \right)  \ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=54 
+      alt="$\displaystyle \ensuremath{ \mathcal{L} \left[ f(ct) \right] }= \frac{1}{c} F \left( \frac{s}{c} \right) \ . $" 
+      src="Transformadas integrales_archivos/img27.png" width=165 align=middle 
+      border=0> </DIV>
+      <P></P></DIV>
+      <P></P>
+      <P>
+      <P>
+      <DIV><B>Teorema 2</SPAN>.7</SPAN></B> (Transformada de <SPAN 
+      class=MATH><IMG height=34 alt="$ t^n f(x)$" 
+      src="Transformadas integrales_archivos/img28.png" width=54 align=middle 
+      border=0></SPAN>) &nbsp; Sea <!-- MATH
+ $F(s) = \ensuremath{ \mathcal{L} \left[ f(t) \right] }$
+ --><SPAN 
+      class=MATH><IMG height=34 
+      alt="$ F(s) = \ensuremath{ \mathcal{L} \left[ f(t) \right] }$" 
+      src="Transformadas integrales_archivos/img22.png" width=118 align=middle 
+      border=0></SPAN>, entonces <!-- MATH
+ \begin{displaymath}
+\ensuremath{ \mathcal{L} \left[ t^n f(t) \right] }= (-1)^n \frac{\ensuremath{\mathrm{d}}^n}{\ensuremath{\mathrm{d}s}^n}F(s) \ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=56 
+      alt="$\displaystyle \ensuremath{ \mathcal{L} \left[ t^n f(t) \right] }= (-1)^n \frac{\ensuremath{\mathrm{d}}^n}{\ensuremath{\mathrm{d}s}^n}F(s) \ . $" 
+      src="Transformadas integrales_archivos/img29.png" width=219 align=middle 
+      border=0> </DIV>
+      <P></P></DIV>
+      <P></P>
+      <P>
+      <H2><A name=SECTION00033000000000000000>2</SPAN>.3</SPAN> Teoremas de 
+      integración y derivación</A> </H2>En utilizar la transformada de Laplace 
+      en ecuaciones diferenciales, las condiciones iniciales aparecen en 
+      transformar las derivadas de la función incógnita. Para obtener la 
+      ecuación general se asigna un valor constante a las condiciones iniciales. 
+      Este método suele ser útil tan solo si los coeficientes de la ecuación 
+      diferencial son polinomios de orden menor que el grado de la ecuación. 
+      <P>
+      <P>
+      <DIV><B>Teorema 2</SPAN>.8</SPAN></B> (Teorema de diferenciación) &nbsp; 
+      Sea <SPAN class=MATH><IMG height=34 alt="$ f(t)$" 
+      src="Transformadas integrales_archivos/img8.png" width=35 align=middle 
+      border=0></SPAN> continua y derivable por partes en <!-- MATH
+ $0 \le t \le T$
+ --><SPAN class=MATH><IMG height=32 
+      alt="$ 0 \le t \le T$" src="Transformadas integrales_archivos/img30.png" 
+      width=79 align=middle border=0></SPAN>, sea <SPAN class=MATH><IMG 
+      height=34 alt="$ f(t)$" src="Transformadas integrales_archivos/img8.png" 
+      width=35 align=middle border=0></SPAN> de orden exponencial. Entonces 
+      existe la transformada de Laplace de la derivada y su valor es <!-- MATH
+ \begin{displaymath}
+\ensuremath{ \mathcal{L} \left[ \frac{\ensuremath{\mathrm{d}f(t)}}{\ensuremath{\mathrm{d}x}} \right] }= s \ensuremath{ \mathcal{L} \left[ f(t) \right] }- f(0)  \ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=58 
+      alt="$\displaystyle \ensuremath{ \mathcal{L} \left[ \frac{\ensuremath{\mathrm{d}f(t)}...&#10;...rm{d}x}} \right] }= s \ensuremath{ \mathcal{L} \left[ f(t) \right] }- f(0) \ . $" 
+      src="Transformadas integrales_archivos/img31.png" width=232 align=middle 
+      border=0> </DIV>
+      <P></P>
+      <P>En general, para <SPAN class=MATH><IMG height=30 alt="$ n \ge 1$" 
+      src="Transformadas integrales_archivos/img32.png" width=47 align=middle 
+      border=0></SPAN>, se tiene <!-- MATH
+ \begin{displaymath}
+\ensuremath{ \mathcal{L} \left[  f^{(n)}(t)  \right] }= s^n \ensuremath{ \mathcal{L} \left[ f(t) \right] }- s^{n-1}f(0) - s^{n-2} f'(0)- \ldots - s f^{(n-2)}(0) - f^{(n-1)}(0) \ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=49 
+      alt="$\displaystyle \ensuremath{ \mathcal{L} \left[ f^{(n)}(t) \right] }= s^n \ensure...&#10;...ht] }- s^{n-1}f(0) - s^{n-2} f'(0)- \ldots - s f^{(n-2)}(0) - f^{(n-1)}(0) \ . $" 
+      src="Transformadas integrales_archivos/img33.png" width=602 align=middle 
+      border=0> </DIV>
+      <P></P></DIV>
+      <P></P>
+      <P>
+      <P>
+      <DIV><B>Teorema 2</SPAN>.9</SPAN></B> (Transformada de derivadas 
+      parciales) &nbsp; Sea <SPAN class=MATH><IMG height=34 alt="$ u(x,t)$" 
+      src="Transformadas integrales_archivos/img34.png" width=52 align=middle 
+      border=0></SPAN> una función de dos variables, y <!-- MATH
+ $\mathcal{L}_{t} \left[ u(x,t) \right]$
+ --><SPAN 
+      class=MATH><IMG height=34 alt="$ \mathcal{L}_{t} \left[ u(x,t) \right] $" 
+      src="Transformadas integrales_archivos/img35.png" width=82 align=middle 
+      border=0></SPAN> la transformada de Laplace respecto <SPAN class=MATH><IMG 
+      height=16 alt="$ t$" src="Transformadas integrales_archivos/img36.png" 
+      width=11 align=bottom border=0></SPAN>. Entonces <!-- MATH
+ \begin{displaymath}
+\ensuremath{ \mathcal{L}_{t} \left[ \frac{\partial u(x,t)}{\partial t} \right] }= s \ensuremath{ \mathcal{L}_{t} \left[ u(x,t) \right] }- u(x,0) \ ,
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=58 
+      alt="$\displaystyle \ensuremath{ \mathcal{L}_{t} \left[ \frac{\partial u(x,t)}{\parti...&#10;... \right] }= s \ensuremath{ \mathcal{L}_{t} \left[ u(x,t) \right] }- u(x,0) \ , $" 
+      src="Transformadas integrales_archivos/img37.png" width=296 align=middle 
+      border=0> </DIV>
+      <P></P><!-- MATH
+ \begin{displaymath}
+\ensuremath{ \mathcal{L}_{t} \left[ \frac{\partial u(x,t)}{\partial x} \right] }= \frac{\partial}{\partial x} \ensuremath{ \mathcal{L}_{t} \left[ u(x,t) \right] }\ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=58 
+      alt="$\displaystyle \ensuremath{ \mathcal{L}_{t} \left[ \frac{\partial u(x,t)}{\parti...&#10;...{\partial}{\partial x} \ensuremath{ \mathcal{L}_{t} \left[ u(x,t) \right] }\ . $" 
+      src="Transformadas integrales_archivos/img38.png" width=244 align=middle 
+      border=0> </DIV>
+      <P></P>En general, <!-- MATH
+ \begin{displaymath}
+\ensuremath{ \mathcal{L}_{t} \left[ \frac{\partial^{n+m} u(x,t)}{\partial x^n \partial t^m} \right] }= \frac{\partial^n}{\partial x^n} \left(
+     s^m \ensuremath{ \mathcal{L}_{t} \left[ u(x,t) \right] }- \sum_{i=0}^{m-1}
+     s^{(m-1)-i} \left. \frac{\partial^{i} u(x,t)}{\partial t^{i}} \right|_{t=0} \right) \ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=71 
+      alt="$\displaystyle \ensuremath{ \mathcal{L}_{t} \left[ \frac{\partial^{n+m} u(x,t)}{...&#10;...eft. \frac{\partial^{i} u(x,t)}{\partial t^{i}} \right\vert _{t=0} \right) \ . $" 
+      src="Transformadas integrales_archivos/img39.png" width=553 align=middle 
+      border=0> </DIV>
+      <P></P></DIV>
+      <P></P>
+      <P>
+      <P>
+      <DIV><B>Teorema 2</SPAN>.10</SPAN></B> (Teorema de integración) &nbsp; Si <!-- MATH
+ $\exists \ensuremath{ \mathcal{L} \left[ f(t) \right] }$
+ --><SPAN 
+      class=MATH><IMG height=34 
+      alt="$ \exists \ensuremath{ \mathcal{L} \left[ f(t) \right] }$" 
+      src="Transformadas integrales_archivos/img40.png" width=69 align=middle 
+      border=0></SPAN>, entonces se cumple <!-- MATH
+ \begin{displaymath}
+\ensuremath{ \mathcal{L} \left[  \int_0^t\!\!f(\tau) \ensuremath{\mathrm{d}\tau} \right] }= \frac{\ensuremath{ \mathcal{L} \left[ f(t) \right] }}{s} \ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=61 
+      alt="$\displaystyle \ensuremath{ \mathcal{L} \left[ \int_0^t\!\!f(\tau) \ensuremath{\...&#10;...}\tau} \right] }= \frac{\ensuremath{ \mathcal{L} \left[ f(t) \right] }}{s} \ . $" 
+      src="Transformadas integrales_archivos/img41.png" width=203 align=middle 
+      border=0> </DIV>
+      <P></P></DIV>
+      <P></P>
+      <P>
+      <P>
+      <DIV><B>Definición 2</SPAN>.11</SPAN></B> (Producto de convolución) &nbsp; 
+      El producto de convolución de dos funciones <SPAN class=MATH><IMG 
+      height=32 alt="$ f$" src="Transformadas integrales_archivos/img42.png" 
+      width=15 align=middle border=0></SPAN> y <SPAN class=MATH><IMG height=30 
+      alt="$ g$" src="Transformadas integrales_archivos/img43.png" width=13 
+      align=middle border=0></SPAN> se define <!-- MATH
+ \begin{displaymath}
+\big( f*g \big)(x)= \int_0^t\!\! f(t-\xi) g(\xi) \ensuremath{\mathrm{d}\xi}\ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=61 
+      alt="$\displaystyle \big( f*g \big)(x)= \int_0^t\!\! f(t-\xi) g(\xi) \ensuremath{\mathrm{d}\xi}\ . $" 
+      src="Transformadas integrales_archivos/img44.png" width=243 align=middle 
+      border=0> </DIV>
+      <P></P>Este producto es asociativo, distributivo respecto la suma y 
+      conmutativo.</DIV>
+      <P></P>
+      <P>
+      <P>
+      <DIV><B>Teorema 2</SPAN>.12</SPAN></B> (Teorema de convolución) &nbsp; Sea 
+<!-- MATH
+ $F(s) = \ensuremath{ \mathcal{L} \left[ f(t) \right] }$
+ --><SPAN 
+      class=MATH><IMG height=34 
+      alt="$ F(s) = \ensuremath{ \mathcal{L} \left[ f(t) \right] }$" 
+      src="Transformadas integrales_archivos/img22.png" width=118 align=middle 
+      border=0></SPAN> y <!-- MATH
+ $G(s) = \ensuremath{ \mathcal{L} \left[ g(t) \right] }$
+ --><SPAN 
+      class=MATH><IMG height=34 
+      alt="$ G(s) = \ensuremath{ \mathcal{L} \left[ g(t) \right] }$" 
+      src="Transformadas integrales_archivos/img45.png" width=117 align=middle 
+      border=0></SPAN>, entonces <!-- MATH
+ \begin{displaymath}
+\ensuremath{ \mathcal{L} \left[ \big(f*g\big) \right] }=\ensuremath{ \mathcal{L} \left[  \int_0^t\!\! f(t-\xi) g(\xi) \ensuremath{\mathrm{d}\xi}  \right] }= F(s) G(s)  \ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=61 
+      alt="$\displaystyle \ensuremath{ \mathcal{L} \left[ \big(f*g\big) \right] }=\ensurema...&#10;...nt_0^t\!\! f(t-\xi) g(\xi) \ensuremath{\mathrm{d}\xi} \right] }= F(s) G(s) \ . $" 
+      src="Transformadas integrales_archivos/img46.png" width=376 align=middle 
+      border=0> </DIV>
+      <P></P></DIV>
+      <P></P>
+      <P>
+      <H2><A name=SECTION00034000000000000000>2</SPAN>.4</SPAN> Transformada de 
+      Laplace inversa</A> </H2>
+      <P>
+      <DIV><B>Teorema 2</SPAN>.13</SPAN></B> (Teorema de Lerch) &nbsp; Sean 
+      <SPAN class=MATH><IMG height=32 alt="$ f$" 
+      src="Transformadas integrales_archivos/img42.png" width=15 align=middle 
+      border=0></SPAN> y <SPAN class=MATH><IMG height=30 alt="$ g$" 
+      src="Transformadas integrales_archivos/img43.png" width=13 align=middle 
+      border=0></SPAN> continuas por partes, ambas de orden exponencial. Si <!-- MATH
+ $\exists s_0$
+ --><SPAN class=MATH><IMG height=32 
+      alt="$ \exists s_0$" src="Transformadas integrales_archivos/img47.png" 
+      width=30 align=middle border=0></SPAN> tal que <!-- MATH
+ $\ensuremath{ \mathcal{L} \left[ f(t) \right] } =
+\ensuremath{ \mathcal{L} \left[ g(t) \right] } \forall s>s_0$
+ --><SPAN 
+      class=MATH><IMG height=34 
+      alt="$ \ensuremath{ \mathcal{L} \left[ f(t) \right] } =&#10;\ensuremath{ \mathcal{L} \left[ g(t) \right] } \forall s>s_0$" 
+      src="Transformadas integrales_archivos/img48.png" width=196 align=middle 
+      border=0></SPAN>, entonces <!-- MATH
+ $f(t) = g(t)$
+ --><SPAN 
+      class=MATH><IMG height=34 alt="$ f(t) = g(t)$" 
+      src="Transformadas integrales_archivos/img49.png" width=87 align=middle 
+      border=0></SPAN> excepto, quizás, en los puntos de discontinuidad. Es 
+      decir, la transformada inversa es única.</DIV>
+      <P></P>
+      <P>Existen diversos métodos para hallar la transformada inversa de una 
+      función: 
+      <UL>
+        <LI><SPAN class=textit>Descomposición en fracciones simples:</SPAN> 
+        Aplicable a funciones racionales polinómicas. Se descompone la función 
+        en fracciones simples, cuya transformada inversa es conocida 
+        (exponenciales, funciones trigonométricas, etc.). 
+        <LI><SPAN class=textit>Teorema de convolución:</SPAN> Aplicable cuando 
+        la función es producto de dos transformadas: <!-- MATH
+ \begin{displaymath}
+\ensuremath{ \mathcal{L}^{-1} \left[ F(s) G(s) \right] }= \int^t_0\!\!f(t-\xi) g(\xi) \ensuremath{\mathrm{d}\xi}\ .
+\end{displaymath}
+ -->
+        <P></P>
+        <DIV class=mathdisplay align=center><IMG height=61 
+        alt="$\displaystyle \ensuremath{ \mathcal{L}^{-1} \left[ F(s) G(s) \right] }= \int^t_0\!\!f(t-\xi) g(\xi) \ensuremath{\mathrm{d}\xi}\ . $" 
+        src="Transformadas integrales_archivos/img50.png" width=281 align=middle 
+        border=0> </DIV>
+        <P></P>
+        <LI><SPAN class=textit>Segundo teorema de traslación:</SPAN> Si <!-- MATH
+ $\theta(t-a)$
+ --><SPAN class=MATH><IMG height=34 
+        alt="$ \theta(t-a)$" src="Transformadas integrales_archivos/img24.png" 
+        width=63 align=middle border=0></SPAN> es la función escalón, tenemos <!-- MATH
+ \begin{displaymath}
+\ensuremath{ \mathcal{L}^{-1} \left[ e^{-as} F(s) \right] }= \theta(t-a) f(t-a)  \ .
+\end{displaymath}
+ -->
+        <P></P>
+        <DIV class=mathdisplay align=center><IMG height=38 
+        alt="$\displaystyle \ensuremath{ \mathcal{L}^{-1} \left[ e^{-as} F(s) \right] }= \theta(t-a) f(t-a) \ . $" 
+        src="Transformadas integrales_archivos/img51.png" width=274 align=middle 
+        border=0> </DIV>
+        <P></P></LI></UL>
+      <P>
+      <P>
+      <DIV><B>Teorema 2</SPAN>.14</SPAN></B> (Formula de la transformada inversa 
+      de Laplace) &nbsp; A través de la transformada de Fourier que veremos más 
+      adelante, podemos encontrar la siguiente formula para encontrar la 
+      transformada inversa de Laplace: <!-- MATH
+ \begin{displaymath}
+\ensuremath{ \mathcal{L}^{-1} \left[ F(s) \right] }= \frac{1}{2\pi i} \int^{c+i\infty}_{c-i\infty}\!\!e^{x s} \ensuremath{ \mathcal{L} \left[ f(x) \right] }\ensuremath{\mathrm{d}s}\ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=62 
+      alt="$\displaystyle \ensuremath{ \mathcal{L}^{-1} \left[ F(s) \right] }= \frac{1}{2\p...&#10;...x s} \ensuremath{ \mathcal{L} \left[ f(x) \right] }\ensuremath{\mathrm{d}s}\ . $" 
+      src="Transformadas integrales_archivos/img52.png" width=300 align=middle 
+      border=0> </DIV>
+      <P></P></DIV>
+      <P></P>
+      <P>
+      <H1><A name=SECTION00040000000000000000>3</SPAN> Transformada de 
+      Fourier</A> </H1>
+      <H2><A name=SECTION00041000000000000000>3</SPAN>.1</SPAN> Integral de 
+      Fourier</A> </H2>Extendiendo las series de Fourier a intervalos infinitos 
+      se puede deducir el siguiente 
+      <P>
+      <DIV><B>Teorema 3</SPAN>.1</SPAN></B> (Teorema integral de Fourier) &nbsp; 
+      Sea <SPAN class=MATH><IMG height=34 alt="$ f(x)$" 
+      src="Transformadas integrales_archivos/img4.png" width=38 align=middle 
+      border=0></SPAN> suave por partes, y absolutamente integrable en el eje 
+      real. Entonces, se cumple: <!-- MATH
+ \begin{displaymath}
+\frac{1}{2} \Big[ f(x^+) + f(x^-) \Big] = \frac{1}{\pi} \int_0^\infty\!\!\left[ \int_{-\infty}^\infty\!\!f(x)
+     \cos\alpha (t-x) \ensuremath{\mathrm{d}t}\right]\ensuremath{\mathrm{d}\alpha}\ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=58 
+      alt="$\displaystyle \frac{1}{2} \Big[ f(x^+) + f(x^-) \Big] = \frac{1}{\pi} \int_0^\i...&#10;...os\alpha (t-x) \ensuremath{\mathrm{d}t}\right]\ensuremath{\mathrm{d}\alpha}\ . $" 
+      src="Transformadas integrales_archivos/img53.png" width=440 align=middle 
+      border=0> </DIV>
+      <P></P>Para funciones pares, se tiene <!-- MATH
+ \begin{displaymath}
+f(x)=f(-x) = \frac{2}{\pi} \int_0^\infty\!\!\cos\alpha x \ensuremath{\mathrm{d}\alpha}\int_0^\infty\!\!f(t) \cos\alpha t \ensuremath{\mathrm{d}t}\ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=56 
+      alt="$\displaystyle f(x)=f(-x) = \frac{2}{\pi} \int_0^\infty\!\!\cos\alpha x \ensurem...&#10;...mathrm{d}\alpha}\int_0^\infty\!\!f(t) \cos\alpha t \ensuremath{\mathrm{d}t}\ . $" 
+      src="Transformadas integrales_archivos/img54.png" width=382 align=middle 
+      border=0> </DIV>
+      <P></P>Para funciones impares, se tiene <!-- MATH
+ \begin{displaymath}
+f(x)=-f(-x) = \frac{2}{\pi} \int_0^\infty\!\!\sin\alpha x \ensuremath{\mathrm{d}\alpha}\int_0^\infty\!\!f(t) \sin\alpha t \ensuremath{\mathrm{d}t}\ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=56 
+      alt="$\displaystyle f(x)=-f(-x) = \frac{2}{\pi} \int_0^\infty\!\!\sin\alpha x \ensure...&#10;...mathrm{d}\alpha}\int_0^\infty\!\!f(t) \sin\alpha t \ensuremath{\mathrm{d}t}\ . $" 
+      src="Transformadas integrales_archivos/img55.png" width=392 align=middle 
+      border=0> </DIV>
+      <P></P></DIV>
+      <P></P>Este teorema se puede escribir de otra manera más similar a las 
+      series de Fourier <!-- MATH
+ \begin{displaymath}
+f(x) =\int_0^\infty\!\Big( A(\alpha)\cos\alpha x + B(\alpha)\sin\alpha x \Big)\ensuremath{\mathrm{d}\alpha}\ ,
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=56 
+      alt="$\displaystyle f(x) =\int_0^\infty\!\Big( A(\alpha)\cos\alpha x + B(\alpha)\sin\alpha x \Big)\ensuremath{\mathrm{d}\alpha}\ , $" 
+      src="Transformadas integrales_archivos/img56.png" width=342 align=middle 
+      border=0> </DIV>
+      <P></P>donde <!-- MATH
+ \begin{displaymath}
+A(\alpha)=\frac{1}{\pi}\int^\infty_{-\infty}f(t)\cos\alpha t\ensuremath{\mathrm{d}t},\quad B(\alpha) =\frac{1}{\pi}
+ \int^\infty_{-\infty}f(t)\sin\alpha t\ensuremath{\mathrm{d}t}\ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=56 
+      alt="$\displaystyle A(\alpha)=\frac{1}{\pi}\int^\infty_{-\infty}f(t)\cos\alpha t\ensu...&#10;...\frac{1}{\pi}&#10;\int^\infty_{-\infty}f(t)\sin\alpha t\ensuremath{\mathrm{d}t}\ . $" 
+      src="Transformadas integrales_archivos/img57.png" width=457 align=middle 
+      border=0> </DIV>
+      <P></P>
+      <P>Otra manera más útil de escribir el teorema Integral de Fourier es: <!-- MATH
+ \begin{displaymath}
+f(x) = \frac{1}{2\pi}\int_{-\infty}^\infty\!\!\left[\int_{-\infty}^\infty\!\!f(t) e^{i\alpha t}\ensuremath{\mathrm{d}t}   \right] e^{-i\alpha x}\ensuremath{\mathrm{d}\alpha}\ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=58 
+      alt="$\displaystyle f(x) = \frac{1}{2\pi}\int_{-\infty}^\infty\!\!\left[\int_{-\infty...&#10;...ensuremath{\mathrm{d}t} \right] e^{-i\alpha x}\ensuremath{\mathrm{d}\alpha}\ . $" 
+      src="Transformadas integrales_archivos/img58.png" width=317 align=middle 
+      border=0> </DIV>
+      <P></P>
+      <P>
+      <H2><A name=SECTION00042000000000000000>3</SPAN>.2</SPAN> Transformada de 
+      Fourier</A> </H2>A partir del teorema integral de Fourier, se puede 
+      definir la transformada de Fourier: 
+      <P>
+      <DIV><B>Definición 3</SPAN>.2</SPAN></B> (Transformada de Fourier) &nbsp; 
+      Sea <SPAN class=MATH><IMG height=34 alt="$ f(x)$" 
+      src="Transformadas integrales_archivos/img4.png" width=38 align=middle 
+      border=0></SPAN> continua, suave y absolutamente integrable en <!-- MATH
+ $(-\infty,\infty)$
+ --><SPAN class=MATH><IMG height=34 
+      alt="$ (-\infty,\infty)$" 
+      src="Transformadas integrales_archivos/img59.png" width=74 align=middle 
+      border=0></SPAN>. La transformada de Fourier <!-- MATH
+ \begin{displaymath}
+\ensuremath{ \mathcal{F} \left[ f(x) \right] }\equiv F(\alpha) \equiv \frac{1}{\sqrt{2\pi}}\int^\infty_{-\infty}\!\!f(t) e^{i\alpha t}\ensuremath{\mathrm{d}t}\ ,
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=56 
+      alt="$\displaystyle \ensuremath{ \mathcal{F} \left[ f(x) \right] }\equiv F(\alpha) \e...&#10;...t{2\pi}}\int^\infty_{-\infty}\!\!f(t) e^{i\alpha t}\ensuremath{\mathrm{d}t}\ , $" 
+      src="Transformadas integrales_archivos/img60.png" width=306 align=middle 
+      border=0> </DIV>
+      <P></P>entonces, <SPAN class=MATH><IMG height=16 alt="$ \forall x$" 
+      src="Transformadas integrales_archivos/img61.png" width=24 align=bottom 
+      border=0></SPAN> <!-- MATH
+ \begin{displaymath}
+\ensuremath{ \mathcal{F}^{-1} \left[ F(\alpha) \right] }= f(x) = \frac{1}{\sqrt{2\pi}}\int^\infty_{-\infty}\!\!F(\alpha)e^{-i\alpha x}\ensuremath{\mathrm{d}\alpha}\ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=56 
+      alt="$\displaystyle \ensuremath{ \mathcal{F}^{-1} \left[ F(\alpha) \right] }= f(x) = ...&#10;...nt^\infty_{-\infty}\!\!F(\alpha)e^{-i\alpha x}\ensuremath{\mathrm{d}\alpha}\ . $" 
+      src="Transformadas integrales_archivos/img62.png" width=351 align=middle 
+      border=0> </DIV>
+      <P></P></DIV>
+      <P></P>
+      <P>De igual manera, podemos definir 
+      <P>
+      <DIV><B>Definición 3</SPAN>.3</SPAN></B> (Transformada de Fourier en seno) 
+      &nbsp; Sea <SPAN class=MATH><IMG height=34 alt="$ f(x)$" 
+      src="Transformadas integrales_archivos/img4.png" width=38 align=middle 
+      border=0></SPAN> continua, suave y absolutamente integrable en <!-- MATH
+ $(0,\infty)$
+ --><SPAN class=MATH><IMG height=34 
+      alt="$ (0,\infty)$" src="Transformadas integrales_archivos/img63.png" 
+      width=52 align=middle border=0></SPAN> extendida impar a <!-- MATH
+ $(-\infty,\infty)$
+ --><SPAN class=MATH><IMG height=34 
+      alt="$ (-\infty,\infty)$" 
+      src="Transformadas integrales_archivos/img59.png" width=74 align=middle 
+      border=0></SPAN>. La transformada de Fourier en seno es <!-- MATH
+ \begin{displaymath}
+\ensuremath{\mathcal{F}_{S}\left[f(x)\right]}\equiv F_S(\alpha) \equiv \frac{1}{\sqrt{2\pi}}\int^\infty_{0}\!\!f(t)\sin\alpha t\ensuremath{\mathrm{d}t}\ ,
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=56 
+      alt="$\displaystyle \ensuremath{\mathcal{F}_{S}\left[f(x)\right]}\equiv F_S(\alpha) \...&#10;...{1}{\sqrt{2\pi}}\int^\infty_{0}\!\!f(t)\sin\alpha t\ensuremath{\mathrm{d}t}\ , $" 
+      src="Transformadas integrales_archivos/img64.png" width=336 align=middle 
+      border=0> </DIV>
+      <P></P>entonces, <SPAN class=MATH><IMG height=16 alt="$ \forall x$" 
+      src="Transformadas integrales_archivos/img61.png" width=24 align=bottom 
+      border=0></SPAN> tenemos <!-- MATH
+ \begin{displaymath}
+\ensuremath{\mathcal{F}^{-1}_{S}\left[F(\alpha)\right]}= f(x) = \sqrt{\frac{2}{\pi}}\int_0^\infty\!\!F_S(\alpha)\sin\alpha t\ensuremath{\mathrm{d}\alpha}\ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=65 
+      alt="$\displaystyle \ensuremath{\mathcal{F}^{-1}_{S}\left[F(\alpha)\right]}= f(x) = \...&#10;...{\pi}}\int_0^\infty\!\!F_S(\alpha)\sin\alpha t\ensuremath{\mathrm{d}\alpha}\ . $" 
+      src="Transformadas integrales_archivos/img65.png" width=354 align=middle 
+      border=0> </DIV>
+      <P></P></DIV>
+      <P></P>
+      <P>
+      <DIV><B>Definición 3</SPAN>.4</SPAN></B> (Transformada de Fourier en 
+      coseno) &nbsp; Sea <SPAN class=MATH><IMG height=34 alt="$ f(x)$" 
+      src="Transformadas integrales_archivos/img4.png" width=38 align=middle 
+      border=0></SPAN> continua, suave y absolutamente integrable en <!-- MATH
+ $(0,\infty)$
+ --><SPAN class=MATH><IMG height=34 
+      alt="$ (0,\infty)$" src="Transformadas integrales_archivos/img63.png" 
+      width=52 align=middle border=0></SPAN> extendida par a <!-- MATH
+ $(-\infty,\infty)$
+ --><SPAN class=MATH><IMG height=34 
+      alt="$ (-\infty,\infty)$" 
+      src="Transformadas integrales_archivos/img59.png" width=74 align=middle 
+      border=0></SPAN>. La transformada de Fourier en coseno es <!-- MATH
+ \begin{displaymath}
+\ensuremath{\mathcal{F}_{C}\left[f(x)\right]}\equiv F_C(\alpha) \equiv \frac{1}{\sqrt{2\pi}}\int^\infty_{0}\!\!f(t)\cos\alpha t\ensuremath{\mathrm{d}t}\ ,
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=56 
+      alt="$\displaystyle \ensuremath{\mathcal{F}_{C}\left[f(x)\right]}\equiv F_C(\alpha) \...&#10;...{1}{\sqrt{2\pi}}\int^\infty_{0}\!\!f(t)\cos\alpha t\ensuremath{\mathrm{d}t}\ , $" 
+      src="Transformadas integrales_archivos/img66.png" width=341 align=middle 
+      border=0> </DIV>
+      <P></P>entonces, <SPAN class=MATH><IMG height=16 alt="$ \forall x$" 
+      src="Transformadas integrales_archivos/img61.png" width=24 align=bottom 
+      border=0></SPAN> tenemos <!-- MATH
+ \begin{displaymath}
+\ensuremath{\mathcal{F}^{-1}_{C}\left[F(\alpha)\right]}= f(x) = \sqrt{\frac{2}{\pi}}\int_0^\infty\!\!F_C(\alpha)\cos\alpha t\ensuremath{\mathrm{d}\alpha}\ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=65 
+      alt="$\displaystyle \ensuremath{\mathcal{F}^{-1}_{C}\left[F(\alpha)\right]}= f(x) = \...&#10;...{\pi}}\int_0^\infty\!\!F_C(\alpha)\cos\alpha t\ensuremath{\mathrm{d}\alpha}\ . $" 
+      src="Transformadas integrales_archivos/img67.png" width=357 align=middle 
+      border=0> </DIV>
+      <P></P></DIV>
+      <P></P>
+      <P>
+      <H2><A name=SECTION00043000000000000000>3</SPAN>.3</SPAN> Propiedades de 
+      la transformada de Fourier</A> </H2>Los siguientes teoremas, expresan las 
+      propiedades más útiles de la transformada de Fourier. 
+      <P>
+      <P>
+      <DIV><B>Teorema 3</SPAN>.5</SPAN></B> (Teorema de linealidad) &nbsp; Para 
+      todo par de funciones, cuyas transformadas de Fourier existan, y <!-- MATH
+ $\forall a,b\in\mathbb{R}$
+ --><SPAN class=MATH><IMG height=32 
+      alt="$ \forall a,b\in\mathbb{R}$" 
+      src="Transformadas integrales_archivos/img68.png" width=72 align=middle 
+      border=0></SPAN>, entonces <!-- MATH
+ \begin{displaymath}
+\ensuremath{ \mathcal{F} \left[ a f(x) + b g(x) \right] }= a \ensuremath{ \mathcal{F} \left[ f(x) \right] }+ b \ensuremath{ \mathcal{F} \left[ g(x) \right] }\ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=34 
+      alt="$\displaystyle \ensuremath{ \mathcal{F} \left[ a f(x) + b g(x) \right] }= a \ens...&#10;...{F} \left[ f(x) \right] }+ b \ensuremath{ \mathcal{F} \left[ g(x) \right] }\ . $" 
+      src="Transformadas integrales_archivos/img69.png" width=330 align=middle 
+      border=0> </DIV>
+      <P></P></DIV>
+      <P></P>
+      <P>
+      <P>
+      <DIV><B>Teorema 3</SPAN>.6</SPAN></B> (Teorema de traslación) &nbsp; Para 
+      toda función cuya transformada de Fourier existe, si <!-- MATH
+ $c\in\mathbb{R}$
+ --><SPAN class=MATH><IMG height=32 
+      alt="$ c\in\mathbb{R}$" src="Transformadas integrales_archivos/img70.png" 
+      width=46 align=middle border=0></SPAN>, entonces <!-- MATH
+ \begin{displaymath}
+\ensuremath{ \mathcal{F} \left[ f(t-c) \right] }= e^{i\alpha c}\ensuremath{ \mathcal{F} \left[ f(t) \right] }\ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=39 
+      alt="$\displaystyle \ensuremath{ \mathcal{F} \left[ f(t-c) \right] }= e^{i\alpha c}\ensuremath{ \mathcal{F} \left[ f(t) \right] }\ . $" 
+      src="Transformadas integrales_archivos/img71.png" width=212 align=middle 
+      border=0> </DIV>
+      <P></P></DIV>
+      <P></P>
+      <P>
+      <P>
+      <DIV><B>Teorema 3</SPAN>.7</SPAN></B> (Teorema de escala) &nbsp; Para toda 
+      función cuya transformada de Fourier existe <!-- MATH
+ $F(\alpha)=\ensuremath{ \mathcal{F} \left[ f(t) \right] }$
+ --><SPAN 
+      class=MATH><IMG height=34 
+      alt="$ F(\alpha)=\ensuremath{ \mathcal{F} \left[ f(t) \right] }$" 
+      src="Transformadas integrales_archivos/img72.png" width=123 align=middle 
+      border=0></SPAN>, si <!-- MATH
+ $c\in\mathbb{R}$
+ --><SPAN class=MATH><IMG 
+      height=32 alt="$ c\in\mathbb{R}$" 
+      src="Transformadas integrales_archivos/img70.png" width=46 align=middle 
+      border=0></SPAN>, entonces <!-- MATH
+ \begin{displaymath}
+\ensuremath{ \mathcal{F} \left[ f(ct) \right] }= \frac{1}{|c|} F(\frac{\alpha}{c}) \ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=54 
+      alt="$\displaystyle \ensuremath{ \mathcal{F} \left[ f(ct) \right] }= \frac{1}{\vert c\vert} F(\frac{\alpha}{c}) \ . $" 
+      src="Transformadas integrales_archivos/img73.png" width=166 align=middle 
+      border=0> </DIV>
+      <P></P></DIV>
+      <P></P>
+      <P>
+      <P>
+      <DIV><B>Teorema 3</SPAN>.8</SPAN></B> (Teorema de diferenciación) &nbsp; 
+      Sea <SPAN class=MATH><IMG height=34 alt="$ f(x)$" 
+      src="Transformadas integrales_archivos/img4.png" width=38 align=middle 
+      border=0></SPAN> continua y suave por partes en todo el eje real. Sea 
+      <SPAN class=MATH><IMG height=34 alt="$ f(x)\to 0$" 
+      src="Transformadas integrales_archivos/img74.png" width=74 align=middle 
+      border=0></SPAN> si <!-- MATH
+ $|x|\to \infty$
+ --><SPAN class=MATH><IMG 
+      height=34 alt="$ \vert x\vert\to \infty$" 
+      src="Transformadas integrales_archivos/img75.png" width=69 align=middle 
+      border=0></SPAN>. Sean <SPAN class=MATH><IMG height=34 alt="$ f(x)$" 
+      src="Transformadas integrales_archivos/img4.png" width=38 align=middle 
+      border=0></SPAN> y <SPAN class=MATH><IMG height=34 alt="$ f'(x)$" 
+      src="Transformadas integrales_archivos/img76.png" width=43 align=middle 
+      border=0></SPAN> absolutamente integrables para todo x. Entonces <!-- MATH
+ \begin{displaymath}
+\ensuremath{ \mathcal{F} \left[ f'(x) \right] }= - i \alpha \ensuremath{ \mathcal{F} \left[ f(x) \right] }\ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=37 
+      alt="$\displaystyle \ensuremath{ \mathcal{F} \left[ f'(x) \right] }= - i \alpha \ensuremath{ \mathcal{F} \left[ f(x) \right] }\ . $" 
+      src="Transformadas integrales_archivos/img77.png" width=203 align=middle 
+      border=0> </DIV>
+      <P></P></DIV>
+      <P></P>
+      <P>En general, si las derivadas sucesivas cumplen las condiciones, tenemos 
+<!-- MATH
+ \begin{displaymath}
+\ensuremath{ \mathcal{F} \left[ f^{(n)}(x) \right] }= (-i\alpha)^n \ensuremath{ \mathcal{F} \left[ f(x) \right] }\ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=48 
+      alt="$\displaystyle \ensuremath{ \mathcal{F} \left[ f^{(n)}(x) \right] }= (-i\alpha)^n \ensuremath{ \mathcal{F} \left[ f(x) \right] }\ . $" 
+      src="Transformadas integrales_archivos/img78.png" width=242 align=middle 
+      border=0> </DIV>
+      <P></P>
+      <P>Si <!-- MATH
+ $u = u(x,y)$
+ --><SPAN class=MATH><IMG height=34 
+      alt="$ u = u(x,y)$" src="Transformadas integrales_archivos/img79.png" 
+      width=88 align=middle border=0></SPAN> es una función de varias variables, 
+      entonces podemos generalizar el resultado anterior: <!-- MATH
+ \begin{displaymath}
+\ensuremath{ \mathcal{F} \left[ \frac{\partial^{n+m} u(x,y)}{\partial x^n \partial y^m} \right] }= (-i\alpha)^n \frac{\partial^m}{\partial x^m}
+   \ensuremath{ \mathcal{F} \left[ f(x) \right] }\ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=59 
+      alt="$\displaystyle \ensuremath{ \mathcal{F} \left[ \frac{\partial^{n+m} u(x,y)}{\par...&#10;...ac{\partial^m}{\partial x^m}&#10;\ensuremath{ \mathcal{F} \left[ f(x) \right] }\ . $" 
+      src="Transformadas integrales_archivos/img80.png" width=324 align=middle 
+      border=0> </DIV>
+      <P></P>
+      <P>
+      <P>
+      <DIV><B>Definición 3</SPAN>.9</SPAN></B> (Producto de convolución) &nbsp; 
+      Sean un par de funciones <SPAN class=MATH><IMG height=34 alt="$ f(x)$" 
+      src="Transformadas integrales_archivos/img4.png" width=38 align=middle 
+      border=0></SPAN> y <SPAN class=MATH><IMG height=34 alt="$ g(x)$" 
+      src="Transformadas integrales_archivos/img81.png" width=37 align=middle 
+      border=0></SPAN>. El producto de convolución se define mediante la 
+      integral <!-- MATH
+ \begin{displaymath}
+(f*g)(x) \equiv \frac{1}{\sqrt{2\pi}}\int^\infty_{-\infty}\!\!f(x-\xi) f(\xi)\ensuremath{\mathrm{d}\xi}\ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=56 
+      alt="$\displaystyle (f*g)(x) \equiv \frac{1}{\sqrt{2\pi}}\int^\infty_{-\infty}\!\!f(x-\xi) f(\xi)\ensuremath{\mathrm{d}\xi}\ . $" 
+      src="Transformadas integrales_archivos/img82.png" width=297 align=middle 
+      border=0> </DIV>
+      <P></P></DIV>
+      <P></P>
+      <P>
+      <P>
+      <DIV><B>Teorema 3</SPAN>.10</SPAN></B> (Teorema de convolución) &nbsp; Sea 
+      un par de funciones tal que su producto de convolución existe. Entonces, 
+      se cumple <!-- MATH
+ \begin{displaymath}
+\ensuremath{ \mathcal{F} \left[ (f*g)(x) \right] }= \ensuremath{ \mathcal{F} \left[ f(x) \right] }\ensuremath{ \mathcal{F} \left[ g(x) \right] }\ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=34 
+      alt="$\displaystyle \ensuremath{ \mathcal{F} \left[ (f*g)(x) \right] }= \ensuremath{ ...&#10;...hcal{F} \left[ f(x) \right] }\ensuremath{ \mathcal{F} \left[ g(x) \right] }\ . $" 
+      src="Transformadas integrales_archivos/img83.png" width=264 align=middle 
+      border=0> </DIV>
+      <P></P>O lo que es lo mismo <!-- MATH
+ \begin{displaymath}
+\ensuremath{ \mathcal{F}^{-1} \left[ F(\alpha) G(\alpha) \right] }= (f*g)(x) = \frac{1}{\sqrt{2\pi}}\int^\infty_{-\infty}\!\!f(x-\xi) f(\xi)\ensuremath{\mathrm{d}\xi}\ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=56 
+      alt="$\displaystyle \ensuremath{ \mathcal{F}^{-1} \left[ F(\alpha) G(\alpha) \right] ...&#10;...rt{2\pi}}\int^\infty_{-\infty}\!\!f(x-\xi) f(\xi)\ensuremath{\mathrm{d}\xi}\ . $" 
+      src="Transformadas integrales_archivos/img84.png" width=442 align=middle 
+      border=0> </DIV>
+      <P></P></DIV>
+      <P></P>
+      <P>
+      <P>
+      <DIV><B>Teorema 3</SPAN>.11</SPAN></B> (Teorema de Parseval) &nbsp; Para 
+      toda función <SPAN class=MATH><IMG height=34 alt="$ f(x)$" 
+      src="Transformadas integrales_archivos/img4.png" width=38 align=middle 
+      border=0></SPAN> tal que existe su transformada de Fourier <!-- MATH
+ $F(\alpha) = \ensuremath{ \mathcal{F} \left[ f(x) \right] }$
+ --><SPAN 
+      class=MATH><IMG height=34 
+      alt="$ F(\alpha) = \ensuremath{ \mathcal{F} \left[ f(x) \right] }$" 
+      src="Transformadas integrales_archivos/img85.png" width=127 align=middle 
+      border=0></SPAN>, se cumple <!-- MATH
+ \begin{displaymath}
+\int^\infty_{-\infty}\!\!\Big| f(x) \Big|^2\ensuremath{\mathrm{d}x}= \int^\infty_{-\infty}\!\!\Big| F(\alpha) \Big|^2 \ensuremath{\mathrm{d}\alpha}\ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=56 
+      alt="$\displaystyle \int^\infty_{-\infty}\!\!\Big\vert f(x) \Big\vert^2\ensuremath{\m...&#10;..._{-\infty}\!\!\Big\vert F(\alpha) \Big\vert^2 \ensuremath{\mathrm{d}\alpha}\ . $" 
+      src="Transformadas integrales_archivos/img86.png" width=253 align=middle 
+      border=0> </DIV>
+      <P></P></DIV>
+      <P></P>
+      <P>
+      <H2><A name=SECTION00044000000000000000>3</SPAN>.4</SPAN> Transformada de 
+      Fourier de las funciones escalón, impulso y delta de Dirac</A> </H2>A 
+      partir de la semejanza entre la definición de la función delta de Dirac <!-- MATH
+ \begin{displaymath}
+\int^\infty_{-\infty}\!\!\!\delta(x-a)f(x)\ensuremath{\mathrm{d}x}= f(a)  \ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=56 
+      alt="$\displaystyle \int^\infty_{-\infty}\!\!\!\delta(x-a)f(x)\ensuremath{\mathrm{d}x}= f(a) \ . $" 
+      src="Transformadas integrales_archivos/img87.png" width=216 align=middle 
+      border=0> </DIV>
+      <P></P>y el teorema integral de Fourier podemos encontrar una 
+      representación para la delta de Dirac: <!-- MATH
+ \begin{displaymath}
+\delta(t-x) = \frac{1}{2\pi} \int^\infty_{-\infty}\!\!e^{i\alpha(t-x)}\ensuremath{\mathrm{d}\alpha}\ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=56 
+      alt="$\displaystyle \delta(t-x) = \frac{1}{2\pi} \int^\infty_{-\infty}\!\!e^{i\alpha(t-x)}\ensuremath{\mathrm{d}\alpha}\ . $" 
+      src="Transformadas integrales_archivos/img88.png" width=232 align=middle 
+      border=0> </DIV>
+      <P></P>
+      <P>Otra representación posible es el límite de una sucesión de campanas 
+      gaussianas <!-- MATH
+ \begin{displaymath}
+\delta(t-\xi) = \lim_{t\to 0^+} \frac{1}{2\sqrt{\pi k t}}\ e^{-\frac{(x-\xi)}{4kt}} \ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=54 
+      alt="$\displaystyle \delta(t-\xi) = \lim_{t\to 0^+} \frac{1}{2\sqrt{\pi k t}}\ e^{-\frac{(x-\xi)}{4kt}} \ . $" 
+      src="Transformadas integrales_archivos/img89.png" width=247 align=middle 
+      border=0> </DIV>
+      <P></P>
+      <P>Otra representación de la delta es el límite la función impulso <!-- MATH
+ \begin{displaymath}
+p_\epsilon = \left\{
+  \begin{array}{ll}
+   h & a-\epsilon < x <a+\epsilon \\
+   0 & x \le a-\epsilon; x \ge a+\epsilon
+  \end{array} \right.  \ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=60 
+      alt="$\displaystyle p_\epsilon = \left\{&#10;\begin{array}{ll}&#10;h &amp; a-\epsilon < x <a+\epsilon \\&#10;0 &amp; x \le a-\epsilon; x \ge a+\epsilon&#10;\end{array} \right. \ . $" 
+      src="Transformadas integrales_archivos/img90.png" width=262 align=middle 
+      border=0> </DIV>
+      <P></P>la transformada de Fourier de esta función se puede calcular <!-- MATH
+ \begin{displaymath}
+\ensuremath{ \mathcal{F} \left[ p_\epsilon(x) \right] }= \frac{2 h\epsilon}{\sqrt{2\pi}}\,e^{i\alpha a} \frac{\sin \alpha\epsilon}{\alpha\epsilon} \ ,
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=56 
+      alt="$\displaystyle \ensuremath{ \mathcal{F} \left[ p_\epsilon(x) \right] }= \frac{2 ...&#10;...on}{\sqrt{2\pi}}\,e^{i\alpha a} \frac{\sin \alpha\epsilon}{\alpha\epsilon} \ , $" 
+      src="Transformadas integrales_archivos/img91.png" width=220 align=middle 
+      border=0> </DIV>
+      <P></P>tomando <!-- MATH
+ $h=\frac{1}{2\epsilon}$
+ --><SPAN 
+      class=MATH><IMG height=38 alt="$ h=\frac{1}{2\epsilon}$" 
+      src="Transformadas integrales_archivos/img92.png" width=54 align=middle 
+      border=0></SPAN>, la integral a todo el eje real de la función impulso es 
+      la unidad. Así, pues, podemos representar la delta de Dirac mediante el 
+      límite <!-- MATH
+ \begin{displaymath}
+\delta(x-a) = \lim_{\epsilon\to 0} p_\epsilon(x)  \ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=34 
+      alt="$\displaystyle \delta(x-a) = \lim_{\epsilon\to 0} p_\epsilon(x) \ . $" 
+      src="Transformadas integrales_archivos/img93.png" width=168 align=middle 
+      border=0> </DIV>
+      <P></P>Así, pues, podemos definir la transformada de Fourier de la función 
+      de Dirac se puede definir mediante el límite de dicha función: <!-- MATH
+ \begin{displaymath}
+\ensuremath{ \mathcal{F} \left[ \delta(x-a) \right] }= \lim_{\epsilon\to 0}\ensuremath{ \mathcal{F} \left[ p_\epsilon(x) \right] }= \frac{1}{\sqrt{2\pi}}\ e^{ia\alpha}  \ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=54 
+      alt="$\displaystyle \ensuremath{ \mathcal{F} \left[ \delta(x-a) \right] }= \lim_{\eps...&#10;...cal{F} \left[ p_\epsilon(x) \right] }= \frac{1}{\sqrt{2\pi}}\ e^{ia\alpha} \ . $" 
+      src="Transformadas integrales_archivos/img94.png" width=318 align=middle 
+      border=0> </DIV>
+      <P></P>
+      <P>Por otra parte, en aplicar la definición habitual de la transformada de 
+      Fourier a la función escalón <!-- MATH
+ \begin{displaymath}
+\theta(x-a) = \left\{
+  \begin{array}{ll}
+   0 & x<a \\
+   1 & x>a
+  \end{array} \right.  \ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=60 
+      alt="$\displaystyle \theta(x-a) = \left\{&#10;\begin{array}{ll}&#10;0 &amp; x<a \\&#10;1 &amp; x>a&#10;\end{array} \right. \ . $" 
+      src="Transformadas integrales_archivos/img95.png" width=202 align=middle 
+      border=0> </DIV>
+      <P></P>se encuentra que el resultado no existe, pero se puede definir a 
+      partir del límite <!-- MATH
+ \begin{displaymath}
+\ensuremath{ \mathcal{F} \left[ \theta(x-a) \right] }= \lim_{\beta\to 0}\ensuremath{ \mathcal{F} \left[ \theta(x-a) e^{-\beta x} \right] }= \frac{i e^{i\alpha a}}{\sqrt{2\pi} \alpha} \ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=61 
+      alt="$\displaystyle \ensuremath{ \mathcal{F} \left[ \theta(x-a) \right] }= \lim_{\bet...&#10;...ta(x-a) e^{-\beta x} \right] }= \frac{i e^{i\alpha a}}{\sqrt{2\pi} \alpha} \ . $" 
+      src="Transformadas integrales_archivos/img96.png" width=363 align=middle 
+      border=0> </DIV>
+      <P></P>
+      <P>
+      <H2><A name=SECTION00045000000000000000>3</SPAN>.5</SPAN> Diferenciación 
+      de las transformadas de seno y coseno</A> </H2>Para las transformadas de 
+      Fourier existen teoremas de diferenciación análogos a los generales. 
+      <P>
+      <DIV><B>Teorema 3</SPAN>.12</SPAN></B> (Diferenciación mediante la 
+      transformada de Fourier en coseno) &nbsp; Sea <SPAN class=MATH><IMG 
+      height=34 alt="$ f(x)$" src="Transformadas integrales_archivos/img4.png" 
+      width=38 align=middle border=0></SPAN> y <SPAN class=MATH><IMG height=34 
+      alt="$ f'(x)$" src="Transformadas integrales_archivos/img76.png" width=43 
+      align=middle border=0></SPAN> que se anulan en <!-- MATH
+ $x\to \infty$
+ --><SPAN class=MATH><IMG height=16 
+      alt="$ x\to \infty$" src="Transformadas integrales_archivos/img97.png" 
+      width=59 align=bottom border=0></SPAN>. Entonces, se cumple <!-- MATH
+ \begin{displaymath}
+\ensuremath{\mathcal{F}_{c}\left[f''(x)\right]}= -\alpha^2 F_C(\alpha) - \sqrt{\frac{2}{\pi}} f'(0)  \ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=65 
+      alt="$\displaystyle \ensuremath{\mathcal{F}_{c}\left[f''(x)\right]}= -\alpha^2 F_C(\alpha) - \sqrt{\frac{2}{\pi}} f'(0) \ . $" 
+      src="Transformadas integrales_archivos/img98.png" width=287 align=middle 
+      border=0> </DIV>
+      <P></P></DIV>
+      <P></P>
+      <P>
+      <P>
+      <DIV><B>Teorema 3</SPAN>.13</SPAN></B> (Diferenciación mediante la 
+      transformada de Fourier en seno) &nbsp; Sea <SPAN class=MATH><IMG 
+      height=34 alt="$ f(x)$" src="Transformadas integrales_archivos/img4.png" 
+      width=38 align=middle border=0></SPAN> y <SPAN class=MATH><IMG height=34 
+      alt="$ f'(x)$" src="Transformadas integrales_archivos/img76.png" width=43 
+      align=middle border=0></SPAN> que se anulan en <!-- MATH
+ $x\to \infty$
+ --><SPAN class=MATH><IMG height=16 
+      alt="$ x\to \infty$" src="Transformadas integrales_archivos/img97.png" 
+      width=59 align=bottom border=0></SPAN>. Entonces, se cumple <!-- MATH
+ \begin{displaymath}
+\ensuremath{\mathcal{F}_{s}\left[f''(x)\right]}= \sqrt{\frac{2}{\pi}} f(0) - \alpha^2 F_S(\alpha)  \ .
+\end{displaymath}
+ -->
+      <P></P>
+      <DIV class=mathdisplay align=center><IMG height=65 
+      alt="$\displaystyle \ensuremath{\mathcal{F}_{s}\left[f''(x)\right]}= \sqrt{\frac{2}{\pi}} f(0) - \alpha^2 F_S(\alpha) \ . $" 
+      src="Transformadas integrales_archivos/img99.png" width=268 align=middle 
+      border=0> </DIV>
+      <P></P></DIV>
+      <P></P>
+      <P><BR>
+      <P style="TEXT-ALIGN: center">
+      <TABLE width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD>
+            <HR>
+          </TD>
+          <TD width=24>
+            <DIV style="TEXT-ALIGN: right"><A 
+            href="http://fisica.urbenalia.com/apuntsmat/trans/?selact=3#arriba"><IMG 
+            height=24 alt=Arriba src="Transformadas integrales_archivos/up.gif" 
+            width=24 border=0></A> </DIV></TD></TR></TBODY></TABLE><A 
+      href="http://fisica.urbenalia.com/index.php"><IMG 
+      style="BORDER-RIGHT: 0px solid; BORDER-TOP: 0px solid; BORDER-LEFT: 0px solid; BORDER-BOTTOM: 0px solid" 
+      alt=Volver src="Transformadas integrales_archivos/home.gif"></A> 
+    <BR></P></TD></TR></TBODY></TABLE>
+<DIV style="FONT-SIZE: x-small; TEXT-ALIGN: right">© 2003, canal#fisica <BR><A 
+href="mailto:canal@fisica.urbenalia.com">canal@fisica.urbenalia.com</A><BR><A 
+href="http://fisica.urbenalia.com/quees/creditos.php?selact=3">créditos</A> 
+</DIV>
+<P>
+<H1><A name=SECTION00050000000000000000>About this document ...</A> 
+</H1><STRONG><B>Transformadas integrales</B></STRONG>
+<P>This document was generated using the <A 
+href="http://www.latex2html.org/"><STRONG>LaTeX</STRONG>2<TT>HTML</TT></A> 
+translator Version 2002 (1.62) 
+<P>Copyright © 1993, 1994, 1995, 1996, <A 
+href="http://cbl.leeds.ac.uk/nikos/personal.html">Nikos Drakos</A>, Computer 
+Based Learning Unit, University of Leeds. <BR>Copyright © 1997, 1998, 1999, <A 
+href="http://www.maths.mq.edu.au/~ross/">Ross Moore</A>, Mathematics Department, 
+Macquarie University, Sydney. 
+<P>The command line arguments were: <BR><STRONG>latex2html</STRONG> 
+<TT>-html_version 4.0 -no_navigation -split 0 -show_section_numbers 
+trans.tex</TT> 
+<P>The translation was initiated by pod on 2003-07-25 <BR>
+<HR>
+
+<ADDRESS>pod 2003-07-25 </ADDRESS></BODY></HTML>

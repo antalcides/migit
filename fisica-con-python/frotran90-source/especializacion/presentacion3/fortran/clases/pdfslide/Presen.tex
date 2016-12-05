@@ -1,0 +1,1074 @@
+\documentclass[letter]{article}
+\usepackage[pdftex]{graphicx}
+\usepackage[ansinew]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsbsy}
+\usepackage{amssymb}
+\usepackage[spanish]{babel}
+\usepackage{float}
+\usepackage{fixseminar}
+\usepackage[display]{texpower}
+%\usepackage[contnav]{pdfslide}
+\usepackage[ams]{pdfslide}
+\newtheorem{obs}{Observaci{\'o}n}
+\newtheorem{cor}{Corolario}
+\newtheorem{theo}{Teorema}
+\newtheorem{Not}{Nota}
+\newtheorem{Def}{Definici{\'o}n}
+\newtheorem{lem}{Lema}
+\newtheorem{Prop}{Proposici{\'o}n}
+\pagestyle{title}
+\begin{document}
+\orgname{Existencia, Perturbaci{\'o}n y Anulaci{\'o}n de Soluciones
+Peri{\'o}dicas en un Sistema de Ecuaciones Diferenciales en el
+Espacio}
+\title{Departament de Matem{\`a}tiques}
+\author{\scalebox{1}[1.0]{\emph{\textbf{ Jorge ~L.~Rodr{\'\i}guez ~C.} } }}
+\address{Memoria presentada para optar al t{\'\i}tulo de Doctor\\
+{\realfootnotesize {por la UAB }}} \overlay{azur.jpg} \maketitle
+\pagedissolve{Wipe /D 2 /Dm /V /M /O} %\overlay{Overlay1.jpg}
+\overlay{blanco1.png}
+%\sffamily \Large
+\color{section0} \headskip=20pt
+\section{Introducci{\'o}n}
+%\pagedissolve{Wipe /D 2 /Di /V /M /O} \overlay{blanco1.png} \large
+%\color{section2}
+%\color{section1}
+\color{black} {\bf\Large{El Problema}}:\quad {\bf\Large{Origen}}
+\\
+El problema objeto de nuestra investigaci{\'o}n est{\'a} expuesto en el
+libro de J. K. Hale[48] y tiene su origen en una Tesis de Maestr{\'\i}a
+presentada en la Facultad de Ingenier{\'\i}a Mec{\'a}nica en la Universidad
+de Purdue, cuyo autor es Boyer, R. C., y titulada Sinusoidal
+Signal Stabilization (Febrero de 1960).
+\\
+Se trata de una extinci{\'o}n de oscilaciones de una ecuaci{\'o}n
+diferencial  de tercer orden, por medio de la introducci{\'o}n de una
+perturbaci{\'o}n peri{\'o}dica de amplitud y frecuencias suficientemente
+grandes.
+\\
+Tal como expone Hale, Boyer considera la ecuaci{\'o}n diferencial de
+tercer orden
+\begin{equation}\label{Ia5}
+\dddot{x}+2\ddot{x}+\dot{x}+Kf(x)=0
+\end{equation}
+donde $f(x)$ es dada en la Fig \ref{figI1}.
+\\
+\begin{figure}[h]
+\centering
+\includegraphics[height=7cm]{fig1.png}
+\caption{Gr{\'a}fico de $f(x)$} \label{figI1}
+\end{figure}
+El sistema \ref{Ia5} para algunos valores de $K$ tiene una
+oscilaci{\'o}n auto-excitada la cual es asint{\'o}ticamente estable, y el
+problema es tratar de anular esta oscilaci{\'o}n reemplazando $f(x)$
+por $f(x+B\sin\omega t) $ y escogiendo $B$ y $\omega$ grandes.
+\begin{center}
+\begin{tabular}{l|l|l}\hline
+\multicolumn{3}{c}{Tabla de valores}\\\hline $K$&$B$&Amplitud de
+Oscilaci{\'o}n
+\\\hline
+2&0&13.2\\
+&5&12.2\\
+&7&10.0\\
+&7.5&8.6\\
+&8&0.00\\
+&10&0.00\\
+4&0&26.4\\
+& 5& 26.3\\
+&10&25.5\\
+&15& 23.0\\
+&15.5& 22.0\\
+& 16 & 21.0\\
+& 17 & 0.00\\
+& 20& 0.00
+\end{tabular}
+\end{center}
+Los resultados de Boyer est{\'a}n dados en la tabla con $b=10$, $a=5$
+en Figura \ref{figI1}, y $\omega$ escogido al menos veinte veces
+la frecuencia de la oscilaci{\'o}n auto excitada de (\ref{Ia5}).
+\\
+\\
+Se debe entender que superpuesta a las oscilaciones que da la
+tabla \-existen oscilaciones de amplitud muy peque{\~n}a, de
+frecuencia $\omega$. No hemos tenido la oportunidad de consultar
+directamente el trabajo de Boyer, por lo cual nos hemos apoyado en
+el tratamiento de {\'e}l que Hale en su libro [48], y en el que se
+dice "Para explicar este fen{\'o}meno Boyer utiliz{\'o} el m{\'e}todo de las
+funciones descriptoras, para analizar el sistema promediado
+\begin{equation}\label{Simo81}
+\dddot{x}+2\ddot{x}+\dot{x}+Kf_0(x,B)=0
+\end{equation}
+donde
+\begin{equation}\label{Simo7}
+f_0(x,B)=\displaystyle{\frac{1}{2\pi}}\int_0^{2\pi}
+f(x+B\sin\tau)\quad d\tau\quad"
+\end{equation}
+El m{\'e}todo de las funciones descriptoras, seg{\'u}n el mismo Hale, es
+un procedimiento gr{\'a}fico que no esta justificado rigurosamente.
+\begin{figure}[h]
+\centering
+\includegraphics[height=6cm]{fig2.png}
+\caption{Funci{\'o}n Promedio} \label{figura2}
+\end{figure}
+\\
+\\
+{\bf\Large{Objetivos}}
+\\
+Para dar una explicaci{\'o}n al fen{\'o}meno de extinci{\'o}n de oscilaciones
+que presenta el ejemplo de Boyer, investigamos en este trabajo una
+familia de ecuaciones diferenciales de tercer orden, o
+equivalentemente de sistemas din{\'a}micos en dimensi{\'o}n 3, que lo
+incluyen. No se ha podido probar que existe una {\'o}rbita peri{\'o}dica
+atractora, por lo que nos hemos tenido que conformar con una
+{\'o}rbita peri{\'o}dica que pueda estar inmersa en un atractor
+oscilatorio m{\'a}s complicado, pero cuyas oscilaciones tienen una
+amplitud mayor que cierto valor calculable. Se ha podido
+establecer que con una perturbaci{\'o}n peri{\'o}dica de suficientemente
+amplitud y frecuencia, todas las soluciones tienden a un entorno
+de $\mathbf{0}$ tan peque{\~n}o como se quiera, con lo cual las
+oscilaciones, que las hay, tienen una amplitud menor que una
+$\epsilon$ predeterminada, y en este sentido podemos decir que
+hemos extinguido las oscilaciones originales.
+\\
+\emph{Dada la ecuaci{\'o}n diferencial
+$$\dddot{x}+a\ddot{x}+b\dot{x}+f(x)=0$$
+o el Sistema Diferencial equivalente
+\\
+\begin{equation}\label{obt1}
+\begin{array}{lcl}
+\dot{x}&=& y\\&&\\ \dot{y}&=&z\\&&\\
+\dot{z}&=&-az-by-f(x)
+\end{array}
+\end{equation}
+con $a>0$, $b>0$, $f$ Lipschitz, no nula,  no decreciente, $f'$
+continua en un entorno de {\bf 0}, $f'(0)=c>0$, existe $C>0$ tal
+que $|f(x)|<C$ para toda $x$, $\frac{|f(x)|}{|x|}<C$ para todo
+$x\in (0,1)$.\\
+\begin{figure}[h]
+\centering
+\includegraphics[height=6cm]{fig3.png}
+\caption{Funci{\'o}n Lipschitz} \label{figura3}
+\end{figure}
+Queremos ver que
+\\
+\begin{enumerate}
+\item[a)]Si $ab>c>0$ y $a>0$ y $f'(x)<ab$ para toda $x$, entonces
+la soluci{\'o}n trivial es globalmente asint{\'o}ticamente estable
+\item[b)]Si $ab<c$ y $a^2> 4b$, entonces existe un atractor
+oscilatorio de gran amplitud que contiene (o consiste de) una
+{\'o}rbita peri{\'o}dica. En el caso que $a^2\leq 4b$ tenemos que todas
+las {\'o}rbitas excepto las dos que tienden al origen oscilan, pero no
+podemos asegurar que existe una {\'o}rbita peri{\'o}dica.
+\end{enumerate}}
+Igualmente se busca  estudiar, el  efecto que causa para el caso
+b) el introducir una funci{\'o}n  sinusoidal gran amplitud y  de alta
+frecuencia, de manera que $f(x)$ queda sustituida por
+$f(x+B\sin\omega t)$.
+\\
+Nuestra meta es demostrar la siguiente afirmaci{\'o}n:
+\\
+\emph{En el caso b), si $f(-x)=-f(x)$ y si  B y la frecuencia
+$\omega$ son suficientemente grandes, las soluciones del sistema
+perturbado tienden a una vecindad del origen O tan peque{\~n}a como
+querramos. En este caso el sistema perturbado ya no mantiene las
+oscilaciones de amplitud re\-lativamente grande que presenta el
+sistema aut{\'o}nomo. En este sentido podemos decir que se han
+extinguido estas {\'u}ltimas oscilaciones. }
+\\
+\\
+{\bf\Large{Antecedentes}}
+\\
+Se conocen numerosos trabajos acerca de la existencia de
+soluciones peri{\'o}dicas para la ecuaci{\'o}n de tercer grado no
+aut{\'o}noma, por ejemplo J. O. Ezeilo [35], [36], Rolf Reissig [81],
+[82], [83] entre otros; mientras en el caso aut{\'o}nomo encontramos
+poca investigaci{\'o}n sobre este tema: Rauch, L. L. [77], J. O.
+Ezeilo [28].
+\\
+\\
+En  la segunda parte de este trabajo de investigaci{\'o}n, a pesar de
+las ideas interesantes propuestas por Jack Hale, no  fue posible
+utilizar el Teorema 16.2 de [48] debido a la imposibilidad de
+probar la existencia de ciclo l{\'\i}mite asint{\'o}ticamente estable, sino
+que nos tenemos que conformar con un comportamiento oscilatorio de
+gran amplitud, con un atractor que contiene al menos una {\'o}rbita
+peri{\'o}dica.
+\\
+\\
+{\bf\Large{Resumen}}
+\\
+\\
+{\bf Cap{\'\i}tulo 1}.  Se establece el tipo del punto de equilibrio en
+t{\'e}rminos de los par{\'a}metros $a$, $b$ y $c$, y se reduce  el sistema
+a una forma normal mediante un cambio lineal de coordenadas.
+\\
+\\
+{\bf Cap{\'\i}tulo 2}. Se prueba que si $f'(x)<ab$ para toda $x$,
+entonces las soluciones de \ref{obt1} tienden a 0.
+\\
+\\
+{\bf Cap{\'\i}tulo 3}. Teniendo en cuenta las condiciones $ab<c$,
+construimos una Esfera Atractora definida por  $
+V(x,y,z)+\lambda(z+ay+bx)-\kappa=0$ y que es cortada en un solo
+punto por cada rayo que emana de 0, ampliando el resultado de
+Ezeilo[33] al caso $ab<c$.La dificultad radica en hallar una
+funci{\'o}n $V(x,y,z)$ ya que no se cumple el criterio de Routh
+Hurwitz. Para superar esta dificultad se parametriza el sistema
+con $\mu\in[0,1]$ y as{\'\i} se obtiene un sistema que depende de este
+par{\'a}metro que bajo ciertas condiciones, satisface las condiciones
+de Routh Hurwitz. De esta manera se puede entrar a construir una
+funci{\'o}n de Lyapunov para el sistema lineal resultante y por
+analog{\'\i}a se construye una funci{\'o}n $V$ definida positiva con
+$\dot{V}\leq 0$ en cierta regi{\'o}n.  En esta forma  se termina la
+construcci{\'o}n de la Esfera Atractora, que adem{\'a}s cumple con la
+condici{\'o}n de que cualquier semirrecta que parte del origen la
+corta en un solo punto.
+\\
+\\
+{\bf Cap{\'\i}tulo 4}. En el caso que $a^2>4b$, a la regi{\'o}n limitada
+por la esfera atractora \-construida en el cap{\'\i}tulo 3  se le quita
+una regi{\'o}n c{\'o}nica-cil{\'\i}ndrica para formar as{\'\i} una regi{\'o}n
+tridimensional cerrada topol{\'o}gicamente equivalente al toro s{\'o}lido.
+El campo vectorial tiene direcci{\'o}n en todos los puntos de la
+frontera hacia el interior de la regi{\'o}n con res\-tricciones
+convenientes en los par{\'a}metros. Las {\'o}rbitas del sistema contenidas
+en el toro giran alrededor del agujero del mismo definiendo una
+aplicaci{\'o}n continua de cada secci{\'o}n meridiana en ella misma.
+Aplicando el teorema del punto fijo de Brouwer se establece la
+existencia de una {\'o}rbita cerrada alrededor del agujero del toro.
+Esto corresponde a una soluci{\'o}n peri{\'o}dica. Las dem{\'a}s trayectorias
+tienden a ella o bien a un atractor que la contiene. Cuando
+$a^2\leq 4b$ no podemos establecer la regi{\'o}n toroidal ni, por
+tanto, la existencia de una soluci{\'o}n peri{\'o}dica alrededor del
+cilindro $\mathbf{C}$. Sin embargo todas las {\'o}rbitas, excepto las
+dos que tienden a 0, tienen un movimiento oscilatorio de "gran"\-
+amplitud. Ponemos "gran"\- para distinguirlas de las oscilaciones
+que aparecen al perturbar el sistema, y que podemos hacer tan
+peque{\~n}a como querramos. De hecho la amplitud de estas oscilaciones
+tendr{\'a} una cota inferior dada por los par{\'a}metros de sistema, tal
+como calcularemos m{\'a}s adelante.
+\\
+\\
+{\bf Cap{\'\i}tulo 5}. Teniendo en cuenta que: $a>0$,\quad $b>0$, \quad
+$f$ Lipschitz, no decreciente, con derivada continua en  0 y
+$f'(0)=c>0$,\quad $|f(x)|<C$ para toda $x$, se prueba la acotaci{\'o}n
+de las soluciones de la ecuaci{\'o}n diferencial perturbada
+$$\dddot{x}+a\ddot{x}+b\dot{x}+f(x+B\sin(\omega t))=0$$
+{\bf Cap{\'\i}tulo 6}.  Considerando el sistema del cap{\'\i}tulo 4, en que
+el sistema  tiene un comportamiento oscilatorio, se demuestra en
+el caso que $f(-x)=-f(x)$, que al reemplazar la funci{\'o}n $f(x)$ por
+$f(x+B\sin\omega t)$, y para va\-lores de $B$ y $\omega$
+suficientemente grande el sistema no tiene movimiento oscilatorio
+de gran amplitud. De hecho todas las soluciones tienden a una
+vecindad del origen tan peque{\~n}a como se quiera.
+\\
+\\
+Primero se elige $B$ suficientemente grande para que el sistema
+promediado tenga el origen globalmente asint{\'o}ticamente estable, y
+despu{\'e}s se toma $\omega$ suficientemente grande para que el
+sistema perturbado este suficientemente pr{\'o}ximo al sistema
+promediado.
+\\
+\\
+En cada caso hemos considerado las condiciones de $f$ m{\'a}s
+generales que hacen cierto el Teorema correspondiente, lo cual ha
+producido cierta heterogeneidad en los enunciados. En el Teorema
+final estamos en la intersecci{\'o}n de todas las hip{\'o}tesis.
+\section{Contenido}
+\sffamily\Large
+\begin{itemize}
+\item \emph{Punto de Equilibrio.}\pause \item \emph{El Origen como
+Atractor Global.} \pause \item \emph{Esfera Atractora.}\pause
+\item\emph{Existencia de Oscilaciones.}\pause \item\emph{Acotaci{\'o}n
+de las soluciones de los sistemas
+\newline perturbados.}\pause \item\emph{Eliminaci{\'o}n de las
+grandes Oscilaciones.}\pause
+\end{itemize}
+\headskip=20pt
+\section{1 Punto de Equilibrio}
+\pagedissolve{Wipe /D 2 /Di /V /M /O} \overlay{blanco1.png} \large
+%\color{section2}
+%\color{section1}
+\color{black} Sea  la ecuaci{\'o}n diferencial
+\begin{equation}\label{se1}
+\frac{d^3x}{dt^3}+a\frac{d^2x}{dt^2}+b\frac{dx}{dt}+f(x)=0
+\end{equation}
+Consideraremos en lugar de la ecuaci{\'o}n (\ref{se1}), el sistema de
+ecuaciones equivalente
+\begin{equation}\label{se2}
+\left\{\begin{array}{lcl}
+\dot{x}&=&y\\
+\dot{y}&=&z\\
+\dot{z}&=&-az-by-f(x)
+\end{array}\right.
+\end{equation}
+donde la funci{\'o}n $f$ es Lipschitz, $f'$ existe y es continua en un
+entorno de 0 y $f'(0)=c>0$, $xf(x)>0$ si $x\neq0$, $a>0$, $b>0$.\\
+Es claro que $(0,0,0)$ es el {\'u}nico punto de equilibrio del
+sistema.
+\newpage
+La forma normal del sistema nos queda:
+\begin{equation}\label{se7}
+\begin{array}{lcl}
+\dot{x_1}&=&\lambda_1
+x_1-\displaystyle{\frac{1}{[(\alpha-\lambda_1)^2+\beta^2]}}[f(x_1+x_3)-c(x_1+x_3)]\\&&
+\\
+\dot{x_2}&=&\alpha x_2-\beta
+x_3-\displaystyle{\frac{\alpha-\lambda_1}{\beta[(\alpha-\lambda_1)^2+\beta^2]}}[f(x_1+x_3)-c(x_1+x_3)]
+\\ &&
+\\
+\dot{x_3}&=&\beta x_2+\alpha
+x_3+\displaystyle{\frac{1}{[(\alpha-\lambda_1)^2+\beta^2]}}[f(x_1+x_3)-c(x_1+x_3)]
+\end{array}
+\end{equation}
+{\bf\large{Diagramas de cambio de los valores propios al crecer
+$c$}}
+\begin{figure}[h]
+\centering
+\includegraphics[height=4cm]{fig11.png}
+\end{figure}
+\begin{figure}[h]
+\centering
+\includegraphics[height=5cm]{fig12.png}
+\label{figura2}
+\end{figure}
+\begin{figure}[h]
+\centering
+\includegraphics[height=5cm]{fig13.png}
+\label{figura3}
+\end{figure}
+%\section{}
+%\pagedissolve{Wipe /D 3 /Di /V /M /O} \overlay{blanco1.png} \large
+% En coordenadas cil{\'\i}ndricas el sistema nos queda:
+%\begin{equation}\label{se8}
+%\begin{array}{lcl}
+%\dot{x_1}&=&\lambda_1
+%x_1-\displaystyle{\frac{1}{[(\alpha-\lambda_1)^2+\beta^2]}}S(x_1,r,\theta)\\&&
+%\\
+%\dot{r}&=&\alpha
+%r+\displaystyle{\frac{1}{[(\alpha-\lambda_1)^2+\beta^2]}}\Big[\sin\theta-\displaystyle{
+%\frac{\alpha-\lambda_1}{\beta}}\cos\theta\Big]S(x_1,r,\theta)
+%\\ &&
+%\\
+%\dot{\theta}&=&\beta
+%+\displaystyle{\frac{1}{r[(\alpha-\lambda_1)^2+\beta^2]}}\Big[\cos\theta+\displaystyle{
+%\frac{\alpha-\lambda_1}{\beta}}\sin\theta\Big]S(x_1,r,\theta)
+%\end{array}
+%\end{equation}
+%donde $S(x_1,r,\theta)=[f(x_1+r\sin\theta)-c(x_1+r\sin\theta)]$
+\headskip=20pt
+\section{2 El Origen como Atractor Global}
+\overlay{blanco1.png} \color{black} \pagedissolve{Wipe /D 2 /Di /H
+/M /O} Estudiamos  la estabilidad  asint{\'o}tica global de la
+ecuaci{\'o}n no lineal de tercer orden (\ref{se1}), donde $f(x)$ es
+una funci{\'o}n que cumple las siguientes condiciones:
+\\
+\begin{equation}\label{Condf1}
+\begin{array}{lll}
+a>0& b>0& f\hspace{0.3 cm}\textrm{derivable.}\\
+ab-f'(x)>0&&\\
+xf(x)>0& \textrm{para}\quad\quad x\neq0&\\
+\int_0^{\pm \infty}f(x)\, dx&=F(\pm\infty)=+\infty
+\end{array}
+\end{equation}  $a>0$, $ab>f'(x)>0$ para todo $x$, para ello se
+construye una funci{\'o}n de Lyapunov para el sistema lineal y por
+analog{\'\i}a se obtiene una funci{\'o}n de Lyapunov para el sistema no
+lineal
+%\begin{theo}\label{SAT1}La soluci{\'o}n trivial del sistema \ref{se2} es
+globalmente
+%asint{\'o}ticamente estable si las condiciones anteriores se cumplen.
+%\end{theo}
+%En analog{\'\i}a con el sistema lineal, obtenemos la funci{\'o}n de
+%Lyapunov
+\begin{equation}\label{SAe11}
+V(x,y,z)=a F(x)+f(x)y+\Phi(y)+a^2G(y)+ayz+H(z)
+\end{equation}
+donde
+$$F(x)=\int_0^xf(x)\,
+dx\hspace{0.8cm}G(y)=\displaystyle{\frac{1}{2}}y^2\hspace{0.8cm}
+\Phi(y)=bG(y)\hspace{0.8cm}H(z)=\displaystyle{\frac{1}{2}}z^2$$
+\begin{displaymath}
+\begin{array}{lcl}
+\dot{V}&=&a
+F'(x)\displaystyle{\frac{dx}{dt}}+f'(x)y\displaystyle{\frac{dx}{dt}}+f(x)
+\displaystyle{\frac{dy}{dt}}+\Phi'(y)\displaystyle{\frac{dy}{dt}}+
+a^2G'(y)\displaystyle{\frac{dy}{dt}}+\\&&\\
+&&+a\displaystyle{\frac{dy}{dt}}z+ay\displaystyle{\frac{dz}{dt}}+
+z\displaystyle{\frac{dz}{dt}}\\&&\\
+&=&af(x)y+f'(x)y^2+f(x)z+byz+a^2yz+az^2-\\&&\\
+&&-a^2yz-aby^2-af(x)y-az^2-byz-f(x)z\\&&\\
+\dot{V}&=&-(ab-f'(x))y^2
+\end{array}
+\end{displaymath}
+\\
+Considerando el dominio acotado:\\
+$$D_l=\{(x,y,z)|\hspace{0.7cm}0\leq V<l,\hspace{0.6cm}|x|<N\}$$
+Se prueba que $\dot{V}\leq 0$ en la frontera de $D_l$, entonces el
+campo vectorial del sistema (\ref{se2}) va de afuera hacia adentro
+\headskip=20pt
+\section{3 Esfera Atractora}
+\pagedissolve{Wipe /D 2 /Dm /V /M /O} \overlay{blanco1.png}
+%\sffamily \Large
+\color{black} Consideramos el sistema
+\begin{equation}\label{Be2}
+\begin{array}{lcl}
+\displaystyle{\frac{dx}{dt}}&=&y,\\&&\\
+\displaystyle{\frac{dy}{dt}}&=&z,\\&&\\
+\displaystyle{\frac{dz}{dt}}&=&-az-by-f(x),
+\end{array}
+\end{equation}
+$f$ del tipo considerado en el Teorema \ref{tsimo1}, con la
+posibilidad de que el origen sea inestable, es decir, con
+$f'(0)=c>ab$, que corresponde a una silla-foco con una variedad
+asint{\'o}tica de dimensi{\'o}n 2 inestable. Mostraremos que en este caso
+tambi{\'e}n existe una superficie esf{\'e}rica positivamente invariante.
+\begin{theo}\label{tsimo1}Suponga que $a>0$,\hspace{0.5cm}
+$b>0$,\hspace{0.5cm}$f$ es Lipschitz, no decreciente, con derivada
+continua en 0 y \, $f'(0)=c>0$,\, existe un $C>0$ tal que para
+toda $x$\quad $|f(x)|<C$ y $\displaystyle{\frac{|f(x)|}{|x|}}<C$
+para $0<|x|<1$.
+\\
+\\
+Entonces, existe una superficie esf{\'e}rica  ${\bf{S}}$ en el espacio
+que cumple la propiedad $\mathbf{P_1}$ y tal que toda trayectoria
+del sistema aut{\'o}nomo la cruza hacia el interior, para $t$
+suficientemente grande.
+\end{theo}
+Buscaremos superficies de la forma
+\begin{equation}\label{Be3}
+\Gamma(\lambda,\kappa)\equiv V(x,y,z)+\lambda(z+ay+bx)-\kappa=0
+\end{equation}
+donde $\lambda$, y, $\kappa$ son constantes finitas.
+\\
+\\
+Consideremos la familia ($E^*_{\mu}$) de ecuaciones diferenciales
+\\
+$$(E^*_{\mu})\hspace{2cm}\dddot{x}+\alpha(\mu)\ddot{x}+\beta(\mu)\dot{x}+\gamma(\mu)x+\mu^2f(x)=0,\hspace{0.6cm}\mu\in[0,1]$$
+\\
+donde
+\begin{equation}\label{Be4}
+\alpha(\mu)=\mu a+(1-\mu)a_1,\quad\beta(\mu)=\mu
+b+(1-\mu)b_1,\quad\gamma(\mu)=(1-\mu)^2c_1.
+\end{equation}
+\\
+Los n{\'u}meros $a_1$, $b_1$, $c_1$ son constantes positivas que
+satisfacen:
+\begin{equation}\label{Be5}
+0<c_1<a_1 b_1
+\end{equation}
+Ahora consideraremos el Sistema Lineal, para el cual construiremos
+una funci{\'o}n de Lyapunov
+\begin{equation}\label{Be7}
+\begin{array}{lcl}
+\displaystyle{\frac{dx}{dt}}&=&y\\&&\\
+\displaystyle{\frac{dy}{dt}}&=&z\\&&\\\displaystyle{\frac{dz}{dt}}&=&-\alpha
+z-\beta y-\gamma  x
+\end{array}
+\end{equation}
+\\
+donde $\alpha$, $\beta$, y $\gamma $ son  constantes que
+satisfacen las condiciones
+\begin{equation}\label{Be10}
+\alpha>0\hspace{0.7cm}\alpha\beta>\gamma>0.
+\end{equation}
+\\
+De la ecuaci{\'o}n (\ref{Be10}) existe una constante $k$ tal que
+\begin{equation}\label{Be11}
+\displaystyle{\frac{1}{\alpha}}<k<\displaystyle{\frac{\beta}{\gamma}}
+\end{equation}
+\\
+Sea $W$ una funci{\'o}n definida positiva dada por
+\\
+$$W=k_1(A x+B y)^2+k_2(D y+E z)^2+k_3 y^2 $$
+\\
+Busquemos las constantes positivas $k_1$, $ k_2$, $ k_3$, $A$,
+$B$, $D$, y, $E$ de manera que
+\begin{equation}\label{Be13}
+\begin{array}{lcl}
+\dot{W}&=&-U=-(\beta-\gamma k)y^2-(\alpha k-1)z^2
+\end{array}
+\end{equation}
+De este modo obtenemos la funci{\'o}n
+\begin{equation}\label{Be15}
+\begin{array}{lcl}
+2V(x,y,z;\mu)&=&2\mu^2\int_0^xf(\xi)\,d\xi+\gamma x^2+(\alpha +k
+\beta )y^2+k z^2+2yz+\\&+&2\gamma( k yx+exz)
+\end{array}
+\end{equation}
+\begin{lem}\label{BL1}Sean las funciones $\alpha$, $\beta$, $\gamma$
+definidas por (\ref{Be4}), donde los n{\'u}meros $a_1$, $b_1$, $c_1$
+satisfacen (\ref{Be5}) y sea $k$ una constante independiente de
+$\mu$ tal que
+\begin{equation}\label{Be16}
+\displaystyle{\frac{1}{\alpha}}<k<\displaystyle{\frac{\beta}{\gamma}}\hspace{1cm}\textrm{para
+todo }\mu\in[0,1]
+\end{equation}
+(por (\ref{Be5}) tal n{\'u}mero siempre puede ser escogido); Entonces
+existen n{\'u}meros positivos $\epsilon$, $\lambda_1$ tal que para
+$e=\epsilon$, $l=\lambda_1$ la forma cuadr{\'a}tica
+\begin{displaymath}
+\begin{array}{lcl}
+\Phi(x,y,z;\mu)&=&\gamma x^2+k(\beta y^2+z^2)+\alpha
+y^2+2yz+2\gamma(exz+kxy)-\\&&\\&&-l(\gamma x^2+y^2+z^2),
+\mu\in[0,1]
+\end{array}
+\end{displaymath}
+\\
+es semidefinida positiva en $[0,1]$.
+\end{lem}
+\begin{lem}$V(x,y,z)=V(x,y,z;1)$ tiende a infinito con $(x,y,z)$
+\end{lem}
+\begin{proof}[{\bf Demostraci{\'o}n}.]
+Por el Lema \ref{BL1} tenemos la desigualdad
+\\
+$$2V-2 F(x)-\lambda_1(y^2+z^2)=\Phi(x,y,z;1)\geq 0 $$
+lo cual nos produce
+$$2 F(x)+\lambda_1(y^2+z^2)\leq 2V(x,y,z)$$
+\\
+Por lo tanto
+\begin{equation}\label{Be17}
+0\leq 2F(x)+\lambda_1(y^2+z^2)\leq 2V(x,y,z),
+\end{equation}
+Dado que $F(x)>0$, para todo $x\neq0$ y $F(x)\rightarrow\infty$
+cuando $|x|\rightarrow\infty$, $V(x,y,z)$ es definido
+positivamente y
+$$\lim_{(x,y,z)\rightarrow\infty}V(x,y,z)=\infty .$$
+\end{proof}
+{\bf\Large{Propiedades de la Superficie }}
+\begin{lem}\label{BL2} Existe $D_0(\lambda)\geq 0$ tal que si $\kappa\geq
+D_0(\lambda)$, entonces la superficie
+${\bf{S}}={\bf{S}}(\lambda,\kappa)$ definida por (\ref{Be3}) tiene
+la propiedad $\mathbf{P_1}$.
+\end{lem}
+Combinando los resultados tenemos que
+\begin{equation}\label{Be18}
+\left.\begin{array}{lcl} \Gamma&\leq
+&\displaystyle{\frac{1}{2}}D_1(x^2+y^2+z^2)+\lambda
+(z+ay+bx)-\kappa
+\\
+\Gamma&\geq &F(x)+
+\displaystyle{\frac{\lambda_1}{2}}(y^2+z^2)+\lambda
+(z+ay+bx)-\kappa
+\end{array}\right\}
+\end{equation}
+Entonces,
+\begin{equation}\label{Be20}
+\triangle_1\subset \triangle_2,\hspace{1.5cm}\mathbf{S}\subset
+(\triangle_2-\triangle_1)
+\end{equation}
+Y considerando
+$$\Phi(r)\equiv V(lr,mr,nr)+\lambda r(n+am+bl)-\kappa=0$$
+probamos que la recta que parte desde el origen interseca a ${\bf
+S}$ en un solo punto.
+\\
+{\bf\Large{Las Superficies ${\bf S}^{+}$, $ {\bf S}^{-}$}}
+\\
+Sea $\pi$ el plano
+$$z+ay+bx=0.$$
+Como $\pi$ pasa a trav{\'e}s del origen es claro que $\pi$ interseca
+la superficie ${\bf S}(0,\kappa)$, esto es, la superficie
+$$V(x,y,z)=\kappa$$ en un punto real, y, como ${\bf S}(0,\kappa)$ tiene
+la propiedad $\mathbf{P_1}$, estos puntos evidentemente est{\'a}n
+sobre una curva de Jordan $J_0$. Dado cualquier punto
+$(\xi,\eta,\zeta)$ el cual satisface
+$$V(\xi,\eta,\zeta)-\kappa=0,\hspace{1.5cm}\zeta+a\eta+b\xi=0,$$
+necesariamente $\Gamma(\xi,\eta,\zeta,\lambda,\kappa)=0$ para
+todos los valores de $\lambda$, es claro que toda superficie ${\bf
+S}(\lambda,\kappa)$ pasa a trav{\'e}s de $J_0$. En lo que sigue aqu{\'\i},
+dada cualquier superficie $S(\lambda,\kappa)$ acostumbraremos a
+denotar ${\bf S}^+(\lambda,\kappa)$ al conjunto de todos los
+puntos de ${\bf S}(\lambda,\kappa)$ los cuales est{\'a}n en o sobre el
+plano $\pi$, y ${\bf S}^-(\lambda,\kappa)$ denota el conjunto de
+todos los puntos de ${\bf S}(\lambda,\kappa)$ que est{\'a}n debajo o
+en $\pi$.
+\\
+\begin{lem}\label{BL4}Si $\lambda_1$, $\lambda_2$ son dos valores de
+$\lambda$, entonces la superficie $${\bf
+S}^+(\lambda_1,\kappa)\bigcup {\bf S}^{-}(\lambda_2,\kappa)$$
+tiene la propiedad $\mathbf{P_1}$.
+\end{lem}
+El resultado es una consecuencia del Lema \ref{BL2} y del hecho
+que ambas ${\bf S}(\lambda_1,\kappa)$ y ${\bf
+S}(\lambda_2,\kappa)$ pasan a trav{\'e}s de
+$J_0$.\\
+Igualmente mediante c{\'a}lculos elementales obte\-nemos que
+\begin{equation}\label{Be26}
+\dot{V}\leq -D_4(y^2+z^2)+D_5(|y|+|z|)
+\end{equation}
+\begin{lem}\label{BL5}Existe $D_6=D_6(\lambda_0)$ tal que si $\kappa\geq
+D_6$ entonces
+$$\dot{\Gamma}\equiv\displaystyle{\frac{d}{dt}}\Gamma(x,y,z,\lambda_0)\leq0$$
+en cualquier punto $T(x,y,z)$ de  $E_3$ en  cualquier trayectoria
+$\tau$ del sistema de ecuaciones que se encuentra en ${\bf
+S}^+(\lambda_0,\kappa)$.
+\end{lem}
+%\begin{proof}[{\bf Demostraci{\'o}n}.]
+$$\dot{\Gamma}=\dot{V}+\lambda_0(-f(x))$$
+Luego
+\begin{equation}\label{esfera}
+\dot{\Gamma}\leq -D_4(y^2+z^2)+D_5(|y|+|z|)+\lambda_0(-f(x))
+\end{equation}
+\begin{figure}[h]
+\centering
+\includegraphics[height=6 cm]{sigma2.png}
+\caption{ $\sigma^+$} \label{sfig30}
+\end{figure}
+\\
+%Sea $\sigma^+$ el conjunto de todos los puntos de la esfera
+%$$D_1(x^2+y^2+z^2)+2\lambda_0(z+ay+bx)-2\kappa=0$$
+%y escojamos una constante $D_7$ tal que cada una de las
+%condiciones se satisfacen para $\kappa\geq D_7$:
+%\\
+%(I) $\sigma^+$ interseca al plano
+%$x=\displaystyle{\frac{8}{\delta}} $
+%\\
+%\\
+%(II) $\max(|y|,|z|)>8\displaystyle{\frac{D_5}{D_4}}$, en todos los
+%puntos $(x,y,z)$ de $\sigma^+$ los cuales permanecen debajo del
+%plano $x=D_8=\displaystyle{\frac{8}{\delta}}$
+%\\
+%\\
+%(III) No existe ning{\'u}n de intersecci{\'o}n entre $\sigma^+$ y el
+%paraboloide
+%  $$D_4(y^2+z^2)+2\lambda_0\delta x=0$$
+%Dado que todo punto de $\mathbf{S}(\lambda_0,\kappa)$ est{\'a}n fuera
+%de la esfera $\sigma$, se sigue que las condiciones (I), (II) y
+%(III) tambi{\'e}n se cumplen para ${\bf S}^+(\lambda_0,\kappa)$. Si
+%$\kappa\geq D_7$ cada punto $(x,y,z)$ de ${\bf
+%S}^+(\lambda_0,\kappa)$ queda en una de las siguientes regiones:
+%\begin{equation}\label{r1}
+%  x\geq D_8
+%\end{equation}
+%\begin{equation}\label{r2}
+%  0\leq x\leq D_8\quad \max(|y|,|z|)>8\displaystyle{\frac{D_5}{D_4}}
+%\end{equation}
+%\begin{equation}\label{r3}
+%\max(|y|,|z|)>8\displaystyle{\frac{D_5}{D_4}}\quad
+%D_4(y^2+z^2)+2\lambda_0\delta x>0
+%\end{equation}
+%probamos que
+%\begin{center}
+%$\dot{\Gamma}<0 $
+%\end{center}
+%\end{proof}
+\begin{theo}\label{BT1}
+Existe una superficie ${\bf S}$ en el espacio que cumple la
+propiedad $\mathbf{P_1}$ y tal que toda trayectoria del sistema de
+ecuaciones  cruza solo hacia el interior
+\end{theo}
+Considerando $D_{7}=\max\Big(D_0(\lambda_0),D_6,D_5\Big)$ y  la
+superficie ${\bf S}$ definida por
+\begin{equation}\label{Be35}
+{\bf S}={\bf S}^+\Big(\lambda_0,D_{7}\Big)\bigcup {\bf
+S}^-\Big(-\lambda_0,D_7\Big)
+\end{equation}
+donde $D_0$, $D_6$, $D_{5}$ son las constantes que aparecen en
+Lemas anteriores. Por lo tanto, ${\bf S}$ tiene la propiedad
+$\mathbf{P_1}$ y adem{\'a}s  las trayectorias del sistema de
+ecuaciones cruzan a ${\bf S}$ hacia el interior.
+\section{4 Existencia de Oscilaciones}
+\pagedissolve{Wipe /D 2 /Di /H /M /O} \overlay{blanco1.png}
+\color{black}Investigaremos acerca de la existencia de
+oscilaciones en la ecuaci{\'o}n diferencial (\ref{se1}), con
+$a>0$\quad $b>0$\quad $f$ Lipschitz, no decreciente\quad
+$f(0)=0$,\quad $f$ con derivada continua en 0 y $f'(0)=c>ab$,
+ existe $C$ tal que para todo $x$ \quad $|f(x)|<C$ y
+$\displaystyle{\frac{|f(x)|}{|x|}}<C$ para $0<|x|<1$.
+\\
+\\
+La regi{\'o}n c{\'o}nica $\mathbf{K}$ que quitaremos a la
+esfera del capitulo 3, tiene por fronteras el cono definido en el octante\\
+$\{ x>0, y<0, z>0\}$ por las
+superficies \\
+$\{x=0|\quad z>2\frac{by}{a} \}$, $\{y=0\}$, $\{z=0|\quad
+y>f(x)\}$, \\
+$\{y>-\displaystyle{\frac{f(x)}{b}}\}$, y,
+$\{by+f(x)+\displaystyle{\frac{az}{2}}=0\}$ y el cono an{\'a}logo para
+el octante sim{\'e}trico respecto a {\bf 0}.
+\begin{lem}\label{lcono2}
+La regi{\'o}n c{\'o}nica $\mathbf{K}$ es negativamente invariante si
+$\displaystyle{\frac{a^2}{4}}-b>0$.
+\end{lem}
+\begin{proof}[{\bf Demostraci{\'o}n}.]
+En el octante $x>0$,  $y<0$, y $z>0$ el campo $(y,z,-f(x)-by-az)$
+para $y>-\displaystyle{\frac{f(x)}{b}}$.
+\\
+\\
+En el plano $x=0$ fluye hacia $x$ negativa.\\
+\\
+En el plano $y=0$ fluye hacia $y$ positiva
+\\
+\\
+En el plano $z=0$ fluye hacia $z$ negativa.
+\\
+\\
+Sea $F(x,y,z)=-by-f(x)-\displaystyle{\frac{az}{2}}=0$
+\\
+El vector normal en la parte superior de la superficie viene dado
+por $X_N=\nabla F(x,y,z)=(-f'(x),-b,-\displaystyle{\frac{a}{2}})$,
+luego el producto interno\\
+\begin{displaymath}
+\begin{array}{lcl}
+\Big(X_N,\dot{X}\Big)&=&-f'(x)y-bz+\displaystyle{\frac{a}{2}}(az+by+f(x))\\
+                     &=&-f'(x)y+\big(\displaystyle{\frac{a^2}{4}}-b\big)z>0
+\end{array}
+\end{displaymath}
+Por lo tanto  las {\'o}rbitas cruzan al cono de adentro hacia afuera.
+\\
+\end{proof}
+\begin{figure}[h]
+\centering
+\includegraphics[height=8 cm]{Cono.png}
+\caption{Superficie C{\'o}nica} \label{Sc1}
+\end{figure}
+\begin{lem}\label{lcilindro}
+Sea la ecuaci{\'o}n del cilindro
+\\
+\begin{displaymath}
+\begin{array}{lcl}
+0<r^2&=&x_2^2+x_3^2
+\end{array}
+\end{displaymath}
+\\
+entonces  las soluciones fluyen de adentro hacia fuera del
+cilindro en aquellos  puntos en que $|f(x)-cx|<Ar$, donde $A$ es
+una constante que depende de $a$, $b$ y $c$.
+\end{lem}
+\begin{proof}[{\bf Demostraci{\'o}n}.]
+Del sistema (\ref{se2}) expresado en coordenadas cil{\'\i}ndricas
+tenemos que si $c>ab$,
+$$r'=\alpha
+r+\displaystyle{\frac{f(x)-cx}{(\alpha-\lambda_1)^2+\beta^2}}\Big(\sin\theta-
+\displaystyle{\frac{\alpha-\lambda_1}{\beta}}\cos\theta\Big)$$
+para que $r'$ sea mayor  que cero basta con que
+$$|f(x)-cx|<\alpha\beta^2\sqrt{1+\gamma^2}r=Ar$$
+\end{proof}
+Combinando los Lemas \ref{lcilindro}, y, \ref{lcono2}  obtenemos.
+\begin{lem}\label{linvariante}
+El toro $\mathbf{T}$ es positivamente invariante si $a^2>4b$ y si
+en los puntos del cilindro $\mathbf{C}$ fuera de $\mathbf{K}$ se
+cumple
+$$|f(x)-cx|<Ar$$
+para $x<r+B(r)$.
+\\
+\\
+Aqu{\'\i} $A=\alpha\beta^2\sqrt{1+\gamma^2}$,
+$\gamma=\displaystyle{\frac{\alpha-\lambda_1}{\beta}}$ y $B(r)$
+nos da el m{\'a}ximo valor de $x$ para los puntos de $\mathbf{C}$
+fuera de $\mathbf{K}$.
+\\
+Notamos que $A<c-ab=2\alpha(1+\gamma^2)\beta^2$, como debe ser.
+\\
+En particular las condiciones del lema se cumplen si $r$ es
+suficientemente peque{\~n}o, ya que
+$$\displaystyle{\frac{|f(x)-cx|}{r}}<\displaystyle{\frac{|f(x)-cx|}{|x|}}\rightarrow
+f'(0)-c=0$$ cuando $r\rightarrow0$.
+\end{lem}
+{\bf\large{Comportamiento Oscilatorio y Soluci{\'o}n Peri{\'o}dica}}
+\\
+Debido a la propiedad de $\mathbf{S}$ de ser cortada en  solo un
+punto por las semirrectas que parten del origen ( Capitulo 3), la
+secci{\'o}n meridiana $\Upsilon=\{(x,y,z)\, |\quad x>0\quad z<0 \quad
+y=0\}\bigcap\mathbf{T}$ es ce\-rrada y simplemente conexa, es
+decir homeomorfa a un disco.
+\begin{lem}\label{Transcont}
+Si $a^2>4b$ el flujo del sistema (\ref{se2}), forma una aplicaci{\'o}n
+continua de la $\Upsilon$-secci{\'o}n-transversal cerrada y
+simplemente-conexa del Toro invariante en s{\'\i} mismo.
+\end{lem}
+\begin{proof}[{\bf Demostraci{\'o}n}.]
+Es bastante claro que si empezamos en $\Upsilon$ pasamos al
+octante $x>0$, $y<0$, $z<0$. Ah{\'\i} te\-nemos que  $x'<0$, $y'<0$,
+$z'>0$. Por lo tanto llegar{\'a} un momento en que o bien\\
+i) $x=0$ o bien ii) $z=0$.
+\\
+\\
+En el primer caso, i), pasamos al octante $x<0$, $y<0$, $z<0$,
+donde $x'<0$, $y'<0$, $z'>o$ (esto {\'u}ltimo porque $-f(x)-by-az>0$).
+Llegar{\'a} un momento en que cruzaremos $z=0$, con lo que se har{\'a}
+$y'>0$, y posteriormente cruzaremos $f(x)+by+az=0$, quedando
+entonces con $x'<0$, $y'>0$ y $z'<0$, con lo que eventualmente
+llegamos a $-\Upsilon$, e decir, $x<0$, $y=0$, $z>0$. Por simetr{\'\i}a
+si se sigue la {\'o}rbita se llega a $\Upsilon$. En el segundo caso,
+ii), pasamos a tener o bien $z>0$ con $y<0$, $x>0$, de donde
+llegamos a $f(x)+by+ax=0$ y de ah{\'\i} a $x=0$, o bien a $z=0$ en
+donde nos encontramos en las mismas condiciones que en el caso i).
+De este modo hemos demostrado que existe una aplicaci{\'o}n continua
+de $\Upsilon$ en si mismo, y por lo tanto un comportamiento
+oscilatorio con al menos una {\'o}rbita peri{\'o}dica.
+\end{proof}
+As{\'\i}, tenemos finalmente,
+\begin{theo}\label{STL1} Las {\'o}rbitas en $\mathbf{T}$ tienen un
+comportamiento oscilatorio, girando alrededor del agujero de
+$\mathbf{T}$, y tienen un  atractor $\mathbf{A}$ que contiene al
+menos una soluci{\'o}n peri{\'o}dica
+\end{theo}
+\begin{proof}[{\bf Demostraci{\'o}n}.]
+Del Lema (\ref{Transcont}), el flujo del sistema define una
+aplicaci{\'o}n continua, de la secci{\'o}n meridiana $\Upsilon$ cerrada y
+simplemente-conexa en  si mismo. El Teorema del punto fijo de
+Brouwer  establece en este caso,  que la aplicaci{\'o}n tiene un punto
+fijo, que corresponde a una {\'o}rbita cerrada alrededor del agujero
+del  toro.
+\end{proof}
+\headskip 20pt
+\section{5 Acotaci{\'o}n de las soluciones de los sistemas perturbados}
+\pagedissolve{Wipe /D 2 /Di /V /M /O} \overlay{blanco1.png} En
+esta parte probamos la acotaci{\'o}n de las soluciones de la ecuaci{\'o}n
+Perturbada
+\begin{equation}{\label{EPA1}}
+\dddot{x}+a\ddot{x}+b\dot{x}+f(x+B\sin(\omega t))=0
+\end{equation}
+donde  $f$  Lipschitz, no decreciente,  con derivada continua en
+0, \, $f'(0)=c>0$, y, existe $C$ tal que para toda $x$ \quad
+$|f(x)|<C$.
+\begin{theo}\label{epert} Dada la ecuaci{\'o}n Perturbada (\ref{EPA1}), $f$
+definida como arriba, entonces existe una constante $D>0$  que
+depende solo de $a$, $b$, $c$ y $C$, tal que toda soluci{\'o}n
+$x(\omega,t)$, de la ecuaci{\'o}n Perturbada (\ref{EPA1}) satisface
+$$|x(\omega,t)|\leq D\hspace{1cm}|\dot{x}(\omega,t)|\leq
+D\hspace{1cm}|\ddot{x}(\omega,t)|\leq D,$$ dado que  $a>0$, $b>0$,
+y,  $c>0$, para $t$ suficientemente grande.
+\end{theo}
+\newpage
+{\bf\Large{Proceso de la prueba }}
+\begin{figure}[h]
+\centering
+\includegraphics[height=3.6 cm]{franja1.png}
+\caption{} \label{F1}
+\end{figure}
+\\
+1) Si el gr{\'a}fico de  $x(\omega,t)$, $\dot{x}(\omega,t)$ permanecen
+en la franja [d] para $t_0\leq t\leq t_1$, Entonces existe
+$D_1(d)$ tal que
+\begin{equation}\label{Ae11}
+|\ddot{x}(\omega,t_1)|\leq |\ddot{x}(\omega,t_0)|+D_1(d).
+\end{equation}
+2) Si se cumple que el gr{\'a}fico de  $x(\omega,t)$ permanece en la
+franja, para  $t\geq t_0$, entonces existe $T_0\geq t_0$ tal que
+$|\ddot{x}(\omega,t)|\leq D(d)$ para  $t\geq T_0$.
+\\
+3) Si se cumple que el gr{\'a}fico de $\dot{x}(\omega,t)$ permanece en
+la franja [$d$], entonces existe $D(d)$ tal que $|x(\omega,t)|\leq
+D(d), \hspace{0.7 cm}|\ddot{x}(t)|\leq D(d)$ para  $t$
+suficientemente grande.
+\\
+\begin{figure}[h]
+\centering
+\includegraphics[height=3.8 cm]{franja2.png}
+\caption{ } \label{F1}
+\end{figure}
+4) Pero en el caso que se cumpla que el gr{\'a}fico de $x(\omega,t)$
+entra y sale repetidamente de la franja cuando
+$t\rightarrow\infty$, se tiene que $x(\omega,t)$ es acotada.
+\\
+Por lo tanto el Teorema ser{\'a} probado si mostramos que
+\\
+5) Para cualquier soluci{\'o}n $x(\omega,t)$, tal que
+$\dot{x}(\omega,t)$ entra y sale repetidamente de la franja
+[$\displaystyle{\frac{2C}{b}}$] cuando $t\rightarrow\infty$,
+entonces existe $D(\displaystyle{\frac{2C}{b}})$ tal que
+$\dot{x}(\omega,t)$ permanece en la la franja
+\Big[$D\big(\displaystyle{\frac{2C}{b}}\big)$\Big]. \headskip20pt
+\section{6 Eliminaci{\'o}n de grandes Oscilaciones}
+\pagedissolve{Wipe /D 2 /Dm /V /M /O} \overlay{blanco1.png}
+\color{black} En este capitulo estudiamos como la introducci{\'o}n de
+una funci{\'o}n sinusoidal de suficiente amplitud y frecuencia en el
+sistema (\ref{se2}), elimina las oscilaciones grandes, y deja
+soluciones peri{\'o}dicas de alta frecuencia y amplitud tan peque{\~n}a
+como se quiera. De hecho conseguiremos que todas las soluciones
+del sistema perturbado tiendan a un entorno del origen tan peque{\~n}o
+como se quiera, a base de aumentar la amplitud y la frecuencia de
+la perturbaci{\'o}n.
+\\
+\\
+Investigaremos el efecto que causa al introducir una perturbaci{\'o}n
+sinusoidal de gran amplitud y frecuencia, es decir se estudia el
+comportamiento de las soluciones de la ecuaci{\'o}n diferencial no
+lineal de tercer grado:
+\\
+\begin{equation}
+\displaystyle{\frac{d^3
+x}{dt^3}+a\frac{d^2x}{dt^2}+b\frac{dx}{dt}+f(x+B\sin\omega t)}=0
+\end{equation}
+\\
+o el Sistema  Perturbado equivalente
+\\
+\begin{equation}\label{sao8}
+\begin{array}{lcl}
+\dot{x}&=& y\\&&\\ \dot{y}&=& z\\&&\\\dot{z}&=&
+-az-by-f(x+B\sin\omega t)
+\end{array}
+\end{equation}
+\\
+\\
+para valores de $B$ y $\omega $ suficientemente grandes; donde $f$
+est{\'a}  definida como en el capi\-tulo 4, es decir $f$ Lipschitz, no
+decreciente\quad $f(0)=0$,\quad $f$ con derivada continua en 0 y
+$f'(0)=c>ab$,\quad existe $C$ tal que para toda $x$\quad
+$|f(x)|<C$ y $\displaystyle{\frac{|f(x)|}{|x|}}<C$ para $0<|x|<1$
+y $f(-x)=-f(x)$
+\newpage
+La funci{\'o}n perturbada $f(x+B\sin\omega t)$ se puede visualizar en
+general por medio de la figura \ref{afig61}
+\begin{figure}[h]
+\centering
+\includegraphics[height=7 cm]{cap61.png}
+\caption{Funci{\'o}n Perturbada}\label{afig61}
+\end{figure}
+\\
+En el caso particular en que
+\begin{equation}\label{FAP1}
+f(x)=\left\{\begin{array}{lcl} c sign(x)&\textrm{ si } & |x|>1\\&&
+\\
+cx &\textrm{ si }&|x|\leq 1
+\end{array}\right.
+\end{equation}
+\begin{figure}[h]
+\centering
+\includegraphics[height=7 cm ]{cap62.png}
+\caption{Funci{\'o}n Perturbada} \label{afig62}
+\end{figure}
+\begin{equation}\label{eao3}
+\begin{array}{lcll}
+f(x+B\sin\omega t)&=&c(x+B\sin\omega  t)&0\leq\omega
+t\leq\phi_1\\&&&\\ f(x+B\sin\omega t)&=&c&\phi_1\leq\omega  t\leq
+\pi-\phi_1\\&&&\\ f(x+B\sin\omega t)&=&c(x+B\sin\omega
+t)&\pi-\phi_1\leq\omega  t\leq \pi+\phi_2\\&&&\\ f(x+B\sin\omega
+t)&=&-c&\pi+\phi_2\leq\omega  t\leq
+2\pi-\phi_2\\&&&\\f(x+B\sin\omega t)&=&c(x+B\sin\omega
+t)&2\pi-\phi_2\leq \omega  t\leq 2\pi
+\end{array}
+\end{equation}
+Donde $\phi_1$ y $-\phi_2$ son los {\'a}ngulos m{\'a}s pr{\'o}ximos a 0 en que
+$x+B\sin(\omega t)$ vale $c$ y $-c$ respectivamente.
+\begin{equation}\label{eao4}
+\phi_1(x)=\left\{\begin{array}{cll}
+&\arcsin\Big(\displaystyle{\frac{1-x}{B}}\Big)&|1-x|<B\\&&\\&\quad
+\displaystyle{\frac{\pi}{2}}&1-x\geq
+B\\&&\\&-\displaystyle{\frac{\pi}{2}}&1-x\leq-B
+\end{array}\right.
+\end{equation}
+\begin{equation}\label{eao5}
+\phi_2(x)=\left\{\begin{array}{cll} &\arcsin\Big(\displaystyle{
+\frac{1+x}{B}}\Big)&|1+x|<B\\&&\\&\quad\displaystyle{\frac{\pi}{2}}&1+x\geq
+B\\&&\\&-\displaystyle{\frac{\pi}{2}}&1+x\leq- B
+\end{array}\right.
+\end{equation}
+{\bf\Large{Funci{\'o}n Promedio}}
+\begin{equation}\label{eao6}
+f_0(x,B)=\frac{1}{2\pi}\int_0^{2\pi}f(x+B\sin\omega t)d(\omega  t)
+\end{equation}
+\begin{Prop}Para toda funci{\'o}n $f$ Lipschitz, no decreciente, acotada,
+con derivada continua en 0 y $f(-x)=-f(x)$, se tiene que:
+\begin{enumerate}
+\item[a)]$f_0(x,B)$ es derivable en todos los valores de $x$.
+\item[b)] $f_0(0,B)=0$ \item[c)]$f_0(x,B)$ es no decreciente
+\item[d)] $f'_0(x,B)\rightarrow0$ y en particular
+$f'_0(0,B)\rightarrow0$ cuando $B\rightarrow\infty$. \item[e)]
+$|f_0(x,B)|<C$ \item[f)] $f''_0(0,B)$  es positiva en un intervalo
+$(0,x_1)$ si $B$ es suficientemente grande.
+\end{enumerate}
+\end{Prop}
+%Realizando las sustituciones propias de las ecuaciones
+%(\ref{eao3}), (\ref{eao4}) y (\ref{eao5}) en la ecuaci{\'o}n
+%(\ref{eao6}) e integrando se tiene
+En el caso particular de la ecuaci{\'o}n (\ref{eao6}) se tiene
+\begin{equation}\label{eao7}
+f_0(x,B)=\left\{\begin{array}{lr} c\, sign(x)& \textrm{ si
+}|x|\geq (B+1)\\&\\\rho(x) & \textrm{ si  } |x|\leq (B+1)
+\\&\\
+\end{array}\right.
+\end{equation}
+donde
+$\rho(x)=\displaystyle{\frac{1}{\pi}}c[x(\phi_1+\phi_2)+B(\cos\phi_2-\cos\phi_1)+
+(\phi_2-\phi_1)]$
+\\
+As{\'\i} que
+\begin{equation}\label{eao9}
+f'_0(0,B)=\displaystyle{\frac{2c}{\pi}}\arcsin(\displaystyle{\frac{1}{B}})
+\end{equation}
+\newpage
+La funci{\'o}n promedio  $f_0(x,B)$ es dada por la Fig.\ref{afig63}
+\begin{figure}[h]
+\centering
+\includegraphics[height=8 cm]{cap63.png}
+\caption{Funci{\'o}n Promedio} \label{afig63}
+\end{figure}
+\newpage
+{\bf\Large{Aproximaci{\'o}n}}
+\\
+Sea $h(t, x)=-f(x+B\sin\omega t)+f_0(x,B)$, es una funci{\'o}n
+peri{\'o}dica de pe\-riodo $2\displaystyle{\frac{\pi}{\omega}}$,
+acotada y promedio cero.
+\\
+Sea
+\begin{equation}\label{ea6.1}
+H(t,x,\omega,B)=\int_{-\infty}^{ \omega
+t}\exp\Big[-\displaystyle{\frac{1}{\omega}}(\omega
+t-\tau)\Big]h(\tau,x)\, d\tau
+\end{equation}
+\begin{lem}\label{la1}
+Existe una funci{\'o}n continua $\eta(\omega)$ tal que
+$\eta(\omega)\rightarrow0$ cuando $\omega\rightarrow\infty$\\
+entonces
+\begin{equation}\label{ea6.2}
+|H(t,x,\omega,B)|\leq \omega\eta(\omega)
+\end{equation}
+\\
+Finalmente,
+\\
+\begin{equation}\label{ea6.3}
+\Big|\displaystyle{\frac{1}{\omega}\frac{\partial H}{\partial t}
+}-h(t,x)\Big|\leq \eta(\omega)
+\end{equation}
+\end{lem}
+\newpage
+{\bf\Large{Equivalencia del Sistema Perturbado}}
+\begin{theo}\label{P621} El Sistema Perturbado es equivalente al Sistema
+\\
+\begin{equation}\label{PP6621}
+\begin{array}{lcl}
+\dot{x}&=&y\\&&\\
+\dot{y}&=&z+\displaystyle{\frac{1}{\omega}}H\Big(
+t,x,\omega, B\Big)\\&&\\
+\dot{z}&=&-az-by-f_0(x,B)-\displaystyle{\frac{a-1}{\omega}}H(t,x,\omega,B)-
+\displaystyle{\frac{1}{\omega}\frac{\partial H}{\partial x}}y
+\end{array}
+\end{equation}
+\end{theo}
+\begin{theo}\label{N61}El sistema Perturbado tiende al promediado cuando
+$\omega \rightarrow\infty $
+\end{theo}
+{\bf\Large{Existencia y Anulaci{\'o}n de Oscilaciones}}
+\\
+\\
+Sean $a>0$\quad $b>0$\quad $f$ Lipschitz, no decreciente,\quad
+$f(0)=0$,\quad $f$ con derivada continua en 0 y $f(-x)=-f(x)$
+\begin{obs}Bajo las hip{\'o}tesis en (\ref{sao8}) tenemos
+\begin{enumerate}\item[a)] Si
+$ab<f'_0(0,B)<c$, y $a^2>4b$, entonces el sistema promediado tiene
+un atractor oscilatorio alejado del origen.
+\\
+\item[b)]Si  $f'_0(x,B)<ab$ para toda $x$, entonces  el sistema
+promediado tiene al origen como atractor global. Tal ser{\'a} si $B$
+es suficientemente grande.
+\end{enumerate}
+\end{obs}
+Utilizando el teorema inverso de Lyapunov que nos asegura la
+existencia de una funci{\'o}n de Lyapunov en el caso de estabilidad
+asint{\'o}tica, y tomando en cuenta que el sistema perturbado tiende
+al promediado cuando $\omega\rightarrow\infty$, obtenemos el
+resultado final
+\begin{theo}
+Existe un $B_0$ tal que si $B>B_0$, entonces el origen del sistema
+promediado es globalmente asint{\'o}ticamente estable. En tal caso,
+dada $\epsilon>0$, existe   $\omega_0$ tal que si
+$\omega>\omega_0$, las soluciones del sistema perturbado
+permanecen en un entorno de radio $\epsilon$ de $\mathbf{O}$ para
+valores de $t$ mayores que un valor dependiente de la soluci{\'o}n.
+\end{theo}
+\end{document}
+

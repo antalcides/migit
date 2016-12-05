@@ -1,0 +1,8022 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\begin_preamble
+\input{preamble2}
+\input{composicion-codigo}
+\usepackage{subfloat}
+ \usepackage{morewrites}
+\usepackage{fancyvrb}
+\usepackage[unicode=true,pdfusetitle,
+ bookmarks=true,bookmarksnumbered=true,bookmarksopen=true,bookmarksopenlevel=1,
+ breaklinks=false,pdfborder={0 0 0},backref=false,colorlinks=false]
+ {hyperref}
+\hypersetup{
+ pdfpagelayout=OneColumn, pdfnewwindow=true, pdfstartview=XYZ, plainpages=false}
+ \newsavebox{\LstBox}
+ %\graphicspath{ {./img/} }
+ \makeatletter
+\def\input@path{{./}{./build/}}
+\makeatother
+ \graphicspath{{./}{./img/}{./build/}}
+ \renewcommand{\baselinestretch}{1.5}
+\raggedbottom %para que no distibuya los espacios verticales en una hoja
+\end_preamble
+\options svgnames,x11names,x11names,HTML
+\use_default_options false
+\master libro-latex.lyx
+\maintain_unincluded_children false
+\language spanish
+\language_package none
+\inputencoding utf8x
+\fontencoding default
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 0
+\use_mathdots 0
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle headings
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagecolor{white}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+mainmatter
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagestyle
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+headings
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+chapter{Introducci
+\backslash
+'{o}n}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+chaptertoc
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{objetivos}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lista}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+item 
+\end_layout
+
+\end_inset
+
+Comprender el esquema básico de funcionamiento de Tex
+\begin_inset space \thinspace{}
+\end_inset
+
+ y LaTeX.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+item 
+\end_layout
+
+\end_inset
+
+Conocer las diferentes salidas que produce LaTeX.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+item 
+\end_layout
+
+\end_inset
+
+Conocer las diferentes herramientas que interactúan con LaTeX.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+item 
+\end_layout
+
+\end_inset
+
+Aprender a instalar LaTeX
+\begin_inset space \thinspace{}
+\end_inset
+
+ en diferentes sistemas.
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lista}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{objetivos}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Section
+¿Qué es 
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+TeX
+\end_layout
+
+\end_inset
+
+TeX, 
+\begin_inset space \thinspace{}
+\end_inset
+
+ LaTeX
+\begin_inset space \thinspace{}
+\end_inset
+
+ y su familia ?
+\end_layout
+
+\begin_layout Standard
+TeX
+\begin_inset space \thinspace{}
+\end_inset
+
+ es un sistema profesional de composición tipográfica desarrollado por Donald
+ E.
+ Knuth.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename img/don.jpg
+	width 1.3578in
+	height 1.855in
+	BoundingBox 0bp 0bp 1.9440999999999999in 2.6671in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+TeX
+\begin_inset space \thinspace{}
+\end_inset
+
+ fué diseñado para producir documentos (especialmente de matemáticas) con
+ la más alta calidad de imprenta.y es la base sobre lo cuál se construye
+ todo.
+\begin_inset Newline newline
+\end_inset
+
+ TeX
+\begin_inset space \thinspace{}
+\end_inset
+
+es sin duda el sistema de composición más potente que existe.
+ Siendo también muy complicado para los no programadores, (
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+TeX
+\end_layout
+
+\end_inset
+
+ en el fondo se hace cargo de eso).
+ Una característica distintiva de 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+LaTeX
+\end_layout
+
+\end_inset
+
+ es fantástica composición tipográfica de las matemáticas, a pesar de que
+ es adecuado para la creación de documentos de alta calidad de cualquier
+ tipo.
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lista}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+item 
+\end_layout
+
+\end_inset
+
+TeX
+\begin_inset space \space{}
+\end_inset
+
+se pronuncia ((Tej)) y la última versión es la 3.1415926
+\begin_inset Newline newline
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+item 
+\end_layout
+
+\end_inset
+
+LaTeX
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+LaTeX
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \thinspace{}
+\end_inset
+
+ es un sistema de macros, desarrollado sobre TeX
+\begin_inset space \thinspace{}
+\end_inset
+
+ por Leslie Lamport, para facilitar su uso por parte de los autores.
+\begin_inset Newline newline
+\end_inset
+
+ Se pronuncia (( La-Tej)) la versión actual es LaTeX2e
+\begin_inset space \thinspace{}
+\end_inset
+
+ la cual se actualiza cada 6 meses.
+\begin_inset Newline newline
+\end_inset
+
+ LaTeX
+\begin_inset space \thinspace{}
+\end_inset
+
+ es un lenguaje de marcado, que se preocupa de la estructura del documento,
+ no se trata de la apariencia.
+ Por ejemplo, en LaTeX,
+\begin_inset space \thinspace{}
+\end_inset
+
+ siempre va a decir 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinline
+\end_layout
+
+\end_inset
+
++
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+chapter{A}
+\end_layout
+
+\end_inset
+
++ para capítulo A.
+ Es decir con LaTeX
+\begin_inset space \thinspace{}
+\end_inset
+
+ se consiguió "simplificar" TeX
+\begin_inset space \thinspace{}
+\end_inset
+
+ por lo que podemos decir que LaTeX
+\begin_inset space \thinspace{}
+\end_inset
+
+ es básicamente un conjunto de macros y algunos comandos de alto nivel que
+ permiten al usuario crear documentos de alta calidad sin mucha preocupación
+ por el aspecto tipográfico.
+ 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Diagrama de la forma como trabaja LaTeX
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/imprenta.png
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+item 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+PdfTeX
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset space \thinspace{}
+\end_inset
+
+ es una extensión del programa de composición tipográfica TeX
+\begin_inset space \thinspace{}
+\end_inset
+
+ el cual fue escrito originalmente por Han Thanh como parte del trabajo
+ de su tesis de doctorado en la Facultad de Informática de la Universidad
+ Masaryk, con el objetivo principal de mejorar las fuentes tipográficas,
+ el soporte de palabras con acentos y la creación de una salida PDF .
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+PdfTeX
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset space \thinspace{}
+\end_inset
+
+ se incluye en la mayoría de distribuciones modernas de LaTeX
+\begin_inset space \thinspace{}
+\end_inset
+
+ (incluyendo 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+TeX
+\end_layout
+
+\end_inset
+
+ Live, Mac
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+TeX
+\end_layout
+
+\end_inset
+
+ y MiK
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+TeX
+\end_layout
+
+\end_inset
+
+) y se utiliza como motor por defecto.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+item 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+PdfLaTeX
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \thinspace{}
+\end_inset
+
+ Básicamente es el conjunto de macros basado en 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+PdfTeX
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset space \thinspace{}
+\end_inset
+
+ para usar los macros de LaTeX
+\begin_inset space \thinspace{}
+\end_inset
+
+ y obtener una salida Pdf.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+item 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+XeTeX
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset space \thinspace{}
+\end_inset
+
+ (pronunciación en inglś "zee-
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+TeX
+\end_layout
+
+\end_inset
+
+" ) es un motor de tipografías TeX
+\begin_inset space \thinspace{}
+\end_inset
+
+ que utiliza Unicode y soporta tecnologías modernas de fuentes tal como
+ OpenType o Apple Advanced Typography (AAT).
+ Fue escrito y es mantenida por Jonathan Kew, se distribuye bajo X11 free
+ software license.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Inicialmente fue desarrollado únicamente para Mac OS X, pero ahora está
+ disponible para otras plataformas.
+ Tiene soporte nativo de Unicode y por defecto soporta archivos de entrada
+ codificados en UTF-8.
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+XeTeX
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset space \thinspace{}
+\end_inset
+
+ puede utilizar cualquier fuente instalada en el sistema operativo sin configura
+r el TeX
+\begin_inset space \thinspace{}
+\end_inset
+
+ font metric, y puede hacer un uso directo de las características avanzadas
+ de OpenType, AAT y Graphite.
+ (Tomado de Wikipedia 
+\begin_inset Flex Flex:URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://es.wikipedia.org/wiki/Xe
+\end_layout
+
+\end_inset
+
+) 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+item 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+XeLaTeX
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset space \thinspace{}
+\end_inset
+
+ es un conjunto de macros de 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+XeTeX
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset space \thinspace{}
+\end_inset
+
+ compatible con LaTeX.
+\begin_inset Newline newline
+\end_inset
+
+ Es decir La adaptación de TeX
+\begin_inset space \thinspace{}
+\end_inset
+
+ y LaTeX
+\begin_inset space \thinspace{}
+\end_inset
+
+ a los tiempos modernos, programado por Jonathan Kew.
+ Concretamente utiliza un motor llamado 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+XeTeX
+\end_layout
+
+\end_inset
+
+ , 
+\begin_inset space \thinspace{}
+\end_inset
+
+ que es como TeX
+\begin_inset space \thinspace{}
+\end_inset
+
+ pero modificado para usar Unicode.
+ Fue desarrollado en 2007 aproximadamente, si mal no recuerdo, primeramente
+ para sistemas MacOS y posteriormente se ha pasado a otros sistemas UNIX
+ y finalmente demás plataformas como MS Windows, etc.
+ Además proporciona nuevas características como la posibilidad de usar las
+ funciones tipográficas avanzadas de Opentype y AAT.
+\begin_inset Newline newline
+\end_inset
+
+ Este último software, además, puede utilizar la mayoría de la paquetería
+ ya existente para LaTeX.
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%
+\backslash
+begin{example}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%
+\backslash
+documentclass[12pt]{article}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%
+\backslash
+usepackage{fontspec}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+% 
+\backslash
+setmainfont{Times New Roman}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+% 
+\backslash
+title{Sample Document Title}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%
+\backslash
+author{Joe Doe}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%
+\backslash
+date{2013}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+% 
+\backslash
+begin{document}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+% 
+\backslash
+maketitle
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+% This an 
+\backslash
+textit{example} of document compiled with 
+\backslash
+textbf{xelatex} compiler.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%
+\backslash
+end{document}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%
+\backslash
+end{example}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+item 
+\end_layout
+
+\end_inset
+
+
+\series bold
+Omega
+\series default
+ es una extensión de TeX
+\begin_inset space \thinspace{}
+\end_inset
+
+ que utiliza Basic Multilingual Plane de Unicode.
+ Fue realizado por John Plaice y Yannis Haralambous despuś del desarrollo
+ de TeX
+\begin_inset space \thinspace{}
+\end_inset
+
+ en 1991, en principio para mejorar las habilidades multilenguaje del sistema
+ de tipografías TeX.
+\begin_inset space \thinspace{}
+\end_inset
+
+ Incluye una nueva fuente codificada en 16-bit para 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+TeX
+\end_layout
+
+\end_inset
+
+, (omlgc and omah) cubriendo una gran variedad de alfabetos.
+\end_layout
+
+\begin_layout Standard
+En 2004 en una conferencia de TeX
+\begin_inset space \thinspace{}
+\end_inset
+
+ Users Group, Plaice anunció su decisión de separarse en un nuevo proyecto
+ (que no resultó público), mientras que Haralambous continuó trabajando
+ sobre Omega.
+\end_layout
+
+\begin_layout Standard
+LaTeX
+\begin_inset space \thinspace{}
+\end_inset
+
+ para Omega es invocado como lambda.
+ (Tomado de WIKIPEDIA 
+\begin_inset Flex Flex:URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://en.wikipedia.org/wiki/Omega()
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lista}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Section
+Word Vs LaTeX
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+En esta sección presentaremos las diferencias entre un editor de texto enriqueci
+do como por ejemplo MsWord y un editor de texto plano como LaTeX.
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "40line%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Word 
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\diamondsuit$
+\end_inset
+
+ Wysiwyg 
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\diamondsuit$
+\end_inset
+
+ Muy fácil de usar 
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\diamondsuit$
+\end_inset
+
+ Facilidades para insertar objetos 
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\diamondsuit$
+\end_inset
+
+ Lento y malo para trabajar con fórmulas 
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\diamondsuit$
+\end_inset
+
+ Énfasis en diseño 
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\diamondsuit$
+\end_inset
+
+ Comercial 
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "40line%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+LaTeX
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\diamondsuit$
+\end_inset
+
+ Preprocesado 
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\diamondsuit$
+\end_inset
+
+ No es fácil de usar 
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\diamondsuit$
+\end_inset
+
+ Limitaciones por aceptar pocos formatos 
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\diamondsuit$
+\end_inset
+
+ Excelente en el manejo de fórmulas 
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\diamondsuit$
+\end_inset
+
+ En contenido 
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\diamondsuit$
+\end_inset
+
+ Gratis 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+¿ Porqué Usar LaTeX?
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\spadesuit$
+\end_inset
+
+ Produce documentos con calidad de imprenta.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\spadesuit$
+\end_inset
+
+ Es utilizado por editoriales (Springer, Elsevier,.
+ .
+ .
+ ), revistas y congresos especializados.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\spadesuit$
+\end_inset
+
+ Es una herramienta indispensable para físicos y matemáticos, especialmente
+ para investigadores.
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\spadesuit$
+\end_inset
+
+ Es una muy buena opción para escribir su tesis profesional.
+ 
+\end_layout
+
+\begin_layout Section
+Filosofía de LaTeX
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes grd
+\end_inset
+
+El autor debe de preocuparse por el contenido de sus documentos, y no por
+ la apariencia que éstos tendrán impresos en papel.”
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ En este libro discutiremos
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\bigstar$
+\end_inset
+
+ Comandos que definen unidades temáticas: título, sección, figuras, .
+ .
+ .
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\bigstar$
+\end_inset
+
+ Veremos comandos de formato: centrado, negritas, letra grande,  a pesar
+ de que esta tarea es trabajo del diseñador.
+ 
+\end_layout
+
+\begin_layout Section
+Que hace LaTeX
+\end_layout
+
+\begin_layout Subsubsection
+Autor, maquetador y compositor
+\end_layout
+
+\begin_layout Standard
+Para publicar algo, los autores dan su manuscrito mecanografiado a una editorial.
+ Uno de sus maquetadores decide el aspecto del documento (anchura de columna,
+ tipografías, espacio ante y tras cabeceras, ...).
+ El maquetador escribe sus instrucciones en el manuscrito y luego se lo
+ da al compositor o cajista, quien compone el libro de acuerdo a tales instrucci
+ones.
+\begin_inset Newline newline
+\end_inset
+
+ Un maquetador humano trata de hallar qu
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'e
+\end_layout
+
+\end_inset
+
+ tenía en mente el autor mientras escribía el manuscrito.
+ Decide sobre las cabeceras de los capítulos, las citas, los ejemplos, las
+ fórmulas, etc.
+ basándose es su conocimiento profesional y en el contenido del manuscrito.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En un entorno 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX
+\end_layout
+
+\end_inset
+
+,
+\begin_inset space \thinspace{}
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \thinspace{}
+\end_inset
+
+ representa el papel del maquetador y usa a
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+TeX
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \thinspace{}
+\end_inset
+
+ como su compositor.
+ Pero 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX
+\backslash
+,
+\end_layout
+
+\end_inset
+
+ es 
+\begin_inset Quotes eld
+\end_inset
+
+sólo
+\begin_inset Quotes erd
+\end_inset
+
+ un programa y por tanto necesita más supervisión.
+ El autor tiene que proporcionar información adicional para describir la
+ estructura lógica de su trabajo.
+ Tal información se escribe entre el texto como 
+\begin_inset Quotes eld
+\end_inset
+
+órdenes LaTeX
+\begin_inset Quotes erd
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+ Esto es bastante diferente del enfoque visual o WYSIWYG1 que sigue la mayoría
+ de los procesadores de texto modernos, como Abiword, OpenOffice Writer,
+ Ms Office Word, etc.
+ Con estas aplicaciones, los autores especifican el aspecto del documento
+ interactivamente mientras escriben texto en el ordenador.
+ Así pueden ver en la pantalla cómo aparecerá el trabajo final cuando se
+ imprima.
+\begin_inset Newline newline
+\end_inset
+
+ Cuando use 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \thinspace{}
+\end_inset
+
+ no suele ser posible ver el aspecto final del texto mientras lo escribe,
+ pero tal aspecto puede preverse en la pantalla tras procesar el fichero
+ mediante 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX
+\end_layout
+
+\end_inset
+
+.
+\begin_inset space \thinspace{}
+\end_inset
+
+ Entonces pueden hacerse correcciones antes de enviar el documento a la
+ impresor.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Maquetación
+\end_layout
+
+\begin_layout Standard
+La maquetación (diseño tipográfico) es un arte.
+ Los autores sin habilidad a menudo cometen errores de formateo al suponer
+ que maquetar es mayormente una cuestión de est
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'e
+\end_layout
+
+\end_inset
+
+tica 
+\begin_inset Quotes eld
+\end_inset
+
+Si un documento luce bien artísticamente, está bien diseñado
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Pero como un documento tiene que ser leído y no colgado en una galería
+ de pintura, su legibilidad y su entendibilidad es mucho más importante
+ que su aspecto lindo.
+ Ejemplos: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lista}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+item 
+\end_layout
+
+\end_inset
+
+El tamaño de los tipos y la numeración de las cabeceras debe escogerse para
+ que la estructura de capítulos y secciones quede clara al lector.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+item 
+\end_layout
+
+\end_inset
+
+La longitud de línea debe ser suficientemente corta para no cansara los
+ ojos del lector, pero suficientemente larga para llenar la página lindamente.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+item 
+\end_layout
+
+\end_inset
+
+Con sistemas WYSIWYG, los autores a menudo generan documentos agradables
+ estéticamente pero con muy poca estructura o muy inconsistente.
+ LaTeX
+\begin_inset space \thinspace{}
+\end_inset
+
+ impide tales errores de formateo forzando al autor a declarar la estructura
+ lógica del documento.
+ LaTeX
+\begin_inset space \thinspace{}
+\end_inset
+
+ escoge entonces la composición más adecuada.
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lista}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+¿Como usar 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \thinspace{}
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Standard
+Básicamente, para usar LaTeX
+\begin_inset space \thinspace{}
+\end_inset
+
+ y crear un documento son necesarios dos elementos.
+ Una distribución (un programa) que contenga y procese las distintas instruccion
+es de LaTeX
+\begin_inset space \thinspace{}
+\end_inset
+
+ y un editor de texto.
+\begin_inset Newline newline
+\end_inset
+
+ Existen varias distribuciones de LaTeX
+\begin_inset space \thinspace{}
+\end_inset
+
+ (Mik
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+TeX
+\end_layout
+
+\end_inset
+
+, fp
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+TeX
+\end_layout
+
+\end_inset
+
+, pro
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+TeX
+\end_layout
+
+\end_inset
+
+t, te
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+TeX
+\end_layout
+
+\end_inset
+
+, V
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+TeX
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+TeX
+\end_layout
+
+\end_inset
+
+Live, Oz
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+TeX
+\end_layout
+
+\end_inset
+
+, em
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+TeX
+\end_layout
+
+\end_inset
+
+) y editores de texto (AUC
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+TeX
+\end_layout
+
+\end_inset
+
+, Kile, LEd, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+LyX
+\end_layout
+
+\end_inset
+
+, MicroIMP, Scentific Author, Scientific Word, Texmaker, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+TeX
+\end_layout
+
+\end_inset
+
+nicCenter, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+TeX
+\end_layout
+
+\end_inset
+
+Shop, WinEdt, WinShell) para cada sistema operativo (Windows, Linux, etc.).
+\end_layout
+
+\begin_layout Section
+Herramientas para trabajar con LaTeX
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lista}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+item 
+\end_layout
+
+\end_inset
+
+Plataformas TeX
+\begin_inset Newline newline
+\end_inset
+
+ LaTeX
+\begin_inset space \thinspace{}
+\end_inset
+
+ es un programa originario del sistema operativo Unix, pero existe una versión
+ para windows, Linux y Mac OS X.
+ 
+\end_layout
+
+\begin_layout Enumerate
+MiK
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+TeX
+\end_layout
+
+\end_inset
+
+, Este funciona bajo DOS y no bajo Windows.
+ Se consigue en 
+\begin_inset Flex Flex:URL
+status collapsed
+
+\begin_layout Plain Layout
+
+www.miktex.org
+\end_layout
+
+\end_inset
+
+ y su última versión es la 2.9.4813, para plataformas de 32 y 64 bits.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Logo de Miktex
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/tfz.png
+	lyxscale 40
+	scale 10
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+También tenemos Texlive 2013, se consigue en 
+\begin_inset Flex Flex:URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://www.laqee.unal.edu.co/tex-archive/systems/texlive/Images/
+\end_layout
+
+\end_inset
+
+ , el cual funciona en Linux,Windows xp,7 y 8, además en Mac OS X 10.5 Leopard
+ o superior.
+\begin_inset Newline newline
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Enumerate
+Para Mac OS X existe también MacTex-2013 el cual se consigue en 
+\begin_inset Flex Flex:URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://www.tug.org/mactex/index.html
+\end_layout
+
+\end_inset
+
+ .
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+item 
+\end_layout
+
+\end_inset
+
+Editores, como editor se puede usar cualquier editor de texto como el Notepad
+ o el Worpad, los cuales son accesorios de Windows o Vim, Gedit o Kate en
+ Linux, pero existen varios editores especializados.
+ 
+\end_layout
+
+\begin_layout Enumerate
+TeXnicCenter es un editor software libre de LaTeX para Windows, el cual
+ integra en sí mismo las herramientas necesarias para la composición de
+ texto científico, desde una ventana de compilación integrada, una completa
+ ayuda y manual de LaTeX para los usuarios primerizos, así como un entorno
+ personalizable para los usuarios avanzados.
+\begin_inset VSpace defskip
+\end_inset
+
+TeXnicCenter está diseñado para trabajar con la distribución MiKTeX.
+ Por ello, tras instalarse, TeXnicCenter reconoce los ejecutables de MiKTeX
+ y establece las rutas a los compiladores de consola de esta distribución.
+\begin_inset VSpace defskip
+\end_inset
+
+De forma similar, en caso de estar disponible también se puede configurar
+ un visor para los documentos PDF generados, como Adobe Acrobat Reader/Professio
+nal o Foxit Reader.
+ Acrobat puede configurarse para cerrar un documento PDF al recompilarlo
+ con LaTeX.
+ Estas operaciones pueden llevarse a cabo mediante llamadas Dynamic Data
+ Exchange.1 2.
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+TeX
+\end_layout
+
+\end_inset
+
+nicCenter se consigue en 
+\begin_inset Flex Flex:URL
+status open
+
+\begin_layout Plain Layout
+
+www.toolscenter.org
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Caption
+
+\begin_layout Plain Layout
+TexnicCenter
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/texniccenter.jpg
+	lyxscale 60
+	width 3.7265in
+	height 2.8029in
+	keepAspectRatio
+	BoundingBox 0bp 0bp 10.666600000000001in 8.0004000000000008in
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+WinEdt ™ es un editor de texto potente y versátil para Windows con una fuerte
+ predisposición hacia la creación de documentos LATEX.
+\begin_inset VSpace defskip
+\end_inset
+
+WinEdt se utiliza como un editor de texto para los sistemas de composición
+ tipográfica, como TeX, HTML o NSIS.
+ Algo que hay que destacar de WinEdt es que se puede personalizar para los
+ diferentes modos y su funcionalidad de corrección ortográfica soporta varios
+ idiomas y configuraciones, con los diccionarios (listas de palabras) para
+ muchos idiomas disponibles para su descarga desde el sitio oficial de la
+ comunidad de WinEdt.
+\begin_inset VSpace defskip
+\end_inset
+
+Aunque WinEdt es razonablemente adecuado como un editor de texto de uso
+ general, ha sido específicamente diseñado y configurado para integrarse
+ perfectamente con un sistema TeX (como MiKTeX o TeX Live).
+\begin_inset VSpace defskip
+\end_inset
+
+Como editor, WinEdt le permite explorar su intuitiva y personalizable interfaz
+ y controles gráficos.
+ WinEdt también ofrece los medios para personalizar su interfaz de teclado,
+ lo que le permite utilizar métodos abreviados de teclado que puede ser
+ asociado a un elemento del menú.
+ 
+\begin_inset VSpace defskip
+\end_inset
+
+ WinEdt no es caro, US $40 para estudiantes, se consigue en 
+\begin_inset Flex Flex:URL
+status collapsed
+
+\begin_layout Plain Layout
+
+www.winedt.com
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Caption
+
+\begin_layout Plain Layout
+WinEdt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/winedt.jpg
+	lyxscale 70
+	width 3.8657in
+	height 2.9075in
+	keepAspectRatio
+	BoundingBox 0bp 0bp 10.666600000000001in 8.0004000000000008in
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Editor LaTeX, llamado más tarde LED, es un programa para un rápido desarrollo
+ de documentos TeX y LaTeX.
+ Es de uso gratuito
+\begin_inset VSpace defskip
+\end_inset
+
+LaTeX Editor está diseñado para funcionar en sistemas operativos Windows
+ ® 95/98/Me/NT4/2000/XP/2003/Vista/7/8.
+ Las capacidades de los LED varía según el sistema operativo utilizado,
+ por ejemplo, los estilos visuales de Windows ® XP.
+ Sin embargo, funciona con casi todas las funciones también en Windows ®
+ 95.
+\begin_inset VSpace defskip
+\end_inset
+
+LED ofrece un gestor de proyectos, potente editor, corrector ortográfico
+ integrado y un tesauro, consejos descriptivos para los comandos de LaTeX,
+ código de mecanismo completo, el ajuste de texto, plegado de código, el
+ entorno multilingüe y más.
+ Sin embargo, LaTeX Editor es un pequeño programa.
+ Todo el paquete sin tesauros de datos ocupa sólo 6 MB de espacio en disco,
+ mientras que la versión totalmente funcional de un idioma necesita alrededor
+ de 2,0 MB.
+ Por favor, vaya a la página de información para una descripción más detallada
+ de LED.
+ http://www.latexeditor.org/ 
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+LaTeX Editor (LED)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/led.png
+	lyxscale 40
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+mathbf{L}
+\backslash
+!{}_
+\backslash
+mathbf{
+\backslash
+displaystyle Y}
+\backslash
+!
+\backslash
+mathbf{X}$
+\end_layout
+
+\end_inset
+
+ es un programa gráfico multiplataforma creado por Matthias Ettrich que
+ permite la edición de texto usando LaTeX, por lo que «hereda» todas sus
+ capacidades (notación científica, edición de ecuaciones, creación de índices,
+ etcétera).
+\begin_inset VSpace defskip
+\end_inset
+
+Se trata de un procesador de textos en el que el usuario no necesita pensar
+ en el formato final de su trabajo, sino sólo en el contenido y su estructura
+ (WYSIWYM) (Lo Que Ves Es Lo Que Quieres Decir, por sus siglas en Inglés),
+ por lo que puede ser utilizado para editar documentos grandes (libros)
+ o con formato riguroso (tesis, artículos para revistas científicas), con
+ facilidad.
+ Además gratis se consigue en 
+\begin_inset Flex Flex:URL
+status collapsed
+
+\begin_layout Plain Layout
+
+www.wingnu.org
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img/lyx2.jpg
+	lyxscale 60
+	width 3.7265in
+	height 2.6705in
+	BoundingBox 0bp 0bp 7.2920999999999996in 5.2088000000000001in
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+PCTeX
+\begin_inset space \thinspace{}
+\end_inset
+
+V6 es un programa que proporciona un sistema de Tex y Latex completamente
+ integrado para maquetación profesional de libros, revistas técnicas y otros
+ documentos en todo tipo de Windows.
+ Usando el motor de TeX omnibus, pdfetex, PCTEX puede componer TeX-> DVI
+ y Tex-> PDF.
+ Se consigue en 
+\begin_inset Flex Flex:URL
+status open
+
+\begin_layout Plain Layout
+
+http://www.pctex.com/
+\end_layout
+
+\end_inset
+
+ por $79 .
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+PcTeX
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/pctex.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+BaKoMaTeX 10.10, para Windows (licencia personal, con mejoras en 1 año) incluye
+ una dual IDE: Un Verdadero WYSIWYG LaTeX Editor - TeXWord y la clásica
+ IDE - Editor de texto + DVI Visor, soporte gráfico de gran alcance: PostScript,
+ PDF, JPEG, PNG, GIF, TIFF, HPGL, DXY, FIG, PCX, BMP, MSP, WMF, EMF, el
+ apoyo a formatos de fuentes escalables modernas: PostScript Type1 (incluso
+ sin ATM), PostScript Type 3, Multiple Master Tipo 1, TrueType, OpenType,
+ el apoyo eficaz para múltiples directorios enormes TDS compatible con el
+ estándar.
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+BaKoMaTeX
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/bakoma.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace defskip
+\end_inset
+
+ Incluye un eficiente generador de PDF que se encarga de los gráficos PostScript
+ importados.
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset VSpace defskip
+\end_inset
+
+También un SVG generador que le permite crear una presentación atractiva
+ con LaTeX.
+ 
+\begin_inset VSpace defskip
+\end_inset
+
+Incluye cerca de 1500 tipos de letra TeX en ATM Tipo 1 formato de fuente
+ compatible .
+ Se puede conseguir 
+\begin_inset space \thinspace{}
+\end_inset
+
+ 
+\begin_inset Flex Flex:URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://www.bakoma-tex.com/menu/download.php
+\end_layout
+
+\end_inset
+
+, por 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+euro
+\backslash
+,
+\end_layout
+
+\end_inset
+
+ 55 Student License without Upgrades.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Scientific Work Place 5.0.
+ Scientific WorkPlace (a menudo abreviado SWP) es un paquete de software
+ para el procesamiento de textos científicos en Microsoft Windows.
+ Se incluye como un procesador de textos LaTeX basado en WYSIWYG, junto
+ con el sistema de preparación de documentos LaTeX y un sistema de álgebra
+ computacional opcional.
+\begin_inset VSpace defskip
+\end_inset
+
+Scientific WorkPlace permite para editar y componer tipo de texto matemático
+ y científico mediante el paradigma WYSIWYM.
+ Todo diseño fórmulas y entrada de caracteres especiales se puede hacer
+ mediante el ratón o mediante atajos de teclado.
+ A medida que el usuario edita, ven el documento presentado en un formulario
+ con formato y tipografía.
+\begin_inset VSpace defskip
+\end_inset
+
+Los documentos se almacenan en formato LaTeX y pueden ser escritas usando
+ cualquier procesador de LaTeX para obtener páginas compuestas tipo.
+ Trabajo Científico incluye la realización TrueTex de LaTeX y pdfTeX.
+\begin_inset VSpace defskip
+\end_inset
+
+De esta manera SWP proporciona la alta calidad de la composición LaTeX sin
+ que los usuarios aprendan el lenguaje LaTeX.
+\begin_inset VSpace defskip
+\end_inset
+
+Scientific WorkPlace incluye una (arce en versiones anteriores y / o MuPAD
+ en versiones posteriores) integrado en el sistema de álgebra computacional
+ con el que se puede realizar cálculos y generar gráficos del interior del
+ editor.
+\begin_inset VSpace defskip
+\end_inset
+
+Muchas conchas documentos (por ejemplo, plantillas) se incluyen para satisfacer
+ los estilos de composición tipográfica de revistas e instituciones profesionale
+s específicas.
+ Estas conchas utilizan los archivos de estilo LaTeX correspondientes
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Scientific Work Place
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/swp1.jpg
+	lyxscale 40
+	scale 40
+	BoundingBox 0bp 0bp 10.666600000000001in 8.0004000000000008in
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace defskip
+\end_inset
+
+Subconjuntos de estas capacidades están disponibles como Scientific Word
+ (sin álgebra computacional) y Notebook Científica (limitado LaTeX importación
+ / exportación, no cajista LaTeX incluido).
+\begin_inset VSpace defskip
+\end_inset
+
+Scientific WorkPlace combina la facilidad de introducir y editar las matemáticas
+ en notación matemática con la capacidad de calcular y graficar con el motor
+ de álgebra computacional integrado.
+ En este entorno de trabajo integrado, el usuario puede introducir las matemátic
+as y realizar cálculos sin tener que pensar o trabajar en un lenguaje de
+ programación.
+ Se consigue en 
+\begin_inset Flex Flex:URL
+status collapsed
+
+\begin_layout Plain Layout
+
+www.tcisoft.com
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%EndExpansion
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+TexMaker es un editor gratuito distribuido bajo la licencia GPL para escribir
+ documentos de texto, multiplataforma, que integra muchas herramientas necesaria
+s para desarrollar documentos con LaTeX, en una sola aplicación.
+ Texmaker incluye soporte Unicode, corrección ortográfica, auto-completado,
+ plegado de código y un visor incorporado en pdf con soporte de synctex
+ y el modo de visualización continua.
+ Se consigue en 
+\begin_inset Flex Flex:URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://www.xm1math.net/texmaker/
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+TexMaker
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/texmaker.png
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Kile es un editor TeX / LaTeX para editar código fuente TeX / LaTeX.
+ Se ejecuta en sistemas Unix incluyendo Mac OS X y Linux con el Qt y bibliotecas
+ KDE instalado.
+ Se consigue en 
+\begin_inset Flex Flex:URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://kile.sourceforge.net/
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Kile
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\emph on
+\begin_inset Graphics
+	filename img/ Kile.png
+	lyxscale 40
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+TeXstudio es una multiplataforma editor de LaTeX de código abierto con una
+ interfaz similar a Texmaker.
+\begin_inset VSpace defskip
+\end_inset
+
+TeXstudio es un IDE LaTeX que proporciona soporte de escritura moderna,
+ como la comprobación interactiva hechizo, plegado de código y resaltado
+ de sintaxis.
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+TexStudio
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/ TeXstudio.png
+	lyxscale 40
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace defskip
+\end_inset
+
+Originalmente llamado TexMakerX, TeXstudio se inició como un tenedor de
+ Texmaker que trataron de extenderla con características adicionales, manteniend
+o su apariencia.
+ Se ejecuta en Windows, Unix / Linux, BSD y Mac OS X.
+ Se consigue en 
+\begin_inset Flex Flex:URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://texstudio.sourceforge.net/
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Enumerate
+LaTeXila es un editor de LaTeX para el escritorio GNOME.
+ Es un software libre (GPL 3 + licencia).
+ Se ejecuta en tal vez otros sistemas UNIX GNU / Linux, OpenBSD y.
+ Información en 
+\begin_inset Flex Flex:URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://latexila.sourceforge.net/
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+LaTeXila
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/LaTeXila.png
+	lyxscale 40
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+TeX
+\end_layout
+
+\end_inset
+
+nicle for Mac OS X es un editor de LaTeX y organizador del proyecto para
+ Mac OS X con una interfaz rica en características para ayudarle a gestionar
+ sus proyectos LaTeX.
+ Más información en 
+\begin_inset Flex Flex:URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://www.macupdate.com/app/mac/39985/texnicle
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+TeXnicle
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/TeXnicle.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Latexian for Mac OS X es un nuevo y revolucionario editor LaTeX para Mac.
+ Latexian proporciona herramientas avanzadas para crear y componer documentos
+ LaTeX.
+ El uso de Latexian la vista previa, se puede ver cómo el documento de composici
+ón tipográfica, mientras se está editando - las actualizaciones vista previa
+ PDF de forma automática! Latexian tiene muchas otras características avanzadas,
+ incluyendo la comprobación de sintaxis-aware hechizo, documentos con fichas,
+ completado de código, y mucho más.
+ Latexian apoya el LaTeX y tipógrafos XeTeX, e incluye soporte para trabajar
+ con documentos BibTeX.
+ Se consigue en 
+\begin_inset Flex Flex:URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://www.macupdate.com/app/mac/34475/latexian
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Latexian
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/latexian.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+TeXShop es un editor TeX gratis y vista previa de Mac OS X.
+ Está licenciado bajo la GNU GPL.Fue desarrollado por el matemático estadounidens
+e Richard Koch.
+ TeXShop fue creado especialmente para el Mac OS X interfaz de usuario de
+ la aguamarina y capitalizó el soporte PDF nativo del sistema operativo
+ Macintosh.
+ 
+\begin_inset VSpace defskip
+\end_inset
+
+Mitsuhiro Shishikura mejorada mediante la adición de la capacidad de transferir
+ expresiones matemáticas directamente en Keynote.
+ TeXShop requiere una instalación de TeX existente y se incluye en la actualidad
+ con la distribución MacTeX.
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+TeXShop
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/texshop-2.jpg
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace defskip
+\end_inset
+
+La versión Tiger de TeXShop es capaz de saltar de vista previa para código
+ y viceversa sin pdfsync.sty, utilizando la tecnología de búsqueda de PDF
+ integrado en Tiger (NB: No Spotlight aquí).
+ Ver iTeXMac para una aplicación más fuerte de esta tecnología también conocida
+ como la sincronización pdf.
+ Mas información en 
+\begin_inset Flex Flex:URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.macupdate.com/app/mac/12104/texshop
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+item 
+\end_layout
+
+\end_inset
+
+Visores de Pdf y Ps 
+\end_layout
+
+\begin_layout Enumerate
+Acrobat Reader.
+ Adobe Acrobat es una familia de programas informáticos desarrollados por
+ Adobe Systems diseñados para visualizar, crear y modificar archivos con
+ el formato Portable Document Format, más conocido como PDF.1 Algunos programas
+ de la familia, especialmente la creación de este tipo de archivos, son
+ comerciales, mientras que otros, como la lectura de este tipo de documentos,
+ son freeware.
+ Adobe Reader (denominado anteriormente Acrobat Reader) está disponible
+ sin cargo alguno en la página de descargas de Adobe, y permite la visualización
+ e impresión de archivos PDF.2 Acrobat y Reader son de uso muy popular como
+ forma de presentar información con un formato fijo similar al de una publicació
+n.
+ Cuenta con versiones para los sistemas operativos Microsoft Windows, Mac
+ OS, Linux, Windows Mobile, Palm OS, Symbian OS y Android.
+ El uso del formato PDF es muy común para mostrar texto con un diseño visual
+ ordenado.
+ Actualmente se encuentra en su versión Adobe Acrobat XI (11).es un visor
+ de documentos Pdf.
+ Más información en 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://get.adobe.com/es/reader/otherversions/
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Adobe Reader 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/acrobat.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Evince 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://wiki.gnome.org/Evince/Downloads
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace defskip
+\end_inset
+
+ ¿Qué es Evince? 
+\begin_inset VSpace defskip
+\end_inset
+
+Evince es un visor de documentos para múltiples formatos.
+ El objetivo de Evince es reemplazar los múltiples visores de documentos
+ que existen en el escritorio de GNOME con una sola aplicación .
+\begin_inset VSpace defskip
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Evince
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/screenshot-evince.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ Evince está diseñado específicamente para soportar los formatos de archivo
+ siguientes:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+PDF 
+\end_layout
+
+\begin_layout Enumerate
+Postscript 
+\end_layout
+
+\begin_layout Enumerate
+djvu 
+\end_layout
+
+\begin_layout Enumerate
+tiff 
+\end_layout
+
+\begin_layout Enumerate
+dvi 
+\end_layout
+
+\begin_layout Enumerate
+XPS 
+\end_layout
+
+\begin_layout Enumerate
+SyncTex 
+\end_layout
+
+\begin_layout Enumerate
+support with gedit comics books (cbr,cbz,cb7 and cbt)
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Okular es un visor de documentos para KDE 4.
+ Esta basado en KPDF, y reemplaza a KPDF, KGhostView, KDVI y otros 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://okular.kde.org/download.php
+\end_layout
+
+\end_inset
+
+.
+\begin_inset VSpace defskip
+\end_inset
+
+Okular comenzó en el Google Summer of Code de 2005 y Piotr Szymanski fue
+ el estudiante seleccionado para su desarrollo inicial.
+\begin_inset VSpace defskip
+\end_inset
+
+Permite visualizar los siguientes formatos:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+PDF con el backend Poppler 
+\end_layout
+
+\begin_layout Enumerate
+PostScript con el backend libgs 
+\end_layout
+
+\begin_layout Enumerate
+TIFF con el backend libTIFF
+\end_layout
+
+\begin_layout Enumerate
+CHM con el backend libCHM
+\end_layout
+
+\begin_layout Enumerate
+DjVu con el backend 
+\end_layout
+
+\begin_layout Enumerate
+DjVuLibre DVI (TeX) (Device independent file format)
+\end_layout
+
+\begin_layout Enumerate
+XPS 
+\end_layout
+
+\begin_layout Enumerate
+ODF 
+\end_layout
+
+\begin_layout Enumerate
+FictionBook 
+\end_layout
+
+\begin_layout Enumerate
+Comicbook 
+\end_layout
+
+\begin_layout Enumerate
+Plucker
+\end_layout
+
+\begin_layout Enumerate
+EPUB 
+\end_layout
+
+\begin_layout Enumerate
+Mobipocket 
+\end_layout
+
+\begin_layout Enumerate
+Varios formatos de imágenes
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Foxit Reader es un lector PDF multilingüe.
+ Tanto la versión completa, como la básica pueden descargarse gratis.
+ Este software es notable por su corto tiempo para cargar y el tamaño pequeño
+ de sus archivos.
+ Ha sido favorablemente comparado con Adobe Reader.2 3 No puede leer archivos
+ PDX.
+ Su versión para Windows permite hacer anotaciones, convertir a texto, subrayar
+ y dibujar en un archivo PDF.
+\begin_inset VSpace defskip
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Okular
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/okular.png
+	lyxscale 40
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Se ha lanzado una versión para Linux, disponible para su descarga en tres
+ formatos; .deb para distribuciones basadas en Debian, .rpm para distribuciones
+ basadas en Red Hat, y un paquete binario pre-compilado en un archivo tar.gz.4
+ .
+ Más información en 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://www.foxitsoftware.com/
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Foxit Reader 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/foxit.png
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+MacGhostView un visor Postscript y PDF para el Mac.
+ Es muy similar al programa ghostview encontrado en máquinas Unix y está
+ basado en Ghostscript 6.01.
+ Si un documento PostScript cumplen Convenciones de estructura de documentos
+ de Adobe, las páginas del documento se pueden mostrar en cualquier orden.
+ Mas información en 
+\begin_inset Flex Flex:URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://www.macupdate.com/app/mac/5815/macghostview
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+MacGhostView
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/MacGhostView_1.jpg
+	lyxscale 60
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+GSview es una interfaz gráfica para Ghostscript.
+ Ghostscript es un intérprete para el lenguaje PostScript utilizado por
+ las impresoras láser.
+ Para los documentos siguientes PostScript Convenciones de estructura de
+ documentos de Adobe, GSview permite seleccionar las páginas que pueden
+ ver o imprimir.
+ GSview requiere Ghostscript.
+ GSview está disponible para Windows, OS / 2 y Linux.
+ Más información en 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://pages.cs.wisc.edu/~ghost/
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Gsview
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/gsview.png
+	lyxscale 60
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ Conversores gráficos 
+\end_layout
+
+\begin_layout Enumerate
+GhostScript (escrito por Peter Deutsch, fundador de Aladdin Enterprises),
+ es el programa intérprete por excelencia de documentos en formato PS (y
+ también PDF).
+\begin_inset VSpace defskip
+\end_inset
+
+Ghostscript permite presentar datos PS y PDF en la pantalla y además traducirlos
+ de manera que puedan ser impresos en una impresora con capacidad gráfica
+ mediante el uso del controlador de dicha impresora.
+\begin_inset VSpace defskip
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+GhostScript
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/ghostscript.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Aladdin Enterprises mantiene las nuevas versiones de Ghostscript hasta que
+ alcanzan una cierta «edad», y luego las libera a la Fundación de Software
+ Libre (FSF, Free Software Foundation) para que se distribuya como GNU Ghostscri
+pt.
+ Estas versiones son las que se distribuyen «libres de cargo» en las distribucio
+nes de Linux.
+ Más información en 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://pages.cs.wisc.edu/~ghost/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+ImageMagick es un conjunto de utilidades de código abierto1 para mostrar,
+ manipular y convertir imágenes, capaz de leer y escribir más de 100 formatos.
+ ImageMagick es publicado bajo la Licencia Apache.
+\begin_inset VSpace defskip
+\end_inset
+
+El software consiste principalmente en un conjunto de utilidades de linea
+ de comandos para manipular imágenes.
+ ImageMagick no tiene una Interfaz gráfica de usuario propia como Adobe
+ Photoshop o GIMP.
+ Sin embargo, incluye una interfaz de X Window llamada IMDisplay y una API
+ para diversos lenguajes de programación.
+ El programa usa los números mágicos para identificar el formato de las
+ imágenes.
+ Algunas aplicaciones Web como MediaWiki, phpBB, and vBulletin, pueden usar
+ ImageMagick para generar miniaturas en reemplazo de GD.
+ También es usado por otros programas como LyX para convertir imágenes.
+ ImageMagick también integra una API de Perl llamada PerlMagick,2 además
+ de otras APIs gráficas.
+ Más información en 
+\begin_inset Flex Flex:URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://www.imagemagick.org/script/index.php
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+ImageMagick
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/imdisplay.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ Gestión Bibliográfica
+\end_layout
+
+\begin_layout Enumerate
+JabRef es un Software de gestión bibliográfica que utiliza BibTeX como formato
+ nativo.
+ JabRef proporciona una interfaz fácil de usar para la edición de archivos
+ de tipo BibTeX, para la importación de datos de bases de datos científicos
+ en línea, y para la gestión y la búsqueda de archivos BibTeX.
+ Se consigue en 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://sourceforge.net/projects/jabref/?source=dlp
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace defskip
+\end_inset
+
+JabRef se encuentra bajo los términos de la licencia GPL.
+ La aplicación está programada en Java, es portable y recibe mantenimiento
+ para los sistemas operativos Windows, Linux y Mac OS X.
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Jabref
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/Jabref-2.2-screenshot.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+KBibTeX es un editor de BibTex para manejar referencias bibliográficas en
+ LaTex.
+ Está escrito usando KDE pero no forma parte del la compilación oficial
+ de KDE o KOffice.
+ Fue desarrollado por Thomas Fischer durante el 2004, y la versión más reciente
+ data del 24 de noviembre de 2011.
+\begin_inset VSpace defskip
+\end_inset
+
+Es un programa gratuito y de código abierto (licencia GNU), que se puede
+ compilar en distintas plataformas (Mac, Windows, Gnome), que se puede descargar
+ aquí: 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://home.gna.org/kbibtex/
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Kbibtex
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/kbibtex-20110605-windows.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ Tables, Smartphone y On-line.
+\end_layout
+
+\begin_layout Enumerate
+Iphone
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+LaTeX Help 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+- LaTeX Editor and Compiler
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+- Con TeX Writer puedes escribir y compilar archivos TeX directamente en
+ tu dispositivo.
+ No necesita conexión a Internet!
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+- Compatible con beamer / BibTeX / MakeIndex
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+- Descarga automática del paquete
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+- TeX Writer permite escribir, compilar y previsualizar documentos de TeX
+ en tu iPad.
+ La compilación la realiza en el dispositivo, no se requiere conexión a
+ Internet.
+ Cuenta con una interfaz de usuario muy directa, por lo que que puede empezar
+ en cuestión de segundos.
+ Con el soporte de sincronización Dropbox, puede compartir los archivos
+ TeX entre diferentes dispositivos, incluyendo los equipos de escritorio.
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+TeX Writer
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/mzl.wjmckwct.466x466-75.jpg
+	lyxscale 60
+	scale 30
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/mzl.ptnpfsph.320x480-75.jpg
+	lyxscale 60
+	scale 30
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/mzl.dxmhtgmx.320x480-75.jpg
+	lyxscale 60
+	scale 30
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/mzl.ypenivpy.320x480-75.jpg
+	lyxscale 60
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Características: Es un editor de texto diseñado para LaTeX .
+ Con el resaltado de sintaxis, innovadora selección de texto, personalizable
+ asistente de teclado, comandos de gran alcance; 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+- Compilación rápida en el dispositivo;
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+- Plain TeX / LaTeX - Automáticamente BibTeX / MakeIndex; 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+- El usuario puede instalar paquetes personalizados; 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+- Auto instalar los paquetes que faltan;
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+- La producción y exportación de PDF 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+- Dropbox sincronización, subcarpetas de apoyo
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+- Práctico previsualización de la imagen para la inserción de gráficos;
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+- Práctico personalizable asistente teclado para introducir caracteres especiale
+s.
+ Abrir el archivo tex de otras aplicaciones .
+\end_layout
+
+\begin_layout Description
+b) LaTeX Assistant Lite: Todo el mundo después de haber preparado un documento
+ LaTeX para su publicación se ha encontrado con la situación en que se necesitab
+a un símbolo, pero no podía recordar cómo introducir en el documento.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+- Esta aplicación de referencia que da una lista de los muchos símbolos
+ que están disponibles en LaTeX, de sencilla lectura y de referencia.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+- ¿Sabía usted que usted puede agregar fácilmente una cruz maltesa a su
+ texto? O dagas dobles? Desplácese por los iconos y ver lo que se puede
+ usar!
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+- Y, si usted es como yo, y siempre se olvida de cómo empezar a trabajar
+ con un documento LaTeX vacío, hay un poco de ayuda para eso, también ...
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+- Si te gusta esta versión Lite, debería echar un vistazo a la versión completa.
+ Con casi 600 entradas en la base de datos, usted encontrará todo lo que
+ necesita!
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+TeX Writer
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/texpad1.jpg
+	lyxscale 60
+	scale 30
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/texpad2.jpg
+	lyxscale 60
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+c) Texpad tiene LaTeX y BibTeX incorporado, para que pueda componer sus
+ documentos al instante, en tu iPad o iPhone sin conexión a Internet.
+\begin_inset VSpace defskip
+\end_inset
+
+  Es, ligero, pero potente distribución TeX a bordo es capaz de componer
+ casi cualquier cosa, desde Tikz, a la escritura koma-script .
+ Los paquetes que faltan se marcan y se pueden descargar con el gestor de
+ paquete integrado.
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+TeX Writer
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/texpad3.jpeg
+	lyxscale 60
+	scale 30
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/texpad4.jpg
+	lyxscale 60
+	scale 30
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/texpad5.jpg
+	lyxscale 60
+	scale 30
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/texpad6.jpeg
+	lyxscale 60
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Android
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+VerbTeX LaTeX Editor: Es un editor de LaTeX gratuito para su dispositivo
+ Android.
+ Te permite crear y gestionar proyectos LaTeX directamente en su dispositivo
+ Android y generar un PDF utilizando Verbosus (Online LaTeX Editor y Octave)
+ 
+\end_layout
+
+\begin_layout Enumerate
+LaTeX for Android Beta: Esta aplicación le permite editar archivos de látex
+ en su dispositivo.
+ Genera archivos PDF mediante el envío de los archivos de tex al servidor
+ SSH que usted menciona.
+ La aplicación está todavía en fase de desarrollo y se libera como una versión
+ beta.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Latex Online
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Eqneditor: 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://www.codecogs.com/latex/eqneditor.php
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Editor Online de Ecuaciones Latex : 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://rinconmatematico.com/latexrender/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+LaTeX Online Compiler: 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://www.fdi.ucm.es/profesor/rene_dager/Calculo-ITS/practica/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Scrib
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+TeX
+\end_layout
+
+\end_inset
+
+: 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://www.scribtex.com/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Share
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX
+\end_layout
+
+\end_inset
+
+: 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://www.sharelatex.com/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Latexlab: 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://docs.latexlab.org/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lista}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Section
+Instalación
+\end_layout
+
+\begin_layout Subsection
+Windows
+\end_layout
+
+\begin_layout Standard
+A continuación presentaremos las instrucciones a seguir para lograr una
+ instalación correcta de LATEX en Windows sin complicaciones ni errores.
+ 
+\end_layout
+
+\begin_layout Standard
+Es importante seguir todos los pasos según lo detallado, caso contrario
+ es posible que no logremos hacer que funcione correctamente.
+ 
+\end_layout
+
+\begin_layout Standard
+También estamos aclarando que el presente artículo es válido para realizar
+ la instalación en el sistema operativo Windows XP, Vista, Windows 7 y Windows
+ 8.
+ Empecemos...
+\end_layout
+
+\begin_layout Description
+a) Descarga de archivos necesarios
+\end_layout
+
+\begin_layout Standard
+Para empezar, lo primero que tenemos que hacer es sólo descargar los programas
+ necesarios, pero NO ejecutar ninguno de ellos por el momento.
+ Hay algunos instaladores como MiKTeX, por ejemplo que pueden llegar a pesar
+ hasta 160 MB.
+ Bueno...
+ tenemos que descargar los siguientes archivos:
+\end_layout
+
+\begin_layout Description
+MiKTeX 
+\end_layout
+
+\begin_layout Standard
+Este es el motor de LATEX pues traducirá los comandos que escribimos a texto
+ editado.
+ Es gratuito y de distribución libre bajo licencia de distribución pública
+ y se puede descargar desde su web oficial.
+\end_layout
+
+\begin_layout Description
+1.
+ Vamos a la página web de MiKTeX en el siguiente enlace: 
+\begin_inset Flex Flex:URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://www.tug.org/mactex/index.html
+\end_layout
+
+\end_inset
+
+, 
+\end_layout
+
+\begin_layout Description
+2.
+ Actualmente la versión es la 2.9, pero si al leer este párrafo encuentras
+ una nueva versión disponible, mucho mejor.
+ (Otra opción es TeXlive 2013 o superior).
+\end_layout
+
+\begin_layout Description
+3.
+ Vamos a descargar el paquete básico Basic MiKTeX 2.9 Installer.
+ Como puedes ver en la imagen siguiente hay dos versiones: Basic MiKTeX
+ 2.9 Installer y Basic MiKTeX 2.9 64-bit Installer, la primera de ellas es
+ para sistemas Windows de 32-bit y la segunda es para sistemas Windows de
+ 64-bit.
+ Elige la adecuada según tu caso, aunque vale aclarar que independientemente
+ de si tu sistema Windows es de 32-bit o 64-bit, la versión Basic MiKTeX
+ 2.9 de 32-bit funciona sin problemas en ambos tipos de arquitecturas.
+ Bueno, recuerda que cuando termines de descargarlo, NO lo ejecutes aún.
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Miktex-Basic
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/Basic.MiKTeX.png
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Ghost View y GhostScript
+\end_layout
+
+\begin_layout Description
+1.
+ Iremos a la página web de Ghost View en el siguiente enlace: 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://pages.cs.wisc.edu/~ghost/
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+GsView
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/Ghost.View.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+2.
+ Ahora iremos al sitio web en SourceForge de GhostScript en el siguiente
+ enlace: Clic para: Descargar GhostScript Recuerda descargar la versión
+ más reciente siempre.
+ Ahora, al momento de escribir este artículo la versión más actual es GPL
+ Ghostscript 9.07.
+ 
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+GhostScript
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/Ghostscript.png
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una vez ubicado en el folder de la versión más reciente, descarga según
+ la versión de Windows que tengas de 32-bit o 64-bit como se indica en la
+ siguiente imagen:
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Descargar GPL Ghostscript
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/Descargar.GhostScript.png
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ahora descargaremos el editor para poder escribir en LATEX.
+ Hay muchos editores eficaces para hacer nuestros documentos, así que esto
+ ya es una cuestión de gustos.
+ Entre ellos tenemos TexMaker, WinEdt, TeXnicCenter, Kile, etc 
+\end_layout
+
+\begin_layout Standard
+A muchos les gusta WinEdt, pero yo personalmente optaré por TexMaker, pero
+ tu puedes elegir el de tu propio gusto.
+\end_layout
+
+\begin_layout Description
+TexMaker 
+\end_layout
+
+\begin_layout Standard
+Tiene varias funcionalidades como escritura predictiva, lector pdf integrado,
+ división de la ventana en dos secciones: una para escribir el código y
+ la otra para visualizar el resultado de la compilación, entre otras.
+ Bueno, para descargarlo accedemos a la siguiente página oficial donde lo
+ conseguiremos gratuitamente: 
+\begin_inset Flex Flex:URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://www.xm1math.net/texmaker/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Texmaker
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/texmakerdown.png
+	lyxscale 60
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Lector PDF 
+\end_layout
+
+\begin_layout Standard
+Esto es a tu criterio, es muy probable que ya tengan instalado algún lector
+ PDF como Adobe Reader o Foxit Reader, ambos gratuitos.
+ Personalmente prefiero Foxit Reader que a opinión propia es más ligero
+ y más eficaz.
+ 
+\end_layout
+
+\begin_layout Description
+b) Instalación de los Programas
+\end_layout
+
+\begin_layout Standard
+En esta parte instalaremos los programas que hemos descargado.
+ Es importante seguir estrictamente el orden de instalación que se mencionará
+ a continuación.
+ Se recomienda instalar los siguientes programas como administrador (Clic
+ derecho sobre el setup y elegir "Instalar como administrador...").
+\end_layout
+
+\begin_layout Standard
+Instalación y Configuración de MikTeX
+\end_layout
+
+\begin_layout Standard
+MikTeX es una herramienta indispensable que nos va a permitir crear los
+ documentos, pues su función es traducir los comandos escritos en el editor
+ de texto y mostrarlos en el documento final.
+ La instalación es sencilla, pero es necesario seguir unos pasos.
+\end_layout
+
+\begin_layout Standard
+Instalación:
+\end_layout
+
+\begin_layout Description
+1.
+ Ejecutamos el instalador de MikTeX como administrador.
+\end_layout
+
+\begin_layout Description
+2.
+ Aceptamos las condiciones de uso, y seleccionamos "Instalar para todos
+ los usuarios de este equipo".
+ Dejamos predeterminada la ruta de instalación.
+\end_layout
+
+\begin_layout Description
+3.
+ En Settings (Configuraciones), seleccionamos el tamaño de página como A4,
+ y en "Install missing packages on-the-fly" ponemos YES.
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Tamaño de página
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/Instalar.MikTeX.png
+	lyxscale 60
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+4.
+ Luego se iniciará la instalación que puede durar de 2 a 5 minutos.
+ Esto depende de la potencia de tu Pc.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Instalar MikTeX
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/Instalar.MikTeX.2.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Configuración:
+\end_layout
+
+\begin_layout Standard
+Terminada la instalación, tenemos de hacer unos ajustes al programa.
+ Debemos cargar los paquetes más nuevos y/o actualizarlos.
+ Un paquete ("package" en Inglés) es un archivo que añade o modifica algunas
+ características que incluye el LaTeX básico como formatos particulares,
+ gráficos, tablas, etc.
+ Este paso es recomendable hacerlo periódicamente para cargar los paquetes
+ nuevos o actualizarlos.
+\end_layout
+
+\begin_layout Standard
+Para actualizar el programa hacemos lo siguiente: 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+* En Windows XP, Vista y Windows 7 vamos a: Inicio »» Todos los programas
+ »» MikTeX 2.9 »» Maintenance(Admin) »» Settings(Admin) 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+* En Windows 8 presionamos las teclas Win + Q y en el buscador escribimos
+ Settings(Admin)
+\end_layout
+
+\begin_layout Standard
+Bueno, en la pestaña "Languages" nos aseguramos que se encuentre seleccionado
+ el idioma Español.
+ 
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Configuracion
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/Configuracion.MikTeX.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Luego, en la pestaña "General" podrás ver dos opciones importantes: Refresh
+ FNDB y Update Formats como en la siguiente imagen: 
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Refresh FNDB 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/Configuracion.MikTeX.2.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En la ventana anterior pulsamos primero Refresh FNDB (verás algo similar
+ a la siguiente imagen) y después en Update Formats.
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Formats
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/Configuracion.MikTeX.3.png
+	lyxscale 60
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finalmente, damos clic en Aceptar para salir de la configuración.
+\end_layout
+
+\begin_layout Description
+Instalación de GhostScript y Ghost View
+\end_layout
+
+\begin_layout Standard
+Aquí no hay nada nuevo, la instalación de ambos es sencilla como la de cualquier
+ otro programa sin configuraciones previas.
+ Recuerda que debes instalarlos como administrador.
+ Ejecutamos uno a uno los dos instaladores que hemos descargado, instala
+ primero GhostScript y luego Ghost View.
+ Estos dos programas sirven como visores de los documentos que creamos,
+ y hacen la misma función que el lector PDF; sin embargo, es bueno tenerlos
+ instalados.
+\end_layout
+
+\begin_layout Description
+Instalación del Editor TeXMaker
+\end_layout
+
+\begin_layout Standard
+TeXMaker es el programa que más vamos a usar, puesto que es el sitio donde
+ vamos a escribir nuestros documentos LaTeX.
+ La instalación del TeXMaker también es muy sencilla sin nada sorprendente,
+ igualmente instálalo como administrador, aceptamos los términos, nuestro
+ idioma, luego siguiente...
+ siguiente..., y finalmente cerramos el instalador.
+ 
+\end_layout
+
+\begin_layout Standard
+Sin embargo, luego de terminar la instalación debemos hacer algunas configuracio
+nes en el editor en caso sea necesario.
+ TeXMaker se configura automáticamente con MikTeX, GhostScript y Ghost View
+ y debería reconocer todos los programas instalados anteriormente.
+ Pero si algo falla, podemos configurarlo manualmente.
+ Para eso abrimos TeXMaker y hacemos lo siguiente:
+\end_layout
+
+\begin_layout Description
+1.
+ Con el programa abierto, vamos al menú Opciones »» Configurar TeXMaker.
+ Se abrirá un cuadro de opciones.
+\end_layout
+
+\begin_layout Description
+2.
+ En la primera pestaña Comandos, verificamos las siguientes líneas:
+\end_layout
+
+\begin_layout Description
+Visor DVI: que debe tener como programa de referencia a yap.exe.
+ En caso de no ser así, puedes proporcionar la ruta correcta haciendo clic
+ en el icono de la carpeta azul a la derecha.
+ 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+* En el caso de tener MikTeX de 32-bit en Windows de 32-bit la ruta es:
+ 
+\family sans
+\series bold
+C:
+\backslash
+Program Files
+\backslash
+MiKTeX 2.9
+\backslash
+miktex
+\backslash
+bin
+\backslash
+yap.exe
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+* En el caso de tener MikTeX de 64-bit en Windows de 64-bit la ruta es:
+ 
+\family sans
+\series bold
+C:
+\backslash
+Program Files
+\backslash
+MiKTeX 2.9
+\backslash
+miktex
+\backslash
+bin
+\backslash
+x64
+\backslash
+yap.exe
+\end_layout
+
+\begin_layout Description
+Visor PS: es la referencia a Ghost View, en mi caso se ve gsview64.exe puesto
+ que yo descargué esa versión de 64-bit, pero en sistemas de 32-bits debería
+ verse sólo gsview32.exe.
+ Si no estuviera la referencia correcta, presiona el icono de la carpeta
+ azul a la derecha y proporciona la ruta correcta.
+ 
+\end_layout
+
+\begin_layout Description
+Visor PDF: en External Viewer, por defecto está seleccionado AcroRd32.exe
+ que es el ejecutable de Adobe Reader de 32-bit.
+ Aquí dale clic en el icono de la derecha y proporciona la ruta correcta
+ de tu lector PDF, en mi caso Foxit Reader.
+ 
+\end_layout
+
+\begin_layout Description
+Ghostscript: el nombre lo dice todo, es la referencia de GhostScript.
+ Aquí también verifica que sea la versión adecuada, para sistemas de 32-bits
+ debería ser gswin32c.exe pero en mi caso se ve gswin64c.exe por tratarse
+ de un sistema de 64-bits.
+\end_layout
+
+\begin_layout Description
+Observación: TeXMaker tiene un lector PDF integrado, si deseas usarlo sólo
+ selecciona Visor Incorporado.
+ Si además deseas tener doble pantalla para ver el código y el documento
+ a la vez, sólo marca la casilla de Embebido.
+ 
+\end_layout
+
+\begin_layout Standard
+Esta es una imagen de mi configuración personal de la pestaña Comandos:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Configuración de TexMaker
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/Configuracion.TexMaker.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+3.
+ En el apartado Compilación Rápida dejamos seleccionada la opción PdfLaTeX
+ + Ver PDF.
+ Esto servirá para que cada vez que queramos ver cómo está quedando nuestro
+ documento podamos hacerlo a través del botón Compilación Rápida (F1) y
+ nos aparezca directamente en formato PDF con lo que hayamos hecho hasta
+ entonces.
+ Hay que tener en cuenta que para volver a construir el archivo, antes de
+ volver a compilarlo es necesario cerrar el documento en PDF, ya que sino
+ aparecerá un mensaje de error.
+ 
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Build
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/Configuracion.TexMaker.2.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+4.
+ En la pestaña Editor vamos a la opción Diccionario, damos click en el icono
+ de la carpeta azul y elegimos el archivo es_ES.dic que es el diccionario
+ en español que usaremos.
+ 
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Diccionario
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/Configuracion.TexMaker.3.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+5.
+ Damos clic en Aceptar para guardar todas la configuraciones.
+\end_layout
+
+\begin_layout Standard
+c) Probando el Funcionamiento
+\end_layout
+
+\begin_layout Standard
+Si hasta aquí hemos seguido todos los pasos al detalle, entonces no deberíamos
+ tener ningún problema a la hora de crear nuestros documentos en LaTeX.
+ Pero verifiquemos eso haciendo una prueba.
+\end_layout
+
+\begin_layout Standard
+Abrimos El programa TexMaker
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Comenzando con TexMaker
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/Texmaker_001.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para empezar a escribir debemos debemos hacer clic en el primer icono de
+ la barra de herramientas, como muestra la 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+figura~
+\backslash
+ref{fig1}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Archivo nuevo
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{fig1}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/Texmaker-nuevo.png
+	lyxscale 60
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para escribir un documento en español, usaremos como mínimo las siguientes
+ instrucciones: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{source}[Mi primer Test]{t1}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+documentclass[10pt,a4paper]{article} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+usepackage[latin1]{inputenc} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+usepackage[spanish]{babel}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{document}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Probando nuestro primer documento} 
+\end_layout
+
+\begin_layout Plain Layout
+
+Bienvenido al mundo de 
+\backslash
+LaTeX 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{document}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{source}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Mi primera prueba con LaTeX
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/Prueba.En.LaTeX.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Antes de compilar por primera vez, primero debemos guardar nuestro documento
+ de prueba, sino nos saldrá error.
+ 
+\end_layout
+
+\begin_layout Standard
+Te recomiendo crear una carpeta exclusiva cada vez que empieces un nuevo
+ proyecto ya que al compilar cada proyecto nuevo se generan varios archivos,
+ y para no mezclar contenidos mejor creamos una carpeta nueva cada vez.
+ 
+\end_layout
+
+\begin_layout Standard
+Es de suma importancia lo siguiente, las nuevas versiones de TexMaker ahora
+ solicitan que escribamos la extensión .tex del fichero al final de su nombre;
+ es decir, si guardamos nuestro documento usando únicamente su nombre como
+ por ejemplo primera-prueba, obtendremos una alerta de error mostrando "Comprueb
+e que tiene los permisos de escritura necesarios", entonces para evitar
+ esto debes guardar el fichero usando su nombre mas su extensión .tex al
+ final como por ejemplo primera-prueba.tex ; resumiendo:
+\end_layout
+
+\begin_layout Standard
+Incorrecto : "primera-prueba" Correcto : "primera-prueba.tex"
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Prueba LaTeX
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/miprueba.png
+	lyxscale 60
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una vez guardado nuestro documento de prueba, procedemos a compilar presionando
+ F1 para que se ejecute la compilación rápida con lo cual obtendremos nuestro
+ primer documento redactado en LATEX.
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Redactando en LaTex
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/Prueba.En.LaTeX(1).png
+	lyxscale 120
+	scale 90
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En la imagen anterior se muestra el código usado junto al resultado en el
+ lector PDF embebido de TexMaker, ambos en la misma ventana del editor.
+ También puedes ir a la carpeta que creaste y podrás ver varios archivos,
+ uno de ellos es un documento PDF mostrando tu proyecto.
+\end_layout
+
+\begin_layout Description
+Jabref
+\end_layout
+
+\begin_layout Standard
+Por ultimo se instala Jabref.
+\end_layout
+
+\begin_layout Standard
+Listo !! Tu instalación ha sido exitosa y ahora ya puedes iniciarte en la
+ redacción con LATEX.
+ 
+\end_layout
+
+\begin_layout Subsection
+Mac OS X
+\end_layout
+
+\begin_layout Standard
+Para empezar a utilizarlar LaTeX en tu mac sólo tienes que seguir estos
+ pasos.
+\end_layout
+
+\begin_layout Enumerate
+Instala TeX Live, la manera más sencilla de hacerlo es descargando e instalando
+ Mac-TeX, este es un paquete creado por TUG (TeX user group), y lo puedes
+ descargar desde su página web : 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://tug.org/mactex/downloading.html
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace defskip
+\end_inset
+
+Una vez descargado, ten paciencia con la descarga, es 1 giga y pico, sólo
+ tienes que ejecutar el instalador, descomprime el fichero descargado y
+ haz doble click sobre MacTeX-2008.mpkgSigue los pasos del instalador hasta
+ llegar al punto “Tipo de Instalación” donde te recomiendo que pulses en
+ personalizar, si quieres ahorrar unos cuantos megas en el disco duro, aquí
+ podrás instalar los componentes imprescindibles para que LATEX funcione
+ en tu Mac y estos son:
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Mac-TeX
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/mactex1.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Ghostscript, utilizado por algunos programas para convertir PostScript y
+ EPS a PDF.
+\end_layout
+
+\begin_layout Enumerate
+TeX Live 2013 el corazón de LATEX, es una Distribución de TeX/LaTeX que
+ esta marcada para ser el reemplazo de teTeX.
+\end_layout
+
+\begin_layout Enumerate
+Pulsa instalar y una vez finalice la instalación ya tendrás LaTeX listo
+ para ser usado, solo te hará falta una cosa más, una IDE donde escribir
+ tu código LaTeX y guardarlo como PDF.
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Instalación de Mac-TeX
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/mactex2.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Descarga e instala TeXShop.
+ 
+\begin_inset Flex Flex:URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.macupdate.com/app/mac/12104/texshop
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Linux
+\end_layout
+
+\begin_layout Standard
+Para instalar LaTeX en Linux.
+ Se tienen que realizar los siguientes pasos
+\end_layout
+
+\begin_layout Standard
+- El primer paso que tienes que hacer es instalar TeX Live.
+ 
+\end_layout
+
+\begin_layout Standard
+- Luego instalas Un editor de texto, como por ejemplo TeXMaker
+\end_layout
+
+\begin_layout Standard
+Debes tener en cuenta que dependiendo de la distribución existen algunos
+ cambios en los comandos 
+\end_layout
+
+\begin_layout Subsubsection
+Debian y sus derivados
+\end_layout
+
+\begin_layout Standard
+En los derivados de Debian como Ubuntu y Linux Mint lo primero que hay que
+ hacer es lanzar la terminal, usando la combinación de teclas Alt y F2 al
+ tiempo, para que aparezca la ventana 
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Ventana ejecutar
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/ejecutar.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En ella escribes Gnome-terminal.
+ Para que aparezca 
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Terminal de Gnome
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/terminal.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En la terminal escribes 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{source}[Instalación de TeXLive]{t2}
+\end_layout
+
+\begin_layout Plain Layout
+
+sudo apt-get install texlive-base biblatex texlive-fonts-recommended texlive-fon
+ts-recommended texlive-latex-base texlive-latex-extra texlive-latex-recommended
+ texlive-science texmaker
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{source}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se da enter 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Instalando LaTeX
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/texlive-ubuntu.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Y aparece en la terminal [sudo] password for user.
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Terminando de instalar LaTeX
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/texlive-ubuntu2.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se digita la clave y se da enter.
+\end_layout
+
+\begin_layout Standard
+Espera con paciencia que termine.
+ Y listo ya tiene como trabajar con LaTeX
+\end_layout
+
+\begin_layout Subsubsection
+Fedora , Suse y los derivados de Red Hat 
+\end_layout
+
+\begin_layout Standard
+Se empieza igual que con las distribuciones Debian.
+ Se accionan las teclas Alt y F2 al tiempo para que aparezca la ventana
+ ejecutar comandos
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Krunner
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/Krunner_01.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En la ventana se escribe 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinline+Konsole+
+\end_layout
+
+\end_inset
+
+ para que aparezca
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Konsole
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/Konsole_01.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Luego escribes en la consola 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinline+su+
+\end_layout
+
+\end_inset
+
+ y das enter
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Administrador
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/seleccin007.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+luego introduces la contraseña
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Empieza la instalación
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/seleccin008.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para instalar LaTeX escribes en la consola
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{source}[Intalando LaTeX en SuSe y Fedora]{t3}
+\end_layout
+
+\begin_layout Plain Layout
+
+yum install texlive nstall texlive-collection-latex texlive-collection-latexextr
+a texlive-collection-science texlive-collection-latexrecommended texlive-collect
+ion-genericextra texlive-collection-genericrecommended texlive-collection-fontsr
+ecommended tex-pst-optexp texlive-epstopdf-bin gummi texmaker 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{source}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Listo disfruta LaTeX.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%
+\backslash
+section{Unidades}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%
+\backslash
+bigskip
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%
+\backslash
+hbox{1 inch: } 
+\backslash
+hbox to 1 true in{
+\backslash
+pip
+\backslash
+hrulefill
+\backslash
+pip}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+% 
+\backslash
+hbox{1 
+\backslash
+centimeter: }
+\backslash
+hbox to 1 true cm{
+\backslash
+pip
+\backslash
+hrulefill
+\backslash
+pip}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+% 
+\backslash
+hbox{20 points: }
+\backslash
+hbox to 20 true pt{
+\backslash
+pip
+\backslash
+hrulefill
+\backslash
+pip}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+% 
+\backslash
+hbox{1 pica: } 
+\backslash
+hbox to 1 true pc{
+\backslash
+pip
+\backslash
+hrulefill
+\backslash
+pip}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%
+\backslash
+bigskip
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%
+\backslash
+newpage
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%
+\backslash
+maketable [Control words for page sizes] 
+\backslash
+halign{
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%   
+\backslash
+strut 
+\backslash
+hfil # & 
+\backslash
+quad 
+\backslash
+hfil 
+\backslash
+tt # 
+\backslash
+hfil & 
+\backslash
+hfil 
+\backslash
+quad # 
+\backslash
+hfil
+\backslash
+cr
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%   
+\backslash
+bf Name & 
+\backslash
+bf 
+\backslash
+TeX{} Control Word & 
+\backslash
+bf 
+\backslash
+TeX{} default value (inches)
+\backslash
+cr
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%   
+\backslash
+noalign{
+\backslash
+hrule} 
+\backslash
+noalign{
+\backslash
+smallskip}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%   horizontal width  & 
+\backslash
+
+\backslash
+hsize   & 6.5 
+\backslash
+cr
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%   vertical width    & 
+\backslash
+
+\backslash
+vsize   & 8.9 
+\backslash
+cr
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%   horizontal offset${}^
+\backslash
+the
+\backslash
+footnotenum$  & 
+\backslash
+
+\backslash
+hoffset & 0 
+\backslash
+cr
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%   vertical offset${}^
+\backslash
+the
+\backslash
+footnotenum$   & 
+\backslash
+
+\backslash
+voffset & 0 
+\backslash
+cr
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%      }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%      
+\backslash
+bigskip
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%      
+\backslash
+newpage
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%      
+\backslash
+maketable [Some paragraph shape parameters]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%
+\backslash
+halign{
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%   
+\backslash
+strut 
+\backslash
+hfil # & 
+\backslash
+quad 
+\backslash
+hfil 
+\backslash
+tt # 
+\backslash
+hfil & 
+\backslash
+hfil 
+\backslash
+quad # 
+\backslash
+hfil
+\backslash
+cr
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%   
+\backslash
+bf Function & 
+\backslash
+bf 
+\backslash
+TeX{} Control Word & 
+\backslash
+bf 
+\backslash
+TeX{} default
+\backslash
+cr
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%   
+\backslash
+noalign{
+\backslash
+hrule} 
+\backslash
+noalign{
+\backslash
+smallskip}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%   width & 
+\backslash
+
+\backslash
+hsize & 6.5 inches 
+\backslash
+cr
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%   indentation on first line & 
+\backslash
+
+\backslash
+parindent & 20 points
+\backslash
+cr
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%   distance between lines   & 
+\backslash
+
+\backslash
+baselineskip & 12 points
+\backslash
+cr
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%   distance between paragraphs & 
+\backslash
+
+\backslash
+parskip & 0 points 
+\backslash
+cr}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%
+\backslash
+newpage
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%   
+\backslash
+maketable [Adding space to mathematical text]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%
+\backslash
+halign{ 
+\backslash
+strut 
+\backslash
+hfil # & 
+\backslash
+quad 
+\backslash
+hfil
+\backslash
+tt# 
+\backslash
+hfil 
+\backslash
+quad
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%   & 
+\backslash
+hbox to 2cm{
+\backslash
+hrulefill
+\backslash
+vrule height 8pt#
+\backslash
+vrule height 8pt
+\backslash
+hrulefill} 
+\backslash
+cr
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%   Name & 
+\backslash
+rm Control Sequence & 
+\backslash
+hfil{}$
+\backslash
+gets$Size$
+\backslash
+to$
+\backslash
+cr
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%   
+\backslash
+noalign{
+\backslash
+hrule} 
+\backslash
+noalign{
+\backslash
+smallskip}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%   Double quad         & 
+\backslash
+
+\backslash
+qquad &
+\backslash
+qquad 
+\backslash
+cr
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%   Quad                & 
+\backslash
+
+\backslash
+quad  &
+\backslash
+quad 
+\backslash
+cr
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%   Space               & 
+\backslash
+
+\backslash
+
+\backslash
+sp
+\backslash
+   &
+\backslash
+ 
+\backslash
+cr
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%   Thick space         & 
+\backslash
+
+\backslash
+;     &$
+\backslash
+;$
+\backslash
+cr
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%   Medium space        & 
+\backslash
+
+\backslash
+>     &$
+\backslash
+>$
+\backslash
+cr
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%   Thin space          & 
+\backslash
+
+\backslash
+,     &$
+\backslash
+,$
+\backslash
+cr
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%   Negative thin space & 
+\backslash
+ 
+\backslash
+
+\backslash
+!
+\backslash
+    &$
+\backslash
+!$
+\backslash
+cr
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%       }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%       
+\backslash
+bigskip
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

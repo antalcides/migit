@@ -1,0 +1,553 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0074)http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/clases.htm -->
+<HTML><HEAD><TITLE>Conceptos básicos de la Programación Orientada a Objetos</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY>
+<H1 align=center>Conceptos básicos de la Programación Orientada a Objetos</H1>
+<TABLE width="100%">
+  <TBODY>
+  <TR>
+    <TD width="50%"><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/fundamentos.htm"><IMG 
+      height=40 alt="chapter.gif (1105 bytes)" 
+      src="Conceptos básicos de la Programación Orientada a Objetos_archivos/chapter.gif" 
+      width=49></A><A href="http://www.sc.ehu.es/sbweb/fisica/curso.htm"><IMG 
+      height=40 alt="home.gif (1054 bytes)" 
+      src="Conceptos básicos de la Programación Orientada a Objetos_archivos/home.gif" 
+      width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/composicion.htm"><IMG 
+      height=40 alt="next.gif (998 bytes)" 
+      src="Conceptos básicos de la Programación Orientada a Objetos_archivos/next.gif" 
+      width=49></A></TD>
+    <TD width="50%">
+      <H3 align=right><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/intro_clases.htm">Clases 
+      y objetos</A></H3></TD></TR></TBODY></TABLE>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/clases.htm#Introducción">Introducción</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/clases.htm#El proyecto">El 
+proyecto</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/clases.htm#La clase">La 
+clase</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/clases.htm#Los objetos">Los 
+objetos</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/clases.htm#La vida de un objeto">La 
+vida de un objeto</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/clases.htm#Identificadores">Identificadores</A></P>
+<HR>
+
+<H2><A name=Introducción>Introducción</A></H2>
+<P>Cuando se escribe un programa en un lenguaje orientado a objetos, definimos 
+una plantilla o clase que describe las caracterísiticas y el comportamiento de 
+un conjunto de objetos similares. La clase automóvil describe las 
+características comunes de todos los automóviles: sus atributos y su 
+comportamiento. Los atributos o propiedades se refieren a la marca o fabricante, 
+el color, las dimensiones, si tienen dos, tres, cuatro o más puertas, la 
+potencia, si utiliza como combustible la gasolina o gasoil, etc. El 
+comportamiento se refiere a la posibilidad de desplazarse por una carretera, 
+frenar, acelerar, cambiar de marcha, girar, etc.</P>
+<P>Luego, tenemos automóviles concretos, por ejemplo el automóvil propio de una 
+determinada marca, color, potencia, etc, el automóvil del vecino de otra marca, 
+de otro color, etc, , el automóvil de un amigo, etc.</P>
+<P>Una clase es por tanto una pantilla implementada en software que describe un 
+conjunto de objetos con atributos y comportamiento similares.</P>
+<P>Una instancia u objeto de una clase es una representación concreta y 
+específica de una clase y que reside en la memoria del ordenador.</P>
+<P>&nbsp;</P>
+<P><STRONG>Atributos</STRONG></P>
+<P>Los atributos son las caracterísiticas individuales que diferencian un objeto 
+de otro y determinan su apariencia, estado u otras cualidades. Los atributos se 
+guardan en variables denominadas de instancia, y cada objeto particular puede 
+tener valores distintos para estas variables.</P>
+<P>Las variables de instancia también denominados miembros dato, son declaradas 
+en la clase pero sus valores son fijados y cambiados en el objeto.</P>
+<P>Además de las variables de instancia hay variables de clase, las cuales se 
+aplican a la clase y a todas sus instancias. Por ejemplo, el número de ruedas de 
+un automóvil es el mismo cuatro, para todos los automóviles.</P>
+<P>&nbsp;</P>
+<P><STRONG>Comportamiento</STRONG></P>
+<P>El comportamiento de los objetos de una clase se implementa mediante 
+funciones miembro o métodos. Un método es un conjunto de instrucciones que 
+realizan una determinada tarea y son similares a las funciones de los lenguajes 
+estructurados.</P>
+<P>Del mismo modo que hay variables de instancia y de clase, también hay métodos 
+de instancia y de clase. En el primer caso, un objeto llama a un método para 
+realizar una determinada tarea, en el segundo, el método se llama desde la 
+propia clase.</P>
+<P>&nbsp;</P>
+<H2><A name="El proyecto">El proyecto</A></H2>
+<P>El proyecto consta de dos archivos, el primero contiene la clase 
+<EM>Rectangulo</EM> que se guarda en el archivo Rectangulo.java y no tiene el 
+método <EM>main</EM>. La última casilla del <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/proyecto.htm#La aplicación">asistente 
+de creación de clases</A> <STRONG>New Java File</STRONG> debe de estar 
+desactivada.</P>
+<P>La otra clase, es la que describe la aplicación <EM>RectanguloApp1</EM> y se 
+guarda en el archivo RectanguloApp1.java, esta clase tiene que tener el método 
+<EM>main</EM>, por lo tanto, la última casilla del asistente de creación de 
+clases <STRONG>New Java File</STRONG> debe de estar activada.</P>
+<P>Un proyecto puede constar de varias clases (normalmente se sitúa cada clase 
+en un archivo) pero solamente una tiene el método <EM>main</EM> y representa la 
+aplicación. Para distinguir la clase que describe la aplicación de las demás le 
+hemos añadido el sufijo <STRONG>App</STRONG>.</P>
+<P><IMG height=32 alt="disco.gif (1035 bytes)" 
+src="Conceptos básicos de la Programación Orientada a Objetos_archivos/disco.gif" 
+width=32 align=middle><STRONG>rectangulo1</STRONG>: <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/codigo/rectangulo1/Rectangulo.java">Rectangulo.java</A>, 
+<A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/codigo/rectangulo1/RectanguloApp1.java">RectanguloApp1.java</A></P>
+<P>&nbsp;</P>
+<H2><A name="La clase">La clase</A></H2>
+<P>Para crear una clase se utiliza la palabra reservada <STRONG>class</STRONG> y 
+a continuación el nombre de la clase. La definición de la clase se pone entre 
+las llaves de apertura y cierre. El nombre de la clase empieza por letra 
+mayúscula.</P><PRE>class Rectangulo{
+	//miembros dato
+	//funciones miembro
+}</PRE>
+<P>&nbsp;</P>
+<H3><STRONG>Los miembros dato</STRONG></H3>
+<P>Los valores de los atributos se guardan en los miembros dato o variables de 
+instancia. Los nombres de dichas variables comienzan por letra minúscula.</P>
+<P>Vamos a crear una clase denominada <EM>Rectangulo</EM>, que describa las 
+características comunes a estas figuras planas que son las siguientes: 
+<UL>
+  <LI>El origen del rectángulo: el origen o posición de la esquina superior 
+  izquierda del rectángulo en el plano determinado por dos números enteros 
+  <EM>x</EM> e <EM>y</EM>. 
+  <LI>Las dimensiones del rectángulo: <EM>ancho</EM> y <EM>alto</EM>, otros dos 
+  números enteros. </LI></UL>
+<P><IMG height=150 alt="rectangulo.gif (956 bytes)" 
+src="Conceptos básicos de la Programación Orientada a Objetos_archivos/rectangulo.gif" 
+width=275></P><PRE>class Rectangulo{
+	int x;
+	int y;
+	int ancho;
+	int alto;
+	//faltan las funciones miembro
+}</PRE>
+<P>&nbsp;</P>
+<H3><A name="Las funciones miembro"><STRONG>Las funciones 
+miembro</STRONG></A></H3>
+<P>En el lenguaje C++ las funciones miembro se declaran, se definen y se llaman. 
+En el lenguaje Java las funciones miembro o métodos solamente se definen y se 
+llaman. </P>
+<P>El nombre de las funciones miembro o métodos comieza por letra minúscula y 
+deben sugerir acciones (mover, calcular, etc.). La definición de una función 
+tiene el siguiente formato:</P><PRE>tipo nombreFuncion(tipo parm1, tipo parm2, tipo parm3){
+	//...sentencias
+}</PRE>
+<P>Entre las llaves de apertura y cierre se coloca la definición de la función. 
+<EM>tipo</EM> indica el tipo de dato que puede ser predefinido 
+<STRONG>int</STRONG>, <STRONG>double</STRONG>, etc, o definido por el usuario, 
+una clase cualquiera.</P>
+<P>Para llamar a un función miembro o método se escribe </P><PRE>	retorno=objeto.nombreFuncion(arg1, arg2, arg3);</PRE>
+<P>Cuando se llama a la función, los argumentos <EM>arg1</EM>, <EM>arg2</EM>, 
+<EM>arg3</EM> se copian en los parámetros <EM>parm1</EM>, <EM>parm2</EM>, 
+<EM>parm3</EM> y se ejecutan las sentencias dentro de la función. La función 
+finaliza cuando se llega al final de su bloque de definición o cuando encuentra 
+una sentencia <STRONG>return</STRONG>.&nbsp; </P>
+<P>Cuando se llama a la función, el valor devuelto mediante la sentencia 
+<STRONG>return</STRONG> se asigna a la variable <EM>retorno</EM>.</P>
+<P>Cuando una función no devuelve nada se dice de tipo <STRONG>void</STRONG>. 
+Para llamar a la función, se escribe</P><PRE>	objeto.nombreFuncion(arg1, arg2, arg3);</PRE>
+<P>Estudiaremos más adelante con más detalle como se <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/estatico/mates/mates.htm">definen 
+las funciones</A>. </P>
+<P>Una función suele finalizar cuando llega al final del bloque de su 
+definición</P><PRE>void funcion(....){
+//sentencias...
+}</PRE>
+<P>Una función puede finalizar antes del llegar al final de su definición</P><PRE>void funcion(....){
+//sentencias...
+	if(condicion) return;
+//sentencias..
+}</PRE>
+<P>Una función puede devolver un valor (un tipo de dato primitivo o un objeto). 
+</P><PRE> double funcion(....){
+	double suma=0.0;
+//sentencias...
+	return suma;
+}</PRE>
+<P>Cualquier variable declarada dentro de la función tiene una vida temporal, 
+existiendo en memoria, mientras la función esté activa. Se trata de variables 
+locales a la función. Por ejemplo: </P><PRE>void nombreFuncion(int parm){
+	//...
+	int i=5;
+	//...
+}</PRE>
+<P>La variable <I>parm</I>, existe desde el comienzo hasta el final de la 
+función. La variable local <I>i</I>, existe desde el punto de su declaración 
+hasta el final del bloque de la función.</P>
+<P>Se ha de tener en cuenta que las funciones miembro tienen acceso a los 
+miembros dato, por tanto, es importante en el diseño de una clase decidir qué 
+variables son miembros dato, qué variables son locales a las funciones miembro, 
+y qué valores les pasamos a dichas funciones. Los ejemplos nos ayudarán a 
+entender esta distinción.</P>
+<P>Hemos definido los atributos o miembros dato de la clase <EM>Rectangulo</EM>, 
+ahora le vamos añadir un comportamiento: los objetos de la clase 
+<EM>Rectangulo</EM> o rectángulos sabrán calcular su área, tendrán capacidad 
+para trasladarse a otro punto del plano, sabrán si contienen en su interior un 
+punto determinado del plano. </P>
+<P>La función que calcula el área realizará la siguiente tarea, calculará el 
+producto del ancho por el alto del rectángulo y devolverá el resultado. La 
+función devuelve un entero es por tanto, de tipo <STRONG>int</STRONG>. No es 
+necasario pasarle datos ya que tiene acceso a los miembros dato <EM>ancho</EM> y 
+<EM>alto</EM> que guardan la<EM> </EM>anchura<EM> </EM>y la altura de un 
+rectángulo concreto.</P><PRE>class Rectangulo{
+	int x;
+	int y;
+	int ancho;
+	int alto;
+   int calcularArea(){
+	return (ancho*alto);
+   }
+}</PRE>
+<P>A la función que desplaza el rectángulo horizontalmente en <EM>dx</EM>, y 
+verticalmente en <EM>dy</EM>,&nbsp; le pasamos dichos desplazamientos, y a 
+partir de estos datos actualizará los valores que guardan sus miembros dato 
+<EM>x</EM> e <EM>y</EM>. La función no devuelve nada es de tipo 
+<STRONG>void</STRONG>.</P><PRE>class Rectangulo{
+	int x;
+	int y;
+	int ancho;
+	int alto;
+   void desplazar(int dx, int dy){
+	x+=dx;
+	y+=dy;
+   }
+}</PRE>
+<P>La función que determina si un punto está o no en el interior del rectángulo, 
+devolverá <STRONG>true</STRONG> si el punto se encuentra en el interior del 
+rectángulo y devolverá <STRONG>false</STRONG> si no se encuentra, es decir, será 
+una función del tipo <STRONG>boolean</STRONG>. La función necesitará conocer las 
+coordenadas de dicho punto. Para que un punto de coordenadas <EM>x1</EM> e 
+<EM>y1</EM> esté dentro de un rectángulo cuyo origen es <EM>x</EM> e <EM>y</EM>, 
+y cuyas dimensiones son <EM>ancho</EM> y <EM>alto</EM>, se deberá cumplir a la 
+vez cuatro condiciones </P>
+<P><EM>x1&gt;x</EM>&nbsp; y a la vez <EM>x1&lt;x+ancho</EM></P>
+<P>También se debe cumplir </P>
+<P><EM>y1&gt;y</EM>&nbsp; y a la vez <EM>y1&lt;y+alto</EM></P>
+<P>Como se tienen que cumplir las cuatro condiciones a la vez, se unen mediante 
+el <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/operadores1.htm#Los operadores lógicos">operador 
+lógico AND</A> simbolizado por <STRONG>&amp;&amp;</STRONG>.</P><PRE>class Rectangulo{
+	int x;
+	int y;
+	int ancho;
+	int alto;
+   boolean estaDentro(int x1, int y1){
+	if((x1&gt;x)&amp;&amp;(x1&lt;x+ancho)&amp;&amp;(y1&gt;y)&amp;&amp;(y1&lt;y+ancho)){
+		return true;
+	}
+	return false;
+   }
+}</PRE>
+<P>En el lenguaje Java, si la primera condición es falsa no se evalúan las 
+restantes expresiones ya que el resultado es <STRONG>false</STRONG>. Ahora bien, 
+si la primera es verdadera <STRONG>true</STRONG>, se pasa a evaluar la segunda, 
+si ésta el falsa el resultado es <STRONG>false</STRONG>, y así 
+sucesivamente.</P>
+<P>&nbsp;</P>
+<H3>Los contructores</H3>
+<P>Un objeto de una clase se crea llamando a una función especial denominada 
+constructor de la clase. El constructor se llama de forma automática cuando se 
+crea un objeto, para situarlo en memoria e inicializar los miembros dato 
+declarados en la clase. El constructor tiene el mismo nombre que la clase. Lo 
+específico del constructor es que no tiene tipo de retorno. </P><PRE>class Rectangulo{
+	int x;
+	int y;
+	int ancho;
+	int alto;
+   Rectangulo(int x1, int y1, int w, int h){
+	x=x1;
+	y=y1;
+	ancho=w;
+	alto=h;
+   }
+}</PRE>
+<P>El constructor recibe cuatro números que guardan los parámetros <EM>x1</EM>, 
+<EM>y1</EM>, <EM>w</EM> y <EM>h</EM>, y con ellos inicializa los miembros dato 
+<EM>x</EM>, <EM>y</EM>, <EM>ancho</EM> y <EM>alto</EM>.</P>
+<P>Una clase puede tener más de un constructor. Por ejemplo, el siguiente 
+constructor crea un rectángulo cuyo origen está en el punto (0, 0).</P><PRE>class Rectangulo{
+	int x;
+	int y;
+	int ancho;
+	int alto;
+   Rectangulo(int w, int h){
+	x=0;
+	y=0;
+	ancho=w;
+	alto=h;
+   }
+}</PRE>
+<P>Este constructor crea un rectángulo de dimensiones nulas situado en el punto 
+(0, 0),</P><PRE>class Rectangulo{
+	int x;
+	int y;
+	int ancho;
+	int alto;
+   Rectangulo(){
+	x=0;
+	y=0;
+	ancho=0;
+	alto=0;
+   }
+}</PRE>
+<P>Con estas porciones de código definimos la clase, y la guardamos en un 
+archivo que tenga el mismo nombre que la clase <EM>Rectangulo</EM> y con 
+extensión .java.</P>
+<TABLE cellSpacing=0 width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="100%" bgColor=#f7f7f7><PRE>public class Rectangulo {
+    int x;
+    int y;
+    int ancho;
+    int alto;
+    public Rectangulo() {
+        x=0;
+        y=0;
+        ancho=0;
+        alto=0;
+    }
+    public Rectangulo(int x1, int y1, int w, int h) {
+        x=x1;
+        y=y1;
+        ancho=w;
+        alto=h;
+    }
+    public Rectangulo(int w, int h) {
+        x=0;
+        y=0;
+        ancho=w;
+        alto=h;
+    }
+    int calcularArea(){
+	return (ancho*alto);
+   }
+   void desplazar(int dx, int dy){
+	x+=dx;
+	y+=dy;
+   }
+   boolean estaDentro(int x1, int y1){
+	if((x1&gt;x)&amp;&amp;(x1&lt;x+ancho)&amp;&amp;(y1&gt;y)&amp;&amp;(y1&lt;y+ancho)){
+		return true;
+	}
+	return false;
+   }
+}</PRE></TD></TR></TBODY></TABLE>
+<P>&nbsp;</P>
+<H2><A name="Los objetos">Los objetos</A></H2>
+<P>Para crear un objeto de una clase se usa la palabra reservada 
+<STRONG>new</STRONG>. </P>
+<P>Por ejemplo,</P><PRE>	Rectangulo rect1=<STRONG>new</STRONG> Rectangulo(10, 20, 40, 80);</PRE>
+<P><STRONG>new</STRONG> reserva espacio en memoria para los miembros dato y 
+devuelve una referencia que se guarda en la variable <EM>rect1</EM> del tipo 
+<EM>Rectangulo</EM> que denominamos ahora objeto. Dicha sentencia, crea un 
+objeto denominado <EM>rect1</EM> de la clase <EM>Rectangulo</EM> llamando al 
+segundo constructor en el listado. El rectángulo estará situado en el punto de 
+coordenadas <EM>x</EM>=10, <EM>y</EM>=20; tendrá una anchura de 
+<EM>ancho</EM>=40 y una altura de <EM>alto</EM>=80.</P><PRE>	Rectangulo rect2=<STRONG>new</STRONG> Rectangulo(40, 80);</PRE>
+<P>Crea un objeto denominado <EM>rect2</EM> de la clase <EM>Rectangulo</EM> 
+llamando al tercer constructor, dicho rectángulo estará situado en el punto de 
+coordenadas <EM>x</EM>=0, <EM>y</EM>=0; y tendrá una anchura de 
+<EM>ancho</EM>=40 y una altura de <EM>alto</EM>=80.</P><PRE>	Rectangulo rect3=<STRONG>new</STRONG> Rectangulo();</PRE>
+<P>Crea un objeto denominado <EM>rect3</EM> de la clase <EM>Rectangulo</EM> 
+llamando al primer constructor, dicho rectángulo estará situado en el punto de 
+coordenadas <EM>x</EM>=0, <EM>y</EM>=0; y tendrá una anchura de <EM>ancho</EM>=0 
+y una altura de <EM>alto</EM>=0.</P>
+<P>&nbsp;</P>
+<H3>Acceso a los miembros</H3>
+<P>Desde un objeto se puede acceder a los miembros mediante la siguiente 
+sintaxis</P>
+<P><EM>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+objeto.miembro;</EM></P>
+<P>Por ejemplo, podemos acceder al miembro dato <EM>ancho</EM>, para cambiar la 
+anchura de un objeto rectángulo.</P><PRE>	rect1.ancho=100;</PRE>
+<P>El rectángulo <EM>rect1</EM> que tenía inicialmente una anchura de 40, 
+mediante esta sentencia se la cambiamos a 100.</P>
+<P>Desde un objeto llamamos a las funciones miembro para realizar una 
+determinada tarea. Por ejemplo, desde el rectángulo <EM>rect1</EM> llamamos a la 
+función <EM>calcularArea</EM> para calcular el área de dicho rectángulo. 
+<DL>
+  <DD><PRE>    rect1.calcularArea();</PRE></DD></DL>
+<P>La función miembro <EM>area</EM> devuelve un entero, que guardaremos en una 
+variable entera <EM>medidaArea</EM>, para luego usar este dato.</P><PRE>	int medidaArea=rect1.calcularArea();
+	System.out.println("El área del rectángulo es "+medidaArea);</PRE>
+<P>Para desplazar el rectángulo <EM>rect2</EM>, 10 unidades hacia la derecha y 
+20 hacia abajo, escribiremos </P><PRE>	rect2.desplazar(10, 20);</PRE>
+<P>Podemos verificar mediante el siguiente código si el punto (20, 30) está en 
+el interior del rectángulo <EM>rect1</EM>.</P><PRE>	if(rect1.estaDentro(20,30)){
+		System.out.println("El punto está dentro del rectángulo");
+	}else{
+		System.out.println("El punto está fuera del rectángulo");
+	}</PRE>
+<P><EM>rect1.dentro()</EM> devuelve <STRONG>true</STRONG> si el punto (20, 30) 
+que se le pasa a dicha función miembro está en el interior del rectángulo 
+<EM>rect1</EM>, ejecutándose la primera sentencia, en caso contrario se ejecuta 
+la segunda.</P>
+<P>Como veremos más adelante no siempre es posible acceder a los miembros, si 
+establecemos controles de acceso a los mismos.</P>
+<TABLE cellSpacing=0 width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="100%" bgColor=#f7f7f7><PRE>public class RectanguloApp1 {
+     public static void main(String[] args) {
+        Rectangulo rect1=new Rectangulo(10, 20, 40, 80);
+        Rectangulo rect2=new Rectangulo(40, 80);
+        Rectangulo rect3=new Rectangulo();
+ 	int medidaArea=rect1.calcularArea();
+	System.out.println("El área del rectángulo es "+medidaArea);
+
+ 	rect2.desplazar(10, 20);
+
+        if(rect1.estaDentro(20,30)){
+	        System.out.println("El punto está dentro del rectángulo");
+        }else{
+	        System.out.println("El punto está fuera del rectángulo");
+        }
+    }
+}</PRE></TD></TR></TBODY></TABLE>
+<P>&nbsp;</P>
+<H2><A name="La vida de un objeto">La vida de un objeto</A></H2>
+<P>En el lenguaje C++, los objetos que se crean con <STRONG>new</STRONG> se han 
+de eliminar con <STRONG>delete</STRONG>. <STRONG>new</STRONG> reserva espacio en 
+memoria para el objeto y <STRONG>delete</STRONG> libera dicha memoria. En el 
+lenguaje Java no es necesario liberar la memoria reservada, el recolector de 
+basura (garbage collector) se encarga de hacerlo por nosotros, liberando al 
+programador de una de las tareas que más quebraderos de cabeza le producen, 
+olvidarse de liberar la memoria reservada. </P>
+<P>Veamos un ejemplo</P>
+<TABLE cellSpacing=0 width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="100%" bgColor=#f7f7f7><PRE>public class UnaClase {
+     public static void main(String[] args) {
+        Image granImagen=creaImagen();
+	mostrar(graImagen);</PRE><PRE>	while(condicion){
+		calcular();
+	}
+    }
+}</PRE></TD></TR></TBODY></TABLE>
+<P>El objeto <EM>granImagen</EM>, continua en memoria hasta que se alcanza el 
+final de la función <EM>main</EM>, aunque solamente es necesario hasta el bucle 
+<STRONG>while</STRONG>. En C o en C++ eliminariamos dicho objeto liberando la 
+memoria que ocupa mediante <STRONG>delete</STRONG>. El equivalente en Java es el 
+de asignar al objeto <EM>granImagen</EM> el valor <STRONG>null.</STRONG></P>
+<TABLE cellSpacing=0 width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="100%" bgColor=#f7f7f7><PRE>public class UnaClase {
+     public static void main(String[] args) {
+        Image granImagen=creaImagen();
+	mostrar(graImagen);
+<STRONG>	granImagen=null;</STRONG></PRE><PRE>	while(condicion){
+		calcular();
+	}
+    }
+}</PRE></TD></TR></TBODY></TABLE>
+<P>A partir de la sentencia marcada en letra negrita el recolector de basura se 
+encargará de liberar la memoria ocupada por dicha imagen. Así pues, se asignará 
+el valor <STRONG>null</STRONG> a las referencias a objetos temporales que ocupen 
+mucha memoria tan pronto como no sean necesarios.</P>
+<P>Creamos dos objetos de la clase rectángulo, del mismo modo que en el apartado 
+anterior</P><PRE>	Rectangulo rect1=<STRONG>new</STRONG> Rectangulo(10, 20, 40, 80);
+	Rectangulo rect3=<STRONG>new</STRONG> Rectangulo();</PRE>
+<P>Si escribimos</P><PRE>	rect3=rect1;</PRE>
+<P>En <EM>rect3</EM> se guarda la referencia al objeto <EM>rect1</EM>. La 
+referencia al objeto <EM>rect3</EM> se pierde. El recolector se encarga de 
+liberar el espacio en memoria ocupado por el objeto <EM>rect3</EM>.</P>
+<P>La destrucción de un objeto es una tarea (thread) de baja prioridad que lleva 
+a cabo la Máquina Virtual Java (JVM). Por tanto, nunca podemos saber cuando se 
+va a destruir un objeto. </P>
+<P>Puede haber situaciones en las que es necesario realizar ciertas operaciones 
+que no puede realizar el recolector de basura (garbage collector) cuando se 
+destruye un objeto. Por ejemplo, se han abierto varios archivos durante la vida 
+de un objeto, y se desea que los archivos estén cerrados cuando dicho objeto 
+desaparece. Se puede definir en la clase un método denominado <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/herencia/herencia.htm#La clase base Object"><EM>finalize</EM></A> 
+que realice esta tarea. Este método es llamado por el recolector de basura 
+inmeditamente antes de que el objeto sea destruído.</P>
+<P>&nbsp;</P>
+<H2><A name=Identificadores>Identificadores</A></H2>
+<P>Cómo se escriben los nombres de la variables, de las clases, de las 
+funciones, etc., es un asunto muy importante de cara a la comprensión y el 
+mantenimiento de código. En la introducción a los fundamentos del lenguaje Java 
+hemos tratado ya de los <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/primero.htm#Identificadores">identificadores</A>.</P>
+<P>El código debe de ser tanto más fácil de leer y de entender como sea posible. 
+Alguien que lea el código, incluso después de cierto tiempo, debe ser capaz de 
+entender lo que hace a primera vista, aunque los detalles internos, es decir, 
+cómo lo hace, precise un estudio detallado.</P>
+<P>Vemos primero un ejemplo que muestra un código poco legible y por tanto, muy 
+difícil de mantener</P>
+<TABLE cellSpacing=0 width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="100%" bgColor=#f7f7f7><PRE>public class Cuen{
+	private int ba;
+
+	Cuen(int ba){
+		this.ba=ba;
+	}
+	public void dep(int i){
+		ba+=i;
+	}
+	public boolean ret(int i){
+		if(ba&gt;=i){
+			ba-=i;
+			return true;
+		}
+		return false;
+	}
+	public int get(){
+		return ba;
+	}
+}</PRE></TD></TR></TBODY></TABLE>
+<P>Las abreviaciones empleadas solamente tienen significado para el programador 
+en el momento de escribir el código, ya que puede olvidarse de su significado 
+con el tiempo. Otros programadores del grupo tienen que descifrar el significado 
+del nombre de cada variable o de cada función. El tiempo extra que se gasta en 
+escribir con claridad el nombre de los diversos elementos que entran en el 
+programa, se ahorra más adelante durante su desarrollo, depuración, y mejora, es 
+decir, durante todo el ciclo de vida del programa.</P>
+<TABLE cellSpacing=0 width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="100%" bgColor=#f7f7f7><PRE>public class CuentaBancaria{
+	private int balance;</PRE><PRE>	CuentaBancaria(int balance){
+		this.balance=balance;
+	}
+	public void depositar(int cantidad){
+		balance+=cantidad;
+	}
+	public boolean retirar(int cantidad){
+		if(balance&gt;=cantidad){
+			balance-=cantidad;
+			return true;
+		}
+		return false;		
+	}
+	public int obtenerBalance(){
+		return balance;
+	}
+}</PRE></TD></TR></TBODY></TABLE>
+<P>Este es una programa sencillo de una cuenta bancaria. El tipo de dato puede 
+ser entero (<STRONG>int</STRONG> o <STRONG>long</STRONG>), si la unidad 
+monetaria tiene poco valor como la peseta, o un número decimal 
+(<STRONG>double</STRONG>) si la unidad monetaria es de gran valor como el Euro y 
+el Dólar.&nbsp; </P>
+<P>El código de las funciones miembro es muy sencillo y su significado se hace 
+evidente al leer el programa. La función <EM>retirar</EM> es de tipo 
+<STRONG>boolean</STRONG>, ya que no (<STRONG>false</STRONG>) estamos autorizados 
+a retirar una cantidad mayor que la existente en ese momento en el banco. Sin 
+embargo, si (<STRONG>true</STRONG>) estamos autorizados a retirar una cantidad 
+menor que la que tenemos en la cuenta.</P></BODY></HTML>

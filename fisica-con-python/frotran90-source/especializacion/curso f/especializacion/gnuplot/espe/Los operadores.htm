@@ -1,0 +1,353 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0083)http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/operadores.htm -->
+<HTML><HEAD><TITLE>Los operadores</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY>
+<H1 align=center>Los operadores (aritméticos)</H1>
+<TABLE width="100%">
+  <TBODY>
+  <TR>
+    <TD width="29%"><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/primero.htm"><IMG 
+      height=40 alt="prev.gif (997 bytes)" 
+      src="Los operadores_archivos/prev.gif" width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/fundamentos.htm"><IMG 
+      height=40 alt="chapter.gif (1105 bytes)" 
+      src="Los operadores_archivos/chapter.gif" width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/curso.htm"><IMG height=40 
+      alt="home.gif (1054 bytes)" src="Los operadores_archivos/home.gif" 
+      width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/operadores1.htm"><IMG 
+      height=40 alt="next.gif (998 bytes)" 
+      src="Los operadores_archivos/next.gif" width=49></A></TD>
+    <TD width="71%">
+      <H3 align=right><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/indice_intro.htm">Introducción</A></H3></TD></TR></TBODY></TABLE>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/operadores.htm#Los operadores aritméticos">Los 
+operadores aritméticos</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/operadores.htm#Concatenación de strings">Concatenación 
+de strings</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/operadores.htm#La precedencia de operadores">La 
+precedencia de operadores</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/operadores.htm#La conversión automática y promoción (casting)">La 
+conversión automática y promoción</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/operadores.htm#Los operadores unarios">Los 
+operadores unarios</A></P>
+<HR>
+
+<P>Todos los lenguajes de programación permiten realizar operaciones entre los 
+tipos de datos básicos: suma, resta, producto, cociente, etc., de dos números. 
+Otros lenguajes como el BASIC y Java permiten "sumar", concatenar cadenas de 
+caracteres. </P>
+<P>En la página titulada "La primera aplicación", hemos aprendido a crear un <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/proyecto.htm#Crear un nuevo proyecto">poyecto 
+nuevo</A>, y la clase que describe la <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/proyecto.htm#La aplicación mínima">aplicación 
+mínima</A> que contiene la función estática <EM>main</EM>. Luego, le hemos 
+añadido código para dar cierta funcionalidad a la aplicación, que ha consistido 
+en imprimir un mensaje en la <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/proyecto.htm#La consola">consola</A> 
+o mostrarlo en la ventana denominada <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/proyecto.htm#Execution Log">Execution 
+Log.</A></P>
+<P>Recordaremos que la imagen del disquette significa un proyecto nuevo cuyo 
+nombre aparece en letra negrita, y cuyos componentes son archivos código fuente 
+en el que se guardan las clases.</P>
+<P>&nbsp;</P>
+<H2><A name="Los operadores aritméticos">Los operadores aritméticos</A></H2>
+<P><IMG height=32 alt="disco.gif (1035 bytes)" 
+src="Los operadores_archivos/disco.gif" width=32 
+align=middle><STRONG>operador</STRONG>: <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/codigo/OperadorAp.java">OperadorAp.java</A></P>
+<P>Java tiene cinco operadores aritméticos cuyo significado se muestra en la 
+tabla adjunta</P>
+<TABLE cellSpacing=0 width="35%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="33%"><STRONG>Operador</STRONG></TD>
+    <TD width="33%"><STRONG>Nombre</STRONG> </TD>
+    <TD width="34%"><STRONG>Ejemplo</STRONG></TD></TR>
+  <TR>
+    <TD align=middle width="33%">+</TD>
+    <TD width="33%">Suma</TD>
+    <TD align=middle width="34%">3+4</TD></TR>
+  <TR>
+    <TD align=middle width="33%">-</TD>
+    <TD width="33%">Diferencia</TD>
+    <TD align=middle width="34%">3-4</TD></TR>
+  <TR>
+    <TD align=middle width="33%">*</TD>
+    <TD width="33%">Producto</TD>
+    <TD align=middle width="34%">3*4</TD></TR>
+  <TR>
+    <TD align=middle width="33%">/</TD>
+    <TD width="33%">Cociente</TD>
+    <TD align=middle width="34%">20/7</TD></TR>
+  <TR>
+    <TD align=middle width="33%">%</TD>
+    <TD width="33%">Módulo </TD>
+    <TD align=middle width="34%">20%7</TD></TR></TBODY></TABLE>
+<P>El cociente entre dos enteros da como resultado un entero. Por ejemplo, al 
+dividir 20 entre 7 nos da como resultado 2.</P>
+<P>El operador módulo da como resultado el resto de la división entera. Por 
+ejemplo 20%7 da como resultado 6 que es el resto de la división entre 20 y 7. 
+</P>
+<P>El operador módulo también se puede emplear con números reales. Por ejemplo, 
+el cociente entre 7.5 y 3.0 es 2.5 y el resto es cero, es decir, 7.5=3.0 x 2.5+ 
+0. El operador módulo, funciona de la siguiente forma 7.5=3.0 x 2+1.5, calcula 
+la diferencia entre el dividendo (7.5)&nbsp; y el producto del divisor (3.0) por 
+la parte entera (2) del cociente, devolviendo 1.5. Así pues, la operación 
+7.5%3.0 da como resultado 1.5.</P>
+<P><BR></P>
+<H3>El operador asignación</H3>
+<P>Nos habremos dado cuenta que el operador más importante y más frecuentemente 
+usado es el operador asignación <B>=,</B> que hemos empleado para la 
+inicialización de las variables. Así, </P><PRE>	int numero;
+	numero=20;</PRE>
+<P>la primera sentencia declara una variable entera de tipo <STRONG>int</STRONG> 
+y le da un nombre (<I>num</I>ero). La segunda sentencia usa el operador 
+asignación para inicializar la variable con el número 20. </P>
+<P>Consideremos ahora, la siguiente sentencia.</P><PRE>	a=b;</PRE>
+<P>que asigna a <I>a</I> el valor de <I>b</I>. A la izquierda siempre tendremos 
+una variable tal como <I>a</I>, que recibe valores, a la derecha otra variable 
+<I>b</I>, o expresión que tiene un valor. Por tanto, tienen sentido las 
+expresiones</P><PRE>	a=1234;
+	double area=calculaArea(radio);
+	superficie=ancho*alto;</PRE>
+<P>Sin embargo, no tienen sentido las expresiones </P><PRE>	1234=a;
+	calculaArea(radio)=area;</PRE>
+<P>Las asignaciones múltiples son también posibles. Por ejemplo, es válida la 
+sentencia</P><PRE>	c=a=b; 		//equivalente a c=(a=b);</PRE>
+<P>la cual puede ser empleada para inicializar en la misma línea varias 
+variables</P><PRE>	c=a=b=321;		//asigna 321 a a, b y c</PRE>
+<P>El operador asignación se puede combinar con los operadores aritméticos</P>
+<TABLE cellSpacing=0 width="35%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="50%"><STRONG>Expresión</STRONG></TD>
+    <TD width="50%"><STRONG>Significado</STRONG></TD></TR>
+  <TR>
+    <TD align=middle width="50%">x+=y</TD>
+    <TD align=middle width="50%">x=x+y</TD></TR>
+  <TR>
+    <TD align=middle width="50%">x-=y</TD>
+    <TD align=middle width="50%">x=x-y</TD></TR>
+  <TR>
+    <TD align=middle width="50%">x*=y</TD>
+    <TD align=middle width="50%">x=x*y</TD></TR>
+  <TR>
+    <TD align=middle width="50%">x/=y</TD>
+    <TD align=middle width="50%">x=x/y</TD></TR></TBODY></TABLE>
+<P>Así, la sentencia</P><PRE>	x=x+23;</PRE>
+<P>evalúa la expresión <I>x+23</I>, que es asignada de nuevo a <I>x</I>. El 
+compilador lee primero el contenido de la porción de memoria nombrada <I>x</I>, 
+realiza la suma, y guarda el resultado en la misma porción de memoria. Se puede 
+escribir la sentencia anterior de una forma equivalente más simple</P><PRE>	x+=23;</PRE>
+<P>&nbsp;</P>
+<H2><A name="Concatenación de strings">Concatenación de strings</A></H2>
+<P>En Java se usa el operador + para concatenar cadenas de carcateres o strings. 
+Veremos en el siguiente apartado una sentencia como la siguiente:</P><PRE>       System.out.println("la temperatura centígrada es "+tC);</PRE>
+<P>El operador + cuando se utiliza con strings y otros objetos, crea un solo 
+string que contiene la concatenación de todos sus operandos. Si alguno de los 
+operandos no es una cadena, se convierte automáticamente en una cadena. Por 
+ejemplo, en la sentencia anterior el número del tipo <STRONG>double</STRONG> que 
+guarda la variable <EM>tC</EM> se convierte en un string que se añade al string 
+"la temperatura centígrada es ". &nbsp; </P>
+<P>Como veremos más adelante, un objeto se convierte automáticamente en un 
+string si su clase redefine la <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/estatico/fraccion/fraccion.htm#La función miembro toString">función 
+miembro <EM>toString</EM></A> de la clase base <EM>Object</EM>.</P>
+<P>Como vemos en el listado, para mostrar un resultado de una operación, por 
+ejemplo, la suma de dos números enteros, escribimos</P><PRE>        iSuma=ia+ib;
+        System.out.println("El resultado de la suma es "+iSuma);</PRE>
+<P>Concatena una cadena de caracteres con un tipo básico de dato, que convierte 
+automáticamente en un string.</P>
+<P>El operador += también funciona con cadenas.</P><PRE>	String nombre="Juan ";
+	nombre+="García";
+	System.out.println(nombre);</PRE>
+<P>&nbsp;</P>
+<TABLE cellSpacing=0 width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="100%" bgColor=#f7f7f7><PRE>public class OperadorAp {
+    public static void main(String[] args) {
+        System.out.println("Operaciones con enteros");
+        int ia=7, ib=3;
+        int iSuma, iResto;
+        iSuma=ia+ib;
+        System.out.println("El resultado de la suma es "+iSuma);
+        int iProducto=ia*ib;
+        System.out.println("El resultado del producto es "+iProducto);
+        System.out.println("El resultado del cociente es "+(ia/ib));
+        iResto=ia%ib;
+        System.out.println("El resto de la división entera es "+iResto);
+
+        System.out.println("**********************************");
+        System.out.println("Operaciones con números decimales");
+        double da=7.5, db=3.0;
+        double dSuma=da+db;
+        System.out.println("El resultado de la suma es "+dSuma);
+        double dProducto=da*db;
+        System.out.println("El resultado del producto es "+dProducto);
+        double dCociente=da/db;
+        System.out.println("El resultado del cociente es "+dCociente);
+        double dResto=da%db;
+        System.out.println("El resto de la división es "+dResto);
+   }
+}</PRE></TD></TR></TBODY></TABLE>
+<P>&nbsp;</P>
+<H2><A name="La precedencia de operadores">La precedencia de operadores</A></H2>
+<P><IMG height=32 alt="disco.gif (1035 bytes)" 
+src="Los operadores_archivos/disco.gif" width=32 
+align=middle><STRONG>precede</STRONG>: <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/codigo/PrecedeApp.java">PrecedeApp.java</A></P>
+<P>El lector conocerá que los operadores aritméticos tienen distinta 
+precedencia, así la expresión</P><PRE>	a+b*c </PRE>
+<P>es equivalente a </P><PRE>	a+(b*c)</PRE>
+<P>ya que el producto y el cociente tienen mayor precedencia que la suma o la 
+resta. Por tanto, en la segunda expresión el paréntesis no es necesario. Sin 
+embargo, si queremos que se efectúe antes la suma que la multiplicación tenemos 
+de emplear los paréntesis</P><PRE>	(a+b)*c</PRE>
+<P>Para realizar la operación <IMG height=38 
+src="Los operadores_archivos/Image351.gif" width=19 align=middle> escribiremos 
+</P><PRE>	a/(b*c);</PRE>
+<P>o bien,</P><PRE>	a/b/c;</PRE>
+<P>En la mayoría de los casos, la precedencia de las operaciones es evidente, 
+sin embargo, en otros que no lo son tanto, se aconseja emplear paréntesis. Como 
+ejemplo, estudiemos un programa que nos permite convertir una temperatura en 
+grados Fahrenheit en su equivalente en la escala Celsius. La fórmula de 
+conversión es </P>
+<P><IMG height=41 src="Los operadores_archivos/Image352.gif" width=118></P>
+<P>cuya codificación es</P><PRE>tC=(tF-32)*5/9;</PRE>
+<P>Las operaciones se realizan como suponemos, ya que si primero se realizase el 
+cociente 5/9, el resultado de la división entera sería cero, y el producto por 
+el resultado de evaluar el paréntesis sería también cero. Si tenemos dudas sobre 
+la precedencia de operadores podemos escribir </P><PRE>tC=((tF-32)*5)/9;</PRE>
+<TABLE cellSpacing=0 width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="100%" bgColor=#f7f7f7><PRE>public class PrecedeApp {
+    public static void main(String[] args) {
+        int tF=80;
+        System.out.println("la temperatura Fahrenheit es "+tF);
+        int tC=(tF-32)*5/9;
+        System.out.println("la temperatura centígrada es "+tC);
+    }
+}</PRE></TD></TR></TBODY></TABLE>
+<P>&nbsp;</P>
+<H2><A name="La conversión automática y promoción (casting)">La conversión 
+automática y promoción (casting)</A></H2>
+<P>Cuando se realiza una operación, si un operando es entero 
+(<STRONG>int</STRONG>) y el otro es de coma flotante (<STRONG>double</STRONG>) 
+el resultado es en coma flotante (<STRONG>double</STRONG>).</P><PRE>	int a=5;
+	double b=3.2;
+	double suma=a+b;</PRE>
+<P>Cuando se declaran dos variables una de tipo <B>int</B> y otra de tipo 
+<B>double</B>. </P><PRE>	int entero;
+	double real=3.20567;</PRE>
+<P>¿qué ocurrirá cuando asignamos a la variable <I>entero</I> el número guardado 
+en la variable <I>real</I>?. Como hemos visto se trata de dos tipos de variables 
+distintos cuyo tamaño en memoria es de 32 y 64 bits respectivamente. Por tanto, 
+la sentencia</P><PRE>	entero=real;</PRE>
+<P>convierte el número real en un número entero eliminando los decimales. La 
+variable <I>entero</I> guardará el número 3.</P>
+<P>Se ha de tener cuidado, ya que la conversión de un tipo de dato en otro es 
+una fuente frecuente de error entre los programadores principiantes. Ahora bien, 
+supongamos que deseamos calcular la división 7/3, como hemos visto, el resultado 
+de la división entera es 2, aún en el caso de que tratemos de guardar el 
+resultado en una variable del tipo <B>double</B>, como lo prueba la siguiente 
+porción de código.</P><PRE>	int ia=7;
+	int ib=3;
+	double dc=ia/ib;</PRE>
+<P>Si queremos obtener una aproximación decimal del número 7/3, hemos de 
+promocionar el entero <I>ia</I> a un número en coma flotante, mediante un 
+procedimiento denominado promoción o <I>casting</I>.</P><PRE>	int ia=7;
+	int ib=3;
+	double dc=(double)ia/ib;</PRE>
+<P>Como aplicación, consideremos el cálculo del valor medio de dos o más números 
+enteros</P><PRE>	int edad1=10;
+	int edad2=15;
+	double media=(double)(edad1+edad2)/2;</PRE>
+<P>El valor medio de 10 y 15 es 12.5, sin la promoción se obtendría el valor 
+erróneo 12.</P>
+<P>Imaginemos ahora, una función que devuelve un entero <STRONG>int</STRONG> y 
+queremos guardarlo en una variable de tipo <STRONG>float</STRONG>. 
+Escribiremos</P>
+<BLOCKQUOTE><PRE>float resultado=(float)retornaInt();</PRE></BLOCKQUOTE>
+<P>Existen también conversiones implícitas realizadas por el compilador, por 
+ejemplo cuando pasamos un entero <STRONG>int</STRONG> a una función cuyo único 
+parámetro es de tipo <STRONG>long.</STRONG></P>
+<P>&nbsp;</P>
+<H2><A name="Los operadores unarios">Los operadores unarios</A></H2>
+<P><IMG height=32 alt="disco.gif (1035 bytes)" 
+src="Los operadores_archivos/disco.gif" width=32 
+align=middle><STRONG>unario</STRONG>: <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/codigo/UnarioApp.java">UnarioApp.java</A></P>
+<P>Los operadores unarios son: 
+<UL>
+  <LI>++ Incremento 
+  <LI>-- Decremento </LI></UL>
+<P>actúan sobre un único operando. Se trata de uno de los aspecto más confusos 
+para el programador, ya que el resultado de la operación depende de que el 
+operador esté a la derecha<I> i++</I> o a la izquierda <I>++i</I>. </P>
+<P>Conoceremos, primero el significado de estos dos operadores a partir de las 
+sentencias equivalentes:</P><PRE>	i=i+1;		//añadir 1 a i
+	i++; 	</PRE>
+<P>Del mismo modo, lo son</P><PRE>	i=i-1;		//restar 1 a i
+	i--; 	</PRE>
+<P>Examinemos ahora, la posición del operador respecto del operando. 
+Consideremos en primer lugar que el operador unario ++ está a la derecha del 
+operando. La sentencia</P><PRE>	j=i++;</PRE>
+<P>asigna a<I> j</I>, el valor que tenía<I> i</I>. Por ejemplo, si <I>i</I> 
+valía 3, después de ejecutar la sentencia, <I>j</I> toma el valor de 3 e 
+<I>i</I> el valor de 4. Lo que es equivalente a las dos sentencias</P><PRE>	j=i;
+	i++;</PRE>
+<P>Un resultado distinto se obtiene si el operador ++ está a la izquierda del 
+operando</P><PRE>	j=++i;</PRE>
+<P>asigna a <I>j</I> el valor incrementado de <I>i</I>. Por ejemplo, si <I>i</I> 
+valía 3, después de ejecutar la sentencia <I>j</I> e <I>i</I> toman el valor de 
+4. Lo que es equivalente a las dos sentencias</P><PRE>	++i;
+	j=i;</PRE>
+<TABLE cellSpacing=0 width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="100%" bgColor=#f7f7f7><PRE>public class UnarioApp {
+    public static void main(String[] args) {
+        int i=8;
+        int a, b, c;
+        System.out.println("\tantes\tdurante\tdespués");
+        i=8; a=i; b=i++; c=i;
+        System.out.println("i++\t"+a+'\t'+b+'\t'+c);
+        i=8; a=i; b=i--; c=i;
+        System.out.println("i--\t"+a+'\t'+b+'\t'+c);
+
+        i=8; a=i; b=++i; c=i;
+        System.out.println("++i\t"+a+'\t'+b+'\t'+c);
+        i=8; a=i; b=--i; c=i;
+        System.out.println("--i\t"+a+'\t'+b+'\t'+c);
+
+    }
+}</PRE></TD></TR></TBODY></TABLE>
+<P>La salida del programa es, la siguiente</P>
+<TABLE cellSpacing=0 width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="100%"><PRE>	      antes          durante	     después
+i++		8		8		9
+i--		8		8		7
+++i		8		9		9
+--i		8		7		7</PRE></TD></TR></TBODY></TABLE>
+<P>La primera columna (antes) muestra el valor inicial de <I>i</I>, la segunda 
+columna (durante) muestra el valor de la expresión, y la última columna 
+(después) muestra el valor final de <I>i</I>, después de evaluarse la 
+expresión.</P>
+<P>Se deberá de tener siempre el cuidado de inicializar la variable, antes de 
+utilizar los operadores unarios con dicha variable. </P>
+<P>&nbsp;</P>
+<P>&nbsp;</P></BODY></HTML>

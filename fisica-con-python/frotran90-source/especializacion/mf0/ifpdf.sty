@@ -1,0 +1,53 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{ifpdf}[2002/05/13 Decisiones si output es pdf (VM)]
+
+% Nuevos comandos
+%
+% \ifpdf
+% \ifpdfgraphicx
+% \ifpdffontenc
+% \ifpdfGraphicx (para uso en clases y estilos)
+% \ifpdfFontenc  (para uso en clases y estilos)
+
+\newif\ifpdf
+\ifx\pdfoutput\undefined
+  \pdffalse % we are not running PDFLaTeX
+\else
+  \pdfoutput=1 % we are running PDFLaTeX
+  \pdftrue
+\fi
+
+\newcommand{\ifpdfgraphicx}{
+\ifpdf 
+   \usepackage[pdftex]{graphicx}
+   \DeclareGraphicsExtensions{.pdf}
+\else
+   \usepackage[dvips]{graphicx}
+   \DeclareGraphicsExtensions{.eps}
+\fi
+}
+
+\newcommand{\ifpdffontenc}{
+\usepackage[T1]{fontenc}
+\ifpdf
+   \usepackage{ae,aecompl}
+\fi
+}
+
+\newcommand{\ifpdfGraphicx}{
+\ifpdf 
+   \RequirePackage[pdftex]{graphicx}
+   \DeclareGraphicsExtensions{.pdf}
+   \typeout{Extension cambiada a pdf}
+\else
+   \RequirePackage[dvips]{graphicx}
+   \DeclareGraphicsExtensions{.eps}
+\fi
+}
+
+\newcommand{\ifpdfFontenc}{
+\RequirePackage[T1]{fontenc}
+\ifpdf
+   \RequirePackage{ae,aecompl}
+\fi
+}

@@ -1,0 +1,138 @@
+.MATH {
+	FONT-FAMILY: "Century Schoolbook", serif
+}
+.MATH I {
+	FONT-WEIGHT: bold; FONT-FAMILY: "Century Schoolbook", serif
+}
+.BOLDMATH {
+	FONT-WEIGHT: bold; FONT-FAMILY: "Century Schoolbook", serif
+}
+SMALL.XTINY {
+	FONT-SIZE: xx-small
+}
+SMALL.TINY {
+	FONT-SIZE: x-small
+}
+SMALL.SCRIPTSIZE {
+	FONT-SIZE: smaller
+}
+SMALL.FOOTNOTESIZE {
+	FONT-SIZE: small
+}
+SMALL.SMALL {
+	
+}
+BIG.LARGE {
+	
+}
+BIG.XLARGE {
+	FONT-SIZE: large
+}
+BIG.XXLARGE {
+	FONT-SIZE: x-large
+}
+BIG.HUGE {
+	FONT-SIZE: larger
+}
+BIG.XHUGE {
+	FONT-SIZE: xx-large
+}
+BODY {
+	FONT-SIZE: 16px; COLOR: #10291f; FONT-FAMILY: "Times New Roman", Times, sans-serif, serif, Verdana, Geneva, Arial, helvetica; BACKGROUND-COLOR: #ffffff
+}
+BODY {
+	SCROLLBAR-FACE-COLOR: #284430; SCROLLBAR-HIGHLIGHT-COLOR: white; SCROLLBAR-SHADOW-COLOR: white; SCROLLBAR-3DLIGHT-COLOR: #284430; SCROLLBAR-ARROW-COLOR: white; SCROLLBAR-TRACK-COLOR: #284430; SCROLLBAR-DARKSHADOW-COLOR: #284430
+}
+H1 {
+	FONT-SIZE: 24pt; COLOR: #045c5c; FONT-FAMILY: "Times New Roman", Times, serif; TEXT-ALIGN: center
+}
+H2 {
+	COLOR: #045c5c; FONT-FAMILY: "Times New Roman", Times, serif; TEXT-ALIGN: center
+}
+H3 {
+	COLOR: #045c5c; FONT-FAMILY: "Times New Roman", Times, serif
+}
+H4 {
+	COLOR: #045c5c; FONT-FAMILY: "Times New Roman", Times, serif
+}
+H5 {
+	COLOR: #045c5c; FONT-FAMILY: "Times New Roman", Times, serif
+}
+LI.NIVEL1 {
+	LIST-STYLE-IMAGE: url(../imagens/leta.png); LIST-STYLE-TYPE: square
+}
+LI.NIVEL2 {
+	LIST-STYLE-IMAGE: url(../imagens/phi.png); LIST-STYLE-TYPE: square
+}
+LI.NIVEL3 {
+	LIST-STYLE-IMAGE: url(../imagens/theta.png); LIST-STYLE-TYPE: square
+}
+LI.NIVEL4 {
+	LIST-STYLE-IMAGE: url(../imagens/sigmma.png); LIST-STYLE-TYPE: square
+}
+.EX1 {
+	LIST-STYLE-IMAGE: url(../imagens/lambda14.png); LIST-STYLE-TYPE: square
+}
+.EX2 {
+	LIST-STYLE-IMAGE: url(../imagens/theta9.png); LIST-STYLE-TYPE: square
+}
+.EX3 {
+	LIST-STYLE-IMAGE: url(../imagens/lambda9.png); LIST-STYLE-TYPE: square
+}
+.EX4 {
+	LIST-STYLE-IMAGE: url(../imagens/lambda5.png); LIST-STYLE-TYPE: square
+}
+.EX5 {
+	LIST-STYLE-IMAGE: url(../imagens/lambda18.png); LIST-STYLE-TYPE: square
+}
+.EX6 {
+	LIST-STYLE-IMAGE: url(../imagens/gamma2.png); LIST-STYLE-TYPE: square
+}
+.EX7 {
+	LIST-STYLE-IMAGE: url(../imagens/gamma3.png); LIST-STYLE-TYPE: square
+}
+.EX8 {
+	LIST-STYLE-IMAGE: url(../imagens/omega3.png); LIST-STYLE-TYPE: square
+}
+.EX9 {
+	LIST-STYLE-IMAGE: url(../imagens/theta3.png); LIST-STYLE-TYPE: square
+}
+.EX10 {
+	LIST-STYLE-IMAGE: url(../imagens/lambda8.png); LIST-STYLE-TYPE: square
+}
+.EX11 {
+	LIST-STYLE-IMAGE: url(../imagens/xi_md_wht.gif); LIST-STYLE-TYPE: square
+}
+.out {
+	LIST-STYLE-IMAGE: url(../imagens/saida.png); LIST-STYLE-TYPE: square
+}
+.in {
+	LIST-STYLE-IMAGE: url(../imagens/entrada.png); LIST-STYLE-TYPE: square
+}
+.lista {
+	LIST-STYLE-IMAGE: url(../imagens/lista.png); LIST-STYLE-TYPE: circle
+}
+A:visited {
+	COLOR: #b7cf97; TEXT-DECORATION: none
+}
+A:link {
+	COLOR: #045c5c; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #bbaaaa; TEXT-DECORATION: none
+}
+A:active {
+	COLOR: #b7cf97; TEXT-DECORATION: none
+}
+A.tabela:visited {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #b7cf97; FONT-FAMILY: Tahoma, Verdana, Geneva, Arial, helvetica, sans-serif; BACKGROUND-COLOR: #284430; TEXT-DECORATION: none
+}
+A.tabela:link {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #b7cf97; FONT-FAMILY: Tahoma, Verdana, Geneva, Arial, helvetica, sans-serif; BACKGROUND-COLOR: #284430; TEXT-DECORATION: none
+}
+A.tabela:hover {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #ffffff; FONT-FAMILY: Tahoma, Verdana, Geneva, Arial, helvetica, sans-serif; BACKGROUND-COLOR: #284430; TEXT-DECORATION: none
+}
+A.tabela:active {
+	FONT-WEIGHT: bold; COLOR: #b7cf97; BACKGROUND-COLOR: #284430; TEXT-DECORATION: none
+}

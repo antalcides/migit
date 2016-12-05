@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0055)http://garota.fismat.umich.mx/mn1/tutor_fort/debug.html -->
+<HTML><HEAD><TITLE>Tutorial de Fortran</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY background="Tutorial de Fortranwin_archivos/default.gif">
+<HR>
+&nbsp;[18. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/style.html">Estilo de 
+programación</A> ] &nbsp;[<A 
+href="http://fismat.umich.mx/mn1/tutor_fort/index.html">Tutorial de Fortran</A>] 
+&nbsp;[20. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/f90.html">Características 
+Principales de Fortran 90 </A>] 
+<HR>
+
+<H2>19. Sugerencias de depuración</H2>Se ha estimado que cerca del 90% del 
+tiempo que toma desarrollar un software comercial se usa en depurar y probar. Lo 
+anterior no dice lo importante que es escribir buen código desde el primer 
+momento. 
+<P>Todavía, se deben descubrir los <EM>errores (bugs)</EM>. A continuación 
+algunas sugerencias de como descubrirlos Here are some hints for how to track 
+them down. 
+<H3>Opciones útiles del compilador</H3>Muchos compiladores de Fortran tienen un 
+conjunto de opciones que pueden ser activadas si así se desea. Las siguientes 
+opciones del compilador son particulares para el compilador de Linux, pero 
+muchos compiladores pueden tener opciones similares. 
+<DL>
+  <DT>-ggdb 
+  <DD>Generar información de depuración en el formato de fortran, incluyendo 
+  extensiones de GDB si es posible. <!--
+<DT> -ansi
+<DD> This will warn you about all non-standard Fortran 77 extensions
+in your program.
+
+<DT> -u
+<DD> This will override the implicit type rules and make all variables 
+undeclared initially. If your compiler does not have such an option,
+you can achieve almost the same thing by adding the declaration
+
+<PRE>
+      implicit none (a-z)
+</PRE>
+in the beginning of each (sub-)program.
+
+<DT> -C
+<DD> Check for array bounds. The compiler will try to detect if
+you access array elements that are out of bounds. It cannot
+catch all such errors, however.
+--></DD></DL>
+<H3>Algunos errores comunes</H3>Se muestran algunos errores comunes que se deben 
+vigilar: 
+<UL>
+  <LI>Asegurarse que las líneas termina en la columna 72. El resto será 
+  ignorado. 
+  <LI>¿Se corresponde la lista de parámetros con la lista de argumentos que se 
+  están pasando? 
+  <LI>¿Se correnponden los bloques comunes? 
+  <LI>¿Se esta haciendo división entera cuando se quiere división real? </LI></UL>
+<H3>Debugging tools</H3>Si se tiene un error, se debe intentar localizarlo. Los 
+errores de sintaxis son fáciles de hallar. El problema es cuando se tienen 
+errores en tiempo de ejecución. La forma vieja para encontrar errores es agregar 
+sentencias <EM>write</EM> en el código y tratar de llevarles la pista a las 
+variables. Esto es un poco tedioso ya que se debe recompilar el código fuente 
+cada vez que se haga algún cambio. Actualmente se pueden usar los 
+<EM>depuradores (debuggers)</EM> que son una herramienta muy conveniente. Se 
+puede avanzar en pasos a través del programa, ya sea línea por línea o se pueden 
+colocar puntos de interrupción (<I>breakpoints</I>). También se pueden mostrar 
+los valores de las variables que se quieran observar, entre varias tareas. 
+Muchas máquinas UNIX tendrán <EM>gdb</EM> y <EM>dbx</EM>. Desafortunadamentes 
+estos son difíciles de aprender ya que tienen una interfaz antigua, que es del 
+tipo orientada a líneas. Revisar si hay alguna interfaz gráfica disponible, como 
+<EM>xdbx</EM> o <EM>dbxtool</EM>. En particular para usar <EM>gdb</EM> se puede 
+compilar el programa como: <PRE>$ f77 -ggdb -o circulo circulo.for
+</PRE>Para usar el depurador y poner un <I>breakpoint</I> en el módulo principal 
+teclear: <PRE>$ gdb circulo
+
+(gdb) break MAIN__
+</PRE>
+<P>
+<HR>
+&nbsp;[18. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/style.html">Estilo de 
+programación</A> ] &nbsp;[<A 
+href="http://fismat.umich.mx/mn1/tutor_fort/index.html">Tutorial de Fortran</A>] 
+&nbsp;[20. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/f90.html">Características 
+Principales de Fortran 90 </A>] </BODY></HTML>

@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0055)http://garota.fismat.umich.mx/mn1/tutor_fort/loops.html -->
+<HTML><HEAD><TITLE>Tutorial de Fortran</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY background="Tutorial de Fortranw_archivos/default.gif">
+<HR>
+&nbsp;[8. <A href="http://garota.fismat.umich.mx/mn1/tutor_fort/if.html">La 
+sentencia if </A>] &nbsp;[<A 
+href="http://fismat.umich.mx/mn1/tutor_fort/index.html">Tutorial de Fortran</A>] 
+&nbsp;[10. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/arrays.html">Arreglos </A>] 
+<HR>
+
+<H2>9. Ciclos</H2>Para la repetir la ejecución de sentencias se usan los 
+<EM>ciclos</EM>. Si se esta familiarizado con otros lenguajes de programación se 
+habrá escuchado de los ciclos-<EM>for</EM> y de los ciclos-<EM>until</EM>, 
+Fortran 77 tiene solamente una construcción de ciclo, conocida como el 
+ciclo<TT>do</TT>. El ciclo-<TT>do</TT> corresponde al ciclo-<EM>for</EM> que 
+existe en otros lenguajes de programación. Otros ciclos pueden ser simulados 
+usando las sentencias <TT>if</TT> y <TT>goto</TT>. 
+<H3>Ciclos-do</H3>El ciclo-<TT>do</TT> es usado para repetir un conjunto de 
+sentencias una determinada cantidad de veces. Se muestra el siguiente ejemplo 
+donde se calcula la suma de los enteros desde el <I>1</I> hasta <I>n</I> 
+(suponiendo que a <I>n</I> se le ha asignado un valor previamente): <PRE>      integer i, n, suma
+      :
+      :
+      :
+      suma = 0
+      do 10 i = 1, n
+         suma = suma + i
+         write(*,*) 'i =', i
+         write(*,*) 'suma =', suma
+   10 continue
+</PRE>El número 10 es una sentencia de <EM>etiqueta</EM>. Típicamente, podría 
+haber varios ciclos y otras sentencias en un programa que requierean una 
+sentencia de etiqueta. El programador es responsable de asignar un número único 
+a cada etiqueta en cada programa (o subprograma). Recordar que las posiciones de 
+las columnas 2-5 son reservadas para sentencias de etiquetas. El valor numérico 
+de las sentencias de etiqueta no tienen ningún significado, por lo que cualquier 
+valor entero puede ser usado. Por lo general, los programadores incrementan las 
+etiquetas de 10 en 10 cada vez. 
+<P>La variable en la sentencia <TT>do</TT> es incrementada en 1 por default. Sin 
+embargo, se puede usar cualquier otro entero para el <EM>paso o incremento</EM>. 
+El siguiente segmento de programa muestra los números pares en forma decreciente 
+entre el 1 y 10: <PRE>      integer i
+
+      do 20 i = 10, 1, -2
+         write(*,*) 'i =', i
+   20 continue
+</PRE>
+<P>La forma general del ciclo <TT>do</TT> es la siguiente: <PRE>      do <EM>etiqueta  var =  expr1, expr2, expr3</EM>
+         <EM>sentencias</EM>
+ <EM>etiq</EM> continue
+</PRE>donde:<BR><EM>var</EM> es la variable del ciclo (conocida con frecuencia 
+como el <EM>índice del ciclo</EM>) el cual deberá ser del tipo 
+integer.<BR><EM>expr1</EM> indica el valor inicial de 
+<EM>var</EM>,<BR><EM>expr2</EM> es el valor hasta el que llegará el índice, 
+y<BR><EM>expr3</EM> es el incremento (step). 
+<P>Nota: La variable del ciclo <TT>do</TT> nunca deberá ser modificada por otras 
+sentencias dentro del ciclo, ya que puede generar errores de lógica. 
+<P>Muchos compiladores de Fortran 77 permiten que los ciclos <TT>do</TT> sean 
+cerrados por la sentencia <TT>enddo</TT>. La ventaja es que la sentencia 
+etiqueta puede ser omitida, ya que en este caso la sentencia <TT>enddo</TT> 
+cierra la sentencia <TT>do</TT> más cercana. La construcción <TT>enddo</TT> es 
+ampliamente usada, pero no es parte del ANSI Fortran 77. 
+<P>
+<H3>Ciclos while</H3>La forma más intuitiva para escribir un ciclo 
+<TT>while</TT> es <PRE>      while <EM>(expr lógica)</EM> do
+         <EM>sentencias</EM>
+      enddo
+</PRE>o de forma alterna <PRE>      do while <EM>(expr lógica)</EM> 
+         <EM>sentencias</EM>
+      enddo
+</PRE>Las sentencias en el cuerpo serán repetidas mientras la condición en el 
+ciclo <TT>while</TT> sea verdadera. A pesar de que esta sintaxis es aceptada por 
+muchos compiladores (incluyendo el de Linux), no forma parte del ANSI Fortran 
+77. La forma correcta es usando las sentencias <TT>if</TT> y <TT>goto</TT>: <PRE> <EM>etiq</EM> if <EM>(expr lógica)</EM> then
+         <EM>sentencias</EM>
+         goto <EM>etiq</EM>
+      endif 
+</PRE>
+<P>A continuación se tiene un ejemplo que calcula y muestra el doble de todos 
+los número anterior comenzando con el 2 y que son menores a 100: <PRE>      integer n
+      n = 1
+   10 if (n .lt. 100) then
+         n = 2*n
+         write (*,*) n
+         goto 10
+      endif
+</PRE>
+<H3>Ciclos-until</H3>Es un ciclo el cual el criterio de terminación esta al 
+final en vez del inicio. En pseudocódigo tendríamos el siguiente formato: <PRE>      haz
+         <EM>sentencias</EM>
+      hasta <EM>(expr lógica)</EM>
+</PRE>lo cual nuevamente, puede ser implementado en Fortran 77 usando las 
+sentencias <TT>if</TT> y <TT>goto</TT>: <PRE> <EM>etiq</EM> continue
+         <EM>sentencias</EM>
+      if <EM>(expr lógica)</EM> goto <EM>etiq</EM>
+</PRE>Observar que la expresión lógica en la última versión deberá ser la 
+negación de la expresión dada en pseudocódigo. 
+<P>
+<H3>Ciclos en Fortran 90</H3>Fortran 90 ha adoptado la construcción 
+<TT>do-enddo</TT> como su ciclo ( el f77 de linux la reconoce como válida). Por 
+lo que el ejemplo de decrementar de dos en dos queda como: <PRE>      do i = 10, 1, -2
+         write(*,*) 'i =', i
+      enddo
+</PRE>para simular los ciclos <EM>while</EM> y <EM>until</EM> se puede usar la 
+construcción do-enddo, pero se tiene que agregar una sentencia condicional de 
+salida <TT>exit (salida)</TT>. El caso general es: <PRE>      do
+         <EM>sentencias</EM>
+         if <EM>(expr lógica)</EM> exit
+         <EM>sentencias</EM>
+      end do
+</PRE>Si se tienen la condición de salida al principio es un ciclo while, y si 
+esta al final se tiene un ciclo until. 
+<P>
+<HR>
+
+<H3>Ejercicios</H3>
+<DL>
+  <DT>Ejercicio a 
+  <DD>Reescribe los siguientes pseudocódigos en código de Fortran 77. Evitar 
+  usar la sentencia <TT>goto</TT> si es posible. <PRE>i = 1
+mientras (i&lt;100) haz
+   suma = suma + i
+   i = i+2
+fin_mientras
+i = 0
+x = 1.0
+repite
+   x = f(x)
+   i = i+1
+hasta que (x&lt;0)
+muestra i, x
+</PRE>
+  <P></P>
+  <DT>Ejercicio B 
+  <DD>El siguiente código esta pobremente escrito. Reescribelos con un buen 
+  estilo para F77. (Tip: Compila y ejecuta el programa para verificar que la 
+  nueva versión da el mismo resultado versión anterior. El compilador mandará 
+  algunos "warnings" por el espaguetti que se hace con el código.) <PRE>      i = 1
+      suma = 0
+   10 do 20 i = 1, 50
+         if (i .gt. 10) goto 30
+         suma = suma + i
+   20 continue
+   30 if (i .le. 20) then
+         suma = suma - 1
+         goto 20
+      else
+         suma = 2*suma
+      endif
+      write(*,*) 'Suma =', suma
+</PRE></DD></DL>
+<HR>
+&nbsp;[8. <A href="http://garota.fismat.umich.mx/mn1/tutor_fort/if.html">La 
+sentencia if </A>] &nbsp;[<A 
+href="http://fismat.umich.mx/mn1/tutor_fort/index.html">Tutorial de Fortran</A>] 
+&nbsp;[10. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/arrays.html">Arreglos </A>] 
+</BODY></HTML>

@@ -1,0 +1,141 @@
+% language support
+\documentclass[30pt,landscape]{foils}%
+\usepackage[english,spanish]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[pdftex]{color}
+\usepackage[pdftex]{geometry}
+\usepackage{hyperref}
+\usepackage{pause}
+\usepackage{background}
+\usepackage{pp4slide}%
+\usepackage{amsmath}%
+\setcounter{MaxMatrixCols}{30}%
+\usepackage{amsfonts}%
+\usepackage{amssymb}%
+\usepackage{graphicx}
+\usepackage{m-metapo}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{Version=4.00.0.2312}
+%TCIDATA{LastRevised=Friday, August 20, 1999 19:17:48}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+\geometry{headsep=3ex,hscale=0.9}
+\hypersetup{pdftitle={PPower4Example},
+pdfsubject={An example to demonstrate PPower4},
+pdfauthor={Klaus Guntermann, Systems Programming Group,
+Darmstadt University of Technology,
+<guntermann@iti.informatik.tu-darmstadt.de>},
+pdfkeywords={pdftex, acrobat},
+pdfpagemode={FullScreen}
+}
+\begin{document}
+\definecolor{bgred}{rgb}{0.00,0.00,0.53} \hpagecolor{bgred}
+
+\foilhead{Medición y Cálculo del error}
+
+\begin{itemize}
+\item Itemizations\pause
+
+\begin{itemize}
+
+
+\item are nested\pause
+
+\item and labelled  \hypertarget{start}{}
+%mark any place on the page
+
+
+\begin{itemize}
+
+
+\item even nested deeply\pause
+\end{itemize}
+
+\item on different levels\pause
+\end{itemize}
+
+\item with formulas like $\sum_{i=0}^{\infty}a_{i}\cdot x^{i}$
+\end{itemize}
+
+\foilhead{Different page transitions}
+\hypersetup{pdfpagetransition=Dissolve}
+
+\begin{itemize}
+\item Switch it on for a page\pause
+
+\item But must switch off explicitely
+\end{itemize}
+
+\foilhead[2ex]{That's it} \hypersetup{pdfpagetransition=R}
+
+\begin{center}
+Just a small example.
+
+You may go \hyperlink{start}{back} to start.
+\end{center}
+\foilhead[2ex]{That's
+it} \hypersetup{pdfpagetransition=R}
+\pdfximage {pic.pdf}    % read image pic.pdf (from path TEXINPUTS)
+
+% when a pdf image may have more than 1 page, the number of the last image
+% opened by \pdfximage is accessible via \pdflastximagepages
+
+The last image has \the\pdflastximagepages\ page(s).
+
+% It also possible to select which page to include. Pages are numbered from
+% 1. Out-of-range values are fixed to 1 and bitmapped images have always 1
+% page. To include let's say the 2nd page of a pdf image, one can use
+% \pdfximage page 2 {file.pdf}
+
+% similarly to \pdfobj, the image created by \pdfximage is held in memory
+% and is not written to the pdf output, unless 1) the image is referenced
+% by saying \pdfrefximage <object number>; or 2) \pdfximage is preceded by
+% \immediate. The object number of the last image created by \pdfximage is
+% accessible via \pdflastximage. Note that \immediate\pdfximage does not
+% typeset anything; it just ensures that the image is written out to the
+% output. To display the image, it is necessary to say
+% \pdfrefximage <object number> in the intended place. Another point is
+% \pdfrefximage act similarly rather to rules than to boxes concerning
+% dimensions and space setting. In order to make images act as boxes
+% (concerning dimensions and spacing), it's necessary to wrap them into a
+% box.
+
+\pdfrefximage \pdflastximage
+
+% the dimensions of the image can be also controlled via <rule spec>. The
+% default values are zero for depth and `running' for height and width. If
+% all of them are given, the image will be scaled to fit the specified
+% values. If some of them (but not all) are given, the rest will be set to
+% a value corresponding to the remaining ones so as to make the image size
+% to yield the same proportion of width : (height + depth) as the original
+% image size, where depth is treated as zero. If none of them is given then
+% the image will take its natural size. An image inserted at its natural
+% size often has a resolution of \pdfimageresolution (or 72 if
+% \pdfimageresolution is set to zero) given in dots per inch in the output
+% file, but some images may contain data specifying the image resolution,
+% and in such a case the image will be scaled to the original resolution.
+% The dimension of the image can be accessed by enclosing the \pdfrefximage
+% command to a box and checking the dimensions of the box.
+
+\pdfximage width 6cm {pic.png}  % set the image width and keep the
+\pdfrefximage \pdflastximage    % `nature' proportion width : height
+
+\pdfximage height 4cm {pic.tif} % set the image height and keep the
+\pdfrefximage \pdflastximage    % `nature' proportion width : height
+
+\pdfximage width 6cm height 4cm % set both image width and height; the
+   {pic.jpg}                    % final proportion width : height may be
+                                % different from the `nature' one
+
+\pdfimageresolution=72          % to open an image at 72 dpi
+\pdfximage {pic.pdf}
+\setbox0=\hbox{\pdfrefximage\pdflastximage} % get dimensions of the image
+                                            % in order to include the image
+                                            % at a specific resolution
+\dimen0=.06\wd0         % calculate the image width at 1200 dpi (0.06 = 72/1200)
+\pdfximage              % include the image at resolution 1200 dpi
+    width \dimen0 {pic.pdf}  % by setting image width to the calculated value
+\pdfrefximage \pdflastximage
+
+
+
+\end{document}

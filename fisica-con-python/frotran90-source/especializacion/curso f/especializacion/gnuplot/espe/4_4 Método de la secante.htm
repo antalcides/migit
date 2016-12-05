@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0037)http://www.uv.es/~diaz/mn/node21.html -->
+<HTML><HEAD><TITLE>4.4 Método de la secante</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="4.4 Método de la secante" name=description>
+<META content=fmn name=keywords>
+<META content=document name=resource-type>
+<META content=global name=distribution>
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR><!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others --><LINK 
+href="4_4 Método de la secante_archivos/fmn.css" rel=STYLESHEET><LINK 
+href="node22.html" rel=next><LINK href="node20.html" rel=previous><LINK 
+href="node17.html" rel=up><LINK href="node22.html" rel=next></HEAD>
+<BODY><!--Navigation Panel--><A href="http://www.uv.es/~diaz/mn/node22.html" 
+name=tex2html297></A><A href="http://www.uv.es/~diaz/mn/node22.html" 
+name=tex2html297><IMG height=24 alt=next 
+src="4_4 Método de la secante_archivos/next_motif.gif" width=37 align=bottom 
+border=0></A>&nbsp;<A href="http://www.uv.es/~diaz/mn/node17.html" 
+name=tex2html295></A><A href="http://www.uv.es/~diaz/mn/node17.html" 
+name=tex2html295><IMG height=24 alt=up 
+src="4_4 Método de la secante_archivos/up_motif.gif" width=26 align=bottom 
+border=0></A>&nbsp;<A href="http://www.uv.es/~diaz/mn/node20.html" 
+name=tex2html289></A><A href="http://www.uv.es/~diaz/mn/node20.html" 
+name=tex2html289><IMG height=24 alt=previous 
+src="4_4 Método de la secante_archivos/previous_motif.gif" width=63 align=bottom 
+border=0></A> <BR><B>Next:</B>&nbsp;<A 
+href="http://www.uv.es/~diaz/mn/node22.html" name=tex2html298></A><A 
+href="http://www.uv.es/~diaz/mn/node22.html" name=tex2html298>4.5 Método de 
+Steffensen</A> <B>Up:</B>&nbsp;<A href="http://www.uv.es/~diaz/mn/node17.html" 
+name=tex2html296></A><A href="http://www.uv.es/~diaz/mn/node17.html" 
+name=tex2html296>4. Cálculo de raíces</A> <B>Previous:</B>&nbsp;<A 
+href="http://www.uv.es/~diaz/mn/node20.html" name=tex2html290></A><A 
+href="http://www.uv.es/~diaz/mn/node20.html" name=tex2html290>4.3 Método de 
+Newton</A> 
+<P><!--End of Navigation Panel-->
+<H2><A name=SECTION00044000000000000000></A>&nbsp;<A 
+name=ssec:secante></A>&nbsp;&nbsp;<BR>4.4 Método de la secante</H2>El principal 
+inconveniente del método de Newton estriba en que requiere conocer el valor de 
+la primera derivada de la función en el punto. Sin embargo, la forma funcional 
+de <I>f</I>(<I>x</I>) dificulta en ocasiones el cálculo de la derivada. En estos 
+casos es más útil emplear el método de la secante. 
+<P>El método de la secante parte de dos puntos (y no sólo uno como el método de 
+Newton) y estima la tangente (es decir, la pendiente de la recta) por una 
+aproximación de acuerdo con la expresión: 
+<CENTER><!-- MATH: \begin{equation}
+f'(x_{0}) = \frac{f(x_{1})-f(x_{0})}{x_{1}-x_{0}}
+\end{equation} --></CENTER>
+<CENTER>
+<TABLE width="100%">
+  <TBODY>
+  <TR vAlign=center>
+    <TD noWrap align=middle><A name=eqn:sec-1></A>&nbsp;<IMG height=46 
+      alt="\begin{displaymath}f'(x_{0}) = \frac{f(x_{1})-f(x_{0})}{x_{1}-x_{0}}\end{displaymath}" 
+      src="4_4 Método de la secante_archivos/img143.gif" width=176></TD>
+    <TD align=right width=10>(34)</TD></TR></TBODY></TABLE></CENTER>&nbsp; 
+<P>Sustituyendo esta expresión en la ecuación (<A 
+href="http://www.uv.es/~diaz/mn/node20.html#eqn:newt-1">29</A>) del método de 
+Newton, obtenemos la expresión del método de la secante que nos proporciona el 
+siguiente punto de iteración: 
+<CENTER><!-- MATH: \begin{equation}
+x_{2} = x_{0} - \frac{x_{1}-x_{0}}{f(x_{1})-f(x_{0})}f(x_{0})
+\end{equation} --></CENTER>
+<CENTER>
+<TABLE width="100%">
+  <TBODY>
+  <TR vAlign=center>
+    <TD noWrap align=middle><A name=eqn:sec-2></A>&nbsp;<IMG height=45 
+      alt="\begin{displaymath}x_{2} = x_{0} - \frac{x_{1}-x_{0}}{f(x_{1})-f(x_{0})}f(x_{0})\end{displaymath}" 
+      src="4_4 Método de la secante_archivos/img144.gif" width=228></TD>
+    <TD align=right width=10>(35)</TD></TR></TBODY></TABLE></CENTER>&nbsp;&nbsp; 
+<BR>&nbsp; <BR>&nbsp; 
+<CENTER><A name=fig:sec></A>&nbsp;<A name=1088></A>&nbsp;&nbsp;<IMG height=202 
+src="4_4 Método de la secante_archivos/secante.gif" width=241></CENTER>
+<CENTER>
+<TABLE width="50%">
+  <CAPTION><B>Figure:</B> <FONT size=-1>Representación geométrica del método de 
+  la secante.</FONT></CAPTION>
+  <TBODY>
+  <TR>
+    <TD>
+      <CENTER>[scale=0.9]eps/secante</CENTER></TD></TR></TBODY></TABLE></CENTER>&nbsp;&nbsp; 
+
+<P>En la siguiente iteración, emplearemos los puntos <I>x</I><SUB>1</SUB> y 
+<I>x</I><SUB>2</SUB>para estimar un nuevo punto más próximo a la raíz de acuerdo 
+con la ecuación (<A 
+href="http://www.uv.es/~diaz/mn/node21.html#eqn:sec-2">35</A>). En la figura (<A 
+href="http://www.uv.es/~diaz/mn/node21.html#fig:sec">8</A>) se representa 
+geométricamente este método. 
+<P>En general, el método de la secante presenta las mismas ventajas y 
+limitaciones que el método de Newton-Raphson explicado anteriormente. 
+<P>
+<HR>
+<!--Navigation Panel--><A href="http://www.uv.es/~diaz/mn/node22.html" 
+name=tex2html297></A><A href="http://www.uv.es/~diaz/mn/node22.html" 
+name=tex2html297><IMG height=24 alt=next 
+src="4_4 Método de la secante_archivos/next_motif.gif" width=37 align=bottom 
+border=0></A>&nbsp;<A href="http://www.uv.es/~diaz/mn/node17.html" 
+name=tex2html295></A><A href="http://www.uv.es/~diaz/mn/node17.html" 
+name=tex2html295><IMG height=24 alt=up 
+src="4_4 Método de la secante_archivos/up_motif.gif" width=26 align=bottom 
+border=0></A>&nbsp;<A href="http://www.uv.es/~diaz/mn/node20.html" 
+name=tex2html289></A><A href="http://www.uv.es/~diaz/mn/node20.html" 
+name=tex2html289><IMG height=24 alt=previous 
+src="4_4 Método de la secante_archivos/previous_motif.gif" width=63 align=bottom 
+border=0></A> <BR><B>Next:</B>&nbsp;<A 
+href="http://www.uv.es/~diaz/mn/node22.html" name=tex2html298></A><A 
+href="http://www.uv.es/~diaz/mn/node22.html" name=tex2html298>4.5 Método de 
+Steffensen</A> <B>Up:</B>&nbsp;<A href="http://www.uv.es/~diaz/mn/node17.html" 
+name=tex2html296></A><A href="http://www.uv.es/~diaz/mn/node17.html" 
+name=tex2html296>4. Cálculo de raíces</A> <B>Previous:</B>&nbsp;<A 
+href="http://www.uv.es/~diaz/mn/node20.html" name=tex2html290></A><A 
+href="http://www.uv.es/~diaz/mn/node20.html" name=tex2html290>4.3 Método de 
+Newton</A>&nbsp;<!--End of Navigation Panel--> 
+<ADDRESS><I>Wladimiro Diaz Villanueva</I></ADDRESS><BR><I>1998-05-11</I> 
+</BODY></HTML>

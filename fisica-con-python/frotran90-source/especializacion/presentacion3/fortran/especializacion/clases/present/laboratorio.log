@@ -1,0 +1,492 @@
+This is pdfTeX, Version 3.141592-1.10b (MiKTeX 2.3) (preloaded format=latex 2000.11.28)  9 AUG 2003 08:46
+**laboratorio.tex
+(laboratorio.tex{pdftex.cfg}
+LaTeX2e <2001/06/01>
+Babel <v3.7h> and hyphenation patterns for spanish, loaded.
+(C:\texmf\tex\latex\base\article.cls
+Document Class: article 2001/04/21 v1.4e Standard LaTeX document class
+(C:\texmf\tex\latex\base\size10.clo
+File: size10.clo 2001/04/21 v1.4e Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(C:\localtexmf\tex\latex\pdfscreen\tuepdfscreen.sty
+Package: tuepdfscreen 2000/06/07 v.1.4 screen PDF design (CVR)
+
+(C:\texmf\tex\latex\graphics\graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\texmf\tex\latex\graphics\keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(C:\texmf\tex\latex\graphics\graphics.sty
+Package: graphics 2001/07/07 v1.0n Standard LaTeX Graphics (DPC,SPQR)
+ (C:\texmf\tex\latex\graphics\trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+) (C:\texmf\tex\latex\00miktex\graphics.cfg
+File: graphics.cfg 2003/03/12 v1.1 MiKTeX 'graphics' configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 80.
+
+(C:\texmf\tex\latex\graphics\pdftex.def
+File: pdftex.def 2002/06/19 v0.03k graphics/color for pdftex
+\Gread@gobject=\count87
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+(C:\localtexmf\tex\latex\pdfscreen\ccaption.sty
+Package: ccaption 2002/04/01 v3.1a Extended captioning and new floats
+\@contcwidth=\skip43
+\@contindw=\skip44
+\abovelegendskip=\skip45
+\belowlegendskip=\skip46
+\c@newflo@tctr=\count88
+)
+(C:\localtexmf\tex\latex\pdfscreen\comment.sty
+\CommentStream=\write3
+ Excluding comment 'comment')
+\c@panel=\count89
+\c@driver=\count90
+\c@scheme=\count91
+
+(C:\texmf\tex\latex\tools\calc.sty
+Package: calc 1998/07/07 v4.1b Infix arithmetic (KKT,FJ)
+\calc@Acount=\count92
+\calc@Bcount=\count93
+\calc@Adimen=\dimen105
+\calc@Bdimen=\dimen106
+\calc@Askip=\skip47
+\calc@Bskip=\skip48
+LaTeX Info: Redefining \setlength on input line 59.
+LaTeX Info: Redefining \addtolength on input line 60.
+\calc@denominator=\count94
+) (C:\texmf\tex\latex\graphics\color.sty
+Package: color 1999/02/16 v1.0i Standard LaTeX Color (DPC)
+
+(C:\texmf\tex\latex\00miktex\color.cfg
+File: color.cfg 2003/03/08 v1.0 MiKTeX 'color' configuration
+)
+Package color Info: Driver file: pdftex.def on input line 125.
+)
+(C:\localtexmf\tex\latex\pdfscreen\pause.sty)
+(C:\texmf\tex\latex\hyperref\hyperref.sty
+Package: hyperref 2003/06/01 v6.74e Hypertext links for LaTeX
+\@linkdim=\dimen107
+\Hy@linkcounter=\count95
+\Hy@pagecounter=\count96
+
+(C:\texmf\tex\latex\hyperref\pd1enc.def
+File: pd1enc.def 2003/06/01 v6.74e Hyperref: PDFDocEncoding definition (HO)
+)
+(C:\texmf\tex\latex\00miktex\hyperref.cfg
+File: hyperref.cfg 2003/03/08 v1.0 MiKTeX 'hyperref' configuration
+)
+Package hyperref Info: Hyper figures OFF on input line 1879.
+Package hyperref Info: Link nesting OFF on input line 1884.
+Package hyperref Info: Hyper index ON on input line 1887.
+Package hyperref Info: Plain pages ON on input line 1892.
+Package hyperref Info: Backreferencing OFF on input line 1899.
+
+Implicit mode ON; LaTeX internals redefined
+Package hyperref Info: Bookmarks ON on input line 2003.
+(C:\texmf\tex\latex\ltxmisc\url.sty
+\Urlmuskip=\muskip10
+Package: url 1999/03/28  ver 1.5x  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 2142.
+\Fld@menulength=\count97
+\Field@Width=\dimen108
+\Fld@charsize=\dimen109
+\Choice@toks=\toks15
+\Field@toks=\toks16
+Package hyperref Info: Hyper figures OFF on input line 2617.
+Package hyperref Info: Link nesting OFF on input line 2622.
+Package hyperref Info: Hyper index ON on input line 2625.
+Package hyperref Info: backreferencing OFF on input line 2632.
+Package hyperref Info: Link coloring OFF on input line 2637.
+\c@Item=\count98
+\c@Hfootnote=\count99
+)
+*hyperref using default driver hpdftex*
+(C:\texmf\tex\latex\hyperref\hpdftex.def
+File: hpdftex.def 2003/06/01 v6.74e Hyperref driver for pdfTeX
+ (C:\texmf\tex\latex\psnfss\pifont.sty
+Package: pifont 2002/09/08 PSNFSS-v9.0a Pi font support (SPQR) 
+LaTeX Font Info:    Try loading font information for U+pzd on input line 62.
+
+(C:\texmf\tex\latex\psnfss\upzd.fd
+File: upzd.fd 2001/06/04 font definitions for U/pzd.
+)
+LaTeX Font Info:    Try loading font information for U+psy on input line 63.
+ (C:\texmf\tex\latex\psnfss\upsy.fd
+File: upsy.fd 2001/06/04 font definitions for U/psy.
+))
+\Fld@listcount=\count100
+\@outlinefile=\write4
+)
+
+Package hyperref Warning: Option `pagebackref' has already been used,
+(hyperref)                setting the option has no effect on input line 363.
+
+Package hyperref Info: Option `colorlinks' set `true' on input line 363.
+Package hyperref Info: Option `pdfmenubar' set `false' on input line 363.
+Package hyperref Info: Option `pdftoolbar' set `false' on input line 363.
+Package hyperref Info: Option `pdffitwindow' set `true' on input line 363.
+Package hyperref Info: Option `pdfcenterwindow' set `true' on input line 363.
+Package hyperref Info: Option `pdfwindowui' set `false' on input line 363.
+
+Package hyperref Warning: Option `backref' has already been used,
+(hyperref)                setting the option has no effect on input line 363.
+
+Include comment 'screen' Excluding comment 'print'
+Package pdfscreen Info: Default options loaded on input line 391.
+Package pdfscreen Info: No color scheme specified 
+(pdfscreen)             default color scheme loaded on input line 468.
+\@PDFbox=\box26
+\shadowsize=\dimen110
+\do@PDFBox=\toks17
+\panelwidth=\skip49
+
+(C:\texmf\tex\latex\amsfonts\amssymb.sty
+Package: amssymb 2002/01/22 v2.2d
+
+(C:\texmf\tex\latex\amsfonts\amsfonts.sty
+Package: amsfonts 2001/10/25 v2.2f
+\@emptytoks=\toks18
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 132.
+))
+(C:\texmf\tex\latex\amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+ (C:\texmf\tex\latex\amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks19
+\ex@=\dimen111
+)
+\pmbraise@=\dimen112
+)
+\buttonwidth=\dimen113
+\smallbuttonwidth=\dimen114
+\@PDFspaceleft=\dimen115
+\@Leftmargin=\dimen116
+\@Rightmargin=\dimen117
+\@Topmargin=\dimen118
+\@Bottommargin=\dimen119
+\Textmarginright=\dimen120
+\Textmarginleft=\dimen121
+\Textmargintop=\dimen122
+\Textmarginbottom=\dimen123
+\marginright=\dimen124
+\marginleft=\dimen125
+\margintop=\dimen126
+\marginbottom=\dimen127
+\panelheight=\dimen128
+\LLX=\dimen129
+\LLY=\dimen130
+\URX=\dimen131
+\URY=\dimen132
+\calfactor=\dimen133
+\overlayheight=\dimen134
+\overlaywidth=\dimen135
+\c@panel@section=\count101
+(C:\localtexmf\tex\latex\pdfscreen\tuepdfscreen.cfg
+Package color Info: Redefining color panelbackground on input line 10.
+Package color Info: Redefining color buttonbackground on input line 11.
+Package color Info: Redefining color buttonshadow on input line 12.
+Package color Info: Redefining color myred on input line 15.
+Package color Info: Redefining color orange on input line 16.
+Package color Info: Redefining color orange1 on input line 17.
+Package color Info: Redefining color section0 on input line 18.
+Package color Info: Redefining color section1 on input line 19.
+Package color Info: Redefining color section2 on input line 20.
+Package color Info: Redefining color section3 on input line 21.
+Package color Info: Redefining color section4 on input line 22.
+Package color Info: Redefining color section5 on input line 23.
+Package pdfscreen Info: no panel options loaded on input line 28.
+Package pdfscreen Info: LLX=0.0pt
+(pdfscreen)             LLY=0.0pt
+(pdfscreen)             URX=578.15999pt
+(pdfscreen)             URY=451.6875pt
+(pdfscreen)             panelwidth=0.0pt
+(pdfscreen)             overlaywidth=578.15999pt
+(pdfscreen)             textwidth=578.15999pt
+(pdfscreen)             textheight=451.6875pt
+(pdfscreen)             paperwidth=578.15999pt
+(pdfscreen)             paperheight=451.6875pt
+(pdfscreen)             calfactor=0.0pt
+(pdfscreen)             Panel=0 on input line 28.
+Package color Info: Redefining color buttonbackground on input line 57.
+Package color Info: Redefining color buttonshadow on input line 58.
+Package color Info: Redefining color green on input line 59.
+Package color Info: Redefining color buttonshadow on input line 62.
+Package pdfscreen Info: no panel options loaded on input line 97.
+Package pdfscreen Info: LLX=0.0pt
+(pdfscreen)             LLY=0.0pt
+(pdfscreen)             URX=578.15999pt
+(pdfscreen)             URY=451.6875pt
+(pdfscreen)             panelwidth=0.0pt
+(pdfscreen)             overlaywidth=578.15999pt
+(pdfscreen)             textwidth=505.89pt
+(pdfscreen)             textheight=307.14752pt
+(pdfscreen)             paperwidth=578.15999pt
+(pdfscreen)             paperheight=451.6875pt
+(pdfscreen)             calfactor=0.0pt
+(pdfscreen)             Panel=0 on input line 97.
+)
+\c@slide=\count102
+\c@slideoverlay=\count103
+\c@overlay=\count104
+)
+(C:\texmf\tex\latex\base\fleqn.sty
+
+LaTeX Warning: inputting `fleqn.clo' instead of obsolete `fleqn.sty'.
+
+(C:\texmf\tex\latex\base\fleqn.clo
+File: fleqn.clo 1998/08/17 v1.1c Standard LaTeX option (flush left equations)
+\mathindent=\dimen136
+)) (C:\texmf\tex\latex\tools\tabularx.sty
+Package: tabularx 1999/01/07 v2.07 `tabularx' package (DPC)
+
+(C:\texmf\tex\latex\tools\array.sty
+Package: array 1998/05/13 v2.3m Tabular extension package (FMi)
+\col@sep=\dimen137
+\extrarowheight=\dimen138
+\NC@list=\toks20
+\extratabsurround=\skip50
+\backup@length=\skip51
+)
+\TX@col@width=\dimen139
+\TX@old@table=\dimen140
+\TX@old@col=\dimen141
+\TX@target=\dimen142
+\TX@delta=\dimen143
+\TX@cols=\count105
+\TX@ftn=\toks21
+) (C:\texmf\tex\latex\ltxmisc\wrapfig.sty
+\wrapoverhang=\dimen144
+\WF@size=\dimen145
+\c@WF@wrappedlines=\count106
+\WF@box=\box27
+\WF@everypar=\toks22
+Package: wrapfig 2003/01/31  v 3.6
+)
+(C:\texmf\tex\latex\base\inputenc.sty
+Package: inputenc 2001/07/10 v0.99a Input encoding file 
+ (C:\texmf\tex\latex\base\ansinew.def
+File: ansinew.def 2001/07/10 v0.99a Input encoding file 
+))
+(C:\texmf\tex\generic\Babel\babel.sty
+Package: babel 2001/03/01 v3.7h The Babel package
+ (C:\texmf\tex\generic\Babel\spanish.ldf
+Language: spanish.ldf 2001/01/30 v4.1c Spanish support from the babel system
+
+(C:\texmf\tex\generic\Babel\babel.def
+File: babel.def 2001/03/01 v3.7h Babel common definitions
+\babel@savecnt=\count107
+\U@D=\dimen146
+)
+\es@quottoks=\toks23
+\es@quotdepth=\count108
+Package babel Info: Making . an active character on input line 464.
+Package babel Info: Making " an active character on input line 495.
+Package babel Info: Making < an active character on input line 581.
+Package babel Info: Making > an active character on input line 582.
+)) (C:\texmf\tex\latex\psnfss\times.sty
+Package: times 2002/09/08 PSNFSS-v9.0a (SPQR) 
+)
+(C:\texmf\tex\latex\zahlen.sty
+Style-Option: `Zahl-Mengen' v1.1a   <2.3.88> (F.M.)
+) (laboratorio.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 37.
+ (C:\texmf\tex\latex\psnfss\ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+(C:\texmf\tex\context\base\supp-pdf.tex (C:\texmf\tex\context\base\supp-mis.tex
+loading : Context Support Macros / Missing
+\protectiondepth=\count109
+\scratchcounter=\count110
+\scratchtoks=\toks24
+\scratchdimen=\dimen147
+\scratchskip=\skip52
+\scratchmuskip=\muskip11
+\scratchbox=\box28
+\scratchread=\read1
+\scratchwrite=\write5
+\zeropoint=\dimen148
+\minusone=\count111
+\thousandpoint=\dimen149
+\emptytoks=\toks25
+\nextbox=\box29
+\nextdepth=\dimen150
+\everyline=\toks26
+\!!counta=\count112
+\!!countb=\count113
+\recursecounter=\count114
+)
+loading : Context Support Macros / PDF
+\nofMPsegments=\count115
+\nofMParguments=\count116
+\everyMPtoPDFconversion=\toks27
+)
+Package hyperref Info: Link coloring ON on input line 37.
+ (C:\texmf\tex\latex\hyperref\nameref.sty
+Package: nameref 2001/01/27 v2.19 Cross-referencing by name of section
+\c@section@level=\count117
+)
+LaTeX Info: Redefining \ref on input line 37.
+LaTeX Info: Redefining \pageref on input line 37.
+ (laboratorio.out) (laboratorio.out)
+
+Package pdfscreen Warning: Overly file is pdfslide.png.pdf on input line 54.
+
+LaTeX Font Info:    Try loading font information for U+msa on input line 56.
+(C:\texmf\tex\latex\amsfonts\umsa.fd
+File: umsa.fd 2002/01/19 v2.2g AMS font definitions
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 56.
+ (C:\texmf\tex\latex\amsfonts\umsb.fd
+File: umsb.fd 2002/01/19 v2.2g AMS font definitions
+)
+
+Package pdfscreen Warning: Overly file is pdfslide.png.pdf on input line 57.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <16> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 64.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 64.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24.88> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 64.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 64.
+(C:\texmf\tex\latex\psnfss\ot1phv.fd
+File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
+)
+
+Package pdfscreen Warning: Overly file is pdfslide.png.pdf on input line 66.
+
+
+Package pdfscreen Warning: Overly file is pdfslide.png.pdf on input line 78.
+
+<table.png, id=23, 79.79813pt x 134.00063pt>
+File: table.png Graphic file (type png)
+ <use table.png>
+<table2.jpg, id=24, 100.87688pt x 117.43875pt>
+File: table2.jpg Graphic file (type jpg)
+ <use table2.jpg>
+<datos1.jpg, id=25, 602.25pt x 451.6875pt>
+File: datos1.jpg Graphic file (type jpg)
+ <use datos1.jpg>
+LaTeX Font Info:    Calculating math sizes for size <16> on input line 153.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <16> not available
+(Font)              size <17.28> substituted on input line 153.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <16> not available
+(Font)              size <17.28> substituted on input line 153.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <16> not available
+(Font)              size <17.28> substituted on input line 153.
+
+
+LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <16> not available
+(Font)              size <17.28> substituted on input line 153.
+
+
+LaTeX Font Warning: Font shape `U/msa/m/n' in size <16> not available
+(Font)              size <17.28> substituted on input line 153.
+
+
+LaTeX Font Warning: Font shape `U/msb/m/n' in size <16> not available
+(Font)              size <17.28> substituted on input line 153.
+
+<ajuste1.jpg, id=26, 134.00063pt x 72.27pt>
+File: ajuste1.jpg Graphic file (type jpg)
+ <use ajuste1.jpg>
+<ajuste2.jpg, id=27, 147.55125pt x 85.06781pt>
+File: ajuste2.jpg Graphic file (type jpg)
+ <use ajuste2.jpg>
+<ydes.jpg, id=28, 142.5325pt x 141.52875pt>
+File: ydes.jpg Graphic file (type jpg)
+ <use ydes.jpg>
+<gdes.jpg, id=29, 190.7125pt x 184.69pt>
+File: gdes.jpg Graphic file (type jpg)
+ <use gdes.jpg>
+<destg.jpg, id=30, 149.55875pt x 112.42pt>
+File: destg.jpg Graphic file (type jpg)
+ <use destg.jpg>
+<gdes1.jpg, id=31, 465.74pt x 449.68pt>
+File: gdes1.jpg Graphic file (type jpg)
+ <use gdes1.jpg>
+<datas.jpg, id=32, 243.91125pt x 176.66pt>
+File: datas.jpg Graphic file (type jpg)
+ <use datas.jpg>
+<editable.jpg, id=33, 602.25pt x 451.6875pt>
+File: editable.jpg Graphic file (type jpg)
+ <use editable.jpg>
+<graph.jpg, id=34, 49.68562pt x 76.03406pt>
+File: graph.jpg Graphic file (type jpg)
+ <use graph.jpg>
+<pdfslide.png, id=35, 722.7pt x 542.025pt>
+File: pdfslide.png Graphic file (type png)
+ <use pdfslide.png> [1{psfonts.map}
+
+ <pdfslide.png>]
+File: pdfslide.png Graphic file (type png)
+ <use pdfslide.png> [2]
+File: pdfslide.png Graphic file (type png)
+ <use pdfslide.png> [3]
+File: pdfslide.png Graphic file (type png)
+
+<use pdfslide.png> [4 <table.png> <table2.jpg> <datos1.jpg> <ajuste1.jpg> <ajus
+te2.jpg> <ydes.jpg> <gdes.jpg> <destg.jpg> <gdes1.jpg> <datas.jpg> <editable.jp
+g> <graph.jpg>] (laboratorio.aux)
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 1.28pt have occurred.
+
+ )
+(\end occurred when \ifcase on line 327 was incomplete) 
+Here is how much of TeX's memory you used:
+ 4588 strings out of 95671
+ 55489 string characters out of 1191876
+ 121182 words of memory out of 1115777
+ 7292 multiletter control sequences out of 35000
+ 29633 words of font info for 71 fonts, out of 500000 for 1000
+ 2 hyphenation exceptions out of 607
+ 34i,11n,37p,278b,681s stack positions out of 1500i,500n,5000p,200000b,32768s
+ 132 PDF objects out of 65536
+ 26 named destinations out of 20000
+ 109 words of extra memory for PDF output out of 65536
+<cmr10.pfb><cmr17.pfb><c
+mmi10.pfb>{8r.enc}<cmmi12.pfb><msam10.pfb>
+Output written on laboratorio.pdf (4 pages, 292766 bytes).

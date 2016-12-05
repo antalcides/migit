@@ -1,0 +1,19 @@
+C     PROGRAMA QUE ANALIZA SI UN NUMERO PERTENECE A LA SERIE DE FIBONACCI
+      write (*,*) 'Que numero deseas investigar? '
+      read (*,*) n
+      k=1.
+      j=0
+   10 i=j+k
+      if (n.eq.i) then
+      write (*,*) n,' pertenece a la serie'
+      else
+      if (n.lt.i) then
+      write(*,*) n, ' no pertenece a la serie'
+      else
+      j=k
+      k=i
+      goto 10
+      endif
+      endif
+      stop
+      end

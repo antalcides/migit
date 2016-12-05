@@ -1,0 +1,68 @@
+%% This document created by Scientific Word (R) Version 3.0
+
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{CSTFile=LaTeX article (bright).cst}
+%TCIDATA{Created=Thu Oct 02 10:54:53 2003}
+%TCIDATA{LastRevised=Thu Oct 02 10:55:17 2003}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="General\Blank Document">}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\begin{document}
+
+
+\begin{lemma}
+Sean $u:\mathbb{R}^{n}\rightarrow\mathbb{R}$ es positiva y $C^{2}$ en
+$\mathbb{R}^{n},$ $u=O(\left|  x\right|  ^{-m}),$ en el infinito, $m>0,$
+$b:\mathbb{R}^{n}\rightarrow\mathbb{R}$ acotado y $g:\mathbb{R}\rightarrow
+\mathbb{R}$ es tal que en el intervalo $0\leq u\leq u_{0}=\max u$,
+$g=g_{1}+g_{2}$ con $g_{1}\in C^{1}$, $g_{2}$ continua y mon\'{o}tona no
+decreciente. $u$ es soluci\'{o}n de
+\begin{equation}
+\Delta u+b\left(  x\right)  u_{1}+g\left(  u\right)  =0\text{ \ \ en\ }%
+\mathbb{R}^{n}\text{.}\tag{17}%
+\end{equation}
+Sup\'{o}ngase que existe un $\lambda\in\left[  0,\infty\right)  $ tal que
+
+\textbf{1}. $b\left(  x\right)  \geq0$ para todo $x\in\mathbb{R}^{n}$
+
+\textbf{2}. $u_{1}\left(  x\right)  \leq0$ y $u\left(  x\right)  \leq u\left(
+x^{\lambda}\right)  $ para todo $x\in\Sigma\left(  \lambda\right)  $,
+
+\textbf{3}. $u\left(  z\right)  \neq u\left(  z^{\lambda}\right)  $ para
+alg\'{u}n $z\in\Sigma\left(  \lambda\right)  $.
+
+Entonces
+\begin{align*}
+u\left(  x\right)    & <u\left(  x^{\lambda}\right)  \text{ \ \ para todo
+\ }x\in\Sigma\left(  \lambda\right)  \text{,}\\
+u_{1}\left(  x\right)    & <0\text{ \ \ para todo \ }x\in T_{\lambda}\text{.}%
+\end{align*}
+\end{lemma}
+\end{document}

@@ -1,0 +1,1437 @@
+BODY {
+	FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; FONT-FAMILY: Times New Roman; TEXT-ALIGN: left
+}
+BODY A {
+	COLOR: rgb(0,128,0)
+}
+UL {
+	LIST-STYLE-TYPE: disc
+}
+UL UL {
+	LIST-STYLE-TYPE: disc
+}
+UL UL UL {
+	LIST-STYLE-TYPE: disc
+}
+UL UL UL UL {
+	LIST-STYLE-TYPE: disc
+}
+OL {
+	LIST-STYLE-TYPE: decimal
+}
+OL OL {
+	LIST-STYLE-TYPE: lower-alpha
+}
+OL OL OL {
+	LIST-STYLE-TYPE: lower-roman
+}
+OL OL OL OL {
+	LIST-STYLE-TYPE: lower-alpha
+}
+P.error {
+	FONT-WEIGHT: 700; FONT-SIZE: 167%; COLOR: rgb(255,0,0)
+}
+P {
+	FONT-SIZE: 83%; MARGIN: 4pt 18pt 1pt 0pt; BORDER-TOP-STYLE: none; TEXT-INDENT: 0pt; FONT-FAMILY: Times New Roman; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BACKGROUND-COLOR: rgb(255,255,255); BORDER-BOTTOM-STYLE: none
+}
+P SPAN.inlineMath {
+	COLOR: rgb(255,0,0)
+}
+P A {
+	FONT-WEIGHT: 400; FONT-SIZE: 110%; COLOR: rgb(0,0,0); BACKGROUND-COLOR: rgb(255,255,0)
+}
+P.Body-Text-Alt {
+	FONT-SIZE: 83%; MARGIN: 4pt 18pt 1pt 0pt; BORDER-TOP-STYLE: none; TEXT-INDENT: 0pt; FONT-FAMILY: Times New Roman; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BACKGROUND-COLOR: rgb(255,255,255); BORDER-BOTTOM-STYLE: none
+}
+P.Body-Text-Alt SPAN.inlineMath {
+	COLOR: rgb(255,0,0)
+}
+P.Body-Text-Alt A {
+	FONT-WEIGHT: 400; FONT-SIZE: 110%; COLOR: rgb(0,0,0); FONT-STYLE: normal; BACKGROUND-COLOR: rgb(0,255,0)
+}
+P.Body-Math {
+	FONT-WEIGHT: 400; FONT-SIZE: 83%; MARGIN: 0pt 18pt 0pt 0pt; COLOR: rgb(128,0,128); BORDER-TOP-STYLE: none; TEXT-INDENT: 0pt; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BACKGROUND-COLOR: rgb(255,255,255); BORDER-BOTTOM-STYLE: none
+}
+P.Body-Math A {
+	FONT-WEIGHT: 400; FONT-SIZE: 110%; COLOR: rgb(0,128,0); BACKGROUND-COLOR: rgb(255,255,0)
+}
+H1.section {
+	FONT-WEIGHT: 700; FONT-SIZE: 267%; MARGIN: 130pt 0pt 25pt; COLOR: rgb(0,0,255); BORDER-TOP-STYLE: none; TEXT-INDENT: 0pt; FONT-STYLE: normal; FONT-FAMILY: Arial; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BACKGROUND-COLOR: rgb(255,255,255); TEXT-ALIGN: center; BORDER-BOTTOM-STYLE: none
+}
+H1.section SPAN.inlineMath {
+	COLOR: rgb(255,0,0)
+}
+H1.section A {
+	BACKGROUND-COLOR: rgb(255,255,0)
+}
+H2.subsection {
+	FONT-WEIGHT: 700; FONT-SIZE: 167%; MARGIN: 20pt 0pt 4pt; COLOR: rgb(0,0,255); BORDER-TOP-STYLE: none; TEXT-INDENT: 0pt; FONT-STYLE: normal; FONT-FAMILY: Arial; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BACKGROUND-COLOR: rgb(255,255,255); TEXT-ALIGN: center; BORDER-BOTTOM-STYLE: none
+}
+H2.subsection A {
+	BACKGROUND-COLOR: rgb(255,255,0)
+}
+H3.subsubsection {
+	FONT-WEIGHT: 700; FONT-SIZE: 133%; MARGIN: 14pt 0pt 3pt; COLOR: rgb(0,0,255); BORDER-TOP-STYLE: none; TEXT-INDENT: 0pt; FONT-STYLE: italic; FONT-FAMILY: Arial; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BACKGROUND-COLOR: rgb(255,255,255); TEXT-ALIGN: left; BORDER-BOTTOM-STYLE: none
+}
+H3.subsubsection A {
+	BACKGROUND-COLOR: rgb(255,255,0)
+}
+H2.paragraph {
+	FONT-WEIGHT: 700; FONT-SIZE: 167%; MARGIN: 20pt 0pt 4pt; COLOR: rgb(0,0,255); BORDER-TOP-STYLE: none; TEXT-INDENT: 0pt; FONT-STYLE: normal; FONT-FAMILY: Arial; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BACKGROUND-COLOR: rgb(255,255,255); TEXT-ALIGN: center; BORDER-BOTTOM-STYLE: none
+}
+H2.paragraph A {
+	BACKGROUND-COLOR: rgb(0,255,0)
+}
+H5.subparagraph {
+	FONT-WEIGHT: 700; FONT-SIZE: 100%; MARGIN: 2pt 0pt; COLOR: rgb(0,0,255); BORDER-TOP-STYLE: none; TEXT-INDENT: 0pt; FONT-STYLE: italic; FONT-FAMILY: Arial; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BACKGROUND-COLOR: rgb(255,255,255); TEXT-ALIGN: left; BORDER-BOTTOM-STYLE: none
+}
+H5.subparagraph A {
+	BACKGROUND-COLOR: rgb(255,255,0)
+}
+H3.newlevel3 {
+	FONT-WEIGHT: 700; FONT-SIZE: 133%; MARGIN: 14pt 0pt 3pt; COLOR: rgb(0,0,255); BORDER-TOP-STYLE: none; TEXT-INDENT: 0pt; FONT-STYLE: italic; FONT-FAMILY: Arial; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BACKGROUND-COLOR: rgb(255,255,255); TEXT-ALIGN: left; BORDER-BOTTOM-STYLE: none
+}
+H3.newlevel3 A {
+	BACKGROUND-COLOR: rgb(0,255,0)
+}
+H5.newlevel5 {
+	FONT-WEIGHT: 700; FONT-SIZE: 100%; MARGIN: 2pt 0pt; COLOR: rgb(0,0,255); BORDER-TOP-STYLE: none; TEXT-INDENT: 0pt; FONT-STYLE: italic; FONT-FAMILY: Arial; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BACKGROUND-COLOR: rgb(255,255,255); TEXT-ALIGN: left; BORDER-BOTTOM-STYLE: none
+}
+H5.newlevel5 A {
+	BACKGROUND-COLOR: rgb(0,255,0)
+}
+EM {
+	FONT-WEIGHT: 400; COLOR: rgb(0,0,255); FONT-STYLE: italic
+}
+EM SPAN.inlineMath {
+	COLOR: rgb(255,0,255)
+}
+SPAN.rm {
+	COLOR: rgb(0,0,255)
+}
+SPAN.rm SPAN.inlineMath {
+	COLOR: rgb(0,0,255)
+}
+STRONG {
+	FONT-WEIGHT: 700
+}
+SPAN.it {
+	FONT-STYLE: italic
+}
+SPAN.it SPAN.inlineMath {
+	COLOR: rgb(0,255,255)
+}
+SPAN.sl {
+	FONT-WEIGHT: 700; COLOR: rgb(0,0,255); FONT-STYLE: italic; FONT-FAMILY: Times New Roman
+}
+SPAN.sf {
+	FONT-SIZE: 75%; COLOR: rgb(128,0,128); FONT-FAMILY: Arial
+}
+SPAN.sf SPAN.inlineMath {
+	COLOR: rgb(0,0,0)
+}
+SPAN.sc {
+	COLOR: rgb(0,128,0); FONT-FAMILY: Arial
+}
+SPAN.sc SPAN.inlineMath {
+	COLOR: rgb(0,128,0)
+}
+SPAN.tt {
+	FONT-WEIGHT: 700; FONT-SIZE: 100%; FONT-STYLE: normal; FONT-FAMILY: Times New Roman
+}
+SPAN.tt SPAN.inlineMath {
+	COLOR: rgb(0,0,0)
+}
+DL.description DD P {
+	MARGIN: 4pt 0pt 4pt 36pt; BORDER-TOP-STYLE: none; TEXT-INDENT: -35pt; FONT-FAMILY: Arial; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BACKGROUND-COLOR: rgb(255,255,255); TEXT-ALIGN: left; BORDER-BOTTOM-STYLE: none
+}
+DL.description {
+	BORDER-TOP-STYLE: none; FONT-FAMILY: Arial; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BACKGROUND-COLOR: rgb(255,255,255); BORDER-BOTTOM-STYLE: none
+}
+DL.description DT.leadin {
+	FONT-WEIGHT: 700; COLOR: rgb(255,255,255); FONT-STYLE: normal; FONT-FAMILY: Arial; BACKGROUND-COLOR: rgb(0,128,128)
+}
+OL LI P {
+	FONT-SIZE: 100%; MARGIN: 7pt 0pt 0pt 20pt; BORDER-TOP-STYLE: none; TEXT-INDENT: -2pt; FONT-FAMILY: Times New Roman; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BACKGROUND-COLOR: rgb(255,255,255); TEXT-ALIGN: left; BORDER-BOTTOM-STYLE: none
+}
+OL {
+	FONT-SIZE: 83%; BORDER-TOP-STYLE: none; FONT-FAMILY: Times New Roman; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BACKGROUND-COLOR: rgb(255,255,255); BORDER-BOTTOM-STYLE: none
+}
+OL .leadin {
+	FONT-WEIGHT: 400; FONT-SIZE: 100%; COLOR: rgb(0,0,0); FONT-STYLE: normal; FONT-FAMILY: Times New Roman
+}
+OL A {
+	FONT-WEIGHT: 400; FONT-SIZE: 110%; COLOR: rgb(0,0,0); BACKGROUND-COLOR: rgb(255,255,0)
+}
+UL LI P {
+	FONT-SIZE: 100%; MARGIN: 0pt 0pt 0pt 20pt; BORDER-TOP-STYLE: none; TEXT-INDENT: -2pt; FONT-FAMILY: Times New Roman; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BACKGROUND-COLOR: rgb(255,255,255); BORDER-BOTTOM-STYLE: none
+}
+UL {
+	FONT-SIZE: 83%; BORDER-TOP-STYLE: none; FONT-FAMILY: Times New Roman; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BACKGROUND-COLOR: rgb(255,255,255); BORDER-BOTTOM-STYLE: none
+}
+UL .leadin {
+	FONT-WEIGHT: 400; FONT-SIZE: 120%; COLOR: rgb(0,0,0); FONT-STYLE: normal; FONT-FAMILY: Arial
+}
+UL A {
+	FONT-WEIGHT: 400; FONT-SIZE: 110%; COLOR: rgb(0,0,0); BACKGROUND-COLOR: rgb(255,255,0)
+}
+SPAN.cal {
+	COLOR: rgb(192,192,192); FONT-FAMILY: Times New Roman
+}
+SPAN.cal SPAN.inlineMath {
+	COLOR: rgb(255,0,255)
+}
+SPAN.tiny {
+	FONT-SIZE: 50%
+}
+SPAN.scriptsize {
+	FONT-SIZE: 67%; COLOR: rgb(255,0,255)
+}
+SPAN.footnotesize {
+	FONT-SIZE: 75%; COLOR: rgb(255,0,255)
+}
+SPAN.small {
+	FONT-SIZE: 83%
+}
+SPAN.normalsize {
+	FONT-SIZE: 100%; COLOR: rgb(255,0,255)
+}
+SPAN.large1 {
+	FONT-SIZE: 117%
+}
+SPAN.large2 {
+	FONT-SIZE: 133%
+}
+SPAN.large3 {
+	FONT-SIZE: 150%; COLOR: rgb(255,0,255)
+}
+SPAN.huge1 {
+	FONT-SIZE: 167%; COLOR: rgb(255,0,255)
+}
+SPAN.huge2 {
+	FONT-SIZE: 217%
+}
+P.quotation {
+	FONT-WEIGHT: 400; FONT-SIZE: 83%; MARGIN: 0pt 18pt 0pt 0pt; COLOR: rgb(0,0,0); BORDER-TOP-STYLE: none; TEXT-INDENT: 0pt; FONT-STYLE: normal; FONT-FAMILY: Times New Roman; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BACKGROUND-COLOR: rgb(228,228,228); BORDER-BOTTOM-STYLE: none
+}
+P.quotation A {
+	FONT-WEIGHT: 400; FONT-SIZE: 110%; COLOR: rgb(0,128,0); BACKGROUND-COLOR: rgb(255,255,0)
+}
+P.quote {
+	FONT-WEIGHT: 400; FONT-SIZE: 83%; MARGIN: 0pt 18pt 0pt 0pt; BORDER-TOP-STYLE: none; TEXT-INDENT: 0pt; FONT-STYLE: normal; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BACKGROUND-COLOR: rgb(255,255,255); BORDER-BOTTOM-STYLE: none
+}
+P.quote A {
+	FONT-WEIGHT: 400; FONT-SIZE: 110%; COLOR: rgb(0,0,0); BACKGROUND-COLOR: rgb(255,255,0)
+}
+P.center {
+	FONT-SIZE: 83%; MARGIN: 0pt 0pt 0pt 18pt; BORDER-TOP-STYLE: none; TEXT-INDENT: 0pt; FONT-FAMILY: Times New Roman; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BACKGROUND-COLOR: rgb(255,255,255); TEXT-ALIGN: center; BORDER-BOTTOM-STYLE: none
+}
+P.f-0 {
+	MARGIN: 0pt 0pt 0pt 35pt; TEXT-INDENT: 0pt
+}
+P.f-0-FirstPara {
+	MARGIN: 0pt 0pt 4pt 35pt; TEXT-INDENT: 0pt
+}
+P.f-1 {
+	MARGIN: 0pt 0pt 0pt 35pt; TEXT-INDENT: 0pt
+}
+P.f-1-FirstPara {
+	MARGIN: 0pt 0pt 4pt 35pt; TEXT-INDENT: 0pt
+}
+P.f-2 {
+	MARGIN: 0pt 0pt 0pt 35pt; TEXT-INDENT: 0pt
+}
+P.f-2-FirstPara {
+	MARGIN: 0pt 0pt 4pt 35pt; TEXT-INDENT: 0pt
+}
+P.f-7 {
+	MARGIN: 0pt 0pt 0pt 35pt; TEXT-INDENT: 0pt
+}
+P.f-7-FirstPara {
+	MARGIN: 0pt 0pt 4pt 35pt; TEXT-INDENT: 0pt
+}
+P.abstract {
+	MARGIN: 0pt 0pt 0pt 35pt; TEXT-INDENT: 0pt
+}
+P.abstract-FirstPara {
+	MARGIN: 0pt 0pt 4pt 35pt; TEXT-INDENT: 0pt
+}
+P.f-11 {
+	MARGIN: 0pt 0pt 0pt 35pt; TEXT-INDENT: 0pt
+}
+P.f-11-FirstPara {
+	MARGIN: 0pt 0pt 4pt 35pt; TEXT-INDENT: 0pt
+}
+P.f-12 {
+	MARGIN: 0pt 0pt 0pt 35pt; TEXT-INDENT: 0pt
+}
+P.f-12-FirstPara {
+	MARGIN: 0pt 0pt 4pt 35pt; TEXT-INDENT: 0pt
+}
+P.f-13 {
+	MARGIN: 0pt 0pt 0pt 35pt; TEXT-INDENT: 0pt
+}
+P.f-13-FirstPara {
+	MARGIN: 0pt 0pt 4pt 35pt; TEXT-INDENT: 0pt
+}
+P.f-14 {
+	MARGIN: 0pt 0pt 0pt 35pt; TEXT-INDENT: 0pt
+}
+P.f-14-FirstPara {
+	MARGIN: 0pt 0pt 4pt 35pt; TEXT-INDENT: 0pt
+}
+SPAN.frak {
+	COLOR: rgb(192,192,192); FONT-STYLE: normal; FONT-FAMILY: Times New Roman
+}
+SPAN.frak SPAN.inlineMath {
+	COLOR: rgb(255,0,255)
+}
+SPAN.Bbb {
+	COLOR: rgb(192,192,192); FONT-FAMILY: Times New Roman
+}
+P.proof {
+	MARGIN: 0pt 0pt 0pt 58pt; BORDER-TOP-STYLE: none; TEXT-INDENT: 0pt; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BACKGROUND-COLOR: rgb(225,225,225); BORDER-BOTTOM-STYLE: none
+}
+DIV.proof {
+	BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BACKGROUND-COLOR: rgb(225,225,225); BORDER-BOTTOM-STYLE: none
+}
+DIV.proof SPAN.leadin {
+	FONT-WEIGHT: 700; FONT-STYLE: normal; FONT-FAMILY: Arial; BACKGROUND-COLOR: rgb(255,255,255)
+}
+P.proof-FirstPara {
+	MARGIN: 0pt 0pt 4pt 58pt; TEXT-INDENT: 0pt; BACKGROUND-COLOR: rgb(225,225,225)
+}
+P.acknowledgement {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: -58pt; FONT-STYLE: italic
+}
+DIV.acknowledgement SPAN.leadin {
+	FONT-WEIGHT: 700; FONT-STYLE: normal; FONT-FAMILY: Arial; BACKGROUND-COLOR: rgb(255,255,255)
+}
+P.acknowledgement-FirstPara {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: 0pt; FONT-STYLE: italic
+}
+P.algorithm {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: -58pt; FONT-STYLE: italic
+}
+DIV.algorithm SPAN.leadin {
+	FONT-WEIGHT: 700; FONT-STYLE: normal; FONT-FAMILY: Arial; BACKGROUND-COLOR: rgb(255,255,255)
+}
+P.algorithm-FirstPara {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: 0pt; FONT-STYLE: italic
+}
+P.axiom {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: -58pt; FONT-STYLE: italic
+}
+DIV.axiom SPAN.leadin {
+	FONT-WEIGHT: 700; FONT-STYLE: normal; FONT-FAMILY: Arial; BACKGROUND-COLOR: rgb(255,255,255)
+}
+P.axiom-FirstPara {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: 0pt; FONT-STYLE: italic
+}
+P.case {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: -58pt; FONT-STYLE: italic
+}
+DIV.case SPAN.leadin {
+	FONT-WEIGHT: 700; FONT-STYLE: normal; FONT-FAMILY: Arial; BACKGROUND-COLOR: rgb(255,255,255)
+}
+P.case-FirstPara {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: 0pt; FONT-STYLE: italic
+}
+P.claim {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: -58pt; FONT-STYLE: italic
+}
+DIV.claim SPAN.leadin {
+	FONT-WEIGHT: 700; FONT-STYLE: normal; FONT-FAMILY: Arial; BACKGROUND-COLOR: rgb(255,255,255)
+}
+P.claim-FirstPara {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: 0pt; FONT-STYLE: italic
+}
+P.conclusion {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: -58pt; FONT-STYLE: italic
+}
+DIV.conclusion SPAN.leadin {
+	FONT-WEIGHT: 700; FONT-STYLE: normal; FONT-FAMILY: Arial; BACKGROUND-COLOR: rgb(255,255,255)
+}
+P.conclusion-FirstPara {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: 0pt; FONT-STYLE: italic
+}
+P.condition {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: -58pt; FONT-STYLE: italic
+}
+DIV.condition SPAN.leadin {
+	FONT-WEIGHT: 700; FONT-FAMILY: Arial; BACKGROUND-COLOR: rgb(255,255,255)
+}
+P.condition-FirstPara {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: 0pt; FONT-STYLE: italic
+}
+P.conjecture {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: -58pt; FONT-STYLE: italic
+}
+DIV.conjecture SPAN.leadin {
+	FONT-WEIGHT: 700; FONT-STYLE: normal; FONT-FAMILY: Arial; BACKGROUND-COLOR: rgb(255,255,255)
+}
+P.conjecture-FirstPara {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: 0pt; FONT-STYLE: italic
+}
+P.corollary {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: -58pt; FONT-STYLE: italic
+}
+DIV.corollary SPAN.leadin {
+	FONT-WEIGHT: 700; FONT-STYLE: normal; FONT-FAMILY: Arial; BACKGROUND-COLOR: rgb(255,255,255)
+}
+P.corollary-FirstPara {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: 0pt; FONT-STYLE: italic
+}
+P.criterion {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: -58pt; FONT-STYLE: italic
+}
+DIV.criterion SPAN.leadin {
+	FONT-WEIGHT: 700; FONT-STYLE: normal; FONT-FAMILY: Arial; BACKGROUND-COLOR: rgb(255,255,255)
+}
+P.criterion-FirstPara {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: 0pt; FONT-STYLE: italic
+}
+P.definition {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: -58pt; FONT-STYLE: italic
+}
+DIV.definition SPAN.leadin {
+	FONT-WEIGHT: 700; FONT-FAMILY: Arial; BACKGROUND-COLOR: rgb(255,255,255)
+}
+P.definition-FirstPara {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: 0pt; FONT-STYLE: italic
+}
+P.example {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: -58pt; FONT-STYLE: italic
+}
+DIV.example SPAN.leadin {
+	FONT-WEIGHT: 700; FONT-STYLE: normal; FONT-FAMILY: Arial; BACKGROUND-COLOR: rgb(255,255,255)
+}
+P.example-FirstPara {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: 0pt; FONT-STYLE: italic
+}
+P.exercise {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: -58pt; FONT-STYLE: italic
+}
+DIV.exercise SPAN.leadin {
+	FONT-WEIGHT: 700; FONT-STYLE: normal; FONT-FAMILY: Arial; BACKGROUND-COLOR: rgb(255,255,255)
+}
+P.exercise-FirstPara {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: 0pt; FONT-STYLE: italic
+}
+P.lemma {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: -58pt; FONT-STYLE: italic
+}
+DIV.lemma SPAN.leadin {
+	FONT-WEIGHT: 700; FONT-STYLE: normal; FONT-FAMILY: Arial; BACKGROUND-COLOR: rgb(255,255,255)
+}
+P.lemma-FirstPara {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: 0pt; FONT-STYLE: italic
+}
+P.notation {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: -58pt; FONT-STYLE: italic
+}
+DIV.notation SPAN.leadin {
+	FONT-WEIGHT: 700; FONT-STYLE: normal; FONT-FAMILY: Arial; BACKGROUND-COLOR: rgb(255,255,255)
+}
+P.notation-FirstPara {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: 0pt; FONT-STYLE: italic
+}
+P.problem {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: -58pt; FONT-STYLE: italic
+}
+DIV.problem SPAN.leadin {
+	FONT-WEIGHT: 700; FONT-FAMILY: Arial; BACKGROUND-COLOR: rgb(255,255,255)
+}
+P.problem-FirstPara {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: 0pt; FONT-STYLE: italic
+}
+P.proposition {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: -58pt; FONT-STYLE: italic
+}
+DIV.proposition SPAN.leadin {
+	FONT-WEIGHT: 700; FONT-STYLE: normal; FONT-FAMILY: Arial; BACKGROUND-COLOR: rgb(255,255,255)
+}
+P.proposition-FirstPara {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: 0pt; FONT-STYLE: italic
+}
+P.remark {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: -58pt; FONT-STYLE: italic
+}
+DIV.remark SPAN.leadin {
+	FONT-WEIGHT: 700; FONT-STYLE: normal; FONT-FAMILY: Arial; BACKGROUND-COLOR: rgb(255,255,255)
+}
+P.remark-FirstPara {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: 0pt; FONT-STYLE: italic
+}
+P.solution {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: -58pt; FONT-STYLE: italic
+}
+DIV.solution SPAN.leadin {
+	FONT-WEIGHT: 700; FONT-STYLE: normal; FONT-FAMILY: Arial; BACKGROUND-COLOR: rgb(255,255,255)
+}
+P.solution-FirstPara {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: 0pt; FONT-STYLE: italic
+}
+P.summary {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: -58pt; FONT-STYLE: italic
+}
+DIV.summary SPAN.leadin {
+	FONT-WEIGHT: 700; FONT-STYLE: normal; FONT-FAMILY: Arial; BACKGROUND-COLOR: rgb(255,255,255)
+}
+P.summary-FirstPara {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: 0pt; FONT-STYLE: italic
+}
+P.theorem {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: -58pt; FONT-STYLE: italic
+}
+DIV.theorem SPAN.leadin {
+	FONT-WEIGHT: 700; FONT-STYLE: normal; FONT-FAMILY: Arial; BACKGROUND-COLOR: rgb(255,255,255)
+}
+P.theorem-FirstPara {
+	MARGIN: 4pt 0pt 4pt 58pt; TEXT-INDENT: 0pt; FONT-STYLE: italic
+}
+OL.QQQNumberedaltItem LI P {
+	FONT-SIZE: 100%; MARGIN: 7pt 0pt 0pt 20pt; BORDER-TOP-STYLE: none; TEXT-INDENT: -2pt; FONT-FAMILY: Times New Roman; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BACKGROUND-COLOR: rgb(255,255,255); TEXT-ALIGN: left; BORDER-BOTTOM-STYLE: none
+}
+OL.QQQNumberedaltItem {
+	FONT-SIZE: 83%; BORDER-TOP-STYLE: none; FONT-FAMILY: Times New Roman; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BACKGROUND-COLOR: rgb(255,255,255); BORDER-BOTTOM-STYLE: none
+}
+OL.QQQNumberedaltItem .leadin {
+	FONT-WEIGHT: 400; FONT-SIZE: 100%; COLOR: rgb(0,0,0); FONT-STYLE: normal; FONT-FAMILY: Times New Roman
+}
+OL.QQQNumberedaltItem A {
+	FONT-WEIGHT: 400; FONT-SIZE: 110%; COLOR: rgb(0,0,0); FONT-STYLE: normal; BACKGROUND-COLOR: rgb(0,255,0)
+}
+UL.QQQBulletAltItem LI P {
+	FONT-SIZE: 100%; MARGIN: 0pt 0pt 0pt 20pt; BORDER-TOP-STYLE: none; TEXT-INDENT: -2pt; FONT-FAMILY: Times New Roman; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BACKGROUND-COLOR: rgb(255,255,255); BORDER-BOTTOM-STYLE: none
+}
+UL.QQQBulletAltItem {
+	FONT-SIZE: 83%; BORDER-TOP-STYLE: none; FONT-FAMILY: Times New Roman; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BACKGROUND-COLOR: rgb(255,255,255); BORDER-BOTTOM-STYLE: none
+}
+UL.QQQBulletAltItem .leadin {
+	FONT-WEIGHT: 400; FONT-SIZE: 120%; COLOR: rgb(0,0,0); FONT-STYLE: normal; FONT-FAMILY: Arial
+}
+UL.QQQBulletAltItem A {
+	FONT-WEIGHT: 400; FONT-SIZE: 110%; COLOR: rgb(0,0,0); FONT-STYLE: normal; BACKGROUND-COLOR: rgb(0,255,0)
+}
+P.Body-Math SPAN.huge2 {
+	FONT-SIZE: 260%
+}
+P.Body-Math SPAN.large3 {
+	FONT-SIZE: 180%
+}
+P.Body-Math SPAN.large2 {
+	FONT-SIZE: 160%
+}
+P.Body-Math SPAN.footnotesize {
+	FONT-SIZE: 90%
+}
+P.Body-Math SPAN.huge1 {
+	FONT-SIZE: 200%
+}
+P.Body-Math SPAN.large1 {
+	FONT-SIZE: 140%
+}
+P.Body-Math SPAN.normalsize {
+	FONT-SIZE: 120%
+}
+P.Body-Math SPAN.scriptsize {
+	FONT-SIZE: 80%
+}
+P.Body-Math SPAN.sf {
+	FONT-SIZE: 90%
+}
+P.Body-Math SPAN.small {
+	FONT-SIZE: 100%
+}
+P.Body-Math SPAN.tiny {
+	FONT-SIZE: 60%
+}
+P.Body-Math SPAN.tt {
+	FONT-SIZE: 120%
+}
+P.Body-Text-Alt SPAN.huge2 {
+	FONT-SIZE: 260%
+}
+P.Body-Text-Alt SPAN.large3 {
+	FONT-SIZE: 180%
+}
+P.Body-Text-Alt SPAN.large2 {
+	FONT-SIZE: 160%
+}
+P.Body-Text-Alt SPAN.footnotesize {
+	FONT-SIZE: 90%
+}
+P.Body-Text-Alt SPAN.huge1 {
+	FONT-SIZE: 200%
+}
+P.Body-Text-Alt SPAN.large1 {
+	FONT-SIZE: 140%
+}
+P.Body-Text-Alt SPAN.normalsize {
+	FONT-SIZE: 120%
+}
+P.Body-Text-Alt SPAN.scriptsize {
+	FONT-SIZE: 80%
+}
+P.Body-Text-Alt SPAN.sf {
+	FONT-SIZE: 90%
+}
+P.Body-Text-Alt SPAN.small {
+	FONT-SIZE: 100%
+}
+P.Body-Text-Alt SPAN.tiny {
+	FONT-SIZE: 60%
+}
+P.Body-Text-Alt SPAN.tt {
+	FONT-SIZE: 120%
+}
+P SPAN.huge2 {
+	FONT-SIZE: 260%
+}
+P SPAN.large3 {
+	FONT-SIZE: 180%
+}
+P SPAN.large2 {
+	FONT-SIZE: 160%
+}
+P SPAN.footnotesize {
+	FONT-SIZE: 90%
+}
+P SPAN.huge1 {
+	FONT-SIZE: 200%
+}
+P SPAN.large1 {
+	FONT-SIZE: 140%
+}
+P SPAN.normalsize {
+	FONT-SIZE: 120%
+}
+P SPAN.scriptsize {
+	FONT-SIZE: 80%
+}
+P SPAN.sf {
+	FONT-SIZE: 90%
+}
+P SPAN.small {
+	FONT-SIZE: 100%
+}
+P SPAN.tiny {
+	FONT-SIZE: 60%
+}
+P SPAN.tt {
+	FONT-SIZE: 120%
+}
+SPAN.huge2 SPAN.huge2 {
+	FONT-SIZE: 100%
+}
+SPAN.huge2 SPAN.large3 {
+	FONT-SIZE: 69%
+}
+SPAN.huge2 SPAN.large2 {
+	FONT-SIZE: 62%
+}
+SPAN.huge2 SPAN.footnotesize {
+	FONT-SIZE: 35%
+}
+SPAN.huge2 SPAN.huge1 {
+	FONT-SIZE: 77%
+}
+SPAN.huge2 SPAN.large1 {
+	FONT-SIZE: 54%
+}
+SPAN.huge2 SPAN.normalsize {
+	FONT-SIZE: 46%
+}
+SPAN.huge2 SPAN.scriptsize {
+	FONT-SIZE: 31%
+}
+SPAN.huge2 SPAN.sf {
+	FONT-SIZE: 35%
+}
+SPAN.huge2 SPAN.small {
+	FONT-SIZE: 38%
+}
+SPAN.huge2 SPAN.tiny {
+	FONT-SIZE: 23%
+}
+SPAN.huge2 SPAN.tt {
+	FONT-SIZE: 46%
+}
+SPAN.large3 SPAN.huge2 {
+	FONT-SIZE: 144%
+}
+SPAN.large3 SPAN.large3 {
+	FONT-SIZE: 100%
+}
+SPAN.large3 SPAN.large2 {
+	FONT-SIZE: 89%
+}
+SPAN.large3 SPAN.footnotesize {
+	FONT-SIZE: 50%
+}
+SPAN.large3 SPAN.huge1 {
+	FONT-SIZE: 111%
+}
+SPAN.large3 SPAN.large1 {
+	FONT-SIZE: 78%
+}
+SPAN.large3 SPAN.normalsize {
+	FONT-SIZE: 67%
+}
+SPAN.large3 SPAN.scriptsize {
+	FONT-SIZE: 44%
+}
+SPAN.large3 SPAN.sf {
+	FONT-SIZE: 50%
+}
+SPAN.large3 SPAN.small {
+	FONT-SIZE: 56%
+}
+SPAN.large3 SPAN.tiny {
+	FONT-SIZE: 33%
+}
+SPAN.large3 SPAN.tt {
+	FONT-SIZE: 67%
+}
+SPAN.large2 SPAN.huge2 {
+	FONT-SIZE: 163%
+}
+SPAN.large2 SPAN.large3 {
+	FONT-SIZE: 113%
+}
+SPAN.large2 SPAN.large2 {
+	FONT-SIZE: 100%
+}
+SPAN.large2 SPAN.footnotesize {
+	FONT-SIZE: 56%
+}
+SPAN.large2 SPAN.huge1 {
+	FONT-SIZE: 125%
+}
+SPAN.large2 SPAN.large1 {
+	FONT-SIZE: 88%
+}
+SPAN.large2 SPAN.normalsize {
+	FONT-SIZE: 75%
+}
+SPAN.large2 SPAN.scriptsize {
+	FONT-SIZE: 50%
+}
+SPAN.large2 SPAN.sf {
+	FONT-SIZE: 56%
+}
+SPAN.large2 SPAN.small {
+	FONT-SIZE: 63%
+}
+SPAN.large2 SPAN.tiny {
+	FONT-SIZE: 38%
+}
+SPAN.large2 SPAN.tt {
+	FONT-SIZE: 75%
+}
+UL.QQQBulletAltItem UL.QQQBulletAltItem {
+	FONT-SIZE: 100%
+}
+UL.QQQBulletAltItem OL.QQQNumberedaltItem {
+	FONT-SIZE: 100%
+}
+UL.QQQBulletAltItem OL {
+	FONT-SIZE: 100%
+}
+UL.QQQBulletAltItem UL {
+	FONT-SIZE: 100%
+}
+OL.QQQNumberedaltItem UL.QQQBulletAltItem {
+	FONT-SIZE: 100%
+}
+OL.QQQNumberedaltItem OL.QQQNumberedaltItem {
+	FONT-SIZE: 100%
+}
+OL.QQQNumberedaltItem OL {
+	FONT-SIZE: 100%
+}
+OL.QQQNumberedaltItem UL {
+	FONT-SIZE: 100%
+}
+P.center SPAN.huge2 {
+	FONT-SIZE: 260%
+}
+P.center SPAN.large3 {
+	FONT-SIZE: 180%
+}
+P.center SPAN.large2 {
+	FONT-SIZE: 160%
+}
+P.center SPAN.footnotesize {
+	FONT-SIZE: 90%
+}
+P.center SPAN.huge1 {
+	FONT-SIZE: 200%
+}
+P.center SPAN.large1 {
+	FONT-SIZE: 140%
+}
+P.center SPAN.normalsize {
+	FONT-SIZE: 120%
+}
+P.center SPAN.scriptsize {
+	FONT-SIZE: 80%
+}
+P.center SPAN.sf {
+	FONT-SIZE: 90%
+}
+P.center SPAN.small {
+	FONT-SIZE: 100%
+}
+P.center SPAN.tiny {
+	FONT-SIZE: 60%
+}
+P.center SPAN.tt {
+	FONT-SIZE: 120%
+}
+OL UL.QQQBulletAltItem {
+	FONT-SIZE: 100%
+}
+OL OL.QQQNumberedaltItem {
+	FONT-SIZE: 100%
+}
+OL OL {
+	FONT-SIZE: 100%
+}
+OL UL {
+	FONT-SIZE: 100%
+}
+P.error SPAN.huge2 {
+	FONT-SIZE: 130%
+}
+P.error SPAN.large3 {
+	FONT-SIZE: 90%
+}
+P.error SPAN.large2 {
+	FONT-SIZE: 80%
+}
+P.error SPAN.footnotesize {
+	FONT-SIZE: 45%
+}
+P.error SPAN.huge1 {
+	FONT-SIZE: 100%
+}
+P.error SPAN.large1 {
+	FONT-SIZE: 70%
+}
+P.error SPAN.normalsize {
+	FONT-SIZE: 60%
+}
+P.error SPAN.scriptsize {
+	FONT-SIZE: 40%
+}
+P.error SPAN.sf {
+	FONT-SIZE: 45%
+}
+P.error SPAN.small {
+	FONT-SIZE: 50%
+}
+P.error SPAN.tiny {
+	FONT-SIZE: 30%
+}
+P.error SPAN.tt {
+	FONT-SIZE: 60%
+}
+SPAN.footnotesize SPAN.huge2 {
+	FONT-SIZE: 289%
+}
+SPAN.footnotesize SPAN.large3 {
+	FONT-SIZE: 200%
+}
+SPAN.footnotesize SPAN.large2 {
+	FONT-SIZE: 178%
+}
+SPAN.footnotesize SPAN.footnotesize {
+	FONT-SIZE: 100%
+}
+SPAN.footnotesize SPAN.huge1 {
+	FONT-SIZE: 222%
+}
+SPAN.footnotesize SPAN.large1 {
+	FONT-SIZE: 156%
+}
+SPAN.footnotesize SPAN.normalsize {
+	FONT-SIZE: 133%
+}
+SPAN.footnotesize SPAN.scriptsize {
+	FONT-SIZE: 89%
+}
+SPAN.footnotesize SPAN.sf {
+	FONT-SIZE: 100%
+}
+SPAN.footnotesize SPAN.small {
+	FONT-SIZE: 111%
+}
+SPAN.footnotesize SPAN.tiny {
+	FONT-SIZE: 67%
+}
+SPAN.footnotesize SPAN.tt {
+	FONT-SIZE: 133%
+}
+SPAN.huge1 SPAN.huge2 {
+	FONT-SIZE: 130%
+}
+SPAN.huge1 SPAN.large3 {
+	FONT-SIZE: 90%
+}
+SPAN.huge1 SPAN.large2 {
+	FONT-SIZE: 80%
+}
+SPAN.huge1 SPAN.footnotesize {
+	FONT-SIZE: 45%
+}
+SPAN.huge1 SPAN.huge1 {
+	FONT-SIZE: 100%
+}
+SPAN.huge1 SPAN.large1 {
+	FONT-SIZE: 70%
+}
+SPAN.huge1 SPAN.normalsize {
+	FONT-SIZE: 60%
+}
+SPAN.huge1 SPAN.scriptsize {
+	FONT-SIZE: 40%
+}
+SPAN.huge1 SPAN.sf {
+	FONT-SIZE: 45%
+}
+SPAN.huge1 SPAN.small {
+	FONT-SIZE: 50%
+}
+SPAN.huge1 SPAN.tiny {
+	FONT-SIZE: 30%
+}
+SPAN.huge1 SPAN.tt {
+	FONT-SIZE: 60%
+}
+UL UL.QQQBulletAltItem {
+	FONT-SIZE: 100%
+}
+UL OL.QQQNumberedaltItem {
+	FONT-SIZE: 100%
+}
+UL OL {
+	FONT-SIZE: 100%
+}
+UL UL {
+	FONT-SIZE: 100%
+}
+SPAN.large1 SPAN.huge2 {
+	FONT-SIZE: 186%
+}
+SPAN.large1 SPAN.large3 {
+	FONT-SIZE: 129%
+}
+SPAN.large1 SPAN.large2 {
+	FONT-SIZE: 114%
+}
+SPAN.large1 SPAN.footnotesize {
+	FONT-SIZE: 64%
+}
+SPAN.large1 SPAN.huge1 {
+	FONT-SIZE: 143%
+}
+SPAN.large1 SPAN.large1 {
+	FONT-SIZE: 100%
+}
+SPAN.large1 SPAN.normalsize {
+	FONT-SIZE: 86%
+}
+SPAN.large1 SPAN.scriptsize {
+	FONT-SIZE: 57%
+}
+SPAN.large1 SPAN.sf {
+	FONT-SIZE: 64%
+}
+SPAN.large1 SPAN.small {
+	FONT-SIZE: 71%
+}
+SPAN.large1 SPAN.tiny {
+	FONT-SIZE: 43%
+}
+SPAN.large1 SPAN.tt {
+	FONT-SIZE: 86%
+}
+H3.newlevel3 SPAN.huge2 {
+	FONT-SIZE: 163%
+}
+H3.newlevel3 SPAN.large3 {
+	FONT-SIZE: 113%
+}
+H3.newlevel3 SPAN.large2 {
+	FONT-SIZE: 100%
+}
+H3.newlevel3 SPAN.footnotesize {
+	FONT-SIZE: 56%
+}
+H3.newlevel3 SPAN.huge1 {
+	FONT-SIZE: 125%
+}
+H3.newlevel3 SPAN.large1 {
+	FONT-SIZE: 88%
+}
+H3.newlevel3 SPAN.normalsize {
+	FONT-SIZE: 75%
+}
+H3.newlevel3 SPAN.scriptsize {
+	FONT-SIZE: 50%
+}
+H3.newlevel3 SPAN.sf {
+	FONT-SIZE: 56%
+}
+H3.newlevel3 SPAN.small {
+	FONT-SIZE: 63%
+}
+H3.newlevel3 SPAN.tiny {
+	FONT-SIZE: 38%
+}
+H3.newlevel3 SPAN.tt {
+	FONT-SIZE: 75%
+}
+H2.paragraph SPAN.huge2 {
+	FONT-SIZE: 130%
+}
+H2.paragraph SPAN.large3 {
+	FONT-SIZE: 90%
+}
+H2.paragraph SPAN.large2 {
+	FONT-SIZE: 80%
+}
+H2.paragraph SPAN.footnotesize {
+	FONT-SIZE: 45%
+}
+H2.paragraph SPAN.huge1 {
+	FONT-SIZE: 100%
+}
+H2.paragraph SPAN.large1 {
+	FONT-SIZE: 70%
+}
+H2.paragraph SPAN.normalsize {
+	FONT-SIZE: 60%
+}
+H2.paragraph SPAN.scriptsize {
+	FONT-SIZE: 40%
+}
+H2.paragraph SPAN.sf {
+	FONT-SIZE: 45%
+}
+H2.paragraph SPAN.small {
+	FONT-SIZE: 50%
+}
+H2.paragraph SPAN.tiny {
+	FONT-SIZE: 30%
+}
+H2.paragraph SPAN.tt {
+	FONT-SIZE: 60%
+}
+P.quotation SPAN.huge2 {
+	FONT-SIZE: 260%
+}
+P.quotation SPAN.large3 {
+	FONT-SIZE: 180%
+}
+P.quotation SPAN.large2 {
+	FONT-SIZE: 160%
+}
+P.quotation SPAN.footnotesize {
+	FONT-SIZE: 90%
+}
+P.quotation SPAN.huge1 {
+	FONT-SIZE: 200%
+}
+P.quotation SPAN.large1 {
+	FONT-SIZE: 140%
+}
+P.quotation SPAN.normalsize {
+	FONT-SIZE: 120%
+}
+P.quotation SPAN.scriptsize {
+	FONT-SIZE: 80%
+}
+P.quotation SPAN.sf {
+	FONT-SIZE: 90%
+}
+P.quotation SPAN.small {
+	FONT-SIZE: 100%
+}
+P.quotation SPAN.tiny {
+	FONT-SIZE: 60%
+}
+P.quotation SPAN.tt {
+	FONT-SIZE: 120%
+}
+P.quote SPAN.huge2 {
+	FONT-SIZE: 260%
+}
+P.quote SPAN.large3 {
+	FONT-SIZE: 180%
+}
+P.quote SPAN.large2 {
+	FONT-SIZE: 160%
+}
+P.quote SPAN.footnotesize {
+	FONT-SIZE: 90%
+}
+P.quote SPAN.huge1 {
+	FONT-SIZE: 200%
+}
+P.quote SPAN.large1 {
+	FONT-SIZE: 140%
+}
+P.quote SPAN.normalsize {
+	FONT-SIZE: 120%
+}
+P.quote SPAN.scriptsize {
+	FONT-SIZE: 80%
+}
+P.quote SPAN.sf {
+	FONT-SIZE: 90%
+}
+P.quote SPAN.small {
+	FONT-SIZE: 100%
+}
+P.quote SPAN.tiny {
+	FONT-SIZE: 60%
+}
+P.quote SPAN.tt {
+	FONT-SIZE: 120%
+}
+SPAN.scriptsize SPAN.huge2 {
+	FONT-SIZE: 325%
+}
+SPAN.scriptsize SPAN.large3 {
+	FONT-SIZE: 225%
+}
+SPAN.scriptsize SPAN.large2 {
+	FONT-SIZE: 200%
+}
+SPAN.scriptsize SPAN.footnotesize {
+	FONT-SIZE: 113%
+}
+SPAN.scriptsize SPAN.huge1 {
+	FONT-SIZE: 250%
+}
+SPAN.scriptsize SPAN.large1 {
+	FONT-SIZE: 175%
+}
+SPAN.scriptsize SPAN.normalsize {
+	FONT-SIZE: 150%
+}
+SPAN.scriptsize SPAN.scriptsize {
+	FONT-SIZE: 100%
+}
+SPAN.scriptsize SPAN.sf {
+	FONT-SIZE: 113%
+}
+SPAN.scriptsize SPAN.small {
+	FONT-SIZE: 125%
+}
+SPAN.scriptsize SPAN.tiny {
+	FONT-SIZE: 75%
+}
+SPAN.scriptsize SPAN.tt {
+	FONT-SIZE: 150%
+}
+H1.section SPAN.huge2 {
+	FONT-SIZE: 81%
+}
+H1.section SPAN.large3 {
+	FONT-SIZE: 56%
+}
+H1.section SPAN.large2 {
+	FONT-SIZE: 50%
+}
+H1.section SPAN.footnotesize {
+	FONT-SIZE: 28%
+}
+H1.section SPAN.huge1 {
+	FONT-SIZE: 63%
+}
+H1.section SPAN.large1 {
+	FONT-SIZE: 44%
+}
+H1.section SPAN.normalsize {
+	FONT-SIZE: 38%
+}
+H1.section SPAN.scriptsize {
+	FONT-SIZE: 25%
+}
+H1.section SPAN.sf {
+	FONT-SIZE: 28%
+}
+H1.section SPAN.small {
+	FONT-SIZE: 31%
+}
+H1.section SPAN.tiny {
+	FONT-SIZE: 19%
+}
+H1.section SPAN.tt {
+	FONT-SIZE: 38%
+}
+SPAN.sf SPAN.huge2 {
+	FONT-SIZE: 289%
+}
+SPAN.sf SPAN.large3 {
+	FONT-SIZE: 200%
+}
+SPAN.sf SPAN.large2 {
+	FONT-SIZE: 178%
+}
+SPAN.sf SPAN.footnotesize {
+	FONT-SIZE: 100%
+}
+SPAN.sf SPAN.huge1 {
+	FONT-SIZE: 222%
+}
+SPAN.sf SPAN.large1 {
+	FONT-SIZE: 156%
+}
+SPAN.sf SPAN.normalsize {
+	FONT-SIZE: 133%
+}
+SPAN.sf SPAN.scriptsize {
+	FONT-SIZE: 89%
+}
+SPAN.sf SPAN.sf {
+	FONT-SIZE: 100%
+}
+SPAN.sf SPAN.small {
+	FONT-SIZE: 111%
+}
+SPAN.sf SPAN.tiny {
+	FONT-SIZE: 67%
+}
+SPAN.sf SPAN.tt {
+	FONT-SIZE: 133%
+}
+SPAN.small SPAN.huge2 {
+	FONT-SIZE: 260%
+}
+SPAN.small SPAN.large3 {
+	FONT-SIZE: 180%
+}
+SPAN.small SPAN.large2 {
+	FONT-SIZE: 160%
+}
+SPAN.small SPAN.footnotesize {
+	FONT-SIZE: 90%
+}
+SPAN.small SPAN.huge1 {
+	FONT-SIZE: 200%
+}
+SPAN.small SPAN.large1 {
+	FONT-SIZE: 140%
+}
+SPAN.small SPAN.normalsize {
+	FONT-SIZE: 120%
+}
+SPAN.small SPAN.scriptsize {
+	FONT-SIZE: 80%
+}
+SPAN.small SPAN.sf {
+	FONT-SIZE: 90%
+}
+SPAN.small SPAN.small {
+	FONT-SIZE: 100%
+}
+SPAN.small SPAN.tiny {
+	FONT-SIZE: 60%
+}
+SPAN.small SPAN.tt {
+	FONT-SIZE: 120%
+}
+H2.subsection SPAN.huge2 {
+	FONT-SIZE: 130%
+}
+H2.subsection SPAN.large3 {
+	FONT-SIZE: 90%
+}
+H2.subsection SPAN.large2 {
+	FONT-SIZE: 80%
+}
+H2.subsection SPAN.footnotesize {
+	FONT-SIZE: 45%
+}
+H2.subsection SPAN.huge1 {
+	FONT-SIZE: 100%
+}
+H2.subsection SPAN.large1 {
+	FONT-SIZE: 70%
+}
+H2.subsection SPAN.normalsize {
+	FONT-SIZE: 60%
+}
+H2.subsection SPAN.scriptsize {
+	FONT-SIZE: 40%
+}
+H2.subsection SPAN.sf {
+	FONT-SIZE: 45%
+}
+H2.subsection SPAN.small {
+	FONT-SIZE: 50%
+}
+H2.subsection SPAN.tiny {
+	FONT-SIZE: 30%
+}
+H2.subsection SPAN.tt {
+	FONT-SIZE: 60%
+}
+H3.subsubsection SPAN.huge2 {
+	FONT-SIZE: 163%
+}
+H3.subsubsection SPAN.large3 {
+	FONT-SIZE: 113%
+}
+H3.subsubsection SPAN.large2 {
+	FONT-SIZE: 100%
+}
+H3.subsubsection SPAN.footnotesize {
+	FONT-SIZE: 56%
+}
+H3.subsubsection SPAN.huge1 {
+	FONT-SIZE: 125%
+}
+H3.subsubsection SPAN.large1 {
+	FONT-SIZE: 88%
+}
+H3.subsubsection SPAN.normalsize {
+	FONT-SIZE: 75%
+}
+H3.subsubsection SPAN.scriptsize {
+	FONT-SIZE: 50%
+}
+H3.subsubsection SPAN.sf {
+	FONT-SIZE: 56%
+}
+H3.subsubsection SPAN.small {
+	FONT-SIZE: 63%
+}
+H3.subsubsection SPAN.tiny {
+	FONT-SIZE: 38%
+}
+H3.subsubsection SPAN.tt {
+	FONT-SIZE: 75%
+}
+SPAN.tiny SPAN.huge2 {
+	FONT-SIZE: 433%
+}
+SPAN.tiny SPAN.large3 {
+	FONT-SIZE: 300%
+}
+SPAN.tiny SPAN.large2 {
+	FONT-SIZE: 267%
+}
+SPAN.tiny SPAN.footnotesize {
+	FONT-SIZE: 150%
+}
+SPAN.tiny SPAN.huge1 {
+	FONT-SIZE: 333%
+}
+SPAN.tiny SPAN.large1 {
+	FONT-SIZE: 233%
+}
+SPAN.tiny SPAN.normalsize {
+	FONT-SIZE: 200%
+}
+SPAN.tiny SPAN.scriptsize {
+	FONT-SIZE: 133%
+}
+SPAN.tiny SPAN.sf {
+	FONT-SIZE: 150%
+}
+SPAN.tiny SPAN.small {
+	FONT-SIZE: 167%
+}
+SPAN.tiny SPAN.tiny {
+	FONT-SIZE: 100%
+}
+SPAN.tiny SPAN.tt {
+	FONT-SIZE: 200%
+}
+PRE P.Body-Math {
+	FONT-SIZE: 36%
+}
+PRE P {
+	FONT-SIZE: 36%
+}
+PRE P.Body-Text-Alt {
+	FONT-SIZE: 36%
+}
+PRE SPAN.huge2 {
+	FONT-SIZE: 93%
+}
+PRE SPAN.large3 {
+	FONT-SIZE: 64%
+}
+PRE SPAN.large2 {
+	FONT-SIZE: 57%
+}
+PRE P.center {
+	FONT-SIZE: 36%
+}
+PRE P.error {
+	FONT-SIZE: 71%
+}
+PRE SPAN.footnotesize {
+	FONT-SIZE: 32%
+}
+PRE SPAN.huge1 {
+	FONT-SIZE: 71%
+}
+PRE SPAN.large1 {
+	FONT-SIZE: 50%
+}
+PRE H3.newlevel3 {
+	FONT-SIZE: 57%
+}
+PRE H5.newlevel5 {
+	FONT-SIZE: 43%
+}
+PRE SPAN.normalsize {
+	FONT-SIZE: 43%
+}
+PRE H2.paragraph {
+	FONT-SIZE: 71%
+}
+PRE P.quotation {
+	FONT-SIZE: 36%
+}
+PRE P.quote {
+	FONT-SIZE: 36%
+}
+PRE SPAN.scriptsize {
+	FONT-SIZE: 29%
+}
+PRE H1.section {
+	FONT-SIZE: 114%
+}
+PRE SPAN.sf {
+	FONT-SIZE: 32%
+}
+PRE SPAN.small {
+	FONT-SIZE: 36%
+}
+PRE H5.subparagraph {
+	FONT-SIZE: 43%
+}
+PRE H2.subsection {
+	FONT-SIZE: 71%
+}
+PRE H3.subsubsection {
+	FONT-SIZE: 57%
+}
+PRE SPAN.tiny {
+	FONT-SIZE: 21%
+}
+PRE SPAN.tt {
+	FONT-SIZE: 43%
+}
+PRE PRE {
+	FONT-SIZE: 100%
+}

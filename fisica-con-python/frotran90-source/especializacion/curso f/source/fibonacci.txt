@@ -1,0 +1,12 @@
+C     PROGRAMA QUE CALCULA LA SERIE DE FIBONACCI
+      k=1
+      j=0
+   30 l=j+k
+      if (l.gt.80000) goto 50
+      j=k
+      k=l
+      write (*,*) j,k,l
+      goto 30
+   50 write (*,*) j,k,l
+      stop
+      end

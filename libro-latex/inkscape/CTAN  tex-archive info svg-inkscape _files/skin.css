@@ -1,0 +1,278 @@
+/* CTAN style - gray
+ * (c) 2012-2013 Gerd Neugebauer
+ */
+@import "../logos.css";
+@import "../layout-gene.css";
+body {
+	background:#cccccc url(bg-left.png) repeat-y;
+}
+h1,
+h2,
+h3,
+h4,
+dt,
+.breadcrumb a {
+	color:#424285;
+}
+a:hover {
+	color:#aa1111;
+}
+pre {
+	background:#eeeeee;
+	border:solid 1pt #cccccc;
+}
+.head {
+	background:#cccccc url(bg-head.png);
+}
+.functions,
+.foot {
+	background:#888888 url(bg-functions.png) repeat-x;
+	border-top:solid 1pt #666666;
+	border-left:solid 1pt #666666;
+}
+.functions form a,
+input[type=submit],
+input[type=reset],
+.drop a,
+.foot a,
+.buttons a,
+.ui-button-text,
+.ui-widget-content .ui-state-focus,
+.ui-widget-content .ui-state-hover {
+	background:#eeeeee url(bg-2.png);
+	border-left:solid 1pt white;
+	border-top:solid 1pt white;
+	border-right:solid 2pt #333333;
+	border-bottom:solid 2pt #333333;
+}
+.functions form a:active,
+.drop a:active,
+.foot a:active,
+.buttons a:active,
+.ui-button-text:active {
+	background:#eeeeee url(bg-1.png);
+	border-left:solid 2pt white;
+	border-top:solid 2pt white;
+	border-right:solid 1pt #333333;
+	border-bottom:solid 1pt #333333;
+}
+.functions form a:hover,
+input[type=submit]:hover,
+input[type=reset]:hover,
+.drop a:hover,
+.foot a:hover,
+.buttons a:hover,
+.ui-button-text:hover,
+.ui-widget-content .ui-state-focus:hover,
+.ui-widget-content .ui-state-hover:hover {
+	box-shadow:4pt 4pt 6pt #999999;
+	-o-box-shadow:4pt 4pt 6pt #999999;
+	-moz-box-shadow:4pt 4pt 6pt #999999;
+	-webkit-box-shadow:4pt 4pt 6pt #999999;
+}
+.breadcrumb {
+	background:url(bg-breadcrumb.png) repeat-x;
+	border-top:solid 1pt #666666;
+	border-left:solid 1pt #666666;
+	border-bottom:solid 1pt #666666;
+}
+td.menu {
+	border:solid 1pt white;
+}
+.menu {
+	background:#eeeeee;
+}
+.menu a:hover {
+	background:#dddddd;
+	color:#aa1111;
+}
+.blocks {
+	background:white;
+}
+.content {
+        border-left:solid 1pt #999999;
+	border-bottom:solid 1pt #999999;
+}
+th {
+	background:#ccccff;
+}
+tr.odd {
+	background:#eeeeff;
+}
+tr.even {
+	background:#ddddff;
+}
+.teaser h2,
+.teaser h3 {
+	background:#eeeeee;
+}
+.teaser {
+	border-left:solid 1pt #eeeeee;
+}
+.topBar {
+	background:#e0e0e0;
+	border-left:solid 1pt #999999;
+	border-bottom:solid 1pt #999999;
+}
+fieldset {
+	background:#ccccff;
+	border:solid 2pt #888888;
+}
+legend {
+	background:#ccccff;
+	border-top:solid 2pt #888888;
+}
+.community {
+	border:solid 1pt green;
+	background:#eeffee;
+}
+.rate h2,
+.comment h2 {
+	background:#ddeedd;
+}
+.required {
+	color:firebrick;
+}
+div.errors {
+	background:#ff9999;
+	color:firebrick;
+	border:solid 3pt firebrick;
+}
+.error {
+	color:red;
+}
+.topics a:hover {
+	background:#333399;
+	color:white;
+}
+.bar a {
+	background:#dddddd;
+	text-decoration:none;
+	border-top: solid 1pt #666666;
+	border-left: solid 1pt #666666;
+	border-right: solid 2pt #666666;
+	border-bottom: solid 2pt #666666;
+}
+.bar a:hover {
+	background:#666699;
+	color:white;
+	box-shadow:3pt 3pt 4pt #999999;
+	-o-box-shadow:3pt 3pt 4pt #999999;
+	-moz-box-shadow:3pt 3pt 4pt #999999;
+	-webkit-box-shadow:3pt 3pt 4pt #999999;
+}
+.bar a.current {
+	background:#333333;
+	color:white;
+}
+.entry {
+	background:#eeeeee;
+}
+.entry tr {
+	border-top:solid 2pt white;
+	border-bottom:solid 2pt white;
+}
+table.pager {
+	background:#eeeeff;
+	border:solid 1pt #aaaaff;
+}
+.sel td span {
+	background:#cccccc;
+}
+.sel td a:hover {
+	color:#eeeeff;
+	background:#999999;
+}
+.hiturl {
+	color:#33aa33;
+}
+.gb h3 {
+	background:#ddddff url(bg-h3.png) repeat-x;
+	border-bottom:solid 2pt #424285;
+}
+.gb p {
+	background:white;
+}
+.gb div {
+	color:#666666;
+}
+.gbnav {
+	background:#dddddd url(bg-t-b-32.png) repeat-x;
+}
+.gbnav,
+.step,
+.nextLink,
+.prevLink {
+	border:solid 1pt #999999;
+}
+.step:hover,
+.nextLink:hover,
+.prevLink:hover {
+	background:white;
+}
+.currentStep {
+	background:#333333;
+	color:#ffffff;
+	border:solid 1pt #999999;
+}
+.smB,
+.smBL {
+	border-bottom:solid 2pt gray;
+}
+.smBL,
+.smL {
+	border-left:solid 2pt gray;
+}
+.sm tr td a:hover {
+        background:#eeeeee;
+}
+.section {
+	background:#aaaabb;
+}
+.threadHere {
+	background:#dddddd;
+}
+.active {
+	color:green;
+}
+img.skinSelector:hover,
+img.eyeCatcher:hover {
+        box-shadow:4pt 4pt 3pt #999999;
+        -o-box-shadow:4pt 4pt 3pt #999999;
+        -moz-box-shadow:4pt 4pt 3pt #999999;
+        -webkit-box-shadow:4pt 4pt 3pt #999999;
+}
+.cloud span a:hover {
+	background:#eeeeee;
+}
+.ui-widget-header {
+	background:#996666 url(bg-functions.png);
+	border:solid 1pt #443333;
+}
+.ui-widget-content {
+	background:#ddcccc;
+	border:solid 3pt #443333;
+}
+.ui-button-text {
+	color:black;
+	border:solid 2pt #443333;
+}
+.rating td.votebar {
+	border:solid 1pt #aaaaaa;
+}
+.rating span.votebar {
+	background:url(vote/bar.png) repeat-x;
+	border:solid 1pt #666666;
+}
+#drop {
+	background:#eeeeee;
+	border:solid 1pt #666666;
+}
+.cinfo {
+	font-size:90%;
+	background:url(bg-2.png);
+	margin-bottom:0pt;
+}
+#commentList p {
+	margin-top:2pt;
+}

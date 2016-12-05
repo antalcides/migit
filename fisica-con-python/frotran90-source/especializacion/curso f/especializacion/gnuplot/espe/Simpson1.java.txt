@@ -1,0 +1,53 @@
+class Simpson extends Program {
+  void run() {
+    print  (" area sin(x)= " + new FunSin().area(0.0, PI/2, 100));
+    println(" area sin(x)= " + new FunSin().area(0.0, PI/2, 1000));
+    print  (" area exp(x)= " + new FunExp().area(0.0, 1.0, 100));
+    println(" area exp(x)= " + new FunExp().area(0.0, 1.0, 1000));
+    print  (" area x^3= " + new FunXk(3).area(0.0, 1.0, 100));
+    println(" area x^3= " + new FunXk(3).area(0.0, 1.0, 1000));
+  }
+}
+
+class Funcion extends Program {
+  double eval(double x) {
+    return 0.0;
+  }
+  double area(double a, double b, int n) { // por metodo de Simpson
+    double delta= (b-a)/n;
+    double sum= eval(a)+eval(b);     // f(a) + f(b)
+    double x= a+delta;
+    sum+= 4*eval(x);                 // +4*f(a+delta)
+    x+= delta;
+    for(int i=2; i<n; i+=2) {        // +2*f(a+i*delta)+4*f(a+(i+1)*delta)
+      sum+= 2*eval(x);               // i=2 ... n-2
+      x+= delta;
+      sum+= 4*eval(x);
+      x+= delta;
+    }
+    return delta*sum/3;
+  }
+}
+
+class FunSin extends Funcion {
+  double eval(double x) {
+    return sin(x);
+  }
+  // area se hereda
+}
+class FunExp extends Funcion {
+  double eval(double x) {
+    return exp(x);
+  }
+  // area se hereda
+}
+class FunXk extends Funcion {
+  int k;
+  FunXk(int k) {
+    this.k= k;
+  }
+  double eval(double x) {
+    return pow(x, k);
+  }
+  // area se hereda
+}

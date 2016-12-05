@@ -1,0 +1,300 @@
+\documentclass[12pt]{article}
+\usepackage{addmath}
+\usepackage[spanish]{babel}
+
+\begin{document}
+
+\section{Integraci\'on num\'erica b\'asica}
+
+\hfill{\tiny Versi\'on final 1.0-19 agosto 2002\footnote{Esta secci\'on
+    est\'a basada en el  cap{\'\i}tulo 10 del libro: {\em Numerical
+      Methods for Physics, second edition} de Alejandro L. Garcia,
+    editorial {\sc Prentice Hall}.}}
+
+En esta secci\'on veremos algunos m\'etodos b\'asicos para
+realizar cuadraturas (evaluar integrales num\'ericamente).
+
+\subsection{Regla trapezoidal}
+
+Consideremos la integral
+\begin{equation}
+I = \int_a^b f(x)\, dx \ .  
+\end{equation}
+Nuestra estrategia para estimar $I$ es evaluar $f(x)$ en unos cuantos
+puntos, y ajustar una curva simple a trav\'es de estos
+puntos. Primero, subdividamos el intervalo $[a,b]$ en $N-1$
+subintervalos. Definamos los puntos $x_i$ como
+$$ x_1=a, x_N=b, x_1<x_2<\cdots<x_{N-1}<x_N \ . $$
+La funci\'on $f(x)$ s\'olo se eval\'ua en estos puntos, de modo que
+usamos la notaci\'on $f_i\equiv f(x_i)$.
+
+El m\'etodo m\'as simple de cuadratura es la {\em regla
+  trapezoidal}. Conectamos los puntos $f_i$ con l\'{\i}neas rectas, y
+la funci\'on lineal formada por la sucesi\'on de l\'{\i}neas rectas es
+nuestra curva aproximante. La integral de esta funci\'on aproximante
+es f\'acil de calcular, pues es la suma de las \'areas de
+trapezoides. El \'area de un trapezoide es
+$$ T_i = \frac 12 (x_{i+1}-x_i)(f_{i+1}+f_i) \ . $$
+La integral es entonces calculada como la suma de las \'areas de los
+trapezoides:
+$$ I \simeq I_T = T_1 + T_2 + \cdots + T_{N-1} \ . $$
+
+Las expresiones son m\'as simples si tomamos puntos equidistantes. El
+espaciado es $h=\frac{b-a}{N-1}$, de modo que $x_i = a+h(i-1)
+$. El \'area de un trapezoide es entonces
+$$ T_i = \frac 12 h (f_{i+1}+f_i) \ , $$
+y la regla trapezoidal para puntos equiespaciados queda
+\begin{align}
+  I_T(h) &= \frac 12 h f_1 + h f_2 + h f_3 + \cdots + h f_{N-1} +
+  \frac 12 h f_N \nonumber \\
+&= \frac 12 h(f_1+f_N) + h \sum_{i=2}^{N-1} f_i 
+\end{align}
+
+Como ejemplo, consideremos la funci\'on error
+\begin{equation}
+  \erf(x) = \frac 2{\sqrt{\pi}} \int_0^x e^{-y^2} \, dy \ . 
+\end{equation}
+Para $x=1$, $\erf(1) \simeq 0.842701$. La regla trapezoidal con $N=5$
+da $0.83837$, que es correcto a dos lugares decimales. Por supuesto,
+el integrando en este ejemplo es muy suave y bien comportado.
+
+El error de truncamiento para la regla trapezoidal se puede escribir
+como
+\begin{equation}
+ I - I_T(h) = - \frac 1{12} (b-a) h^2 f''(\zeta) \ , 
+\end{equation}
+para alg\'un $\zeta$ en $[a,b]$, o bien como
+\begin{equation}
+\label{error2}
+  I-I_T(h) = -\frac 1{12} h^2[f'(b)-f'(a)]+O(h^4) \ . 
+\end{equation}
+Vemos que el error es proporcional a $h^2$, y que la regla trapezoidal
+tendr\'a problemas cuando la derivada diverge en los extremos del
+intervalo. Por ejemplo, la integral $\int_0^b \sqrt{x}\, dx$ es
+problem\'atica. 
+
+\subsection{Integraci\'on de Romberg}
+
+Una pregunta usual es  cu\'antas subdivisiones del intervalo
+realizar. Un modo de decidir es repetir el c\'alculo con un intervalo
+m\'as peque\~no. Si la respuesta no cambia apreciablemente, la
+aceptamos como correcta (esto no evita que podamos ser enga\~nados por
+funciones patol\'ogicas o escenarios inusuales, sin embargo). Con la
+regla trapezoidal, si el n\'umero de paneles es una potencia de dos,
+podemos dividir el tama\~no del intervalo por dos sin tener que
+recalcular todos los puntos.
+
+Definamos la secuencia de tama\~nos de intervalo,
+\begin{equation}
+  h_1 = (b-a) \ , h_2 = \frac 12(b-a) \ , \ldots \ , h_n = \frac
+  1{2^{n-1}} (b-a) \ . 
+\end{equation}
+Para $n=1$ s\'olo hay un panel, luego
+\begin{equation*}
+  I_T(h_1) = \frac 12(b-a)[f(a)+f(b)] = \frac 12 h_1[f(a)+f(b)] \ . 
+\end{equation*}
+Para $n=2$ se a\~nade un punto interior, luego
+\begin{align*}
+  I_T(h_2) &=\frac 12 h_2[f(a)+f(b)]+h_2f(a+h_2) \\
+& = \frac 12 I_T(h_1) + h_2f(a+h_2) \ .
+\end{align*}
+Hay una f\'ormula recursiva para calcular $I_T(h_n)$ usando
+$I_T(h_{n-1})$:
+\begin{equation}
+  I_T(h_n) = \frac 12I_T(h_{n-1}) + h_n \sum_{i=1}^{2^{n-2}}
+  f[a+(2i-1)h_n] \ . 
+\end{equation}
+El segundo t\'ermino del lado derecho da la contribuci\'on de los
+puntos interiores que se han agregado cuando el tama\~no del intervalo
+es reducido a la mitad. 
+
+Usando el m\'etodo recursivo descrito, podemos agregar paneles hasta
+que la respuesta parezca converger. Sin embargo, podemos mejorar
+notablemente este proceso usando un m\'etodo llamado {\em
+  integraci\'on de Romberg}. Primero veamos la mec\'anica, y despu\'es
+explicaremos por qu\'e funciona. El m\'etodo calcula los elementos
+de una  matriz triangular:
+\begin{equation}
+  R = 
+\begin{matrix}
+R_{1,1} & \text{--} & \text{--} & \text{--} \\
+R_{2,1} & R_{2,2} & \text{--} & \text{--} \\
+R_{3,1} & R_{3,2} & R_{3,3} & \text{--} \\
+\vdots & \vdots & \vdots & \ddots
+\end{matrix}
+\end{equation}
+
+La primera columna es simplemente la regla trapezoidal recursiva:
+\begin{equation}
+  R_{i,1} = I_T(h_i) \ . 
+\end{equation}
+Las sucesivas columnas a la  derecha se calculan usando la f\'ormula
+de extrapolaci\'on de Richardson:
+\begin{equation}
+  R_{i+1,j+1} = R_{i+1,j} + \frac 1{4^j-1} [ R_{i+1,j} - R_{i,j} ] \
+.
+\end{equation}
+La estimaci\'on m\'as precisa para la integral es el elemento
+$R_{N,N}$. 
+
+
+El programa \verb+romberg.cc+ calcula la integral $\erf(1)$ usando el
+m\'etodo de Romberg. Con $N=3$, se obtiene la tabla
+\begin{verbatim}
+0.771743        0        0 
+0.825263 0.843103        0 
+0.838368 0.842736 0.842712 
+\end{verbatim}
+$R_{3,3}$ da el resultado exacto con 4 decimales, usando los mismos 4
+paneles que antes usamos con la regla trapezoidal (y que ahora
+reobtenemos en el elemento $R_{3,1}$). 
+
+Es \'util que el programa entregue toda la tabla y no s\'olo el
+\'ultimo t\'ermino, para tener una estimaci\'on del error. Como en
+otros contextos, usar una tabla demasiado grande puede no ser
+conveniente pues errores de redondeo pueden comenzar a degradar la
+respuesta. 
+
+\vspace{.3cm}
+Para entender por qu\'e el esquema de Romberg funciona, consideremos el
+error para la regla trapezoidal, $E_T(h_n) = I-I_T(h_n)$. Usando
+\eqref{error2}, 
+\begin{equation*}
+  E_T(h_n) = -\frac 1{12} h^2_n [f'(b) - f'(a)] + O(h_n^4) \ . 
+\end{equation*}
+Como $h_{n+1} = h_n/2$,
+\begin{equation*}
+  E_T(h_{n+1}) = -\frac 1{48} h^2_n [f'(b)-f'(a)]+O(h_n^4) \ . 
+\end{equation*}
+Consideremos ahora la segunda columna de la tabla de Romberg. El error
+de truncamiento para $R_{n+1,2}$ es:
+\begin{align*}
+  I-R_{n+1,2} &= I - \left\{
+    I_T(h_{n+1})+\frac13[I_T(h_{n+1})-I_T(h_n)]\right\} \\
+&=E_T(h_{n+1})+\frac 13[E_T(h_{n+1})-E_T(h_n)]\\
+&=-\left[\frac 1{48} + \frac 13 \left(\frac 1{48} - \frac 1{12}\right)
+  \right] h_n^2 [f'(b)-f'(a)]+O(h_n^4) \\
+&=O(h_n^4)
+\end{align*}
+Notemos c\'omo el t\'ermino $h_n^2$ se cancela, dejando un error de
+truncamiento de orden $h_n^4$. La siguiente columna (la tercera) de la
+tabla de Romberg cancela este t\'ermino, y as\'{\i} sucesivamente. 
+
+\section{Listados del programa.}
+
+\subsection{\tt trapecio.cc}
+\begin{verbatim}
+#include "NumMeth.h"
+
+double integrando(double);
+
+int main(){
+  double a=0, b=1,x;
+  int N;
+  double h;
+  double I, suma=0;
+  cout << "Regla trapezoidal para erf(1)" << endl;
+  cout << "Numero de puntos: " ;
+  cin >> N;
+  
+  h = (b-a)/(N-1);
+  for (int i=2;i<N;i++){
+    x = a+(i-1)*h;
+    suma+=integrando(x);
+  }
+  I = h*((integrando(a)+integrando(b))/2.0 + suma);
+  cout << "Valor aproximado: erf(1) ~= " << I << endl;
+  cout << "Valor exacto:     erf(1)  = 0.842701" << endl;
+}
+
+double integrando(double x){
+  return (2.0/sqrt(M_PI))*exp(-x*x);
+}
+  
+\end{verbatim}
+
+\subsection{\tt romberg.cc}
+
+\begin{verbatim}
+#include "NumMeth.h"
+#include <iomanip.h>
+
+double integrando(double);
+
+int main(){
+  double a=0, b=1,x;
+  int N,np;
+  double h;
+  double I, suma=0;
+  cout << "Integracion de Romberg para erf(1)" << endl;
+  cout << "Dimension de tabla: " ;
+  cin >> N;
+  double ** R = new double * [N];
+  for (int i=0;i<N;i++){
+    R[i] = new double[N];
+  }
+
+  for (int i=0;i<N;i++){
+    for (int j=0;j<N;j++){
+      R[i][j] = 0 ;
+    }
+  }
+
+//   for (int i=0;i<N;i++){
+//     for (int j=0;j<N;j++){
+//       cout << R[i][j] << " ";
+//     }
+//     cout << endl;
+//   }
+
+  h = (b-a); // Ancho del intervalo
+  np = 1;    // Numero de paneles
+  for (int i=0;i<N;i++,h/=2,np*=2){
+ 
+    if (i==0){
+      R[0][0] = h*(integrando(a)+integrando(b))/2.0;
+    }
+    else {
+      suma = 0;
+      for (int j=1;j<=np-1;j+=2){
+        x = a+j*h;
+        suma += integrando(x);
+      }
+      R[i][0] = R[i-1][0]/2.0 + h*suma;
+    }
+  }
+  
+  int m = 1;
+  for (int j=1;j<N;j++){
+    m *= 4;
+    for (int i=j;i<N;i++){
+      R[i][j] = R[i][j-1] + (R[i][j-1]-R[i-1][j-1])/(m-1);
+    }
+  }
+  
+  cout << "Tabla R" << endl << endl;
+  for (int i=0;i<N;i++){
+    for (int j=0;j<N;j++){
+      cout << /*setprecision(6) << */ setw(8) <<  R[i][j] << " ";
+    }
+    cout << endl;
+  }
+
+  cout << endl;
+  cout << "Valor aproximado: erf(1) ~= " << R[N-1][N-1] << endl;
+  cout << "Valor exacto:     erf(1)  = 0.842701" << endl;
+
+  for (int i=0;i<N;i++){
+    delete [] R[i];
+  }
+  delete [] R;
+}
+
+double integrando(double x){
+  return (2.0/sqrt(M_PI))*exp(-x*x);
+}
+  
+
+\end{verbatim}
+
+\end{document}

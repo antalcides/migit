@@ -1,0 +1,1040 @@
+\chapter[EDO: M{\'e}todos b{\'a}sicos.]{Ecuaciones diferenciales ordinarias: M{\'e}todos b{\'a}sicos.}
+
+\vspace{-1cm}
+\hfill {\tiny versi{\'o}n preliminar 2.2-1 julio 2002\footnote{Este cap{\'\i}tulo est{\'a} basado en
+    el segundo cap{\'\i}tulo del libro: {\em Numerical Methods for Physics,
+      second edition} de Alejandro L. Garcia, editorial {\sc Prentice Hall}.} }
+
+En este cap{\'\i}tulo resolveremos uno de los primeros problemas
+considerados por un estudiante de f{\'\i}sica: el vuelo de un proyectil y,
+en particular, el de una pelota de {\em baseball}. Sin la resistencia
+del aire el problema es f{\'a}cil de resolver. Sin embargo, incluyendo un
+arrastre realista, nosotros necesitamos calcular la soluci{\'o}n
+num{\'e}ricamente. Para analizar este problema definiremos primero la
+diferenciaci{\'o}n num{\'e}rica. De hecho antes de aprender F{\'\i}sica uno aprende
+c{\'a}lculo as{\'\i} que no debemos sorprendernos si este es nuestro punto de
+partida. En la segunda mitad del cap{\'\i}tulo nos acuparemos de otro viejo
+conocido, el p{\'e}ndulo simple, pero sin la aproximaci{\'o}n a {\'a}ngulos
+peque{\~n}os. Interesantemente, problemas oscilatorios, tales como el
+p{\'e}ndulo, revelan una falla fatal en algunos de los m{\'e}todos num{\'e}ricos
+para resolver ecuaciones diferenciales ordinarias.
+
+
+\section{Movimiento de un proyectil.}
+\label{c10-s1}
+
+\subsection{Ecuaciones b{\'a}sicas.}
+
+Consideremos el simple movimiento de un proyectil, digamos un pelota
+de {\em baseball}. Para describir el movimiento nosotros debemos
+calcular el vector posici{\'o}n $\vec r(t)$ y el vector velocidad
+$\vec v(t)$ del proyectil. Las ecuaciones b{\'a}sicas de movimiento son
+\begin{equation}
+\label{c10-e2.1}
+\frac{d\vec v}{dt}= \frac{1}{m} \vec F_a(\vec v\,) - g\hat y\ , \quad
+\frac{d\vec r}{dt}= \vec v\ ,
+\end{equation}
+donde $m$ es la masa del proyectil. La fuerza debido a la resistencia
+del aire es $\vec F_a(\vec v\,)$, la aceleraci{\'o}n gravitacional es $g$, e
+$\hat y$ es un vector unitario en la direcci{\'o}n $y$. El movimiento es
+bidimensional, tal que podemos ignorar la componente $z$ y trabajar en
+el plano $xy$.
+
+La resistencia del aire se incrementa con la velocidad del objeto, y
+la forma precisa para $\vec F_a(\vec v\,)$ depende del flujo alrededor
+del proyectil. Com{\'u}nmente, esta fuerza es aproximada por
+\begin{equation}
+\label{c10-e2.2}
+\vec F_a(\vec v)= -\frac 12 C_d \rho A \modulo{v} \vec v\ ,
+\end{equation}
+donde $C_d$ es el coeficiente de arrastre, $\rho$ es la densidad del
+aire, y $A$ es el {\'a}rea de la secci{\'o}n transversal del proyectil. El
+coeficiente de arrastre es un par{\'a}metro adimensional que depende de la
+geometr{\'\i}a del proyectil ---Mientras m{\'a}s aerodin{\'a}mico el objeto, el
+coeficiente es menor.
+
+Para una esfera suave de radio $R$ movi{\'e}ndose lentamente a trav{\'e}s del
+fluido, el coeficiente de arrastre es dado por la Ley de Stokes,
+\begin{equation}
+\label{c10-e2.3}
+C_d=\frac{12\nu}{Rv}=\frac{24}{\text{Re}}\ ,
+\end{equation}
+donde $\nu$ es la viscosidad del fluido ($\nu \approx 1.5\times10^{-5}$ [m$^2$/s]
+para el aire) y $\text{Re}=2Rv/\nu$ es el adimensional {\em n{\'u}mero de
+  Reynolds}. Para un objeto del tama{\~n}o de un pelota de baseball
+movi{\'e}ndose a trav{\'e}s del aire, la ley de Stokes es v{\'a}lida s{\'o}lo si la
+velocidad es menor que 0.2~[mm/s] ($\text{Re}\approx1$).
+
+A velocidades altas (sobre 20~[cm/s], $\text{Re}>10^3$), la estela detr{\'a}s de
+la esfera desarrolla v{\'o}rtices y el coeficiente de arrastre es
+aproximadamente constante ($C_d\approx0.5$) para un amplio intervalo de
+velocidades. Cuando el n{\'u}mero de Reynolds excede un valor cr{\'\i}tico, el
+flujo en la estela llega a ser turbulento y el coeficiente de arrastre
+cae dram{\'a}ticamente. Esta reducci{\'o}n ocurre porque la turbulencia rompe
+la regi{\'o}n de bajas presiones en la estela detr{\'a}s de la
+esfera\footnote{D.J. Tritton, {Physical Fluid Dynamics}, 2d ed.
+  (Oxford: Clarendon Press, 1988).}. Para una esfera suave este n{\'u}mero
+cr{\'\i}tico de Reynolds es aproximadamente $3\times10^5$. Para una pelota de
+{\em baseball}, el coeficiente de arrastre es usualmente m{\'a}s peque{\~n}o
+que el de una esfera suave, porque las costuras rompen el flujo
+laminar precipitando el inicio de la turbulencia. Nosotros podemos
+tomar $C_d=0.35$ como un valor promedio para el intervalo de
+velocidades t{\'\i}picas de una pelota de {\em baseball}.
+
+Notemos que la fuerza de arrastre, ecuaci{\'o}n (\ref{c10-e2.2}), var{\'\i}a
+como el cuadrado de la magnitud de la velocidad ($\vec F_a\propto v^2$) y,
+por supuesto, act{\'u}a en la direcci{\'o}n opuesta a la velocidad. La masa y
+el di\'ametro de una pelota de {\em baseball} son 0.145~[kg] y 7.4~[cm].
+Para una pelota de {\em baseball}, el arrastre y la fuerza
+gravitacional son iguales en magnitud cuando $v\approx40$~[m/s].
+
+Nosotros sabemos c{\'o}mo resolver las ecuaciones de movimiento si la
+resistencia del aire es despreciable. La trayectoria es
+\begin{equation}
+\label{c10-e2.4}
+\vec{r}(t)=\vec{r}_1+\vec{v}_1t- \frac 12 gt^2 \hat{y}\ ,
+\end{equation}
+donde $\vec{r}_1\equiv \vec{r}(0)$ y $\vec{v}_1\equiv \vec{v}(0)$ son la
+posici{\'o}n y la velocidad inicial. Si el proyectil parte del origen y la
+velocidad inicial forma un {\'a}ngulo $\theta$ con la horizontal, entonces
+\begin{equation}
+\label{c10-e2.5}
+x_{\text{m{\'a}x}}=\frac{2v_1^2}{g} \sen \theta\cos\theta \ , \quad
+y_{\text{m{\'a}x}} =\frac{v_1^2}{2g} \sen^2 \theta\ ,
+\end{equation}
+son el alcance horizontal y la altura m{\'a}xima. El tiempo de vuelo es
+\begin{equation}
+\label{c10-e2.6}
+t_{fl}=\frac{2v_1}{g}\sen \theta\ .
+\end{equation}
+
+Nuevamente estas expresiones son v{\'a}lidas s{\'o}lo cuando no hay
+resistencia con el aire. Es f{\'a}cil demostrar que el m{\'a}ximo alcance
+horizontal se obtiene cuando la velocidad forma un {\'a}ngulo de
+45$\grados$ con la horizontal. Deseamos mantener esta informaci{\'o}n en
+mente cuando construyamos nuestra simulaci{\'o}n. Si se sabe la soluci{\'o}n
+exacta para un caso especial, se debe comparar constantemente que el
+programa trabaje bien para este caso.
+
+\subsection{Derivada avanzada.}
+
+Para resolver las ecuaciones de movimiento (\ref{c10-e2.1})
+necesitamos un m{\'e}todo num{\'e}rico para evaluar la primera derivada. La
+definici{\'o}n formal de la derivada es
+\begin{equation}
+\label{c10-e2.7}
+f'(t)\equiv \lim_{\tau\to0}\frac{f(t+\tau)-f(t)}{\tau}\ ,
+\end{equation}
+donde $\tau$ es el incremento temporal o paso en el tiempo. Como ya vimos
+en el cap{\'\i}tulo pasado esta ecuaci{\'o}n debe ser tratada con cuidado. La
+figura \ref{c9-f2} ilustra que el uso de un valor extremadamente
+peque{\~n}o para $\tau$ causa un gran error en el c{\'a}lculo de
+$(f(t+\tau)-f(t))/\tau$. Espec{\'\i}ficamente, los errores de redondeo ocurren en
+el c{\'a}lculo de $t+\tau$, en la evaluaci{\'o}n de la funci{\'o}n $f$ y en la
+sustracci{\'o}n del numerador. Dado que $\tau$ no puede ser elegido
+arbitrariamente peque{\~n}o, nosotros necesitamos estimar la diferencia
+entre $f'(t)$ y $(f(t+\tau)-f(t))/\tau$ para un $\tau$ finito.
+
+Para encontrar esta diferencia usaremos una expansi{\'o}n de Taylor. Como
+f{\'\i}sicos usualmente vemos las series de Taylor expresadas como
+\begin{equation}
+\label{c10-e2.8}
+f(t+\tau)=f(t)+\tau f'(t)+ \frac{\tau^2}{2}f''(t)+\cdots 
+\end{equation}
+donde los puntos suspensivos indican t{\'e}rminos de m{\'a}s alto orden que son
+usualmente despreciados. Una alternativa, forma equivalente de la
+serie de Taylor usada en an{\'a}lisis num{\'e}rico es
+\begin{equation}
+\label{c10-e2.9}
+f(t+\tau)=f(t)+\tau f'(t)+ \frac{\tau^2}{2}f''(\zeta)\ ,
+\end{equation}
+donde $\zeta$ es un valor entre $t$ y $t+\tau$. No hemos botado ning{\'u}n
+t{\'e}rmino, esta expansi{\'o}n tiene un n{\'u}mero finito de t{\'e}rminos. El teorema
+de Taylor garantiza que existe {\em alg{\'u}n} valor $\zeta$ para el cual
+(\ref{c10-e2.9}) es cierto, pero no sabemos cu{\'a}l valor es \'este.
+
+La ecuaci{\'o}n previa puede ser reescrita
+\begin{equation}
+\label{c10-e2.10}
+f'(t)=\frac{f(t+\tau)-f(t)}{\tau}-\frac 12 \tau f''(\zeta)\ ,
+\end{equation} 
+donde $t\leq \zeta\leq t +\tau$. Esta ecuaci{\'o}n es conocida como la f{\'o}rmula de la
+{\em derivada derecha} o {\em derivada adelantada}. El {\'u}ltimo t{\'e}rmino
+de la mano derecha es el {\em error de truncamiento}; este error es
+introducido por cortar la serie de Taylor.
+
+En otras palabras, si mantenemos el {\'u}ltimo t{\'e}rmino en
+(\ref{c10-e2.10}), nuestra expresi{\'o}n para $f'(t)$ es exacta. Pero no
+podemos evaluar este t{\'e}rmino porque no conocemos $\zeta$, todo lo que
+conocemos es que $\zeta$ yace en alg{\'u}n lugar entre $t$ y $t+\tau$. As{\'\i}
+despreciamos el t{\'e}rmino $f''(\zeta)$ (truncamos) y decimos que el error
+que cometemos por despreciar este t{\'e}rmino es el error de truncamiento.
+No hay que confundir {\'e}ste con el error de redondeo discutido
+anteriormente. El error de redondeo depende del {\em hardware}, el
+error de truncamiento depende de la aproximaci{\'o}n usada en el
+algoritmo.  Algunas veces veremos la ecuaci{\'o}n (\ref{c10-e2.10})
+escrita como
+\begin{equation}
+\label{c10-e2.11}
+f'(t)=\frac{f(t+\tau)-f(t)}{\tau}+\DelOrdenD({\tau}) \ , 
+\end{equation} 
+donde el error de truncamiento es ahora especificado por su orden en
+$\tau$, en este caso el error de truncamiento es lineal en $\tau$. En la
+figura \ref{c9-f2} la fuente de error predominante en estimar $f'(x)$
+como $[f(x+h)-f(x)]/h$  es el error de redondeo cuando $h<10^{-10}$ y
+es el error de truncamiento cuando $h>10^{-10}$.
+
+\subsection{M{\'e}todo de Euler.}
+
+Las ecuaciones de movimiento que nosotros deseamos resolver
+num{\'e}ricamente pueden ser escritas como:
+\begin{equation}
+\label{c10-e2.12}
+\frac{d\vec v}{dt}=\vec{a}(\vec r, \vec v\,)\ , \quad \frac{d\vec
+  r}{dt}= \vec{v}\ ,
+\end{equation}
+donde $\vec a$ es la aceleraci{\'o}n. Notemos que \'esta es la forma m{\'a}s
+general de las ecuaciones. En el movimiento de proyectiles la
+aceleraci{\'o}n es s{\'o}lo funci{\'o}n de $\vec v$ (debido al arrastre), en otros
+problemas (e.g., \'orbitas de cometas) la aceleraci{\'o}n depender{\'a} de la
+posici{\'o}n.
+
+Usando la derivada adelantada (\ref{c10-e2.11}), nuestras ecuaciones
+de movimiento son 
+\begin{align}
+\label{c10-e2.13}
+\frac{\vec v (t+\tau)-\vec v (t)}{\tau} + \DelOrdenD(\tau) &=\vec a(\vec
+r(t),\vec v(t)) \ ,\\
+\label{c10-e2.14}
+\frac{\vec r (t+\tau)-\vec r (t)}{\tau} + \DelOrdenD(\tau) &=\vec v(t) \ , 
+\end{align}
+o bien
+\begin{align}
+\label{c10-e2.15}
+\vec v (t+\tau) &= \vec v (t) +\tau \vec a(\vec r(t),\vec v(t)) +
+\DelOrdenD(\tau^2)\ ,\\
+\label{c10-e2.16}
+\vec r (t+\tau) &= \vec r (t) +\tau \vec v(t) + \DelOrdenD(\tau^2)\ .
+\end{align}
+Notemos que $\tau \DelOrdenD(\tau)= \DelOrdenD(\tau^2)$. Este esquema num{\'e}rico
+es llamado el {\em m{\'e}todo de Euler}. Antes de discutir los m{\'e}ritos
+relativos de este acercamiento, veamos c{\'o}mo ser{\'\i}a usado en la
+pr{\'a}ctica.
+
+Primero, introducimos la notaci{\'o}n
+\begin{equation}
+\label{c10-e2.17}
+  f_n=f(t_n)\ , \quad t_n=(n-1)\tau\ , \quad n=1,2,\ldots
+\end{equation}
+tal que $f_1=f(t=0)$. Nuestras ecuaciones para el m{\'e}todo de Euler
+(despreciando el t{\'e}rmino del error) ahora toman la forma
+\begin{align}
+\label{c10-e2.18}
+\vec v_{n+1}  &= \vec v_n + \tau \vec a_n\ ,\\
+\label{c10-e2.19}
+\vec r_{n+1}  &= \vec r_n + \tau \vec v_n\ ,
+\end{align}
+donde $\vec a_n= \vec a(\vec r_n,\vec v_n)$. El c{\'a}lculo de la
+trayectoria podr{\'\i}a proceder as{\'\i}:
+\begin{enumerate}
+\item Especifique las condiciones iniciales, $\vec r_1$ y $\vec v_1$.
+\item Elija un paso de tiempo $\tau$.
+\item Calcule la aceleraci{\'o}n dados los actuales $\vec r$ y $\vec v$.
+\item Use las ecuaciones (\ref{c10-e2.18}) y (\ref{c10-e2.19}) para
+  calcular los nuevos $\vec r$ y $\vec v$.
+\item Vaya al paso 3 hasta que suficientes puntos de trayectoria hayan
+  sido calculados.
+\end{enumerate}
+El m{\'e}todo calcula un conjunto de valores para $\vec r_n$ y $\vec v_n$
+que nos da la trayectoria, al menos en un conjunto discreto de
+valores. La figura \ref{c10-f1} ilustra el c{\'a}lculo de la trayectoria
+para un {\'u}nico paso de tiempo.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=7cm]{c10-f1}
+\caption{Trayectoria de una part{\'\i}cula despu{\'e}s de un {\'u}nico paso de
+  tiempo con el m{\'e}todo de Euler. S{\'o}lo para efectos ilustrativos $\tau$ es
+  grande.}\label{c10-f1}
+\end{center}
+\end{figure}
+
+\subsection{M{\'e}todos de Euler-Cromer y de Punto Medio.}
+
+Una simple (y por ahora injustificada) modificaci{\'o}n del m{\'e}todo de
+Euler es usar las siguientes ecuaciones:
+\begin{align}
+\label{c10-e2.20}
+\vec v_{n+1}  &= \vec v_n + \tau \vec a_n\ ,\\
+\label{c10-e2.21}
+\vec r_{n+1}  &= \vec r_n + \tau \vec v_{n+1}\ .
+\end{align}
+Notemos el cambio sutil: La velocidad actualizada es usada en la
+segunda ecuaci{\'o}n. Esta f{\'o}rmula es llamada {\em m{\'e}todo de
+  Euler-Cromer}\footnote{A. Cromer, ``Stable solutions using the
+  Euler approximation'', {\em Am. J. Phys.}, {\bf 49} 455-9 (1981).}.
+El error de truncamiento es a{\'u}n del orden de $\DelOrdenD(\tau^2)$, no
+parece que hemos ganado mucho. Interesantemente, veremos que esta
+forma es marcadamente superior al m{\'e}todo de Euler en algunos casos. 
+
+En el {\em m{\'e}todo del punto medio} usamos
+\begin{align}
+\label{c10-e2.22}
+\vec v_{n+1}  &= \vec v_n + \tau \vec a_n\ ,\\
+\label{c10-e2.23}
+\vec r_{n+1}  &= \vec r_n + \tau \frac{\vec v_{n+1}+\vec v_n}2\ .
+\end{align}
+Notemos que hemos promediado las dos velocidades. Usando la ecuaci{\'o}n
+para la velocidad en la ecuaci{\'o}n de la posici{\'o}n, vemos que
+\begin{equation}
+\label{c10-e2.24}
+\vec r_{n+1} = \vec r_n + \tau \vec v_n + \frac 12  \vec a_n \tau^2\ ,
+\end{equation}
+lo cual realmente hace esto lucir atractivo. El error de truncamiento
+es a{\'u}n del orden de $\tau^2$ en la ecuaci{\'o}n velocidad, pero para la
+posici{\'o}n el error de truncamiento es ahora $\tau^3$. Realmente, para el
+movimiento de proyectiles este m{\'e}todo trabaja mejor que los otros dos.
+Infortunadamente, en otros sistemas f{\'\i}sicos este m{\'e}todo da resultados
+pobres.
+
+\subsection{Errores locales, errores globales y elecci{\'o}n del paso de
+  tiempo.}
+
+Para juzgar la precisi{\'o}n de estos m{\'e}todos necesitamos distinguir entre
+errores de truncamiento locales y globales. Hasta ahora, el error de
+truncamiento que hemos discutido ha sido el error local, el error
+cometido en un {\'u}nico paso de tiempo. En un problema t{\'\i}pico nosotros
+deseamos evaluar la trayectoria desde $t=0$ a $t=T$. El n{\'u}mero de
+pasos de tiempo es $N_T=T/\tau$; notemos que si reducimos $\tau$, debemos
+tomar m{\'a}s pasos. Si el error local es $\DelOrdenD(\tau^n)$, entonces
+estimamos el error global como
+\begin{equation}
+\label{c10-e2.25}
+\begin{split}
+\text{error global}&\propto N_T \times (\text{error local})\\
+&=N_T\DelOrdenD(\tau^n)=\frac
+{T}{\tau}\DelOrdenD(\tau^n)=T\DelOrdenD(\tau^{n-1})\ .
+\end{split}
+\end{equation}
+Por ejemplo, el m{\'e}todo de Euler tiene un error local de truncamiento
+de $\DelOrdenD(\tau^2)$, pero un error global de truncamiento de
+$\DelOrdenD(\tau)$. Por supuesto, este an{\'a}lisis nos da s{\'o}lo una
+estimaci{\'o}n ya que no sabemos si los errores locales se acumular{\'a}n o se
+cancelar{\'a}n ({\it i.e.} interferencia constructiva o destructiva). El
+verdadero error global para un esquema num{\'e}rico es altamente
+dependiente del problema que se est{\'a} estudiando.
+
+Una pregunta que siempre aparece es ?`c{\'o}mo elegir el $\tau$? Tratemos de
+responderla. Primero, supongamos que los errores de redondeo son
+despreciables tal que s{\'o}lo debemos preocuparnos por los errores de
+truncamiento. Desde (\ref{c10-e2.10}) y (\ref{c10-e2.16}), el error
+local de truncamiento en el c{\'a}lculo de la posici{\'o}n usando el m{\'e}todo de
+Euler es aproximadamente $\tau^2 r''=\tau^2a$. Usando s{\'o}lo estimaciones del
+orden de magnitud, tomamos $a\approx10$~[m/s$^2$], el error en un solo paso
+en la posici{\'o}n es de $10^{-1}$~[m], cuando $\tau=10^{-1}$~[s]. Si el
+tiempo de vuelo $T\approx 10^0$~[s], entonces el error global es del orden
+de metros. Si un error de esta magnitud es inaceptable entonces
+debemos disminuir el paso en el tiempo. Finalmente usando un paso de
+tiempo $10^{-1}$~[s] no introducir{\'\i}amos ning{\'u}n error significativo de
+redondeo dada la magnitud de los otros par{\'a}metros del problema.
+
+En el mundo real, a menudo no podemos hacer un an{\'a}lisis tan elegante
+por una variedad de razones (ecuaciones complicadas, problemas con el
+redondeo, flojera, etc.). Sin embargo, a menudo podemos usar la
+intuici{\'o}n f{\'\i}sica. Resp{\'o}ndase usted mismo ``?`en qu{\'e} escala de tiempo
+el movimiento es casi lineal?''. Por ejemplo, para la trayectoria
+completa de una pelota de {\em baseball}, que es aproximadamente
+parab{\'o}lica, el tiempo en el aire son unos pocos segundos, entonces el
+movimiento es aproximadamente lineal sobre una escala de tiempo de
+unos pocos cent{\'e}simos de segundo. Para revisar nuestra intuici{\'o}n,
+nosotros podemos comparar los resultados obtenidos usando
+$\tau=10^{-1}$~[s] y $\tau=10^{-2}$~[s] y, si ellos son suficientemente
+cercanos, suponemos que todo est{\'a} bien. A veces automatizamos la
+prueba de varios valores de $\tau$; el programa es entonces llamado {\em
+  adaptativo} (construiremos un programa de este tipo m{\'a}s adelante).
+Como con cualquier m{\'e}todo num{\'e}rico, la aplicaci{\'o}n ciega de esta
+t{\'e}cnica es poco recomendada, aunque con s{\'o}lo un poco de cuidado {\'e}sta
+puede ser usada exitosamente.
+
+\begin{table}
+\hrulefill
+\begin{itemize}
+\item Fijar la posici{\'o}n inicial $\vec r_1$ y la velocidad inicial
+  $\vec v_1$ de la pelota de {\em baseball}.
+\item Fijar los par{\'a}metros f{\'\i}sicos ($m$, $C_d$, etc.).
+\item Iterar hasta que la bola golp\'ee en el piso o el m{\'a}ximo n{\'u}mero de
+  pasos sea completado.
+  \begin{itemize}
+    \item Grabar posici{\'o}n (calculada y te{\'o}rica) para graficar.
+    \item Calcular la aceleraci{\'o}n de la pelota de {\em baseball}.
+    \item Calcular la nueva posici{\'o}n y velocidad, $\vec r_{n+1}$ y
+      $\vec v_{n+1}$, Usando el m{\'e}todo de Euler, (\ref{c10-e2.18}) y
+      (\ref{c10-e2.19}). 
+    \item Si la pelota alcanza el suelo ($y<0$) para la iteraci{\'o}n.
+\end{itemize}
+\item Imprimir el alcance m{\'a}ximo y el tiempo de vuelo.
+\item Graficar la trayectoria de la pelota de {\em baseball}.
+\end{itemize}
+\caption{Bosquejo del programa {\tt balle}, el cual calcula la trayectoria
+  de una pelota de {\em baseball} usando el m{\'e}todo de Euler.}\label{c10-t1}
+\hrulefill
+\end{table}
+
+\subsection{Programa de la pelota de {\em baseball}.}
+
+La tabla \ref{c10-t1} bosqueja un simple programa, llamado
+\verb|balle|, que usa el m{\'e}todo de Euler para calcular la trayectoria
+de una pelota de {\em baseball}. Antes de correr el programa,
+establezcamos algunos valores razonables para tomar como entradas. Una
+velocidad inicial de $\modulo{\vec v_1}=$15~[m/s] nos da una pelota
+que le han pegado d{\'e}bilmente. Partiendo del origen y despreciando la
+resistencia del aire, el tiempo de vuelo es de 2.2~[s], y el alcance
+horizontal es sobre los 23~[m] cuando el {\'a}ngulo inicial $\theta=45\grados$.
+A continuaci{\'o}n, mostramos la salida a pantalla del programa
+\verb|balle| en C++ cuando es corrido bajo estas condiciones.
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[angle =-90, width=10cm]{c10-f2}
+\caption{Salida del programa {\tt balle} para una altura inicial de
+  0~[m], una velocidad inicial de 15~[m/s], y un paso de tiempo
+  $\tau=$0.1~[s]. No hay resistencia del aire. La l{\'\i}nea continua es la
+  te{\'o}rica y los puntos son los calculados, la diferencia se debe a
+  errores de truncamiento.}\label{c10-f2}
+\end{center}
+\end{figure}
+\begin{verbatim}
+jrogan@huelen:~/programas$ balle
+Ingrese la altura inicial [m] : 0
+Ingrese la velocidad inicial [m/s]: 15
+Ingrese angulo inicial (grados): 45
+Ingrese el paso en el tiempo, tau en [s]: 0.1
+Tiempo de vuelo: 2.2
+Alcance: 24.3952
+\end{verbatim}%$ 
+La salida en Octave debiera ser muy similar. 
+
+La trayectoria calculada por el programa es mostrada en la figura
+\ref{c10-f2}. Usando un paso de $\tau=0.1$~[s], el error en el alcance
+horizontal es sobre un metro, como esper{\'a}bamos del error de
+truncamiento. A velocidades bajas los resultados no son muy diferentes
+si incluimos la resistencia con el aire, ya que $|\vec F_{a}(\vec
+v_1)|/m\approx g/7$.
+
+Ahora tratemos de batear un cuadrangular. Consideremos una velocidad
+inicial grande $\modulo{v_1}=50$~[m/s]. Debido a la resistencia,
+encontramos que el alcance es reducido a alrededor de 125~[m], menos
+de la mitad de su maximo te{\'o}rico. La trayectoria es mostrada figura
+\ref{c10-f3}, notemos c\'omo se aparta de la forma parab{\'o}lica.
+
+En nuestras ecuaciones para el vuelo de una pelota de {\em baseball}
+no hemos incluido todos los factores en el problema. El coeficiente de
+arrastre no es constante sino m{\'a}s bien una complicada funci{\'o}n de la
+velocidad. Adem{\'a}s, la rotaci{\'o}n de la pelota ayuda a levantar la pelota
+(efecto Magnus).
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[angle =-90, width=10cm]{c10-f3}
+\caption{Salida del programa {\tt balle} para una altura inicial de
+  1~[m], una velocidad inicial de 50~[m/s], y un paso de tiempo
+  $\tau=$0.1~[s]. Con resistencia del aire.}\label{c10-f3}
+\end{center}
+\end{figure}
+
+\section{P{\'e}ndulo simple.}
+
+\subsection{Ecuaciones b{\'a}sicas.}
+
+El movimiento de los p{\'e}ndulos ha fascinado a f{\'\i}sicos desde que Galileo
+fue hipnotizado por la l{\'a}mpara en la Catedral de Pisa. El problema es
+tratado en los textos de mec{\'a}nica b{\'a}sica pero antes de apresurarnos a
+calcular con el computador, revisemos algunos resultados b{\'a}sicos. Para
+un p{\'e}ndulo simple es m{\'a}s conveniente describir la posici{\'o}n en t{\'e}rminos
+del desplazamiento angular, $\theta(t)$. La ecuaci{\'o}n de movimiento es
+\begin{equation}
+\label{c10-e2.26}
+\frac{d^2\theta}{dt^2}= - \frac{g}{L}\sen \theta\ ,
+\end{equation}
+donde $L$ es la longitud del brazo y $g$ es la aceleraci{\'o}n de
+gravedad. En la aproximaci{\'o}n para {\'a}ngulo peque{\~n}o, $\sen \theta \approx \theta$, la
+ecuaci{\'o}n (\ref{c10-e2.26}) se simplifica a
+\begin{equation}
+\label{c10-e2.27}
+\frac{d^2\theta}{dt^2}= - \frac{g}{L}\theta\ .
+\end{equation} 
+Esta ecuaci{\'o}n diferencial ordinaria es f{\'a}cilmente resuelta para
+obtener
+\begin{equation}
+\label{c10-e2.28}
+\theta(t)=C_1\cos \left ( \frac{2\pi t}{T_s} + C_2 \right )\ ,
+\end{equation}
+donde las constantes $C_1$ y $C_2$ est{\'a}n determinadas por los valores
+iniciales de $\theta$ y $\omega=d\theta/ dt$. El per{\'\i}odo para {\'a}ngulos peque{\~n}os,
+$T_s$ es
+\begin{equation}
+\label{c10-e2.29}
+T_s=2\pi\sqrt{\frac Lg}\ .
+\end{equation}
+Esta aproximaci{\'o}n es razonablemente buena para oscilaciones con
+amplitudes menores o iguales a $20\grados$.
+
+Sin la aproximaci{\'o}n para {\'a}ngulos peque{\~n}os, la ecuaci{\'o}n de movimiento
+es m{\'a}s dif{\'\i}cil de resolver. Sin embargo, sabemos de la experiencia que
+el movimiento es todav{\'\i}a peri{\'o}dico. En efecto, es posible obtener una
+expresi{\'o}n para el per{\'\i}odo sin resolver expl{\'\i}citamente $\theta(t)$. La
+energ{\'\i}a total es
+\begin{equation}
+\label{c10-e2.30}
+E=\frac 12 m L^2\omega^2- mgL\cos \theta\ ,
+\end{equation}
+donde $m$ es la masa de la lenteja. La energ{\'\i}a total es conservada e
+igual a $E=-mgL\cos \theta_m$, donde $\theta_m$ es el {\'a}ngulo m{\'a}ximo. De lo
+anterior, tenemos 
+\begin{equation}
+\label{c10-e2.31}
+\frac 12 m L^2\omega^2 -mgL\cos \theta = -mgL\cos \theta_m\ ,
+\end{equation}
+o
+\begin{equation}
+\label{c10-e2.32}
+\omega^2 =\frac{2g}L \left ( \cos \theta - \cos \theta_m \right ) \ .
+\end{equation}
+Ya que $\omega=d\theta/dt$, 
+\begin{equation}
+\label{c10-e2.33}
+dt=\frac{d\theta}{\sqrt{\dfrac {2g}L \left ( \cos \theta - \cos \theta_m \right
+    )}}\ .
+\end{equation} 
+En un per{\'\i}odo el p{\'e}ndulo se balancea de $\theta=\theta_m$ a $\theta=-\theta_m$ y regresa a
+$\theta=\theta_m$. As{\'\i}, en medio per{\'\i}odo el p{\'e}ndulo se balancea desde $\theta=\theta_m$ a
+$\theta=-\theta_m$. Por {\'u}ltimo, por el mismo argumento, en un cuarto de per{\'\i}odo
+el p{\'e}ndulo se balancea desde $\theta=\theta_m$ a $\theta=0$, as{\'\i} integrando ambos
+lados de la ecuaci{\'o}n (\ref{c10-e2.33})
+\begin{equation}
+\label{c10-e2.34}
+\frac{T}{4}=\sqrt{\frac L{2g} } \int_0^{\theta_m}\frac{d\theta}{\sqrt{\left ( \cos \theta - \cos \theta_m \right
+    )}}\ .
+\end{equation} 
+
+Esta integral podr{\'\i}a ser reescrita en t{\'e}rminos de funciones especiales
+usando la identidad $\cos 2\theta=1-2\sen^2 \theta$, tal que 
+\begin{equation}
+\label{c10-e2.35}
+T=2\sqrt{\frac Lg } \int_0^{\theta_m}\frac{d\theta}{\sqrt{\left ( \sen^2
+      \theta_m/2 -\sen^2 \theta/2\right  )}}\ .
+\end{equation} 
+Introduciendo $K(x)$, la integral el{\'\i}ptica completa de primera
+especie,\footnote{I.S. Gradshteyn and I.M. Ryzhik, {\em Table of
+    Integral, Series and Products} (New York: Academic Press, 1965)}
+\begin{equation}
+\label{c10-e2.36}
+K(x)\equiv\int_0^{\pi/2} \frac{dz}{\sqrt{1-x^2\sen^2 z}}\ ,
+\end{equation}
+podr{\'\i}amos escribir el per{\'\i}odo como 
+\begin{equation}
+\label{c10-e2.37}
+T=4\sqrt{\frac{L}{g}} K(\sen \theta_m/2 )\ ,
+\end{equation}
+usando el cambio de variable $\sen z= \sen( \theta/2)/ \sen(\theta_m/2)$. Para
+valores peque{\~n}os de $\theta_m$, podr{\'\i}amos expandir $K(x)$ para obtener
+\begin{equation}
+\label{c10-e2.38}
+T=2\pi \sqrt{\frac{L}{g} }\left ( 1 + \frac{1}{16}\,  \theta^2_m + \ldots \right
+)\ .
+\end{equation}
+Note que el primer t{\'e}rmino es la aproximaci{\'o}n para {\'a}ngulo peque{\~n}o
+(\ref{c10-e2.29}). 
+
+\subsection{F{\'o}rmulas para la derivada centrada.}
+
+Antes de programar el problema del p{\'e}ndulo miremos un par de otros
+esquemas para calcular el movimiento de un objeto. El m{\'e}todo de Euler
+est{\'a} basado en la formulaci{\'o}n de la derivada derecha para $df/dt$ dado
+por (\ref{c10-e2.7}). Una definici{\'o}n equivalente para la derivada es 
+\begin{equation}
+\label{c10-e2.39}
+f'(t)=\lim_{\tau\to0} \frac{f(t+\tau)-f(t-\tau)}{2\tau}\ .
+\end{equation}
+Esta f{\'o}rmula se dice centrada en $t$. Mientras esta f{\'o}rmula parece muy
+similar a la ecuaci{\'o}n (\ref{c10-e2.7}), hay una gran diferencia cuando
+$\tau$ es finito. Nuevamente, usando la expansi{\'o}n de Taylor,
+\begin{align}
+\label{c10-e2.40}
+f(t+\tau)&=f(t)+\tau f'(t)+\frac 12 \tau^2 f''(t)+\frac 16 \tau^3 f^{(3)}(\zeta_+)\ ,\\
+\label{c10-e2.41}
+f(t-\tau)&=f(t)-\tau f'(t)+\frac 12 \tau^2 f''(t)-\frac 16 \tau^3 f^{(3)}(\zeta_-)\ ,
+\end{align}
+donde $f^{(3)}$ es la tercera derivada de $f(t)$ y $\zeta_{\pm}$ es un
+valor ente $t$ y $t \pm\tau$. Restando las dos ecuaciones anteriores y
+reordenando tenemos,
+\begin{equation}
+\label{c10-e2.42}
+f'(t)=\frac{f(t+\tau)-f(t-\tau)}{2\tau}-\frac 16 \tau^2 f^{(3)}(\zeta)\ ,
+\end{equation}
+donde $t-\tau\leq \zeta\leq t+\tau$. Esta es la {\em aproximaci{\'o}n en la primera
+  derivada centrada}. El punto clave es que el error de truncamiento
+es ahora cuadr{\'a}tico en $\tau$, lo cual es un gran progreso sobre la
+aproximaci{\'o}n de las derivadas adelantadas que tiene un error de
+truncamiento $\DelOrdenD(\tau)$.
+
+Usando las expansiones de Taylor para $f(t+\tau)$ y $f(t-\tau)$ podemos
+construir una f{\'o}rmula centrada para la segunda derivada. La que tiene
+la forma
+\begin{equation}
+\label{c10-e2.43}
+f''(t)=\frac{f(t+\tau)+f(t-\tau)-2f(t)}{\tau^2}- \frac 1{12}\tau^2 f^{(4)}(\zeta)\ ,
+\end{equation}
+donde $t-\tau\leq\zeta\leq t+\tau$. De nuevo, el error de truncamiento es cuadr{\'a}tico
+en $\tau$. La mejor manera de entender esta f{\'o}rmula es pensar que la
+segunda derivada est{\'a} compuesta de una derivada derecha y de una
+derivada izquierda, cada una con incrementos de $\tau/2$.
+
+Usted podr{\'\i}a pensar que el pr{\'o}ximo paso ser{\'\i}a preparar f{\'o}rmulas m{\'a}s
+complicadas que tengan errores de truncamiento a{\'u}n m{\'a}s peque{\~n}os,
+quiz{\'a}s usando ambas $f(t\pm\tau)$ y $f(t\pm 2\tau)$. Aunque tales f{\'o}rmulas
+existen y son ocasionalmente usadas, las ecuaciones (\ref{c10-e2.10}),
+(\ref{c10-e2.42}) y (\ref{c10-e2.43}) sirven como el ``caballo de
+trabajo'' para calcular las derivadas primera y segunda.
+
+\subsection{M{\'e}todos del ``salto de la rana'' y de Verlet.}
+
+Para el p{\'e}ndulo, las posiciones y velocidades generalizadas son $\theta$ y
+$\omega$, pero para mantener la misma notaci{\'o}n anterior trabajaremos con $\vec
+r$ y $\vec v$. Comenzaremos de las ecuaciones de movimiento escritas
+como 
+\begin{align}
+\label{c10-e2.44}
+\frac{d\vec v}{dt} &= \vec a(\vec r(t))\ ,\\
+\label{c10-e2.45}
+\frac{d\vec r}{dt} &= \vec v(t)\ .
+\end{align}
+Note que expl{\'\i}citamente escribimos la aceleraci{\'o}n dependiente
+solamente de la posici{\'o}n. Discretizando la derivada temporal usando la
+aproximaci{\'o}n de derivada centrada da,
+\begin{equation}
+\label{c10-e2.46}
+\frac {\vec v(t+\tau)- \vec v(t-\tau)}{2\tau}+\DelOrdenD(\tau^2)=\vec a(\vec
+r(t))\ ,
+\end{equation}
+para la ecuaci{\'o}n de la velocidad. Note que aunque los valores de
+velocidad son evaluados en $t+\tau$ y $t-\tau$, la aceleraci{\'o}n es evaluada
+en el tiempo $t$.
+
+Por razones que pronto ser{\'a}n claras, la discretizaci{\'o}n de la ecuaci{\'o}n
+de posici{\'o}n estar{\'a} centrada entre $t+2\tau$ y $t$, 
+\begin{equation}
+\label{c10-e2.47}
+\frac{\vec r(t+2\tau)- \vec r(t)}{2\tau}+\DelOrdenD(\tau^2)=\vec v(t+\tau)\ .
+\end{equation}
+De nuevo usamos la notaci{\'o}n $f_n\equiv f(t=(n-1)\tau)$, en la cual la
+ecuaci{\'o}n (\ref{c10-e2.47}) y (\ref{c10-e2.46}) son escritas como, 
+\begin{align}
+\label{c10-e2.48}
+\frac {\vec v_{n+1}- \vec v_{n-1}}{2\tau}+\DelOrdenD(\tau^2)&=\vec a(\vec r_n)\ ,\\
+\label{c10-e2.49}
+\frac{\vec r_{n+2}- \vec r_n}{2\tau}+\DelOrdenD(\tau^2)&=\vec v_{n+1}\ .
+\end{align}
+Reordenando los t{\'e}rminos para obtener los valores futuros a la
+izquierda, 
+\begin{align}
+\label{c10-e2.50}
+\vec v_{n+1}&= \vec v_{n-1}+2\tau\vec a(\vec r_n)+ \DelOrdenD(\tau^3)\ ,\\
+\label{c10-e2.51}
+\vec r_{n+2} &=\vec r_n + 2\tau\vec v_{n+1}+\DelOrdenD(\tau^3)\ ,
+\end{align}
+el cual es el {\em m{\'e}todo del ``salto de la rana'' (leap frog)}.
+Naturalmente, cuando el m{\'e}todo es usado en un programa, el t{\'e}rmino
+$\DelOrdenD(\tau^3)$ no va y por lo tanto constituye el error de
+truncamiento para el m{\'e}todo.
+
+El nombre ``salto de la rana'' es usado ya que la soluci{\'o}n avanza en
+pasos de $2\tau$, con la posici{\'o}n evaluada en valores impares ($\vec
+r_1$, $\vec r_3$, $\vec r_5$, \ldots), mientras que la velocidad est{\'a}
+calculada en los valores pares ($\vec v_2$, $\vec v_4$, $\vec v_6$,
+\ldots). Este entrelazamiento es necesario ya que la aceleraci{\'o}n, la cual
+es una funci{\'o}n de la posici{\'o}n, necesita ser evaluada en a tiempo, esto
+es centrada entre la nueva velocidad y la antigua. Algunas veces el
+esquema del ``salto de la rana'' es formulado como
+\begin{align}
+\label{c10-e2.52}
+\vec v_{n+1/2}&= \vec v_{n-1/2}+\tau\vec a(\vec r_n)\ ,\\
+\label{c10-e2.53}
+\vec r_{n+1} &=\vec r_n + \tau\vec v_{n+1/2}\ ,
+\end{align}
+con $\vec v_{n\pm1/2}\equiv \vec v(t=(n-1\pm1/2)\tau)$. En esta forma, el
+esquema es funcionalmente equivalente al m{\'e}todo de Euler-Cromer. 
+
+Para el {\'u}ltimo esquema num{\'e}rico de este cap{\'\i}tulo tomaremos una
+aproximaci{\'o}n diferente y empezaremos con,
+\begin{align}
+\label{c10-e2.54}
+\frac{d\vec r}{dt}&=\vec v(t)\ ,\\
+\label{c10-e2.55}
+\frac{d^2\vec r}{dt^2}&=\vec a(\vec r)\ .
+\end{align}
+Usando las f{\'o}rmulas diferenciales centradas para la primera y segunda
+derivada, tenemos 
+\begin{align}
+\label{c10-e2.56}
+\frac{\vec r_{n+1}-\vec r_{n-1}}{2\tau}+ \DelOrdenD(\tau^2)&=\vec v_n\ ,\\
+\label{c10-e2.57}
+\frac{\vec r_{n+1}+\vec r_{n-1}-2\vec r_n}{\tau^2}+ \DelOrdenD(\tau^2)&=\vec a_n\ ,
+\end{align}
+donde $\vec a_n\equiv \vec a (\vec r_n)$. Reordenando t{\'e}rminos, 
+\begin{align}
+\label{c10-e2.58}
+\vec v_n &= \frac{\vec r_{n+1}-\vec r_{n-1}}{2\tau}+ \DelOrdenD(\tau^2)\ ,\\[2mm]
+\label{c10-e2.59}
+\vec r_{n+1}&=2\vec r_{n}-\vec r_{n-1}+ \tau^2\vec a_n +\DelOrdenD(\tau^4)\ .
+\end{align}
+
+Estas ecuaciones, conocidas como el {\em m{\'e}todo de
+  Verlet}\footnote{L.Verlet, ``Computer experiments on classical fluid
+  I. Thermodynamical properties of Lennard-Jones molecules'', {\em
+    Phys. Rev.} {\bf 159}, 98-103 (1967).}, podr{\'\i}an parecer extra{\~n}as a
+primera vista, pero ellas son f{\'a}ciles de usar. Suponga que conocemos
+$\vec r_0$ y $\vec r_1$; usando la ecuaci{\'o}n (\ref{c10-e2.59}),
+obtenemos $\vec r_2$. Conociendo $\vec r_1$ y $\vec r_2$ podr{\'\i}amos
+ahora calcular $\vec r_3$, luego usando la ecuaci{\'o}n (\ref{c10-e2.58})
+obtenemos $\vec v_2$, y as{\'\i} sucesivamente.
+
+Los m{\'e}todos del ``salto de la rana'' y de Verlet tienen la desventaja que
+no son ``autoiniciados''. Usualmente tenemos las condiciones iniciales
+$\vec r_1=\vec r(t=0)$ y $\vec v_1=\vec v(t=0)$, pero no $\vec v_0=
+\vec v(t=-\tau)$ [necesitado por el ``salto de la rana'' en la ecuaci{\'o}n
+(\ref{c10-e2.50})] o $\vec r_0=\vec r(t=-\tau)$ [necesitado por Verlet
+en la ecuaci{\'o}n (\ref{c10-e2.59})]. Este es el precio que hay que pagar
+para los esquemas centrados en el tiempo.
+
+Para lograr que estos m{\'e}todos partan, tenemos una variedad de
+opciones. El m{\'e}todo de Euler-Cromer, usando la ecuaci{\'o}n
+(\ref{c10-e2.53}), toma $\vec v_{1/2}=\vec v_1$, lo cual es simple
+pero no muy precisa. Una alternativa es usar otro esquema para lograr
+que las cosas partan, por ejemplo, en el ``salto de la rana'' uno
+podr{\'\i}a tomar un paso tipo Euler para atr{\'a}s, $\vec v_0=\vec v_1-\tau\vec
+a_1$. Algunas precauciones deber{\'\i}an ser tomadas en este primer paso
+para preservar la precisi{\'o}n del m{\'e}todo; usando
+\begin{equation}
+\label{c10-e2.60}
+\vec r_0=\vec r_1-\tau \vec v_1 + \frac{\tau^2}{2} \, \vec a(\vec r_1)\ ,
+\end{equation}
+es una buena manera de comenzar el m{\'e}todo de Verlet.
+
+Adem{\'a}s de su simplicidad, el m{\'e}todo del ``salto de la rana'' a menudo
+tiene propiedades favorables ({\it e.g.} conservaci{\'o}n de la energ{\'\i}a)
+cuando resuelve ciertos problemas. El m{\'e}todo de Verlet tiene muchas
+ventajas. Primero, la ecuaci{\'o}n de posici{\'o}n tiene un error de
+truncamiento menor que otros m{\'e}todos. Segundo, si la fuerza es
+solamente una funci{\'o}n de la posici{\'o}n y si nos preocuparnos s{\'o}lo de la
+trayectoria de la part{\'\i}cula y no de su velocidad (como en muchos
+problemas de mec{\'a}nica celeste), podemos saltarnos completamente el
+c{\'a}lculo de velocidad. El m{\'e}todo es popular para el c{\'a}lculo de las
+trayectorias en sistemas con muchas part{\'\i}culas, por ejemplo, el
+estudio de fluidos a nivel microsc{\'o}pico.
+
+\begin{table}
+\hrulefill
+\begin{itemize}
+\item Seleccionar el m{\'e}todo a usar: Euler o Verlet.
+\item Fijar la posici{\'o}n inicial $\theta_1$ y la velocidad $\omega_1=0$ del p{\'e}ndulo.
+\item Fijar los par{\'a}metros f{\'\i}sicos y otras variables.
+\item Tomar un paso para atr{\'a}s para partir Verlet; ver ecuaci{\'o}n (\ref{c10-e2.60}).
+\item Iterar sobre el n{\'u}mero deseado de pasos con el paso de tiempo y
+  m{\'e}todo num{\'e}rico dado.
+  \begin{itemize}
+  \item Grabar {\'a}ngulo y tiempo para graficar.
+  \item Calcular la nueva posici{\'o}n y velocidad usando el m{\'e}todo de
+    Euler o de Verlet.
+  \item Comprobar si el p{\'e}ndulo a pasado a trav{\'e}s de $\theta=0$; Si es
+    as{\'\i} usar el tiempo transcurrido para estimar el per{\'\i}odo.
+\end{itemize}
+\item Estima el per{\'\i}odo de oscilaci{\'o}n, incluyendo barra de error.
+\item Graficar las oscilaciones como $\theta$ versus $t$.
+\end{itemize}
+\caption{Bosquejo del programa {\tt pendulo}, el cual calcula el tiempo
+  de evoluci{\'o}n de un p{\'e}ndulo simple usando el m{\'e}todo de Euler o Verlet.}\label{c10-t2}
+\hrulefill
+\end{table}
+
+\subsection{Programa de p{\'e}ndulo simple.}
+
+Las ecuaciones de movimiento para un p{\'e}ndulo simple son
+\begin{equation}
+\label{c10-e2.61}
+\frac{d\omega}{dt}=\alpha(\theta)\, \quad \frac{d\theta}{dt}=\omega\ ,
+\end{equation}
+donde la aceleraci{\'o}n angular $\alpha(\theta)=-g \sen\theta /L$. El m{\'e}todo de Euler
+para resolver estas ecuaciones diferenciales ordinarias es iterar las
+ecuaciones: 
+\begin{align}
+\label{c10-e2.62}
+\theta_{n+1}=\theta_n+\tau\omega_n\ ,\\
+\label{c10-e2.63}
+\omega_{n+1}=\omega_n+\tau\alpha_n\ .
+\end{align}
+Si estamos interesados solamente en el {\'a}ngulo y no la velocidad, el
+m{\'e}todo de Verlet s{\'o}lo usa la ecuaci{\'o}n
+\begin{equation}
+\label{c10-e2.64}
+\theta_{n+1}=2\theta_n-\theta_{n-1}+\tau^2\alpha_n\ .
+\end{equation}
+
+En vez de usar las unidades SI, usaremos las unidades adimensionales
+naturales del problema. Hay solamente dos par{\'a}metros en el problema,
+$g$ y $L$ y ellos siempre aparecen en la raz{\'o}n $g/L$. Fijando esta
+raz{\'o}n a la unidad, el per{\'\i}odo para peque{\~n}as amplitudes $T_s=2\pi$. En
+otras palabras, necesitamos s{\'o}lamente una unidad en el problema: una
+escala de tiempo. Ajustamos nuestra unidad de tiempo tal que el
+per{\'\i}odo de peque{\~n}as amplitudes sea $2\pi$.
+
+La tabla \ref{c10-t2} presenta un bosquejo del programa \verb|pendulo|,
+el cual calcula el movimiento de un p{\'e}ndulo simple usando o el m{\'e}todo
+de Euler o el de Verlet. El programa estima el per{\'\i}odo por registrar
+cuando el {\'a}ngulo cambia de signo; esto es verificar si $\theta_n$ y
+$\theta_{n+1}$ tienen signos opuestos probando si $\theta_n*\theta_{n+1}<0$. Cada
+cambio de signo da una estimaci{\'o}n para el per{\'\i}odo,
+$\tilde{T}_k=2\tau(n_{k+1}-n_k)$, donde $n_k$ es el paso de tiempo en el
+cual el $k$-{\'e}simo cambio de signo ocurre. El per{\'\i}odo estimado de cada
+inversi{\'o}n de signo es registrado, y el valor medio calculado como
+\begin{equation}
+\label{c10-e2.65}
+\left \langle \tilde{T}\right \rangle =\frac 1M\sum_{k=1}^M \tilde{T}_k\ ,
+\end{equation}
+donde $M$ es el n{\'u}mero de veces que $\tilde{T}$ es evaluado. La barra
+de error para esta medici{\'o}n del per{\'\i}odo es estimada como $\sigma=s/M$,
+donde
+\begin{equation}
+\label{c10-e2.66}
+s=\sqrt{\frac{1}{M-1}\sum_{k=1}^M 
+\left (\tilde{T}_k-\left \langle \tilde{T}\right \rangle\right )^2}\ ,
+\end{equation}
+es la desviaci{\'o}n estandar de la muestra $\tilde{T}$. Note que cuando
+el n{\'u}mero de medidas se incrementa, la desviaci{\'o}n estandar de la
+muestra tiende a una constante, mientras que la barra de error
+estimado decrese.
+
+Para comprobar el programa \verb|pendulo|, primero tratamos con {\'a}ngulos
+iniciales peque{\~n}os, $\theta_m$, ya que conocemos el per{\'\i}odo $T\approx 2\pi$.
+Tomando $\tau=0.1$ tendremos sobre 60 puntos por oscilaci{\'o}n; tomando 300
+pasos deber{\'\i}amos tener como cinco oscilaciones. Para $\theta_m=10\grados$,
+El m{\'e}todo de Euler calcula un per{\'\i}odo estimado de $\langle \tilde{T}\rangle=
+6.375\pm0.025$ sobre un 1.5\% mayor que el esperado $T=2\pi(1.002)$ dado
+por la ecuaci{\'o}n (\ref{c10-e2.38}). Nuestro error estimado para el
+per{\'\i}odo es entorno a $\pm\tau$ en cada medida. Cinco oscilaciones son 9
+medidas de $\tilde T$ , as{\'\i} que nuestro error estimado para el per{\'\i}odo
+deber{\'\i}a ser $(\tau/2)/ \sqrt{9}\approx0.02$. Notemos que la estimaci{\'o}n est{\'a} en
+buen acuerdo con los resultados obtenidos usando la desviaci{\'o}n
+estandar.  Hasta aqu{\'\i} todo parece razonable.
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[angle =-90, width=10cm]{c10-f4}
+\caption{Salida del programa {\tt pendulo} usando el m{\'e}todo de
+  Euler. El {\'a}ngulo inicial es $\theta_m=10\grados$, el paso en el tiempo es
+  $\tau=0.1$, y 300 iteraciones fueron calculadas.}\label{c10-f4}
+\end{center}
+\end{figure}
+
+Infortunadamente si miramos el grafico \ref{c10-f3} nos muestra los
+problemas del m{\'e}todo de Euler. La amplitud de oscilaci{\'o}n crece con el
+tiempo. Ya que la energ{\'\i}a es proporcional al {\'a}ngulo m{\'a}ximo, esto
+significa que la energ{\'\i}a total se incrementa en el tiempo. El error
+global de truncamiento en el m{\'e}todo de Euler se acumula en este caso.
+Para pasos de tiempos peque{\~n}os $\tau=0.05$ e incrementos en el n{\'u}mero de
+pasos (600) podemos mejorar los resultados, ver figura \ref{c10-f4},
+pero no eliminamos el error. El m{\'e}todo del punto medio tiene la misma
+inestabilidad num{\'e}rica.
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[angle =-90, width=10cm]{c10-f5}
+\caption{Salida del programa {\tt pendulo} usando el m{\'e}todo de
+  Euler. El {\'a}ngulo inicial es $\theta_m=10\grados$, el paso en el tiempo es
+  $\tau=0.05$ y 600 iteraciones fueron calculadas.}\label{c10-f5}
+\end{center}
+\end{figure}
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[angle =-90, width=10cm]{c10-f6}
+\caption{Salida del programa {\tt pendulo} usando el m{\'e}todo de
+  Verlet. El {\'a}ngulo inicial es $\theta_m=10\grados$, el paso en el tiempo es
+  $\tau=0.1$ y 300 iteraciones fueron calculadas.}\label{c10-f6}
+\end{center}
+\end{figure}
+
+Usando el m{\'e}todo de Verlet con $\theta_m=10\grados$, el paso en el tiempo
+$\tau=0.1$ y 300 iteraciones obtenemos los resultados graficados en
+\ref{c10-f5}. Estos resultados son mucho mejores; la amplitud de
+oscilaci{\'o}n se mantiene cerca de los $10\grados$ y $\langle \tilde
+T\rangle=6.275\pm0.037$. Afortunadamente el m{\'e}todo de Verlet, el del ``salto
+de rana'' y el de Euler-Cromer no sufren de la inestabilidad num{\'e}rica
+encontrada al usar el m{\'e}todo de Euler.
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[angle =-90, width=10cm]{c10-f7}
+\caption{Salida del programa {\tt pendulo} usando el m{\'e}todo de
+  Verlet. El {\'a}ngulo inicial es $\theta_m=170\grados$, el paso en el tiempo es
+  $\tau=0.1$ y 300 iteraciones fueron calculadas.}\label{c10-f7}
+\end{center}
+\end{figure}
+
+Para $\theta_m=90\grados$, la primera correcci{\'o}n para la aproximaci{\'o}n de
+{\'a}ngulo peque{\~n}o, ecuaci{\'o}n (\ref{c10-e2.38}), da $T=7.252$. Usando el
+m{\'e}todo de Verlet, el programa da un per{\'\i}odo estimado de
+$\langle\tilde{T}\rangle=7.414\pm 0.014$, lo cual indica que (\ref{c10-e2.38}) es
+una buena aproximaci{\'o}n (alrededor de un 2\% de error), a{\'u}n para {\'a}ngulos
+grandes. Para el {\'a}ngulo muy grande de $\theta_m=170\grados$, vemos la
+trayectoria en la figura \ref{c10-f6}. Notemos como la curva tiende a
+aplanarse en los puntos de retorno. En este caso el per{\'\i}odo estimado
+es $\langle\tilde{T}\rangle=15.3333+/-0.0667$, mientr{\'a}s que (\ref{c10-e2.38}) da
+$T=9.740$, indicando que esta aproximaci{\'o}n para (\ref{c10-e2.37}) deja
+de ser v{\'a}lida para este {\'a}ngulo tan grande.  
+
+
+\section{Listado de los  programas.}
+
+\subsection{\tt balle.cc}
+
+\begin{verbatim}
+#include "NumMeth.h"
+
+main()
+{
+  const double Cd=0.35;
+  const double rho=1.293;               // [kg/m^3]
+  const double radio=0.037;                     // [m]
+  double A= M_PI*radio*radio ;  
+  double m=0.145;                               // [kg] 
+  double g=9.8;                 // [m/s^2]
+  double a = -Cd*rho*A/(2.0e0*m) ;
+
+  double v0, theta0, tau;
+  ofstream salida ("salida.txt") ;
+  ofstream salidaT ("salidaT.txt") ;
+
+  double x0, y0; 
+  x0=0.0e0 ;
+  cout << "Ingrese la altura inicial [m] : ";
+  cin >> y0;
+  cout << "Ingrese la velocidad inicial [m/s]: ";
+  cin >> v0;
+  cout <<"Ingrese angulo inicial (grados): ";
+  cin >> theta0;
+
+  int flagRA = 2 ;
+  while (flagRA!=0 && flagRA !=1) {
+    cout <<"Con resistencia del aire, Si= 1, No= 0: ";
+    cin >> flagRA;
+  }
+  cout <<"Ingrese el paso en el tiempo, tau en [s]: "; 
+  cin >> tau ;
+  double vxn=v0*cos(M_PI*theta0/180.0) ;
+  double vyn=v0*sin(M_PI*theta0/180.0) ;
+  double xn=x0 ;
+  double yn=y0 ;
+  double tiempo = -tau;
+  while( yn >= y0) {
+    tiempo +=tau ;
+    salidaT << x0+v0*cos(M_PI*theta0/180.0) *tiempo <<" " ;
+    salidaT << y0+v0*sin(M_PI*theta0/180.0) *tiempo -g*tiempo*tiempo/2.0e0<< endl;
+    salida << xn << " " << yn << endl;
+    if(flagRA==0) a=0.0e0 ; 
+    double v=sqrt(vxn*vxn+vyn*vyn) ;
+    double axn= a*v*vxn ;
+    double ayn= a*v*vyn -g ;
+    double xnp1 = xn + tau*vxn ;
+    double ynp1 = yn + tau*vyn ;
+    double vxnp1 = vxn + tau*axn;
+    double vynp1 = vyn + tau*ayn;
+    vxn=vxnp1;
+    vyn=vynp1;
+    xn=xnp1 ;
+    yn=ynp1 ;
+  }
+  cout << "Tiempo de vuelo: " << tiempo<< endl;
+  cout << "Alcance: " << xn<<endl;
+  salida.close();
+}
+\end{verbatim}
+
+\subsection{\tt pendulo.cc}
+
+\begin{verbatim}
+#include "NumMeth.h"
+
+main()
+{
+  int respuesta=2 ;
+  while(respuesta != 0 && respuesta !=1 ) {
+    cout << "Eliga el metodo: Euler=0 y Verlet=1: " ;
+    cin >> respuesta ;
+  }
+  double theta1 ;
+  double omega1 = 0.0e0;
+  cout << "Ingrese el angulo inicial (grados): ";
+  cin >> theta1 ;
+  theta1*=M_PI/180.0e0 ;
+  double tau ;
+  cout << "Ingrese el paso de tiempo: ";
+  cin >> tau ;
+  int pasos ;
+  cout << "Ingrese el numero de pasos: ";
+  cin >> pasos ;
+  
+  double * periodo = new double[pasos] ;
+
+  ofstream salida ("salidaPendulo.txt");
+
+  double theta0= theta1-tau*omega1-tau*tau*sin(theta1) ;
+  
+  double thetaNm1=theta0 ;
+  double thetaN=theta1 ;
+  double omegaN=omega1;
+
+  double thetaNp1, omegaNp1 ;
+
+  int nK=1;
+  int M=0 ;
+
+  for(int i=1; i< pasos; i++) {
+    double alphaN=-sin(thetaN);
+    if(respuesta==0) {          // Euler
+      thetaNp1=thetaN+tau*omegaN ;
+      omegaNp1=omegaN+tau*alphaN ;
+    } else {
+      thetaNp1=2.0e0*thetaN-thetaNm1+tau*tau*alphaN ;
+    }
+    salida << (i-1)*tau<<" " <<thetaNp1*180/M_PI<< endl ;
+    if (thetaNp1*thetaN<0) {
+      if(M==0) {
+        periodo[M++]=0.0e0;
+        nK=i ;
+      } else {
+        periodo[M++] = 2.0e0*tau*double(i-nK);
+        nK=i ;
+      }
+    }
+
+    thetaNm1=thetaN ;
+    thetaN=thetaNp1 ;
+    omegaN=omegaNp1 ;
+  }
+  double Tprom=0.0e0;
+  for (int i=1; i < M; i++) Tprom+=periodo[i] ;
+  Tprom/=double(M-1) ;
+  double ssr=0.0 ;
+  for (int i=1; i < M; i++) ssr+=(periodo[i]-Tprom)* (periodo[i]-Tprom);
+  ssr/=double(M-2);
+  double sigma =sqrt(ssr/double(M-1)) ;
+  cout <<" Periodo = "<< Tprom << "+/-"<< sigma << endl ; 
+  salida.close() ;
+  delete [] periodo;
+}
+\end{verbatim}
+
+% Local Variables: 
+% TeX-master: "mfm"
+% End: 

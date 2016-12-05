@@ -1,0 +1,48 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 0.8.3 ] */
+
+/* [wxMaxima: comment start ]
+(José Luis da Vila Alonso, 2009)
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: title   start ]
+Método de Newton-Raphson
+   [wxMaxima: title   end   ] */
+
+/* [wxMaxima: comment start ]
+Método para resolver ecuaciones no lineales.
+
+Para calcular una raíz de una función, debes escribir la función f(x),
+el punto inicial 'x0' y el número de iteraciones a realizar 'niter'.
+
+<Pulsa las teclas "Ctrl-R" para evaluar todas las entradas>
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+f(x):=x^3+2*x+1; x0:0; niter:8;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Hallamos la función derivada
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+df:diff(f(x),x)$ df(x):=''%;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Búsqueda de la solución
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+n:0$ x1:x0$
+for i:1 thru niter do (
+    n:n+1,
+    x1:x1-f(x1)/df(x1),
+    print("   x",n,"=",float(x1))
+  );
+print("    f(",box(float(x1)),")=",float(f(x1)))$
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

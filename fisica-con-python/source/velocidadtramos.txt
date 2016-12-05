@@ -1,0 +1,31 @@
+# FCNM-ESPOL. Física con python
+# varios tramos de recorrido
+import numpy as np
+
+puntos=int(input('¿puntos observados?:'))
+d=np.zeros(puntos,dtype=float)
+t=np.zeros(puntos,dtype=int)
+i=0
+while (i<puntos):
+    d[i]=float(input('distancia recorrida (m):'))
+    t[i]=int(input('tiempo transcurrido (s):'))
+    i=i+1
+
+#Procedimiento
+v=np.zeros(puntos,dtype=float)
+vkmh=np.zeros(puntos,dtype=float)
+v[0]=0
+vkmh[0]=0
+i=1
+while (i<puntos):
+    v[i]=(d[i]-d[i-1])/(t[i]-t[i-1])
+    vkmh[i]=(v[i]/1000)*60*60
+    i=i+1
+
+#Salida
+print('Velocidades en Kmh:')
+i=0
+while (i<puntos):
+    print(vkmh[i])
+    i=i+1
+

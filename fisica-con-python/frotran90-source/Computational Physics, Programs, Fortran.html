@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+		<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+		<meta name="generator" content="Adobe GoLive 6">
+		<meta name="keywords" content="fortran programs computational physics, roots, integration, interpolation, ordinary differential equations, second-order ODE, random numbers, random walk">
+		<title>Computational Physics, Programs, Fortran</title>
+		<link href="Computational%20Physics,%20Programs,%20Fortran_archivos/alex01.css" rel="stylesheet" media="screen">
+		<style type="text/css" media="screen"><!--
+.class { }
+td  { line-height: 16pt }
+--></style>
+	</head>
+
+	<body bgcolor="#ffffff">
+		<table width="694" align="center" border="0" cellpadding="3" cellspacing="6">
+			<tbody><tr valign="middle" align="center" height="60">
+				<td valign="middle" width="700" align="center" height="60" bgcolor="#aa0000">
+					<div align="center">
+						<font face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular" color="white" size="4">Programs  (</font><font face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular" color="white" size="4">Fortran) </font></div>
+				</td>
+			</tr>
+			<tr height="60">
+				<td width="700" height="60">
+                                        <div align="left">
+						<div align="left">
+							<p><b>Simple programs</b><br>
+								# <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/f90/quad.f90">Quadratic equation</a> ax^2 + bx + c = 0<br>
+								# <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/f90/fibo.f90">Fibonacci numbers</a><br>
+								# <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/f90/Legendre.f90">Legendre polynomials</a> Pn(x)</p>
+							<p><b>Real roots of non-linear equations</b><br>
+								
+								# Bisectional method <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/book2/Ch04/Bisection.f90">Bisection.f90</a><br>
+								# Closed Domain (Bisectional or False position selected by a key) <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/book2/Ch04/CDomain.f90">CDomain.f90</a><br>
+								# Open Domain: Newton's method <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/book2/Ch04/Newton1.f90">Newton1.f90</a><br>
+								# Open Domain: The method of secants <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/book2/Ch04/Secant.f90">Secant.f90</a><br>
+								# Brute force method for multiple roots <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/book2/Ch04/BForce.f90">BForce.f90</a><br>
+								# Solutions of a system of two nonlinear equations f(x,y) = 0, g(x,y) = 0 <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/book2/Ch04/Newton2.f90">Newton2.f90</a></p>
+							<p><b>Integration of a single variable function f(x)</b><br>
+								# Simpson rule on n intervals (<a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/book2/Ch03/simpson.f90">simpson.f90</a>)<br>
+								# Integration based based on Gauss 8 points or 16 points (<a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/book2/Ch03/gauss.f90">gauss.f90</a>)<br>
+								# Automatic adaptive integration based on Simpson rule (<a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/book2/Ch03/simpson2.f90">simpson2.f90</a>)<br>
+								# Automatic adaptive integration based on Gauss quaratures (<a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/book2/Ch03/gauss2.f90">gauss2.f90</a>)<br>
+								# Automatic adaptive integration - Gauss quaratures + recursive calls (<a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/book2/Ch03/gaussA.f90">gaussA.f90</a>)<br>
+								
+								# Trapezoid approximation for n intervals (<a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/integral/int_trap.f">int_trap.f</a>)<br>
+								# Automatic adaprive integration - Newton-Cotes quadrature (program <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/fmm/quanc8.f">quanc8.f</a>)<br>
+								
+								
+                                                                # <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/integral/integral.f">Driver program</a> for int_trap.f, quanc8.f<br>
+							</p>
+							<p><b>Integration of a function of two variables f(x,y)</b><br>
+								# Integration of a function f(x,y) using cubature trapezoid rule (<a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/book2/Ch03/trap_2Dc.f90">trap_2Dc.f90</a>)<br>
+								
+								# Automatic adaptive Integration of a function f(x,y) using Simpson rule (<a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/book2/Ch03/simpson2D.f90">simpson2D.f90</a>)</p>
+							<p><b>Interpolation (single variable)</b><br>
+								# Polinomial (Lagrange) interpolation <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/book2/Ch01/lagint.f90">Lagint.f90</a><br>
+								# Polinomial (Divided differences) interpolation <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/book2/Ch01/ddint.f90">DDint.f90</a><br>
+								# Spline interpolation <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/book2/Ch01/spline.f90">Spline.f90</a></p>
+						</div>
+						<p><b>Differentiation (single variable)</b><br>
+							# Divided differences for equally spaced points (<a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/book2/Ch02/deriv_dd.f90">deriv_dd.f90</a>)<br>
+							# Derivative calculated on three-point Lagrange interpolation (<a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/book2/Ch02/deriv_Lg.f90">deriv_Lg.f90</a>)</p>
+						<p><b>Ordinary differential equations (initial value problem)<br>
+							</b># First-oder single ODE: Euler, Predictor-Corrector, Runge-Kutta 4th order (<a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/book2/Ch05/Ode11.f90">Ode11.f90)</a> <br>
+							# Second-order singel ODE: Predictor-Corrector, Runge-Kutta 4th order (<a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/book2/Ch05/Ode12.f90">Ode12.f90</a>)<br>
+							# System of N first-oder or N/2 second-order ODEs: Runge-Kutta 4th order (<a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/book2/Ch05/rk4n.f90">Rk4n.f90</a>)
+ with examples for a projectile motion in the (x,y) plane and the 
+predator-prey model with rabbits and foxes (Lotka-Volterra model)</p>
+						<p><b>Ordinary differential equations (boundary value problem)</b><br>
+							# Second-order singel ODE: The shooting method (<a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/book2/Ch05/shoot2.f90">shoot2.f90</a>)<br>
+						</p>
+						<p><b>Random numbers</b><br>
+							# Random number generator based on Linear Congruent Method (<a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/random/random1.f">random1.f</a>)<br>
+							# Driver program (<a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/random/random2.f">random2.f</a>) for two random number generator, i.e. rand and <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/fmm/urand.f">urand.f</a> <br>
+							# Integration using Monte-Carlo method (<a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/random/int_rand.f">int_rand.f</a>) (should be compiled with <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/fmm/urand.f">urand.f</a>)<br>
+							# N-dimension integration: example of 5-dimension integration (<a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/random/int_rand2.f">int_rand2.f</a>)</p>
+						<p><b>Minimum of a single variable function f(x)</b><br>
+							# Golden section search with parabolic interpolation (<a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/fmm/fmin.f">fmin.f</a>)<br>
+							# <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/fmm/fmin_dr.f">Driver</a> program for fmin.f</p>
+						<p><b>Systems of linear equations<br>
+							</b>
+# Simple Gaussian elimination <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/book2/Ch06/Gauss_1.f90">Gauss_1.f90</a><br>
+							
+# Gaussian elimination with scaling and pivoting <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/book2/Ch06/Gauss_2.f90">Gauss_2.f90</a><br>
+							
+# Evaluate the condition number of matrix: C(A) = norm(A*A^{-1}) <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/book2/Ch06/C_number.f90">C_number.f90</a><br>
+							
+# The successive-over-relaxation (SOR) <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/book2/Ch06/GS_sor.f90">GS_sor.f90</a><br>
+							
+# Inverse matrix: Method - Doolittle LU factorization for Ax=b <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/book2/Ch06/Inverse.f90">Inverse.f90</a><br>
+							
+# A system of tridiagonal linear equations C*x=b (the Thomas method) <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/book2/Ch06/Thomas.f90">Thomas.f90</a><br>
+							
+# Gaussian elimination with pivoting and a condition number (<a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/f90/dcom.f">decom.f</a>)
+</p>
+						<p><b>Eigenvalue problem</b><br>
+# Eigenvalues and eigenvectors of a real symmetric matrix <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/book2/Ch07/Jacobi.f90">Jacobi.f90</a><br>
+# Evaluate the largest eigenvalue by the power method <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/book2/Ch07/Power.f90">Power.f90</a><br>
+# Eigenvalues of real symmetric matrix by the basic QR method <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/book2/Ch07/QRbasic.f90">QRbasic.f90</a><br>
+# Eigenvalues and eigenvectors of a general matrix <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/others/Geigen.f">Geigen.f</a><br>
+</p>
+						<hr>
+						<p><b>Physics programs:</b></p>
+						<p><b>Projectile motion with air resustance</b> (<a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/projects/proj02a.f">proj02a.f</a>).
+ The program can run calculations in one of the following methods: 
+modified Euler, Runge-Kutta 4th order, and Fehlberg fourth-fifth order 
+Runge-Kutta method. To run the code following programs should be 
+included: <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/ode/euler22m.f">euler22m.f</a>, <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/ode/rk4_d22.f">rk4_d22.f</a>, <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/fmm/rkf45d.f">rkf45.f</a>. All initial data are in the file <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/projects/cannon.ini">cannon.ini</a>.</p>
+						<p><b>Random walk in 2D</b>: The program <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/book2/ChPh/rwalk01.f90">rwalk01.f90</a> computes three cases 1) Simple random walk 2) Random walk in 2D city (n*n blocks) 3) Random walk in 2D city with a trap</p>
+						<p><b>Synchronized random walks</b>: (see the description of the problem in <a href="http://ww2.odu.edu/%7Eagodunov/teaching/phys811/projects.html">project 3, problem 3</a>)<br>
+							
+							The program <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/projects/rwalk5.f">rwalk5.f</a> calculates the mean time when both walkers are at the same site)</p>
+						<p><b>2D Polymer simulation</b>: random walk models that 
+corresponds to the self-avoiding walk (SAW). This model consists of the 
+set of all N-step walks starting from the origin subject to the global 
+constrain that no lattice site can be visited more than once in each 
+walk: <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/projects/rwalk4.f">rwalk4.f</a></p>
+						<p><b>The gambler's ruin problem</b>: <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/projects/gamble.f">gamble.f</a></p>
+						<p><b>Motion of a planet around a star</b>: <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/projects/planet1.for">planet1.for</a> with initial data <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/projects/planet1.ini">planet1.ini</a></p>
+						<p><b>1D Schrodinger ODE</b> y"(x)+2[E-V(x)]y(x)=0 (energies and wavefunctions) <a href="http://ww2.odu.edu/%7Eagodunov/computing/programs/f90/numerov.f90">numerov.f90</a><br>
+						</p>
+						<p></p>
+						<p></p>
+						<p></p>
+					</div>
+				</td>
+			</tr>
+			<tr height="60">
+				<td width="700" height="60"></td>
+			</tr>
+		</tbody></table>
+	
+
+<div id="SL_shadow_translator"><div style="display: none; top: -10000px; left: -10000px;" id="SL_shadow_balloon"><div id="SLplanshet"><div id="SLarrowTOP"></div><div id="SLtopbar" align="left"><table class="SLtable" width="100%" height="25" border="0" cellpadding="0" cellspacing="0"><tr><td class="SLtd" width="15" align="left"><div id="SLlogo"></div></td><td class="SLtd" valign="center" width="37" align="right"><input title="Lock-in language" id="SLloc" type="checkbox"></td><td class="SLtd" width="95" align="left"><select class="SLselectbox" id="SLfrom"><option selected="selected" value="auto">Detect language</option><option value="af">Afrikaans</option><option value="sq">Albanian</option><option value="ar">Arabic</option><option value="hy">Armenian</option><option value="az">Azerbaijani</option><option value="eu">Basque</option><option value="be">Belarusian</option><option value="bn">Bengali</option><option value="bg">Bulgarian</option><option value="ca">Catalan</option><option value="zh">Chinese (Simplified)</option><option value="zt">Chinese (Traditional)</option><option value="hr">Croatian</option><option value="cs">Czech</option><option value="da">Danish</option><option value="nl">Dutch</option><option value="en">English</option><option value="eo">Esperanto</option><option value="et">Estonian</option><option value="tl">Filipino</option><option value="fi">Finnish</option><option value="fr">French</option><option value="gl">Galician</option><option value="ka">Georgian</option><option value="de">German</option><option value="el">Greek</option><option value="gu">Gujarati</option><option value="ht">Haitian Creole</option><option value="iw">Hebrew</option><option value="hi">Hindi</option><option value="hu">Hungarian</option><option value="is">Icelandic</option><option value="id">Indonesian</option><option value="ga">Irish</option><option value="it">Italian</option><option value="ja">Japanese</option><option value="kn">Kannada</option><option value="ko">Korean</option><option value="lo">Lao</option><option value="la">Latin</option><option value="lv">Latvian</option><option value="lt">Lithuanian</option><option value="mk">Macedonian</option><option value="ms">Malay</option><option value="mt">Maltese</option><option value="no">Norwegian</option><option value="fa">Persian</option><option value="pl">Polish</option><option value="pt">Portuguese</option><option value="ro">Romanian</option><option value="ru">Russian</option><option value="sr">Serbian</option><option value="sk">Slovak</option><option value="sl">Slovenian</option><option value="es">Spanish</option><option value="sw">Swahili</option><option value="sv">Swedish</option><option value="ta">Tamil</option><option value="te">Telugu</option><option value="th">Thai</option><option value="tr">Turkish</option><option value="uk">Ukrainian</option><option value="ur">Urdu</option><option value="vi">Vietnamese</option><option value="cy">Welsh</option><option value="yi">Yiddish</option></select></td><td class="SLtd" valign="center" width="10" align="center"><div title=" Switch languages" id="SL_switch"></div></td><td class="SLtd" valign="center" width="95" align="left"><select class="SLselectbox" id="SLto"><option value="af">Afrikaans</option><option value="sq">Albanian</option><option value="ar">Arabic</option><option value="hy">Armenian</option><option value="az">Azerbaijani</option><option value="eu">Basque</option><option value="be">Belarusian</option><option value="bn">Bengali</option><option value="bg">Bulgarian</option><option value="ca">Catalan</option><option value="zh">Chinese (Simplified)</option><option value="zt">Chinese (Traditional)</option><option value="hr">Croatian</option><option value="cs">Czech</option><option value="da">Danish</option><option value="nl">Dutch</option><option value="en">English</option><option value="eo">Esperanto</option><option value="et">Estonian</option><option value="tl">Filipino</option><option value="fi">Finnish</option><option value="fr">French</option><option value="gl">Galician</option><option value="ka">Georgian</option><option value="de">German</option><option value="el">Greek</option><option value="gu">Gujarati</option><option value="ht">Haitian Creole</option><option value="iw">Hebrew</option><option value="hi">Hindi</option><option value="hu">Hungarian</option><option value="is">Icelandic</option><option value="id">Indonesian</option><option value="ga">Irish</option><option value="it">Italian</option><option value="ja">Japanese</option><option value="kn">Kannada</option><option value="ko">Korean</option><option value="lo">Lao</option><option value="la">Latin</option><option value="lv">Latvian</option><option value="lt">Lithuanian</option><option value="mk">Macedonian</option><option value="ms">Malay</option><option value="mt">Maltese</option><option value="no">Norwegian</option><option value="fa">Persian</option><option value="pl">Polish</option><option value="pt">Portuguese</option><option value="ro">Romanian</option><option value="ru">Russian</option><option value="sr">Serbian</option><option value="sk">Slovak</option><option value="sl">Slovenian</option><option selected="selected" value="es">Spanish</option><option value="sw">Swahili</option><option value="sv">Swedish</option><option value="ta">Tamil</option><option value="te">Telugu</option><option value="th">Thai</option><option value="tr">Turkish</option><option value="uk">Ukrainian</option><option value="ur">Urdu</option><option value="vi">Vietnamese</option><option value="cy">Welsh</option><option value="yi">Yiddish</option></select></td><td class="SLtd" width="6" align="right"></td><td class="SLtd" width="12" align="right"><div title="Listen to the translation" id="SL_tts"></div></td><td class="SLtd" width="22" align="right"><div class="SL_copy" title="Copy translation" id="SL_copy"></div></td><td class="SLtd" width="22" align="right"><div class="SL_font_on" title="Font size" id="SL_font"></div></td><td class="SLtd" width="25" align="right"></td><td class="SLtd" width="22" align="right"><div class="SL_pin_off" title="Pin pop-up bubble" id="SL_pin"></div></td></tr></table></div></div><div style="font-size: 13px; line-height: 18px;" class="SL_sesultLTRRTL" id="SL_result"><div style="margin-bottom:0px"></div></div><div id="SLplanshetBottom"><div id="SLDONATE"></div><span id="SL_Goptions">Options</span><span id="SL_dots1">:</span><span id="SL_Ghelp">Help</span><span id="SL_dots2">:</span><span id="SL_Gfeedback">Feedback</span></div><div id="SLarrowBOT"></div></div></div></body></html>

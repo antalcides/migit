@@ -1,0 +1,77 @@
+*** PjNumber.java.dist	Thu May 27 21:44:52 1999
+--- PjNumber.java	Sun Dec  5 17:51:21 1999
+***************
+*** 21,26 ****
+--- 21,28 ----
+  package com.etymon.pj.object;
+  
+  import java.io.*;
++ import java.util.*;
++ import java.text.*;
+  
+  /**
+     A representation of the PDF number type.
+***************
+*** 29,34 ****
+--- 31,41 ----
+  public class PjNumber
+  	extends PjObject {
+  
++ 	private static DecimalFormatSymbols usdecforms =
++ 	  new DecimalFormatSymbols(Locale.US);
++ 	private static DecimalFormat floatformat =
++ 	  new DecimalFormat("0.0#########", usdecforms);
++ 
+  	/**
+  	   Creates a number object.
+  	   @param f the numeric value to initialize this object to.
+***************
+*** 82,88 ****
+                  if ((float)x == _f) {
+                          return write(raf, new Integer(x));
+                  } else {
+!                         return write(raf, ft);
+                  }
+          }
+  
+--- 89,103 ----
+                  if ((float)x == _f) {
+                          return write(raf, new Integer(x));
+                  } else {
+! 		        String s=ft.toString();
+! 			/* Make sure, we got a decimal DOT. Otherwise
+! 			   we will have to prepare a special format */
+! 			if (s.indexOf('.')>=0 )
+! 			  /* check for scientific format; do not output it */
+! 			  if (s.indexOf('e')<0)
+! 			    if (s.indexOf('E')<0)
+! 			      return write(raf,s);
+!                         return write(raf, ""+floatformat.format(ft.floatValue()));
+                  }
+          }
+  
+***************
+*** 98,104 ****
+                  if ((float)x == _f) {
+                          return write(os, new Integer(x));
+                  } else {
+!                         return write(os, ft);
+                  }
+          }
+  
+--- 113,127 ----
+                  if ((float)x == _f) {
+                          return write(os, new Integer(x));
+                  } else {
+! 		        String s=ft.toString();
+! 			/* Make sure, we got a decimal DOT. Otherwise
+! 			   we will have to prepare a special format */
+! 			if (s.indexOf('.')>=0 )
+! 			  /* check for scientific format; do not output it */
+! 			  if (s.indexOf('e')<0)
+! 			    if (s.indexOf('E')<0)
+! 			      return write(os,s);
+!                         return write(os, ""+floatformat.format(ft.floatValue()));
+                  }
+          }
+  

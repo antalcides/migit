@@ -1,0 +1,16 @@
+# FCNM-ESPOL. Física con python
+# cálculo de velocidad
+# valores conocidos d y t
+# sancion si exede los 50km/h
+tf=int(input('¿cuantos segundos?: '))
+d=float(input('¿distancia recorrida?: '))
+v=d/tf
+vkmh=(v/1000)*60*60
+if (vkmh>50):
+    sancion=1
+else:
+    sancion=0
+print('Velocidad Media(Km/h)')
+print(vkmh)
+if (sancion==1):
+    print('Tiene sancion por exceso de velocidad sobre 50 Km/h')

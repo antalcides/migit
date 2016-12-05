@@ -1,0 +1,211 @@
+%=======================================================================================================================
+% File: fixseminar.sty
+%
+% Fix some problems in conjunction with seminar, especially when using hyperref and/or pdflatex.
+%
+% This package is part of the TeXPower bundle, to be found at
+% 
+% http://ls1-www.cs.uni-dortmund.de/~lehmke/texpower/
+%
+% If using hyperref, load this package _after_ hyperref.
+%
+%=======================================================================================================================
+% Author: Stephan Lehmke <Stephan.Lehmke@cs.uni-dortmund.de>
+%
+% v0.0.1  Mar 28, 2000 First version for the pre-alpha release of texpower and hyperref v6.70a.
+%
+% v0.0.1a May 18, 2000 Added a \vss to a \vbox to get rid of an `overfull vbox' message.
+%
+% v0.0.2  Jun 02, 2000 Now handle seminar as well as powersem.
+%
+
+\def\fileversion{0.0.2}
+\def\filedate{2000/06/02}
+
+\NeedsTeXFormat{LaTeX2e}
+
+\ProvidesPackage%
+{fixseminar}%
+[\filedate\space Fix some problems of seminar. v\fileversion]
+
+
+%=======================================================================================================================
+
+\RequirePackage{ifthen}
+
+
+%=======================================================================================================================
+% Options and general setup.
+
+\ProcessOptions
+
+% The switch makingpdf@FS allows to distinguish whether to use pdfmarks or pdftex primitives for some effects.
+
+\newboolean{makingpdf@FS}
+
+\@ifundefined{pdfoutput}% Definitely not using pdftex.
+{}% Standard TeX
+{%  Running pdftex.
+  \ifnum\pdfoutput=1\relax% Are we outputting pdf?
+    \setboolean{makingpdf@FS}{true}%
+  \fi
+  }
+
+
+%=======================================================================================================================
+% Here come the fixes.
+
+% hyperref sets \pdfpageheight to \paperheight with \AtBeginDocument. Magnification, as used by seminar, is not
+% respected. We strip the pt and add truept which respects Magnification.
+
+\ifthenelse{\boolean{makingpdf@FS}}% Are we outputting PDF?
+{% Yes.
+  \AtBeginDocument%                  Then we need to set \pdfpagewidth and \pdfpageheight in a _true_ unit to make sure
+  {%                                 the pdf page has the right dimensions even when magnifying (as seminar does).
+    \setlength{\pdfhorigin}{1truein}% \pdfhorigin and \pdfvorigin also need to be set to true dimensions.
+    \setlength{\pdfvorigin}{1truein}%
+    \@ifclassloaded{seminar}
+    {%
+      \ifportrait
+        \setlength{\pdfpageheight}{\strip@pt\paperheight truept}%
+        \setlength{\pdfpagewidth}{\strip@pt\paperwidth truept}%
+       \else%                                                     Need to exchange height and width. 
+        \setlength{\pdfpagewidth}{\strip@pt\paperheight truept}%
+        \setlength{\pdfpageheight}{\strip@pt\paperwidth truept}%
+      \fi
+      }%
+    {%
+      \setlength{\pdfpageheight}{\strip@pt\paperheight truept}%
+      \setlength{\pdfpagewidth}{\strip@pt\paperwidth truept}%
+      }%
+    }%
+  }
+{% No. In this case we define \special@paper which will put an appropriate \special into the dvi file.
+  \@ifclassloaded{seminar}
+  {%
+    \ifportrait
+      \edef\special@paper{\the\paperwidth,\the\paperheight}%
+     \else%                                                     Need to exchange height and width. 
+      \edef\special@paper{\the\paperheight,\the\paperwidth}%
+    \fi
+    }%
+  {%
+    \edef\special@paper{\the\paperwidth,\the\paperheight}%
+    }%
+  }%
+
+
+% There is a bug in hyperref to the effect that apparently, when using seminar there is a glitch in vertical
+% spacing. This seems to be caused by something which is added to every page by \@hyperfixhead. The following seems to
+% cure this, but I don't really know why. :-( 
+% I cross my fingers that nothing else is broken by this `fix'...
+
+\def\orig@hyperfixhead@FS% The fix should only be applied if the original definition of \@hyperfixhead is _exactly_ the
+{%                         following. 
+  \HyPL@EveryPage
+  \ifHy@hypertexnames
+    \ifHy@plainpages
+      \gdef\Hy@TempPageAnchor{\hyper@@anchor{page.\arabic{page}}}%
+    \else
+      \begingroup
+        \let\textlatin\@firstofone
+        \xdef\@the@H@page{\thepage}%
+      \endgroup
+      \gdef\Hy@TempPageAnchor{\hyper@@anchor{page.\@the@H@page}}%
+    \fi
+  \else
+    \Hy@GlobalStepCount\Hy@pagecounter
+    \gdef\Hy@TempPageAnchor{\hyper@@anchor{page.\the\Hy@pagecounter}}%
+  \fi
+  \let\H@old@thehead\@thehead
+  \if^\@thehead^%
+    \def\H@old@thehead{\hfil}%
+  \fi
+  \ifHy@texht
+    \def\@thehead{}%
+  \else
+    \ifHy@seminarslides
+      \Hy@TempPageAnchor\relax
+      \hyper@pagetransition
+      \hyper@pageduration
+      \hyper@pagehidden
+    \else
+      \def\@thehead{%
+        \Hy@TempPageAnchor\relax
+        \hyper@pagetransition
+        \hyper@pageduration
+        \hyper@pagehidden
+        \H@old@thehead
+      }%
+    \fi
+  \fi
+  \ifx\PDF@FinishDoc\@empty
+  \else
+    \PDF@FinishDoc
+    \gdef\PDF@FinishDoc{}%
+  \fi
+}
+
+  \def\new@hyperfixhead@FS{% This is the original definition from hyperref.sty.
+    \HyPL@EveryPage
+    \ifHy@hypertexnames
+      \ifHy@plainpages
+        \gdef\Hy@TempPageAnchor{\hyper@@anchor{page.\arabic{page}}}%
+       \else
+        \begingroup
+          \let\textlatin\@firstofone
+          \xdef\@the@H@page{\thepage}%
+        \endgroup
+        \gdef\Hy@TempPageAnchor{\hyper@@anchor{page.\@the@H@page}}%
+      \fi
+     \else
+      \Hy@GlobalStepCount\Hy@pagecounter
+      \gdef\Hy@TempPageAnchor{\hyper@@anchor{page.\the\Hy@pagecounter}}%
+    \fi
+    \let\H@old@thehead\@thehead
+    \if^\@thehead^%
+      \def\H@old@thehead{\hfil}%
+    \fi
+    \ifHy@texht
+      \def\@thehead{}%
+     \else
+      \ifHy@seminarslides
+        \vbox to 0pt {\vss% <=== The \vbox is added by as a fix.
+          \Hy@TempPageAnchor\relax
+          \hyper@pagetransition
+          \hyper@pageduration
+          \hyper@pagehidden
+          }%
+       \else
+        \def\@thehead{%
+          \Hy@TempPageAnchor\relax
+          \hyper@pagetransition
+          \hyper@pageduration
+          \hyper@pagehidden
+          \H@old@thehead
+          }%
+      \fi
+    \fi
+    \ifx\PDF@FinishDoc\@empty
+     \else
+      \PDF@FinishDoc
+      \gdef\PDF@FinishDoc{}%
+    \fi
+    }
+
+\@ifpackageloaded{hyperref}
+{%
+\ifx\@hyperfixhead\orig@hyperfixhead@FS% Correct version of the \@hyperfixhead macro?
+  \let\@hyperfixhead\new@hyperfixhead@FS
+ \else
+  \PackageWarning{fixseminar}{Incompatible version of hyperref\MessageBreak (not 6.70a).\MessageBreak Vertical spacing fix not applied}%
+\fi
+}{}
+
+% Local Variables: 
+% fill-column: 120
+% TeX-master: "dummy"
+% End: 
+
+%%
+%% End of file `fixseminar.sty'.

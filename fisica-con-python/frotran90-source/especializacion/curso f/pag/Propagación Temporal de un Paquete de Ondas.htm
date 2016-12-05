@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0076)http://www.df.uba.ar/users/dmitnik/teoricaII/ondas/programs/propagation.html -->
+<HTML><HEAD><TITLE>Propagación Temporal de un Paquete de Ondas</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY>
+<H1 style="COLOR: red" align=center>Propagación Temporal de un Paquete de Ondas 
+</H1><TR><TD>
+<HR noShade SIZE=1>
+<FONT color=#0000ff>
+<H1>Propagación Temporal de un Paquete de Ondas libres</H1></FONT>En esta parte 
+analizaremos como se propaga un paquete de ondas libres, o sea, bajo un 
+Hamiltoneano cuyo potencial es <I>V(x)=0</I>. Utilizaremos el programa <A 
+href="http://www.df.uba.ar/users/dmitnik/teoricaII/ondas/programs/wavepacket/explicit.for" 
+target=_blank>explicit.for</A> el cual resuelve la ecuación de Schrödinger 
+dependiente del tiempo en forma explícita: 
+<P>
+<TABLE cellSpacing=0 cellPadding=5 align=center bgColor=#ffcccc border=0>
+  <TBODY>
+  <TR>
+    <TD><PRE>        subroutine propagation
+
+c.......explicit propagation
+c       Fi(n+1) = [1 - i/h Dt*H] [Fi(n)]
+
+        parameter (mxpts=100,mxtime=10000)
+        complex fin(0:mxpts),fin1(0:mxpts)
+        common/bkmesh/ timef,dx,dt,width,rk0,x0,nxpts,ntpts
+        common/bkwave/ fin,fin1
+        complex op(mxpts+1,mxpts+1)
+        common/bkop /op
+        
+        do 100 i=0,nxpts
+                fin1(i) = 0
+                do 50 j=0,nxpts
+                  fin1(i) = fin1(i) + op(i+1,j+1)*fin(j)
+50              continue
+100     continue
+        do 200 i=0,nxpts
+                fin(i) = fin1(i)
+200     continue
+        return
+
+</PRE></TD></TR></TBODY></TABLE></P>
+<P>Este programa requiere de <A 
+href="http://www.df.uba.ar/users/dmitnik/teoricaII/ondas/programs/wavepacket/schrod.inp" 
+target=_blank>schrod.inp</A> como input file, y genera <I>wave0.out</I> (la 
+función inicial), <I>wavef.out</I> (la función propagada final) y 
+<I>wavean.out</I> (la función propagada teórica). Si podés trabajar con 
+librerías <A href="http://www.netlib.org/" target=_blank>lapack (from 
+Netlib)</A>), hay una versión mejorada de este problema que utiliza una 
+propagación implícita (<A 
+href="http://www.df.uba.ar/users/dmitnik/teoricaII/ondas/programs/wavepacket/implicit.for" 
+target=_blank> implicit.for</A>), o mejor aún un algoritmo implícito- explícito 
+(Crank-Nicolson algorithm) (<A 
+href="http://www.df.uba.ar/users/dmitnik/teoricaII/ondas/programs/wavepacket/impexplicit.for" 
+target=_blank> impexplicit.for</A>). Las subrutinas/funciones auxiliares 
+necesarias para correr estos programas están en <A 
+href="http://www.df.uba.ar/users/dmitnik/teoricaII/ondas/programs/wavepacket/cgesv.tar.gz" 
+target=_blank>cgesv.tar.gz</A>. 
+<P>El procedimiento en este caso es:: 
+<P>
+<TABLE cellSpacing=0 cellPadding=5 align=center bgColor=#ccccff border=0>
+  <TBODY>
+  <TR>
+    <TD><PRE><B> gunzip cgesv.tar.gz</B>
+<B> tar -xvf cgesv.tar</B>
+<B> g77 -c *.f</B>
+<B> g77 implicit.for *.o -o implicit.x</B>
+</PRE></TD></TR></TBODY></TABLE></P>
+<P>Un ejemplo de propagación temporal lo tenemos en el siguiente gráfico: <IMG 
+src="Propagación Temporal de un Paquete de Ondas_archivos/wavepacket.jpg"> 
+<P><B>Preguntas y Problemas:</B> 
+<LI>Demostrar que la función de propagación teórica dada en el programa es 
+correcta. 
+<LI>Modificar los parámetros y obtener distintas velocidades de propagación.<BR>
+<LI>Calcular la velocidad con la que se desplaza el paquete de ondas, y el 
+tiempo que tarda en llegar hasta la pared. En ese instante, generar un paquete 
+de ondas que se desplace con la misma velocidad que el paquete incidente, pero 
+en dirección contraria. Comparar el desplazamiento de este nuevo paquete de 
+ondas, con el paquete original (que ahora estara siendo reflejado por la pared). 
+Existe un frenado ("<I>time delay</I>")?<BR>
+<LI><U>Avanzado</U>: Agregar una subrutina que calcule la velocidad de 
+desplazamiento.<BR><BR>
+<P><TR><TD>
+<HR noShade SIZE=1>
+<FONT color=#0000ff>
+<H1>Colisión de un paquete de ondas</H1></FONT>Ahora modificaremos el programa 
+anterior, y le agregaremos un potencial (en principio, un escalón). 
+<P><B>Preguntas y Problemas:</B> </P>
+<LI>Hallar las velocidades de desplazamiento de las distintas ondas.<BR>
+<LI>Verificar si existe algún frenado de ondas.<BR>
+<LI>Comparar la amplitud y el ancho de los paquetes de onda reflejados y 
+transmitidos con los resultados teóricos. 
+<LI><U>Avanzado</U>: Agregar una subrutina que calcule las ondas en forma 
+teórica.<BR>
+<LI>Cambiar el potencial por un pozo, y buscar alguna resonancia en baja energía 
+(variando la altura del pozo). En este caso verificar el comportamiento del 
+desplazamiento de fase (<I>phase shift</I>).<BR>
+<P><B>Oscilador Armónico</B>: </P>
+<LI>Cambiar el potencial por el de un oscilador armónico. Partir de un paquete 
+en el centro del potencial, con velocidad inicial igual a <I>v(t=0)=0</I>. 
+<LI>Qué sucede con la función de onda. 
+<LI>Verificar el comportamiento de la parte real de la función. 
+<P><B>Caja Permeable</B> </P>
+<LI>La caja permeable es una caja que en lugar de estar limitada por un 
+potencial infinito, está limitada por dos funciones delta. Disparar la partícula 
+desde la izquierda y comprobar qué sucede cuando ésta tiene una energía cercana 
+a la de un estado ligado del sistema. <BR>
+<P>
+<DIV>
+<HR align=center width="100%" SIZE=2>
+</HR></DIV>
+<H2>Lecturas Auxiliares Recomendadas:</H2><BR>
+<LI><I><A href="http://www.physics.auburn.edu/~francisr/qmmovies/movies.htm" 
+target=_blank>Quantum Movies - by Francis Robicheaux </A></I>. 
+</LI></BODY></HTML>

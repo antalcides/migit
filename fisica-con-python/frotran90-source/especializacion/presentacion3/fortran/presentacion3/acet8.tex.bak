@@ -1,0 +1,61 @@
+%% This document created by Scientific Word (R) Version 3.0
+
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{CSTFile=LaTeX article (bright).cst}
+%TCIDATA{Created=Thu Oct 02 09:39:36 2003}
+%TCIDATA{LastRevised=Thu Oct 02 09:40:10 2003}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="General\Blank Document">}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\begin{document}
+
+
+\section{Principio del m\'{a}ximo cl\'{a}sico}
+
+Ahora las funci\'{o}nes $u\in C^{2}\left(  \Omega\right)  \cap C\left(
+\overline{\Omega}\right)  $ y el operador $L$ es
+\begin{equation}
+Lu:=\sum_{i,j=1}^{n}a_{ij}\left(  x\right)  D_{ij}^{2}u+\sum_{i=1}^{n}%
+b_{i}\left(  x\right)  D_{i}u+c\left(  x\right)  u,\tag{13}%
+\end{equation}
+donde los coeficientes $a_{ij},b_{i}$ y $c$ est\`{a}n definidos en un abierto,
+no vacio, $\Omega$ en $\mathbb{R}^{n}$, $n\geq2$, y son acotados. Adem\'{a}s
+$A=\left[  a_{ij}\left(  x\right)  \right]  $ simetr\'{i}a $\forall x\in
+\Omega$ y $L$ es estrictamente el\'{i}ptico, $\left(  2\right)  $.
+
+\begin{theorem}
+(Principio del m\'{a}ximo d\'{e}bil para $c\leq0$) si $Lu\geq0$ $\left(
+Lu\leq0\right)  $ en $\Omega$ y $c\leq0$, entonces
+\[
+\max_{\overline{\Omega}}u\leq\max_{\partial\Omega}u^{+}\text{ \ }\left(
+\min_{\overline{\Omega}}u\geq\min_{\partial\Omega}u^{-}\right)  .
+\]
+\end{theorem}
+\end{document}

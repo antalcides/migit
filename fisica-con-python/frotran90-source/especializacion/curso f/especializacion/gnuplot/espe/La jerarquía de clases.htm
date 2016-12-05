@@ -1,0 +1,257 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0078)http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/herencia/herencia1.htm -->
+<HTML><HEAD><TITLE>La jerarquía de clases</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY>
+<H1 align=center>La jerarquía de clases</H1>
+<TABLE width="100%">
+  <TBODY>
+  <TR>
+    <TD width="50%"><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/herencia/herencia.htm"><IMG 
+      height=40 alt="prev.gif (997 bytes)" 
+      src="La jerarquía de clases_archivos/prev.gif" width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/fundamentos.htm"><IMG 
+      height=40 alt="chapter.gif (1105 bytes)" 
+      src="La jerarquía de clases_archivos/chapter.gif" width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/curso.htm"><IMG height=40 
+      alt="home.gif (1054 bytes)" src="La jerarquía de clases_archivos/home.gif" 
+      width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/herencia/ampliacion.htm"><IMG 
+      height=40 alt="next.gif (998 bytes)" 
+      src="La jerarquía de clases_archivos/next.gif" width=49></A></TD>
+    <TD width="50%">
+      <H3 align=right><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/herencia/intro_herencia.htm">La 
+      herencia y el polimorfismo</A></H3></TD></TR></TBODY></TABLE>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/herencia/herencia1.htm#La jerarquía de clases que describen las figuras planas">La 
+jerarquía de clases que describen las figuras planas</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/herencia/herencia1.htm#Uso de la jerarquía de clases">Uso 
+de la jerarquía de clases</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/herencia/herencia1.htm#Enlace dinámico">Enlace 
+dinámico</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/herencia/herencia1.htm#El polimorfismo en acción">El 
+polimorfismo en acción</A></P>
+<HR>
+
+<H2><A name="La jerarquía de clases que describen las figuras planas">La 
+jerarquía de clases que describen las figuras planas</A></H2>
+<P><IMG height=32 alt="disco.gif (1035 bytes)" 
+src="La jerarquía de clases_archivos/disco.gif" width=32 
+align=middle><STRONG>figura</STRONG>: <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/herencia/figuras/Figura.java">Figura.java</A>, 
+<A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/herencia/figuras/FiguraApp.java">FiguraApp.java</A></P>
+<P>Consideremos las figuras planas cerradas como el rectángulo, y el círculo. 
+Tales figuras comparten características comunes como es la posición de la 
+figura, de su centro, y el área de la figura, aunque el procedimiento para 
+calcular dicha área sea completamente distinto. Podemos por tanto, diseñar una 
+jerarquía de clases, tal que la clase base denominada <I>Figura</I>, tenga las 
+características comunes y cada clase derivada las específicas. La relación 
+jerárquica se muestra en la figura</P>
+<P><IMG height=116 alt="herencia1.gif (986 bytes)" 
+src="La jerarquía de clases_archivos/herencia1.gif" width=266></P>
+<P>La clase <I>Figura</I> es la que contiene las características comunes a 
+dichas figuras concretas por tanto, no tiene forma ni tiene área. Esto lo 
+expresamos declarando <I>Figura</I> como una clase abstracta, declarando la 
+función miembro <I>area</I> <B>abstract</B>.</P>
+<P>Las clases abstractas solamente se pueden usar como clases base para otras 
+clases. No se pueden crear objetos pertenecientes a una clase abstracta. Sin 
+embargo, se pueden declarar variables de dichas clases.</P>
+<P>En el juego del ajedrez podemos definir una clase base denominada 
+<I>Pieza</I>, con las características comunes a todas las piezas, como es su 
+posición en el tablero, y derivar de ella las características específicas de 
+cada pieza particular. Así pues, la clase <I>Pieza</I> será una clase abstracta 
+con una función <STRONG>abstract</STRONG> denominada <I>mover</I>, y cada tipo 
+de pieza definirá dicha función de acuerdo a las reglas de su movimiento sobre 
+el tablero. 
+<UL>
+  <LI>La clase <EM>Figura</EM> </LI></UL>
+<P>La definición de la clase abstracta <I>Figura, </I>contiene la posición 
+<I>x</I> e <I>y</I> de la figura particular, de su centro, y la función 
+<I>area</I>, que se va a definir en las clases derivadas para calcular el área 
+de cada figura en particular.</P>
+<TABLE cellSpacing=0 width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="100%" bgColor=#f7f7f7><PRE>public <STRONG>abstract</STRONG> class Figura {
+    protected int x;
+    protected int y;
+    public Figura(int x, int y) {
+        this.x=x;
+        this.y=y;
+    }
+    public <STRONG>abstract</STRONG> double area();
+}</PRE></TD></TR></TBODY></TABLE>
+<UL>
+  <LI>La clase <EM>Rectangulo</EM> </LI></UL>
+<P>Las clases derivadas heredan los miembros dato <I>x</I> e <I>y </I>de la 
+clase base, y definen la función <I>area</I>, declarada <B>abstract</B> en la 
+clase base <I>Figura</I>, ya que cada figura particular tiene una fórmula 
+distinta para calcular su área. Por ejemplo, la clase derivada 
+<I>Rectangulo</I>, tiene como datos, aparte de su posición <I>(x, y)</I> en el 
+plano, sus dimensiones, es decir, su anchura <I>ancho</I> y altura 
+<I>alto</I>.</P>
+<TABLE cellSpacing=0 width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="100%" bgColor=#f7f7f7><PRE>class Rectangulo extends Figura{
+    protected double ancho, alto;
+    public Rectangulo(int x, int y, double ancho, double alto){
+<STRONG>        super(x,y);
+</STRONG>        this.ancho=ancho;
+        this.alto=alto;
+    }
+    public double area(){
+        return ancho*alto;
+    }
+}
+</PRE></TD></TR></TBODY></TABLE>
+<P>La primera sentencia en el constructor de la clase derivada es una llamada al 
+constructor de la clase base, para ello se emplea la palabra reservada 
+<STRONG>super</STRONG>. El constructor de la clase derivada llama al constructor 
+de la clase base y le pasa las coordenadas del punto <EM>x</EM> e <EM>y</EM>. 
+Después inicializa sus miembros dato <EM>ancho</EM> y <EM>alto</EM>.</P>
+<P>En la definición de la función <I>area</I>, se calcula el área del rectángulo 
+como producto de la anchura por la altura, y se devuelve el resultado 
+<UL>
+  <LI>La clase <EM>Circulo</EM> </LI></UL>
+<TABLE cellSpacing=0 width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="100%" bgColor=#f7f7f7><PRE>class Circulo extends Figura{
+    protected double radio;
+    public Circulo(int x, int y, double radio){
+<STRONG>        super(x,y);
+</STRONG>        this.radio=radio;
+    }
+    public double area(){
+        return Math.PI*radio*radio;
+    }
+}</PRE></TD></TR></TBODY></TABLE>
+<P>Como vemos, la primera sentencia en el constructor de la clase derivada es 
+una llamada al constructor de la clase base empleando la palabara reservada 
+<STRONG>super</STRONG>. Posteriormente, se inicializa el miembro dato 
+<EM>radio</EM>, de la clase derivada <EM>Circulo</EM>.</P>
+<P>En la definición de la función <I>area</I>, se calcula el área del círculo 
+mediante la conocida fórmula <FONT face=Symbol>p*</FONT>r<SUP>2</SUP>, o bien 
+<FONT face=Symbol>p</FONT>*r*r. La <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/estatico/math/math.htm#Miembros dato constantes">constante 
+<EM>Math.PI</EM></A> es una aproximación decimal del número irracional <FONT 
+face=Symbol>p</FONT>.</P>
+<P>&nbsp;</P>
+<H2><A name="Uso de la jerarquía de clases">Uso de la jerarquía de 
+clases</A></H2>
+<P>Creamos un objeto <EM>c</EM> de la clase <EM>Circulo</EM> situado en el punto 
+(0, 0) y de 5.5 unidades de radio. Calculamos y mostramos el valor de su 
+área.</P><PRE>        Circulo c=new Circulo(0, 0, 5.5);
+        System.out.println("Area del círculo "+c.area());</PRE>
+<P>Creamos un objeto <EM>r</EM> de la clase <EM>Rectangulo</EM> situado en el 
+punto (0, 0) y de dimensiones 5.5 de anchura y 2 unidades de largo. Calculamos y 
+mostramos el valor de su área.</P><PRE>        Rectangulo r=new Rectangulo(0, 0, 5.5, 2.0);
+        System.out.println("Area del rectángulo "+r.area());</PRE>
+<P>Veamos ahora, una forma alternativa, guardamos el valor devuelto por 
+<STRONG>new</STRONG> al crear objetos de las clases derivadas en una variable 
+<EM>f </EM>del tipo <EM>Figura</EM> (clase base).</P><PRE>        <STRONG>Figura f</STRONG>=new Circulo(0, 0, 5.5);
+        System.out.println("Area del círculo "+f.area());
+        f=new Rectangulo(0, 0, 5.5, 2.0);
+        System.out.println("Area del rectángulo "+f.area());</PRE>
+<P>&nbsp;</P>
+<H2><A name="Enlace dinámico">Enlace dinámico</A></H2>
+<P>En el lenguaje C, los identificadores de la función están asociados siempre a 
+direcciones físicas antes de la ejecución del programa, esto se conoce como 
+enlace temprano o estático. Ahora bien, el lenguaje C++ y Java permiten decidir 
+a que función llamar en tiempo de ejecución, esto se conoce como enlace tardío o 
+dinámico. Vamos a ver un ejemplo de ello.</P>
+<P>Podemos crear un array de la clase base <EM>Figura</EM> y guardar en sus 
+elementos los valores devueltos por <STRONG>new</STRONG> al crear objetos de las 
+clases derivadas.</P><PRE>        Figura[] fig=new Figura[4];
+        fig[0]=new Rectangulo(0,0, 5.0, 7.0);
+        fig[1]=new Circulo(0,0, 5.0);
+        fig[2]=new Circulo(0, 0, 7.0);
+        fig[3]=new Rectangulo(0,0, 4.0, 6.0);</PRE>
+<P>La sentencia</P><PRE>	fig[i].area();</PRE>
+<P>¿a qué función <I>area</I> llamará?. La respuesta será, según sea el índice 
+<I>i</I>. Si <I>i</I> es cero, el primer elemento del array guarda una 
+referencia a un objeto de la clase <I>Rectangulo</I>, luego llamará a la función 
+miembro <I>area</I> de <I>Rectangulo</I>. Si <I>i</I> es uno, el segundo 
+elemento del array guarda una referencia un objeto de la clase <I>Circulo</I>, 
+luego llamará también a la función <I>area</I> de <I>Circulo</I>, y así 
+sucesivamente. Pero podemos introducir el valor del índice <I>i</I>, a través 
+del teclado, o seleccionando un control en un applet, en el momento en el que se 
+ejecuta el programa. Luego, la decisión sobre qué función <I>area</I> se va a 
+llamar se retrasa hasta el tiempo de ejecución.</P>
+<P>&nbsp;</P>
+<H2><A name="El polimorfismo en acción">El polimorfismo en acción</A></H2>
+<P>Supongamos que deseamos saber la figura que tiene mayor área 
+independientemente de su forma. Primero, programamos una función que halle el 
+mayor de varios números reales positivos.</P><PRE>double valorMayor(double[] x){
+	double mayor=0.0;
+	for (int i=0; i&lt;x.length; i++)
+		if(x[i]&gt;mayor){
+			mayor=x[i];
+		}
+	return mayor;
+}</PRE>
+<P>Ahora, la llamada a la función <EM>valorMayor</EM></P><PRE>	double numeros[]={3.2, 3.0, 5.4, 1.2};
+	System.out.println("El valor mayor es "+valorMayor(numeros));
+</PRE>
+<P>La función <I>figuraMayor</I> que compara el área de figuras planas es 
+semejante a la función <I>valorMayor</I> anteriormente definida, se le pasa el 
+array de objetos de la clase base <I>Figura</I>. La función devuelve una 
+referencia al objeto cuya área es la mayor. </P>
+<TABLE cellSpacing=0 width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="100%" bgColor=#f7f7f7><PRE>   static Figura figuraMayor(Figura[] figuras){
+        Figura mFigura=null;
+        double areaMayor=0.0;
+        for(int i=0; i&lt;figuras.length; i++){
+            if(figuras[i].area()&gt;areaMayor){
+                areaMayor=figuras[i].area();
+                mFigura=figuras[i];
+            }
+        }
+        return mFigura;
+    }</PRE></TD></TR></TBODY></TABLE>
+<P>La clave de&nbsp; la definición de la función está en las líneas</P><PRE>           if(figuras[i].area()&gt;areaMayor){
+                areaMayor=figuras[i].area();
+                mFigura=figuras[i];
+            } </PRE>
+<P>En la primera línea, se llama a la versión correcta de la función <I>area</I> 
+dependiendo de la referencia al tipo de objeto que guarda el elemento 
+<EM>figuras</EM><I>[i] </I>del array<I>.</I> En <I>areaMayor</I> se guarda el 
+valor mayor de las áreas calculadas, y en <I>mFig</I>ura, la figura cuya área es 
+la mayor.</P>
+<P>La principal ventaja de la definición de esta función estriba en que la 
+función <I>figuraMayor</I> está definida en términos de variable 
+<EM>figuras</EM> de la clase base <EM>Figura</EM>, por tanto, trabaja no 
+solamente para una colección de círculos y rectángulos, sino también para 
+cualquier otra figura derivada de la clase base <I>Figura</I>. Así si se deriva 
+<I>Triangulo</I> de <I>Figura</I>, y se añade a la jerarquía de clases, la 
+función <I>figuraMayor</I> podrá manejar objetos de dicha clase, sin modificar 
+para nada el código de la misma.</P>
+<P>Veamos ahora la llamada a la función <EM>figuraMayor</EM></P><PRE>        Figura[] fig=new Figura[4];
+        fig[0]=new Rectangulo(0,0, 5.0, 7.0);
+        fig[1]=new Circulo(0,0, 5.0);
+        fig[2]=new Circulo(0, 0, 7.0);
+        fig[3]=new Rectangulo(0,0, 4.0, 6.0);</PRE><PRE>	Figura fMayor=figuraMayor(fig);
+        System.out.println("El área mayor es "+fMayor.area());</PRE>
+<P>Pasamos el array <I>fig</I> a la función <I>figuraMayor</I>, el valor que 
+retorna lo guardamos en <I>fMayor</I>. Para conocer el valor del área, desde 
+<I>fMayor</I> se llamará a la función miembro <I>area</I>. Se llamará a la 
+versión correcta dependiendo de la referencia al tipo de objeto que guarde por 
+<I>fMayor</I>. Si <EM>fMayor</EM> guarda una referencia a un objeto de la clase 
+<EM>Circulo</EM>, llamará a la función <EM>area</EM> definida en dicha clase. Si 
+<EM>fMayor</EM> guarda una referencia a un objeto de la clase 
+<EM>Rectangulo</EM>, llamará a la función <EM>area</EM> definida en dicha clase, 
+y así sucesivamente.</P>
+<P>La combinación de herencia y enlace dinámico se denomina polimorfismo. El 
+polimorfismo es, por tanto, la técnica que permite pasar un objeto de una clase 
+derivada a funciones que conocen el objeto solamente por su clase 
+base.</P></BODY></HTML>

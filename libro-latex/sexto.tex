@@ -1,0 +1,666 @@
+\chapter{Composici\'on de f\'ormulas matem\'aticas}
+
+\begin{intro}
+  !`Ahora estese preparado! En este cap'itulo abordaremos el punto
+  fuerte de \TeX: la composici'on matem'atica. Pero le advertimos que
+  este cap'itulo s'olo mira la superficie. Mientras lo que aqu'i
+  explicamos es suficiente para mucha gente, no desespere si no puede
+  encontrar una soluci'on a sus necesidades de composici'on. Es muy
+  probable que su problema est'e abordado en AMS-\LaTeXe
+  \footnote{\texttt{CTAN:/tex-archive/macros/latex/packages/amslatex}}
+  o en alg'un otro paquete.
+\end{intro}
+  
+\section{Generalidades}
+
+\LaTeX{} posee un modo especial para componer \wi{matem'aticas}. En un
+p'arrafo, el texto matem'atico se introduce entre \ci{(} y \ci{)},
+\index{$@\texttt{\$}} entre \texttt{\$} y \texttt{\$} o entre
+\verb|\begin{|\ei{math}\verb|}| y \verb|\end{math}|.
+\index{formulas@f'ormulas}
+
+\begin{example}
+Siendo $a$ y $b$ los catetos
+y $c$ la hip'otenusa
+de un tri'angulo rect'angulo,
+entonces $c^{2}=a^{2}+b^{2}$
+(Teorema de Pit'agoras).
+\end{example}
+
+\begin{example}
+\TeX{} se pronuncia como
+ $\tau\epsilon\chi$.\\[6pt]
+100~m$^{2}$ de 'area 'util \\[6pt]
+De mi $\heartsuit$.
+\end{example}
+
+Las f'ormulas matem'aticas mayores o las ecuaciones quedan mejor en
+renglones separados del texto. Para ello se ponen entre \ci{[} y
+\ci{]} o entre \verb|\begin{|\ei{displaymath}\verb|}| y
+  \verb|\end{displaymath}|. Esto produce f'ormulas sin n'umero de
+ecuaci'on. Si desea que \LaTeX{} las enumere, puede emplear en entorno
+\ei{equation}.
+
+\begin{example}
+Siendo $a$ y $b$ los catetos
+y $c$ la hip'otenusa
+de un tri'angulo rect'angulo,
+entonces
+\begin{displaymath}
+c = \sqrt{  a^{2}+b^{2}  }
+\end{displaymath}
+(Teorema de Pit'agoras).
+\end{example}
+
+Con \ci{label} y \ci{ref} se puede hacer referencia a una
+ecuaci'on del documento.
+
+\begin{example}
+\begin{equation} \label{eq:eps}
+\epsilon > 0
+\end{equation}
+De (\ref{eq:eps}) se deduce\ldots
+\end{example}
+
+Observe que las expresiones se componen con un estilo diferente al
+disponerlas en p'arrafos separados del texto:
+
+\begin{example}
+$\lim_{n \to \infty}
+\sum_{k=1}^n \frac{1}{k^2}
+= \frac{\pi^2}{6}$
+\end{example}
+\begin{example}
+\begin{displaymath}
+\lim_{n \to \infty}
+\sum_{k=1}^n \frac{1}{k^2}
+= \frac{\pi^2}{6}
+\end{displaymath}
+\end{example}
+
+
+Existen diferencias entre el \emph{modo matem'atico} y el \emph{modo
+  texto}. Por ejemplo, en el \emph{modo matem'atico}:
+
+\begin{enumerate}
+
+\item Los espacios en blanco y los cambios de l'inea no tienen ning'un
+  significado. Todos los espacios se determinar'an a partir de la
+  l'ogica de la expresi'on matem'atica o se deben indicar con
+  instrucciones especiales como \ci{,}, \ci{quad}, \ci{qquad}, \ci{:},
+  \ci{;}, \verb*|\ | y \verb|\!|\cih{"!}.%
+\index{instrucciones!\quad@\verb*".\ ".}%
+\index{\quad@\hspace*{-1.2ex}\verb*".\ ".}%
+
+\begin{example}
+\begin{equation}
+\forall x \in \mathbf{R}:
+\qquad x^{2} \geq 0
+\end{equation}
+\end{example}
+ 
+\item Los renglones en blanco est'an prohibidos. S'olo puede haber un
+  p'arrafo por f'ormula.
+\item Cada letra en particular ser'a tenida en cuenta como el nombre
+  de una variable y se pondr'a como tal (cursiva con espacios
+  adicionales). Para introducir texto normal dentro de un texto
+  matem'atico (con escritura en redondilla y con espacios entre
+  palabras) debe incluirse dentro de la orden \verb|\textrm{...}|.
+
+\begin{example}
+\begin{equation}
+x^{2} \geq 0\qquad
+\textrm{para todo }x\in\mathbf{R}
+\end{equation}
+\end{example}
+ 
+\end{enumerate}
+
+%
+% A~nada el paquete AMSSYB ... Blackboard bold .... R para n'umeros
+% reales
+%
+
+Los matem'aticos pueden ser muy exigentes con los s'imbolos que se
+emplean: aqu'i ser'ia m'as convencional emplear `\emph{blackboard
+  bold}' \index{blackboard bold@\emph{blackboad bold}} \index{simbolos
+  en negrita@s'imbolos en negrita} que se obtienen con \ci{mathbb} del
+paquete \pai{amsfonts} o \pai{amssymb}.  \ifx\mathbb\undefined\else El
+'ultimo ejemplo se convierte en
+\begin{example}
+\begin{displaymath}
+x^{2} \geq 0\qquad
+\textrm{para todo }x\in\mathbb{R}
+\end{displaymath}
+\end{example}
+\fi
+
+\section{Agrupaciones en modo matem'atico}
+
+En modo matem'atico la mayor'ia de las instrucciones s'olo afecta al
+car'acter siguiente. Si desea que una instrucci'on influya sobre
+varios caracteres, entonces debe agruparlos empleando llaves
+(\verb|{...}|).
+
+\begin{example}
+\begin{equation}
+a^x+y \neq a^{x+y}
+\end{equation}
+\end{example}
+ 
+\section{Elementos de las f'ormulas matem'aticas}
+
+En este apartado se describen las instrucciones m'as importantes que
+se utilizan en las f'ormulas matem'aticas. En el
+apartado~\ref{symbols} de la p'agina~\pageref{symbols} podr'a
+encontrar una lista de todos los s'imbolos disponibles.
+
+
+\textbf{Las \wi{letras griegas} min'usculas} se introducen como
+\verb|\alpha|, \verb|\beta|, \verb|\gamma|\ldots, y las
+may'usculas\footnote{No hay definida ninguna Alfa may'uscula en
+  \LaTeXe{} porque tiene el mismo aspecto que la redondilla A. Una vez
+  que se haga la nueva codificaci'on matem'atica, esto cambiar'a.} se
+introducen como \verb|\Gamma|, \verb|\Delta|\ldots
+
+\begin{example}
+$\lambda,\xi,\pi,\mu,\Phi,\Omega$
+\end{example}
+
+\index{exponente}\index{sub'indice}%
+\textbf{Los exponentes y los sub'indices} se pueden indicar empleando
+el car'acter \verb|^|\index{^@\verb"|^"|} y el car'acter
+\verb|_|\index{_@\verb"|_"|}.
+
+\begin{example}
+$a_{1}$ \qquad $x^{2}$ \qquad
+$e^{-\alpha t}$ \qquad
+$a^{3}_{ij}$\\
+$e^{x^2} \neq {e^x}^2$
+\end{example}
+
+El \textbf{\wi{signo de ra'iz cuadrada}} se introduce con \ci{sqrt}, y
+la ra'iz \mbox{$n$-'esima} con \verb|\sqrt[|$n$\verb|]|. \LaTeX\ elige
+autom'aticamente el tama'no del signo de ra'iz. Si s'olo necesita el
+signo de la ra'iz emplee \verb|\surd|.
+
+\begin{example}
+$\sqrt{x}$ \qquad 
+$\sqrt{ x^{2}+\sqrt{y} }$ 
+\qquad $\sqrt[3]{2}$\\[3pt]
+$\surd[x^2 + y^2]$
+\end{example}
+
+Las instrucciones \ci{overline} y \ci{underline} producen
+\textbf{l'ineas horizontales} directamente encima o debajo de una
+expresi'on.
+\index{linea@l'inea!horizontal}
+\begin{example}
+$\overline{m+n}$
+\end{example}
+
+Las 'ordenes \ci{overbrace} y \ci{underbrace} crean \textbf{llaves
+  horizontales} largas encima o bien debajo de una expresi'on.
+\index{llave!horizontal}
+\begin{example}
+$\underbrace{ a+b+\cdots+z }_{26}$
+\end{example}
+
+\index{acentos!matem'aticos}Para poner acentos matem'aticos, como
+peque~nas flechas o \wi{tilde}s a las variables, se pueden utilizar
+las 'ordenes que aparecen en la tabla~\ref{mathacc}. Los 'angulos y
+tildes que abarcan varios caracteres se obtienen con \ci{widetilde} y
+\ci{widehat}. Con el s'imbolo \verb|'|\index{'@\verb"|'"|} se
+introduce el signo de \wi{prima}.
+% un gui'on es --
+
+\begin{example}
+\begin{displaymath}
+y=x^{2}\qquad y'=2x\qquad y''=2
+\end{displaymath}
+\end{example}
+
+Con frecuencia los \textbf{\wi{vectores}} se indican a~nadi'endoles
+\wi{s'imbolos de flecha} peque~nos encima de la variable. Esto se
+realiza con la orden \ci{vec}. Para designar al vector que va desde
+$A$ hasta $B$ resultan adecuadas las instrucciones \ci{overrightarrow}
+y \ci{overleftarrow}.
+
+\begin{example}
+\begin{displaymath}
+\vec a\quad\overrightarrow{AB}
+\end{displaymath}
+\end{example}
+
+
+Existen funciones matem'aticas (seno, coseno, tangente,
+logaritmos\ldots) que se presentan con redondilla y \emph{nunca} en
+it'alica. Para 'estas \LaTeX{} proporciona las siguientes
+instrucciones: \index{funciones!matem'aticas}
+
+\begin{verbatim}
+\arccos   \cos    \csc   \exp   \ker     \limsup  \min   \sinh
+\arcsin   \cosh   \deg   \gcd   \lg      \ln      \Pr    \sup
+\arctan   \cot    \det   \hom   \lim     \log     \sec   \tan
+\arg      \coth   \dim   \inf   \liminf  \max     \sin   \tanh
+\end{verbatim}
+
+\begin{example}
+\[\lim_{n \rightarrow 0}
+\frac{\sin x}{x}=1\]
+\end{example}
+
+Para la \wi{funci'on m'odulo} existen dos 'ordenes distintas:
+\ci{bmod} para el operador binario, como en ``$a \bmod b$'', y
+\ci{pmod} para expresiones como ``$x\equiv a \pmod{b}$''.
+
+Un \textbf{\wi{quebrado}} o
+\textbf{fracci'on}\index{fraccion@fracci'on} se pone con la orden
+\ci{frac}\verb|{...}{...}|. Para los quebrados sencillos a veces
+suele ser preferible utilizar el operador \verb|/|, %\index{/@\verb|/|}
+como en $1/2$.
+\begin{example}
+$1\frac{1}{2}$~horas
+\begin{displaymath}
+\frac{ x^{2} }{ k+1 }\qquad
+x^{ \frac{2}{k+1} }\qquad
+x^{ 1/2 }
+\end{displaymath}
+\end{example}
+
+Los \textbf{\wi{coeficientes de los binomios}} y estructuras similares
+se pueden componer con la instrucci'on \verb|{... |\ci{choose}%
+\verb| ...}| o \verb|{... |\ci{atop}\verb| ...}|. Con la segunda orden se
+consigue lo mismo pero sin par'entesis.
+
+\begin{example}
+\begin{displaymath}
+{n \choose k}\qquad {x \atop y+2}
+\end{displaymath}
+\end{example}
+ 
+\medskip
+
+El \textbf{\wi{signo de integral}} se obtiene con \ci{int} y el
+\textbf{\wi{signo de sumatorio}} con \ci{sum}. Los l'imites superior e
+inferior se indican con~\verb|^| y~\verb|_|, como se hace para los
+super'indices y sub'indices.
+
+\begin{example}
+\begin{displaymath}
+\sum_{i=1}^{n} \qquad
+\int_{0}^{\frac{\pi}{2}} \qquad
+\end{displaymath}
+\end{example}
+
+Para las \textbf{\wi{llaves}} y otros \wi{delimitadores} tenemos todos
+los tipos de s'imbolos de \TeX{}
+(p.~ej.~$[\;\langle\;\|\;\updownarrow$).  Los par'entesis y los
+corchetes se introducen con las teclas correspondientes, las llaves
+con \verb|\{| y \verb|\}|, y el resto con instrucciones especiales
+(p.~ej.~\verb|\updownarrow|). En la tabla~\ref{tab:delimiters} de la
+p'ag.~\pageref{tab:delimiters} podr'a encontrar una lista de los
+delimitadores disponibles.
+
+\begin{example}
+\begin{displaymath}
+{a,b,c}\neq\{a,b,c\}
+\end{displaymath}
+\end{example}
+
+Para que \LaTeX\ elija de modo autom'atico el tama'no apropiado se
+pone la orden \ci{left} delante del delimitador de apertura y
+\ci{right} delante del que cierra. Observe que debe cerrar cada
+\ci{left} con el \ci{right} correspondiente. Si no desea nada en la
+derecha, entonces emplee `\ci{right.}'.
+
+
+\begin{example}
+\begin{displaymath}
+1 + \left( \frac{1}{ 1-x^{2} }
+    \right) ^3
+\end{displaymath}
+\end{example}
+
+
+En algunos casos es necesario fijar de modo expl'icito el tama~no
+correcto del delimitador matem'atico\index{delimitador!matem'atico}.
+Para esto se pueden utilizar las instrucciones \ci{big}, \ci{Big},
+\ci{bigg} y \ci{Bigg} como prefijos de la mayor'ia de las 'ordenes de
+delimitadores\footnote{Estas instrucciones pueden no funcionar del
+  modo deseado si se ha utilizado una instrucci'on de cambio del
+  tama~no del tipo, o si se ha especificado la opci'on \texttt{11pt} o
+  \texttt{12pt}. Empl'eense los paquetes \pai{exscale} o \pai{amstex}
+  para corregir esta anomal'ia.}.
+
+\begin{example}
+$\Big( (x+1) (x-1) \Big) ^{2}$\\
+$\big(\Big(\bigg(\Bigg($\quad
+$\big\}\Big\}\bigg\}\Bigg\}$\quad
+$\big\|\Big\|\bigg\|\Bigg\|$
+\end{example}
+
+Para poner los \textbf{\wi{puntos suspensivos}} en una ecuaci'on existen
+varias 'ordenes. \ci{ldots} coloca los puntos en la l'inea base y
+\ci{cdots} los pone en la zona media del rengl'on. Ademas de 'estos,
+tambi'en est'an las instrucciones \ci{vdots} para puntos verticales y
+\ci{ddots} para puntos en diagonal.
+\index{puntos suspensivos!verticales}%
+\index{puntos suspensivos!en diagonal}%
+\index{puntos suspensivos!horizontales}%
+En el apartado \ref{sec:vert} podr'a encontrar otro ejemplo.
+
+\begin{example}
+\begin{displaymath}
+x_{1},\ldots,x_{n} \qquad
+x_{1}+\cdots+x_{n}
+\end{displaymath}
+\end{example}
+ 
+\section{Espaciado en modo matem'atico}
+
+\index{espaciado en modo matematico@espaciado en modo matem'atico}
+Si no est'a satisfecho con los espaciados que \TeX{} elige dentro de
+una f'ormula, 'estos se pueden alterar con instrucciones especiales.
+Las m'as importantes son \ci{,} para un espacio muy peque~no, %
+\verb*.\ .  para una mediana (\verb*. . significa un car'acter en
+blanco), \ci{quad} y \ci{qquad} para espaciados grandes y
+\verb|\!|\cih{"!}  para la disminuci'on de una separaci'on.
+
+\begin{example}
+\newcommand{\rd}{\mathrm{d}}
+\begin{displaymath}
+\int\!\!\!\int_{D} g(x,y)
+  \, \rd x\, \rd y
+\end{displaymath}
+en lugar de
+\begin{displaymath}
+\int\int_{D} g(x,y)\rd x \rd y
+\end{displaymath}
+\end{example}
+Observe que la `d' en la diferencial se compone de modo convencional
+en redondilla\footnote{En este ejemplo la `d' en redondilla se ha
+  introducido a trav'es de la orden \texttt{\bs rd}, que previamente
+  se ha definido con \texttt{\bs newcommand\{\bs rd\}\{\bs mathrm\{d\}\}}.
+  De esta forma se evita estar introduciendo la secuencia \texttt{\bs
+    mathrm\{d\}} repetidamente.}.
+ 
+\section{Colocaci'on de signos encima de otros}
+\label{sec:vert}
+
+Para componer \textbf{matrices} y similares se tiene el entorno
+\ei{array}. 'Este funciona de modo similar al entorno \texttt{tabular}.
+Para dividir los renglones se utiliza la instrucci'on \verb|\\|.
+
+\begin{example}
+\begin{displaymath}
+\mathbf{X} =
+\left( \begin{array}{ccc}
+x_{11} & x_{12} & \ldots \\
+x_{21} & x_{22} & \ldots \\
+\vdots & \vdots & \ddots
+\end{array} \right)
+\end{displaymath}
+\end{example}
+
+Tambi'en se puede usar el entorno \ei{array} para componer expresiones
+de funciones que tienen ``\verb|.|'' como delimitador invisible
+derecho, o sea, \ci{right}\verb|.|.
+
+\begin{example}
+\begin{displaymath}
+y = \left\{ \begin{array}{ll}
+ a & \textrm{si $d>c$}\\
+ b+x & \textrm{por la ma~nana}\\
+ l & \textrm{el resto del d'ia}
+  \end{array} \right.
+\end{displaymath}
+\end{example}
+
+
+Para las ecuaciones que ocupen varios renglones o para los sistemas de
+ecuaciones \index{sistema de ecuaciones} se pueden emplear los
+entornos \ei{eqnarray} y \verb|eqnarray*|. En \texttt{eqnarray} cada
+rengl'on contiene un n'umero de ecuaci'on. Con \verb|eqnarray*| no se
+produce ninguna numeraci'on.
+
+Los entornos \texttt{eqnarray} y \verb|eqnarray*| funcionan como una
+tabla de 3 columnas con la disposici'on \verb|{rcl}|, donde la columna
+central se utiliza para el signo de igualdad, desigualdad o cualquier
+otro signo que deba ir. La instrucci'on \verb|\\| divide los
+renglones.
+
+\begin{example}
+\begin{eqnarray}
+f(x) & = & \cos x       \\
+f'(x) & = & -\sin x     \\
+\int_{0}^{x} f(y) \mathrm{d}y &
+ = & \sin x
+\end{eqnarray}
+\end{example}
+
+\noindent Observe que existe demasiado espacio a cada lado de la
+columna central, donde se encuentran los signos. Para reducir estas
+separaciones se puede emplear \verb|\setlength\arraycolsep{2pt}| como
+en el ejemplo siguiente.
+
+\index{ecuaciones largas} Las \textbf{ecuaciones largas} no se dividen
+autom'aticamente. Es el autor quien debe determinar en qu'e lugares se
+deben fraccionar y cu'anto se debe sangrar. Los dos m'etodos
+siguientes son las variantes m'as utilizadas para esto.
+
+\begin{example}
+{\setlength\arraycolsep{2pt}
+\begin{eqnarray}
+\sin x & = & x -\frac{x^{3}}{3!}
+     +\frac{x^{5}}{5!}-{}
+                    \nonumber\\
+ & & {}-\frac{x^{7}}{7!}+{}\cdots
+\end{eqnarray}}
+\end{example}
+\pagebreak[1]
+
+\begin{example}
+\begin{eqnarray}
+\lefteqn{ \cos x = 1
+     -\frac{x^{2}}{2!} +{} }
+                    \nonumber\\
+ & & {}+\frac{x^{4}}{4!}
+     -\frac{x^{6}}{6!}+{}\cdots
+\end{eqnarray}
+\end{example}
+
+\enlargethispage{\baselineskip}
+La instrucci'on \ci{nonumber} impide que \LaTeX{} coloque un n'umero
+para la ecuaci'on en la que est'a colocada la orden.
+
+
+\section{Tama~no del tipo para ecuaciones}
+
+\index{tamano del tipo@tama~no del tipo!para ecuaciones} En el modo
+matem'atico \TeX{} selecciona el tama~no del tipo seg'un el contexto.
+Los super'indices, por ejemplo, se ponen en un tipo m'as peque~no. Si
+quiere introducir un texto en redondilla en una ecuaci'on y utiliza la
+instrucci'on \verb|\textrm|, el mecanismo de cambio del tama~no del
+tipo no funcionar'a, ya que \verb|\textrm| conmuta de modo temporal al
+modo de texto. Entonces se debe emplear \verb|\mathrm| para que se
+mantenga activo el mecanismo de cambio de tama~no. Pero preste
+atenci'on, ya que \ci{mathrm} s'olo funcionar'a bien con cosas
+peque~nas. Los espacios no son a'un activos y los caracteres con
+acentos no funcionan\footnote{El paquete AMS-\LaTeX{} hace que la
+  orden \ci{textrm} funcione bien con el cambio de tama~nos.}.
+
+\begin{example}
+\begin{equation}
+2^\textrm{o} \quad 
+2^\mathrm{o}
+\end{equation}
+\end{example}
+
+Sin embargo, a veces es preciso indicarle a \LaTeX{} el tama~no del
+tipo correcto. En modo matem'atico el tama~no del tipo se fija con las
+cuatro instrucciones:
+\begin{flushleft}
+\ci{displaystyle}~($\displaystyle 123$),
+\ci{textstyle}~($\textstyle 123$), 
+\ci{scriptstyle}~($\scriptstyle 123$) y
+\ci{scriptscriptstyle}~($\scriptscriptstyle 123$).
+\end{flushleft}
+
+El cambio de estilos tambi'en afecta al modo de presentar los
+l'imites.
+
+\begin{example}
+\begin{displaymath}
+\mathrm{corr}(X,Y)= 
+ \frac{\displaystyle 
+   \sum_{i=1}^n(x_i-\bar x)
+   (y_i-\bar y)} 
+  {\displaystyle\sqrt{
+ \sum_{i=1}^n(x_i-\bar x)^2
+\sum_{i=1}^n(y_i-\bar y)^2}}
+\end{displaymath}    
+\end{example}
+% Esto no es un acento matem'atico, y ning'un libro de Matem'aticas lo
+% compondr'ia de este modo.
+% mathop produce el espaciado correcto.
+ 
+\noindent 'Este es uno de los ejemplos en los que se necesitan
+corchetes mayores que los normalizados que proporciona %
+\verb|\left[| y \verb|\right]|.
+
+
+\section{Descripci'on de variables}
+
+Para algunas de sus ecuaciones Vd.\ podr'ia querer a~nadir una
+secci'on donde se describan las variables utilizadas. El siguiente
+ejemplo le podr'ia ser de ayuda para esto:
+
+\begin{example}
+\begin{displaymath}
+a^2+b^2=c^2
+\end{displaymath}
+{\settowidth{\parindent}
+   {donde:\ }
+
+\makebox[0pt][r]
+ {donde:\ }$a$, $b$ son  
+los adjuntos del 'angulo recto
+de un tri'angulo rect'angulo.
+
+$c$ es la hipotenusa
+del tri'angulo}
+\end{example}
+
+Si necesita componer a menudo segmentos de texto como 'este, ahora es
+el momento id'oneo para practicar la instrucci'on
+\verb|\newenvironment|. Empl'eela para crear un entorno especializado
+para describir variables.\index{descripci'on de variables} Revise la
+descripci'on al final del cap'itulo anterior.
+
+\section{Teoremas, leyes\ldots}
+
+Cuando se escriben documentos matem'aticos, probablemente precise de
+un modo para componer ``lemas'', ``definiciones'', ``axiomas'' y
+estructuras similares. \LaTeX{} facilita esto con la orden
+\begin{command}
+\ci{newtheorem}\verb|{|\emph{nombre}\verb|}[|\emph{contador}\verb|]{|%
+         \emph{texto}\verb|}[|\emph{secci'on}\verb|]|
+\end{command}
+El argumento \emph{nombre} es una palabra clave corta que se utiliza
+para identificar el ``teorema''. Con el argumento \emph{texto} se
+define el nombre del ``teorema'' que aparecer'a en el documento final.
+
+Los argumentos entre corchetes son opcionales. Ambos se emplean para
+especificar la numeraci'on utilizada para el ``teorema''. Con el
+argumento \emph{contador} se puede especificar el \emph{nombre} de un
+``teorema'' declarado previamente. El nuevo ``teorema'' se numerar'a
+con la misma secuencia. El argumento \emph{secci'on} le permite
+indicar la unidad de secci'on con la que desea numerar su ``teorema''.
+
+Tras ejecutar la instrucci'on \ci{newtheorem} en el pre'ambulo de su
+documento, dentro del texto se puede usar la instrucci'on siguiente:
+
+
+\begin{code}
+\verb|\begin{|\emph{nombre}\verb|}[|\emph{texto}\verb|]|\\
+Este es un teorema interesante\\
+\verb|\end{|\emph{nombre}\verb|}|     
+\end{code}
+
+He aqu'i otro ejemplo de las posibilidades de este entorno:
+
+\begin{example}
+% Definiciones para el documento.
+% Pre'ambulo
+\newtheorem{ley}{Ley}
+\newtheorem{jurado}[ley]{Jurado}
+% En el documento
+\begin{ley} \label{law:box}
+No se esconda en la caja testigo
+\end{ley}
+\begin{jurado}[Los doce]
+Podr'ia ser Vd. Por tanto, tenga
+cuidado y vea la ley
+\ref{law:box}\end{jurado}
+\begin{ley}No, No, No\end{ley}
+\end{example}
+
+El teorema ``Jurado'' emplea el mismo contador que el teorema ``Ley''.
+Por ello, toma un n'umero que est'a en secuencia con las otras
+``Leyes''. El argumento que est'a entre corchetes se utiliza para
+especificar un t'itulo o algo parecido para el teorema.
+
+\begin{example}
+\newtheorem{mur}{Ley de Murphy}[section]
+\begin{mur} Si algo puede ir mal,
+ir'a mal.
+\end{mur}
+\end{example}
+
+El teorema ``Ley de Murphy'' obtiene un n'umero que est'a ligado con
+el apartado actual. Tambi'en se podr'ia utilizar otra unidad, como,
+por ejemplo, un cap'itulo o un subapartado.
+
+\section{S'imbolos en negrita}
+\index{ssssimbolos en negrita@s'imbolos en negrita}
+
+Es bastante dif'icil obtener s'imbolos en negrita en \LaTeX\@.
+Probablemente esto sea intencionado ya que los compositores de texto
+aficionados tienden a abusar de ellos. La orden de cambio de tipo
+\verb|\mathbf| produce letras en negrita, pero estas son redondillas
+mientra que los s'imbolos matem'aticos normalmente van en versalita.
+Existe una orden \ci{boldmath}, pero \emph{'esta s'olo se puede
+  emplear fuera del modo matem'atico}. Tambi'en funciona con los
+s'imbolos.
+
+\begin{example}
+\begin{displaymath}
+\mu, M \qquad \mathbf{M} \qquad
+\mbox{\boldmath $\mu, M$}
+\end{displaymath}
+\end{example}
+
+\noindent
+Observe que la coma tambi'en est'a en negrita, lo cual puede que no
+se precise.
+
+El paquete \pai{amsbsy} (incluido por \pai{amsmath}) hace
+esto mucho m'as f'acil. Incluye una orden \ci{boldsymbol} y una
+``negrita del hombre pobre'' \ci{pmb} (``\emph{poor man's bold}''),
+que opera de forma an'aloga a las m'aquinas de escribir, que para
+poner un texto en negrita se escribe encima del texto ya escrito.
+
+\ifx\boldsymbol\undefined\else
+\begin{example}
+\begin{displaymath}
+\mu, M \qquad
+\boldsymbol{\mu}, \boldsymbol{M}
+\qquad \pmb{\mu}, \pmb{M}
+\end{displaymath}
+\end{example}
+\fi
+
+
+\endinput
+

@@ -1,0 +1,60 @@
+%% This document created by Scientific Word (R) Version 3.0
+
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{CSTFile=LaTeX article (bright).cst}
+%TCIDATA{Created=Thu Oct 02 10:57:11 2003}
+%TCIDATA{LastRevised=Thu Oct 02 10:57:35 2003}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="General\Blank Document">}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\begin{document}
+
+
+\begin{proof}
+Se define $v:\Sigma^{\prime}\left(  \lambda\right)  \longrightarrow\mathbb{R}$
+por $v:=u\left(  x^{\lambda}\right)  $ y se obtiene que
+\begin{equation}
+\Delta v\left(  x\right)  -b\left(  x^{\lambda}\right)  v_{1}\left(  x\right)
++g\left(  v\left(  x\right)  \right)  =0\text{ \ \ }\forall x\in\Sigma
+^{\prime}\left(  \lambda\right)  \text{.}\tag{18}%
+\end{equation}
+$w:=v-u$ en $\Sigma^{\prime}\left(  \lambda\right)  $ satisface $w\leq0$ y
+$w\neq0$. Luego de $\left(  17\right)  $, $\left(  18\right)  $ y el principio
+del m\'{a}ximo fuerte se sigue que
+\[
+u\left(  x\right)  <u\left(  x^{\lambda}\right)  \text{ \ \ para todo \ }%
+x\in\Sigma\left(  \lambda\right)  .
+\]
+Como $w=0$ sobre $T_{\lambda}$, del lema de frontera de Hopf se concluye
+\[
+u_{1}\left(  x\right)  <0\text{ \ \ para todo \ }x\in T_{\lambda}\text{.}%
+\]
+\end{proof}
+\end{document}

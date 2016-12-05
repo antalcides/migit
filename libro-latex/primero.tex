@@ -1,0 +1,299 @@
+%
+\chapter{Introducci\'{o}n}
+\chaptertoc 
+\begin{objetivos}
+\begin{lista}
+\item Comprender el esquema b\'asico de funcionamiento de \TeX\, y \LaTeX .
+\item Conocer las diferentes salidas que produce \LaTeX.
+\item Conocer las diferentes herramientas que intecactuan con \LaTeX.
+\item Aprender a instalar \LaTeX\, en diferentes sistemas.
+\end{lista}
+\end{objetivos}
+\section{\textquestiondown Qu\'{e} es \TeX , \, \LaTeX\, y su familia ?}%
+\TeX \, es un sistema profesional de composici\'{o}n tipogr\'{a}fica desarrollado por Donald E. Knuth.%
+\begin{center}
+\includegraphics[
+natheight=2.667100in,
+natwidth=1.944100in,
+height=1.855in,
+width=1.3578in
+]%
+{don.jpg}%
+\end{center}
+\TeX \, fu\'{e} dise\~{n}ado para producir documentos (especialmente de matem\'{a}ticas) con la m\'{a}s alta calidad de imprenta.y es la base sobre lo cu\'{a}l se construye todo.\\
+\TeX \,es sin duda el sistema de composici\'on m\'as potente que existe. Siendo tambi\'n muy complicado para los no programadores, (TeX en el fondo se hace cargo de eso). Una caracter\'{\i}stica distintiva de LaTeX es fant\'astica composici\'on tipogr\'afica de las matem\'aticas, a pesar de que es adecuado para la creaci\'on de documentos de alta calidad de cualquier tipo.
+\begin{lista}
+\item \TeX \ se pronuncia ((Tej)) y la \'{u}ltima versi\'{o}n es la 3.1415926\\
+\item \LaTeX \, es un sistema de macros, desarrollado sobre \TeX \, por Leslie Lamport, para facilitar su uso por parte de los autores.\\ Se pronuncia (( La-Tej)) la versi\'{o}n actual es \LaTeXe \, la cual se actualiza cada 6 meses.\\
+\LaTeX \, es un lenguaje de marcado, que se preocupa  de la estructura del documento, no se trata de la apariencia. Por ejemplo, en \LaTeX,\, siempre va a decir \lstinline+\chapter{A}+ para cap\'{\i}tulo A. Es decir con \LaTeX\, se consigui\'o "simplificar" \TeX \,por lo que podemos decir que 	\LaTeX\, es b\'asicamente un conjunto de macros y algunos comandos de alto nivel que permiten al usuario crear documentos de alta calidad sin mucha preocupaci\'on por el aspecto tipogr\'afico.
+\begin{center}  
+\begin{figure}[H]
+\centering
+\caption{Diagrama  de la forma como trabaja \LaTeX}
+\includegraphics[
+natheight=1.531600in,
+natwidth=2.975800in,
+height=1.8152in,
+width=3.4982in
+]%
+{imprentan.png}%
+\end{figure}
+\end{center} 
+\item   \PdfTeX \, es una extensi\'on del programa de composici\'on tipogr\'afica \TeX \, el cual fue escrito originalmente por Han Thanh como parte del trabajo de su tesis de doctorado en la Facultad de Inform\'atica de la Universidad Masaryk, con el objetivo principal de mejorar las fuentes tipogr\'aficas, el soporte de palabras con acentos y  la creaci\'on de una salida  PDF  .\\
+\PdfTeX \, se incluye en la mayor\'{\i}a de distribuciones modernas de \LaTeX \, (incluyendo TeX Live, MacTeX y MiKTeX) y se utiliza como motor por defecto.
+\item \PdfLaTeX\, B\'asicamente es el conjunto de macros basado en \PdfTeX \, para usar los macros de \LaTeX \, y obtener una salida Pdf. 
+\item \XeTeX \, (pronunciaci\'on en ingl\'s "zee-TeX" ) es un motor de tipograf\'{\i}as \TeX \, que utiliza Unicode y soporta tecnolog\'{\i}as modernas de fuentes tal como OpenType o Apple Advanced Typography (AAT). Fue escrito y es mantenida por Jonathan Kew, se distribuye bajo X11 free software license.\\
+
+Inicialmente fue desarrollado \'unicamente para Mac OS X, pero ahora est\'a disponible para otras plataformas. Tiene soporte nativo de Unicode y por defecto soporta archivos de entrada codificados en UTF-8. \XeTeX \, puede utilizar cualquier fuente instalada en el sistema operativo sin configurar el \TeX \, font metric, y puede hacer un uso directo de las caracter\'{\i}sticas avanzadas de OpenType, AAT y Graphite. (Tomado de Wikipedia \url{http://es.wikipedia.org/wiki/XeTeX})
+\item \XeLaTeX \, es un conjunto de macros de \XeTeX \, compatible con \LaTeX.\\
+Es decir La adaptaci\'on de \TeX \, y \LaTeX \, a los tiempos modernos, programado por Jonathan Kew. Concretamente utiliza un motor llamado \XeTeX , \, que es como \TeX \, pero modificado para usar Unicode. Fue desarrollado en 2007 aproximadamente, si mal no recuerdo, primeramente para sistemas MacOS y posteriormente se ha pasado a otros sistemas UNIX y finalmente dem\'as plataformas como MS Windows, etc. Adem\'as proporciona nuevas caracter\'{\i}sticas como la posibilidad de usar las funciones tipogr\'aficas avanzadas de Opentype y AAT.\\
+Este \'ultimo software, adem\'as, puede utilizar la mayor\'{\i}a de la paqueter\'{\i}a ya existente para \LaTeX.
+%\begin{example}
+%\documentclass[12pt]{article}
+%\usepackage{fontspec}
+% \setmainfont{Times New Roman}
+% \title{Sample Document Title}
+%\author{Joe Doe}
+%\date{2013}
+% \begin{document}
+% \maketitle
+% This an \textit{example} of document compiled with \textbf{xelatex} compiler.
+%\end{document}
+%\end{example}
+\item {\bf Omega} es una extensi\'on de \TeX\, que utiliza Basic Multilingual Plane de Unicode. Fue realizado por John Plaice y Yannis Haralambous despu\'s del desarrollo de \TeX\, en 1991, en principio para mejorar las habilidades multilenguaje del sistema de tipograf\'{\i}as \TeX.\, Incluye una nueva fuente codificada en 16-bit para TeX, (omlgc and omah) cubriengo una gran variedad de alfabetos.
+
+En 2004 en una conferencia de \TeX \, Users Group, Plaice anunci\'o su decisi\'on de separarse en un nuevo proyecto (que no result\'o p\'ublico), mientras que Haralambous continu\'o trabajando sobre Omega.
+
+\LaTeX \, para Omega es invocado como lambda. (Tomado de WIKIPEDIA \url{http://en.wikipedia.org/wiki/Omega_(TeX)})
+
+
+\end{lista}
+\section{Word Vs \LaTeX}
+\bigskip
+En esta secci\'on presentaremos las diferencias entre un editor de texto enriquecido  como por ejemplo MsWord y un editor de texto plano como \LaTeX.\\
+\begin{minipage}[t]{0.4\linewidth}
+\begin{center}
+Word
+\end{center}
+\begin{description}
+\item[$\blacklozenge$] Wysiwyg
+\item[$\blacklozenge$] Muy f\'{a}cil de usar
+\item[$\blacklozenge$] Facilidades para insertar objetos
+\item[$\blacklozenge$] Lento y malo para trabajar con f\'{o}rmulas
+\item[$\blacklozenge$] \'Enfasis en dise\~{n}o
+\item[$\blacklozenge$] Comercial
+\end{description}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.4\linewidth}
+\begin{center}
+\LaTeX
+\end{center}
+\begin{description}
+\item[$\blacklozenge$] Preprosesado
+\item[$\blacklozenge$] No es f\'{a}cil de usar
+\item[$\blacklozenge$] Limitaciones por aceptar pocos formatos
+\item[$\blacklozenge$] Excelente en el manejo de f\'{o}rmulas
+\item[$\blacklozenge$] En contenido
+\item[$\blacklozenge$] Gratis
+\end{description}
+\end{minipage}
+
+
+\section{¿ Porqu\'{e} Usar \LaTeX ?}
+\begin{description}
+\item[$\spadesuit$] Produce documentos con calidad de imprenta.
+
+\item[$\spadesuit$] Es utilizado por editoriales (Springer, Elsevier,. . . ),
+revistas y congresos especializados.
+
+\item[$\spadesuit$] Es una herramienta indispensable para f\'{\i}sicos y
+matem\'{a}ticos, especialmente para investigadores.
+
+\item[$\spadesuit$] Es una muy buena opci\'{o}n para escribir su tesis profesional.
+\end{description}
+
+\section{Filosof\'{\i}a de \LaTeX }
+
+\textquotedblleft El autor debe de preocuparse por el contenido de sus
+documentos, y no por la apariencia que \'{e}stos tendr\'{a}n impresos en
+papel.\textquotedblright\
+
+En este libro discutiremos 
+
+\begin{description}
+\item[$\bigstar$] Comandos que definen unidades tem\'{a}ticas: t\'{\i}tulo,
+secci\'{o}n, figuras, . . .
+
+\item[$\bigstar$] Veremos comandos de formato: centrado, negritas, letra grande, . . . \textexclamdown , a pesar de que esta tarea es trabajo  del dise\~{n}ador.
+\end{description}
+\section{Que hace \LaTeX}
+\subsubsection{Autor, maquetador y compositor}
+Para publicar algo, los autores dan su manuscrito mecanografiado a una editorial. Uno de sus maquetadores decide el aspecto del documento (anchura de columna, tipograf\'{\i}as, espacio ante y tras cabeceras, ...). El maquetador escribe sus instrucciones en el manuscrito y luego se lo da al compositor o cajista, quien compone el libro de acuerdo a tales instrucciones.\\
+Un maquetador humano trata de hallar qu\' ten\'{\i}a en mente el autor
+mientras escrib\'{\i}a el manuscrito. Decide sobre las cabeceras de los cap\'{\i}tulos, las citas, los ejemplos, las f\'ormulas, etc. bas\'andose es su conocimiento profesional y en el contenido del manuscrito.\\
+
+En un entorno \LaTeX ,\, \LaTeX\, representa el papel del maquetador y usa a \TeX\, como su compositor. Pero \LaTeX{} es "s\'olo"  un programa y por tanto necesita m\'as supervisi\'on. El autor tiene que proporcionar informaci\'on adicional para describir la estructura l\'ogica de su trabajo. Tal informaci\'on se escribe entre el texto como "\'ordenes \LaTeX" .\\
+Esto es bastante diferente del enfoque visual o WYSIWYG1 que sigue la mayor\'{\i}a de los procesadores de texto modernos, como Abiword, OpenOffice Writer, Ms Office Word, etc. Con estas aplicaciones, los autores especifican el aspecto del documento interactivamente mientras escriben texto en el ordenador. As\'{\i} pueden ver en la pantalla c\'omo aparecer\'a el trabajo final cuando se imprima.\\
+Cuando use \LaTeX\, no suele ser posible ver el aspecto final del texto mientras lo escribe, pero tal aspecto puede preverse en la pantalla tras procesar el fichero mediante \LaTeX .\, Entonces pueden hacerse correcciones antes de enviar el documento a la impresor.
+\subsubsection{Maquetaci\'on}
+La maquetaci\'on (dise\~no tipogr\'afico) es un arte. Los autores sin habilidad a menudo cometen errores de formateo al suponer que maquetar es mayormente una cuesti\'on de est\'etica "Si un documento luce bien art\'{\i}sticamente, est\'a bien dise\~nado". Pero como un documento tiene que ser le\'{\i}do y no colgado en una galer\'{\i}a de pintura, su legibilidad y su entendibilidad es mucho m\'as importante que su aspecto lindo. Ejemplos:
+\begin{lista}
+\item El tama\~no de los tipos y la numeraci\'on de las cabeceras debe escogerse para que la estructura de cap\'{\i}tulos y secciones quede clara al lector.
+\item La longitud de l\'{\i}nea debe ser suficientemente corta para no cansara los ojos del lector, pero suficientemente larga para llenar la p\'agina lindamente.
+\item Con sistemas WYSIWYG, los autores a menudo generan documentos
+agradables est\'ticamente pero con muy poca estructura o muy inconsistente. \LaTeX\, impide tales errores de formateo forzando al autor a declarar la estructura l\'ogica del documento. \LaTeX\, escoge entonces la composici\'on m\'as adecuada.
+\end{lista}
+
+\section{¿Como usar \LaTeX\,?}
+B\'aicamente, para usar \LaTeX\, y crear un documento son necesarios dos elementos. Una distribuci\'on (un programa) que contenga y procese  las distintas instrucciones de \LaTeX\, y un editor de texto.\\
+Existen varias distribuciones de \LaTeX\, (MikTeX, fpTeX, proTeXt, teTeX, VTeX, TeXLive, OzTeX, emTeX) y editores de texto (AUCTeX, Kile, LEd, LyX, MicroIMP, Scentific Author, Scientific Word, Texmaker, TeXnicCenter, TeXShop, WinEdt, WinShell) para cada sistema operativo (Windows, Linux, etc.).
+
+\section{Herramientas para trabajar con \LaTeX}
+
+\begin{lista}
+\item Plataformas \TeX \\
+\LaTeX\, es un programa originario del sistema operativo Unix, pero existe una versi\'{o}n para windows, Linux y Mac OS X.
+\begin{enumerate}
+\item  MiKTeX, Este funciona bajo DOS y no bajo Windows. Se consigue en \url{www.miktex.org}  y su \'{u}ltima versi\'{o}n es la 2.9.4813, para plataformas de 32 y 64 bits.
+\begin{center}
+\begin{figure}[H]
+\centering
+\caption{Logo de Miktex}
+\includegraphics[scale=0.1]{tfz.png}%
+\end{figure}
+\end{center}
+\item Tambi\'n tenemos Texlive 2013, se consigue en \url{http://www.laqee.unal.edu.co/tex-archive/systems/texlive/Images/} , el cual funciona en Linux,Windowsxp,7 y 8, adem\'as en Mac OS X 10.5 Leopard o superior.\\
+ \item Para Mac OS X existe tambi\'n MacTex-2013 el cual se consigue en \url{http://www.tug.org/mactex/index.html} .
+ \end{enumerate}
+\item Editores, como editor se puede usar cualquier editor de texto como el
+Notepad o el Worpad, los cuales son accesorios de windows o vim, gedit o kate en Linux, pero existen varios editores especializados.
+\begin{enumerate}
+\item Uno muy bueno para Windows el cual  adem\'{a}s es gratis, se llama TeXnicCenter y se consigue en  \url{www.toolscenter.org}%
+\begin{center}
+\begin{figure}[H]
+\centering
+\caption{TexnicCenter}
+\includegraphics[
+natheight=8.000400in,
+natwidth=10.666600in,
+height=2.8029in,
+width=3.7265in
+]%
+{texniccenter.jpg}
+\end{figure}%
+\end{center}
+\item WinEdt, este es comercial , pero es uno de los mejores, adem\'{a}s no es caro US \$40 para estudiantes, se consigue en \url{www.winedt.com}%
+\begin{center}
+\begin{figure}[H]
+\centering
+\caption{WinEdt}
+\includegraphics[
+natheight=8.000400in,
+natwidth=10.666600in,
+height=2.9075in,
+width=3.8657in
+]%
+{winedt.jpg}%
+\end{figure}
+\end{center}
+\item Lyx Es un editor casi  Wysiwyg y adem\'{a}s
+gratis se consigue en \url{www.wingnu.org}%
+\begin{center}
+\includegraphics[
+natheight=5.208800in,
+natwidth=7.292100in,
+height=2.6705in,
+width=3.7265in
+]%
+{lyx2.jpg}%
+\end{center}
+\item PC\TeX \,V6  \url{http://www.pctex.com/} \$79
+\item BaKoMa\TeX 10.10 , \, \url{http://www.bakoma-tex.com/menu/download.php},  \euro 55	Student License without Upgrades.
+\item Scientific Work Place 5.0. Este es un super programa, mucho mejor que
+Word , s\'{o}lo le falta una herramienta para realizar dibujos. se consigue en
+\url{www.tcisoft.com}%
+\begin{center}
+\includegraphics[
+natheight=8.000400in,
+natwidth=10.666600in,
+height=3.0381in,
+width=4.0387in
+]%
+{swp1.jpg}%
+\end{center}
+%EndExpansion
+\item TexMaker \url{http://www.xm1math.net/texmaker/}
+\item Kile \url{http://kile.sourceforge.net/}
+\item Texstudio \url{http://texstudio.sourceforge.net/}
+\item Latexila \url{http://latexila.sourceforge.net/}
+\item TeXnicle for Mac OS X \url{https://www.macupdate.com/app/mac/39985/texnicle}
+\item Latexian for Mac OS X \url{https://www.macupdate.com/app/mac/34475/latexian}
+\item TexShop \url{https://www.macupdate.com/app/mac/12104/texshop}
+\end{enumerate}
+\item Visores de Pdf y Ps
+\begin{enumerate}
+\item Acrobat Reader
+\item evince
+\item okular
+\item MacGhostView \url{https://www.macupdate.com/app/mac/5815/macghostview}
+\item Ghost view
+\end{enumerate}
+\item Conversores gr\'aficos
+\begin{enumerate}
+\item GhostScript
+\item Imagemagick \url{http://www.imagemagick.org/script/index.php}
+\end{enumerate}
+\end{lista}
+\section{Instalaci\'on}
+\subsection{Windows}
+\subsection{Mac OS X}
+\subsection{Linux}
+\subsubsection{Debian y sus derivados}
+\subsubsection{Fedora y los derivados de Red Hat}
+
+
+%\section{Unidades}
+
+%\bigskip
+%\hbox{1 inch: } \hbox to 1 true in{\pip\hrulefill\pip}
+% \hbox{1 \centimeter: }\hbox to 1 true cm{\pip\hrulefill\pip}
+% \hbox{20 points: }\hbox to 20 true pt{\pip\hrulefill\pip}
+% \hbox{1 pica: } \hbox to 1 true pc{\pip\hrulefill\pip}
+%\bigskip
+%\newpage
+%\maketable [Control words for page sizes] \halign{
+%   \strut \hfil # & \quad \hfil \tt # \hfil & \hfil \quad # \hfil\cr
+%   \bf Name & \bf \TeX{} Control Word & \bf \TeX{} default value (inches)\cr
+%   \noalign{\hrule} \noalign{\smallskip}
+%   horizontal width  & \\hsize   & 6.5 \cr
+%   vertical width    & \\vsize   & 8.9 \cr
+%   horizontal offset${}^\the\footnotenum$  & \\hoffset & 0 \cr
+%   vertical offset${}^\the\footnotenum$   & \\voffset & 0 \cr
+%      }
+%      \bigskip
+%      \newpage
+%      \maketable [Some paragraph shape parameters]
+%\halign{
+%   \strut \hfil # & \quad \hfil \tt # \hfil & \hfil \quad # \hfil\cr
+%   \bf Function & \bf \TeX{} Control Word & \bf \TeX{} default\cr
+%   \noalign{\hrule} \noalign{\smallskip}
+%   width & \\hsize & 6.5 inches \cr
+%   indentation on first line & \\parindent & 20 points\cr
+%   distance between lines   & \\baselineskip & 12 points\cr
+%   distance between paragraphs & \\parskip & 0 points \cr}
+%\newpage
+%   \maketable [Adding space to mathematical text]
+%\halign{ \strut \hfil # & \quad \hfil\tt# \hfil \quad
+%   & \hbox to 2cm{\hrulefill\vrule height 8pt#\vrule height 8pt\hrulefill} \cr
+%   Name & \rm Control Sequence & \hfil{}$\gets$Size$\to$\cr
+%   \noalign{\hrule} \noalign{\smallskip}
+%   Double quad         & \\qquad &\qquad \cr
+%   Quad                & \\quad  &\quad \cr
+%   Space               & \\\sp\   &\ \cr
+%   Thick space         & \\;     &$\;$\cr
+%   Medium space        & \\>     &$\>$\cr
+%   Thin space          & \\,     &$\,$\cr
+%   Negative thin space & \ \\!\    &$\!$\cr
+%       }
+%       \bigskip

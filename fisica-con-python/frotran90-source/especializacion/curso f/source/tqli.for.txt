@@ -1,0 +1,291 @@
+
+	      SUBROUTINE TQLI(D,E,N,NP,Z)
+
+c	-------------------------------------------
+c	QL Algorithm with implicit shifts, to determine the 
+c	eigenvalues and eigenvectors of a real, symmetric, tridiagonal matrix
+c	D: The N diagonal elements of the matrix.
+c	E: Subdiagonal elements of the matrix, with e(1) arbitrary.
+c          (On output is destroyed).
+c	For eigenvectors: Z must be the identity matrix. 
+c	   On output the kth column returns the normalized eigenvector
+c	   corresponding to d(k)
+c	
+c	From Numerical Recipes	   
+	   
+	      DIMENSION D(NP),E(NP),Z(NP,NP)
+
+	data zero,one/0.0,1.0/
+	      
+c........Initialization of Z to identity matrix
+	do 105 irow=1,n
+	   do 104 icol=1,n
+104		z(irow,icol) = zero
+	   z(irow,irow) = one
+105	continue
+
+	      IF (N.GT.1) THEN
+	        DO 11 I=2,N
+	          E(I-1)=E(I)
+11      CONTINUE
+        E(N)=0.
+        DO 15 L=1,N
+          ITER=0
+1         DO 12 M=L,N-1
+            DD=ABS(D(M))+ABS(D(M+1))
+            IF (ABS(E(M))+DD.EQ.DD) GO TO 2
+12        CONTINUE
+          M=N
+2         IF(M.NE.L)THEN
+            IF(ITER.EQ.30)PAUSE 'too many iterations'
+            ITER=ITER+1
+            G=(D(L+1)-D(L))/(2.*E(L))
+            R=SQRT(G**2+1.)
+            G=D(M)-D(L)+E(L)/(G+SIGN(R,G))
+            S=1.
+            C=1.
+            P=0.
+            DO 14 I=M-1,L,-1
+              F=S*E(I)
+              B=C*E(I)
+              IF(ABS(F).GE.ABS(G))THEN
+                C=G/F
+                R=SQRT(C**2+1.)
+                E(I+1)=F*R
+                S=1./R
+                C=C*S
+              ELSE
+                S=F/G
+                R=SQRT(S**2+1.)
+                E(I+1)=G*R
+                C=1./R  
+                S=S*C
+              ENDIF
+              G=D(I+1)-P
+              R=(D(I)-G)*S+2.*C*B
+              P=S*R
+              D(I+1)=G+P
+              G=C*R-B
+              DO 13 K=1,N
+                F=Z(K,I+1)
+                Z(K,I+1)=S*Z(K,I)+C*F
+                Z(K,I)=C*Z(K,I)-S*F
+13            CONTINUE
+14          CONTINUE
+            D(L)=D(L)-P
+            E(L)=G
+            E(M)=0.
+            GO TO 1
+          ENDIF
+15      CONTINUE
+      ENDIF
+      RETURN
+      END
+
+c	-------------------------------------------
+	subroutine tred2(a,n,np,d,e)
+
+c	Householder reduction of a real, symmetric, nXn matrix a, stored in
+c	an npXnp physical array. On output, a is replaced by the orthogonal 
+c	matrix Q effecting the transformation. 
+c	d: returns the diagonal elements of the tridiagonal matrix.
+c	e:returns the off-diagonal elements with e(1)=0.
+	
+c	From Numerical Recipes	   
+
+	integer n,np
+	dimension a(np,np),d(np),e(np)
+	
+	do 18 i=n,2,-1
+	l=i-1
+	h=0.0
+	scale=0.0
+	if (l.gt.1) then
+		do 11 k=1,l
+11		scale = scale + abs(a(i,k))
+		if (scale.eq.0.0) then
+			e(i)=a(i,l)
+		else
+			do 12 k=1,l
+			a(i,k)=a(i,k)/scale
+			h=h+a(i,k)**2
+12			continue
+			f=a(i,l)
+			g=-sign(sqrt(h),f)
+			e(i)=scale*g
+			h=h-f*g
+			a(i,l)=f-g
+			f=0.0
+			do 15 j=1,l
+			  a(j,i)=a(i,j)/h
+			  g=0.0
+			  do 13 k=1,j
+13				g=g+a(j,k)*a(i,k)
+			  do 14 k=j+1,l
+14			  	g=g+a(k,j)*a(i,k)
+			  e(j)=g/h
+			  f=f+e(j)*a(i,j)
+15			continue
+			hh=f/(h+h)	
+			do 17 j=1,l
+			 f=a(i,j)
+			 g=e(j)-hh*f
+			 e(j)=g
+			 do 16 k=1,j
+16			   a(j,k)=a(j,k)-f*e(k)-g*a(i,k)
+17			continue
+		endif
+	else
+		e(i)=a(i,l)
+	endif
+18	continue
+	d(1)=0.0
+	e(1)=0.0
+	do 24 i=1,n
+	  l=i-1
+	  if (d(i).ne.0.0) then
+	    do 22 j=1,l
+	      g=0.0
+	      do 19 k=1,l
+19	        g=g+a(i,k)*a(k,j)
+	       do 21 k=1,l
+21	        a(k,j)=a(k,j)-g*a(k,i) 	
+22	    continue
+	  endif
+	  d(i)=a(i,i)
+	  a(i,i)=1.0
+	  do 23 j=1,l
+	    a(i,j)=0.0
+	    a(j,i)=0.0
+23	  continue
+24	continue
+	return
+	end	
+
+c---------------------------------------------------------------
+	subroutine sort2(n,ra,rb,nmax,wksp,iwksp)
+
+c	Sorts an array ra(1:n) (in our case the Eigenvalues E (energies))
+c	into ascending numerical order while making the corresponding 
+c	rearragements of the array rb (in our case to the matrix V(n,n), 
+c	for the eigenvectors). An index table is constructed via the 
+c	routine indexx
+c
+c	From Numerical Recipes
+
+	integer iwksp(n)
+	dimension ra(n),rb(nmax,nmax),wksp(n)
+	
+c	make the index table
+	 call indexx(n,ra,iwksp)
+
+c	save the array ra
+	do 11 j=1,n
+		wksp(j) = ra(j)
+11	continue
+c	copy it back in the rearranged order
+	do 12 j=1,n
+		ra(j) = wksp(iwksp(j))
+12	continue
+c	ditto to matrix rb
+	do 13 i=1,nmax
+	do 113 j=1,n
+		wksp(j)= rb(i,j)
+113	continue
+	do 114 j=1,n
+		rb(i,j) = wksp(iwksp(j))
+114	continue
+13	continue
+	return
+	end
+	
+c	-------------------------------------------
+	subroutine indexx(n,arr,indx)
+	
+c	Indexes an array arr(1:n) i.e., outputs the array indx(1:n) such
+c	that arr(indx(j)) is in ascending order for j=1,2,...,n. The 
+c	input quantities n and arr are not changed.
+c
+c	From Numerical Recipes
+
+	integer indx(n),m,nstack
+	dimension arr(n)	
+	parameter (m=30,nstack=100)
+	integer istack(50)
+	
+	do 11 j=1,n
+	indx(j)=j
+11	continue
+	jstack=0
+	l=1
+	ir=n
+1	if (ir-l.lt.m) then
+	  do 13 j=l+1,ir
+		indxt=indx(j)
+		a=arr(indxt)
+		do 12 i=j-1,1,-1
+			if (arr(indx(i)).le.a) goto 2
+			indx(i+1) = indx(i)
+12		continue
+		i=0
+2		indx(i+1)=indxt
+13	   continue
+	   if (jstack.eq.0) return
+	   ir=istack(jstack)
+	   l=istack(jstack-1)
+	   jstack=jstack-2
+	else
+	   k=(l+ir)/2
+	   itemp=indx(k)
+	   indx(k)=indx(l+1)
+	   indx(l+1)=itemp
+	   if(arr(indx(l+1)).gt.arr(indx(ir)))then
+	      itemp=indx(l+1)
+	      indx(l+1)=indx(ir)
+	      indx(ir)=itemp
+	    endif
+	    if (arr(indx(l)).gt.arr(indx(ir)))then
+	       itemp=indx(l)
+	       indx(l)=indx(ir)
+	       indx(ir)=itemp
+	    endif
+	    if (arr(indx(l+1)).gt.arr(indx(l)))then
+	      itemp=indx(l+1)
+	      indx(l+1)=indx(l)
+	      indx(l)=itemp
+	    endif
+	  i=l+1
+  	  j=ir
+	  indxt=indx(l)
+	  a=arr(indxt)
+3	  continue
+		i=i+1
+	  if (arr(indx(i)).lt.a) goto 3
+4	  continue
+		j=j-1
+	  if (arr(indx(j)).gt.a) goto 4
+ 	  if (j.lt.i) goto 5
+	  itemp=indx(i)
+	  indx(i)=indx(j)
+	  indx(j)=itemp
+	  goto 3
+5	  indx(l)=indx(j)
+	  indx(j)=indxt
+	  jstack=jstack+2
+	  if(jstack.gt.nstack) pause 'nstack too small in indexx'
+	   if (ir-i+1.ge.j-1) then 
+		istack(jstack)=ir
+		istack(jstack-1)=i
+		ir=j-1
+	   else
+		istack(jstack)=j-1
+		istack(jstack-1)=l
+		l=i
+	   endif
+	endif
+	goto 1
+	end
+
+
+
+

@@ -1,0 +1,9 @@
+C     PROGRAMA QUE CALCULA EL FACTORIAL DE UN NUMERO
+      fact=1.0
+      write (*,*) 'Cual es el numero: '
+      read(*,*) n
+      do 400, indice=1,n
+  400 fact=fact*indice
+      write(*,*) 'El factorial de ',n,' es ',fact
+      stop
+      end

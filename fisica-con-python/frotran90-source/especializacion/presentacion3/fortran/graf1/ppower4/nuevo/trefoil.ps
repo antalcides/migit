@@ -1,0 +1,32 @@
+%!PS-Adobe-2 EPSF-2
+%%BoundingBox: 80 128 596 664
+
+/right {/d 2     def /slide {x yd add y xd sub} def} def
+/left  {/d 2 neg def /slide {x yd sub y xd add} def} def
+/side{30{/t t d add def calc str slide lineto}repeat}def
+/calc {/x 2 2 t mul cos mul t cos add def
+       /y 2 2 t mul sin mul t sin sub def
+       /z 3 t mul sin def
+       /xd -4 2 t mul sin mul t sin sub def
+       /yd  4 2 t mul cos mul t cos sub def
+       /zd  3 3 t mul cos mul def
+       /speed xd dup mul yd dup mul add sqrt def
+       /sp speed 0.8 div def
+       /xd xd sp div def /yd yd sp div def} def
+/stripe{gsave
+	newpath x y translate [xd yd yd neg xd 0 0] concat
+	zd zd dup mul speed dup mul add sqrt div 1 scale
+	0 0 1 270 90 arc stroke
+	grestore}def
+0 setlinewidth
+306 396 translate
+75 dup scale
+3{	/t 0 def
+	calc right slide moveto /str {stripe} def side
+	left slide moveto /str {} def side stroke
+	/t 180 def calc right slide moveto side 
+	left slide lineto side 1 setgray fill 0 setgray
+	right slide moveto /str {stripe} def side
+	left slide moveto /str {} def side stroke
+	120 rotate
+}repeat

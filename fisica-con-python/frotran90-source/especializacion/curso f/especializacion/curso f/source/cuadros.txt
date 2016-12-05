@@ -1,0 +1,54 @@
+C     CUADRADO MAGICO
+      INTEGER A(50,50),B,C,H,H1
+      WRITE(*,1)
+    1 FORMAT(3X,2(/),5X,'DIME UN ORDEN IMPAR DEL CUADRADO: ')
+      READ(*,*) N
+      WRITE(*,2) N
+    2 FORMAT (3X,2(/),5X,'EL ORDEN ES ',I4)
+      I=1
+      J=(N+1)/2
+      M=N**2
+      DO 3 K=1,M
+      IF (A(I,J).EQ.0) GOTO 4
+      I=I+2
+      J=J-1
+    4 A(I,J)=K
+      IF (I.EQ.1) THEN
+      GOTO 5
+      ELSE
+      IF (J.NE.N) THEN
+      I=I-1
+      J=J+1
+      GOTO 6
+      ELSE
+      I=I-1
+      J=1
+      GOTO 6
+      ENDIF
+      ENDIF
+    5 IF (J.EQ.N) THEN
+      I=I+1
+      GOTO 6
+      ELSE
+      I=N
+      J=J+1
+      GOTO 6
+      ENDIF
+    6 CONTINUE
+    3 CONTINUE
+      DO 7 J=1,N
+      WRITE (*,8) (A(I,J),I=1,N)
+    8 FORMAT (/,1X,(30(I4,2X)))
+    7 CONTINUE
+      DO 9 H=1,N
+      B=A(1,H)+B
+    9 CONTINUE
+      DO 10 H1=1,N
+      C=A(H1,1)+C
+   10 CONTINUE
+      WRITE(*,11) B
+   11 FORMAT (3X,4(/),5X,'LA SUMA VERTICAL ES ',I4)
+      WRITE (*,12) C
+   12 FORMAT (3X,4(/),5X,'LA SUMA HORIZONTAL ES ',I4)
+      STOP
+      END

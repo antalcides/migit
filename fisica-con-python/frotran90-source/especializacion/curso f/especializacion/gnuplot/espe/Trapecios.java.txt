@@ -1,0 +1,49 @@
+class Trapecios extends Program {
+  void run() {
+    print  (" area sin(x)= " + new FunSin().area(0.0, PI/2, 100));
+    println(" area sin(x)= " + new FunSin().area(0.0, PI/2, 1000));
+    print  (" area exp(x)= " + new FunExp().area(0.0, 1.0, 100));
+    println(" area exp(x)= " + new FunExp().area(0.0, 1.0, 1000));
+    print  (" area x^3= " + new FunXk(3).area(0.0, 1.0, 100));
+    println(" area x^3= " + new FunXk(3).area(0.0, 1.0, 1000));
+  }
+}
+
+class Funcion extends Program {
+  double eval(double x) {
+    return 0.0;
+  }
+  double area(double a, double b, int n) {
+    double delta= (b-a)/n;
+    double sum= (eval(a)+eval(b))/2; // 1/2*(f(a)+f(b))
+    double x= a;
+    for (int i=1; i<n; i++) {        // + f(a+i*delta), con i=1 ... n-1
+      x= x+delta;
+      sum= sum+eval(x);
+    }
+    return delta*sum;
+  }
+}
+
+class FunSin extends Funcion {
+  double eval(double x) {
+    return sin(x);
+  }
+  // area se hereda
+}
+class FunExp extends Funcion {
+  double eval(double x) {
+    return exp(x);
+  }
+  // area se hereda
+}
+class FunXk extends Funcion {
+  int k;
+  FunXk(int k) {
+    this.k= k;
+  }
+  double eval(double x) {
+    return pow(x, k);
+  }
+  // area se hereda
+}

@@ -1,0 +1,1956 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0060)http://cdec.unican.es/ftp/PDI/Software/fortran/spanish2.lngx -->
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=x-user-defined">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY><PRE>INFO {
+  Author = Alejandro F. Braña
+  Email = abranha@die.upm.es 
+  LangID = $3C0A
+  Language = Español
+  Version = 2.0 (Force 2.0.7)
+}
+OBJECTS {
+  Form:About {
+    Caption = Sobre
+    Hint =
+    Button:OK {
+      Caption = OK
+      Hint =
+    }
+  }
+  Form:Find {
+    Caption = Buscar
+    Hint =
+    Button:Cancel {
+      Caption = Cancelar
+      Hint =
+    }
+    Button:Help {
+      Caption = Ay&amp;uda
+      Hint =
+    }
+    Button:OK {
+      Caption = OK
+      Hint =
+    }
+    Tab:Find {
+      Caption = &amp;Buscar texto
+      Hint =
+      ComboBox:Find {
+        Hint =
+      }
+      GroupBox:Direction {
+        Caption = Dirección
+        Hint =
+        RadioButton:Backward {
+          Caption = &amp;Arriba
+          Hint =
+        }
+        RadioButton:Forward {
+          Caption = A&amp;bajo
+          Hint =
+        }
+      }
+      GroupBox:Options {
+        Caption = Opciones
+        Hint =
+        CheckBox:CaseSensitive {
+          Caption = Mayúsculas/M&amp;inúsculas
+          Hint =
+        }
+        CheckBox:WholeWordsOnly {
+          Caption =  &amp;Palabra completa
+          Hint =
+        }
+      }
+      GroupBox:Origin {
+        Caption = Origen
+        Hint =
+        RadioButton:EntireScope {
+          Caption = Todo
+          Hint =
+        }
+        RadioButton:FromCursor {
+          Caption = Desde el &amp;cursor
+          Hint =
+        }
+      }
+      GroupBox:Scope {
+        Caption = Ambito
+        Hint =
+        RadioButton:Global {
+          Caption = &amp;Global
+          Hint =
+        }
+        RadioButton:SelectedText {
+          Caption = Texto &amp;seleccionado
+          Hint =
+        }
+      }
+      Label:Find {
+        Caption = Buscar por:
+        Hint =
+      }
+    }
+  }
+  Form:Goto {
+    Caption = Ir a Línea:
+    Hint =
+    Button:Cancel {
+      Caption = Cancelar
+      Hint =
+    }
+    Button:OK {
+      Caption = OK
+      Hint =
+    }
+    ComboBox:Goto {
+      Hint =
+    }
+    Label:Goto {
+      Caption = &amp;Introduzca nueva línea:
+      Hint =
+    }
+  }
+  Form:Language {
+    Caption = Selector de idioma
+    Hint =
+    Button:Cancel {
+      Caption = Cancelar
+      Hint =
+    }
+    Button:OK {
+      Caption = OK
+      Hint =
+    }
+    Label:AvailableLanguages {
+      Caption = Idiomas disponibles:
+      Hint =
+    }
+    Label:Language {
+      Caption = Selecione un idioma
+      Hint =
+    }
+    Label:Please... {
+      Caption = Por favor, seleccione su idioma
+      Hint =
+    }
+    List:Language {
+      Hint =
+    }
+  }
+  Form:Main {
+    Hint =
+    Edit {
+      Action:Clear {
+        Caption = Eli&amp;minar
+        Hint = Borra el texto seleccionado
+        Shortcut = Del
+      }
+      Action:Convert {
+        Caption = C&amp;onvertir
+        Hint = Convierte la selección o todo el archivo en...
+        Shortcut =
+      }
+      Action:Copy {
+        Caption = &amp;Copiar
+        Hint = Copia el texto seleccionado
+        Shortcut = Ctrl+C
+      }
+      Action:Cut {
+        Caption = &amp;Cortar
+        Hint = Mueve el texto seleccionado al portapapeles
+        Shortcut = Ctrl+X
+      }
+      Action:DO_CONTINUE {
+        Caption = &amp;DO..CONTINUE
+        Hint = Inserta un bucle DO seguido de CONTINUE
+        Shortcut =
+      }
+      Action:DO_WHILE {
+        Caption = DO..&amp;WHILE..END DO
+        Hint =
+        Shortcut =
+      }
+      Action:DateTime {
+        Caption = &amp;Fecha y hora
+        Hint = Inserta la fecha y la hora actuales
+        Shortcut =
+      }
+      Action:EditorOptions {
+        Caption = Opciones del &amp;Editor...
+        Hint = Muestra las opciones del editor
+        Shortcut =
+      }
+      Action:Goto0 {
+        Caption = &amp;0
+        Hint =
+        Shortcut = Ctrl+0
+      }
+      Action:Goto1 {
+        Caption = &amp;1
+        Hint =
+        Shortcut = Ctrl+1
+      }
+      Action:Goto2 {
+        Caption = &amp;2
+        Hint =
+        Shortcut = Ctrl+2
+      }
+      Action:Goto3 {
+        Caption = &amp;3
+        Hint =
+        Shortcut = Ctrl+3
+      }
+      Action:Goto4 {
+        Caption = &amp;4
+        Hint =
+        Shortcut = Ctrl+4
+      }
+      Action:Goto5 {
+        Caption = &amp;5
+        Hint =
+        Shortcut = Ctrl+5
+      }
+      Action:Goto6 {
+        Caption = &amp;6
+        Hint =
+        Shortcut = Ctrl+6
+      }
+      Action:Goto7 {
+        Caption = &amp;7
+        Hint =
+        Shortcut = Ctrl+7
+      }
+      Action:Goto8 {
+        Caption = &amp;8
+        Hint =
+        Shortcut = Ctrl+8
+      }
+      Action:Goto9 {
+        Caption = &amp;9
+        Hint =
+        Shortcut = Ctrl+9
+      }
+      Action:GotoBookmarks {
+        Caption = Ir &amp;al Marcador
+        Hint = Va a una línea marcada anteriormente
+        Shortcut =
+      }
+      Action:Header {
+        Caption = Cab&amp;ecera
+        Hint = Inserta una cabecera
+        Shortcut =
+      }
+      Action:IF_THEN {
+        Caption = &amp;IF..THEN..ENDIF
+        Hint =
+        Shortcut =
+      }
+      Action:Insert {
+        Caption = &amp;Insertar
+        Hint = Inserta un texto
+        Shortcut =
+      }
+      Action:Paste {
+        Caption = &amp;Pegar
+        Hint = Inserta el contenido del portapapeles
+        Shortcut = Ctrl+V
+      }
+      Action:Redo {
+        Caption = Re&amp;hacer
+        Hint = Rehace lo que fue desecho
+        Shortcut = Shift+Ctrl+Z
+      }
+      Action:STOP_END {
+        Caption = &amp;STOP..END
+        Hint =
+        Shortcut =
+      }
+      Action:SelectAll {
+        Caption = &amp;Seleccionar Todo
+        Hint = Selecciona todo el texto en el archivo actual
+        Shortcut = Ctrl+A
+      }
+      Action:ToANSI {
+        Caption = &amp;ANSI
+        Hint = Convierte al sistema ANSI
+        Shortcut =
+      }
+      Action:ToLowerCase {
+        Caption = &amp;Minúsculas
+        Hint = Convierte a minúsculas
+        Shortcut =
+      }
+      Action:ToOEM {
+        Caption = &amp;OEM
+        Hint = Convierte al sistema OEM
+        Shortcut =
+      }
+      Action:ToUpperCase {
+        Caption = M&amp;ayúsculas
+        Hint = Conveirte a mayúsculas
+        Shortcut =
+      }
+      Action:Toggle0 {
+        Caption = &amp;0
+        Hint =
+        Shortcut = Shift+Ctrl+0
+      }
+      Action:Toggle1 {
+        Caption = &amp;1
+        Hint =
+        Shortcut = Shift+Ctrl+1
+      }
+      Action:Toggle2 {
+        Caption = &amp;2
+        Hint =
+        Shortcut = Shift+Ctrl+2
+      }
+      Action:Toggle3 {
+        Caption = &amp;3
+        Hint =
+        Shortcut = Shift+Ctrl+3
+      }
+      Action:Toggle4 {
+        Caption = &amp;4
+        Hint =
+        Shortcut = Shift+Ctrl+4
+      }
+      Action:Toggle5 {
+        Caption = &amp;5
+        Hint =
+        Shortcut = Shift+Ctrl+5
+      }
+      Action:Toggle6 {
+        Caption = &amp;6
+        Hint =
+        Shortcut = Shift+Ctrl+6
+      }
+      Action:Toggle7 {
+        Caption = &amp;7
+        Hint =
+        Shortcut = Shift+Ctrl+7
+      }
+      Action:Toggle8 {
+        Caption = &amp;8
+        Hint =
+        Shortcut = Shift+Ctrl+8
+      }
+      Action:Toggle9 {
+        Caption = &amp;9
+        Hint =
+        Shortcut = Shift+Ctrl+9
+      }
+      Action:ToggleBookmarks {
+        Caption = &amp;Activar Marcador
+        Hint = Marca una línea
+        Shortcut =
+      }
+      Action:Undo {
+        Caption = &amp;Deshacer
+        Hint = 
+        Shortcut = Ctrl+Z
+      }
+    }
+    File {
+      Action:Close {
+        Caption = &amp;Cerrar
+        Hint = Cierra la ventana actual
+        Shortcut = Ctrl+F4
+      }
+      Action:CloseAll {
+        Caption = C&amp;errar Todo
+        Hint = Cierra todas las ventanas
+        Shortcut = Shift+Ctrl+F4
+      }
+      Action:Exit {
+        Caption = Sali&amp;r
+        Hint = Sale del programa
+        Shortcut = Alt+F4
+      }
+      Action:Export {
+        Caption = E&amp;xportar
+        Hint = Exporta el archivo actual a un formato especificado
+        Shortcut =
+      }
+      Action:New {
+        Caption = &amp;Nuevo
+        Hint = Nuevo archivo en blanco
+        Shortcut = Ctrl+N
+      }
+      Action:Open {
+        Caption = &amp;Abrir...
+        Hint = Abre un archivo
+        Shortcut = Ctrl+O
+      }
+      Action:PageSetup {
+        Caption = Configurar &amp;Página...
+        Hint = Configura la página para impresión
+        Shortcut =
+      }
+      Action:Print {
+        Caption = &amp;Imprimir...
+        Hint = Imprime el archivo actual
+        Shortcut = Ctrl+P
+      }
+      Action:PrintOptions {
+        Caption = &amp;Opciones de Impresión
+        Hint = Muestra las opciones de impresión
+        Shortcut =
+      }
+      Action:PrintPreview {
+        Caption = &amp;Vista Preliminar...
+        Hint = Muestra el como se imprimira el archivo actual
+        Shortcut =
+      }
+      Action:Reopen {
+        Caption = &amp;Reabrir
+        Hint =
+        Shortcut =
+      }
+      Action:Save {
+        Caption = &amp;Guardar
+        Hint = Guarda las modificaciones
+        Shortcut = Ctrl+S
+      }
+      Action:SaveAll {
+        Caption = Guardar &amp;Todo
+        Hint = Guarda todos los archivos abiertos
+        Shortcut = Shift+Ctrl+S
+      }
+      Action:SaveAs {
+        Caption = Guardar &amp;Como...
+        Hint = Guarda el archivo actual con otro nombre
+        Shortcut =
+      }
+      Action:ToHTML {
+        Caption = &amp;HTML...
+        Hint = Exporta el archivo actual a HTML
+        Shortcut =
+      }
+      Action:ToRTF {
+        Caption = &amp;RTF...
+        Hint = Exporta el archivo actual a RTF
+        Shortcut =
+      }
+    }
+    Form:Open {
+      Title = Abrir
+    }
+    Form:Save {
+      Title = Guardar Como
+    }
+    Help {
+      Action:About {
+        Caption = &amp;Acerca de...
+        Hint = Muestra información general sobre Force
+        Shortcut =
+      }
+      Action:Contents {
+        Caption = &amp;Contenido
+        Hint = Muestra el contenido de la ayuda
+        Shortcut =
+      }
+      Action:Donations {
+        Caption = &amp;Donaciones...
+        Hint = Por favor, ayude al Projeto Force, done...
+        Shortcut =
+      }
+      Action:ForceProjectWebsite {
+        Caption = Página del Proyecto &amp;Force
+        Hint = Ir a la página del Proyecto Force
+        Shortcut =
+      }
+      Action:FtnchekManual {
+        Caption = Manual de Ft&amp;nchek
+        Hint = Muestra el manual de Ftnchek
+        Shortcut =
+      }
+      Action:G77Manual {
+        Caption = Manual 'Using and &amp;Porting GNU Fortran'
+        Hint = Muestra el manual 'Using and Porting GNU Fortran'
+        Shortcut =
+      }
+      Action:GDBManual {
+        Caption = Manual 'D&amp;ebugging with GDB'
+        Hint = Muestra el manual 'Debugging with GDB'
+        Shortcut =
+      }
+      Action:Help {
+        Caption = Ay&amp;uda
+        Hint = Muestra la ayuda 
+        Shortcut =
+      }
+      Action:ProgramLanguage {
+        Caption = &amp;Idioma del programa
+        Hint = Modifica el idioma del Force
+        Shortcut =
+      }
+      Action:Tutorial {
+        Caption = &amp;Tutorial de Fortran
+        Hint = Muestra el Tutorial de Fortran
+        Shortcut =
+      }
+    }
+    List:Files {
+      Hint = {"Click izquierdo para ver el archivo"
+              "Click derecho para ver el menú contextual"
+      }
+    }
+    List:Messages {
+      Hint = {"Doble click izquierdo para localizar el error"
+              "Click derecho para ver el menú contextual"
+      }
+    }
+    Menu:Edit {
+      Caption = &amp;Editar
+      Hint =
+      Shortcut =
+    }
+    Menu:File {
+      Caption = &amp;Archivo
+      Hint =
+      Shortcut =
+    }
+    Menu:Help {
+      Caption = Ay&amp;uda
+      Hint =
+      Shortcut =
+    }
+    Menu:Options {
+      Caption = &amp;Opciones
+      Hint =
+      Shortcut =
+    }
+    Menu:Run {
+      Caption = Eje&amp;cutar
+      Hint =
+      Shortcut =
+    }
+    Menu:Search {
+      Caption = &amp;Buscar
+      Hint =
+      Shortcut =
+    }
+    Menu:Tools {
+      Caption = &amp;Herramientas
+      Hint =
+      Shortcut =
+    }
+    Menu:View {
+      Caption = &amp;Ver
+      Hint =
+      Shortcut =
+    }
+    Menu:Window {
+      Caption = &amp;Ventana
+      Hint =
+      Shortcut =
+    }
+    Misc {
+      Action:ClearHistory {
+        Caption = &amp;Borrar Histórico
+        Hint = Borra todos los archivos del histórico
+        Shortcut =
+      }
+      Action:ClearMessages {
+        Caption = &amp;Borrar Mensajes
+        Hint = Borra todos los mensajes
+        Shortcut =
+      }
+      Action:ClearOutput {
+        Caption = &amp;Borrar el Log de Salia
+        Hint = Borra todo el Log de Salida
+        Shortcut =
+      }
+      Action:CopyToClipboard {
+        Caption = C&amp;opiar para al portapapeles
+        Hint = Copia el Log de Salida al portapapeles
+        Shortcut =
+      }
+      Action:SelectFont {
+        Caption = &amp;Selecionar Fuente
+        Hint = Modifica el tipo de letra
+        Shortcut =
+      }
+    }
+    Options {
+      Action:Auto {
+        Caption = &amp;Automático
+        Hint = Activa el estilo automático para los menúes
+        Shortcut =
+      }
+      Action:Bottom {
+        Caption = &amp;Inferior
+        Hint = Alinea el texto en la parte baja del botón
+        Shortcut =
+      }
+      Action:Enable {
+        Caption = &amp;Liso
+        Hint = Activa el estilo liso para los menúes
+        Shortcut =
+      }
+      Action:EnableXPStyles {
+        Caption = Activa el estilo &amp;Windows XP
+        Hint = Activa el estilo Windows XP
+        Shortcut =
+      }
+      Action:EnvironmentOptions {
+        Caption = Opciones de &amp;Entormo...
+        Hint = Muestra las opciones del entorno
+        Shortcut =
+      }
+      Action:FlatMenuStyle {
+        Caption = Estilo de los &amp;Menúes
+        Hint = Modifica el estilo del menu
+        Shortcut =
+      }
+      Action:Gnome {
+        Caption = &amp;Gnome
+        Hint = Estilo Gnome para los iconos
+        Shortcut =
+      }
+      Action:IconStyle {
+        Caption = &amp;Estilo de los iconos
+        Hint = Modifica la apariencia de los iconos
+        Shortcut =
+      }
+      Action:MergeStatusbar {
+        Caption = &amp;Mezclar Barras de Status
+        Hint = Mezcla las barras Status y Pincipal del Editor
+        Shortcut =
+      }
+      Action:Old {
+        Caption = &amp;Antigo
+        Hint = Estilo antiguo para los iconos
+        Shortcut =
+      }
+      Action:Right {
+        Caption = &amp;Derecha
+        Hint = Alinea el texto de los botones a la derecha
+        Shortcut =
+      }
+      Action:Stretch {
+        Caption = E&amp;ncoger las Barras de Herramientas
+        Hint = Encoge las Barras de Herramientas
+        Shortcut =
+      }
+      Action:TextStyle {
+        Caption = Estilo del &amp;Texto
+        Hint = Modifica el estilo del texto en las Barras de Herramientas
+        Shortcut =
+      }
+      Action:Theme {
+        Caption = Tema:
+        Hint = Modifica el tema
+        Shortcut =
+      }
+      Action:Visual {
+        Caption = &amp;Apariencia
+        Hint = Modifica la apariencia
+        Shortcut =
+      }
+      Action:XP {
+        Caption = &amp;XP
+        Hint = Estilo XP para los iconos
+        Shortcut =
+      }
+    }
+    Run {
+      Action:Analyze {
+        Caption = &amp;Analizar
+        Hint = Analiza el archivo actual
+        Shortcut = F4
+      }
+      Action:AnalyzeAll {
+        Caption = A&amp;nalizar Todo
+        Hint = Analiza todos los archivos abiertos
+        Shortcut =
+      }
+      Action:CompilationOptions {
+        Caption = Opciones de Co&amp;mpilación
+        Hint = Muestra las opciones de compilación
+        Shortcut =
+      }
+      Action:Compile {
+        Caption = &amp;Compilar
+        Hint = Compila el archivo actual
+        Shortcut = Ctrl+F9
+      }
+      Action:CompileAll {
+        Caption = Compilar Todo
+        Hint = Compila todos los archivos
+        Shortcut = Shift+Ctrl+F9
+      }
+      Action:CompileandRun {
+        Caption = C&amp;ompilar y Ejecutar
+        Hint = Compila y ejecuta el archivo actual
+        Shortcut = F9
+      }
+      Action:Debug {
+        Caption = &amp;Depurar
+        Hint = Depura el programa en ejecución
+        Shortcut = F8
+      }
+      Action:Run {
+        Caption = &amp;Ejecutar
+        Hint = Ejecuta, si posible, el archivo fuente actual
+        Shortcut = Shift+F9
+      }
+      Action:Stop {
+        Caption = &amp;Parar
+        Hint = Detiene la ejecución
+        Shortcut = Ctrl+F2
+      }
+    }
+    Search {
+      Action:Find {
+        Caption = &amp;Buscar...
+        Hint = Busca por caracter, palabra o frase
+        Shortcut = Ctrl+F
+      }
+      Action:GoTo {
+        Caption = &amp;Ir a línea...
+        Hint = Va a la línea indicada
+        Shortcut = Ctrl+I
+      }
+      Action:Replace {
+        Caption = &amp;Sustituir...
+        Hint = Sustituye caracteres, palabras o frases
+        Shortcut = Ctrl+R
+      }
+      Action:SearchAgain {
+        Caption = Buscar de &amp;Nuevo
+        Hint = Busca la siguiente ocurrencia de la búsqueda anterior
+        Shortcut = F3
+      }
+    }
+    Toolbar:Edit {
+      Caption = Editar
+      Hint =
+    }
+    Toolbar:Files {
+      Caption = Archivos
+      Hint =
+    }
+    Toolbar:Main {
+      Caption = Principal
+      Hint =
+    }
+    Toolbar:Menu {
+      Caption = Menú
+      Hint =
+    }
+    Toolbar:Messages {
+      Caption = Mensajes
+      Hint =
+    }
+    Toolbar:Output {
+      Caption = Log de Salida
+      Hint =
+    }
+    Toolbar:Run {
+      Caption = Ejecutar
+      Hint =
+    }
+    Tools {
+      Action:Calculator {
+        Caption = &amp;Calculadora
+        Hint = Ejecuta la calculadora de Windows
+        Shortcut =
+      }
+      Action:MSDOSPrompt {
+        Caption = &amp;Prompt de MS-DOS
+        Hint = Abre una ventana de MS-DOS
+        Shortcut =
+      }
+      Action:ToolsOptions {
+        Caption = Opciones de las Herramientas...
+        Hint = Muestra las opciones de las Herramientas
+        Shortcut =
+      }
+      Action:Translate {
+        Caption = &amp;Traducir Force (LingoX)
+        Hint = Traduzca usted mismo el Force
+        Shortcut =
+      }
+      Action:WindowsExplorer {
+        Caption = &amp;Windows Explorer
+        Hint = Abre el Explorador de Windows
+        Shortcut =
+      }
+    }
+    View {
+      Action:EditBar {
+        Caption = &amp;Editar
+        Hint = Muestra/oculta la barra de herramientas Editar
+        Shortcut =
+      }
+      Action:Files {
+        Caption = &amp;Archivos
+        Hint = Muestra/oculta la ventana de archivos
+        Shortcut =
+      }
+      Action:MainBar {
+        Caption = &amp;Principal
+        Hint = Muestra/oculta la barra de herramientas Principal
+        Shortcut =
+      }
+      Action:MenuBar {
+        Caption = &amp;Menú
+        Hint = Muestra/oculta la barra de menúes
+        Shortcut = F11
+      }
+      Action:Messages {
+        Caption = M&amp;ensajes
+        Hint = Muestra/oculta los Mensajes
+        Shortcut =
+      }
+      Action:Output {
+        Caption = &amp;Log de Salida
+        Hint = Muestra/oculta el Log de Salida
+        Shortcut =
+      }
+      Action:RunBar {
+        Caption = &amp;Ejecutar
+        Hint = Muestra/oculta la barra de herramientas Ejecutar
+        Shortcut =
+      }
+      Action:StatusBar {
+        Caption = Barra de E&amp;stado
+        Hint = Muestra/oculta la Barra de Estado
+        Shortcut =
+      }
+      Action:Toolbars {
+        Caption = &amp;Barras de Herramientas
+        Hint = Muestra/oculta las barras de herramientas ...
+        Shortcut =
+      }
+    }
+    Windows {
+      Action:ArrangeIcons {
+        Caption = Alinear iconos
+        Hint = Organizar los iconos de las ventanas minimizadas
+        Shortcut =
+      }
+      Action:Cascade {
+        Caption = &amp;Cascada
+        Hint = Organiza las ventanas en cascada
+        Shortcut =
+      }
+      Action:CloseAll2 {
+        Caption = C&amp;errar todo
+        Hint = Cierra todas las ventanas
+        Shortcut = Shift+Ctrl+F4
+      }
+      Action:FullScreen {
+        Caption = &amp;Pantalla completa
+        Hint = Modo en Panatalla completa
+        Shortcut = F12
+      }
+      Action:HorizontalTile {
+        Caption = Lado a Lado &amp;Horizontalmente
+        Hint = Organiza las ventanas lado a lado horizontalmente
+        Shortcut =
+      }
+      Action:MinimizeAll {
+        Caption = &amp;Minimizar Todo
+        Hint = Minimiza todas las ventanas
+        Shortcut = Ctrl+M
+      }
+      Action:Next {
+        Caption = &amp;Siguiente
+        Hint = Va a la siguiente ventana
+        Shortcut = Ctrl+Tab
+      }
+      Action:Previous {
+        Caption = &amp;Anterior
+        Hint = Va a la ventana anterior
+        Shortcut = Shift+Ctrl+Tab
+      }
+      Action:VerticalTile {
+        Caption = Lado a Lado &amp;Verticalmente
+        Hint = Organiza las ventanas lado a lado verticalmente
+        Shortcut =
+      }
+    }
+  }
+  Form:Options {
+    Caption = Opciones
+    Hint =
+    Action:DATE {
+      Caption = $DATE$
+      Hint =
+      Shortcut =
+    }
+    Action:DATETIME {
+      Caption = $DATETIME$
+      Hint =
+      Shortcut =
+    }
+    Action:LineAttributes {
+      Caption = &amp;Atributos de línea
+      Hint =
+      Shortcut =
+    }
+    Action:PAGECOUNT {
+      Caption = $PAGECOUNT$
+      Hint =
+      Shortcut =
+    }
+    Action:PAGENUM {
+      Caption = $PAGENUM$
+      Hint =
+      Shortcut =
+    }
+    Action:TIME {
+      Caption = $TIME$
+      Hint =
+      Shortcut =
+    }
+    Action:TIMEDATE {
+      Caption = $TIMEDATE$
+      Hint =
+      Shortcut =
+    }
+    Action:TITLE {
+      Caption = $TITLE$
+      Hint =
+      Shortcut =
+    }
+    Button:Apply {
+      Caption = &amp;Aplicar
+      Hint =
+    }
+    Button:Cancel {
+      Caption = Cancelar
+      Hint =
+    }
+    Button:OK {
+      Caption = OK
+      Hint =
+    }
+    Tab:Editor {
+      Caption = &amp;Editor
+      Hint =
+      Tab:Color {
+        Caption = &amp;Colores
+        Hint =
+        Edit:Sample {
+          ErrorLine = 7
+          Hint = {"Doble click izquierdo para Color frontal"
+                  "Doble click izquierdo para Color trasero"
+          }
+          Lines = {"C Comentarios"
+                   "      PROGRAM TEST"
+                   "      INTEGER SHOW_SUM (A,B)"
+                   "        INTEGER A,B        ! Comentario"
+                   "        A=2000"
+                   "        PRINT *,'Strings aquí'"
+                   "      RETURN,        !Línea con errores"
+                   "      END"
+                   ""
+          }
+        }
+        GroupBox:Default {
+          Caption = Por defecto
+          Hint =
+          CheckBox:Background {
+            Caption = Fondo
+            Hint =
+          }
+          CheckBox:Foreground {
+            Caption = &amp;Frente
+            Hint =
+          }
+        }
+        GroupBox:TextAttributes {
+          Caption = Atributos de texto
+          Hint =
+          CheckBox:Bold {
+            Caption = Negrita
+            Hint =
+          }
+          CheckBox:Italic {
+            Caption = Cursiva
+            Hint =
+          }
+          CheckBox:Underline {
+            Caption = Subrayado
+            Hint =
+          }
+        }
+        Label:Colors {
+          Caption = C&amp;olores
+          Hint =
+        }
+        Label:Elements {
+          Caption = Ele&amp;mentos
+          Hint =
+        }
+        List:Colors {
+          Hint = {"Doble click izquierdo para Color frontal"
+                  "Doble click izquierdo para Color trasero"
+          }
+        }
+        List:Elements {
+          Hint =
+          Items = {"Comentario"
+                   "Identificador"
+                   "Palabra-clave"
+                   "Número"
+                   "Entorno"
+                   "String"
+                   "Símbolo"
+                   "Línea con errores"
+          }
+        }
+      }
+      Tab:Display {
+        Caption = Visual
+        Hint =
+        ComboBox:Font {
+          Hint =
+        }
+        ComboBox:InsertCaret {
+          Hint =
+          Items = {"Bloque"
+                   "Bloque en medio"
+                   "Línea Horizontal"
+                   "Línea Vertical"
+          }
+        }
+        ComboBox:OverwriteCaret {
+          Hint =
+          Items = {"Bloque"
+                   "Bloque en medio"
+                   "Línea Horizontal"
+                   "Línea Vertical"
+          }
+        }
+        ComboBox:Size {
+          Hint =
+        }
+        GroupBox:Gutter {
+          Caption = Margen
+          Hint =
+          Button:GutterFont {
+            Caption = Fuente
+            Hint =
+          }
+          CheckBox:GutterAutosize {
+            Caption = A&amp;uto redimensionar
+            Hint =
+          }
+          CheckBox:GutterLeadingZeros {
+            Caption = Ceros a la izquierda
+            Hint =
+          }
+          CheckBox:GutterShowLineNumbers {
+            Caption = Líneas numeradas
+            Hint =
+          }
+          CheckBox:GutterStartAtZero {
+            Caption = Primera línea cero
+            Hint =
+          }
+          CheckBox:GutterVisible {
+            Caption = Mostrar Margen
+            Hint =
+          }
+          CheckBox:UseGutterFont {
+            Caption = Usar fuente del Margen
+            Hint =
+          }
+          ComboBox:GutterWidth {
+            Hint =
+          }
+          Label:GutterWidth {
+            Caption = Ancho del Margen
+            Hint =
+          }
+        }
+        GroupBox:VerticalLine {
+          Caption = Línea Vertical
+          Hint =
+          CheckBox:ShowVerticalLine {
+            Caption = Mostrar Línea Vertical
+            Hint =
+          }
+          ComboBox:VerticalLine {
+            Hint =
+          }
+          Label:VerticalLineColor {
+            Caption = Color de la Línea Vertical:
+            Hint =
+          }
+          Label:VerticalLineColumn {
+            Caption = Columna de Línea Vertical
+            Hint =
+          }
+        }
+        Label:Font {
+          Caption = &amp;Fuente
+          Hint =
+        }
+        Label:FontDisplay {
+          Caption = AaBbYyZz
+          Hint =
+        }
+        Label:InsertCaret {
+          Caption = &amp;Insertar
+          Hint =
+        }
+        Label:OverwriteCaret {
+          Caption = Sobreescri&amp;bir
+          Hint =
+        }
+        Label:Size {
+          Caption = Tamaño
+          Hint =
+        }
+      }
+      Tab:Options {
+        Caption = Opciones
+        Hint =
+        CheckBox:AltSetsColumnMode {
+          Caption = Selección de columnas con Alt
+          Hint =
+        }
+        CheckBox:AutoIndent {
+          Caption = Sangrado de márgenes automático
+          Hint =
+        }
+        CheckBox:AutoSizeMaxLeftChars {
+          Caption = Auto-ajustar 'Máx. caracteres a la izquierda'
+          Hint =
+        }
+        CheckBox:DisableScrollArrows {
+          Caption = Desativar barras de desplazamiento
+	  Hint =
+        }
+        CheckBox:DragDropEditing {
+          Caption = Arrastar y soltar texto
+          Hint =
+        }
+        CheckBox:EnhanceHomeKey {
+          Caption = Tecla Inicio mejorada
+          Hint =
+        }
+        CheckBox:GroupUndo {
+          Caption = Deshacer agrupar
+          Hint =
+        }
+        CheckBox:HalfPageScroll {
+          Caption = Scroll a mitad de página
+          Hint =
+        }
+        CheckBox:HideSelection {
+          Caption = Ocultar selección
+          Hint =
+        }
+        CheckBox:HideShowScrollbars {
+          Caption = Auto-ocultar barras de desplazamiento
+          Hint =
+        }
+        CheckBox:InsertMode {
+          Caption = Modo Insertar
+          Hint =
+        }
+        CheckBox:MaintainCaretCol {
+          Caption = Mantener la columna del cursor
+          Hint =
+        }
+        CheckBox:NoCaret {
+          Caption = Sin cursor
+          Hint =
+        }
+        CheckBox:NoSelection {
+          Caption = Sin selección
+          Hint =
+        }
+        CheckBox:RightMouseMovesCursor {
+          Caption = Botón derecho mueve el cursor
+          Hint =
+        }
+        CheckBox:ScrollByOneLess {
+          Caption = Scroll menos una línea
+          Hint =
+        }
+        CheckBox:ScrollHintFollows {
+          Caption = Scroll sigue al ratón
+          Hint =
+        }
+        CheckBox:ScrollPastEOF {
+          Caption = Scroll más allá del final del archivo
+          Hint =
+        }
+        CheckBox:ScrollPastEOL {
+          Caption = Scroll más allá del final de la línea
+          Hint =
+        }
+        CheckBox:ShowScrollHint {
+          Caption = Mostrar las ayudas del Scroll
+          Hint =
+        }
+        CheckBox:ShowSpecialChars {
+          Caption = Mostrar caracteres especiales
+          Hint =
+        }
+        CheckBox:SmartTabDelete {
+          Caption = Tab mejorado al borrar
+          Hint =
+        }
+        CheckBox:SmartTabs {
+          Caption = Tab mejorado
+          Hint =
+        }
+        CheckBox:TabsToSpaces {
+          Caption = Tab en espacios
+          Hint =
+        }
+        CheckBox:TrimTrailingSpaces {
+          Caption = Borrar espacios inútiles
+          Hint =
+        }
+        CheckBox:UseSyntaxHighlight {
+          Caption = Usar realce de Sintaxis (colores)
+          Hint =
+        }
+        CheckBox:WantTabs {
+          Caption = Aceptar Tabs
+          Hint =
+        }
+        ComboBox:MaxLeftChars {
+          Hint =
+        }
+        ComboBox:TabStops {
+          Hint =
+        }
+        ComboBox:UndoLimit {
+          Hint =
+        }
+        Label:MaxLeftChars {
+          Caption = Máx. caracteres a la izquierda:
+          Hint =
+        }
+        Label:TabStops {
+          Caption = Pasos del Tab:
+          Hint =
+        }
+        Label:UndoLimit {
+          Caption = Límite Deshacer:
+          Hint =
+        }
+      }
+    }
+    Tab:General {
+      Caption = &amp;General
+      Hint =
+      CheckBox:ANSIText {
+        Caption = Texto Windows por defecto (ANS&amp;I)
+        Hint =
+      }
+      CheckBox:AutoExpandMessages {
+        Caption = A&amp;uto-expandir Mensajes
+        Hint =
+      }
+      CheckBox:AutoSaveBeforeContinue {
+        Caption = Guardar automaticamente antes de continuar
+        Hint =
+      }
+      CheckBox:CreateBackupFile {
+        Caption = &amp;Crear archivo de seguridad
+        Hint =
+      }
+      CheckBox:EnableXPStyles {
+        Caption = Soporte Windows &amp;XP
+        Hint =
+      }
+      CheckBox:FullFilePath {
+        Caption = Mostrar ruta completa en la barra de título
+        Hint =
+      }
+      CheckBox:NewWindowMaximized {
+        Caption = &amp;Nuevas ventanas maximizadas
+        Hint =
+      }
+      CheckBox:SplashScreen {
+        Caption = Pantalla de inicio
+        Hint =
+      }
+      CheckBox:StartWithNewSourceFile {
+        Caption = Iniciar con archivo en blanco
+        Hint =
+      }
+      ComboBox:AnalyzerLanguage {
+        Hint =
+      }
+      ComboBox:Theme {
+        Hint =
+      }
+      Label:AnalyzerLanguage {
+        Caption = Idioma del Analizador:
+        Hint =
+      }
+      Label:Theme {
+        Caption = &amp;Tema:
+        Hint =
+      }
+    }
+    Tab:Others {
+      Caption = &amp;Otros
+      Hint =
+      Button:AssociateFiles {
+        Caption = As&amp;ociar los archivos con extensión .f
+        Hint =
+      }
+      Button:DesktopShortcut {
+        Caption = Crear acceso directo en el Escritorio
+        Hint =
+      }
+      Button:ProgramsGroup {
+        Caption = Crear Grupo de Programas en el Menu Inicio
+        Hint =
+      }
+      Button:StartMenuShortcut {
+        Caption = Crear acceso directo en el Menú Inicio
+        Hint =
+      }
+      GroupBox:Messages {
+        Caption = Mensajes
+        Hint =
+        CheckBox:AssociateFiles {
+          Caption = Asociar Archivos
+          Hint =
+        }
+        CheckBox:ClearHistoryList {
+          Caption = Pedir confirmación para Borrar Histórico
+          Hint =
+        }
+        CheckBox:HidingMenuBar {
+          Caption = Ocultar Barra de Menús
+          Hint =
+        }
+        CheckBox:InstallFileMissing {
+          Caption = Falta archivo de &amp;instalación
+          Hint =
+        }
+        CheckBox:MenuBarIsHidden {
+          Caption = Barra de Menús oculta
+          Hint =
+        }
+        CheckBox:SaveBeforeContinue {
+          Caption = Guardar antes de continuar
+          Hint =
+        }
+      }
+    }
+    Tab:Print {
+      Caption = Im&amp;primir
+      Hint =
+      Tab:HeaderFooter {
+        Caption = Encabezado/Pie de página
+        Hint =
+        GroupBox:Footer {
+          Caption = Pie
+          Hint =
+          CheckBox:Mirror {
+            Caption = Espejo
+            Hint =
+          }
+          Edit:Footer {
+            Hint = Click derecho para ver el menú contextual
+          }
+          GroupBox:Appearance {
+            Caption = Apariencia
+            Hint =
+            Button:LineAboveColor {
+              Hint = Color de línea superior
+            }
+            Button:ShadowColor {
+              Hint = Color de Sombreado
+            }
+            CheckBox:Box {
+              Caption = Caja
+              Hint =
+            }
+            CheckBox:LineAbove {
+              Caption = Línea superior
+              Hint =
+            }
+            CheckBox:Shadow {
+              Caption = Sombreado
+              Hint =
+            }
+          }
+          RadioButton:Center {
+            Caption = Centrado
+            Hint =
+          }
+          RadioButton:Left {
+            Caption = Alinear a la izquierda
+            Hint =
+          }
+          RadioButton:Right {
+            Caption = Alinear a la derecha
+            Hint =
+          }
+        }
+        GroupBox:Header {
+          Caption = Encabezado
+          Hint =
+          CheckBox:Mirror {
+            Caption = Espejo
+            Hint =
+          }
+          Edit:Header {
+            Hint = Click derecho para ver el menú contextual
+          }
+          GroupBox:Appearance {
+            Caption = Apariencia
+            Hint =
+            Button:LineUnderColor {
+              Hint = Color de la línea inferior
+            }
+            Button:ShadowColor {
+              Hint = Color de sombreado
+            }
+            CheckBox:Box {
+              Caption = Caja
+              Hint =
+            }
+            CheckBox:LineUnder {
+              Caption = Línea inferior
+              Hint =
+            }
+            CheckBox:Shadow {
+              Caption = Sombreado
+              Hint =
+            }
+          }
+          RadioButton:Center {
+            Caption = Centrado
+            Hint =
+          }
+          RadioButton:Left {
+            Caption = Alinear a la izquierda
+            Hint =
+          }
+          RadioButton:Right {
+            Caption = Alinear a la derecha
+            Hint =
+          }
+        }
+      }
+      Tab:MarginOptions {
+        Caption = Márgenes/O&amp;pciones
+        Hint =
+        CheckBox:LineNumbers {
+          Caption = Líneas num&amp;eradas
+          Hint =
+        }
+        CheckBox:LineNumbersInMargin {
+          Caption = Número de líneas en el mar$gen
+          Hint =
+        }
+        CheckBox:MirrorMargins {
+          Caption = Márgenes simétricos
+          Hint =
+        }
+        CheckBox:SyntaxPrint {
+          Caption = Imprimir colores de sinta&amp;xis
+          Hint =
+        }
+        CheckBox:UseColors {
+          Caption = &amp;Usar colores
+          Hint =
+        }
+        CheckBox:WrapLines {
+          Caption = Salto de línea automático
+          Hint =
+        }
+        ComboBox:Units {
+          Hint =
+          Items = {"mm"
+                   "cm"
+                   "Pulgadas"
+                   "Milésimas de pulgada"
+          }
+        }
+        Edit:Bottom {
+          Hint =
+        }
+        Edit:Footer {
+          Hint =
+        }
+        Edit:Gutter {
+          Hint =
+        }
+        Edit:Header {
+          Hint =
+        }
+        Edit:Left {
+          Hint =
+        }
+        Edit:Right {
+          Hint =
+        }
+        Edit:Top {
+          Hint =
+        }
+        GroupBox:HeaderFooter {
+          Caption = Encabezado/Pie de página (HF)
+          Hint =
+          Edit:InternalMargin {
+            Hint =
+          }
+          Edit:LeftTextIndent {
+            Hint =
+          }
+          Edit:RightTextIndent {
+            Hint =
+          }
+          Label:InternalMargin {
+            Caption = &amp;Margen Interno:
+            Hint =
+          }
+          Label:LeftTextIndent {
+            Caption = Sangría a la izquierda:
+            Hint =
+          }
+          Label:RightTextIndent {
+            Caption = Sangría a la derecha:
+            Hint =
+          }
+        }
+        Label:Bottom {
+          Caption = Inferior:
+          Hint =
+        }
+        Label:Footer {
+          Caption = &amp;Pie de página:
+          Hint =
+        }
+        Label:Gutter {
+          Caption = &amp;Margen:
+          Hint =
+        }
+        Label:Header {
+          Caption = &amp;Encabezado:
+          Hint =
+        }
+        Label:Left {
+          Caption = Izquierda:
+          Hint =
+        }
+        Label:Right {
+          Caption = Derecha:
+          Hint =
+        }
+        Label:Top {
+          Caption = Superior:
+          Hint =
+        }
+        Label:Units {
+          Caption = &amp;Unidades :
+          Hint =
+        }
+      }
+      Tab:PageSample {
+        Caption = Ejemplo de página
+        Hint =
+      }
+    }
+    Tab:Run {
+      Caption = Ejecuta&amp;r
+      Hint =
+      CheckBox:AutoShowMessages {
+        Caption = Mostrar automaticamente ventana Mensagens
+        Hint =
+      }
+      CheckBox:AutoShowOutput {
+        Caption = Mostrar a&amp;utomaticamente Log de Salida
+        Hint =
+      }
+      CheckBox:IgnoreAnalyzer {
+        Caption = &amp;Ignorar errores del Analizador
+        Hint =
+      }
+      CheckBox:MinimizeOnDebug {
+        Caption = Minimi&amp;zar al depurar
+        Hint =
+      }
+      CheckBox:MinimizeOnRun {
+        Caption = &amp;Minimizar al ejecutar
+        Hint =
+      }
+      GroupBox:Parameters {
+        Caption = Parámetros adicionales
+        Hint =
+        ComboBox:AnalyzerParameters {
+          Hint =
+        }
+        ComboBox:DebuggerParameters {
+          Hint =
+        }
+        GroupBox:Compiler {
+          Caption = Compilador ( G77.EXE [Opciones] Origen -o Dest [Librerías] )
+          Hint =
+          ComboBox:Libraries {
+            Hint =
+          }
+          ComboBox:Options {
+            Hint =
+          }
+          Label:Libraries {
+            Caption = Librerías:
+            Hint =
+          }
+          Label:Options {
+            Caption = Opciones:
+            Hint =
+          }
+        }
+        Label:Analyzer {
+          Caption = A&amp;nalizador (ftnchek):
+          Hint =
+        }
+        Label:Debugger {
+          Caption = Depurador (GDB):
+          Hint =
+        }
+      }
+      GroupBox:RunWith {
+        Caption = Ejecutar con
+        Hint =
+        RadioButton:BAT {
+          Caption = archivo &amp;BAT
+          Hint =
+        }
+        RadioButton:Console {
+          Caption = &amp;Consola
+          Hint =
+        }
+        RadioButton:EXE {
+          Caption = E&amp;XE (directo)
+          Hint =
+        }
+        RadioButton:PIF {
+          Caption = archivo PI&amp;F
+          Hint =
+        }
+      }
+      Label:ProcessPriority {
+        Caption = Pri&amp;oridad del Proceso
+        Hint =
+      }
+    }
+  }
+  Form:PrintPreview {
+    Caption = Vista preliminar
+    Hint =
+    Action:Close {
+      Caption = Cerrar
+      Hint = Cerrar
+      Shortcut = Alt+F4
+    }
+    Action:First {
+      Caption = Primera página
+      Hint = Va a la primera página
+      Shortcut =
+    }
+    Action:Last {
+      Caption = Última página
+      Hint = Va a la aúltima página
+      Shortcut =
+    }
+    Action:Next {
+      Caption = Página Siguiente
+      Hint = Va a la página siguiente
+      Shortcut =
+    }
+    Action:Previous {
+      Caption = Página previa
+      Hint = Va a la página anterior
+      Shortcut =
+    }
+    Action:ZoomIn {
+      Caption = Zoom Más
+      Hint = Amplía el Zoom
+      Shortcut =
+    }
+    Action:ZoomOut {
+      Caption = Zoom Menos
+      Hint = Reduce el zoom
+      Shortcut =
+    }
+    Toolbar:PrintPreview {
+      Caption = Vista preliminar
+      Hint =
+      ComboBox:Zoom {
+        Hint =
+        Strings = {"500%"
+                   "400%"
+                   "200%"
+                   "150%"
+                   "100%"
+                   "75%"
+                   "50%"
+                   "25%"
+                   "10%"
+                   "Alto de página"
+                   "Ajustar a la página"
+        }
+      }
+      Edit:Page {
+        Caption = 1
+        Hint =
+      }
+      Label:Of {
+        Caption = de
+      }
+      Label:Page {
+        Caption = Página
+      }
+    }
+  }
+  Form:Process {
+    Caption = Proceso
+    Hint =
+    Button:Cancel {
+      Caption = Cancelar
+      Hint =
+    }
+    Label:Errors {
+      Caption = Errores:
+      Hint =
+    }
+    Label:File {
+      Hint =
+    }
+    Label:Hits {
+      Caption = Avisos:
+      Hint =
+    }
+    Label:Lines {
+      Caption = Líneas:
+      Hint =
+    }
+    Label:Message {
+      Hint =
+    }
+    Label:Processing {
+      Caption = Procesando:
+      Hint =
+    }
+  }
+  Form:Replace {
+    Caption = Sustituir
+    Hint =
+    Button:Cancel {
+      Caption = Cancelar
+      Hint =
+    }
+    Button:Help {
+      Caption = Ay&amp;uda
+      Hint =
+    }
+    Button:OK {
+      Caption = OK
+      Hint =
+    }
+    Button:ReplaceAll {
+      Caption = Sustituir &amp;todo
+      Hint =
+    }
+    ComboBox:Find {
+      Hint =
+    }
+    ComboBox:Replace {
+      Hint =
+    }
+    GroupBox:Direction {
+      Caption = Dirección
+      Hint =
+      RadioButton:Backward {
+        Caption = &amp;Atrás
+        Hint =
+      }
+      RadioButton:Forward {
+        Caption = Ad&amp;elante
+        Hint =
+      }
+    }
+    GroupBox:Options {
+      Caption = Opciones
+      Hint =
+      CheckBox:CaseSensitive {
+        Caption = &amp;Distinguir mayúsculas/minúsculas
+        Hint =
+      }
+      CheckBox:Prompt {
+        Caption = Pr&amp;eguntar al sustituir
+        Hint =
+      }
+      CheckBox:WholeWordsOnly {
+        Caption = Palabras enteras
+        Hint =
+      }
+    }
+    GroupBox:Origin {
+      Caption = Origen
+      Hint =
+      RadioButton:EntireScope {
+        Caption = &amp;Todo
+        Hint =
+      }
+      RadioButton:FromCursor {
+        Caption = Desde el &amp;cursor
+        Hint =
+      }
+    }
+    GroupBox:Scope {
+      Caption = Ambito
+      Hint =
+      RadioButton:Global {
+        Caption = &amp;Global
+        Hint =
+      }
+      RadioButton:SelectedText {
+        Caption = Texto &amp;seleccionado
+        Hint =
+      }
+    }
+    Label:Find {
+      Caption = Buscar por:
+      Hint =
+    }
+    Label:Replace {
+      Caption = Sus&amp;tituir por:
+      Hint =
+    }
+  }
+}
+STRINGS {
+  ButtonAbort = Abortar
+  ButtonAll = &amp;Todos
+  ButtonCancel = Cancelar
+  ButtonClose = &amp;Cerrar
+  ButtonHelp = Ay&amp;uda
+  ButtonIgnore = &amp;Ignorar
+  ButtonNo = &amp;No
+  ButtonOK = OK
+  ButtonRetry = &amp;Repetir
+  ButtonYes = &amp;Si
+  ColorBG = FN
+  ColorFB = FF
+  ColorFG = FR
+  LingoAuthor = "Autor: "
+  LingoEmail = "Email: "
+  LingoFilename = "Archivo: "
+  LingoLangID = "LangID: "
+  LingoLanguage = "Idioma: "
+  LingoVersion = "Versión: "
+  MsgDlgAbort = &amp;Abortar
+  MsgDlgAll = &amp;Todos
+  MsgDlgCancel = Cancelar
+  MsgDlgConfirm = Confirme
+  MsgDlgError = Error
+  MsgDlgHelp = Ay&amp;uda
+  MsgDlgHelpHelp = Ayuda
+  MsgDlgHelpNone = No hay ayuda disponible
+  MsgDlgIgnore = &amp;Ignorar
+  MsgDlgInformation = Información
+  MsgDlgNo = &amp;No
+  MsgDlgNoToAll = N&amp;o a Todo
+  MsgDlgOK = OK
+  MsgDlgRetry = &amp;Reintentar
+  MsgDlgWarning = Aviso
+  MsgDlgYes = &amp;Si
+  MsgDlgYesToAll = Si a &amp;Todos
+  PriorityHigher = Alta
+  PriorityHighest = Altísima
+  PriorityIdle = Ociosa
+  PriorityLower = Bajaa
+  PriorityLowest = Bajísima
+  PriorityNormal = Normal
+  PriorityTimeCritical = Crítica
+  strAnalyzed = Listo.       Analizado.
+  strAnalyzerFailure = Error.       Fallo del Analizador.
+  strAnalyzing = Analizando...
+  strCantExecuteAnalyzer = Error.       No fue posible ejecutar el Analizador.
+  strCantExecuteCompiledFile = Error.       No fue posible ejecutar el archivo compilado.
+  strCantExecuteCompiler = Error.       No fue posible ejecutar el Compilador.
+  strCantExecuteDebugger = Error.       No fue posible ejecutar el Depurador.
+  strCompiled = Listo.       Compilado.
+  strCompiling = Compilando...
+  strCreatingEnvironment = Creando entorno...
+  strDebugging = Depurando...
+  strDefault = Por defecto (Interno)
+  strDoNotShowThisMessageAgain = No volver a mostrar este mensage.
+  strError = Error
+  strErrorsEncountered = Listo.       Errores encontrados.
+  strForce2Dialog = Archivo Fuente de Force (*.f,*.for,*.f90)|*.f;*.for;*.f90|Todos los archivos|*.*
+  strForce2Link = %s en Internet
+  strGeneratedBy = Creado por %s - %s
+  strHTMLExportDialog = Documento HTML(*.htm,*.html)|*.htm;*.html
+  strHeaderText = {"C"
+                   "C NOMBRE:"
+                   "C AUTOR:"
+                   "C DESCRIPCION:"
+                   "C FECHA:"
+                   "C"
+                   ""
+  }
+  strInsert = Insertar
+  strMayBe = Tal vez
+  strModified = Modificado
+  strMoreButtons = Más Botones
+  strMsgAssociateExtension = Desea asociar los archivos con extención .f a %s?
+  strMsgClearHistory = Está seguro que quiere borrar el histórico?
+  strMsgExtensionNotFound = {"Disculpe, extensión no encontrada. Por favor baje:"
+                             ""
+                             ""
+                             "%s"
+                             ""
+                             ""
+                             "Ir a página del Proyecto %s?"
+  }
+  strMsgFileMissing = {"FAlta el archivo %s."
+                       "(Por favor reinstale %s para resolver este problema)"
+                       "Desea continuar? (No será posible compilar)"
+  }
+  strMsgMenuInvisible = La Barra de Menús no está visible. Desea mostrarla?
+  strMsgReplaceOccurrence = Sustituir esta ocurrencia de '%s'?
+  strMsgSaveBeforeContinue = {"Guardar antes de continuar?"
+                              ""
+                              "Nota 1: Es necesario guardar los archivos incluidos."
+                              "Nota 2: Si escoge no, Force continuará con un archivo temporal."
+  }
+  strMsgSetAutoSaveSetting = {"Si escoge '%s'."
+                              "Marcar 'Guardar automaticamente antes de continuar' en Opciones -&gt; General?"
+  }
+  strMsgShowMenu = Presione %s para mostrar de nuevo la Barra de Menús.
+  strMsgStringNotFound = No se encontro el texto '%s'.
+  strNone = (ninguno)
+  strNothing = (ninguno)
+  strOK = OK
+  strOverwrite = Sobreescribir
+  strRTFExportDialog = Rich Text Format (*.rtf)|*.rtf
+  strRunning = Ejecutando...
+  strRunningAnalyzer = Ejecutando Analizador...
+  strSaveChanges = Desea Grabar los cambios?
+  strSource = Fuente
+  strSourceFileDescription = Archivo Fuente del %s
+  strStarting = Iniciando...
+  strTerminatedByUser = Error.       Interrumpido por el usuario.
+  strUnknownFailure = Error.       Fallo desconocido.
+  strVerifyingComponents = Verificando componentes...
+  strWaitingProcess = Esperando terminar proceso ... %d
+  strWarning = Aviso
+}
+
+</PRE></BODY></HTML>

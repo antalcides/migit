@@ -1,0 +1,473 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0083)http://es.geocities.com/fisicas/formulas/matematicas/formulas_metodos_numericos.htm -->
+<HTML><HEAD><TITLE>Métodos numéricos</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="Iñaki Carrascal Mozo" name=Author>
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY background="Métodos numéricos_archivos/textura.gif">
+<CENTER>
+<TABLE cols=1 width="100%" bgColor=#ffcc33>
+  <TBODY>
+  <TR>
+    <TD>
+      <CENTER><B><FONT size=+3>Métodos 
+  numéricos</FONT></B></CENTER></TD></TR></TBODY></TABLE></CENTER>
+<CENTER> <BR>[<A 
+href="http://es.geocities.com/fisicas/formulas/matematicas/formulas_metodos_numericos.htm#Raíces de ecuaciones">Raíces 
+de ecuaciones</A>] [<A 
+href="http://es.geocities.com/fisicas/formulas/matematicas/formulas_metodos_numericos.htm#Derivación numérica">Derivación 
+numérica</A>] [<A 
+href="http://es.geocities.com/fisicas/formulas/matematicas/formulas_metodos_numericos.htm#Integración numérica">Integración 
+numérica</A>] [<A 
+href="http://es.geocities.com/fisicas/formulas/matematicas/formulas_metodos_numericos.htm#Interpolación y aproximación">Interpolación 
+y aproximación</A>] [<A 
+href="http://es.geocities.com/fisicas/formulas/matematicas/formulas_metodos_numericos.htm#Ecuaciones diferenciales">Ecuaciones 
+diferenciales</A>] <BR>&nbsp;</CENTER>
+<CENTER>
+<TABLE width="100%" border=1>
+  <TBODY>
+  <TR bgColor=#ccffff>
+    <TD colSpan=2>
+      <CENTER><A name="Raíces de ecuaciones"></A><B><FONT size=+2>Raíces de 
+      ecuaciones</FONT></B></CENTER></TD></TR>
+  <TR>
+    <TD>Regla de Horner o de división sintética</TD>
+    <TD>Evaluar un polinomio en un punto x<SUB>o</SUB> es equivalente a 
+      calcular el resto de la división por x - x<SUB>o</SUB>. (Es decir, hacemos 
+      "Ruffini" y nos quedamos con el resto)</TD></TR>
+  <TR>
+    <TD>Raíces múltiples de ecuaciones algebraicas</TD>
+    <TD>La condición necesaria y suficiente para que un número x<SUB>o</SUB> 
+      sea una raíz múltiple de orden k de un polinomio P (x) es que anule a 
+      dicho polinomio y a sus k - 1 primeras derivadas, pero no a la 
+    siguiente.</TD></TR>
+  <TR>
+    <TD>Raíces enteras de ecuaciones</TD>
+    <TD>- Toda raíz entera de una ecuación algebraica con coeficientes enteros 
+      es un divisor del término independiente. <BR>- Toda raíz entera de una 
+      ecuación P (x) = 0, donde los coeficiente de P (x) son enteros, verifica 
+      simultáneamente: <BR>&nbsp;P (1) es múltiplo de (x<SUB>o</SUB> - 1) 
+      <BR>&nbsp;P (-1) es múltiplo de (x<SUB>o</SUB> + 1)</TD></TR>
+  <TR>
+    <TD>Raíces fraccionarias de ecuaciones algebraicas</TD>
+    <TD>Para encontras las raíces fraccionarias de la ecuación P (x) = 
+      a<SUB>n</SUB> x<SUP>n</SUP> + a<SUB>n-1</SUB> x<SUP>n-1</SUP> + ... + 
+      a<SUB>1</SUB> x + a<SUB>o</SUB>, se efectúa la transformación x = y / 
+      a<SUB>n</SUB>, calculándose las raíces enteras de esta nueva ecuación. 
+      Después se deshace el cambio.</TD></TR>
+  <TR>
+    <TD>Cota de Cardano - Vieta de las raíces reales de una ecuación</TD>
+    <TD>Si todas las raíces de la ecuación P (x) = a<SUB>n</SUB> x<SUP>n</SUP> 
+      + a<SUB>n-1</SUB> x<SUP>n-1</SUP> + ... + a<SUB>1</SUB> x + a<SUB>o</SUB> 
+      = 0 son REALES, se verifica que <FONT face=Symbol>½ </FONT>M <FONT 
+      face=Symbol>½£</FONT> [ (a<SUB>n-1</SUB> / a<SUB>n</SUB>)<SUP>2</SUP> - 2 
+      (a<SUB>n-2</SUB> / a<SUB>n</SUB>) ] <SUP>1/2</SUP> <BR>siendo 
+      x<SUB><BLINK>i</BLINK></SUB> <FONT face=Symbol>Î</FONT> [- M , M] para 
+      toda raíz x<SUB>i</SUB> de la ecuación P (x) = 0.</TD></TR>
+  <TR>
+    <TD><B>Teorema de Bolzano</B></TD>
+    <TD>Sea y = f (x) continua en el intervalo [a, b], teniendo f (a) y f (b) 
+      signos opuestos, entonces existe un punto intermedio c <FONT 
+      face=Symbol>Î</FONT> (a, b) que anula la función: f (c) = 0</TD></TR>
+  <TR>
+    <TD><B>Método de la bisección</B> o del semi-intervalo</TD>
+    <TD>Básándose en el terorema de Bolzano, partimos de un intervalo en el 
+      que la función cambia de signo y evaluamos el signo de la función en el 
+      punto medio de dicho intervalo. <BR>Reduciremos el nuevo intervalo a aquél 
+      en el que se produzca de nuevo un cambio de signo. Repitiendo el proceso 
+      hasta obtener la precisión requerida.</TD></TR>
+  <TR>
+    <TD><B>Método de iteración del punto fijo</B></TD>
+    <TD>Consideremos una ecuación de la forma f (x) = 0, en la cual podremos 
+      despejar x "en función de x" (curioso, ¿no?), es decir la escribimos de la 
+      forma x = g (x). <BR>Partimos de un punto x<SUB>o</SUB>, de forma que la 
+      primera iteración será x<SUB>1</SUB> = g (x<SUB>o</SUB>); la segunda: 
+      x<SUB>2</SUB> = g (x<SUB>1</SUB>), etc. <BR>En general: <B>x<SUB>n</SUB> = 
+      g (x<SUB>n-1</SUB>)</B></TD></TR>
+  <TR>
+    <TD>
+      <DIV align=right>Convergencia del método:&nbsp;</DIV></TD>
+    <TD>- 1 &lt; g' (x<SUB>o</SUB>) &lt; 1</TD></TR>
+  <TR>
+    <TD><B>Método de Newton - Raphson</B></TD>
+    <TD>Partimos de un punto x<SUB>o</SUB> y calculamos el punto x<SUB>1</SUB> 
+      donde corla la recta tangente a la curva y = f (x) desde ese punto con el 
+      eje de abcisas. <BR>x<SUB>1</SUB> = x<SUB>o</SUB> - [ f (x<SUB>o</SUB>) / 
+      f ' (x<SUB>o</SUB>) ] <BR>En general: <B>x<SUB>n+1</SUB> = x<SUB>n</SUB> - 
+      [ f (x<SUB>n</SUB>) / f ' (x<SUB>n</SUB>) ]</B> <BR>Inconveniente: debemos 
+      evaluar la función y la derivada en cada punto.</TD></TR>
+  <TR>
+    <TD>
+      <DIV align=right>Convergencia del método:&nbsp;</DIV></TD>
+    <TD><FONT face=Symbol>½</FONT>g ' (x<SUB>o</SUB>)<FONT 
+      face=Symbol>½</FONT> &lt; 1</TD></TR>
+  <TR>
+    <TD><B>Método de Newton modificado</B></TD>
+    <TD><B>x<SUB>n+1</SUB> = x<SUB>n</SUB> - [ f (x<SUB>n</SUB>) / f ' 
+      (x<SUB>o</SUB>) ]</B> <BR>Evaluamos la derivada sólo en el primer 
+  punto.</TD></TR></TBODY></TABLE></CENTER>
+<TABLE width="100%" border=1>
+  <TBODY>
+  <TR bgColor=#ccffff>
+    <TD colSpan=2>
+      <CENTER><A name="Derivación numérica"></A><B><FONT size=+2>Derivación 
+      numérica</FONT></B></CENTER></TD></TR>
+  <TR>
+    <TD>Desarrollo&nbsp; en serie de Taylor en torno al punto x<SUB>o</SUB></TD>
+    <TD>f (x) <FONT face=Symbol>@</FONT> f (x<SUB>o</SUB>) + f 
+      '(x<SUB>o</SUB>) (x - x<SUB>o</SUB>) / 1! + f ''(x<SUB>o</SUB>) (x - 
+      x<SUB>o</SUB>)<SUP>2</SUP> / 2! + f '''(x<SUB>o</SUB>) (x - 
+      x<SUB>o</SUB>)<SUP>3</SUP> / 3! + ...</TD></TR>
+  <TR>
+    <TD>
+      <DIV align=right>Nos quedamos con los dos primeros 
+términos:&nbsp;</DIV></TD>
+    <TD>f (x) <FONT face=Symbol>@</FONT> f (x<SUB>o</SUB>) + f 
+      '(x<SUB>o</SUB>) (x - x<SUB>o</SUB>) +&nbsp; ...</TD></TR>
+  <TR>
+    <TD>
+      <DIV align=right>Evaluamos en el punto x = x<SUB>o</SUB> + 
+h&nbsp;</DIV></TD>
+    <TD>f (x<SUB>o</SUB> + h) <FONT face=Symbol>@</FONT> f (x<SUB>o</SUB>) + f 
+      '(x<SUB>o</SUB>) h + O (h<SUP>2</SUP>)&nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <DIV align=right>Primera aproximación a la derivada:&nbsp;</DIV></TD>
+    <TD><B>f '(x<SUB>o</SUB>)&nbsp; = [ f (x<SUB>o</SUB> + h) - f 
+      (x<SUB>o</SUB>) ] / h + O (h)&nbsp;</B></TD></TR>
+  <TR>
+    <TD>
+      <DIV align=right>Segunda aproximación a la derivada:&nbsp;</DIV></TD>
+    <TD><B>f '(x<SUB>o</SUB>)&nbsp; = [ f (x<SUB>o</SUB> + h) - f 
+      (x<SUB>o</SUB>- h) ] / (2 h) + O 
+(h<SUP>2</SUP>)&nbsp;</B></TD></TR></TBODY></TABLE>
+<CENTER>
+<TABLE width="100%" border=1>
+  <TBODY>
+  <TR bgColor=#ccffff>
+    <TD colSpan=2>
+      <CENTER><A name="Integración numérica"></A><B><FONT size=+2>Integración 
+      numérica</FONT></B></CENTER></TD></TR>
+  <TR>
+    <TD><SUB>a</SUB><FONT face=Symbol>ò</FONT><SUP>b</SUP> f (x) dx&nbsp;</TD>
+    <TD>La integral definida entre a y b de la función f (x) nos da el área de 
+      la región limitada por la curva y = f (x) y el eje x</TD></TR>
+  <TR>
+    <TD>Tamaño del paso h</TD>
+    <TD>h = (b - a) / N <BR>donde N es el número de intervalos</TD></TR>
+  <TR>
+    <TD><B>Regla del rectángulo</B></TD>
+    <TD><SUB>a</SUB><FONT face=Symbol>ò</FONT><SUP>b</SUP> f (x) dx <FONT 
+      face=Symbol>@ </FONT><B>h [ f (a) + f (a + h) + f (a + 2h) + ... + f (b - 
+      h) ]</B></TD></TR>
+  <TR>
+    <TD></TD>
+    <TD><SUB>a</SUB><FONT face=Symbol>ò</FONT><SUP>b</SUP> f (x) dx <FONT 
+      face=Symbol>@ </FONT><B>h [ f (a + h) + f (a + 2h) + ... + f (b - h) + f 
+      (b)]</B></TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD>N sumandos</TD></TR>
+  <TR>
+    <TD></TD>
+    <TD>Error: O (h)</TD></TR>
+  <TR>
+    <TD><B>Regla del punto medio</B></TD>
+    <TD><SUB>a</SUB><FONT face=Symbol>ò</FONT><SUP>b</SUP> f (x) dx <FONT 
+      face=Symbol>@ </FONT><B>h [ f (a + h/2) + f (a + 3h/2) + ... + f (b - h/2) 
+      ]</B></TD></TR>
+  <TR>
+    <TD></TD>
+    <TD>N sumandos</TD></TR>
+  <TR>
+    <TD></TD>
+    <TD>Error: O (h<SUP>2</SUP>)</TD></TR>
+  <TR>
+    <TD><B>Regla del trapecio</B></TD>
+    <TD><SUB>a</SUB><FONT face=Symbol>ò</FONT><SUP>b</SUP> f (x) dx <FONT 
+      face=Symbol>@ </FONT><B>h [ f (a) / 2 + f (a + h) + f (a + 2h) + ... + f 
+      (b - h) + f (b) / 2 ]</B></TD></TR>
+  <TR>
+    <TD></TD>
+    <TD>N + 1 sumandos</TD></TR>
+  <TR>
+    <TD></TD>
+    <TD>Error: O (h<SUP>2</SUP>)</TD></TR>
+  <TR>
+    <TD><B>Regla de Simpson 1/3</B></TD>
+    <TD><SUB>a</SUB><FONT face=Symbol>ò</FONT><SUP>b</SUP> f (x) dx <FONT 
+      face=Symbol>@ </FONT><B>h/3 [ f (a) + 4 f (a + h) + 2 f (a + 2h) + 4 f (a 
+      + 3h) + 2 f (a + 4h) ... + f (b)]</B></TD></TR>
+  <TR>
+    <TD></TD>
+    <TD>N debe ser un número par</TD></TR>
+  <TR>
+    <TD></TD>
+    <TD>N + 1 sumandos</TD></TR>
+  <TR>
+    <TD></TD>
+    <TD>Error: O (h<SUP>4</SUP>)</TD></TR>
+  <TR>
+    <TD><B>Método de Romberg</B></TD>
+    <TD>En combinación con el método del trapecio</TD></TR>
+  <TR>
+    <TD></TD>
+    <TD>I<SUB>c</SUB> (h) = I<SUB>v</SUB> + a h<SUP>2</SUP> + O 
+      (h<SUP>4</SUP>) <BR>I<SUB>c</SUB> (h/2) = I<SUB>v</SUB> + a 
+      (h/2)<SUP>2</SUP> + O (h<SUP>4</SUP>)</TD></TR>
+  <TR>
+    <TD></TD>
+    <TD>Multiplicando la segunda ecuación por 4, restando la primera y 
+      despejando I<SUB>v</SUB>, se obtiene: <BR>I<SUB>v</SUB> = [ 4 
+      I<SUB>c</SUB> (h/2) - I<SUB>c</SUB> (h) ] / 3 + O (h<SUP>4</SUP>)</TD></TR>
+  <TR>
+    <TD></TD>
+    <TD>Después se repite el proceso.</TD></TR></TBODY></TABLE></CENTER>
+<CENTER>
+<TABLE width="100%" border=1>
+  <TBODY>
+  <TR bgColor=#ccffff>
+    <TD colSpan=2>
+      <CENTER><A name="Interpolación y aproximación"></A><B><FONT 
+      size=+2>Interpolación y aproximación</FONT></B></CENTER></TD></TR>
+  <TR>
+    <TD><B>Interpolación lineal</B></TD>
+    <TD>Polinomio interpolador de primer grado que pasa por los puntos 
+      P<SUB>o</SUB> (x<SUB>o</SUB>, f (x<SUB>o</SUB>)) y P<SUB>1</SUB> 
+      (x<SUB>1</SUB>, f (x<SUB>1</SUB>))</TD></TR>
+  <TR>
+    <TD></TD>
+    <TD><B>P (x) = f (x<SUB>o</SUB>) + (x - x<SUB>o</SUB>) [ f (x<SUB>1</SUB>) 
+      - f (x<SUB>o</SUB>) ] / [x<SUB>1</SUB> - x<SUB>o</SUB>]</B></TD></TR>
+  <TR>
+    <TD><B>Interpolación de Lagrange</B></TD>
+    <TD>Dados (n+1) puntos, se trata de calcular el polinomio interpolador de 
+      grado n que pasa por todos ellos.</TD></TR>
+  <TR>
+    <TD>
+      <DIV align=right>Si n = 2 (tres puntos)&nbsp;</DIV></TD>
+    <TD>P<SUB>o</SUB> (x<SUB>o</SUB>, f (x<SUB>o</SUB>)) , P<SUB>1</SUB> 
+      (x<SUB>1</SUB>, f (x<SUB>1</SUB>)) ,&nbsp; P<SUB>2</SUB> (x<SUB>2</SUB>, f 
+      (x<SUB>2</SUB>))</TD></TR>
+  <TR>
+    <TD></TD>
+    <TD><B>P (x) = f (x<SUB>o</SUB>) L<SUB>o</SUB> (x) + f (x<SUB>1</SUB>) 
+      L<SUB>1</SUB> (x) + f (x<SUB>2</SUB>) L<SUB>2</SUB> (x)</B></TD></TR>
+  <TR>
+    <TD>
+      <DIV align=right>donde:&nbsp;</DIV></TD>
+    <TD>L<SUB>o</SUB> (x) = [ (x - x<SUB>1</SUB>) (x - x<SUB>2</SUB>) ] / [ 
+      (x<SUB>o</SUB> - x<SUB>1</SUB>) (x<SUB>o</SUB> - x<SUB>2</SUB>) ]</TD></TR>
+  <TR>
+    <TD></TD>
+    <TD>L<SUB>1</SUB> (x) = [ (x - x<SUB>o</SUB>) (x - x<SUB>2</SUB>) ] / [ 
+      (x<SUB>1</SUB> - x<SUB>o</SUB>) (x<SUB>1</SUB> - x<SUB>2</SUB>) ]</TD></TR>
+  <TR>
+    <TD></TD>
+    <TD>L<SUB>2</SUB> (x) = [ (x - x<SUB>o</SUB>) (x - x<SUB>1</SUB>) ] / [ 
+      (x<SUB>2</SUB> - x<SUB>o</SUB>) (x<SUB>2</SUB> - x<SUB>1</SUB>) ]</TD></TR>
+  <TR>
+    <TD><B>Recta de mínimos cuadrados</B></TD>
+    <TD><B>y = a + b x</B></TD></TR>
+  <TR>
+    <TD></TD>
+    <TD>Construimos la función de dos variables: <BR>f (a, b) = <FONT 
+      face=Symbol>S </FONT>(a + b x<SUB>i</SUB> - y<SUB>i</SUB>)<SUP>2</SUP> 
+      <BR>donde el sumatorio se extiende desde i = 1 al número de datos n. 
+      <BR>La condición de mínimo (o máximo) exige que <FONT face=Symbol>¶ 
+      </FONT>f / <FONT face=Symbol>¶ </FONT>a = 0 y que <FONT face=Symbol>¶ 
+      </FONT>f / <FONT face=Symbol>¶ </FONT>b = 0. <BR>Ello conduce al 
+    sistema:</TD></TR>
+  <TR>
+    <TD></TD>
+    <TD><B>a n + b <FONT face=Symbol>S </FONT>x<SUB>i</SUB> = <FONT 
+      face=Symbol>S </FONT>y<SUB>i</SUB></B></TD></TR>
+  <TR>
+    <TD></TD>
+    <TD><B>a <FONT face=Symbol>S </FONT>x<SUB>i</SUB> + b <FONT face=Symbol>S 
+      </FONT>x<SUB>i</SUB><SUP>2</SUP> = <FONT face=Symbol>S 
+      </FONT>x<SUB>i</SUB> y<SUB>i</SUB></B></TD></TR>
+  <TR>
+    <TD><B>Parábola de mínimos cuadrados</B></TD>
+    <TD><B>y = a + b x + c x<SUP>2</SUP></B></TD></TR>
+  <TR>
+    <TD></TD>
+    <TD>Construimos la función de tres variables: <BR>f (a, b, c) = <FONT 
+      face=Symbol>S </FONT>(a + b x<SUB>i</SUB> + c x<SUB>i</SUB><SUP>2</SUP> - 
+      y<SUB>i</SUB>)<SUP>2</SUP> <BR>donde el sumatorio se extiende desde i = 1 
+      al número de datos n. <BR>La condición de mínimo (o máximo) exige que 
+      <FONT face=Symbol>¶ </FONT>f / <FONT face=Symbol>¶ </FONT>a = <FONT 
+      face=Symbol>¶ </FONT>f / <FONT face=Symbol>¶ </FONT>b = <FONT 
+      face=Symbol>¶ </FONT>f / <FONT face=Symbol>¶ </FONT>c = 0. <BR>Ello 
+      conduce al sistema:</TD></TR>
+  <TR>
+    <TD></TD>
+    <TD><B>a n + b <FONT face=Symbol>S </FONT>x<SUB>i</SUB> + c <FONT 
+      face=Symbol>S </FONT>x<SUB>i</SUB><SUP>2</SUP> = <FONT face=Symbol>S 
+      </FONT>y<SUB>i</SUB></B></TD></TR>
+  <TR>
+    <TD></TD>
+    <TD><B>a <FONT face=Symbol>S </FONT>x<SUB>i</SUB> + b <FONT face=Symbol>S 
+      </FONT>x<SUB>i</SUB><SUP>2</SUP> + c <FONT face=Symbol>S 
+      </FONT>x<SUB>i</SUB><SUP>3</SUP> = <FONT face=Symbol>S 
+      </FONT>x<SUB>i</SUB> y<SUB>i</SUB></B></TD></TR>
+  <TR>
+    <TD></TD>
+    <TD><B>a <FONT face=Symbol>S </FONT>x<SUB>i</SUB><SUP>2</SUP> + b <FONT 
+      face=Symbol>S </FONT>x<SUB>i</SUB><SUP>3</SUP> + c <FONT face=Symbol>S 
+      </FONT>x<SUB>i</SUB><SUP>4</SUP> = <FONT face=Symbol>S 
+      </FONT>x<SUB>i</SUB><SUP>2</SUP> y<SUB>i</SUB></B></TD></TR>
+  <TR>
+    <TD><B>Tipo potencial</B></TD>
+    <TD><B>y = a x<SUP>b</SUP></B></TD></TR>
+  <TR>
+    <TD></TD>
+    <TD>Tomando logaritmos (da igual en qué base, por ejemplo neperianos -en 
+      base e-) <BR>ln y = ln a + b ln x <BR>Llamando <BR>&nbsp;Y = ln y 
+      <BR>&nbsp;A = ln a <BR>&nbsp;X = ln X <BR>podemos reducir el problema a la 
+      recta de mínimos cuadrados: Y = A + b X <BR>(No olvidar deshacer los 
+      cambios)</TD></TR>
+  <TR>
+    <TD><B>Tipo exponencial</B></TD>
+    <TD><B>y = a b<SUP>x</SUP></B></TD></TR>
+  <TR>
+    <TD></TD>
+    <TD>Tomando logaritmos (da igual en qué base, por ejemplo neperianos -en 
+      base e-) <BR>ln y = ln a + x ln b <BR>Llamando <BR>&nbsp;Y = ln y 
+      <BR>&nbsp;A = ln a <BR>&nbsp;B = ln b <BR>podemos reducir el problema a la 
+      recta de mínimos cuadrados: Y = A + B x <BR>(No olvidar deshacer los 
+      cambios)</TD></TR></TBODY></TABLE></CENTER>
+<CENTER>
+<TABLE width="100%" border=1>
+  <TBODY>
+  <TR bgColor=#ccffff>
+    <TD colSpan=2>
+      <CENTER><A name="Ecuaciones diferenciales"></A><B><FONT size=+2>Ecuaciones 
+      diferenciales</FONT></B></CENTER></TD></TR>
+  <TR>
+    <TD colSpan=2>
+      <CENTER>Queremos resolver la ecuación diferencial y' = f (x, y) con la 
+      condición y (x<SUB>o</SUB>) = y<SUB>o</SUB></CENTER></TD></TR>
+  <TR>
+    <TD><B>Método de Taylor de tres términos</B></TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>
+      <DIV align=right>Desarrollo en serie de Taylor:&nbsp;</DIV></TD>
+    <TD>y (x) <FONT face=Symbol>@</FONT> y (x<SUB>o</SUB>) + y 
+      '(x<SUB>o</SUB>) (x - x<SUB>o</SUB>) / 1! + y ''(x<SUB>o</SUB>) (x - 
+      x<SUB>o</SUB>)<SUP>2</SUP> / 2! + ...</TD></TR>
+  <TR>
+    <TD>
+      <DIV align=right>Evaluamos en el punto x = x<SUB>n</SUB> + h (con 
+      x<SUB>o</SUB> = x<SUB>n</SUB>):&nbsp;</DIV></TD>
+    <TD>y (x<SUB>n</SUB> + h) <FONT face=Symbol>@</FONT> y (x<SUB>n</SUB>) + y 
+      '(x<SUB>n</SUB>) h + y ''(x<SUB>n</SUB>) h<SUP>2</SUP> / 2! + ...</TD></TR>
+  <TR>
+    <TD>
+      <DIV align=right>En una notación más compacta:&nbsp;</DIV></TD>
+    <TD><B>y<SUB>n+1</SUB> = y<SUB>n</SUB> + y<SUB>n</SUB>' h + 
+      y<SUB>n</SUB>'' h<SUP>2</SUP> / 2</B></TD></TR>
+  <TR>
+    <TD><B>Método de Euler o de las tangentes</B></TD>
+    <TD>y<SUB>n+1</SUB> = y<SUB>n</SUB> + y<SUB>n</SUB>' h =&nbsp; 
+      <BR><B>y<SUB>n+1</SUB> = y<SUB>n</SUB> + h f (x<SUB>n</SUB>, 
+      y<SUB>n</SUB>)</B></TD></TR>
+  <TR>
+    <TD><B>Método de Euler modificado</B></TD>
+    <TD><B>y<SUB>n+1</SUB> = y<SUB>n</SUB> + (h/2) [ f (x<SUB>n</SUB>, 
+      y<SUB>n</SUB>) + f (x<SUB>n+1</SUB>, y*<SUB>n+1</SUB>) ]</B></TD></TR>
+  <TR>
+    <TD>
+      <DIV align=right>donde&nbsp;</DIV></TD>
+    <TD><B>y*<SUB>n+1</SUB> = y<SUB>n</SUB> + h f (x<SUB>n</SUB>, 
+      y<SUB>n</SUB>)</B></TD></TR>
+  <TR>
+    <TD><B>Método de Runge - Kutta</B></TD>
+    <TD><B>y<SUB>n+1</SUB> = y<SUB>n</SUB> + [k<SUB>1</SUB> + 2 k<SUB>2</SUB> 
+      + 2 k<SUB>3</SUB> + k<SUB>4</SUB>] / 6</B></TD></TR>
+  <TR>
+    <TD>
+      <DIV align=right>donde&nbsp;</DIV></TD>
+    <TD><B>k<SUB>1</SUB> = h f (x<SUB>n</SUB>, y<SUB>n</SUB>)</B></TD></TR>
+  <TR>
+    <TD></TD>
+    <TD><B>k<SUB>2</SUB> = h f (x<SUB>n</SUB>+ h/2, y<SUB>n</SUB>+ 
+      k<SUB>1</SUB>/2)</B></TD></TR>
+  <TR>
+    <TD></TD>
+    <TD><B>k<SUB>3</SUB> = h f (x<SUB>n</SUB>+ h/2, y<SUB>n</SUB>+ 
+      k<SUB>2</SUB>/2)</B></TD></TR>
+  <TR>
+    <TD></TD>
+    <TD><B>k<SUB>4</SUB> = h f (x<SUB>n</SUB>+ h, y<SUB>n</SUB>+ 
+      k<SUB>3</SUB>)</B></TD></TR>
+  <TR bgColor=#ccffff>
+    <TD colSpan=2>
+      <CENTER><B><FONT size=+1>Sistemas de ecuaciones diferenciales de primer 
+      orden</FONT></B></CENTER></TD></TR>
+  <TR>
+    <TD>
+      <CENTER>x ' (t) = f (t, x, y) <BR>y ' (t) = g (t, x, y)</CENTER></TD>
+    <TD>
+      <CENTER>x (t<SUB>o</SUB>) = x<SUB>o</SUB> <BR>y (t<SUB>o</SUB>) = 
+      y<SUB>o</SUB></CENTER></TD></TR>
+  <TR>
+    <TD><B>Taylor</B></TD>
+    <TD><B>x<SUB>n+1</SUB> = x<SUB>n</SUB> + x<SUB>n</SUB>' h + 
+      x<SUB>n</SUB>'' h<SUP>2</SUP> / 2</B> <BR><B>y<SUB>n+1</SUB> = 
+      y<SUB>n</SUB> + y<SUB>n</SUB>' h + y<SUB>n</SUB>'' h<SUP>2</SUP> / 
+  2</B></TD></TR>
+  <TR>
+    <TD><B>Euler</B></TD>
+    <TD><B>x<SUB>n+1</SUB> = x<SUB>n</SUB> + h x<SUB>n</SUB>'&nbsp;</B> 
+      <BR><B>y<SUB>n+1</SUB> = y<SUB>n</SUB> + h y<SUB>n</SUB>'</B></TD></TR>
+  <TR>
+    <TD>
+      <DIV align=right>donde&nbsp;</DIV></TD>
+    <TD>x<SUB>n</SUB>'&nbsp; = f (t<SUB>n</SUB>, x<SUB>n</SUB>, y<SUB>n</SUB>) 
+      <BR>y<SUB>n</SUB>'&nbsp; = g (t<SUB>n</SUB>, x<SUB>n</SUB>, y<SUB>n</SUB>) 
+      <BR>x<SUB>n</SUB>''&nbsp; = f ' (t<SUB>n</SUB>, x<SUB>n</SUB>, 
+      y<SUB>n</SUB>) <BR>y<SUB>n</SUB>''&nbsp; = g ' (t<SUB>n</SUB>, 
+      x<SUB>n</SUB>, y<SUB>n</SUB>)</TD></TR></TBODY></TABLE></CENTER>
+<CENTER>
+<TABLE cols=1 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#cccccc>
+      <CENTER>Página inicial: <A 
+      href="http://es.geocities.com/fisicas/">http://es.geocities.com/fisicas/</A></CENTER></TD></TR>
+  <TR>
+    <TD bgColor=#cccccc>
+      <CENTER>Esta sección (desde la página inicial): FÓRMULAS MATEMÁTICAS / 
+      MÉTODOS NUMÉRICOS</CENTER></TD></TR>
+  <TR bgColor=#cccccc>
+    <TD>
+      <CENTER>© <A href="http://es.geocities.com/autores.htm">Los autores: 
+      <B>Mari Paz Hortelano Gómez</B> e <B>Iñaki Carrascal Mozo</B></A> 
+      ©</CENTER></TD></TR>
+  <TR bgColor=#cccccc>
+    <TD>
+      <CENTER>Castrillo de Don Juan. Palencia. (España)</CENTER></TD></TR>
+  <TR bgColor=#cccccc>
+    <TD>
+      <CENTER>Correo electrónico: <A 
+      href="mailto:fisicas@yahoo.es">fisicas@yahoo.es</A></CENTER></TD></TR>
+  <TR bgColor=#cccccc>
+    <TD>
+      <CENTER>Última modificación: 
+21/09/2001</CENTER></TD></TR></TBODY></TABLE></CENTER><!-- text below generated by server. PLEASE REMOVE --></OBJECT></LAYER>
+<DIV></DIV></SPAN></STYLE></NOSCRIPT></TABLE></SCRIPT></APPLET>
+<SCRIPT language=JavaScript 
+src="Métodos numéricos_archivos/ygIELib9.js"></SCRIPT>
+
+<SCRIPT language=JavaScript>var yviContents='http://es.toto.geo.yahoo.com/toto?s=382026084&l=NE&b=1&t=1066842661';yviR='es';yfiEA(0);</SCRIPT>
+
+<SCRIPT language=JavaScript src="Métodos numéricos_archivos/mc.js"></SCRIPT>
+
+<SCRIPT language=JavaScript src="Métodos numéricos_archivos/geov2.js"></SCRIPT>
+
+<SCRIPT language=javascript>geovisit();</SCRIPT>
+<NOSCRIPT><IMG height=1 alt=setstats src="Métodos numéricos_archivos/visit.gif" 
+width=1 border=0></NOSCRIPT> <IMG height=1 alt=1 
+src="Métodos numéricos_archivos/serv.gif" width=1> </BODY></HTML>

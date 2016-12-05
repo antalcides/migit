@@ -1,0 +1,62 @@
+%% This document created by Scientific Word (R) Version 3.0
+
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{CSTFile=LaTeX article (bright).cst}
+%TCIDATA{Created=Thu Oct 02 11:11:11 2003}
+%TCIDATA{LastRevised=Thu Oct 02 11:11:50 2003}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="General\Blank Document">}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\begin{document}
+
+
+\begin{theorem}
+Sea $u$ soluci\'{o}n positiva y de clase $C^{2}$ de
+\begin{equation}
+-\Delta u=g\left(  u\right)  \text{ \ \ en\ }\mathbb{R}^{n}\text{, }%
+n\geq3,\tag{19}%
+\end{equation}
+con $u\left(  x\right)  =O\left(  \left|  x\right|  ^{-m}\right)  $ en el
+infinito, $m>0$.
+
+Sup\'{o}ngase: \textbf{(i)} En el intervalo $0\leq u\leq u_{0}$ donde
+$u_{0}=\max u$, $g=g_{1}+g_{2}$ con $g_{1}\in C^{1}$, $g_{2}$ continua y
+mon\'{o}tona no decreciente. \textbf{(ii)} Para alg\'{u}n \linebreak
+$\alpha>\max\left\{  \frac{n+1}{m},\frac{2}{m}+1\right\}  $, $g\left(
+u\right)  =O\left(  u^{\alpha}\right)  $ cerca de $u=0$. Entonces $u\left(
+x\right)  $ es esf\'{e}ricamente sim\'{e}trica alrededor de alg\'{u}n punto de
+$\mathbb{R}^{n}$ y $u_{r}<0$ para $r>0,$ donde $r$ es la coordenada radial
+alrededor de ese punto. Adem\'{a}s
+\begin{equation}
+\lim_{\left|  x\right|  \rightarrow\infty}\left|  x\right|  ^{n-2}u\left(
+x\right)  =k>0\text{.}\tag{20}%
+\end{equation}
+\end{theorem}
+\end{document}

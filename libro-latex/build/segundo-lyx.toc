@@ -1,0 +1,16 @@
+\select@language {spanish}
+\contentsline {chapter}{\numberline {1}Edici\'on B\'asica}{1}{chapter.1}
+\etoc@startlocaltoc {1}
+\contentsline {section}{\numberline {1.1}Introducci\IeC {\'o}n}{2}{section.1.1}
+\contentsline {section}{\numberline {1.2}Ordenes en \TeX {}\tmspace +\thinmuskip {.1667em} y \LaTeX {}:}{2}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Ejemplos de comandos}{2}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Caracteres especiales}{3}{subsection.1.2.2}
+\contentsline {section}{\numberline {1.3}Miprimerdocumento}{3}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Estructura de un fichero de entrada}{3}{subsection.1.3.1}
+\contentsline {section}{\numberline {1.4}El formato del documento}{5}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}Clases de documentos}{5}{subsection.1.4.1}
+\contentsline {subsection}{\numberline {1.4.2}Paquetes}{5}{subsection.1.4.2}
+\contentsline {subsection}{\numberline {1.4.3}Estilo de p\'agina}{7}{subsection.1.4.3}
+\contentsline {section}{\numberline {1.5}Proyectosgrandes}{7}{section.1.5}
+\contentsline {section}{\numberline {1.6}resumen}{8}{section.1.6}
+\contentsfinish

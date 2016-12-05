@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0056)http://garota.fismat.umich.mx/mn1/tutor_fort/basics.html -->
+<HTML><HEAD><TITLE>Tutorial de Fortran</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY background="Tutorial de Fortranint_archivos/default.gif">
+<H2>3. Introducción a Fortran 77</H2>Un programa de Fortran es una secuencia de 
+líneas de texto. El texto debe de seguir una determinada <EM>sintaxis</EM> para 
+ser un programa válido de Fortran. Se analiza el siguiente ejemplo: <PRE>      program circulo
+      real r, area
+
+c Este programa lee un número real r y muestra
+c el área del círculo con radio r.
+
+      write (*,*) 'Escribe el radio r:'
+      read  (*,*) r
+      area = 3.14159*r*r
+      write (*,*) 'Area = ', area
+
+      stop
+      end
+</PRE>Las líneas que comienzan con el caracter "c" son <EM>comentarios</EM> y no 
+tienen otro propósito más que hacer los programas más legibles. Originalmente 
+todos los programas de Fortran tenían que ser escritos solamente con letras 
+mayúsculas, actualmente se pueden escribir con minúsculas con lo cual se mejora 
+la legibilidad, por lo que se hará de esa forma. 
+<H3>Organización del Programa</H3>Un programa de Fortran por lo general consiste 
+de un programa principal o <EM>main</EM> (o manejador) y posiblemente varios 
+subprogramas ( o procedimientos o subrutinas). Por el momento se considerara que 
+todas las sentencias están en el programa principal; los subprogramas se 
+revisarán más adelante. La estructura del programa principal es: <PRE>      program <EM>name</EM>
+      <EM>declarations</EM>
+      <EM>statements</EM>
+      stop
+      end
+</PRE>En este tutorial las palabras que esten en <EM>itálicas</EM> no deberán 
+ser tomadas en forma literal, sino como una descripción general. La sentencia 
+<TT>stop</TT> es opcional y podría ser vista como redundante ya que el programa 
+terminará cuando alcance el fin, pero se recomienda que el programa termine con 
+la sentecia <TT>stop</TT> para resaltar que la ejecución del programa ahí 
+termina. 
+<H3>Reglas para la posición en columnas</H3>Fortran 77 <EM>no</EM> es un 
+lenguaje de formato libre, ya que tiene un conjunto de reglas estrictas de como 
+el código fuente debe ser formateado. Las reglas más importantes son las reglas 
+para la posición en columnas: <PRE>Col. 1    : Blanco (espacio), o un caracter "c" o "*" para comentarios
+Col. 2-5  : Etiqueta de sentencia (opcional)
+Col. 6    : Continuación de una línea previa (opcional)
+Col. 7-72 : Sentencias
+Col. 73-80: Número de secuencia (opcional, raramente usado actualmente)
+</PRE>Muchas líneas de un programa de Fortran 77 inician con 6 espacios y 
+terminan antes de la columna 72, solamente el campo de sentencia es usado. Para 
+Fortran 90 se permite el libre formato. 
+<H3>Comentarios</H3>Una línea que inicia con una letra "c" o un asterisco en la 
+primera columna es un comentario. El comentario puede aparecer en cualquier 
+lugar del programa. El colocarlos en el lugar preciso incrementan la 
+legibilidad. Los códigos comerciales de Fortran contienen un 50% de comentarios. 
+Se pueden encontrar también programas que usan el signo de exclamación (!) para 
+comentarios. Lo anterior no es estándar en Fortran 77, pero esta permitido en 
+Fortran 90. El signo de exclamación puede aparecer en cualquier parte de la 
+línea excepto en las posiciones 2 a 6. 
+<H3>Continuación</H3>Ocasionalmente una sentencia no cabe en una sola línea. Se 
+puede dividir la sentencia en dos o más líneas , y usar la marca de continuación 
+en la posición 6. Ejemplo: <PRE>c23456789 <EM>(¡Esto muestra la posición de la columna!)</EM>
+c La siguiente sentencia esta en dos líneas físicas
+      area = 3.14159265358979
+     +       * r * r
+</PRE>Cualquier caracter puede ser usado en vez del signo "+" como caracter de 
+continuación. Se considera un buen estilo de programación usar el signo más, 
+ampersand o números (2 para la segunda línea, 3 para la tercera y así 
+sucesivamente). 
+<H3>Espacios en Blanco</H3>Los espacios en blanco son ignorados en Fortran 77. 
+Por lo tanto si se remueven todos los espacios en blanco en un programa de 
+Fortran 77, el programa sintácticamente es correcto, pero no es legible para los 
+humanos. 
+<P>
+<HR>
+
+<H3>Ejercicios</H3>
+<DL>
+  <DT>Ejercicio A 
+  <DD>Identificar al menos 3 errores del siguiente programa de Fortran 77: <PRE>c23456789 <EM>(¡Esto muestra la posición de la columna!)</EM>
+
+     programme
+     cc
+     integer ent
+     ent = 12
+     write(*,*) 'El valor del entero es',
++    ent
+     end
+     stop
+</PRE></DD></DL>
+<HR>
+&nbsp;[2. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/whatis.html">¿Qué es 
+Fortran?</A>] &nbsp;[<A 
+href="http://fismat.umich.mx/mn1/tutor_fort/index.html">Tutorial de Fortran</A>] 
+&nbsp;[4. <A href="http://garota.fismat.umich.mx/mn1/tutor_fort/unix.html">¿Cómo 
+usar Fortran con Linux?</A>] </BODY></HTML>

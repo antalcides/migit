@@ -1,0 +1,356 @@
+\documentclass[letter]{article}
+\usepackage[pdftex]{graphicx}
+\usepackage[ansinew]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsbsy}
+\usepackage{amssymb}
+\usepackage[spanish]{babel}
+\usepackage{float}
+\usepackage{fixseminar}
+\usepackage[display]{texpower}
+\usepackage[ams]{pdfslide}
+\usepackage{amsfonts}
+\setcounter{MaxMatrixCols}{30} \pagestyle{title}
+\begin{document}
+
+\title{\color{black}Soluci\'{o}n del problema de \textit{Dirichlet} por medio de la integral de \textit{Poisson}.}
+\author{\scalebox{1}[1.3]{\emph{\color{black}\textbf{Autor: Jorge E. Ospino Portillo} } }}
+
+
+%\convenio{Convenio}
+\orgname{\color{black}Universidad Nacional de Colombia\\
+(Sede Medell\'{i}n)}
+%\orgurl{\protect\color{black}http://www.unal.edu.co}
+
+\udea{\color{black}Universidad del Norte\\
+(Barranquilla)}
+
+\director{\scalebox{1}[1.3]{\color{black}\emph{\textbf{Director:
+Ph. D. Pedro Isaza Jaramillo.}} }}
+
+
+
+%\notes{\emph{Esta presentación fue desarrollada usando pdfslide class bajo Mik\TeX{}}.
+%\newline {\tiny{Copyright\copyright 2001 Roque Lobo Torres. All
+%rights reserved. \today{}}}}
+
+
+\overlay{fondo.jpg}
+\maketitle \pagedissolve{Wipe /D 3 /Dm /V
+/M/O} \overlay{fondo.jpg}
+
+\sffamily {\Large} \color{black} \headskip=20pt
+
+{\section{{\protect\Large \color{black}{Contenido:}}}\pause}
+
+\begin{itemize}
+\item[$\checkmark$] {\Large \emph{Objetivo.}\pause}
+
+\item[$\checkmark$] {\Large \emph{Introducci\'{o}n.}\pause}
+
+\item[$\checkmark$] {\Large \emph{Existencia de una vecindad
+tubular para $S$.}\pause}
+
+\item[$\checkmark$] {\Large \emph{Forma generalizada de la segunda
+identidad de \textit{Green}.}\pause}
+
+\item[$\checkmark$] {\Large \emph{Existencia de derivadas normales
+interiores.}\pause}
+
+\item[$\checkmark$] {\Large \emph{Resultado.}\pause}
+
+
+\end{itemize}
+
+{\Large \headskip=20pt }
+
+\section{{\protect\Large\textcolor[rgb]{1.00,1.00,1.00}{Objetivo}}}
+
+{\Large \pagedissolve{Wipe /D 3 /Di /V /M /O} \overlay{fondo.jpg} }{\large
+%\color{section2}
+%\color{section1}
+\color{white} }
+
+\begin{itemize}
+\item[$\checkmark$] {\Large \emph{\textbf{Objetivo:}\pause } }
+
+{Probar usando herramientas de la teor\'{i}a cl\'{a}sica del
+potencial que para un dominio regular $\Omega
+\subset\mathbb{R}^{n}$ con frontera $S=\partial\Omega$ de clase
+$C^{2}$, y $g\in C(S)$, la soluci\'{o}n $u\in C^{2}(\Omega)\cap
+C(\overline{\Omega})$, del problema \pause}
+
+{\begin{equation}
+\left\{ \begin{array}{ccc}
+\Delta u=0 & \mbox{en} & \Omega, \\
+u=g & \mbox{en} & S,
+\end{array} \right.
+\end{equation} \pause}
+{est\'{a} dada por
+\begin{equation}
+u(x)=\int_{S}\partial_{\nu_{y}}G(x,y)g(y)d\sigma(y),  x\in\Omega,
+\end{equation}\pause}
+
+\section{{\protect\Large\textcolor[rgb]{1.00,1.00,1.00}{Dominio regular}}}
+
+\begin{itemize}
+\item{$\Omega$ ser\'{a} un \textit{dominio regular} de clase
+$C^{2}$ en $\mathbb{R}^{n}$ con $\,n\geq3$ $,$ es decir, un
+subconjunto de $\mathbb{R}^{n}$ no vac\'{\i}o, abierto y acotado
+de frontera $S,$ para el cual se cumplen las siguientes
+propiedades: Para todo $x_{0}\in S$ existen una vecindad $U$ de
+$x_{0}$ en $\mathbb{R}^{n}$ y una funci\'{o}n $\phi
+:U\rightarrow\mathbb{R}$ de clase $C^{2}$ con
+$\nabla\phi(x)\neq0,\,$para toda
+$x\in S$ y tal que%
+\[
+S\cap U=\left\{  \left.  x\in U\right|  \,\phi(x)=0\right\}
+\]
+y%
+\[
+\Omega\cap U=\left\{  x\in U\left|  \,\phi(x)<0\right.  \right\} .
+\]}
+\end{itemize}
+
+\section{{\protect\Large\textcolor[rgb]{1.00,1.00,1.00}{Introducción}}}
+
+\item[$\checkmark$] {\Large \emph{\textbf{Introducci\'{o}n:}\pause
+} }
+
+ {Si supi\'{e}ramos que que $u$ no s\'{o}lo pertenece a
+$C^{2}(\Omega)\cap C(\overline{\Omega})$ si no que adem\'{a}s
+pertenece a $ C^{2}(\Omega)\cap C^{1}(\overline{\Omega})$ para
+$x\in\Omega$ usando la segunda identidad de Green cl\'{a}sica, la
+propiedad del valor medio para funciones arm\'{o}nicas y el
+potencial newtoniano $N$ para tener \pause}
+{\begin{equation}
+u(x)=\int\limits_{S}\partial_{\nu_{y}}M(x,y)g(y)d\sigma(y)-\int\limits_{S}%
+M(x,y)\partial_{\nu_{y}}u(y)d\sigma(y).%
+\end{equation} \pause}
+
+{$G:\Omega\times\overline{\Omega}\rightarrow\mathbb{R}$ que
+permita obtener una f\'{o}rmula similar a $(3)$ con $G$ en lugar
+de $M$ y con $G(x,y)=0$ para $y\in S$. As\'{i} se obtiene \pause}
+{$$u(x)=\int_{S}\partial_{\nu_{y}}G(x,y)g(y)d\sigma(y),$$ \pause}
+
+\section{{\protect\Large\textcolor[rgb]{1.00,1.00,1.00}{Vecindad}}}
+
+\item[$\checkmark$] {\Large \emph{\textbf{Existencia de una
+vecindad tubular para $S$:}}\pause}
+
+\vspace{6mm}
+
+{Sea $\Omega$ un dominio regular de clase $C^{2}$.
+Entonces:\pause}
+
+\vspace{4mm}
+
+\begin{itemize}
+\item[$\blacklozenge$] {Existen una vecindad $V$ de
+$S=\partial\Omega$ en $\mathbb{R}^{n}$ y un $\epsilon>0$ tales que
+la funci\'{o}n $F:S\times(-\epsilon,\epsilon)\rightarrow V$\
+definida por $F(x,t)=x+t\nu (x)$\ es un homeomorfismo de clase
+$C^{1}$.\pause}
+
+\vspace{2mm}
+
+\item[$\blacklozenge$] {Para $t\in(-\epsilon,0)$ $S_{t}:=\left\{
+x+t\nu(x)\left|  \,x\in S\right.  \right\}  $\ es una superficie
+de clase $C^{1},$\ y existe $\delta\in(0,\epsilon)$ tal que si
+$t\in(-\delta,0)$, $S_{t}$ es la frontera de un dominio regular
+$\Omega_{t}$ con $\overline{\Omega_{t}}\subset\Omega$.\pause}
+
+\vspace{2mm}
+
+\item[$\blacklozenge$] {Para $x\in S$ y $t\in(-\delta,0),$ si\
+$x^{\prime}=x+t\nu(x)$, entonces el vector normal unitario
+exterior a $S_{t}$\ en $x^{\prime}$\ es $\nu(x)$.\pause}
+
+\end{itemize}
+
+\section{{\protect\Large\textcolor[rgb]{1.00,1.00,1.00}{Vector normal}}}
+
+\begin{itemize}
+\item{\Large{Sea $x\in S$. Diremos que un vector\\
+$\nu\in\mathbb{R}^{n}\left\backslash \left\{ 0\right\} \right. ,$
+normal a $S$ en $x,$ es \textit{exterior,} si existe $\delta>0$
+tal que $x+t\nu\in\Omega^{\prime}$, para toda $t\in(0,\delta)$ y $x+t\nu\in\Omega$, para toda $t\in(-\delta,0)$.\\
+La funci\'{o}n $\nu:S\rightarrow\mathbb{R}^{n},$ es de clase
+$C^{1}.$\\
+El vector $\nu,$ normal a $S$ en $x,$ viene dado por
+$\nu=\nabla\phi(x)$, donde $\phi$ es una funci\'{o}n que define a
+$S$ en la vecindad de $x$ como en la definici\'{o}n de dominio
+regular.}}
+\end{itemize}
+
+\section{{\protect\Large \textcolor[rgb]{1.00,1.00,1.00}{Segunda identidad de Green}}}
+
+%\begin{itemize}
+\item[$\checkmark$] {\Large \emph{\textbf{Segunda identidad de
+\textit{Green} generalizada:}}\pause }
+
+\vspace{6mm}
+
+ {Si $u,\,v\in C^{2}(\Omega)\cap
+C(\overline{\Omega}),\,\Delta u,\,\Delta v\in L^{2}(\Omega)\,$y\
+$u\,$y\ $v$ tienen derivada normal interior en $S$ ,\ entonces \pause}%
+
+{\begin{equation} \int_{\Omega}\left(  u\Delta v-v\Delta u\right)
+\,dx=\int_{S} \left(  u\frac{\partial
+v}{\partial\nu^{-}}-v\frac{\partial u}{\partial\nu^{-}}\right)
+\,d\sigma.
+\end{equation} \pause}
+
+\section{{\protect\Large \textcolor[rgb]{1.00,1.00,1.00}{Primera identidad de Green}}}
+
+\begin{itemize}
+\item {\Large \textbf{Primera identidad de \textit{Green}
+generalizada:\pause}}
+
+\vspace{4mm}
+
+{Si $S$ es de clase $C^{2}$, $u\in C^{2}(\Omega),\,\Delta u\in
+L^{2}(\Omega),\,u$ tiene derivada normal interior en $S$ y $v \in
+C^{1}(\Omega)\cap{C}(\overline{\Omega})$, entonces \pause}%
+
+{\begin{equation} \int_{\Omega}v\Delta u\,dx=-\int_{\Omega}\nabla
+v\cdot\nabla u\,dx+\int_{S}v\frac{\partial u}{\partial\nu^{-}%
+}\,d\sigma.
+\end{equation} \pause}
+
+\end{itemize}
+
+
+\section{{\protect\Large \textcolor[rgb]{1.00,1.00,1.00}{Neumann}}}
+
+\begin{itemize}
+
+\item{{\Large{Problema exterior de Neumann en $\Omega$
+\begin{equation}
+\left\{
+\begin{array}
+[c]{c}%
+w\in C^{2}(\Omega^{\prime})\cap C(\overline{\Omega^{\prime}}),\\
+\Delta w=0\,\mbox{en }\Omega^{\prime},\\
+\frac{\partial w}{\partial\nu^{+}}=-g\mbox{ en }S,\\
+w(x)\longrightarrow0\mbox{ si }\left\|  x\right\|
+\rightarrow\infty,
+\end{array}
+\right.
+\end{equation} \pause}}}
+\end{itemize}
+\newpage
+
+\section{{\protect\Large \textcolor[rgb]{1.00,1.00,1.00}{Capa simple}}}
+\begin{itemize}
+\item{{Propiedades del potencial de capa simple asociado a
+$\psi\in L^{\infty}(\Omega)$,
+\[
+w(x)=\int_{S}M(x,y)\psi(y)\,d\sigma(y),\,\,x\in \mathbb{R}^{n},
+\] \pause}
+
+{\begin{enumerate}
+
+\item[i)] $\omega$ es arm\'{o}nica en $\mathbb{R}^{n}\setminus S$
+y $\omega(x)\rightarrow0$ cuando $\left\|  x\right\|
+\rightarrow\infty.$
+
+\item[ii)] $\omega\in C(\mathbb{R}^{n}).$
+
+\item[iii)] $\omega$ tiene derivadas normales interior y exterior
+en $S$,
+dadas por:%
+$$\frac{\partial\omega(x)}{\partial\nu^{-}}=-\frac{1}{2}\psi(x)+\int
+_{S}\partial_{\nu_{x}}M(y,x)\psi(y)d\sigma(y),\,\,x\in S,$$
+$$\frac{\partial\omega(x)}{\partial\nu^{+}}=\frac{1}{2}\psi(x)+\int
+_{S}\partial_{\nu_{x}}M(y,x)\psi(y)d\sigma(y),\,\ x\in S.$$
+\end{enumerate}} \pause}
+\end{itemize}
+
+\section{{\protect\Large \textcolor[rgb]{1.00,1.00,1.00}{Derivadas normales}}}
+%\begin{itemize}
+\item[$\checkmark$] {\Large \emph{\textbf{Existencia de derivadas
+normales interiores:}}\pause}
+
+\vspace{6mm}
+\begin{itemize}
+\item{{Si $f\in C^{1}(\Omega)\cap C(\overline{\Omega})$ y
+$$
+u(x)=\int_{\Omega}G(x,y)f(y)\,dy,\, x\in\overline{\Omega},
+$$\pause}
+{donde $G$ es la funci\'{o}n de \textit{Green} para el operador
+$\Delta,$ entonces $u$ tiene derivada normal interior en
+$S$.\pause}}
+
+\section{{\protect\Large \textcolor[rgb]{1.00,1.00,1.00}{Corolario 1}}}
+
+\item{\Large{{Si $g\in C^{3}(\mathbb{R}^{n})$ y $u\in
+C^{2}(\Omega)\cap
+C(\overline{\Omega})$ es la soluci\'{o}n de \pause}%
+{$$ \left\{
+\begin{array}
+[c]{c}%
+\Delta u=0\mbox{ en }\Omega,\\
+u=g\mbox{ en }S,
+\end{array}
+\right. $$ \pause}
+{entonces $\frac{\partial u}{\partial\nu^{-}}$
+existe en $S.$ \pause}}}
+
+\end{itemize}
+
+%\newpage
+
+\section{{\protect\Large\textcolor[rgb]{1.00,1.00,1.00}{Resultado}}}
+\item[$\checkmark$] {\Large \emph{\textbf{Resultado:}}\pause}
+
+\vspace{10mm}
+
+{Sea $\Omega$ en $\mathbb{R}^{n}$ un dominio regular de clase
+$C^{2},$ con frontera $S$ y con $\Omega^{\prime}$ conexo; y sea
+$g$ en $C(S)$. Entonces la soluci\'{o}n $u\in C^{2}(\Omega)\cap
+C(\overline{\Omega})$ del problema de \textit{Dirichlet} \pause}%
+{$$ \left\{
+\begin{array}
+[c]{c}%
+\Delta u=0\mbox{ \ \ en \ }\Omega,\\
+u=g\mbox{ \ \ en \ }S,
+\end{array}
+\right. $$ \pause}
+est\'{a} dada por%
+$$
+u(x)=\int\limits_{S}\partial_{\nu_{y}}G(x,y)g(y)d\sigma(y),\,\,\
+x\in\Omega. $$ \pause}
+
+\end{itemize}
+%\newpage
+\section{{\protect\Large \textcolor[rgb]{1.00,1.00,1.00}{Final}}}
+{\Large{$\{g_{j}\}_{j}$ sucesi\'{o}n de funciones en
+$C^{\infty}(\mathbb{R}^{n})$ que converja uniformemente a $g$ en
+$S$.}\\\pause}
+
+{\Large{Problema de Dirichlet cl\'{a}sico } \pause}
+
+{\Large{$$
+\left\{\begin{array}[c]{c}%
+\Delta u_{j}=0\mbox{ \ \ en \ }\Omega,\\
+u_{j}=g_{j}\mbox{ \ \ en \ }S.
+\end{array}
+\right. $$} \pause}
+
+%Gráfica
+\headskip=20pt
+\section{\textcolor[rgb]{1.00,1.00,1.00}{Figura 1}}
+\pagedissolve{Wipe /D 1 /Di /H /M /O} \overlay{fondo.jpg}
+\color{white}
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.7\textwidth]{fig7.jpg}\newline
+{\color{black}{figura 1.}}
+\end{center}
+\end{figure}
+
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

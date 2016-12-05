@@ -1,0 +1,653 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0067)http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwqm.html -->
+<HTML><HEAD><TITLE>Mecánica hamiltoniana clásica y mecánica cuántica</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2716.2200" name=GENERATOR></HEAD>
+<BODY 
+background="Mecánica hamiltoniana clásica y mecánica cuántica_archivos/fondolineas.gif">
+<H1 align=center><FONT color=#0000ff>Introducción a la mecánica cuántica y su 
+relación con la formulación hamiltoniana clásica</FONT> </H1>
+<H3 align=center><FONT color=#0000ff>M<SUB><FONT 
+face=symbol>e</FONT></SUB>cFunN<SUB><FONT face=symbol>e</FONT></SUB>t</FONT> 
+</H3>
+<P>
+<H2><A name=tth_sEc1>1</A>&nbsp;&nbsp;Introducción</H2>Se introduce a 
+continuación una formulación de la mecánica cuántica con dos características 
+fundamentales: brevedad y abstracción. Se trata de proporcionar una descripción 
+de la nueva visión cuántica del mundo mecánico en su aspecto formal, sin 
+descender a sus aplicaciones a casos concretos. Se inserta al final de un curso 
+de mecánica clásica, con objeto de recoger la <A 
+href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwhamilton.html">formulación 
+hamiltoniana</A> y mostrar su similitud con el tratamiento cuántico. Dado que se 
+busca una rápida exposición de los conceptos fundamentales, se omiten las 
+definiciones prolongadas o las discusiones de las condiciones matemáticas que 
+permitan dichas definiciones. 
+<H2><A name=tth_sEc2>2</A>&nbsp;&nbsp;Cinemática cuántica</H2>
+<P>La mecánica cuántica se ocupa, al igual que la clásica, del estudio de la 
+evolución de los sistemas físicos. Para ello se comienza con la determinación de 
+un marco conceptual diferente en el que formular la evolución de los sistemas. 
+Al igual que en los sistemas clásicos, se define un espacio de configuración. En 
+este espacio se elige un conjunto de coordenadas q<SUB>1</SUB>,<FONT 
+face=symbol>¼</FONT>,q<SUB>n</SUB> independientes y se asocia a cada función 
+compleja <FONT face=symbol>y</FONT>(q<SUB>1</SUB>,<FONT 
+face=symbol>¼</FONT>,q<SUB>n</SUB>)&nbsp;tal que&nbsp;&nbsp; <FONT 
+face=symbol>ò</FONT><SUB>Q<SUP>n</SUP></SUB> <FONT 
+face=symbol>y</FONT><SUP>*</SUP> <FONT face=symbol>y</FONT>d<SUP>n</SUP>q = 1 un 
+estado del sistema. Dicho estado no está representado por la 2n-erna 
+q<SUB>1</SUB>,<FONT face=symbol>¼</FONT>,q<SUB>n</SUB>,q<FONT 
+face=symbol>¢</FONT><SUB>1</SUB>,<FONT face=symbol>¼</FONT>,q<FONT 
+face=symbol>¢</FONT><SUB>n</SUB> ni por la 2n-erna q<SUB>1</SUB>,<FONT 
+face=symbol>¼</FONT>,q<SUB>n</SUB>,p<SUB>1</SUB>,<FONT 
+face=symbol>¼</FONT>,p<SUB>n</SUB> del espacio de fases, sino por una función 
+que toma valores complejos para cada n<FONT face=symbol>-</FONT>erna de valores 
+de las coordenadas. El número 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>P = <FONT 
+            face=symbol>y</FONT><SUP>*</SUP>(q<SUB>10</SUB>,<FONT 
+            face=symbol>¼</FONT>,q<SUB>n0</SUB>) <FONT 
+            face=symbol>y</FONT>(q<SUB>10</SUB>,<FONT 
+            face=symbol>¼</FONT>,q<SUB>n0</SUB>)</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>es 
+la probabilidad elemental de que en una medida de las coordenadas del sistema 
+éstas valgan q<SUB>10</SUB>,<FONT face=symbol>¼</FONT>,q<SUB>n0</SUB>. Más 
+precisamente, si k es un conjunto de posibles medidas del sistema 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>P(k <FONT face=symbol>Ì</FONT> 
+            Q<SUP>n</SUP>) = </TD>
+          <TD class=cl align=left><FONT face=symbol>ó<BR>õ </FONT></TD>
+          <TD noWrap align=middle><FONT size=-1></FONT><!--sup
+--><BR><BR><FONT size=-1>k</FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle><FONT face=symbol>y</FONT><SUP>*</SUP> <FONT 
+            face=symbol>y</FONT>d<SUP>n</SUP> q 
+  </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>representa la 
+probabilidad de que en una medida el valor de las coordenadas del sistema esté 
+en k. La diferencia más dramática entre la mecánica clásica y la cuántica radica 
+precisamente en la determinación del estado del sistema. En la primera, basta 
+con especificar el valor de la 2n-erna de coordenadas del espacio de fases; en 
+la última, se necesita una función compleja definida sobre un espacio de 
+configuración. Además, la interpretación final del estado en la mecánica clásica 
+es determinista, mientras que en la mecánica cuántica es probabilista. 
+<P>Es frecuente denotar el estado de un sistema cuántico mediante lo que se 
+conoce como un <EM>ket</EM> <FONT face=symbol>|</FONT><FONT face=symbol>y</FONT> 
+&gt; . Si F es un operador lineal que asocia a cada función compleja <FONT 
+face=symbol>j</FONT>(q<SUB>1</SUB>,<FONT face=symbol>¼</FONT>,q<SUB>n</SUB>) 
+otra función, entonces su efecto sobre <FONT face=symbol>|</FONT><FONT 
+face=symbol>y</FONT> &gt; se representa por 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>F<FONT face=symbol>|</FONT><FONT 
+            face=symbol>y</FONT> &gt; 
+</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>Dada una función 
+<FONT face=symbol>f</FONT>, al operador que asigna a cada<FONT 
+face=symbol>y</FONT> el complejo 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD class=cl align=left><FONT face=symbol>ó<BR>õ </FONT></TD>
+          <TD noWrap align=middle><FONT size=-1></FONT><!--sup
+--><BR><BR><FONT size=-1>Q<SUP>n</SUP></FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle><FONT face=symbol>f</FONT><SUP>*</SUP><FONT 
+            face=symbol>y</FONT>d<SUP>n</SUP> 
+q</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>se le denota por 
+&lt; <FONT face=symbol>f</FONT><FONT face=symbol>|</FONT> y recibe el nombre de 
+<EM>bra</EM>, de forma que 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>&lt; <FONT face=symbol>f</FONT><FONT 
+            face=symbol>|</FONT><FONT face=symbol>y</FONT> &gt; = </TD>
+          <TD class=cl align=left><FONT face=symbol>ó<BR>õ </FONT></TD>
+          <TD noWrap align=middle><FONT size=-1></FONT><!--sup
+--><BR><BR><FONT size=-1>Q<SUP>n</SUP></FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle><FONT face=symbol>f</FONT><SUP>*</SUP><FONT 
+            face=symbol>y</FONT>d<SUP>n</SUP> 
+q</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>y por tanto 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>&lt; <FONT face=symbol>y</FONT><FONT 
+            face=symbol>|</FONT><FONT face=symbol>y</FONT> &gt; = 
+      1</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>Si se define una 
+transformación elemental d<FONT face=symbol>|</FONT><FONT face=symbol>y</FONT> 
+&gt; = F<FONT face=symbol>|</FONT><FONT face=symbol>y</FONT> &gt; du que 
+represente el cambio a un nuevo estado del sistema, entonces, dado que &lt; 
+<FONT face=symbol>y</FONT><FONT face=symbol>|</FONT><FONT face=symbol>y</FONT> 
+&gt; = 1 se sigue 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>d &lt; <FONT face=symbol>y</FONT><FONT 
+            face=symbol>|</FONT><FONT face=symbol>y</FONT> &gt; = &lt; <FONT 
+            face=symbol>y</FONT><FONT face=symbol>|</FONT>F<SUP>*</SUP><FONT 
+            face=symbol>|</FONT><FONT face=symbol>y</FONT> &gt; du+ &lt; <FONT 
+            face=symbol>y</FONT><FONT face=symbol>|</FONT>F<FONT 
+            face=symbol>|</FONT><FONT face=symbol>y</FONT> &gt; du = 
+            0&nbsp;&nbsp;&nbsp; <FONT face=symbol>Þ</FONT>&nbsp;&nbsp;&nbsp; 
+            F+F<SUP>*</SUP> = 
+0</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>por lo que F tiene 
+que ser igual a la unidad imaginaria por un operador hermítico. Si se elige 
+representar cualquier transformación del estado de un sistema por un operador 
+hermítico F tal que 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>i (<SUP>h</SUP>/<SUB>2<FONT 
+            face=symbol>p</FONT></SUB>) d<FONT face=symbol>|</FONT><FONT 
+            face=symbol>y</FONT> &gt; = F<FONT face=symbol>|</FONT><FONT 
+            face=symbol>y</FONT> &gt; 
+du</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>
+<H2><A name=tth_sEc3>3</A>&nbsp;&nbsp;Dinámica cuántica</H2>Cuando un sistema 
+evoluciona, su estado es una función del tiempo, y puede ser representado por 
+<FONT face=symbol>y</FONT>(q<SUB>1</SUB>,<FONT 
+face=symbol>¼</FONT>,q<SUB>n</SUB>,t). La transformación elemental que define la 
+evolución temporal del estado es [1/(i(<SUP>h</SUP>/<SUB>2<FONT 
+face=symbol>p</FONT></SUB>) )] H donde H es un operador hermítico, llamado 
+<EM>hamiltoniano</EM>. De esta forma 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>i(<SUP>h</SUP>/<SUB>2<FONT 
+            face=symbol>p</FONT></SUB>) </TD>
+          <TD noWrap align=middle>d <FONT face=symbol>|</FONT><FONT 
+            face=symbol>y</FONT> &gt; 
+            <HR noShade>
+            dt<BR></TD>
+          <TD noWrap align=middle>= H<FONT face=symbol>|</FONT><FONT 
+            face=symbol>y</FONT> &gt; 
+</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>esta ecuación es la 
+<EM>ecuación de Schroedinger</EM> generalizada. En mecánca cuántica el operador 
+hamiltoniano define la evolución del sistema, como el hamiltoniano clásico lo 
+hace en la mecánica analítica. 
+<P>Si F,G son operadores hermíticos y se somete un sistema a una anticonmutación 
+de ambas transformaciones, se tiene 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>d<SUP>2</SUP> <FONT 
+            face=symbol>|</FONT><FONT face=symbol>y</FONT> &gt; = 
+            (i(<SUP>h</SUP>/<SUB>2<FONT face=symbol>p</FONT></SUB>))<SUP><FONT 
+            face=symbol>-</FONT>2</SUP> (FG<FONT face=symbol>-</FONT>GF)<FONT 
+            face=symbol>|</FONT><FONT face=symbol>y</FONT> &gt; du dv = 
+        </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>= (i(<SUP>h</SUP>/<SUB>2<FONT 
+            face=symbol>p</FONT></SUB>))<SUP><FONT face=symbol>-</FONT>1</SUP> ( 
+            (i(<SUP>h</SUP>/<SUB>2<FONT face=symbol>p</FONT></SUB>))<SUP><FONT 
+            face=symbol>-</FONT>1</SUP>(FG<FONT face=symbol>-</FONT>GF) )<FONT 
+            face=symbol>|</FONT><FONT face=symbol>y</FONT> &gt; du 
+        dv</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>es decir, 
+(i(<SUP>h</SUP>/<SUB>2<FONT face=symbol>p</FONT></SUB>))<SUP><FONT 
+face=symbol>-</FONT>1</SUP>(FG<FONT face=symbol>-</FONT>GF) = 
+(i(<SUP>h</SUP>/<SUB>2<FONT face=symbol>p</FONT></SUB>))<SUP><FONT 
+face=symbol>-</FONT>1</SUP>[F,G] representa la anticonmutación de las 
+transformaciones F,G. 
+<P>Sea &lt; <FONT face=symbol>f</FONT>(0)<FONT face=symbol>|</FONT>F(t)<FONT 
+face=symbol>|</FONT><FONT face=symbol>y</FONT>(0) &gt; = &lt; <FONT 
+face=symbol>f</FONT>(t)<FONT face=symbol>|</FONT>F<FONT 
+face=symbol>|</FONT><FONT face=symbol>y</FONT>(t) &gt; Entonces 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle>d &lt; <FONT face=symbol>f</FONT>(0)<FONT 
+            face=symbol>|</FONT>F(t)<FONT face=symbol>|</FONT><FONT 
+            face=symbol>y</FONT>(0) &gt; 
+            <HR noShade>
+            dt<BR></TD>
+          <TD noWrap align=middle>= &lt; <FONT face=symbol>f</FONT>(0)<FONT 
+            face=symbol>|</FONT> </TD>
+          <TD noWrap align=middle>d F(t)
+            <HR noShade>
+            dt<BR></TD>
+          <TD noWrap align=middle><FONT face=symbol>|</FONT><FONT 
+            face=symbol>y</FONT>(0) &gt; = 
+</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>= <FONT 
+            face=symbol>-</FONT>(i(<SUP>h</SUP>/<SUB>2<FONT 
+            face=symbol>p</FONT></SUB>))<SUP><FONT face=symbol>-</FONT>1</SUP> 
+            &lt; <FONT face=symbol>f</FONT>(t)<FONT face=symbol>|</FONT>HF<FONT 
+            face=symbol>|</FONT><FONT face=symbol>y</FONT>(t) &gt; + 
+            (i(<SUP>h</SUP>/<SUB>2<FONT face=symbol>p</FONT></SUB>))<SUP><FONT 
+            face=symbol>-</FONT>1</SUP> &lt; <FONT face=symbol>f</FONT>(t)<FONT 
+            face=symbol>|</FONT>FH<FONT face=symbol>|</FONT><FONT 
+            face=symbol>y</FONT>(t) &gt; + &lt; <FONT 
+            face=symbol>f</FONT>(t)<FONT face=symbol>|</FONT> </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>F
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>t<BR></TD>
+          <TD noWrap align=middle><FONT face=symbol>|</FONT><FONT 
+            face=symbol>y</FONT>(t) &gt; 
+</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>por lo que 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>&nbsp;&nbsp;&nbsp;<FONT 
+            face=symbol>Þ</FONT>&nbsp;&nbsp;&nbsp; </TD>
+          <TD noWrap align=middle>d F(t)
+            <HR noShade>
+            dt<BR></TD>
+          <TD noWrap align=middle>= (i(<SUP>h</SUP>/<SUB>2<FONT 
+            face=symbol>p</FONT></SUB>))<SUP><FONT 
+            face=symbol>-</FONT>1</SUP>[F,H]+ </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>F
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>t<BR></TD>
+          <TD noWrap 
+align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>ecuación 
+similar a la formulación hamiltoniana con corchetes de Poisson para la mecánica 
+clásica. 
+<P>Un sistema cuántico evoluciona según la ecuación de Schroedinger siempre que 
+no se realice ninguna medida sobre el mismo. Un observable es un operador 
+hermítico. Los operadores hermíticos pueden diagonalizarse siendo todos sus 
+valores propios reales. Cuando se somete el sistema a una operación de medida de 
+un observable F cualquiera, ésta dará como resultado uno de sus valores propios; 
+cuál de ellos se obtendrá es una variable aleatoria. Si <FONT 
+face=symbol>|</FONT><FONT face=symbol>y</FONT><SUB>n</SUB> &gt; es el estado tal 
+que F<FONT face=symbol>|</FONT><FONT face=symbol>y</FONT><SUB>n</SUB> &gt; = 
+f<SUB>n</SUB> <FONT face=symbol>|</FONT><FONT face=symbol>y</FONT><SUB>n</SUB> 
+&gt; entonces la probabilidad de que f<SUB>n</SUB> sea el resultado de la medida 
+es <FONT face=symbol>|</FONT> &lt; <FONT face=symbol>y</FONT><SUB>n</SUB><FONT 
+face=symbol>|</FONT><FONT face=symbol>y</FONT> &gt; <FONT 
+face=symbol>|</FONT><SUP>2</SUP>. Después de la medida, si se obtiene el valor 
+f<SUB>n</SUB>, el estado del sistema es <FONT face=symbol>|</FONT><FONT 
+face=symbol>y</FONT><SUB>n</SUB> &gt; . 
+<P>Obviamente, dado que no todos los operadores hermíticos tienen los mismos 
+subespacios propios, la determinación del valor de un observable hace incierto 
+el valor de otros. El ejemplo más conocido de este hecho es la imposibilidad de 
+determinar simultáneamente la posición y la cantidad de movimiento de una 
+partícula <EM>principio de indeterminación de Heisenberg</EM>. 
+<P>Por ejemplo, una partícula sin espín viene descrita por un espacio de 
+configuración dado por el conjunto de posiciones del espacio tridimensional 
+habitual (prescindamos de modelos relativistas). Su estado se define por una 
+función compleja <FONT face=symbol>y</FONT>(x,y,z). La evolución en el tiempo de 
+este estado determina una nueva función <FONT face=symbol>y</FONT>(x,y,z,t). El 
+observable X viene definido por el operador 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>x <FONT 
+        face=symbol>y</FONT>(x,y,z)</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>Obviamente, 
+sus valores propios son todos los de x y sus estados propios son los descritos 
+por funciones de tipo delta de Dirac que se anulen en todo valor de x excepto en 
+el valor propio. El operador u observable <EM>cantidad de movimiento</EM> según 
+el eje x se define mediante su efecto 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>i (<SUP>h</SUP>/<SUB>2<FONT 
+            face=symbol>p</FONT></SUB>) </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT><FONT 
+            face=symbol>y</FONT>
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>x<BR></TD>
+          <TD noWrap 
+align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>Es 
+inmediato que 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>XP<SUB>x</SUB><FONT 
+            face=symbol>-</FONT>P<SUB>x</SUB> X = i(<SUP>h</SUP>/<SUB>2<FONT 
+            face=symbol>p</FONT></SUB>)</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>y, 
+llamando Q<SUB>1</SUB> = X,Q<SUB>2</SUB> = Y,Q<SUB>3</SUB> = Z, P<SUB>1</SUB> = 
+P<SUB>x</SUB>,P<SUB>2</SUB> = P<SUB>y</SUB>,P<SUB>3</SUB> = P<SUB>z</SUB>, se 
+tiene 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>[Q<SUB>i</SUB>,Q<SUB>j</SUB>] = 
+            0&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;&nbsp; [P<SUB>i</SUB>,P<SUB>j</SUB>] 
+            = 0&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;&nbsp; 
+            [Q<SUB>i</SUB>,P<SUB>j</SUB>] = i(<SUP>h</SUP>/<SUB>2<FONT 
+            face=symbol>p</FONT></SUB>) <FONT 
+          face=symbol>d</FONT><SUB>ij</SUB></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>
+<P>Por consiguiente, en la mecánica cuántica un operador F que represente un 
+observable realiza una transformación elemental en las funciones de onda 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>d<FONT face=symbol>|</FONT><FONT 
+            face=symbol>Y</FONT> &gt; = ( i </TD>
+          <TD noWrap align=middle>h
+            <HR noShade>
+            2<FONT face=symbol>p</FONT><BR></TD>
+          <TD noWrap align=middle>)<SUP><FONT face=symbol>-</FONT>1</SUP>F 
+            <FONT face=symbol>|</FONT><FONT face=symbol>Y</FONT> &gt; d<FONT 
+            face=symbol>a</FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>que 
+lleva aparejado un cambio en un observable cualquiera G que viene dado por 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>dG = (i </TD>
+          <TD noWrap align=middle>h
+            <HR noShade>
+            2<FONT face=symbol>p</FONT><BR></TD>
+          <TD noWrap align=middle>)<SUP><FONT face=symbol>-</FONT>1</SUP>[G,F] 
+            d<FONT 
+face=symbol>a</FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>Si 
+la transformación equivalente en mecánica clásica viene dada por la función f, 
+entonces, para una función g cualquiera del espacio de fases, se tiene 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>dg = [g,f] d<FONT 
+        face=symbol>a</FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>
+<P>Si se toman G,F como dos transformaciones, entonces (i [h/(2<FONT 
+face=symbol>p</FONT>)] )<SUP><FONT face=symbol>-</FONT>1</SUP>[G,F] representa 
+su anticonmutador, es decir, el resultado, en el límite, de la diferencia entre 
+las transformaciones compuestas en un orden y el inverso. Este anticonmutador es 
+otra transformación. Algunas transformaciones en mecánica cuántica tienen su 
+análogo en la mecánica clásica (translaciones, rotaciones sin espín, etc). Si 
+establecemos una relación entre las funciones clásicas y los observables 
+cuánticos consistente en representar la misma transformación, entonces 
+necesariamente se tiene que si F,G corresponden a las funciones clásicas f,g, 
+entonces (i [h/(2<FONT face=symbol>p</FONT>)] )<SUP><FONT 
+face=symbol>-</FONT>1</SUP>[F,G] corresponde a [f,g], por motivos puramente 
+geométricos ya que son los anticonmutadores de las transformaciones respectivas. 
+Por ejemplo, la relación 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>p<SUB>y</SUB> = 
+            [p<SUB>x</SUB>,<I>l</I><SUB>z</SUB>]</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>donde 
+l<SUB>z</SUB> = xp<SUB>y</SUB><FONT face=symbol>-</FONT>yp<SUB>z</SUB> 
+representa una rotación elemental en torno al eje z significa que una 
+translación elemental paralela al eje x, seguida de una rotación elemental 
+alrededor del eje z, una translación elemental opuesta a la primera (según el 
+nuevo eje x) y una rotación opuesta a la anterior, resulta en una translación 
+elemental según el eje y, quie es lo que representa p<SUB>y</SUB>. Obviamente, 
+esta relación geométrica debe preservarse en el formalismo cuántico, de modo que 
+
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>i </TD>
+          <TD noWrap align=middle>h
+            <HR noShade>
+            2<FONT face=symbol>p</FONT><BR></TD>
+          <TD noWrap align=middle>P<SUB>y</SUB> = 
+          [P<SUB>x</SUB>,L<SUB>z</SUB>]</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>Por 
+esta razón, la correspondencia entre observables cuánticos y funciones clásicas 
+lleva, de manera intrínseca (geométricamente hablando), a la relación entre 
+anticonmutadores y corchetes de Poisson<A 
+href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwqm.html#tthFtNtAAB" 
+name=tthFrefAAB><SUP>1</SUP></A>. 
+<P>Los corchetes de Poisson de las coordenadas canónicas (las transformaciones 
+dadas por sus anticonmutaciones) 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>[q<SUB>i</SUB>,p<SUB>j</SUB>] = <FONT 
+            face=symbol>d</FONT><SUB>ij</SUB> &nbsp;&nbsp;&nbsp;, 
+            &nbsp;&nbsp;&nbsp;[q<SUB>i</SUB>,q<SUB>j</SUB>] = 0 
+            &nbsp;&nbsp;&nbsp;, &nbsp;&nbsp;&nbsp; [p<SUB>i</SUB>,p<SUB>j</SUB>] 
+            = 0</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>originan bien la 
+transformación anulante o bien la identidad. Esta misma transformación ha de 
+resultar de la anticonmutación de las correspondientes transformaciones 
+canónicas. 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>[Q<SUB>i</SUB>,P<SUB>j</SUB>] = <FONT 
+            face=symbol>d</FONT><SUB>ij</SUB>i </TD>
+          <TD noWrap align=middle>h
+            <HR noShade>
+            2<FONT face=symbol>p</FONT><BR></TD>
+          <TD noWrap align=middle>&nbsp;&nbsp;&nbsp;, 
+            &nbsp;&nbsp;&nbsp;[Q<SUB>i</SUB>,Q<SUB>j</SUB>] = 0 
+            &nbsp;&nbsp;&nbsp;, &nbsp;&nbsp;&nbsp; [P<SUB>i</SUB>,P<SUB>j</SUB>] 
+            = 0</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>Existe una 
+formulación canónica de la mecánica cuántica, que partiendo de las relaciones de 
+anticonmutación anteriores, su bilinealidad, antisimetría y la identidad de 
+Jacobi, se desarrolla hasta la formulación dinámica de sus problemas. 
+<P>Para una partícula sin espín que evolucione en el espacio según un 
+hamiltoniano clásico h, puede buscarse el hamiltoniano cuántico H determinando 
+el operador equivalente, es decir, que realice la misma transformación que h. 
+Frecuentemente basta con encontrar una expresión similar sustituyendo los 
+operadores de posición y cantidad de movimiento por sus equivalentes cuánticos 
+y, si es necesario, simetrizando el operador obtenido. Por ejemplo, para un 
+oscilador armónico unidimensional cuyo hamiltoniano es 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>h(x,p<SUB>x</SUB>) = </TD>
+          <TD noWrap align=middle>p<SUB>x</SUB><SUP>2</SUP>
+            <HR noShade>
+            2m<BR></TD>
+          <TD noWrap align=middle>+</TD>
+          <TD noWrap align=middle>1
+            <HR noShade>
+            2<BR></TD>
+          <TD noWrap align=middle>k 
+  x<SUP>2</SUP></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>el 
+hamiltoniano cuántico es simplemente 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>H = </TD>
+          <TD noWrap align=middle>P<SUB>x</SUB><SUP>2</SUP>
+            <HR noShade>
+            2m<BR></TD>
+          <TD noWrap align=middle>+</TD>
+          <TD noWrap align=middle>1
+            <HR noShade>
+            2<BR></TD>
+          <TD noWrap align=middle>k X<SUP>2</SUP> 
+  </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>que representa la 
+operación 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle><FONT face=symbol>-</FONT></TD>
+          <TD noWrap align=middle>(<SUP>h</SUP>/<SUB>2<FONT 
+            face=symbol>p</FONT></SUB>)<SUP>2</SUP> 
+            <HR noShade>
+            2m<BR></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT><SUP>2</SUP> <FONT 
+            face=symbol>y</FONT>
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>x<SUP>2</SUP><BR></TD>
+          <TD noWrap align=middle>+ </TD>
+          <TD noWrap align=middle>1
+            <HR noShade>
+            2<BR></TD>
+          <TD noWrap align=middle>k x<SUP>2</SUP> <FONT 
+        face=symbol>y</FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>y 
+por lo tanto 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>i(<SUP>h</SUP>/<SUB>2<FONT 
+            face=symbol>p</FONT></SUB>) </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT><FONT 
+            face=symbol>y</FONT>
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>t<BR></TD>
+          <TD noWrap align=middle>= <FONT face=symbol>-</FONT></TD>
+          <TD noWrap align=middle>(<SUP>h</SUP>/<SUB>2<FONT 
+            face=symbol>p</FONT></SUB>)<SUP>2</SUP> 
+            <HR noShade>
+            2m<BR></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT><SUP>2</SUP> <FONT 
+            face=symbol>y</FONT>
+            <HR noShade>
+            <FONT face=symbol>¶</FONT>x<SUP>2</SUP><BR></TD>
+          <TD noWrap align=middle>+ </TD>
+          <TD noWrap align=middle>1
+            <HR noShade>
+            2<BR></TD>
+          <TD noWrap align=middle>k x<SUP>2</SUP> <FONT 
+        face=symbol>y</FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>de 
+esta forma, para algunos problemas, la versión hamiltoniana de la mecánica 
+clásica proporciona la base para el planteamiento del problema cuántico. 
+<P>
+<HR>
+
+<H3>Footnotes:</H3>
+<P><A name=tthFtNtAAB></A><A 
+href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwqm.html#tthFrefAAB"><SUP>1</SUP></A>Esta 
+correspondencia se matiza con algunas ideas de mecánica cuántica que en este 
+texto, por razones obvias, no se han presentado. 
+<P>
+<HR>
+<SMALL>File translated fromT<SUB><FONT size=-1>E</FONT></SUB>Xby <A 
+href="http://hutchinson.belmont.ma.us/tth/">T<SUB><FONT 
+size=-1>T</FONT></SUB>H</A>,version 2.56.<BR>On 23 Apr 2000, 16:48.</SMALL> 
+</BODY></HTML>

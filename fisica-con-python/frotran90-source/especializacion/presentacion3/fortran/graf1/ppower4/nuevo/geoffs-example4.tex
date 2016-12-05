@@ -1,0 +1,282 @@
+% example LaTeX file using Prosper to make PDF presentation
+%
+\documentclass[pdf,geoffs,slideColor,colorBG,total,accumulate]{prosper}
+%'geoffs' is my hack of the style to make it plain white background
+% this is the file PPRgeoffs.sty
+%
+% load all the packages you require...and maybe some you dont
+%
+\usepackage{pstricks,pst-node,pst-text,pst-3d}
+% pst* are for drawing within LaTeX
+\usepackage{moreverb,epsfig,color,subfigure}
+% how to define new colors
+% \newrgbcolor{the name}{r g b}
+\newrgbcolor{hotpink}{0.9 0 0.5}
+%
+% put a logo in the corner
+\Logo(\textwidth,-0.5){\includegraphics[width=0.08\textwidth]
+{/home/gnm/TeX/Crests/unswcrest-colour}}
+% puts the logo unswcrest-colour.eps in the bottom corner
+% you need to change the location of the file to where you have yours.....
+% fiddle the numbers to change the size and location on the page
+%
+% font stuff....
+% define a new font called goodfont
+\def\goodfont{\usefont{T1}{pcr}{b}{n}\fontsize{36pt}{40pt}\selectfont\green}
+\renewcommand{\familydefault}{\rmdefault}
+\renewcommand{\rmdefault}{cmr}
+%
+\usepackage[ps2pdf]{hyperref}  % this has to be the last package loaded
+%\usepackage[hdvipdfm]{hyperref}  % this has to be the last package loaded
+
+
+\parindent 0pt
+\parskip 5pt
+
+%% the talks title goes here, this also used as a bottom runner
+% unless you specify \slideCaption{......}
+% \maketitle makes a title page using the following information
+% but i didnt like it so made my own as the first slide
+% hence \maketitle is commented out
+%
+\title{{\blue The title}}
+\slideCaption{\blue An Introduction to Prosper}   % the bottom runner
+% subtitle if wanted
+\subtitle{{\red MATLAB section}}
+\author{\href{http://www.ma.adfa.edu.au/~gnm}{\goodfont \hotpink Geoff Mercer}}
+% uncomment the above line to make it hyperlinked to my home page
+\institution{%
+  \goodfont School of Mathematics and Statistics,\\UNSW at ADFA}
+
+%% PDFtransition
+%% Transition from one page to another.
+%% Possible values:
+%%       (Split, Blinds, Box, Wipe, Dissolve, Glitter, R)
+%\def\Split{} \def\Blinds{} \def\Box{} \def\Wipe{} \def\Dissolve{}
+%\def\Glitter{} \def\R{} \def\Replace{}
+% used like    \begin{slide}[Wipe]{the title of the slide in here}
+% dont overdo it, replace is usually the best....
+
+
+%-------------------------------------------------------------------------------
+
+\begin{document}
+%\maketitle
+% uncommenting maketitle means propser will make the title page,
+% i wanted my own title page below.....
+% it will use the title as a runner at the bottom if you want it
+% or \slideCaption{......} if that is defined, to turn off just use
+%  \slideCaption{}
+
+
+%----------------------------------------------------------SLIDE -
+\overlays{1}{% not strictly necessary when only one overlay
+% 1=number of different overlays on this page
+\begin{slide}[Split]{}
+\begin{center}
+\vspace*{-1cm}
+\Large {Prosper: making PDF presentations}\\[1cm]
+{\hotpink Geoff Mercer }\\[1cm]
+{\dgreen School of Mathematics and Statistics\\[4mm]
+UNSW at ADFA}% 
+% dgreen is a colour defind in PPRgeoffs.sty
+\end{center}
+\end{slide}
+}%overlays
+
+%----------------------------------------------------------SLIDE -
+\overlays{8}{%
+\begin{slide}[Replace]{What is Prosper} % uses Replace transition
+\begin{itemstep}
+\item A LaTeX style file for
+producing PDF presentations
+\item For example
+\begin{itemize}
+\item item stepping
+\item all the usual PDF transitions if you want them\\
+      Split, Blinds, Box, Wipe, Dissolve, Glitter, Replace
+\item different backgrounds, that are customizable
+\item easy to make overheads (postscript) of the same presentation
+      as a backup copy
+\end{itemize}
+\item It is based on the seminar class
+\item At a basic level very easy to use but can do lots of fancy things
+      if you get into it
+\end{itemstep}
+\end{slide}
+}%overlays
+
+%----------------------------------------------------------SLIDE -
+\overlays{6}{%
+\begin{slide}[Replace]{How to use Prosper}
+\begin{itemstep}
+  \item Once the Prosper style is installed on your machine
+        just use the documentclass prosper (instead of seminar or whatever else you might have used)  
+  \item how to run it: \ if your LaTeX file is filename.tex
+  {\hotpink 
+  \begin{itemize}
+    \item latex filename ;  
+    \item dvips filename; 
+    \item ps2pdf filename.ps
+  \end{itemize}
+  }
+\item You can do all the usual LaTeX things \ldots
+\end{itemstep}
+\end{slide}
+}%overlays
+
+%----------------------------------------------------------SLIDE -
+\overlays{8}{%
+% 6=number of different overlays on this page 
+\begin{slide}[Box]{Usual LaTeX stuff}
+
+\fromSlide*{2}{Using PStricks} 
+\fromSlide*{2}{\rnode{N1}}
+\onlySlide*{1}{\rnode{N2}}%
+
+\fromSlide*{3}{watch for the line.... coming in here....(\rnode{N2}{X}) }
+\fromSlide*{4}{\nccurve[linecolor=purple,linewidth=4pt, 
+angleA=0,angleB=120]{->}{N1}{N2}}
+
+\bigskip
+\onlySlide*{5}{this text is only on this overlay...}
+\fromSlide*{6}{\dgreen from now onwards it is  this text....}
+
+\blue
+\vspace*{0.5cm}
+\fromSlide*{7}{\rput[tl](6,-2){\rnode{A}{\psframebox{Node A}}}
+\rput[tr](2,0){\ovalnode{B}{Node B}}
+\ncdiag[angleA=70,angleB=90,arm=.5,linearc=.2,linewidth=3pt]{A}{B} }
+
+\vspace*{2.5cm}
+\fromSlide*{8}{ The usual fonts \\
+{\bf bold} {\large large} {\bf \large bold
+  large} {\Large \purple Large purple}}
+
+\end{slide}
+}%overlays
+
+%----------------------------------------------------------SLIDE -
+\overlays{6}{%
+% 6=number of different overlays on this page 
+\begin{slide}[Glitter]{More Prosper} % uses Glitter type transition
+\hypertarget{Moreprosper}{}%
+%this puts a link so you can click on a link later to return here
+% the position is called Moreprosper
+
+This page has 'Glitter' Transition\\[4mm]
+
+\fromSlide{1}{Clickable links to web pages}
+\url{http://www.ma.adfa.edu.au/~gnm}\\%
+% need the browser set up in acroread for this to work and an 
+% internet connection if the page is not local
+
+\fromSlide{2}{Or links to other pages in the presentation\\
+For example the 
+\hyperlink{lastpage}{last} page}
+%a link to the position lastpage
+
+\bigskip 
+\fromSlide{3}{The abox command that I wrote will do the current text highlighting}
+\onlySlide*{4}{\abox{4}{5}{coloured maths turns red to blue {\red $ x=y$}}}
+        \fromSlide*{5}{\abox{4}{5}{coloured maths turns red to blue {\blue $ x=y$}}}
+% \abox is a command i wrote it is in PPrGeoffs.sty
+
+\bigskip 
+\abox{6}{7}{\fbox{this is boxed text}}
+\end{slide}
+}%overlays
+
+%\end{document}
+%----------------------------------------------------------SLIDE -
+\overlays{10}{%
+\begin{slide}[Replace]{Colour Changes}
+
+
+\begin{itemstep}
+  \begin{minipage}[c]{0.4\textwidth}
+      \FromSlide{1}\item dot points%
+      \FromSlide{2}\item  using%
+  \end{minipage}
+  \begin{minipage}[c]{0.4\textwidth}
+      \FromSlide{3}\item minipages %
+      \FromSlide{4}\item works too\ldots%
+  \end{minipage}
+\end{itemstep}
+
+
+% example of changing color in test or equations
+% use the same equation or text and vary the colours
+% just have multiple copies of the same text and turn the colours on and off
+% and show at different onlySlide
+\bigskip
+\fromSlide*{5}{Maths that changes colour: \dgreen governing equation }
+\onlySlide*{6}{{\dgreen $${\frac{\partial F}{\partial t}}={\frac{\partial^2 F}{\partial x^2} + \int g(x) dx}$$}}
+\onlySlide*{7}{$${\red \frac{\partial F}{\partial t}}=\frac{\partial^2 F}{\partial x^2} + \int g(x) dx$$}
+\onlySlide*{8}{$${\frac{\partial F}{\partial t}}={\red\frac{\partial^2 F}{\partial x^2}} + \int g(x) dx$$}
+\onlySlide*{9}{$${\frac{\partial F}{\partial t}}=\frac{\partial^2 F}{\partial x^2} + {\red\int g(x) dx}$$}
+\fromSlide*{10}{$${\frac{\partial F}{\partial t}}={\frac{\partial^2 F}{\partial x^2} + \int g(x) dx}$$}
+\onlySlide*{7}{\red rate of change of $F$ w.r.t time}
+\onlySlide*{8}{\hspace*{3.0cm}\red diffusion of $F$}
+\onlySlide*{9}{\hspace*{5cm}\red integral of $g(x)$}
+
+\fromSlide*{10}{\blue Now take the \dgreen Laplace \hotpink Transform}
+\end{slide}
+}%overlays
+
+
+%----------------------------------------------------------SLIDE -
+\overlays{4}{%
+\begin{slide}[Replace]{graphics ?}
+This page has 'Replace' transition and shows how to 
+include a graphic or two\\
+% puts the 3 figures prosperplot1.eps, prosperplot2.eps, prosperplot3.eps
+% in the same place one after the other, usual way of building up a graph
+% these plots where done in MATLAB but i made sure i thickened the 
+% line widths and fonts
+\vspace*{0cm}
+\onlySlide*{2}{%
+\begin{center}
+\includegraphics[width=0.6\textwidth]{prosperplot1.eps}
+\end{center} }
+\onlySlide*{3}{%
+\begin{center}
+\includegraphics[width=0.6\textwidth]{prosperplot2.eps}
+\end{center} }
+\onlySlide*{4}{%
+\begin{center}
+\includegraphics[width=0.6\textwidth]{prosperplot3.eps}
+\end{center} }
+\end{slide}
+}%overlays
+
+
+%---------------------------------------------------------------------- SLIDE -
+\overlays{4}{%
+\begin{slide}[Blinds]{Last slide}
+  This is the \hypertarget{lastpage}{last} slide. Do you want to go to the
+  \hyperlink{Moreprosper}{\underline{More Prosper page}}?
+  \href{http://www.ma.adfa.edu.au/~gnm}{\underline{Geoff's home page}} 
+  or a combustion \href{http://www.ma.adfa.edu.au/~gnm/Animations/2d-small.mpg}
+  {\underline{animation}}
+  and a local \href{run:video.sh}{running video.sh}\\
+  you will need to configure your browser to work.....
+
+\FromSlide{2}
+\begin{itemstep}
+\item somethings that may make it work better depending on  your set up
+\FromSlide{3}   
+\begin{itemize}
+   \item use the flag -Ppdf with dvips  eg dvips -Ppdf filename
+   \item put p +psfonts.cmz \newline
+         and p +psfonts.amz \newline
+         in your .dvipsrc file in your home directory
+   \end{itemize}
+\end{itemstep}
+\fromSlide*{4}{\hotpink If you want any help just ask me}
+\end{slide}
+}
+%---------------------------------------------------------------------- SLIDE -
+
+
+\end{document}

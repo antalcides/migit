@@ -1,0 +1,72 @@
+c      Este programa es un ejemplo para las aplicaciones logicas
+c      tambien crearemos un menu para aplicar la sentencia do y do while
+      program call_sub
+      integer menu
+      print*,'escoja la opcion deseada'
+      print*, '1 para sumar dos numeros'
+      print*, '2 para restar dos numeros'
+      print*, '3 para multiplicar dos numeros'
+      print*, '4 para dividir dos numeros'
+      print*, '5 para salir'
+      read*,  menu
+      do while (menu.NE.5)
+      if (menu.EQ.1) then
+      call sum
+      else if (menu.EQ.2) then
+      call rest
+      else if (menu.EQ.3) then
+      call prod
+      else if (menu.EQ.4) then
+      call div
+      else
+            print*,'escoja otra opcion del 1 al 5'
+            end if
+      print*,'escoja la opcion deseada'
+      print*, '1 para sumar dos numeros'
+      print*, '2 para restar dos numeros'
+      print*, '3 para multiplicar dos numeros'
+      print*, '4 para dividir dos numeros'
+      print*, '5 para salir'
+      read*, menu
+      end do
+       print*,'Que tenga un buen dia !!!'
+      end
+c **************************************************
+c     subrutina para sumar dos numeros
+      subroutine sum
+      real a,b,suma
+       print*,'entre los numeros a y b'
+       read*, a,b
+       suma= a+b
+        print*,'a+b=', suma
+        end
+c         **************************************************
+c     subrutina para sumar dos numeros
+      subroutine rest
+      real a,b,resta
+       print*,'entre los numeros a y b'
+       read*, a,b
+       resta= a-b
+        print*,'a-b=', resta
+        end
+c         **************************************************
+c     subrutina para multiplicar dos numeros
+      subroutine prod
+      real a,b, producto
+       print*,'entre los numeros a y b'
+       read*, a,b
+       suma= a*b
+        print*,'a*b=', producto
+        end
+c ***************************************
+c        **************************************************
+c     subrutina para dividirr dos numeros
+      subroutine div
+      real a,b,dividir
+       print*,'entre los numeros a y b'
+       read*, a,b
+       suma= a/b
+        print*,'a/b=', dividir
+        end
+
+

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Pensar como generalizarlo para mfm.tex
+# (el problema es el includeonly creo yo)    
+
+if [ "$1" = "mfm0-05" ]
+then 
+    sed -e s/"% Solo PDF:"/" "/g -e 's/.eps} % eps to pdf/.pdf} % eps to pdf/' $1.tex > $1-PDF.tex
+else
+    if [ "$1" != "mfm" ]
+    then 
+	sed s/.eps}/.pdf}/g $1.tex > $1-PDF.tex
+    fi
+fi
+
+#JR y VM#
+#End

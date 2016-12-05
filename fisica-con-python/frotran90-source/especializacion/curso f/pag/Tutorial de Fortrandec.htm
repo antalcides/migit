@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0059)http://garota.fismat.umich.mx/mn1/tutor_fort/variables.html -->
+<HTML><HEAD><TITLE>Tutorial de Fortran</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY background="Tutorial de Fortrandec_archivos/default.gif">
+<H2>5. Declaración y tipos de Variables</H2>
+<H3>Nombre de Variables</H3>Los nombres de variables en Fortran consisten de 1 a 
+6 caracteres escogidos de la <TT>a</TT> a la <TT>z</TT> y de los digitos del 
+<TT>0</TT> al <TT>9</TT>. El primer caracter debe ser una letra. (Nota: en 
+Fortran 90 se permiten nombres de longitud arbitraria). Fortran 77 no diferencia 
+entre mayúsculas y minúsculas, de hecho, asume que toda la entrada es con 
+minúscualas. Sin embargo hace poco los compiladores de Fortran 77 empezaron a 
+aceptar letras minúsculas. Si por alguna razón se llegará a dar la situación que 
+el compilador de Fortran 77 insiste en usar letras mayúsculas, se puede usar el 
+comando <TT>tr<TT> de Unix para hacer la conversión. 
+<H3>Tipos y declaraciones</H3>Cada variable <EM>debería</EM> ser definida con 
+una <EM>declaración</EM>. Esto indica el <EM>tipo</EM> de la variable. Las 
+declaraciones más comunes son: <PRE>integer   <EM>lista de variables</EM>
+real      <EM>lista de variables</EM>
+double precision  <EM>lista de variables</EM>
+complex   <EM>lista de variables</EM>
+logical   <EM>lista de variables</EM>
+character <EM>lista de variables</EM>
+</PRE>La lista de variables consiste de nombres de variables separadas por 
+comas. Cada variable deberá ser declarada exactamente una vez. Si una variable 
+no esta declarada, Fortran 77 usa un conjunto <EM>implícito de reglas</EM> para 
+establecer el tipo. Con lo anterior todas las varialbes que comiencen con el 
+conjunto de letras <EM>i-n<EM> son enteros y el resto tipo real. Varios 
+programas viejos de Fortran usan estas reglas implícitas, pero no se recomienda 
+su uso. La probabilidad de errores en el programa crece exponencialmente si no 
+se declaran las variables explícitamente. 
+<H3>Variables Enteras y de punto flotante</H3>Fortran 77 sólo tiene un tipo para 
+variables enteras. Los enteros son usualmente guardados en 32 bits (4 bytes). 
+Por lo que el rango de valores que pueden tomar los enteros es de 
+(-2<SUP>31</SUP>,2<SUP>31</SUP>-1). 
+<P>Fortran 77 tiene dos tipos diferentes para punto flotantes conocidos como 
+<TT>real</TT> y <TT>doble precisión</TT>. Mientras el tipo <TT>real</TT> es por 
+lo general adecuado, algunos cálculos numéricos requieren de una mayor precisión 
+por lo que <TT>double precision</TT> deberá ser usado. El tamaño por lo general 
+es para el tipo real de 4 bytes y el de doble precisión es de 8 bytes, pero lo 
+anterior depende de la máquina y el compilador. Algunas versiones no 
+estandarizadas de Fortran usan la sintaxis <TT>real*8</TT> para indicar una 
+variable de punto flotante de 8 bytes. 
+<P>
+<H3>La sentencia <TT>parameter</TT></H3>Algunas constantes aparecen varias veces 
+en un programa, por lo que es deseable que se definan una sola vez al principio 
+del program. Esto se puede hacer con la sentencia <TT>parameter</TT>, a la vez 
+que hace los programas más legibles. Por ejemplo el programa visto anteriormente 
+podría haberse escrito de la siguiente forma: <PRE>      program circulo
+      real r, area, pi
+      parameter (pi=3.14159)
+
+c Este programa lee un número real r y muestra
+c el área del círculo con radio r.
+
+      write (*,*) 'Escribe el radio r:'
+      read  (*,*) r
+      area = pi*r*r
+      write (*,*) 'Area = ', area
+
+      stop
+      end
+</PRE>La sintaxis de la sentencia parameter es <PRE>parameter (<EM>nombre = constante, ... , nombre = constante</EM>)
+</PRE>Las reglas para la sentencia <TT>parameter</TT> son: 
+<UL>
+  <LI>La "variable" definida en la sentencia <TT>parameter</TT> no es una 
+  variable, es una constante por lo que su valor nunca cambia. 
+  <LI>Una "variable" puede aparecer a lo más una vez en la sentencia 
+  <TT>parameter</TT>. 
+  <LI>La(s) sentencia(s) <TT>parameter</TT> deberán estar antes que cualquier 
+  sentencia de ejecución. </LI></UL>Algunas de las razones para usar 
+<TT>parameter</TT> son: 
+<UL>
+  <LI>ayuda a recordar más fácilmente el uso de constantes. 
+  <LI>es fácil cambiar una constante si aparece muchas veces en el programa. 
+  </LI></UL>
+<HR>
+
+<H3>Ejercicios</H3>
+<DL>
+  <DT>Ejercicio A 
+  <DD>¿Cuál de los siguientes nombres de variables es inválido? <TT>A5, 5A, 
+  VARIABLE, XY3Z4Q, AT&amp;T, NUMBER1, NO1, NO 1, NO_1, STOP 
+  <P></P></DD></DL>
+<HR>
+&nbsp;[4. <A href="http://garota.fismat.umich.mx/mn1/tutor_fort/unix.html">¿Cómo 
+usar Fortran con Linux?</A> ] &nbsp;[<A 
+href="http://fismat.umich.mx/mn1/tutor_fort/index.html">Tutorial de Fortran</A>] 
+&nbsp;[6. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/expressions.html">Expresiones 
+y asignaciones </A>] </TT></EM></EM></TT></TT></BODY></HTML>

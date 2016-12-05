@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0037)http://www.uv.es/~diaz/mn/node23.html -->
+<HTML><HEAD><TITLE>4.6 Método de la falsa posición</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="4.6 Método de la falsa posición" name=description>
+<META content=fmn name=keywords>
+<META content=document name=resource-type>
+<META content=global name=distribution>
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR><!--Converted with LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others --><LINK 
+href="4_6 Método de la falsa posición_archivos/fmn.css" rel=STYLESHEET><LINK 
+href="node22.html" rel=previous><LINK href="node17.html" rel=up><LINK 
+href="node24.html" rel=next></HEAD>
+<BODY><!--Navigation Panel--><A href="http://www.uv.es/~diaz/mn/node24.html" 
+name=tex2html315></A><A href="http://www.uv.es/~diaz/mn/node24.html" 
+name=tex2html315><IMG height=24 alt=next 
+src="4_6 Método de la falsa posición_archivos/next_motif.gif" width=37 
+align=bottom border=0></A>&nbsp;<A href="http://www.uv.es/~diaz/mn/node17.html" 
+name=tex2html313></A><A href="http://www.uv.es/~diaz/mn/node17.html" 
+name=tex2html313><IMG height=24 alt=up 
+src="4_6 Método de la falsa posición_archivos/up_motif.gif" width=26 
+align=bottom border=0></A>&nbsp;<A href="http://www.uv.es/~diaz/mn/node22.html" 
+name=tex2html309></A><A href="http://www.uv.es/~diaz/mn/node22.html" 
+name=tex2html309><IMG height=24 alt=previous 
+src="4_6 Método de la falsa posición_archivos/previous_motif.gif" width=63 
+align=bottom border=0></A> <BR><B>Next:</B>&nbsp;<A 
+href="http://www.uv.es/~diaz/mn/node24.html" name=tex2html316></A><A 
+href="http://www.uv.es/~diaz/mn/node24.html" name=tex2html316>5. Puntos fijos 
+e</A> <B>Up:</B>&nbsp;<A href="http://www.uv.es/~diaz/mn/node17.html" 
+name=tex2html314></A><A href="http://www.uv.es/~diaz/mn/node17.html" 
+name=tex2html314>4. Cálculo de raíces</A> <B>Previous:</B>&nbsp;<A 
+href="http://www.uv.es/~diaz/mn/node22.html" name=tex2html310></A><A 
+href="http://www.uv.es/~diaz/mn/node22.html" name=tex2html310>4.5 Método de 
+Steffensen</A> 
+<P><!--End of Navigation Panel-->
+<H2><A name=SECTION00046000000000000000></A>&nbsp;<A 
+name=ssec:falpos></A>&nbsp;&nbsp;<BR>4.6 Método de la falsa posición</H2>El 
+método de la falsa posición pretende conjugar la seguridad del método de la 
+bisección con la rapidez del método de la secante. Este método, como en el 
+método de la bisección, parte de dos puntos que rodean a la raíz 
+<I>f</I>(<I>x</I>) = 0, es decir, dos puntos <I>x</I><SUB>0</SUB> y 
+<I>x</I><SUB>1</SUB>tales 
+que&nbsp;<!-- MATH: $f(x_{0})f(x_{1}) < 0$ --><I>f</I>(<I>x</I><SUB>0</SUB>)<I>f</I>(<I>x</I><SUB>1</SUB>) 
+&lt; 0. La siguiente aproximación, <I>x</I><SUB>2</SUB>, se calcula como la 
+intersección con el eje <I>X</I> de la recta que une ambos puntos (empleando la 
+ecuación (<A href="http://www.uv.es/~diaz/mn/node21.html#eqn:sec-2">35</A>) del 
+método de la secante). La asignación del nuevo intervalo de búsqueda se realiza 
+como en el método de la bisección: entre ambos intervalos, 
+[<I>x</I><SUB>0</SUB>,<I>x</I><SUB>2</SUB>] y 
+[<I>x</I><SUB>2</SUB>,<I>x</I><SUB>1</SUB>], se toma aquel que cumpla&nbsp;<!-- MATH: $f(x)f(x_{2}) < 0$ --><I>f</I>(<I>x</I>)<I>f</I>(<I>x</I><SUB>2</SUB>) 
+&lt; 0. En la figura (<A 
+href="http://www.uv.es/~diaz/mn/node23.html#fig:falpos">9</A>) se representa 
+geométricamente este método. <BR>&nbsp; <BR>&nbsp; 
+<CENTER><A name=fig:falpos></A>&nbsp;<A name=1123></A>&nbsp;&nbsp;<IMG 
+height=201 src="4_6 Método de la falsa posición_archivos/falpos.gif" 
+width=237></CENTER>
+<CENTER>
+<TABLE width="50%">
+  <CAPTION><B>Figure:</B> <FONT size=-1>Representación geométrica del método de 
+  la falsa posición.</FONT></CAPTION>
+  <TBODY>
+  <TR>
+    <TD>
+      <CENTER>[scale=0.9]eps/falpos</CENTER></TD></TR></TBODY></TABLE></CENTER>&nbsp;&nbsp; 
+
+<P>La elección <I>guiada</I> del intervalo representa una ventaja respecto al 
+método de la secante ya que inhibe la posibilidad de una divergencia del método. 
+Por otra parte y respecto al método de la bisección, mejora notablemente la 
+elección del intervalo (ya que no se limita a partir el intervalo por la mitad). 
+<BR>&nbsp; <BR>&nbsp; 
+<CENTER><A name=fig:hamming></A>&nbsp;<A name=3075></A>&nbsp;&nbsp;<IMG 
+height=158 src="4_6 Método de la falsa posición_archivos/hamming.gif" 
+width=388></CENTER>
+<CENTER>
+<TABLE width="50%">
+  <CAPTION><B>Figure:</B> <FONT size=-1>Modificación del método de la falsa 
+  posición propuesta por Hamming. La aproximación a la raíz se toma a partir del 
+  punto de intersección con el eje <I>X</I> de la recta que une los puntos 
+(&nbsp;<!-- MATH: $x_{0},f(x_{0})/2$ --><I>x</I><SUB>0</SUB>,<I>f</I>(<I>x</I><SUB>0</SUB>)/2) 
+  y (<I>x</I><SUB>1</SUB>,<I>f</I>(<I>x</I><SUB>1</SUB>)) si la función es 
+  convexa en el intervalo (figura a) o bien a partir de la recta que une los 
+  puntos (<I>x</I><SUB>0</SUB>,<I>f</I>(<I>x</I><SUB>0</SUB>)) y 
+  (<I>x</I><SUB>1</SUB>,&nbsp;<!-- MATH: $f(x_{1})/2$ --><I>f</I>(<I>x</I><SUB>1</SUB>)/2) 
+  si la función es cóncava en el intervalo (figura b).</FONT></CAPTION>
+  <TBODY>
+  <TR>
+    <TD>
+      <CENTER>[scale=0.9]eps/hamming</CENTER></TD></TR></TBODY></TABLE></CENTER>&nbsp;&nbsp; 
+
+<P>Sin embargo, el método de la falsa posición tiene una convergencia muy lenta 
+hacia la solución. Efectivamente, una vez iniciado el proceso iterativo, uno de 
+los extremos del intervalo tiende a no modificarse (ver figura (<A 
+href="http://www.uv.es/~diaz/mn/node23.html#fig:falpos">9</A>)). Para obviar 
+este problema, se ha propuesto una modificación del método, denominada método de 
+Hamming. Según este método, la aproximación a una raíz se encuentra a partir de 
+la determinación del punto de intersección con el eje <I>X</I> de la recta que 
+une los puntos 
+(&nbsp;<!-- MATH: $x_{0},f(x_{0})/2$ --><I>x</I><SUB>0</SUB>,<I>f</I>(<I>x</I><SUB>0</SUB>)/2) 
+y (<I>x</I><SUB>1</SUB>,<I>f</I>(<I>x</I><SUB>1</SUB>)) si la función es convexa 
+en el intervalo o bien a partir de la recta que une los puntos 
+(<I>x</I><SUB>0</SUB>,<I>f</I>(<I>x</I><SUB>0</SUB>)) y 
+(<I>x</I><SUB>1</SUB>,&nbsp;<!-- MATH: $f(x_{1})/2$ --><I>f</I>(<I>x</I><SUB>1</SUB>)/2) 
+si la función es cóncava en el intervalo. En la figura (<A 
+href="http://www.uv.es/~diaz/mn/node23.html#fig:hamming">10</A>) se representa 
+gráficamente el método de Hamming. 
+<P>Como hemos comentado, el método de Hamming requiere determinar la concavidad 
+o convexidad de la función en el intervalo de iteración. Un método relativamente 
+sencillo para determinar la curvatura de la función consiste en evaluar la 
+función en el punto medio del intervalo, <I>f</I>(<I>x<SUB>m</SUB></I>) (en 
+donde <I>x<SUB>m</SUB></I> se calcula como en el método de la bisección) y 
+comparar este valor con la media de los valores de la función en los extremos 
+del intervalo,&nbsp;<!-- MATH: $\overline{f} = (f(x_{0}) +
+f(x_{1}))/2$ --><IMG 
+height=39 alt="$\overline{f} = (f(x_{0}) +f(x_{1}))/2$" 
+src="4_6 Método de la falsa posición_archivos/img146.gif" width=174 align=center 
+border=0>. Tenemos entonces que: 
+<CENTER><!-- MATH: \begin{displaymath}
+f(x_{m}) \left\{
+\begin{array}{ll}
+    \leq \overline{f} & \mbox{si la función es cóncava} \\
+    \geq \overline{f} & \mbox{si la función es convexa}
+  \end{array} \right.
+\end{displaymath} --><IMG 
+height=51 
+alt="\begin{displaymath}f(x_{m}) \left\{\begin{array}{ll}\leq \overline{f} &amp; \mbo......line{f} &amp; \mbox{si la función es convexa}\end{array} \right.\end{displaymath}" 
+src="4_6 Método de la falsa posición_archivos/img147.gif" 
+width=293></CENTER>&nbsp; 
+<P>
+<HR>
+<!--Navigation Panel--><A href="http://www.uv.es/~diaz/mn/node24.html" 
+name=tex2html315></A><A href="http://www.uv.es/~diaz/mn/node24.html" 
+name=tex2html315><IMG height=24 alt=next 
+src="4_6 Método de la falsa posición_archivos/next_motif.gif" width=37 
+align=bottom border=0></A>&nbsp;<A href="http://www.uv.es/~diaz/mn/node17.html" 
+name=tex2html313></A><A href="http://www.uv.es/~diaz/mn/node17.html" 
+name=tex2html313><IMG height=24 alt=up 
+src="4_6 Método de la falsa posición_archivos/up_motif.gif" width=26 
+align=bottom border=0></A>&nbsp;<A href="http://www.uv.es/~diaz/mn/node22.html" 
+name=tex2html309></A><A href="http://www.uv.es/~diaz/mn/node22.html" 
+name=tex2html309><IMG height=24 alt=previous 
+src="4_6 Método de la falsa posición_archivos/previous_motif.gif" width=63 
+align=bottom border=0></A> <BR><B>Next:</B>&nbsp;<A 
+href="http://www.uv.es/~diaz/mn/node24.html" name=tex2html316></A><A 
+href="http://www.uv.es/~diaz/mn/node24.html" name=tex2html316>5. Puntos fijos 
+e</A> <B>Up:</B>&nbsp;<A href="http://www.uv.es/~diaz/mn/node17.html" 
+name=tex2html314></A><A href="http://www.uv.es/~diaz/mn/node17.html" 
+name=tex2html314>4. Cálculo de raíces</A> <B>Previous:</B>&nbsp;<A 
+href="http://www.uv.es/~diaz/mn/node22.html" name=tex2html310></A><A 
+href="http://www.uv.es/~diaz/mn/node22.html" name=tex2html310>4.5 Método de 
+Steffensen</A>&nbsp;<!--End of Navigation Panel--> 
+<ADDRESS><I>Wladimiro Diaz Villanueva</I></ADDRESS><BR><I>1998-05-11</I> 
+</BODY></HTML>

@@ -1,0 +1,262 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0060)http://www.sc.ehu.es/sbweb/fisica/ondas/fourier/Fourier.html -->
+<HTML><HEAD><TITLE>Análisis de Fourier</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY>
+<H1 align=center>Análisis de Fourier</H1>
+<TABLE width="100%">
+  <TBODY>
+  <TR>
+    <TD width="50%">
+      <H1 align=left><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/ondas/acustica/resonador/resonador.htm"><IMG 
+      height=40 alt="prev.gif (1231 bytes)" 
+      src="Análisis de Fourier_archivos/prev.gif" width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/default.htm"><IMG height=40 
+      alt="home.gif (1232 bytes)" src="Análisis de Fourier_archivos/home.gif" 
+      width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/ondas/doppler/doppler.html"><IMG 
+      height=40 alt="next.gif (1211 bytes)" 
+      src="Análisis de Fourier_archivos/next.gif" width=49></H1></A></TD>
+    <TD width="50%">
+      <H2 align=right><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/ondas/MovOndulatorio.html">Movimiento 
+      ondulatorio</A></H2></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=4 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top width="10%" bgColor=#f0f0f0 rowSpan=2><PRE><STRONG><FONT face=Arial>Acústica</FONT></STRONG></PRE><PRE><A href="http://www.sc.ehu.es/sbweb/fisica/ondas/acustica/tubos/tubos.htm"><FONT face=Arial>Ondas estacionarias
+en tubos</FONT></A></PRE><PRE><A href="http://www.sc.ehu.es/sbweb/fisica/ondas/acustica/kundt/kundt.htm"><FONT face=Arial>Velocidad del sonido
+en una barra</FONT></A></PRE><PRE><A href="http://www.sc.ehu.es/sbweb/fisica/ondas/acustica/sonido/sonido.htm"><FONT face=Arial>Velocidad del sonido
+en un gas</FONT></A></PRE><PRE><A href="http://www.sc.ehu.es/sbweb/fisica/ondas/acustica/resonador/resonador.htm"><FONT face=Arial>El resonador de
+Helmholtz</FONT></A></PRE><PRE><IMG height=15 alt="marca.gif (847 bytes)" src="Análisis de Fourier_archivos/marca.gif" width=9><FONT face=Arial>Análisis de Fourier</FONT></PRE><PRE><FONT face=Arial><A href="http://www.sc.ehu.es/sbweb/fisica/ondas/doppler/doppler.html">Efecto Doppler (I)</A></FONT></PRE><PRE><FONT face=Arial><A href="http://www.sc.ehu.es/sbweb/fisica/ondas/acustica/doppler1/doppler1.htm">Efecto Doppler (II)</A></FONT></PRE></TD>
+    <TD width=10 rowSpan=2></TD>
+    <TD vAlign=top bgColor=#f0f0f0><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/ondas/fourier/Fourier.html#Descripción">Descripción</A>
+      <P><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/ondas/fourier/Fourier.html#Actividades">Actividades</A></P>
+      <P><IMG height=14 alt="java.gif (886 bytes)" 
+      src="Análisis de Fourier_archivos/java.gif" width=14> <A 
+      href="http://www.sc.ehu.es/sbweb/fisica/ondas/fourier/Fourier.html#Ejemplos">Ejemplos</A></P></TD></TR>
+  <TR>
+    <TD vAlign=top>&nbsp;
+      <P>Las <A 
+      href="http://www.sc.ehu.es/sbweb/fisica/ondas/ondaArmonica/ondasArmonicas.html">ondas 
+      armónicas continuas</A> que hemos estudiado no existen realmente, ya que 
+      todos los movimientos ondulatorios están limitados tanto espacial como 
+      temporalmente. Utilizando el análisis de Fourier y la transformada de 
+      Fourier se pueden describir formas de ondas más complejas como las que 
+      producen los instrumentos musicales.</P>
+      <P>El análisis de Fourier surgió a partir del intento de éste matemático 
+      francés por hallar la solución a un problema práctico, la conducción del 
+      calor en un anillo de hierro. Demostró que se puede obtener una función 
+      discontinua a partir de la suma de funciones continuas. Esta tesis fue 
+      defendida por Fourier ante la Academia Francesa, lo que motivó severas 
+      objeciones de los matemáticos más importantes de su época como Lagrange, 
+      Laplace, etc.</P>
+      <P>&nbsp;</P>
+      <H2><A name=Descripción>Descripción</A></H2>
+      <P>A primera vista, parece que el problema de analizar formas de ondas 
+      complejas representa una tarea formidable. Sin embargo, si la forma de la 
+      onda es periódica, se puede representar con una precisión arbitraria, 
+      mediante la superposición de un número suficientemente grande de ondas 
+      senoidales que forman una serie armónica.</P>
+      <P>Toda función <I>f(t)</I> periódica de periodo <I>P</I>, se puede 
+      representar en forma de una suma infinita de funciones armónicas, es 
+      decir,</P>
+      <P><IMG height=45 src="Análisis de Fourier_archivos/Image39.gif" width=259 
+      border=0></P>
+      <P>donde el periodo <I>P=2</I><FONT face=Symbol>p</FONT>/<EM><FONT 
+      face=Symbol>w</FONT></EM>, y <I>a<FONT size=2><SUB>0</SUB></FONT> a<FONT 
+      size=2><SUB>1</SUB></FONT> ...a<FONT size=2><SUB>i</SUB></FONT> ...</I> y 
+      <I>b<FONT size=2><SUB>1</SUB></FONT> b<FONT size=2><SUB>2</SUB></FONT> 
+      .... b<FONT size=2><SUB>i</SUB></FONT> ....</I> son los denominados 
+      coeficientes de Fourier. </P>
+      <P>Conocida la función periódica <I>f(t)</I>, calculamos los coeficientes 
+      <I>a<SUB>i</SUB></I> y <I>b<SUB>i</SUB></I> del siguiente modo</P>
+      <P><IMG height=164 src="Análisis de Fourier_archivos/Image40.gif" 
+      width=260 border=0></P>
+      <P>Las integrales tienen como límite inferior -<I>P</I>/2 y como límite 
+      superior <I>P</I>/2.</P>
+      <P>En el programa interactivo, transformamos la función periódica de 
+      periodo <I>P</I>, en otra función periódica de periodo 2<FONT 
+      face=Symbol>p</FONT>, mediante un simple cambio de escala en el eje 
+      <I>t</I>. Escribiendo <I>x=<FONT face=Symbol>w</FONT> t,</I> tendremos el 
+      periodo <I>P</I> de <I>t</I> convertido en el periodo 2<FONT 
+      face=Symbol>p</FONT> de <I>x</I>, y la función <I>f(t)</I> convertida en 
+      </P>
+      <P><IMG height=45 src="Análisis de Fourier_archivos/Image41.gif" 
+      width=100></P>
+      <P>definida en el intervalo que va de -<FONT face=Symbol>p</FONT> a +<FONT 
+      face=Symbol>p</FONT>. La serie se expresa en la forma más simple</P>
+      <P><IMG height=45 src="Análisis de Fourier_archivos/Image42.gif" width=191 
+      border=1></P>
+      <P>donde</P>
+      <P><IMG height=128 src="Análisis de Fourier_archivos/Image43.gif" 
+      width=261 border=1></P>
+      <P>Si la función g<I>(x)</I> tiene simetría, algunos de los coeficientes 
+      resultan nulos. 
+      <DIR>
+      <P><FONT face=Symbol>·</FONT> Si <I>g(x)</I> es una función par, 
+      <I>g(x)=g(-x)</I>, los términos <I>b<FONT size=2><SUB>i</SUB></FONT></I> 
+      son nulos</P>
+      <P><FONT face=Symbol>·</FONT> Si <I>g(x)</I> es impar <I>g(x)=-g(-x)</I>, 
+      los coeficientes <I>a<FONT size=2><SUB>i</SUB></FONT> </I>son 
+      nulos</P></DIR>
+      <P>Por ejemplo, para el pulso rectangular simétrico de anchura 1, y 
+      periodo 2 se obtienen los siguientes coeficientes.</P>
+      <TABLE width="100%">
+        <TBODY>
+        <TR>
+          <TD width="50%"><IMG height=167 alt="pulso_rect.gif (1898 bytes)" 
+            src="Análisis de Fourier_archivos/pulso_rect.gif" width=337></TD>
+          <TD width="50%">&nbsp;
+            <TABLE cellSpacing=0 cellPadding=4 width=271 align=left border=1 
+            HSPACE="9">
+              <TBODY>
+              <TR>
+                <TD vAlign=top width="36%"><B>orden</B></TD>
+                <TD vAlign=top width="40%"><B>a</B></TD>
+                <TD vAlign=top width="24%"><B>b</B></TD></TR>
+              <TR>
+                <TD vAlign=top width="36%">0</TD>
+                <TD vAlign=top width="40%">1</TD>
+                <TD vAlign=top width="24%">&nbsp;</TD></TR>
+              <TR>
+                <TD vAlign=top width="36%">1</TD>
+                <TD vAlign=top width="40%">0.6366</TD>
+                <TD vAlign=top width="24%">0</TD></TR>
+              <TR>
+                <TD vAlign=top width="36%">2</TD>
+                <TD vAlign=top width="40%">0</TD>
+                <TD vAlign=top width="24%">0</TD></TR>
+              <TR>
+                <TD vAlign=top width="36%">3</TD>
+                <TD vAlign=top width="40%">-0.2122</TD>
+                <TD vAlign=top width="24%">0</TD></TR>
+              <TR>
+                <TD vAlign=top width="36%">4</TD>
+                <TD vAlign=top width="40%">0</TD>
+                <TD vAlign=top width="24%">0</TD></TR>
+              <TR>
+                <TD vAlign=top width="36%">5</TD>
+                <TD vAlign=top width="40%">0.1273</TD>
+                <TD vAlign=top width="24%">0</TD></TR>
+              <TR>
+                <TD vAlign=top width="36%">6</TD>
+                <TD vAlign=top width="40%">0</TD>
+                <TD vAlign=top width="24%">0</TD></TR>
+              <TR>
+                <TD vAlign=top width="36%">7</TD>
+                <TD vAlign=top width="40%">-0.09097</TD>
+                <TD vAlign=top width="24%">0</TD></TR>
+              <TR>
+                <TD vAlign=top width="36%">8</TD>
+                <TD vAlign=top width="40%">0</TD>
+                <TD vAlign=top width="24%">0</TD></TR>
+              <TR>
+                <TD vAlign=top width="36%">9</TD>
+                <TD vAlign=top width="40%">0.07078</TD>
+                <TD vAlign=top 
+      width="24%">0</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+      <P>&nbsp;</P>
+      <H2><A name=Actividades>Actividades</A></H2>
+      <P>El applet nos permite elegir entre cuatro tipo de funciones 
+      discontinuas que representan pulsos periódicos. 
+      <UL>
+        <LI>Rectangular 
+        <LI>Doble escalón 
+        <LI>Diente de sierra simétrico 
+        <LI>Diente de sierra antisimétrico </LI></UL>
+      <P>Una vez elegido la función, introducimos los parámetros requeridos en 
+      los controles de edición y pulsamos el botón cuyo título da nombre a la 
+      función.</P>
+      <UL>
+        <LI><B>Rectangular</B> 
+        <LI><B>Doble escalón</B> 
+        <LI><B>Diente de sierra 1</B> 
+        <LI><B>Diente de sierra 2</B> </LI></UL>
+      <P>Pulsando sucesivamente en el botón titulado <B>Siguiente &gt;&gt;</B> 
+      se representa: 
+      <OL>
+        <LI>En la parte superior, la función <I>f(t)</I> elegida y las sucesivas 
+        aproximaciones de dicha función. </LI></OL>
+      <OL start=2>
+        <LI>En la parte central, el armónico actual, en color azul 
+        <I>a<SUB>i</SUB>·</I>cos<I>(ix)</I> y en color rojo <I>b<SUB>i</SUB> 
+        </I>sin<I>(ix).</I> </LI></OL>
+      <OL start=3>
+        <LI>En la parte inferior, mediante segmentos verticales, la magnitud 
+        relativa de los coeficientes de Fourier, a la izquierda en color azul 
+        los coeficientes <I>a<SUB>i</SUB></I>, y a la derecha en color rojo los 
+        coeficientes <I>b<SUB>i</SUB></I>. </LI></OL>
+      <P>Cuanto mayor sea la longitud de estos segmentos mayor es la 
+      contribución del armónico a la síntesis de la función periódica. Se puede 
+      observar, que la longitud de los segmentos disminuye con la frecuencia, es 
+      decir a mayor frecuencia del armónico menor es su contribución.</P>
+      <P>La separación entre estos segmentos verticales es inversamente 
+      proporcional al periodo de la función, por tanto, para una función 
+      aperiódica (periodo infinito), la envolvente de los extremos de los 
+      segmentos verticales define una curva continua denominada transformada de 
+      Fourier.</P>
+      <P>Pulsando en el botón titulado <B>Anterior&lt;&lt;</B> podemos volver a 
+      la aproximación anterior y compararla con la siguiente.</P>
+      <P>&nbsp;</P>
+      <H2><A name=Ejemplos>Ejemplos</A></H2>
+      <H3>Pulso rectangular</H3>
+      <P><IMG height=183 alt="cuadrado.gif (2892 bytes)" 
+      src="Análisis de Fourier_archivos/cuadrado.gif" width=411></P>
+      <P>El pulso rectangular nos permite verificar que son nulos los 
+      coeficientes <I>b<SUB>i</SUB></I> en una función cuya simetría es par. 
+      Probar el siguiente ejemplo: </P>
+      <UL>
+        <LI>Periodo, 5.0 
+        <LI>Anchura, 2.0 
+        <LI>Traslación, 0.0. </LI></UL>
+      <P>Si trasladamos el pulso rectangular, la función deja de tener simetría 
+      y por tanto, aparecen coeficientes <I>a<SUB>i</SUB></I> y 
+      <I>b<SUB>i</SUB></I>. Probar el siguiente ejemplo: </P>
+      <UL>
+        <LI>Periodo, 5.0 
+        <LI>Anchura, 2.0 
+        <LI>Traslación, 0.5. </LI></UL>
+      <H3>Pulso doble escalón</H3>
+      <P><IMG height=235 alt="escalon.gif (3101 bytes)" 
+      src="Análisis de Fourier_archivos/escalon.gif" width=392></P>
+      <P>El pulso doble escalón nos permite verificar que son nulos los 
+      coeficientes <I>a<SUB>i</SUB></I> en una función cuya simetría es 
+      impar<I>. </I>Probar el siguiente ejemplo: </P>
+      <UL>
+        <LI>Periodo, 3.0 
+        <LI>Anchura, 2.0 
+        <LI>Profundidad, 1.0. </LI></UL>
+      <P>Si cambiamos la profundidad del escalón derecho, la función deja de 
+      tener simetría y por tanto, aparecen coeficientes <I>a<SUB>i</SUB></I> y 
+      <I>b<SUB>i</SUB></I>. Probar el siguiente ejemplo: </P>
+      <UL>
+        <LI>Periodo, 3.0 
+        <LI>Anchura, 2.0 
+        <LI>Profundidad, 0.5. </LI></UL>
+      <H3>Pulso diente de sierra simétrico</H3>
+      <P><IMG height=199 alt="diente1.gif (2693 bytes)" 
+      src="Análisis de Fourier_archivos/diente1.gif" width=368></P>
+      <P>Ejemplo: </P>
+      <UL>
+        <LI>Periodo, 4.0. </LI></UL>
+      <P>Observar que basta los primeros armónicos para aproximar bastante bien 
+      esta función simétrica.</P>
+      <H3>Pulso diente de sierra antisimétrico</H3>
+      <P><IMG height=297 alt="diente2.gif (3242 bytes)" 
+      src="Análisis de Fourier_archivos/diente2.gif" width=395></P>
+      <P>Ejemplo: 
+      <UL>
+        <LI>Periodo, 1.0. </LI></UL>
+      <P>Observar que se necesitan muchos armónicos para aproximarnos a esta 
+      función periódica.</P></TD></TR></TBODY></TABLE>
+<TABLE height=450 cellSpacing=0 cellPadding=10 width=700 border=10>
+  <TBODY>
+  <TR>
+    <TD width="100%"><APPLET height=450 archive=fourier.jar width=700 
+      align=middle code=fourier.FourierApplet.class></APPLET> 
+</TD></TR></TBODY></TABLE></BODY></HTML>

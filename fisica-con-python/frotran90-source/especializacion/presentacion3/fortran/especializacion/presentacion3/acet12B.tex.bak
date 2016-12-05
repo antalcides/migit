@@ -1,0 +1,47 @@
+
+
+
+
+%\section{Extensi\'{o}n del principio del m\'{a}ximo}
+
+Se considera el operador el\'{\i}ptico sim\'{e}trico
+\begin{equation}
+Lu=\sum_{i,j=1}^{n}\frac{\partial}{\partial x_{i}}\left(  a_{ij}\left(
+x\right)  \frac{\partial}{\partial x_{j}}u\right)  ,\tag{12}%
+\end{equation}
+donde $a_{ij}\left(  x\right)  \in C^{\infty}\left(  \overline{\Omega}\right)
+$ y $\partial\Omega$ es suave.
+
+Del teorema $10$ se tiene que $\lambda_{1}$, valor propio principal de $-L$,
+es positivo y existe $w_{1}>0$ tal que
+\[
+\left\{
+\begin{array}
+[c]{c}%
+Lw_{1}+\lambda_{1}w_{1}=0\text{ \ en }\Omega,\\
+w_{1}=0\text{ \ sobre }\partial\Omega.
+\end{array}
+\right.
+\]
+Adem\'{a}s se sabe que
+\[
+\left(  PMF\right)  \left\{
+\begin{array}
+[c]{c}%
+Lu+cu\leq0\text{ \ en }\Omega\text{ y }u\geq0\text{ sobre }\partial\Omega,\\
+\text{implica}\\
+u\equiv0\text{ \ en }\Omega\text{ \ \'{o} \ }u>0\text{ \ en }\Omega\text{,}%
+\end{array}
+\right.
+\]
+es verdadera si $c\leq0$ y falsa si $c\equiv\lambda_{1}.$
+
+\begin{theorem}
+Dado $L$ en $\left(  12\right)  $, los coeficientes de $L$, $\Omega$ y $u$
+satisfaciendo las mismas hip\'{o}tesis del teorema $12.$ Entonces $\left(
+PMF\right)  $ es verdadero si $c(x)\lvertneqq\lambda_{1}$ en $\Omega.$
+\end{theorem}
+
+\begin{proof}
+Es consecuencia del teorema $12$ tomando $h:=w_{1}.$
+\end{proof}

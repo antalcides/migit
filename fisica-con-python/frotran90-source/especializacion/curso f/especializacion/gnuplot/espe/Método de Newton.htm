@@ -1,0 +1,186 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0069)http://www.itcr.ac.cr/revistamate/HERRAmInternet/ecuaexecl/node51.htm -->
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others --><HTML><HEAD><TITLE>Método de Newton</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="Método de Newton" name=description>
+<META content=ecuaexecl name=keywords>
+<META content=document name=resource-type>
+<META content=global name=distribution>
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR>
+<META http-equiv=Content-Style-Type content=text/css><LINK 
+href="Método de Newton_archivos/ecuaexecl.css" rel=STYLESHEET><LINK 
+href="node6.html" rel=next><LINK href="node4.html" rel=previous><LINK 
+href="node3.html" rel=up><LINK href="node6.html" rel=next></HEAD>
+<BODY bgColor=#ffffff><FONT size=3><A 
+href="http://www.itcr.ac.cr/revistamate/HERRAmInternet/ecuaexecl/node0.html">1</A> 
+<A 
+href="http://www.itcr.ac.cr/revistamate/HERRAmInternet/ecuaexecl/node1.html">2</A> 
+<A 
+href="http://www.itcr.ac.cr/revistamate/HERRAmInternet/ecuaexecl/node2.html">3</A> 
+<A 
+href="http://www.itcr.ac.cr/revistamate/HERRAmInternet/ecuaexecl/node3.html">4</A> 
+<A 
+href="http://www.itcr.ac.cr/revistamate/HERRAmInternet/ecuaexecl/node4.html">5</A> 
+<A 
+href="http://www.itcr.ac.cr/revistamate/HERRAmInternet/ecuaexecl/node5.html">6</A> 
+<B>7</B> <A 
+href="http://www.itcr.ac.cr/revistamate/HERRAmInternet/ecuaexecl/node6.html">8</A> 
+<A 
+href="http://www.itcr.ac.cr/revistamate/HERRAmInternet/ecuaexecl/node7.html">9</A> 
+<A 
+href="http://www.itcr.ac.cr/revistamate/HERRAmInternet/ecuaexecl/node8.html">10</A> 
+</FONT>
+<H2 align=left>&nbsp;</H2>
+<HR color=#0000ff SIZE=1>
+
+<P>&nbsp;</P>
+<P>Sin embargo, algunas veces el método de Newton no converge, sino que se 
+<I>encicla</I>. Esto puede ocurrir, por ejemplo, si no hay raíz real, si la raíz 
+es un punto de inflexión o si la aproximación inicial está muy lejos de la raíz 
+buscada y el proceso de aproximación cae en un <I>ciclo</I>. Estas situaciones 
+se ilustran en la figura <A 
+href="http://www.itcr.ac.cr/revistamate/HERRAmInternet/ecuaexecl/node51.htm#col7">7a</A>, 
+<A 
+href="http://www.itcr.ac.cr/revistamate/HERRAmInternet/ecuaexecl/node51.htm#col7b">7b</A>, 
+<A 
+href="http://www.itcr.ac.cr/revistamate/HERRAmInternet/ecuaexecl/node51.htm#col7c">7c</A>. 
+
+<P>
+<DIV align=center><A name=col7></A><A name=259></A>
+<TABLE cellSpacing=0 cellPadding=0 width=331 border=0>
+  <CAPTION align=bottom><STRONG>Figura 7a:</STRONG> Oscilaciones para una 
+  función sin raíz real.</CAPTION>
+  <TBODY>
+  <TR>
+    <TD>
+      <DIV align=center><IMG height=152 
+      src="Método de Newton_archivos/newton3.jpg" width=334 
+    align=middle></DIV></TD></TR></TBODY></TABLE>
+<P>&nbsp;</P>
+<TABLE cellSpacing=0 cellPadding=0 width="66%" border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <DIV align=center><IMG height=169 
+      src="Método de Newton_archivos/newton2.jpg" width=316></DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV align=center><STRONG>Figura 7b:</STRONG> Oscilaciones para una 
+      función con punto de inflexiónl.</DIV></TD></TR></TBODY></TABLE>
+<P>&nbsp;</P>
+<TABLE cellSpacing=0 cellPadding=0 width="72%" border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <DIV align=center><IMG height=141 
+      src="Método de Newton_archivos/newton1.jpg" width=341></DIV></TD></TR>
+  <TR>
+    <TD height=4>
+      <DIV align=center><STRONG>Figura 7c: </STRONG>Oscilaciones para una 
+      función con dos raíces reales.</DIV></TD></TR></TBODY></TABLE>
+<P>&nbsp;</P></DIV>
+<P>En la figura <A 
+href="http://www.itcr.ac.cr/revistamate/HERRAmInternet/ecuaexecl/node51.htm#col75">8</A> 
+se muestra una situación en la que no hay convergencia. Se está tratando de 
+aproximar la solución de la ecuación polinomial 
+<P></P>
+<DIV align=center><IMG height=36 
+alt="$\displaystyle 10x^3-8.3x^2+2.295x-0.21141=0&#13;&#10;$" 
+src="Método de Newton_archivos/img165.gif" width=257 align=middle border=0> 
+</DIV>
+<P></P>
+<P>con una aproximación inicial de <IMG height=13 alt="$ 0.28$" 
+src="Método de Newton_archivos/img166.gif" width=31 align=bottom border=0>. 
+Obsérvese que en este caso las aproximaciones van creciendo y se alejan cada vez 
+más de la verdadera solución <IMG height=13 alt="$ 0.29$" 
+src="Método de Newton_archivos/img167.gif" width=31 align=bottom border=0>. Para 
+este ejemplo lo que sucede es que una de las aproximaciones <IMG height=29 
+alt="$ x_1=0.27$" src="Método de Newton_archivos/img168.gif" width=69 
+align=middle border=0> es solución de la ecuación <!-- MATH
+ $f^{\prime}(x)=0$
+ --><IMG height=32 alt="$ f^{\prime}(x)=0$" 
+src="Método de Newton_archivos/img169.gif" width=68 align=middle border=0>. 
+<P>Otra de las desventajas potenciales del método de Newton es que requiere de 
+la evaluación de la primera derivada de <IMG height=32 alt="$ f(x)$" 
+src="Método de Newton_archivos/img70.gif" width=34 align=middle border=0>. Para 
+la mayoría de los problemas de los textos este requisito es trivial, pero éste 
+no es el caso en problemas reales donde, por ejemplo, la función <IMG height=32 
+alt="$ f(x)$" src="Método de Newton_archivos/img70.gif" width=34 align=middle 
+border=0> podría estar dada en forma tabular. 
+<P>
+<DIV align=center><A name=col75></A><A name=341></A>
+<TABLE width=224>
+  <CAPTION align=bottom><STRONG>Figura 8:</STRONG> Situación donde no hay 
+  convergencia, usando <I>Excel</I>.</CAPTION>
+  <TBODY>
+  <TR>
+    <TD height=385><IMG height=489 src="Método de Newton_archivos/excel6.jpg" 
+      width=455></TD></TR></TBODY></TABLE>
+<P>&nbsp;</P></DIV>
+<P>Con el propósito de evitar esta desventaja, podemos sustituir la derivada por 
+una interpolación lineal, es decir, podemos usar el hecho de que <!-- MATH
+ \begin{displaymath}
+f^{\prime}(x_n) \approx \frac{f(x_{n+1}) - f(x_n) }{x_{n+1} - x_n}
+\end{displaymath}
+ -->
+<P></P>
+<DIV align=center><IMG height=54 
+alt="$\displaystyle f^{\prime}(x_n) \approx \frac{f(x_{n+1}) - f(x_n) }{x_{n+1} - x_n}&#13;&#10;$" 
+src="Método de Newton_archivos/img170.gif" width=187 align=middle border=0> 
+</DIV>
+<P></P>
+<P>Con lo cual la fórmula recursiva del método de Newton se reduce a 
+<P><!-- MATH
+ \begin{displaymath}
+x_{n+1} = x_n - \frac{\left(x_{n+1} - x_{n} \right)f(x_n)}{f(x_{n+1}) - f(x_n)}
+\end{displaymath}
+ -->
+<P></P>
+<DIV align=center><IMG height=54 
+alt="$\displaystyle x_{n+1} = x_n - \frac{\left(x_{n+1} - x_{n} \right)f(x_n)}{f(x_{n+1}) - f(x_n)}&#13;&#10;$" 
+src="Método de Newton_archivos/img171.gif" width=225 align=middle border=0> 
+</DIV>
+<P></P>
+<P>para <IMG height=29 alt="$ n \geq 2$" 
+src="Método de Newton_archivos/img172.gif" width=42 align=middle border=0>. 
+<P>Esta pequeña variante da origen a un método conocido como el método de la 
+secante, el cual necesita de dos aproximaciones iniciales. En la figura <A 
+href="http://www.itcr.ac.cr/revistamate/HERRAmInternet/ecuaexecl/node51.htm#col8">9</A> 
+se muestran los resultados obtenidos con este método. 
+<P>
+<DIV align=center><A name=col8></A><A name=277></A>
+<TABLE width=144>
+  <CAPTION align=bottom><STRONG>Figura 9:</STRONG> Método de la 
+  secante.</CAPTION>
+  <TBODY>
+  <TR>
+    <TD><IMG height=256 src="Método de Newton_archivos/excel4.jpg" 
+    width=285></TD></TR></TBODY></TABLE></DIV>
+<P>
+<HR color=#0000ff SIZE=1>
+
+<P><FONT size=3><A 
+href="http://www.itcr.ac.cr/revistamate/HERRAmInternet/ecuaexecl/node0.html">1</A> 
+<A 
+href="http://www.itcr.ac.cr/revistamate/HERRAmInternet/ecuaexecl/node1.html">2</A> 
+<A 
+href="http://www.itcr.ac.cr/revistamate/HERRAmInternet/ecuaexecl/node2.html">3</A> 
+<A 
+href="http://www.itcr.ac.cr/revistamate/HERRAmInternet/ecuaexecl/node3.html">4</A> 
+<A 
+href="http://www.itcr.ac.cr/revistamate/HERRAmInternet/ecuaexecl/node4.html">5</A> 
+<A 
+href="http://www.itcr.ac.cr/revistamate/HERRAmInternet/ecuaexecl/node5.html">6</A> 
+<B>7</B> <A 
+href="http://www.itcr.ac.cr/revistamate/HERRAmInternet/ecuaexecl/node6.html">8</A> 
+<A 
+href="http://www.itcr.ac.cr/revistamate/HERRAmInternet/ecuaexecl/node7.html">9</A> 
+<A 
+href="http://www.itcr.ac.cr/revistamate/HERRAmInternet/ecuaexecl/node8.html">10</A> 
+</FONT></P>
+<P align=center><FONT color=#999999 size=2>Revista Matemática, Educación e 
+Internet<BR>Derechos Reservados</FONT></P></BODY></HTML>

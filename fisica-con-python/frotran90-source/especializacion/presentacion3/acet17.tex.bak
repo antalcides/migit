@@ -1,0 +1,68 @@
+
+\documentclass{article}
+\usepackage{amsfonts}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Created=Thu Oct 02 10:41:04 2003}
+%TCIDATA{LastRevised=Thu Oct 02 10:41:22 2003}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="General\Blank Document">}
+%TCIDATA{CSTFile=LaTeX article (bright).cst}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{tcilatex}
+
+\begin{document}
+
+
+\section{Simetr\'{i}a esf\'{e}rica y monoton\'{i}a radial de soluciones
+positivas para la ecuacion de Poisson no-lineal en $\mathbb{R}^{n}$}
+
+\begin{lemma}
+Sean $R>0,$ $u\in C^{2}\left( \left| x\right| >R\right) \cap C\left( \left|
+x\right| \geq R\right) ,$ $u>0$ en $\left| x\right| \geq R$, tendiendo a
+cero en el infinito y satisfaciendo 
+\begin{equation*}
+Lu\equiv \left( \Delta +\sum_{j=1}^{n}b_{j}\left( x\right) \partial
+_{j}+c\left( x\right) \right) u\leq 0\text{ \ \ en }\left| x\right| >R,
+\end{equation*}
+donde $b_{j}=O\left( \left| x\right| ^{1-p}\right) $, $c\left( x\right)
+=O\left( \left| x\right| ^{-p}\right) $ en el infinito, $p>2,$ y adem\'{a}s
+continuas en $\left| x\right| \geq R$. Entonces, existe un $\mu >0$, tal que 
+\begin{equation*}
+u\left( x\right) \geq \frac{\mu }{\left| x\right| ^{n-2}}\text{.}
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+De la funci\'{o}n comparaci\'{o}n $z=\dfrac{1}{r^{n-2}}+\dfrac{1}{r^{s}},$
+donde $r=\left| x\right| $ y \linebreak $n-2<s<n-4+p,$ y el principio del m%
+\'{a}ximo d\'{e}bil se obtiene la conclusi\'{o}n.
+\end{proof}
+
+\end{document}

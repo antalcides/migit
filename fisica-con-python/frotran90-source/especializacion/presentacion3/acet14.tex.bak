@@ -1,0 +1,84 @@
+%% This document created by Scientific Word (R) Version 3.0
+
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{CSTFile=LaTeX article (bright).cst}
+%TCIDATA{Created=Thu Oct 02 10:22:45 2003}
+%TCIDATA{LastRevised=Thu Oct 02 10:23:14 2003}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="General\Blank Document">}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\begin{document}
+
+
+\begin{theorem}
+Sup\'{o}ngase que $\Omega$ satisface la condici\'{o}n de bola interior
+uniforme en el sentido fuerte, $L$ dado por $\left(  13\right)  $, $\left(
+S_{\Omega}\right)  $ se cumple, $u\in C^{2}\left(  \Omega\right)  \cap
+C\left(  \overline{\Omega}\right)  $ satisfaciendo
+\[
+Lu\leq0\text{ \ en }\Omega\text{ \ y }u\geq0\text{ \ sobre }\partial\Omega
+\]
+es Lipschitz continua en $\overline{\Omega}$. Si $h\in C^{2}\left(
+\Omega\right)  \cap C\left(  \overline{\Omega}\right)  $ satisface
+\[
+Lh\leq0\text{ \ y \ }h>0\text{ en }\Omega\text{,}%
+\]
+entonces
+\[
+u=\beta h\text{ \ en }\Omega\text{ para un }\beta<0\text{ \ \'{o} \ }%
+u\equiv0\text{ \ en }\Omega\text{ \ \'{o} }u>0\text{ \ en }\Omega\text{.}%
+\]
+\end{theorem}
+
+\begin{proof}
+Si $u\geq0$ en $\Omega$, y $L_{0}$ es $L$ con $c\equiv0$ en $\Omega$,
+$L_{0}u+c^{-}u\leq0$ y por el principio del m\'{i}nimo fuerte resulta
+\[
+\left(  i\right)  \text{ }u\equiv0\text{ \ en }\Omega\text{ \ \ \'{o}
+\ \ }\left(  ii\right)  \text{ }u>0\text{ \ en }\Omega\text{.}%
+\]
+Ahora , sea $\min\limits_{\Omega}u<0$, debido a $\left(  S_{\Omega}\right)  ,$
+la condicci\'{o}n de bola interior uniforme en el sentido fuerte y las
+hip\'{o}tesis sobre $h,$ existe una constante $\delta>0$ tal que
+\[
+h\left(  x\right)  \geq\delta d\left(  x\right)  \text{ en }\Omega.
+\]
+Luego existe el menor $\theta$ tal que $v:=u+\theta h\geq0$ en $\Omega.$
+
+Con eso $L_{0}v+c^{-}v\leq0$ en $\Omega$ y por tanto el principio del
+m\'{i}nimo fuerte implica
+\[
+\left(  iii\right)  \text{ }v\equiv0\text{ \ en }\Omega\text{ \ \ \'{o}
+\ \ }\left(  iv\right)  \text{ }v>0\text{ \ en }\Omega.
+\]
+Si $\left(  iv\right)  $ se da, se llega a una contradicci\'{o}n. Luego el
+teorema queda probado.
+\end{proof}
+\end{document}

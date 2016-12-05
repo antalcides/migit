@@ -1,0 +1,263 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0078)http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/estatico/math/math.htm -->
+<HTML><HEAD><TITLE>La clase Math</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY>
+<H1 align=center>La clase <EM>Math</EM></H1>
+<TABLE width="100%">
+  <TBODY>
+  <TR>
+    <TD width="50%"><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/estatico/estatico1.htm"><IMG 
+      height=40 alt="prev.gif (997 bytes)" src="La clase Math_archivos/prev.gif" 
+      width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/fundamentos.htm"><IMG 
+      height=40 alt="chapter.gif (1105 bytes)" 
+      src="La clase Math_archivos/chapter.gif" width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/curso.htm"><IMG height=40 
+      alt="home.gif (1054 bytes)" src="La clase Math_archivos/home.gif" 
+      width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/estatico/mates/mates.htm"><IMG 
+      height=40 alt="next.gif (998 bytes)" src="La clase Math_archivos/next.gif" 
+      width=49></A></TD>
+    <TD width="50%">
+      <H3 align=right><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/intro_clases.htm">Clases 
+      y objetos</A></H3></TD></TR></TBODY></TABLE>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/estatico/math/math.htm#Miembros dato constantes">Miembros 
+dato constantes</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/estatico/math/math.htm#Funciones miembro">Funciones 
+miembro</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/estatico/math/math.htm#Cálculo del número irracional p">Cálculo 
+del número irracional <FONT face=Symbol>p</FONT> </A></P>
+<HR>
+
+<P>La clase <EM>Math</EM> tiene miembros dato y funciones miembro estáticas, 
+vamos a conocer algunas de estas funciones, cómo se llaman y qué tarea 
+realizan.</P>
+<P><IMG height=32 alt="disco.gif (1035 bytes)" 
+src="La clase Math_archivos/disco.gif" width=32 
+align=middle><STRONG>matematicas</STRONG>: <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/estatico/codigo/MatematicasApp.java">MatematicasApp.java</A></P>
+<P>&nbsp;</P>
+<H2><A name="Miembros dato constantes">Miembros dato constantes</A></H2>
+<P>La clase <EM>Math</EM> define dos constantes muy útiles, el número <FONT 
+face=Symbol>p</FONT> y el número e.</P><PRE>public final class Math {
+    public static final double E = 2.7182818284590452354;
+    public static final double PI = 3.14159265358979323846;
+    //...
+}</PRE>
+<P>El modificador <STRONG>final</STRONG> indica que los valores que guardan no 
+se pueden cambiar, son valores constantes</P>
+<P>Se accede a estas constantes desde la clase <EM>Math</EM>, de la siguiente 
+forma</P><PRE>     System.out.println("Pi es " + Math.PI);     
+     System.out.println("e es " + Math.E);     
+
+</PRE>
+<P>&nbsp;</P>
+<H2><A name="Funciones miembro">Funciones miembro</A></H2>
+<P>La clase <EM>Math</EM> define muchas funciones y versiones distintas de cada 
+función.</P>
+<P>Por ejemplo, para hallar el valor absoluto de un número define las siguientes 
+funciones. Se llama a una u otra dependiendo del tipo de dato que se le pasa en 
+su único argumento. </P><PRE>public final class Math {
+    public static int abs(int a) {
+	return (a &lt; 0) ? -a : a;
+    }
+    public static long abs(long a) {
+	return (a &lt; 0) ? -a : a;
+    }    
+    public static float abs(float a) {
+	return (a &lt; 0) ? -a : a;
+    }
+    public static double abs(double a) {
+	return (a &lt; 0) ? -a : a;
+    }
+//...
+}</PRE>
+<P>Por ejemplo, hallar el valor absoluto de los siguientes números</P><PRE>    int i = -9;
+    double x = 0.3498;    
+    System.out.println("|" + i + "| es " + Math.abs(i));
+    System.out.println("|" + x + "| es " + Math.abs(x));</PRE>
+<P><EM>Math.abs(i)</EM>, llama a la primera versión, y <EM>Math.abs(x)</EM> 
+llama a la última versión.</P>
+<P>&nbsp;</P>
+<H3><A name=trigonométrica></A>Funciones trigonométricas</H3>
+<P>En las funciones trigonométricas los argumentos se expresan en radianes. Por 
+ejemplo, el ángulo 45º se convierte en radianes y luego se halla el seno, el 
+coseno y la tangente</P><PRE>    double angulo = 45.0 * Math.PI/180.0;
+    System.out.println("cos(" + angulo + ") es " + Math.cos(angulo));
+    System.out.println("sin(" + angulo + ") es " + Math.sin(angulo));
+    System.out.println("tan(" + angulo + ") es " + Math.tan(angulo));</PRE>
+<P>Para pasar de coordenadas rectangulares a polares es útil la función 
+<EM>atan2</EM>, que admite dos argumentos, la ordenada y la abscisa del punto. 
+Devuelve el ángulo en radianes.</P><PRE>    double y=-6.2;  //ordenada
+    double x=1.2;   //abscisa
+    System.out.println("atan2(" + y+" , "+x + ") es " + Math.atan2(y, x));
+</PRE>
+<H3><A name="Funciones exponencial y logarítmica">Funciones exponencial y 
+logarítmica</A></H3>
+<P>La función exponencial <EM>exp</EM> devuelve el número <EM>e</EM> elevado a 
+una potencia</P><PRE>    System.out.println("exp(1.0) es " +  Math.exp(1.0));
+    System.out.println("exp(10.0) es " + Math.exp(10.0));
+    System.out.println("exp(0.0) es " +  Math.exp(0.0));
+</PRE>
+<P>La función <EM>log</EM> calcula el logaritmo natural (de base <EM>e</EM>) de 
+un número</P><PRE>    System.out.println("log(1.0) es " + Math.log(1.0));
+    System.out.println("log(10.0) es " + Math.log(10.0));
+    System.out.println("log(Math.E) es " + Math.log(Math.E));
+</PRE>
+<H3>Función potencia y raíz cuadrada</H3>
+<P>Para elevar un número <EM>x</EM> a la potencia <EM>y</EM>, se emplea 
+<EM>pow(x, y)</EM></P><PRE>   System.out.println("pow(10.0, 3.5) es " +  Math.pow(10.0,3.5));
+ </PRE>
+<P>Para hallar la raíz cuadrada de un número, se emplea la función 
+<EM>sqrt</EM></P><PRE>   System.out.println("La raíz cuadrada de " + x + " is " + Math.sqrt(x));
+</PRE>
+<H3><A name=aproximacion></A>Aproximación de un número decimal</H3>
+<P>Para expresar un número real con un número especificado de números decimales 
+empleamos la función <EM>round</EM>. Por ejemplo, para expresar los números 
+<EM>x</EM> e <EM>y</EM> con dos cifras decimales escribimos</P><PRE>    double x = 72.3543;
+    double y = 0.3498;
+    System.out.println(x + " es aprox. " + (double)Math.round(x*100)/100);
+    System.out.println(y + " es aprox. " + (double)Math.round(y*100)/100);</PRE>
+<P>Se obtiene 72.35 y 0.35 como cabría esperar. Fijarse que <EM>round</EM> 
+devuelve un número entero <STRONG>int</STRONG> que es necesario promocionar a 
+<STRONG>double</STRONG> para efectuar la división entre 100.</P>
+<P>Si empleamos la función <EM>floor</EM> en vez de <EM>round</EM> 
+obtendríamos</P><PRE>     System.out.println(x + " es aprox. " + Math.floor(x*100)/100);
+     System.out.println(y + " es aprox. " + Math.floor(y*100)/100);</PRE>
+<P>Se obtiene 72.35 y 0.34. La aproximación del primero es correcta ya que la 
+tercera cifra decimal es 4 inferior a 5. La aproximación del segundo es 
+incorrecta ya que la tercera cifra decimal es 9 mayor que 5. En la mayor parte 
+de los cálculos se cometen errores, por lo que la diferencia entre 
+<EM>floor</EM> y <EM>round</EM> no es significativa.</P>
+<P>&nbsp;</P>
+<H3><A name="El mayor y el menor de dos números">El mayor y el menor de dos 
+números</A></H3>
+<P>Para hallar el mayor y el menor de dos números se emplean las funciones 
+<EM>min</EM> y <EM>max</EM> que comparan números del mismo tipo.</P><PRE>    int i = 7;
+    int j = -9;
+    double x = 72.3543;
+    double y = 0.3498;
+// para hallar el menor de dos número
+    System.out.println("min(" + i + "," + j + ") es " + Math.min(i,j));
+    System.out.println("min(" + x + "," + y + ") es " + Math.min(x,y));
+// Para hallar el mayor de dos números
+     System.out.println("max(" + i + "," + j + ") es " + Math.max(i,j));
+     System.out.println("max(" + x + "," + y + ") es " + Math.max(x,y));
+</PRE>
+<H3><A name=azar>Números aleatorios</A></H3>
+<P>La clase <EM>Math</EM> define una función denominada <EM>random</EM> que 
+devuelve un número pseudoaleatorio comprendido en el intervalo [0.0, 1.0). 
+Existe otra alternativa, se pueden generar números pseudoaleatorios a partir de 
+un objeto de la <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/azar.htm">clase 
+<EM>Random</A>, </EM>que llame a la función miembro <EM>nextDouble</EM>.</P><PRE>    System.out.println("Número aleatorio: " + Math.random());
+    System.out.println("Otro número aleatorio: " + Math.random());
+</PRE>
+<P>&nbsp;</P>
+<H2><A name="Cálculo del número irracional p">Cálculo del número irracional 
+<FONT face=Symbol>p</FONT> </A></H2>
+<P><IMG height=32 alt="disco.gif (1035 bytes)" 
+src="La clase Math_archivos/disco.gif" width=32 
+align=middle><STRONG>pi</STRONG>: <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/estatico/codigo/PiApp.java">PiApp.java</A></P>
+<P>Para hallar la longitud de una circunferencia de radio <I>R</I>, primero se 
+calcula el perímetro de un triángulo equilátero (3 lados) inscrito en dicha 
+circunferencia, luego, de un hexágono (6 lados), un dodecágono (12 lados), y así 
+sucesivamente. El límite de la sucesión de perímetros es precisamente la 
+longitud de la circunferencia <EM>2<FONT face=Symbol>p</FONT> R</EM>.</P>
+<P>Si tomamos una circunferencia de radio unidad, al dividir entre dos los 
+valores de los perímetros iremos obteniendo las sucesivas aproximaciones del 
+número irracional <FONT face=Symbol>p</FONT> .</P>
+<TABLE width="100%">
+  <TBODY>
+  <TR>
+    <TD width="33%"><IMG height=175 alt="pi.gif (2328 bytes)" 
+      src="La clase Math_archivos/pi.gif" width=251></TD>
+    <TD width="67%">A partir de la figura, podemos calcular la longitud del 
+      lado <I>a<SUB>n</SUB></I> un polígono regular de <I>n</I> lados inscrito 
+      en la circunferencia de radio <I>R</I>, (en color rojo).
+      <P><IMG height=41 src="La clase Math_archivos/Image201.gif" width=94></P>
+      <P>Del mismo modo, obtenemos la longitud del lado de un polígono regular 
+      inscrito de <I>2n</I> lados (en color azul).</P>
+      <P><IMG height=41 src="La clase Math_archivos/Image202.gif" 
+    width=106></P></TD></TR></TBODY></TABLE>
+<P>Teniendo en cuanta que <IMG height=45 
+src="La clase Math_archivos/Image203.gif" width=126 align=middle></P>
+<P>Establecemos la relación entre <I>a<SUB>n</I> </SUB>y <I>a<SUB>2n</SUB></I> y 
+por tanto, entre el perímetro <I>P<SUB>n</SUB></I> del polígono regular de 
+<I>n</I> lados y el perímetro <I>P<SUB>2n</SUB></I> del polígono regular de 
+<I>2n</I> lados.</P>
+<P><IMG height=52 src="La clase Math_archivos/Image204.gif" width=177></P>
+<P>Tomando como radio <EM>R</EM>, la unidad 
+<UL>
+  <LI>Para un triángulo, <I>n</I>=3, la longitud del lado es 
+  <I>a<SUB>3</SUB>=2sen60º</I>, y el perímetro <IMG height=26 
+  src="La clase Math_archivos/Image205.gif" width=62 align=middle> 
+  <LI>Para un hexágono, <I>n=6</I>, la longitud del lado es 
+  <I>a<SUB>6</SUB>=2sen30º=1</I>, y el perímetro <I>P<SUB>6</SUB>=6</I>. 
+  <LI>y así sucesivamente. </LI></UL>
+<P>Para obtener las sucesivas aproximaciones del número irracional <EM><FONT 
+face=Symbol>p</FONT> </EM>mediante la fórmula anterior procedemos del siguiente 
+modo 
+<OL>
+  <LI>Partimos del valor del perímetro <EM>P</EM> de un triángulo equilátero 
+  inscrito en una circunferencia de radio unidad, el valor de <EM>n</EM> es 3. 
+  <LI>Calculamos el perímetro <EM>P</EM> de un polígono de <EM>2n</EM> lados a 
+  partir del valor del perímetro de un polígono regular de <EM>n</EM> lados. 
+  <LI>El valor obtenido <EM>P</EM> será el valor del perímetro de un polígono 
+  regular de <EM>n=2n</EM> lados. 
+  <LI>Se imprime el valor de <EM>P</EM> dividido entre dos (aproximación de 
+  <EM><FONT face=Symbol>p</FONT>)</EM> 
+  <LI>Se vuelve al paso 2. </LI></OL>
+<P>Ahora, hemos de trasladar las fórmulas matemáticas a código, y aquí es donde 
+podemos llevarnos algunas sorpresas.</P>
+<P>En primer lugar, hemos de tener en cuenta que la expresión <IMG height=43 
+src="La clase Math_archivos/Image206.gif" width=46 align=middle> es 
+matemáticamente equivalente a <IMG height=45 
+src="La clase Math_archivos/Image207.gif" width=62 align=middle> pero no lo es 
+cuando trabajamos con números en el ordenador.</P>
+<P>Por ejemplo si <EM>n</EM> es tipo de dato <STRONG>int</STRONG>. Al evaluar el 
+denominador en la primera expresión obtenemos el cuadrado de <EM>n</EM> que 
+crece muy rápidamente con <EM>n</EM>, sobrepasándose (overflow) el <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/primero.htm#Tipos de datos primitivos">valor 
+máximo que puede guardar una variable entera</A> dado por 
+<EM>Integer.MAX_VALUE</EM>. <EM>Integer</EM> es la clase que describe los 
+números enteros. Por tanto, al realizar los cálculos en el ordenador es 
+aconsejable emplear la segunda expresión en vez de la primera, incluso si 
+cambiamos el tipo de dato de <EM>n</EM> de <STRONG>int</STRONG> a 
+<STRONG>long</STRONG>.</P>
+<P>El cálculo de <FONT face=Symbol><EM>p </EM></FONT>implica un número infinito 
+de iteracciones, ya que como hemos visto no es posible al sobrepasarse el valor 
+máximo que puede guardar una variable entera, nuestra primera intención sería la 
+programar un bucle que realice el máximo número de iteracciones</P><PRE>&nbsp;   double perimetro=3*Math.sqrt(3);      //triángulo equilátero inscrito
+    long n=3;
+    int i=0;	//número de iteracciones
+<STRONG>    while(n&lt;Long.MAX_VALUE){
+</STRONG>        perimetro=2*n*Math.sqrt(2.0-Math.sqrt(4.0-(perimetro/n)*(perimetro/n)));
+        n=2*n;
+        i++;
+        System.out.println(i+" -- "+perimetro/2);
+    }</PRE>
+<P>Con cierta sorpresa observamos la salida del programa cuando se ha completado 
+el bucle, se imprime un cero, en vez de 3.14159265358979323846.</P>
+<P>Si observamos las 30 primeras iteracciones vemos, tal como se muestra en la 
+figura inferior, que la valor más próximo a <EM><FONT face=Symbol>p</FONT> 
+</EM>se obtiene en las iteracciones 13, 14, 15, y 16. </P><PRE><STRONG>    while(i&lt;30){
+</STRONG>//...    
+    }</PRE>
+<P><IMG height=359 alt="pi1.gif (11311 bytes)" 
+src="La clase Math_archivos/pi1.gif" width=652></P>
+<P>La conclusión final, es que hemos de tener mucho cuidado al trasladar las 
+fórmulas matemáticas a código. Los datos de tipo predefinido solamente pueden 
+guardar valores entre un máximo y un mínimo, tal como<A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/primero.htm#Tipos de datos primitivos"> 
+hemos visto en su definición</A>.Por otra parte, una variable de tipo 
+<STRONG>double</STRONG> tiene una precisión limitada por lo que no representa a 
+todos los números reales sino a un conjunto finito de éstos.</P></BODY></HTML>

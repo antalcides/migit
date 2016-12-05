@@ -1,0 +1,10 @@
+
+
+package integral1;
+
+public class Funcion extends Trapecio{
+
+    public double f(double x){
+        return Math.cos(x);
+    }
+} 

@@ -1,0 +1,54 @@
+	program schrodinger
+
+c...... Solves the time-independent Schrodinger equation 
+c...... for a potential box. Uses simple finite differences
+
+c	by Dario Mitnik
+
+	implicit real*8(a-h,o-z)
+	parameter (mxpoints=1000)
+
+
+c....... initial values
+	print*,' give the size D of the potential box (-D/2 to D/2)'
+	read*,d
+	print*,' give the depth V0 of the potential well'
+	read*,V0
+
+100	open(unit=10,file='wave.dat',status='unknown')
+
+	print*,' give the initial value of the wavefunction P(0) '
+	read*,p0
+	print*,' give the initial value of the derivative at 0 Y(0) '
+	read*,y0
+	print*,' give the number of grid points'
+	read*,npts
+	print*,' guess initial energy value'
+	read*,Ener
+
+c...... Other values
+	dx = D/(2*npts)
+c...... initial point P(1)
+	p1 = p0 + dx*y0
+	write(10,55) dx-dx,p0
+	write(10,55) dx,p1
+55	format(2(1x,1pg14.4))
+
+c...... Solving the Schrodinger Equation
+	do 200 i=2,npts*15
+		V = V0
+		if (i*dx.le.D/2) V = 0.0
+		p = (2.0 + dx*dx*(V-Ener))*p1 - p0
+		write(10,55) dx*i,p
+		p0 = p1
+		p1 = p
+200	continue
+		
+	close(unit=10,status='keep')
+
+	print*,' Continue?  No=0'
+	read*,icont
+	if (icont.ne.0) go to 100
+
+	stop
+	end

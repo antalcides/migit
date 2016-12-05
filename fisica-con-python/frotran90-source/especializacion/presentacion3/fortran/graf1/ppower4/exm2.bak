@@ -1,0 +1,81 @@
+% language support
+\documentclass[30pt,landscape]{foils}%
+\usepackage[english,german]{babel}
+\usepackage[pdftex]{color}
+\usepackage[pdftex]{geometry}
+\usepackage{hyperref}
+\usepackage{pause}
+\usepackage{background}
+\usepackage{pp4slide}
+\usepackage{graphicx}%
+\usepackage{amsmath}%
+\setcounter{MaxMatrixCols}{30}%
+\usepackage{amsfonts}%
+\usepackage{amssymb}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{Version=4.00.0.2312}
+%TCIDATA{LastRevised=Friday, August 20, 1999 22:36:34}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+\geometry{headsep=3ex,hscale=0.9}
+\hypersetup{pdftitle={PPower4Example},
+pdfsubject={An example to demonstrate PPower4},
+pdfauthor={Klaus Guntermann, Systems Programming Group,
+Darmstadt University of Technology,
+<guntermann@iti.informatik.tu-darmstadt.de>},
+pdfkeywords={pdftex, acrobat},
+pdfpagemode={FullScreen}
+}
+\begin{document}
+\definecolor{bgblue}{rgb}{0.04,0.39,0.53} \vpagecolor{bgblue}
+
+\foilhead{contenido} \hypersetup{pdfpagetransition=R}
+
+\begin{itemize}
+
+
+\item $\int$ $_{b}^{q}f\left(  x\right)  dx$
+%TCIMACRO{\TeXButton{pause}{\pause}}%
+%BeginExpansion
+\pause
+%EndExpansion
+
+
+\item $\sum avvvvv$ \pause
+
+\item $a\in$ $\pm b$
+%TCIMACRO{\TeXButton{pause}{\pause}}%
+%BeginExpansion
+\pause
+%EndExpansion
+
+
+\item
+%TCIMACRO{\FRAME{itbpF}{0.3943in}{0.4056in}{0in}{}{}{fracpic.wmf}%
+%{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "USEDEF";  valid_file "F";
+%width 0.3943in;  height 0.4056in;  depth 0in;  original-width 0.3649in;
+%original-height 0.3753in;  cropleft "-1";  croptop "1.82759";  cropright "0";
+%cropbottom "0.82759";
+%filename '../../../../swp40/Graphics/fracpic.wmf';file-properties "XNPEU";}}}%
+%BeginExpansion
+{\includegraphics[
+trim=-0.364900in 0.310595in 0.364900in -0.310595in,
+natheight=0.375300in,
+natwidth=0.364900in,
+height=0.4056in,
+width=0.3943in
+]%
+{../../../../swp40/Graphics/fracpic.wmf}%
+}%
+%EndExpansion%
+%TCIMACRO{\TeXButton{pause}{\pause}}%
+%BeginExpansion
+\pause
+%EndExpansion
+
+\end{itemize}
+
+
+
+
+\end{document}

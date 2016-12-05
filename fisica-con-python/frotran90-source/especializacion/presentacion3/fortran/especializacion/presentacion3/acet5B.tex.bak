@@ -1,0 +1,61 @@
+
+
+
+
+\begin{theorem}
+Sea $L$ el operador diferencial dado en $\left(  1\right)  $ con coeficientes
+satisfaciendo $\left(  2\right)  ,\left(  3\right)  $ y $\left(  4\right)  $,
+y $g\in W^{1,2}\left(  \Omega\right)  $. Entonces para cualquier $f\in
+L^{2}\left(  \Omega\right)  $ el \textbf{problema de Dirichlet generalizado}
+\[
+\left(  P.D.\right)  \left\{
+\begin{array}
+[c]{c}%
+Lu=f\text{ \ en }\Omega,\\
+u=g\text{ sobre }\partial\Omega,
+\end{array}
+\right.
+\]
+tiene soluci\'{o}n d\'{e}bil \'{u}nica.
+\end{theorem}
+
+\begin{proof}
+Si $u$ es una soluci\'{o}n d\'{e}bil de $\left(  P.D.\right)  $, entonces
+$w:=u-g\in W_{0}^{1,2}\left(  \Omega\right)  $ y adem\'{a}s para cada $v\in
+W_{0}^{1,2}\left(  \Omega\right)  :$%
+\[
+\mathcal{L}\left(  w,v\right)  =\widetilde{F}\left(  v\right)  ,\text{
+\ }\widetilde{F}\left(  v\right)  \in\left(  W_{0}^{1,2}\left(  \Omega\right)
+\right)  ^{\ast}.
+\]
+
+
+$\mathcal{L}\left(  .,.\right)  $ es una forma bilineal acotada sobre
+$W_{0}^{1,2}\left(  \Omega\right)  \times W_{0}^{1,2}\left(  \Omega\right)  $
+y existe $\sigma_{0}$ tal que
+\[
+\mathcal{L}_{\sigma_{0}}\left(  u,v\right)  :=\mathcal{L}\left(  u,v\right)
++\sigma_{0}\left(  u,v\right)
+\]
+es coerciva. Luego Lax-Milgram implica que para $F\in\left(  W_{0}%
+^{1,2}\left(  \Omega\right)  \right)  ^{\ast}$ existe un \'{u}nico $u\in
+W_{0}^{1,2}\left(  \Omega\right)  $ tal que
+\[
+\mathcal{L}_{\sigma_{0}}\left(  u,v\right)  =F\left(  v\right)  \text{ \ para
+todo }v\in W_{0}^{1,2}\left(  \Omega\right)  .
+\]
+La aplicaci\'{o}n $L_{\sigma_{0}}:W_{0}^{1,2}\left(  \Omega\right)
+\longrightarrow\left(  W_{0}^{1,2}\left(  \Omega\right)  \right)  ^{\ast}$,
+dada por
+\[
+(L_{\sigma_{0}}u)\left(  v\right)  :=\mathcal{L}_{\sigma_{0}}\left(
+u,v\right)  \text{ \ }\forall v\in W_{0}^{1,2}\left(  \Omega\right)
+\]
+es lineal, acotada uno-uno, sobre y $L_{\sigma_{0}}^{-1}$ tambi\'{e}n es acotada.
+
+As\'{\i} las ecuaciones $Lu=F$ y $u-\sigma_{0}L_{\sigma_{0}}^{-1}%
+Iu=L_{\sigma_{0}}^{-1}F$ son equivalentes. El operador $T:=\sigma_{0}%
+L_{\sigma_{0}}^{-1}I$ es compacto, debido al lema $5$, y por el corolario $3$
+se deduce que $I-T$ es inyectiva. Luego por la alternativa de Fredholm se da
+la conclusi\'{o}n del teorema.
+\end{proof}

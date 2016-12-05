@@ -1,0 +1,256 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0093)http://www.sc.ehu.es/sbweb/fisica/cursoJava/numerico/raices/aproximaciones/aproximaciones.htm -->
+<HTML><HEAD><TITLE>Método de las aproximaciones sucesivas</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY>
+<H1 align=center>Método de las aproximaciones sucesivas</H1>
+<TABLE width="100%">
+  <TBODY>
+  <TR>
+    <TD width="50%">
+      <P align=left><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/numerico/raices/raices.htm"><IMG 
+      height=40 alt="prev.gif (997 bytes)" 
+      src="Método de las aproximaciones sucesivas_archivos/prev.gif" 
+      width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/numerico/ejemplos.htm"><IMG 
+      height=40 alt="chapter.gif (1105 bytes)" 
+      src="Método de las aproximaciones sucesivas_archivos/chapter.gif" 
+      width=49></A><B><A href="http://www.sc.ehu.es/sbweb/fisica/curso.htm"><IMG 
+      height=40 alt="home.gif (1232 bytes)" 
+      src="Método de las aproximaciones sucesivas_archivos/home.gif" 
+      width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/numerico/raices/medio/medio.htm"><IMG 
+      height=40 alt="next.gif (1211 bytes)" 
+      src="Método de las aproximaciones sucesivas_archivos/next.gif" 
+      width=49></A></B></P></TD>
+    <TD width="50%">
+      <H3 align=right><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/numerico/raices/raices.htm">Raíces 
+      de una ecuación</A></H3></TD></TR></TBODY></TABLE>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/numerico/raices/aproximaciones/aproximaciones.htm#Descripción">Descripción</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/numerico/raices/aproximaciones/aproximaciones.htm#La condición de terminación">La 
+condición de terminación</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/numerico/raices/aproximaciones/aproximaciones.htm#La clase que describe el procedimiento">La 
+clase que describe el procedimiento </A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/numerico/raices/aproximaciones/aproximaciones.htm#El criterio de convergencia">El 
+criterio de convergencia</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/numerico/raices/aproximaciones/aproximaciones.htm#Ejemplos">Ejemplos</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/numerico/raices/aproximaciones/aproximaciones.htm#Código fuente">Código 
+fuente</A></P>
+<HR>
+
+<H2><A name=Descripción>Descripción</A></H2>
+<P>El método de las aproximaciones sucesivas es uno de los procedimientos más 
+importantes y más sencillos de codificar. Supongamos la ecuación</P>
+<P><IMG height=21 
+src="Método de las aproximaciones sucesivas_archivos/Image7.gif" width=61></P>
+<P>donde <I>f(x)</I> es una función continua que se desea determinar sus raíces 
+reales. Se sustituye <I>f(x)</I> por la ecuación equivalente</P>
+<P><IMG height=20 
+src="Método de las aproximaciones sucesivas_archivos/Image8.gif" width=61></P>
+<P>Se estima el valor aproximado de la raíz <I>x<SUB>0</SUB></I>, y se sustituye 
+en el segundo miembro de la ecuación para obtener <I>x<SUB>1</SUB></I>.</P>
+<P><IMG height=21 
+src="Método de las aproximaciones sucesivas_archivos/Image9.gif" width=74></P>
+<P>Poniendo <I>x<SUB>1</SUB></I> como argumento de <I><FONT 
+face=Symbol>j(</FONT>x)</I>, obtendremos un nuevo número <I>x<SUB>2</SUB></I>, y 
+así sucesivamente. Este proceso se puede sintetizar en la fórmula.</P>
+<P><IMG height=21 
+src="Método de las aproximaciones sucesivas_archivos/Image10.gif" width=234 
+align=middle> (1)</P>
+<P>Si esta secuencia es convergente es decir, tiende hacia un límite, la 
+solución <FONT face=Symbol><I>x</I></FONT> es</P>
+<P><IMG height=29 
+src="Método de las aproximaciones sucesivas_archivos/Image11.gif" width=68></P>
+<TABLE width="46%">
+  <TBODY>
+  <TR>
+    <TD width="100%"><IMG height=268 alt="FIG14_01.gif (2477 bytes)" 
+      src="Método de las aproximaciones sucesivas_archivos/FIG14_01.gif" 
+      width=370></TD></TR></TBODY></TABLE>
+<P>El método de iteración se explica geométricamente mediante el gráfico de la 
+figura. Se dibuja la curva <I>y=<FONT face=Symbol>j</FONT>(x)</I>, y la recta 
+<I>y=x</I>, bisectriz del primer cuadrante. La abscisa <FONT 
+face=Symbol><I>x</I></FONT> del punto de intersección es la raíz buscada. </P>
+<P>Un ejemplo típico es la de encontrar la raíz de la ecuación </P>
+<P><IMG height=20 
+src="Método de las aproximaciones sucesivas_archivos/Image12.gif" width=72></P>
+<P>Para encontrar la raíz, se comienza en el punto cualquiera de abscisa 
+<I>x<SUB>0</SUB></I> dentro del intervalo (0, <FONT face=Symbol>p</FONT>/2), y 
+se traza la línea vertical hasta que interseca la curva, luego, desde este 
+punto, se traza una línea horizontal hasta que se alcanza la recta bisectriz, 
+este punto tendrá por abscisa <I>x<SUB>1</SUB></I>. Se traza de nuevo, una línea 
+vertical hasta encontrar a la curva, y otra línea horizontal hasta encontrar la 
+línea recta, el punto de intersección tiene de abscisa <I>x<SUB>2</SUB></I> , y 
+así sucesivamente. Como podemos apreciar en la figura, la sucesión 
+<I>x<SUB>1</SUB>, x<SUB>2</SUB>, x<SUB>3</SUB>...</I> tiende hacia la raíz <FONT 
+face=Symbol><I>x</I></FONT> de la ecuación buscada.</P>
+<P>Tal como nos sugiere la representación gráfica de la función en la figura, la 
+raíz buscada está en el intervalo <I>0</I> a <FONT face=Symbol>p/2</FONT>. 
+Tomamos una aproximación inicial a la raíz <I>x<SUB>0</SUB></I>, en dicho 
+intervalo y aplicamos la fórmula (1), su codificación no presenta grandes 
+dificultades. </P><PRE>        double x=0.5;
+        while(true){
+            x=Math.cos(x);
+        }
+</PRE>
+<P>&nbsp;</P>
+<H2><A name="La condición de terminación">La condición de finalización</A></H2>
+<P>Primero, introducimos el valor inicial <I>x</I>, la primera aproximación, 
+calculamos el valor del coseno de <I>x</I>, el valor devuelto (segunda 
+aproximación), lo guardamos de nuevo en la variable <I>x</I>, y repetimos el 
+proceso indefinidamente. El código aunque correcto, necesita terminarse en algún 
+momento, cumpliendo una determinada condición. Cuando el valor absoluto del 
+cociente entre la diferencia de dos términos consecutivos de la sucesión y uno 
+de los términos, sea menor que cierta cantidad <FONT face=Symbol>e. 
+</FONT></P><FONT size=2>
+<P><IMG height=50 
+src="Método de las aproximaciones sucesivas_archivos/Image13.gif" 
+width=88></FONT></P>
+<P>Este criterio, no es completamente riguroso, pero es un buen punto de partida 
+para el estudio de este método. Volvemos a escribir el código incluyendo la 
+condición de terminación y dentro de una función denominada <EM>raiz</EM>, a la 
+que se le pasa el valor inicial y que devuelve la raíz buscada</P><PRE>    final double ERROR=0.001;
+    double raiz(double x0){
+        double x1;
+        while(true){
+            x1=Math.cos(x0);
+            if(Math.abs((x1-x0)/x1)&lt;ERROR)   break;
+            x0=x1;
+        }
+        return x0;
+    }</PRE>
+<P>En primer lugar, fijamos el valor de la constante <FONT face=Symbol>e</FONT> 
+o <EM>ERROR</EM>. Introducimos la primera aproximación a la raíz, y la guardamos 
+en la variable <I>x<SUB>0</SUB></I>, calculamos su coseno y obtenemos la segunda 
+aproximación, la guardamos en la variable <I>x<SUB>1</SUB></I>. Verificamos si 
+se cumple la condición de terminación. En el caso de que no se cumpla, 
+<I>x<SUB>0</SUB></I> toma el valor de <I>x<SUB>1</SUB></I> y se repite el 
+proceso. En el momento en que se cumpla la condición de terminación, se sale del 
+bucle y la función devuelve la raíz buscada. Como podemos observar las variables 
+<I>x<SUB>0</SUB></I> y <I>x<SUB>1</SUB></I> guardan dos términos consecutivos de 
+la sucesión que tiende hacia la raíz de la función.</P>
+<P>&nbsp;</P>
+<H2><A name="La clase que describe el procedimiento">La clase que describe el 
+procedimiento </A></H2>
+<P>Queremos que el procedimiento numérico sea independiente de la función 
+<EM>f(x)</EM> cuya raíz deseamos averiguar. Para ello, creamos una <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/herencia/herencia1.htm#La jerarquía de clases que describen las figuras planas">clase 
+base abstracta</A> denominada <EM>Ecuacion</EM> con una función miembro 
+<EM>raiz</EM> que defina el procedimiento numérico, y que deje sin definir la 
+función <EM>f(x)</EM>, declarándola abstracta, dejando a las clases derivadas de 
+<EM>Ecuacion</EM> la definición de la función <EM>f(x)</EM> particular.</P>
+<TABLE cellSpacing=0 width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="100%" bgColor=#f7f7f7><PRE>public abstract class Ecuacion {
+    protected static final double ERROR=0.001;
+
+    public double raiz(double x0){
+        double x1;
+        while(true){
+            x1=f(x0);
+            if(Math.abs(x1-x0)&lt;ERROR)   break;
+            x0=x1;
+        }
+        return x0;
+    }
+
+    <STRONG>abstract</STRONG> public double f(double x);
+}</PRE></TD></TR></TBODY></TABLE>
+<P>Las clases derivadas denominadas <EM>Funcion1</EM> y <EM>Funcion2</EM> 
+definen la función <EM>f(x)</EM></P>
+<TABLE cellSpacing=0 width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="100%" bgColor=#f7f7f7><PRE>public class Funcion1 extends Ecuacion{
+    public double f(double x){
+        return Math.cos(x);
+    }
+}</PRE></TD></TR>
+  <TR>
+    <TD width="100%" bgColor=#f7f7f7><PRE>public class Funcion2 extends Ecuacion{
+    public double f(double x){
+        return Math.pow(x+1, 1.0/3);
+    }
+}</PRE></TD></TR></TBODY></TABLE>
+<P>Creamos objetos de las clases derivadas y llamamos desde ellos a la función 
+<EM>raiz</EM> que describe el procedimiento numérico</P><PRE>        Funcion1 f1=new Funcion1();
+        System.out.println("solucion1 "+f1.raiz(0.5));
+        System.out.println("solucion1 "+f1.raiz(0.9));
+        Funcion2 f2=new Funcion2();
+        System.out.println("solucion1 "+f2.raiz(0.5));</PRE>
+<P>En las dos primeras llamadas a la función <EM>raiz</EM> comprobamos que la 
+solución buscada no depende del valor inicial de partida <EM>x<SUB>0</SUB></EM>, 
+que en el primer caso es 0.5 y en el segundo caso es 0.9.</P>
+<P>&nbsp;</P>
+<H2><A name="El criterio de convergencia">El criterio de convergencia</A></H2>
+<P>No todas las ecuaciones pueden resolverse por este método, solamente si el 
+valor absoluto de la derivada de la función <I><FONT face=Symbol>j</FONT>(x)</I> 
+en la vecindad de la raíz <FONT face=Symbol><I>x</I></FONT> es menor que la 
+unidad (la pendiente de la recta bisectriz del primer cuadrante es uno). En la 
+figura, podemos ver como es imposible encontrar la solución marcada por un 
+puntito negro en la intersección entre la curva y la recta bisectriz del primer 
+cuadrante, ya que la sucesión <I>x<SUB>i</I> </SUB>diverge.</P>
+<TABLE width="51%">
+  <TBODY>
+  <TR>
+    <TD width="100%"><IMG height=293 alt="FIG14_02.gif (3042 bytes)" 
+      src="Método de las aproximaciones sucesivas_archivos/FIG14_02.gif" 
+      width=412></TD></TR></TBODY></TABLE>
+<P>Por ejemplo, la ecuación </P>
+<P><IMG height=24 
+src="Método de las aproximaciones sucesivas_archivos/Image14.gif" width=141></P>
+<P>tiene una raíz en el intervalo (1, 2) ya que <I>f(1)=-1&lt;0</I> y 
+<I>f(2)=5&gt;0.</I> Esta ecuación puede escribirse de la forma</P>
+<P><IMG height=20 
+src="Método de las aproximaciones sucesivas_archivos/Image15.gif" width=69></P>
+<P>En este caso, </P>
+<P><IMG height=24 
+src="Método de las aproximaciones sucesivas_archivos/Image16.gif" width=272></P>
+<P>y por tanto,</P>
+<P><IMG height=20 
+src="Método de las aproximaciones sucesivas_archivos/Image17.gif" width=206></P>
+<P>en consecuencia, no se cumplen las condiciones de convergencia del proceso de 
+iteración. Si escribimos la ecuación en la forma</P>
+<P><IMG height=22 
+src="Método de las aproximaciones sucesivas_archivos/Image18.gif" width=73></P>
+<P>como podrá verificar fácilmente el lector, cumple las condiciones de 
+convergencia, obteniéndose rápidamente un valor aproximado de la raíz 
+buscada.</P>
+<P>&nbsp;</P>
+<H2><A name=Ejemplos>Ejemplos</A></H2>
+<P>Resolver por el método de aproximaciones sucesivas las siguientes ecuaciones. 
+Primero hay que ponerlas de la forma <EM>x=f(x).</EM></P>
+<P><IMG height=24 
+src="Método de las aproximaciones sucesivas_archivos/Image19.gif" width=84></P>
+<P><IMG height=45 
+src="Método de las aproximaciones sucesivas_archivos/Image20.gif" width=65></P>
+<P><IMG height=24 
+src="Método de las aproximaciones sucesivas_archivos/Image21.gif" width=66></P>
+<P><IMG height=22 
+src="Método de las aproximaciones sucesivas_archivos/Image22.gif" width=76></P>
+<P><IMG height=20 
+src="Método de las aproximaciones sucesivas_archivos/Image23.gif" width=86></P>
+<P><IMG height=24 
+src="Método de las aproximaciones sucesivas_archivos/Image24.gif" width=100></P>
+<P>&nbsp;</P>
+<H2><A name="Código fuente">Código fuente</A></H2>
+<P><IMG height=32 alt="disco.gif (1035 bytes)" 
+src="Método de las aproximaciones sucesivas_archivos/disco.gif" width=32 
+align=middle> <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/numerico/raices/aproximaciones/codigo/Ecuacion.java">Ecuacion.java</A>, 
+<A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/numerico/raices/aproximaciones/codigo/Funcion1.java">Funcion1.java</A>, 
+<A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/numerico/raices/aproximaciones/codigo/Funcion2.java">Funcion2.java</A>, 
+<A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/numerico/raices/aproximaciones/codigo/EcuacionApp1.java">EcuacionApp1.java</A></P></BODY></HTML>

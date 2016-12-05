@@ -1,0 +1,235 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0038)http://www6.uniovi.es/gptug/node5.html -->
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds --><HTML><HEAD><TITLE>Working in the gnuplot Environment</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="Working in the gnuplot Environment" name=description>
+<META content=gptug name=keywords>
+<META content=document name=resource-type>
+<META content=global name=distribution>
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY lang=EN><A href="http://www6.uniovi.es/gptug/node6.html" 
+name=tex2html92><IMG height=24 alt=next 
+src="Working in the gnuplot Environment_archivos/next_motif.gif" width=37 
+align=bottom></A> <A href="http://www6.uniovi.es/gptug/gptug.html" 
+name=tex2html90><IMG height=24 alt=up 
+src="Working in the gnuplot Environment_archivos/up_motif.gif" width=26 
+align=bottom></A> <A href="http://www6.uniovi.es/gptug/node4.html" 
+name=tex2html84><IMG height=24 alt=previous 
+src="Working in the gnuplot Environment_archivos/previous_motif.gif" width=63 
+align=bottom></A> <A href="http://www6.uniovi.es/gptug/node1.html" 
+name=tex2html94><IMG height=24 alt=contents 
+src="Working in the gnuplot Environment_archivos/contents_motif.gif" width=65 
+align=bottom></A> <BR><B>Next:</B> <A 
+href="http://www6.uniovi.es/gptug/node6.html" name=tex2html93>More on 
+Plotting</A> <B>Up:</B> <A href="http://www6.uniovi.es/gptug/gptug.html" 
+name=tex2html91>gnuplot 3.5 User's Guide</A> <B>Previous:</B> <A 
+href="http://www6.uniovi.es/gptug/node4.html" name=tex2html85>Basics</A> <BR>
+<P>
+<H1><A name=SECTION00050000000000000000>Working in the <I>gnuplot</I> 
+Environment</A></H1>
+<P><A name=secworking></A> 
+<P><I>gnuplot</I>'s interactive environment has many features that make it easy 
+to use. In this section you will learn about some of these features. 
+<P>
+<H2><A name=SECTION00051000000000000000>Online Help</A></H2>
+<P><A name=subsechelp></A> 
+<P><I>gnuplot</I> provides very detailed online help for all commands. The 
+entries in the online help are identical to those you find in the <I>gnuplot</I> 
+manual. To access the help facility, simply type a question mark (<TT>?</TT>) or 
+<TT>help</TT> at the <TT>gnuplot&gt;</TT> prompt. To get help on a particular 
+command, type <TT>? <IMG height=29 alt=tex2html_wrap_inline5637 
+src="Working in the gnuplot Environment_archivos/img7.gif" width=4 align=middle> 
+<EM>command</EM> <IMG height=29 alt=tex2html_wrap_inline5639 
+src="Working in the gnuplot Environment_archivos/img8.gif" width=4 align=middle> 
+</TT>. If you are using the DOS version and can not access the online help, 
+please read the <TT>README</TT> file and check to make sure that <I>gnuplot</I> 
+is properly installed on your PC. 
+<P>
+<H2><A name=SECTION00052000000000000000>Command Line Editing and 
+History</A></H2>
+<P><A name=subseccmdline></A> 
+<P><I>gnuplot</I> has a mechanism that allows you to recall previous commands 
+and edit them. On the PC, the up/down arrow keys are used to get the 
+previous/next commands. The <I>Home</I>, <I>End</I>, and left/right arrow keys 
+are used to move the cursor around (the <I>Home</I> and <I>End</I> keys move the 
+cursor to the beginning and end of the line, respectively.). On Unix, the arrow 
+keys can be used if you have the correct terminal setting. Otherwise the Emacs 
+control sequence can be used (<EM>e.g.</EM>, <TT>^p</TT> for previous command, 
+<TT>^n</TT> for next command, <TT>^b</TT> to move left one character, 
+<TT>^f</TT> to move right one character, <TT>^d</TT> to delete a character, 
+etc.). 
+<P>Another nice feature of <I>gnuplot</I>'s command line is that it will accept 
+abbreviations of commands and keywords as long as they are not ambiguous. For 
+example, <TT>replot</TT> can be abbreviated as <TT>rep</TT>, <TT>parametric</TT> 
+as <TT>par</TT>, <TT>linespoints</TT> as <TT>linesp</TT>, etc. While this is 
+handy for interactive <I>gnuplot</I> sessions, it may not be a good idea to 
+abbreviate commands in script files (to be discussed later) because it make the 
+commands less comprehensible. 
+<P>
+<H2><A name=SECTION00053000000000000000>User-Defined Constants and 
+Functions</A></H2>
+<P><A name=subsecdefine></A> 
+<P>You should familiarize yourself with the arithmetic and logical expressions 
+in <I>gnuplot</I>. Basically, they are similar to Fortran and C expressions, 
+<EM>e.g.</EM>&nbsp;<TT>**</TT> for exponentiation, <TT>&amp;&amp;</TT> for 
+logical AND, <TT>||</TT> for logical OR, etc. For details on the complete set of 
+operators, refer to the <I>gnuplot</I> manual. 
+<P>If you use some constants or functions repeatedly in your work, you might 
+find it convenient to give them names that are easier to remember. For example, 
+if you use the constants <IMG height=27 alt=tex2html_wrap_inline5657 
+src="Working in the gnuplot Environment_archivos/img9.gif" width=101 
+align=middle> and <IMG height=12 alt=tex2html_wrap_inline5659 
+src="Working in the gnuplot Environment_archivos/img10.gif" width=90 
+align=bottom> very often, you can name them in <I>gnuplot</I> by <PRE>  mu=10.98765
+  sigma=6.43321</PRE>Now suppose you want to plot the function <IMG height=41 
+alt=tex2html_wrap_inline5661 
+src="Working in the gnuplot Environment_archivos/img11.gif" width=206 
+align=middle> . You can now do <PRE>  plot 1/(sqrt(2*pi)*sigma)*exp(-(x-mu)**2/(2*sigma**2))</PRE>You may find 
+typing the above function cumbersome, especially if you need to use it several 
+times. <I>gnuplot</I> lets you do this: <PRE>  f(x,mu,sigma)=1/(sqrt(2*pi)*sigma)*exp(-(x-mu)**2/(2*sigma**2))</PRE>(You 
+could leave the <TT>mu</TT> and <TT>sigma</TT> out of the argument list if you 
+don't need to vary them.) You can now do things like <PRE>  plot [-5:15] f(x,6,1),f(x,3.5,2)</PRE>Numbers without decimal points are 
+treated as integers rather than as reals. Expressions using only integers are 
+evaluated by integer arithmetic. Thus <TT>1./4.&nbsp;= 0.25</TT>, but <TT>1/4 = 
+0</TT>. This can lead to wrong results if you are not careful. 
+<P>Being able to define custom functions has a few advantages other than saving 
+typing. Here is a handy trick: suppose you have the following function: 
+<P><IMG height=68 alt=displaymath5663 
+src="Working in the gnuplot Environment_archivos/img12.gif" width=377 
+align=bottom> 
+<P>Defining this function in <I>gnuplot</I> can be done by stringing a few 
+functions together: <PRE>  f1(x)=(x&lt;-1) ? x*(1-x) : x-1
+  f2(x)=(x&lt;=4) ? f1(x) : sqrt(x)+1</PRE>These function definitions may look 
+strange to you if you are not familiar with the ternary operator <IMG height=29 
+alt=tex2html_wrap_inline5637 
+src="Working in the gnuplot Environment_archivos/img7.gif" width=4 align=middle> 
+<EM>condition</EM> <IMG height=29 alt=tex2html_wrap_inline5639 
+src="Working in the gnuplot Environment_archivos/img8.gif" width=4 align=middle> 
+<TT>?</TT> <IMG height=29 alt=tex2html_wrap_inline5637 
+src="Working in the gnuplot Environment_archivos/img7.gif" width=4 align=middle> 
+<EM>expression1</EM> <IMG height=29 alt=tex2html_wrap_inline5639 
+src="Working in the gnuplot Environment_archivos/img8.gif" width=4 align=middle> 
+<TT>:</TT> <IMG height=29 alt=tex2html_wrap_inline5637 
+src="Working in the gnuplot Environment_archivos/img7.gif" width=4 align=middle> 
+<EM>expression2</EM> <IMG height=29 alt=tex2html_wrap_inline5639 
+src="Working in the gnuplot Environment_archivos/img8.gif" width=4 align=middle> 
+in C. Here is what it means: if <IMG height=29 alt=tex2html_wrap_inline5637 
+src="Working in the gnuplot Environment_archivos/img7.gif" width=4 align=middle> 
+<EM>condition</EM> <IMG height=29 alt=tex2html_wrap_inline5639 
+src="Working in the gnuplot Environment_archivos/img8.gif" width=4 align=middle> 
+is true, <IMG height=29 alt=tex2html_wrap_inline5637 
+src="Working in the gnuplot Environment_archivos/img7.gif" width=4 align=middle> 
+<EM>expression1</EM> <IMG height=29 alt=tex2html_wrap_inline5639 
+src="Working in the gnuplot Environment_archivos/img8.gif" width=4 align=middle> 
+is evaluated, otherwise <IMG height=29 alt=tex2html_wrap_inline5637 
+src="Working in the gnuplot Environment_archivos/img7.gif" width=4 align=middle> 
+<EM>expression2</EM> <IMG height=29 alt=tex2html_wrap_inline5639 
+src="Working in the gnuplot Environment_archivos/img8.gif" width=4 align=middle> 
+is evaluated. In the above example, if <I>x</I>&lt;-1, <TT>f1(x)</TT> gets the 
+value of <TT>x*(1-x)</TT>, otherwise it gets the value of <TT>x-1</TT>. If <IMG 
+height=25 alt=tex2html_wrap_inline5691 
+src="Working in the gnuplot Environment_archivos/img13.gif" width=43 
+align=middle> , <TT>f2(x)</TT> gets the value of <TT>f1(x)</TT> (where the 
+condition <I>x</I>&lt;-1 is tested and appropriate value is returned), or else 
+<TT>f2(x)</TT> gets the value of <TT>sqrt(x)</TT>. Go ahead and plot this 
+function and see if you get what you have expected. 
+<P>Note that although the function above is defined differently in three 
+intervals, it is continuous at the boundaries of those intervals. If the 
+function is not continuous at the end points of the intervals, <I>gnuplot</I> 
+will still connect the endpoints. If you want to plot a discontinuous function, 
+you'll need to define it in separate pieces and plot them together. The trick is 
+to set the unwanted sections equal to something unprintable (no, this isn't 
+x-rated), such as <PRE>  f(x)=(x&lt;0) ? cos(x) : sqrt(-1)
+  g(x)=(x&lt;0) ? x/0 : sin(x)</PRE>This obviously would work for a continuous 
+function as well. (It wouldn't work at all if <I>gnuplot</I> were unfriendly 
+enough to crash upon encountering mathematical no-no's.) 
+<P>One other interesting use of the ternary operator is that it can be used to 
+approximate the definite integral of some function. The example below is taken 
+from the demo file <TT>bivariat.dem</TT> which is included in the <I>gnuplot</I> 
+distribution. <PRE># integral2_f(x,y) approximates the integral from x to y.
+# define f(x) to be any single variable function
+#
+# the integral is calculated as the sum of f(x_n)*delta
+#   do this (y-x)/delta times (from y down to x)
+f(x) = exp(-x**2)
+delta = 0.02      # If you're running under MS-DOS, use delta = 0.2
+# integral2_f(x,y) takes two variables; x is the lower limit,
+# and y the upper.  Calculate the integral of function f(t)
+# from x to y
+integral2_f(x,y) = (x&lt;y)?integral2(x,y):-integral2(y,x)
+integral2(x,y) = (x&gt;y)?0:(integral2(x+delta,y)+delta*f(x))</PRE>Note that 
+<I>f</I>(<I>x</I>) is defined as <IMG height=31 alt=tex2html_wrap_inline5697 
+src="Working in the gnuplot Environment_archivos/img14.gif" width=75 
+align=middle> . To plot the function and its integral <IMG height=29 
+alt=tex2html_wrap_inline5699 
+src="Working in the gnuplot Environment_archivos/img15.gif" width=135 
+align=middle> , you can just do <PRE>  plot f(x),integral2_f(-10,x)</PRE>
+<P>There is a command, <TT>print</TT>, which will evaluate an expression and 
+print the result on the screen. For example, try the following: <PRE>  print cos(pi)
+  print exp(-0.5*(1.96)**2)/sqrt(2*pi)</PRE>One implication of this is that you 
+can use <I>gnuplot</I> as a calculator.<A 
+href="http://www6.uniovi.es/gptug/footnode.html#470" name=tex2html5><IMG alt=gif 
+src="Working in the gnuplot Environment_archivos/foot_motif.gif" 
+align=bottom></A> 
+<P>
+<H2><A name=SECTION00054000000000000000>Script File and Batch 
+Processing</A></H2>
+<P><A name=subsecscript></A> 
+<P>Sometimes you will want to use the same set of commands many times. 
+<I>gnuplot</I> allows you to put those commands in a <EM>script file</EM> and 
+load the file into <I>gnuplot</I>. You can use a text editor (such as Emacs, vi, 
+or Norton Editor) to create or edit such a file. Once you have created the file, 
+you can run the commands in that file in two ways. First, you can run 
+<I>gnuplot</I> and use the <TT>load</TT> command to run the commands in the 
+script. The other way is to run the script in <EM>batch mode</EM> by typing the 
+filename of the script as the command line argument to the <TT>gnuplot</TT> 
+command. For example, to run the script called <TT>myplot.gp</TT> in batch mode, 
+type <PRE>  gnuplot myplot.gp</PRE>This will invoke <I>gnuplot</I>. After it finishes 
+executing the commands in the script, it exits, and you are back to the system 
+command prompt. (There is a <TT>pause</TT> command, which will be discussed 
+later.) This is convenient if you want to output plots to some graphics file 
+instead of viewing them on the screen. 
+<P>A few special characters are very useful in script files. Everything after a 
+number sign, <TT>#</TT>, on a single line in a script (or, for that matter, on a 
+command line) is treated as a comment and is ignored by <I>gnuplot</I>. The 
+continuation character is the backslash, <TT><IMG height=29 
+alt=tex2html_wrap_inline5711 
+src="Working in the gnuplot Environment_archivos/img16.gif" width=6 
+align=middle> </TT>. Multiple commands can be placed on a single line if you 
+separate them by a semicolon, <TT>;</TT>. 
+<P>Suppose you have defined some variables and functions and customized some 
+settings with the <TT>set</TT> command. If you want to keep all these so that 
+you can use them later, you can write all these (along with all of the default 
+values you have not set and the last <TT>plot</TT> or <TT>splot</TT> command) to 
+a file by <PRE>  save 'mystuff.gp'</PRE>The filename and extension are arbitrary, of 
+course. If you only want to save the functions you have defined, you can use <PRE>  save function 'myfunc.gp'</PRE>The same applies to <TT>variable</TT> and 
+<TT>set</TT>. 
+<P>To load the file into <I>gnuplot</I>, use the <TT>load</TT> command. For 
+example: <PRE>  load 'mystuff.gp'</PRE>
+<P>Included in the <I>gnuplot</I> distribution, along with demo files, is a file 
+named <TT>stat.inc</TT>, which contains definitions of many cumulative 
+distribution functions and probability density (or mass) functions for many 
+continuous and discrete distributions. To access these functions, you can do 
+<TT>load 'stat.inc'</TT>. The demo files <TT>prob.dem</TT> and 
+<TT>prob2.dem</TT> show how these functions can be used. 
+<P>
+<HR>
+<A href="http://www6.uniovi.es/gptug/node6.html" name=tex2html92><IMG height=24 
+alt=next src="Working in the gnuplot Environment_archivos/next_motif.gif" 
+width=37 align=bottom></A> <A href="http://www6.uniovi.es/gptug/gptug.html" 
+name=tex2html90><IMG height=24 alt=up 
+src="Working in the gnuplot Environment_archivos/up_motif.gif" width=26 
+align=bottom></A> <A href="http://www6.uniovi.es/gptug/node4.html" 
+name=tex2html84><IMG height=24 alt=previous 
+src="Working in the gnuplot Environment_archivos/previous_motif.gif" width=63 
+align=bottom></A> <A href="http://www6.uniovi.es/gptug/node1.html" 
+name=tex2html94><IMG height=24 alt=contents 
+src="Working in the gnuplot Environment_archivos/contents_motif.gif" width=65 
+align=bottom></A> <BR><B>Next:</B> <A 
+href="http://www6.uniovi.es/gptug/node6.html" name=tex2html93>More on 
+Plotting</A> <B>Up:</B> <A href="http://www6.uniovi.es/gptug/gptug.html" 
+name=tex2html91>gnuplot 3.5 User's Guide</A> <B>Previous:</B> <A 
+href="http://www6.uniovi.es/gptug/node4.html" name=tex2html85>Basics</A> 
+<P>
+<ADDRESS><I>Andy Liaw <BR>Tue Jul 16 23:20:34 CDT 1996</I> 
+</ADDRESS></BODY></HTML>

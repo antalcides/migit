@@ -1,0 +1,1186 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0071)http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwcinana.html -->
+<HTML><HEAD><TITLE>Descripción de sistemas</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2716.2200" name=GENERATOR>
+<META content=FrontPage.Editor.Document name=ProgId></HEAD>
+<BODY background="Descripción de sistemas_archivos/fondolineas.gif">
+<H1>Descripción de sistemas</H1>
+<P>
+<H2><A name=tth_sEc2.1>2.1</A>&nbsp;&nbsp;Introducción</H2>
+<P>En este capítulo se van a presentar los sistemas materiales únicamente desde 
+el punto de vista de su posicionamiento y evolución. En consecuencia, los 
+sistemas serán descritos por un conjunto de coordenadas que pueden evolucionar 
+en el tiempo satisfaciendo un conjunto de restricciones. El conjunto de 
+trayectorias posibles que pueden seguir las coordenadas que describen la 
+situación de un sistema es lo único que es relevante en este capítulo. Se hace 
+abstracción tanto de la distribución de masas que evolucione, es decir, de los 
+aspectos cinéticos del sistema mecánico, como de las fuerzas que determinan que 
+el sistema siga unas trayectorias determinadas y no otras, e incluso de la 
+relación (dinámica) entre las fuerzas, la distribución de masas y su evolución. 
+En este sentido, puede hablarse de una <EM>cinemática analítica</EM>, aunque 
+despojada de sus connotaciones euclídeas y tridimensionales habituales. El 
+resultado final del análisis realizado en este capítulo una vez se aplique a un 
+sistema determinado será la relación entre los valores de las coordenadas 
+elegidas para su descripción así como las relaciones entre sus velocidades y los 
+valores de las coordenadas, es decir, dada la evolución de algunas de ellas, 
+describir la del resto. Además se caracterizará el conjunto de posiciones 
+alcanzables desde una inicial determinada. Este estudio precede al de las 
+fuerzas aplicadas sobre el sistema, que son las que le llevarán por una 
+trayectoria o por otra, según se verá en el siguiente capítulo. 
+<P>
+<H2><A name=tth_sEc2.2>2.2</A>&nbsp;&nbsp;Posición de un sistema material</H2>
+<P>Los sistemas materiales están formados por distribuciones de masa que pueden 
+ser volumínicas, superficiales, lineales o puntuales. La determinación de la 
+posición del sistema material supone la definición de la posición de cada uno de 
+sus puntos en un sistema de referencia. Así, si se considera un sistema formado 
+por dos puntos materiales libres, su posición vendrá dada por la de sus dos 
+puntos. Si se trata de un sólido rígido, la posición vendrá dada por la de todos 
+sus puntos, que son infinitos. 
+<P>Frecuentemente las posiciones de los puntos de un sistema material están 
+relacionadas entre sí, es decir, existen restricciones en el conjunto de 
+posiciones de sus puntos. Esto hace que especificando incompletamente las 
+posiciones de los puntos, el cumplimiento de las restricciones suministre la 
+información necesaria para definir la posición del sistema. Así, la posición de 
+todos los puntos de un sólido rígido puede determinarse a partir de las 
+coordenadas de sólo tres de sus puntos. Las posiciones de sistemas compuestos 
+por infinitos puntos (distribuciones lineales, superficiales o volumínicas de 
+masa) frecuentemente pueden determinarse a partir de un conjunto de parámetros 
+menor que el de las posiciones de todos sus puntos; en muchos casos este número 
+será incluso finito, como sucede en conjuntos de un cierto número de sólidos 
+rígidos vinculados entre sí. El conjunto de posiciones que un sistema material 
+puede adoptar se llama <EM>espacio de configuración</EM>. Por lo dicho 
+anteriormente puede afirmarse que en general el espacio de configuración no 
+corresponde al producto cartesiano de las coordenadas de todos los puntos del 
+sistema material, sino que es un subconjunto de éste. El espacio de 
+configuración es el término que hace referencia al conjunto de posiciones que 
+son posibles en un sistema, es decir, compatibles con todas las restricciones a 
+las que dicho sistema esté sometido. 
+<P>Se denominan coordenadas de un sistema material a un conjunto de m parámetros 
+(q<SUB>1</SUB>,<FONT face=symbol>¼</FONT>,q<SUB>m</SUB>) que define la posición 
+de dicho sistema en un instante cualquiera. Esta definición implica que para 
+cada posición del sistema existe en cada instante t una m-erna 
+(q<SUB>0</SUB>,<FONT face=symbol>¼</FONT>,q<SUB>m</SUB>) que determina 
+unívocamente la posición de cada punto P del sistema o, lo que es lo mismo, que 
+si (q<SUB>0</SUB>,<FONT face=symbol>¼</FONT>,q<SUB>m</SUB>) son las coordenadas 
+de una posición posible del sistema en el instante t, entonces existe, para cada 
+punto P, una función 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle><B>r</B>(P,q<SUB>1</SUB>,<FONT 
+            face=symbol>¼</FONT>,q<SUB>m</SUB>,t)</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>que 
+establece la posición de P <A 
+href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwcinana.html#tthFtNtAAB" 
+name=tthFrefAAB><SUP>1</SUP></A> en algún sistema <FONT face=symbol>Â</FONT> de 
+referencia. 
+<P>Por ejemplo, para un sólido rígido libre se pueden elegir las coordenadas de 
+posición de tres de sus puntos como coordenadas, es decir 9-ernas). Es más 
+instructivo analizar lo que la definición <EM>no dice</EM>: no es cierto que a 
+toda m-erna de coordenadas le corresponda una posición del sistema material. Es 
+decir, puede ser que existan restricciones en el conjunto de coordenadas que 
+representen la posición del sistema. Estas restricciones reciben el nombre de 
+<EM>ligaduras geométricas</EM> del sistema. Su representación matemática se 
+realiza con ecuaciones del tipo: 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>f(q<SUB>1</SUB>,<FONT 
+            face=symbol>¼</FONT>,q<SUB>m</SUB>,t) = 
+  0</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>
+<P>Las ligaduras que pueden representarse por ecuaciones en las que no aparezca 
+explícitamente el tiempo ( [(<FONT face=symbol>¶</FONT>f)/(<FONT 
+face=symbol>¶</FONT>t)] = 0) reciben el nombre de <EM>ligaduras geométricas 
+estacionarias</EM>; en caso contrario reciben el nombre de <EM>ligaduras 
+geométricas variables</EM>. En algunos casos surgen ligaduras en las que aparece 
+el tiempo, pero éste es eliminable del conjunto de las mismas, por lo que 
+aquellas ligaduras son estacionarias. 
+<P>El espacio de configuración es, por lo tanto, el conjunto de posiciones del 
+sistema correspondientes a las m-ernas de coordenadas que satisfacen el conjunto 
+de ligaduras geométricas. 
+<P>Para el sólido rígido libre en el que elegimos como coordenadas las de tres 
+de sus puntos 
+(x<SUB>1</SUB>,y<SUB>1</SUB>,z<SUB>1</SUB>,x<SUB>2</SUB>,y<SUB>2</SUB>,z<SUB>2</SUB>,x<SUB>3</SUB>,y<SUB>3</SUB>,z<SUB>3</SUB>), 
+se puede comprender fácilmente que no cualquier valor de la 9-erna identifica 
+una posición del sólido rígido, sino sólo aquéllos que satisfacen las 
+ecuaciones: 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD class=cl align=left><FONT face=symbol>ì<BR>ï<BR>í<BR>ï<BR>î 
+            </FONT></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle>
+            <TABLE>
+              <TBODY>
+              <TR>
+                <TD align=right>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>(x<SUB>1</SUB><FONT 
+                        face=symbol>-</FONT>x<SUB>2</SUB>)<SUP>2</SUP>+(y<SUB>1</SUB><FONT 
+                        face=symbol>-</FONT>y<SUB>2</SUB>)<SUP>2</SUP>+(z<SUB>1</SUB><FONT 
+                        face=symbol>-</FONT>z<SUB>2</SUB>)<SUP>2</SUP> <FONT 
+                        face=symbol>-</FONT> d<SUB>12</SUB><SUP>2</SUP> 
+                    </TD></TR></TBODY></TABLE></TD>
+                <TD align=middle>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>= </TD></TR></TBODY></TABLE></TD>
+                <TD>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>0</TD></TR></TBODY></TABLE></TD>
+              <TR>
+                <TD align=right>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>(x<SUB>1</SUB><FONT 
+                        face=symbol>-</FONT>x<SUB>3</SUB>)<SUP>2</SUP>+(y<SUB>1</SUB><FONT 
+                        face=symbol>-</FONT>y<SUB>3</SUB>)<SUP>2</SUP>+(z<SUB>1</SUB><FONT 
+                        face=symbol>-</FONT>z<SUB>3</SUB>)<SUP>2</SUP> <FONT 
+                        face=symbol>-</FONT> d<SUB>13</SUB><SUP>2</SUP> 
+                    </TD></TR></TBODY></TABLE></TD>
+                <TD align=middle>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>= </TD></TR></TBODY></TABLE></TD>
+                <TD>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>0</TD></TR></TBODY></TABLE></TD>
+              <TR>
+                <TD align=right>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>(x<SUB>3</SUB><FONT 
+                        face=symbol>-</FONT>x<SUB>2</SUB>)<SUP>2</SUP>+(y<SUB>3</SUB><FONT 
+                        face=symbol>-</FONT>y<SUB>2</SUB>)<SUP>2</SUP>+(z<SUB>3</SUB><FONT 
+                        face=symbol>-</FONT>z<SUB>2</SUB>)<SUP>2</SUP> <FONT 
+                        face=symbol>-</FONT> d<SUB>32</SUB><SUP>2</SUP> 
+                    </TD></TR></TBODY></TABLE></TD>
+                <TD align=middle>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>= </TD></TR></TBODY></TABLE></TD>
+                <TD>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap 
+              align=middle>0</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD>
+          <TD noWrap 
+align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>
+<P>Para un sistema material la elección de un conjunto de coordenadas u otro es 
+arbitraria y determina la existencia de un conjunto de ecuaciones de ligadura u 
+otro. ¿Es posible encontrar un sistema de coordenadas en el que el conjunto de 
+ecuaciones de ligadura sea vacío? La respuesta es afirmativa. Cada ecuación 
+permite reducir en una unidad el número de parámetros necesario para determinar 
+la posición del sistema, o, lo que es lo mismo, permite expresar las m 
+coordenadas que aparecen en ella en función de otras m<FONT 
+face=symbol>-</FONT>1 coordenadas. De esta manera, si se tiene un sistema cuya 
+posición venga determinada por un conjunto de m coordenadas y g ecuaciones de 
+ligaduras geométricas, se puede encontrar otro conjunto de n = m<FONT 
+face=symbol>-</FONT>g coordenadas y ninguna ecuación de ligadura que posicione 
+el mismo sistema. En este supuesto, obviamente, cualquier n-erna de valores sí 
+determina una posición del sistema de una forma única, por lo que en este caso 
+sí existe una biyección entre el conjunto de n-ernas y el espacio de 
+configuración. Esto indica que el número n es propio de cada sistema y 
+corresponde a la <EM>dimensión del espacio de configuración del sistema</EM> 
+que, por lo tanto, representa el mínimo número de coordenadas necesario para la 
+determinación de su posición. Estas n coordenadas se suelen denominar 
+coordenadas generalizadas independientes. 
+<P>Por lo tanto, puede afirmarse que para determinar la posición de un sistema 
+es necesario disponer de un conjunto de coordenadas 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>(q<SUB>1</SUB>,<FONT 
+            face=symbol>¼</FONT>,q<SUB>m</SUB>)</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>y 
+las ligaduras geométricas 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>f<SUB>i</SUB>(q<SUB>1</SUB>,<FONT 
+            face=symbol>¼</FONT>,q<SUB>m</SUB>,t) = 0 &nbsp;&nbsp;&nbsp; 
+            &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <FONT face=symbol>"</FONT>i 
+            <FONT face=symbol>Î</FONT> {1,<FONT 
+        face=symbol>¼</FONT>,g}</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>que 
+especifiquen los posibles valores de esas coordenadas, junto con un conjunto de 
+funciones 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle><B>r</B> = <B>r</B>(P,q<SUB>1</SUB>,<FONT 
+            face=symbol>¼</FONT>,q<SUB>m</SUB>,t)</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>que 
+posicionen cada punto del sistema. 
+<P>Cuando se tratan problemas de mecánica de sistemas ligados, en muchas 
+ocasiones conviene utilizar un sistema de coordenadas mínimo puesto que, además 
+de trabajar con un número reducido de coordenadas, éstas son independientes, es 
+decir, no tienen que satisfacer ninguna ecuación de ligadura. Por lo tanto, si 
+sólo se está interesado en la posición del sistema y su evolución ésta suele ser 
+una buena elección. 
+<P>Otras veces, sin embargo, puede resultar laborioso intentar eliminar 
+coordenadas utilizando las ecuaciones de restricción geométrica. Por ejemplo, en 
+el sistema compuesto por un cuadrilátero articulado (ver figura 2.1), los 
+ángulos <FONT face=symbol>a</FONT>,<FONT face=symbol>b</FONT>, <FONT 
+face=symbol>g</FONT> están relacionados geométricamente, lo que permite expresar 
+las posiciones de todos los puntos del sistema en función de un único parámetro, 
+a partir de las ecuaciones 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD class=cl align=left><FONT face=symbol>ì<BR>ï<BR>í<BR>ï<BR>î 
+            </FONT></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle>
+            <TABLE>
+              <TBODY>
+              <TR>
+                <TD align=right>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>acos<FONT 
+                        face=symbol>a</FONT>+bcos<FONT 
+                        face=symbol>b-</FONT>ccos<FONT 
+                    face=symbol>g</FONT></TD></TR></TBODY></TABLE></TD>
+                <TD align=middle>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>= </TD></TR></TBODY></TABLE></TD>
+                <TD>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle><I>l</I></TD></TR></TBODY></TABLE></TD>
+              <TR>
+                <TD align=right>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>a</TD>
+                      <TD noWrap align=middle>sen<BR></TD>
+                      <TD noWrap><FONT face=symbol>a</FONT>+b</TD>
+                      <TD noWrap align=middle>sen<BR></TD>
+                      <TD noWrap><FONT face=symbol>b-</FONT>c</TD>
+                      <TD noWrap align=middle>sen<BR></TD>
+                      <TD noWrap><FONT 
+                face=symbol>g</FONT></TD></TR></TBODY></TABLE></TD>
+                <TD align=middle>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>= </TD></TR></TBODY></TABLE></TD>
+                <TD>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap 
+              align=middle>0</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD>
+          <TD noWrap 
+align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>
+<P>Sin embargo este proceso sería innecesariamente engorroso y la representación 
+de las posibles posiciones del sistema se puede realizar con tres coordenadas y 
+las ecuaciones anteriores. 
+<P>
+<P><A name=tth_fIg2.1></A>
+<CENTER><IMG height=480 alt=cuadri.jpg 
+src="Descripción de sistemas_archivos/cuadri.gif" width=640><BR>Figure 2.1: 
+cuadrilátero articulado </CENTER>
+<P>
+<P>En algunos problemas concretos, la utilización de un número de coordenadas m 
+&gt; n y el método de los multiplicadores de Lagrange, dirige más rápidamente a 
+la solución que la determinación de las expresiones que relacionan los 
+coordenadas superfluas con las independientes. 
+<P> 
+<H2><A name=tth_sEc2.3>2.3</A>&nbsp;&nbsp;Evolución de un sistema material</H2>
+<P>En la sección anterior se ha definido la forma de caracterizar la posición de 
+un sistema. Se parte, pues, de un sistema cuya posición viene determinada por un 
+conjunto de m coordenadas (q<SUB>1</SUB>,<FONT 
+face=symbol>¼</FONT>,q<SUB>m</SUB>), un conjunto de ligaduras geométricas 
+{f<SUB>j</SUB>(q<SUB>1</SUB>,<FONT face=symbol>¼</FONT>,q<SUB>m</SUB>,t) = 0 
+&nbsp;&nbsp;&nbsp; j <FONT face=symbol>Î</FONT> 1<FONT face=symbol>¼</FONT>,g} y 
+un conjunto de funciones <B>r</B>(P,q<SUB>1</SUB>,<FONT 
+face=symbol>¼</FONT>,q<SUB>m</SUB>,t) que posicionan todos los puntos del 
+sistema a partir de las coordenadas. Cuando un sistema evoluciona en el tiempo 
+va ocupando posiciones de su espacio de configuración. Un conjunto de funciones 
+{ q<SUB>1</SUB>(t),<FONT face=symbol>¼</FONT>,q<SUB>m</SUB>(t)} define lo que 
+llama una <EM>trayectoria</EM> del sistema. Si las funciones 
+{q<SUB>1</SUB>(t),<FONT face=symbol>¼</FONT>,q<SUB>m</SUB>(t)} son derivables, 
+entonces {q<FONT face=symbol>¢</FONT><SUB>1</SUB>,<FONT 
+face=symbol>¼</FONT>,q<FONT face=symbol>¢</FONT><SUB>m</SUB>} es la m-erna 
+<EM>cinemática</EM> formada con las <EM>velocidades generalizadas</EM>. En 
+algunos casos <EM>no todas las trayectorias del sistema son posibles, aunque 
+todas sus posiciones sean compatibles con las ligaduras geométricas</EM>. En 
+efecto, existe un tipo de restricciones sobre las trayectorias de los sistemas 
+que limitan las posibles velocidades que puede tomar un sistema. Estas 
+restricciones reciben el nombre de <EM>ligaduras cinemáticas</EM> y se expresan 
+como ecuaciones en las que intervienen las coordenadas generalizadas, sus 
+derivadas respecto al tiempo y el propio tiempo. Se supondrá que esta relación 
+es lineal y puede expresarse en la forma: 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+            1</FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle>A<SUB>i</SUB>(q<SUB>1</SUB>,<FONT 
+            face=symbol>¼</FONT>,q<SUB>m</SUB>,t)q<FONT 
+            face=symbol>¢</FONT><SUB>i</SUB> + B(q<SUB>1</SUB>,<FONT 
+            face=symbol>¼</FONT>,q<SUB>m</SUB>,t) = 
+  0</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>y si existen c 
+ligaduras de este tipo 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+            1</FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle>A<SUB>ki</SUB>(q<SUB>1</SUB>,<FONT 
+            face=symbol>¼</FONT>,q<SUB>m</SUB>,t)q<FONT 
+            face=symbol>¢</FONT><SUB>i</SUB> + B<SUB>k</SUB>(q<SUB>1</SUB>,<FONT 
+            face=symbol>¼</FONT>,q<SUB>m</SUB>,t) = 0 &nbsp;&nbsp;&nbsp; <FONT 
+            face=symbol>"</FONT>k <FONT face=symbol>Î</FONT> {1,<FONT 
+            face=symbol>¼</FONT>,c 
+}</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>Las ligaduras 
+cinemáticas son <EM>estacionarias</EM> si pueden representarse por ecuaciones en 
+las que no interviene explícitamente el tiempo. En caso contrario las ligaduras 
+cinemáticas se denominan <EM>variables</EM>. 
+<P>Las ecuaciones que debe satisfacer la m-erna cinemática (q<FONT 
+face=symbol>¢</FONT><SUB>1</SUB>,<FONT face=symbol>¼</FONT>,q<FONT 
+face=symbol>¢</FONT><SUB>m</SUB>) son entonces g para mantener al sistema en el 
+conjunto de posiciones posibles más c para cumplir con las ligaduras 
+cinemáticas, por lo tanto, sólo son necesarias <I>l</I> = m<FONT 
+face=symbol>-</FONT>(g + c) = n<FONT face=symbol>-</FONT>c velocidades 
+generalizadas para determinar aquella m-erna. Este número recibe el nombre de 
+<EM>grados de libertad</EM> del sistema o <EM>índice cinemático</EM>. 
+<P>En sistemas con ligaduras cinemáticas (c &gt; 0), la dimensión del espacio de 
+configuración, es decir, el de las posibles posiciones del sistema, es mayor que 
+el número de posibles desplazamientos elementales que puede experimentar el 
+mismo, o sea, n &gt; <I>l</I>. 
+<P>
+<P><A name=tth_fIg2.2></A>
+<CENTER><IMG height=476 alt=barra1.jpg 
+src="Descripción de sistemas_archivos/barra1.gif" width=633><BR>Figure 2.2: 
+sistema con ligadura cinemática </CENTER>
+<P>
+<P>Por ejemplo, considérese el sistema de la figura 2.2. Una barra AB, de 
+longitud d se encuentra en un plano Oxy. En este sistema se considera la 
+ligadura que permite a la barra moverse sobre el plano siempre y cuando su 
+centro de masas C(<FONT face=symbol>x</FONT>,<FONT face=symbol>h</FONT>) tenga 
+una velocidad <B>v</B><SUB>C</SUB> perpendicular a la propia barra. Este caso 
+correspondería, por ejemplo, a un bolígrafo al que se ciñese una goma tensa en 
+su centro, la cual no puede deslizar sobre el plano correspondiente a una mesa 
+de madera. Es decir, dicha goma equivale a una ruedecita cuyo eje tenga la 
+dirección de la barra y que pudiese rodar y pivotar sin deslizar sobre el plano 
+manteniendo dicho eje paralelo al mismo. En este sistema, la condición impuesta 
+a la velocidad del centro de masas restringe las posibles evoluciones del 
+sistema, pero no impiden que éste pueda llegar a ocupar cualquier posición desde 
+una inicial dada. En este caso, el posicionamiento del sistema exige tres 
+parámetros, que pueden escogerse como la terna (<FONT face=symbol>x</FONT>,<FONT 
+face=symbol>h</FONT>,<FONT face=symbol>j</FONT>) donde <FONT 
+face=symbol>x</FONT>,<FONT face=symbol>h</FONT> son las coordenadas que 
+posicionan el centro de masas y <FONT face=symbol>j</FONT> un ángulo que 
+determina la orientación de la barra. Cualquier terna (<FONT 
+face=symbol>x</FONT><SUB>0</SUB>,<FONT face=symbol>h</FONT><SUB>0</SUB>,<FONT 
+face=symbol>j</FONT><SUB>0</SUB>) de valores representa una posición del 
+sistema, pero no todas las ternas de funciones (<FONT 
+face=symbol>x</FONT>(t),<FONT face=symbol>h</FONT>(t),<FONT 
+face=symbol>j</FONT>(t)) representan evoluciones posibles del sistema, pues 
+éstas deben satisfacer la restricción mencionada anteriormente, que puede 
+representarse por la ecuación 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle><FONT face=symbol>x¢</FONT>cos<FONT 
+            face=symbol>j</FONT>+ <FONT face=symbol>h¢</FONT></TD>
+          <TD noWrap align=middle>sen<BR></TD>
+          <TD noWrap><FONT face=symbol>j</FONT> = 
+  0</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>que no es 
+integrable, pues de serlo,la integral 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle><FONT face=symbol>Y</FONT>(<FONT 
+            face=symbol>x</FONT>,<FONT face=symbol>h</FONT>,<FONT 
+            face=symbol>j</FONT>,t) = 
+C</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>prescribiría, 
+dadas las condiciones iniciales, en cada instante t una superficie en el espacio 
+<FONT face=symbol>x</FONT>,<FONT face=symbol>h</FONT>,<FONT face=symbol>j</FONT> 
+contra la evidente posibilidad de libre posicionamiento del sistema. 
+<P>En un vehículo automóvil que se desplaza sobre un plano horizontal sucede 
+algo similar. La posición del vehículo se puede realizar especificando las 
+coordenadas (<FONT face=symbol>x</FONT>,<FONT face=symbol>h</FONT>) de, por 
+ejemplo, el centro su rueda posterior derecha, el ángulo <FONT 
+face=symbol>j</FONT> que forma su eje antero-posterior con el eje x y el ángulo 
+<FONT face=symbol>a</FONT> que está girada la rueda anterior derecha (ver figura 
+2.3 ). El espacio de configuración tiene cuatro dimensiones, ya que cuarquier 
+cuaterna de valores <FONT face=symbol>x</FONT><SUB>0</SUB>,<FONT 
+face=symbol>h</FONT><SUB>0</SUB>,<FONT face=symbol>j</FONT><SUB>0</SUB>, <FONT 
+face=symbol>a</FONT><SUB>0</SUB> representa una posición posible del vehículo 
+sobre el plano. Sin embargo, el vehículo (para desesperación de los conductores 
+noveles a la hora de estacionar en una plaza estrecha) no puede evolucionar 
+según una trayectoria cualquiera (<FONT face=symbol>x</FONT>(t),<FONT 
+face=symbol>h</FONT>(t),<FONT face=symbol>j</FONT>(t),<FONT 
+face=symbol>a</FONT>(t)). La evolución debe respetar las siguientes ecuaciones 
+de acuerdo con la cinemática del movimiento del chasis y de las ruedas 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD class=cl align=left><FONT 
+            face=symbol>ì<BR>ï<BR>ï<BR>í<BR>ï<BR>ï<BR>î </FONT></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle>
+            <TABLE>
+              <TBODY>
+              <TR>
+                <TD align=right>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle><FONT face=symbol>x¢</FONT></TD>
+                      <TD noWrap align=middle>sen<BR></TD>
+                      <TD noWrap><FONT face=symbol>j-</FONT> <FONT 
+                        face=symbol>h¢</FONT>cos<FONT 
+                    face=symbol>j</FONT></TD></TR></TBODY></TABLE></TD>
+                <TD align=middle>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>= </TD></TR></TBODY></TABLE></TD>
+                <TD>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>0</TD></TR></TBODY></TABLE></TD>
+              <TR>
+                <TD align=right>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>d </TD>
+                      <TD noWrap align=middle>sen<BR></TD>
+                      <TD noWrap><FONT face=symbol>jj¢</FONT> + <FONT 
+                        face=symbol>h¢</FONT>tan<FONT 
+                    face=symbol>a</FONT></TD></TR></TBODY></TABLE></TD>
+                <TD align=middle>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>= </TD></TR></TBODY></TABLE></TD>
+                <TD>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap 
+              align=middle>0</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD>
+          <TD noWrap 
+align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>Como 
+cualquier buen conductor conoce, no importa de qué punto del espacio de 
+configuración se parta, se puede colocar el vehículo en cualquier posición, lo 
+que implica la no integrabilidad de las ecuaciones anteriores. 
+<P>
+<P><A name=tth_fIg2.3></A>
+<CENTER><IMG height=540 alt=coche1.jpg 
+src="Descripción de sistemas_archivos/coche1.gif" width=720><BR>Figure 2.3: vehí 
+culo automóvil </CENTER>
+<P>
+<P>En una rueda que cae por un plano inclinado sin deslizar, se necesitan dos 
+coordenadas para posicionar dicha rueda; aunque, si no puede haber deslizamiento 
+entre el plano y la rueda, sólo hace falta la velocidad de su centro para 
+determinar el campo de velocidades de la rueda, ya que <FONT 
+face=symbol>x¢</FONT> = R<FONT face=symbol>j¢</FONT>. Sin embargo, dada la 
+posición inicial de la rueda, <FONT face=symbol>x</FONT><SUB>0</SUB>,<FONT 
+face=symbol>j</FONT><SUB>0</SUB> siempre se tendrá que <FONT 
+face=symbol>x-</FONT>R<FONT face=symbol>j</FONT> = cte, lo que indica que en 
+este caso, la ligadura restringe el conjunto de posiciones del espacio de 
+configuración para una posición inicial dada. En este caso, la ligadura 
+cinemática es integrable, lo que supone una diferencia radical con los ejemplos 
+anteriores, ya que la ligadura cinemática hace que la posición inicial restrinja 
+el conjunto de posiciones alcanzables a partir de ella. 
+<P>Por lo tanto, retomando la línea central del parágrafo, se puede decir que la 
+caracterización de las posibles evoluciones de un sistema material viene dada 
+por un conjunto de coordenadas 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>(q<SUB>1</SUB>,<FONT 
+            face=symbol>¼</FONT>,q<SUB>m</SUB>)</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>un 
+conjunto de ligaduras geométricas 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>f<SUB>j</SUB>(q<SUB>1</SUB>,<FONT 
+            face=symbol>¼</FONT>,q<SUB>m</SUB>,t) = 0 &nbsp;&nbsp;&nbsp; <FONT 
+            face=symbol>"</FONT>j <FONT face=symbol>Î</FONT> {1<FONT 
+            face=symbol>¼</FONT>,g}</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>un 
+conjunto de ligaduras cinemáticas 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle><FONT size=-1>n</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT size=-1>i = 
+            1</FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle>A<SUB>ki</SUB>(q<SUB>1</SUB>,<FONT 
+            face=symbol>¼</FONT>,q<SUB>m</SUB>,t)q<FONT 
+            face=symbol>¢</FONT><SUB>i</SUB> + B<SUB>k</SUB>(q<SUB>1</SUB>,<FONT 
+            face=symbol>¼</FONT>,q<SUB>m</SUB>,t) = 0 &nbsp;&nbsp;&nbsp; <FONT 
+            face=symbol>"</FONT>k <FONT face=symbol>Î</FONT> {1,<FONT 
+            face=symbol>¼</FONT>,c}</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>y 
+un conjunto de funciones 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle><B>r</B>(P,q<SUB>1</SUB>,<FONT 
+            face=symbol>¼</FONT>,q<SUB>m</SUB>,t)</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>que 
+posicionan todos los puntos del sistema a partir de las coordenadas. 
+<P>A partir del conjunto de ligaduras, tanto geométricas como cinemáticas, a 
+veces es posible encontrar p integrales primeras independientes entre sí y de 
+las ecuaciones de ligadura geométricas 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>h<SUB>i</SUB>(q<SUB>1</SUB>,<FONT 
+            face=symbol>¼</FONT>,q<SUB>m</SUB>) = C<SUB>i</SUB> 
+            &nbsp;&nbsp;&nbsp; <FONT face=symbol>"</FONT>i <FONT 
+            face=symbol>Î</FONT> {1,<FONT 
+      face=symbol>¼</FONT>,p}</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>tales 
+que, dada una posición inicial del sistema, las posiciones posibles por las que 
+puede pasar una trayectoria del mismo resultan limitadas por p restricciones 
+adicionales. El número p se conoce como <EM>grado de integrabilidad del 
+sistema</EM>. En este caso, la posición del sistema en cualquier punto de 
+cualquier trayectoria que pase por un punto dado podrá definirse a partir de 
+sólo m<FONT face=symbol>-</FONT>g<FONT face=symbol>-</FONT>p coordenadas (ya que 
+las p restantes se pueden determinar a partir de las C<SUB>i</SUB> y de las 
+coordenadas restantes y el tiempo). Este número <FONT face=symbol>n</FONT> = m 
+<FONT face=symbol>-</FONT> g <FONT face=symbol>-</FONT> p recibe el nombre de 
+<EM>índice de configuración del sistema o número efectivo de coordenadas</EM> 
+(<FONT face=symbol>n</FONT> = n<FONT face=symbol>-</FONT>p). Por lo tanto, <FONT 
+face=symbol>n</FONT> es el número mínimo de coordenadas generalizadas que 
+permiten fijar la posición de cualquier punto del sistema material siempre que 
+se conozca alguna posición alcanzable mediante una trayectoria posible, para 
+poder determinar las constantes C<SUB>i</SUB>. 
+<P>Un sistema con un índice de configuración <FONT face=symbol>n</FONT>, 
+<I>l</I> = n<FONT face=symbol>-</FONT>c grados de libertad y dimensión del 
+espacio de configuración n puede posicionarse mediante <FONT 
+face=symbol>n</FONT> coordenadas, supuesto que se conozca alguna posición 
+alcanzable mediante una trayectoria posible que suele ser la inicial del 
+sistema. 
+<P>Los sistemas materiales pueden clasificarse, a la vista de los conceptos 
+desarrollados anteriormente, en: 
+<P>
+<UL>
+  <LI><EM>holónomos</EM><A 
+  href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwcinana.html#tthFtNtAAC" 
+  name=tthFrefAAC><SUP>2</SUP></A> cuando el índice de configuración es igual al 
+  número de grados de libertad (<FONT face=symbol>n</FONT> = <I>l</I>). 
+  <LI><EM>anholónomos, no holónomos o heterónomos</EM> cuando el índice de 
+  configuración es mayor que el número de grados de libertad <FONT 
+  face=symbol>n</FONT> &gt; <I>l</I>). </LI></UL>
+<P>También es clásico, atendiendo a la dependencia temporal de las ecuaciones de 
+ligadura y de posición, clasificar los sistemas en 
+<UL>
+  <P>
+  <LI><EM>esclerónomos</EM><A 
+  href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwcinana.html#tthFtNtAAD" 
+  name=tthFrefAAD><SUP>3</SUP></A> cuando puede expresarse el sistema de 
+  ecuaciones de ligadura y de posición sin dependencia explícita del tiempo. 
+  <LI><EM>reónomos</EM><A 
+  href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwcinana.html#tthFtNtAAE" 
+  name=tthFrefAAE><SUP>4</SUP></A> en caso contrario. </LI></UL>
+<P>Para que esta última clasificación tenga sentido hay que especificar el 
+sistema de referencia <FONT face=symbol>Â</FONT> respecto al cual se definen las 
+ecuaciones. En cualquier caso, esta clasificación no es tan importante como la 
+anterior. 
+<P>La determinación sistemática del índice de integrabilidad de un sistema se 
+deduce en el <A 
+href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/teoria/pdfa2.pdf">Apéndice 
+B</A> (apartados B.7 y B.8). 
+<H2><A name=tth_sEc2.4>2.4</A>&nbsp;&nbsp;Identificación del tipo de un 
+sistema</H2>
+<H3><A name=tth_sEc2.4.1>2.4.1</A>&nbsp;&nbsp;Introducción: estacionamiento de 
+un vehículo</H3>
+<P>El problema del estacionamiento de un vehículo presenta algunos rasgos 
+curiosos. 
+<P>
+<P><A name=tth_fIg2.4></A>
+<CENTER><IMG height=540 alt=coche2.jpg 
+src="Descripción de sistemas_archivos/coche2.gif" width=720><BR>Figure 2.4: vehí 
+culo automóvil </CENTER>
+<P>
+<P>El problema, planteado geométricamente, se reduce a aplicar sobre la posición 
+(<FONT face=symbol>x</FONT>,<FONT face=symbol>h</FONT>,<FONT 
+face=symbol>j</FONT>,<FONT face=symbol>a</FONT>), coordenadas del centro del eje 
+trasero, ángulo del eje del vehículo con un eje horizontal fijo y giro del 
+volante respectivamente, la transformación o secuencia de transformaciones 
+elementales (desplazamiento hacia delante o atrás, giro del volante) que lo 
+lleven desde la posición inicial (<FONT face=symbol>x</FONT><SUB>0</SUB>,<FONT 
+face=symbol>h</FONT><SUB>0</SUB>,<FONT face=symbol>j</FONT><SUB>0</SUB>,<FONT 
+face=symbol>a</FONT><SUB>0</SUB>) hasta la posición deseada (<FONT 
+face=symbol>x</FONT><SUB>1</SUB>,<FONT face=symbol>h</FONT><SUB>1</SUB>,<FONT 
+face=symbol>j</FONT><SUB>1</SUB>,<FONT face=symbol>a</FONT><SUB>1</SUB>). 
+<P>Lo singular del problema es que con sólo dos movimientos elementales (avance 
+y giro del volante) debemos ser capaces de viajar por un espacio 
+tetradimensional sin restricciones. 
+<P>En otro tipo de sistemas la realidad es bien distinta. En una máquina 
+medidora por coordenadas de tres dimensiones hay tres accionamientos 
+independientes (x,y,z) para posicionar la punta del palpador en la posición 
+deseada. Si sólo nos quedásemos con dos movimientos elementales (x,y, por 
+ejemplo) el conjunto de puntos alcanzable sería un espacio bidimensional. Si 
+incluimos otro accionamiento (giro del palpador, por ejemplo) el conjunto 
+depuntos alcanzables sería un espacio tetradimensional. 
+<P>Por lo tanto, lo que hace singular el problema del estacionamiento es el 
+hecho de que contando con un número reducido de transformaciones elementales 
+(grados de libertad) podemos viajar a cualquier punto de un espacio de un número 
+mayor de dimensiones (número mínimo de coordenadas generalizadas). 
+<P>Como se verá más adelante, el papel que juegan las anticonmutaciones de 
+transformaciones elementales, que luego darán lugar a los corchetes de Poisson 
+es fundamental, porque permiten obtener nuevas transformaciones que no son 
+combinaciones lineales de las primeras. 
+<P>
+<H3><A name=tth_sEc2.4.2>2.4.2</A>&nbsp;&nbsp;Desarrollo sistemático</H3>
+<P>Mediante la aplicación de los resultados desarrollados en el <A 
+href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/teoria/pdfa2.pdf">apéndice 
+B</A>, se puede determinar la integrabilidad de un sistema. Antes de continuar, 
+se puede realizar un cambio de coordenada que facilite la discusión posterior. 
+Sea b el inverso de la abscisa que posiciona el centro instantáneo de rotación I 
+del chasis del vehículo sobre el eje de las ruedas traseras según la figura 2.4 
+, de modo que 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>b = </TD>
+          <TD noWrap align=middle>1
+            <HR noShade>
+
+            <TABLE border=0>
+              <TBODY>
+              <TR>
+                <TD noWrap align=middle>a + </TD>
+                <TD noWrap align=middle>d
+                  <HR noShade>
+                  tg&nbsp;<FONT face=symbol>a</FONT><BR></TD></TR></TBODY></TABLE></TD>
+          <TD noWrap 
+align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>En el 
+ejemplo considerado se tiene un sistema <FONT face=symbol>W</FONT> de formas 
+lineales dado por 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD class=cl align=left><FONT 
+            face=symbol>ì<BR>ï<BR>ï<BR>í<BR>ï<BR>ï<BR>î </FONT></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle>
+            <TABLE>
+              <TBODY>
+              <TR>
+                <TD align=right>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>sin<FONT 
+                        face=symbol>j</FONT>d<FONT face=symbol>x-</FONT> 
+                        cos<FONT face=symbol>j</FONT>d<FONT 
+                      face=symbol>h</FONT></TD></TR></TBODY></TABLE></TD>
+                <TD align=middle>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>= </TD></TR></TBODY></TABLE></TD>
+                <TD>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>0</TD></TR></TBODY></TABLE></TD>
+              <TR>
+                <TD align=right>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>d<FONT face=symbol>j-</FONT> b 
+                      </TD>
+                      <TD noWrap align=middle>d<FONT face=symbol>x</FONT>
+                        <HR noShade>
+                        cos<FONT face=symbol>j</FONT><BR></TD>
+                      <TD noWrap align=middle></TD></TR></TBODY></TABLE></TD>
+                <TD align=middle>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>= </TD></TR></TBODY></TABLE></TD>
+                <TD>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap 
+              align=middle>0</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD>
+          <TD noWrap 
+align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>y por 
+tanto un conjunto T<SUB><FONT face=symbol>W</FONT></SUB> generado por 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD class=cl align=left><FONT 
+            face=symbol>ì<BR>ï<BR>ï<BR>ï<BR>ï<BR>í<BR>ï<BR>ï<BR>ï<BR>ï<BR>î 
+            </FONT></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle>
+            <TABLE>
+              <TBODY>
+              <TR>
+                <TD align=right>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap 
+                align=middle>A<SUB>1</SUB></TD></TR></TBODY></TABLE></TD>
+                <TD align=middle>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>= </TD></TR></TBODY></TABLE></TD>
+                <TD>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>cos<FONT face=symbol>j</FONT> 
+</TD>
+                      <TD noWrap align=middle><FONT face=symbol>¶</FONT>
+                        <HR noShade>
+                        <FONT face=symbol>¶x</FONT><BR></TD>
+                      <TD noWrap align=middle>+ sin<FONT face=symbol>j</FONT> 
+                      </TD>
+                      <TD noWrap align=middle><FONT face=symbol>¶</FONT>
+                        <HR noShade>
+                        <FONT face=symbol>¶h</FONT><BR></TD>
+                      <TD noWrap align=middle>+ b </TD>
+                      <TD noWrap align=middle><FONT face=symbol>¶</FONT>
+                        <HR noShade>
+                        <FONT face=symbol>¶j</FONT><BR></TD>
+                      <TD noWrap align=middle></TD></TR></TBODY></TABLE></TD>
+              <TR>
+                <TD align=right>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap 
+                align=middle>A<SUB>2</SUB></TD></TR></TBODY></TABLE></TD>
+                <TD align=middle>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>= </TD></TR></TBODY></TABLE></TD>
+                <TD>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle></TD>
+                      <TD noWrap align=middle><FONT face=symbol>¶</FONT>
+                        <HR noShade>
+                        <FONT face=symbol>¶</FONT>b<BR></TD>
+                      <TD noWrap 
+              align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD>
+          <TD noWrap 
+align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>Al 
+hacer [A<SUB>2</SUB>,A<SUB>1</SUB>] se tiene 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>A<SUB>3</SUB> = 
+            [A<SUB>2</SUB>,A<SUB>1</SUB>] = </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>
+            <HR noShade>
+            <FONT face=symbol>¶j</FONT><BR></TD>
+          <TD noWrap 
+align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>es 
+decir, se tiene la transformación consistente en un giro en torno al eje trasero 
+con todas las demás variables constantes. El corchete de Poisson define la 
+transformación resultado de efectuar las correspondientes a sus factores en un 
+orden y en el inverso, obteniendo el resultado esperado. 
+<P>Si ahora se hace 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle>[A<SUB>3</SUB>,A<SUB>1</SUB>] = <FONT 
+            face=symbol>-</FONT>sin<FONT face=symbol>j</FONT> </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>
+            <HR noShade>
+            <FONT face=symbol>¶x</FONT><BR></TD>
+          <TD noWrap align=middle>+ cos<FONT face=symbol>j</FONT> </TD>
+          <TD noWrap align=middle><FONT face=symbol>¶</FONT>
+            <HR noShade>
+            <FONT face=symbol>¶h</FONT><BR></TD>
+          <TD noWrap 
+align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>se 
+tiene un desplazamiento lateral del vehículo. Como la dimensión del subespacio 
+vectorial generado por {A<SUB>1</SUB>,A<SUB>2</SUB>,A<SUB>3</SUB>,A<SUB>4</SUB> 
+} es máximo, se tiene que la dimensión mínima de la integral del sistema es 
+cuatro, es decir, no existen integrales primeras de las ecuaciones de ligadura 
+cinemática. Por lo tanto, el vehículo puede alcanzar cualquier posición final a 
+partir de cualquier posición inicial. 
+<P>
+<H2><A name=tth_sEc2.5>2.5</A>&nbsp;&nbsp;Desplazamientos virtuales</H2>
+<P>Dado un sistema material <FONT face=helvetica><I>S</I></FONT> y una 
+representación del mismo mediante un conjunto de coordenadas 
+<B>r</B>(q<SUB>1</SUB>,<FONT face=symbol>¼</FONT>,q<SUB>n</SUB>,t) más un 
+conjunto de ecuaciones de ligadura geométricas más otro de ligaduras 
+cinemáticas, se define el conjunto de <EM>desplazamientos elementales 
+posibles</EM> en el punto (q<SUB>10</SUB>,<FONT 
+face=symbol>¼</FONT>,q<SUB>n0</SUB>)como el de todas las (m+1)-ernas 
+(dq<SUB>1</SUB>,<FONT face=symbol>¼</FONT>,dq<SUB>n</SUB>, dt) que satisfacen 
+las g + c ecuaciones 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD class=cl align=left><FONT 
+            face=symbol>ì<BR>ï<BR>ï<BR>ï<BR>ï<BR>í<BR>ï<BR>ï<BR>ï<BR>ï<BR>î 
+            </FONT></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle>
+            <TABLE>
+              <TBODY>
+              <TR>
+                <TD align=right>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle></TD>
+                      <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT 
+                        size=-1>i = 1</FONT>&nbsp;<BR></TD>
+                      <TD noWrap align=middle></TD>
+                      <TD class=cl align=left><FONT face=symbol>æ<BR>ç<BR>è 
+                        </FONT></TD>
+                      <TD noWrap align=middle></TD>
+                      <TD noWrap align=middle><FONT 
+                        face=symbol>¶</FONT>f<SUB>j</SUB>
+                        <HR noShade>
+                        <FONT face=symbol>¶</FONT>q<SUB>i</SUB><BR></TD>
+                      <TD class=cl align=left><FONT face=symbol>ö<BR>÷<BR>ø 
+                        </FONT></TD>
+                      <TD noWrap align=middle><!--sup
+--><BR><BR><FONT size=-1>0</FONT>&nbsp;<BR></TD>
+                      <TD noWrap align=middle>dq<SUB>i</SUB> + </TD>
+                      <TD class=cl align=left><FONT face=symbol>æ<BR>ç<BR>è 
+                        </FONT></TD>
+                      <TD noWrap align=middle></TD>
+                      <TD noWrap align=middle><FONT 
+                        face=symbol>¶</FONT>f<SUB>j</SUB>
+                        <HR noShade>
+                        <FONT face=symbol>¶</FONT>t<BR></TD>
+                      <TD class=cl align=left><FONT face=symbol>ö<BR>÷<BR>ø 
+                        </FONT></TD>
+                      <TD noWrap align=middle><!--sup
+--><BR><BR><FONT size=-1>0</FONT>&nbsp;<BR></TD>
+                      <TD noWrap align=middle>dt </TD></TR></TBODY></TABLE></TD>
+                <TD align=middle>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>= </TD></TR></TBODY></TABLE></TD>
+                <TD>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>0 &nbsp;&nbsp;&nbsp; para j 
+                        <FONT face=symbol>Î</FONT> {1,<FONT 
+                        face=symbol>¼</FONT>,g} </TD></TR></TBODY></TABLE></TD>
+              <TR>
+                <TD align=right>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle></TD></TR></TBODY></TABLE></TD>
+              <TR>
+                <TD align=right>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle></TD>
+                      <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT 
+                        size=-1>i = 1</FONT>&nbsp;<BR></TD>
+                      <TD noWrap align=middle>( A<SUB>ji</SUB> )<SUB>0</SUB> 
+                        dq<SUB>i</SUB> + ( B<SUB>j</SUB> )<SUB>0</SUB> dt 
+                    </TD></TR></TBODY></TABLE></TD>
+                <TD align=middle>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>= </TD></TR></TBODY></TABLE></TD>
+                <TD>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>0 &nbsp;&nbsp;&nbsp; para j 
+                        <FONT face=symbol>Î</FONT> {1,<FONT 
+                        face=symbol>¼</FONT>,c} 
+              </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD>
+          <TD noWrap 
+align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>
+<P>Obviamente los desplazamientos así definidos representan los movimientos 
+elementales que el sistema puede realizar respetando las ecuaciones de ligadura 
+a las que está sometido. Si se dividen las m primeras componentes entre la 
+última componente, se obtiene el conjunto de posibles velocidades generalizadas 
+del sistema. Entre las m+1 componentes de los desplazamientos elementales existe 
+una que tiene un significado especial: la última. En efecto, mientras las m 
+primeras componentes representan desplazamientos posibles de las coodenadas de 
+posición del sistema, la última sólo representa el tiempo que debe transcurrir 
+para que estos desplazamientos sean realmente posibles. Es decir, a cada 
+desplazamiento de la posición posible le corresponde un intervalo temporal en el 
+que es realmente posible. Sin embargo existe una clase de desplazamientos, en 
+cierto modo privilegiados, cuya duración es nula, o lo que es lo mismo, se 
+efectúan con velocidad infinita. Estos son los que corresponden a 
+desplazamientos posibles en los que la última componente es nula. En este caso, 
+la dependencia temporal de las ligaduras es obviada, al tratar desplazamientos 
+tan rápidos que no puede llegar a manifestarse; es como si se ``congelasen" 
+dichas ligaduras. Se llega pues al concepto de <EM>desplazamientos 
+virtuales</EM>, que se definen como las m-ernas (<FONT 
+face=symbol>d</FONT>q<SUB>1</SUB>,<FONT face=symbol>¼</FONT>,<FONT 
+face=symbol>d</FONT>q<SUB>m</SUB>) que satisfacen las g+c ecuaciones: 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></TD>
+          <TD class=cl align=left><FONT 
+            face=symbol>ì<BR>ï<BR>ï<BR>ï<BR>ï<BR>í<BR>ï<BR>ï<BR>ï<BR>ï<BR>î 
+            </FONT></TD>
+          <TD noWrap align=middle></TD>
+          <TD noWrap align=middle>
+            <TABLE>
+              <TBODY>
+              <TR>
+                <TD align=right>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle></TD>
+                      <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT 
+                        size=-1>i = 1</FONT>&nbsp;<BR></TD>
+                      <TD noWrap align=middle></TD>
+                      <TD class=cl align=left><FONT face=symbol>æ<BR>ç<BR>è 
+                        </FONT></TD>
+                      <TD noWrap align=middle></TD>
+                      <TD noWrap align=middle><FONT 
+                        face=symbol>¶</FONT>f<SUB>j</SUB>
+                        <HR noShade>
+                        <FONT face=symbol>¶</FONT>q<SUB>i</SUB><BR></TD>
+                      <TD class=cl align=left><FONT face=symbol>ö<BR>÷<BR>ø 
+                        </FONT></TD>
+                      <TD noWrap align=middle><!--sup
+--><BR><BR><FONT size=-1>0</FONT>&nbsp;<BR></TD>
+                      <TD noWrap align=middle><FONT 
+                        face=symbol>d</FONT>q<SUB>i</SUB> 
+</TD></TR></TBODY></TABLE></TD>
+                <TD align=middle>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>= </TD></TR></TBODY></TABLE></TD>
+                <TD>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>0 &nbsp;&nbsp;&nbsp; para j 
+                        <FONT face=symbol>Î</FONT> {1,<FONT 
+                        face=symbol>¼</FONT>,g} </TD></TR></TBODY></TABLE></TD>
+              <TR>
+                <TD align=right>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle></TD></TR></TBODY></TABLE></TD>
+              <TR>
+                <TD align=right>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle></TD>
+                      <TD noWrap align=middle><FONT size=-1>m</FONT><!--sup
+--><BR><FONT face=symbol size=+3>å<BR></FONT><FONT 
+                        size=-1>i = 1</FONT>&nbsp;<BR></TD>
+                      <TD noWrap align=middle>( A<SUB>ji</SUB> )<SUB>0</SUB> 
+                        <FONT face=symbol>d</FONT>q<SUB>i</SUB> 
+                  </TD></TR></TBODY></TABLE></TD>
+                <TD align=middle>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>= </TD></TR></TBODY></TABLE></TD>
+                <TD>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD noWrap align=middle>0 &nbsp;&nbsp;&nbsp; para j 
+                        <FONT face=symbol>Î</FONT> {1,<FONT 
+                        face=symbol>¼</FONT>,c} 
+              </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD>
+          <TD noWrap 
+align=middle></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>
+<P>Obviamente el conjunto de desplazamientos virtuales tiene estructura de 
+espacio vectorial. Sus elementos representan el conjunto de vectores ``rasantes" 
+a las ligaduras. En el caso de un sistema formado por un único punto material 
+ligado a una superficie variable en el tiempo, representa el conjunto de 
+vectores del plano tangente a la forma que adopta dicha superficie en t 
+<HR>
+
+<H4>Pies de página:</H4>
+<P><A name=tthFtNtAAB></A><A 
+href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwcinana.html#tthFrefAAB"><SUP>1</SUP></A> 
+Sólo se consideran funciones con un grado suficiente de derivabilidad, quedando 
+excluidas curvas como las de Peano o sus equivalentes multidimensionales 
+<P><A name=tthFtNtAAC></A><A 
+href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwcinana.html#tthFrefAAC"><SUP>2</SUP></A>del 
+griego <FONT face=symbol>n</FONT>o <FONT face=symbol>m</FONT>o <FONT 
+face=symbol>s</FONT> que significa ley, prohibición, restricción y o <FONT 
+face=symbol>l</FONT>o <FONT face=symbol>s</FONT> que significa totalidad. Puede 
+decirse que en un sistema holónomo todas las ligaduras se reducen a 
+restricciones de las posibles posiciones del sistema 
+<P><A name=tthFtNtAAD></A><A 
+href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwcinana.html#tthFrefAAD"><SUP>3</SUP></A>del 
+griego <FONT face=symbol>sklhr</FONT><I>ó</I><FONT face=symbol>z</FONT> que 
+significa rígido. Aquí se interpreta como invariable en el tiempo. 
+<P><A name=tthFtNtAAE></A><A 
+href="http://mecfunnet.faii.etsii.upm.es/Xitami/webpages/euler/wwwcinana.html#tthFrefAAE"><SUP>4</SUP></A> 
+del verbo griego <FONT face=symbol>rew</FONT> que significa correr, fluir (la 
+corriente), es decir ligaduras que evolucionan en el tiempo </P></BODY></HTML>

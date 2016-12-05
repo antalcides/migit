@@ -1,0 +1,864 @@
+%% This document created by Scientific Word (R) Version 3.0
+
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[spanish]{babel}
+\usepackage[pdftex,dvips]{color}
+\usepackage{amsmath}
+\usepackage[spanish]{babel}
+\usepackage{fancybox}
+\usepackage[ansinew]{inputenc}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{CSTFile=article.cst}
+%TCIDATA{Created=Friday, October 24, 2003 07:58:30}
+%TCIDATA{LastRevised=Mon Oct 27 15:15:10 2003}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+\setcounter{MaxMatrixCols}{30}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Soluci\'{o}n}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\begin{document}
+\thispagestyle{plain}\ \newpage
+
+\textbf{\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad
+\qquad\qquad\qquad}
+
+\bigskip\thispagestyle{plain} \bigskip
+
+\begin{center}
+
+\textbf{{\large {M\'{E}TODOS NUM\'{E}RICOS}.\newline \newline \newline
+ASIGNACI\'{O}N \#2.}}
+
+\bigskip\bigskip
+
+\textbf{PRESETADO POR:}
+
+\bigskip
+
+\textbf{\color{blue}{{ANTALCIDES OLIVO BURGOS\\    \hspace{4pt}%
+IRINA RUIZ BAENA}. }}\vspace{3cm}\newline \textbf{PRESENTADO A: }
+\textbf{\color{blue}{\\DR  JUAN CARLOS ORTIZ \\ UNIVERSIDAD DE
+PUERTO RICO}}
+
+\textbf{\vspace{3cm}}
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\textbf{\ UNIVERSIDAD DEL NORTE-\-UNIVERSIDAD}
+
+\textbf{ESPECIALIZACI\'{O}N EN F\'{I}SICA GENERAL}
+
+\textbf{\ DEPARTAMENTO DE MATEM\'{A}TICAS Y F\'{I}SICA.\newline OCTUBRE 27 del 2.003}
+\end{center}
+
+\newpage
+
+\section*{\color{blue}{Asignación 2}}
+
+\section{{\protect\large {M\'{E}TODOS DE INTEGRACI\'{O}N NUM\'{E}RICA}}}
+
+\subsection{LA REGLA DEL TRAPECIO}
+
+El m\'{e}todo de Euler aproxima la derivada en $\left[  x_{n},x_{n+1}\right]
+$ por una constante, concretamente por su valor en $x_{n}$. \textquestiondown
+Por qu\'{e} privilegiar al punto $x_{n}?$ \textquestiondown No ser\'{a} mejor
+tomar , por ejemplo, como aproximaci\'{o}n constante de la derivada el
+promedio de sus valores en los extremos del intervalo? En ese caso
+\[
+y(x_{n+1})=y\left(  x_{n}\right)  +h\frac{f\left(  x_{n},y\left(
+x_{n}\right)  \right)  f\left(  x_{n+1},y\left(  x_{n+1}\right)  \right)  }%
+{2}+R_{n}%
+\]
+donde $R_{n}$ es el error de truncaci\'{o}n, por lo que se aproxima de la forma.%
+
+\[
+y_{n+1}\approx y_{n}+h\frac{f\left(  x_{n},y\left(  x_{n}\right)  \right)
+f\left(  x_{n+1},y\left(  x_{n+1}\right)  \right)  }{2}%
+\]
+
+Esta aproximaci\'{o}n conduce a la llamada regla del trapecio
+
+la cual \ es convergente de grado dos, es decir%
+\[
+\left\Vert e_{n}\right\Vert \leq e^{\left(  b-a\right)  L/\left(  1-\frac
+{hL}{2}\right)  }\left\Vert e_{0}\right\Vert +\frac{Ch^{2}}{L}\left(
+e^{\left(  b-a\right)  L/\left(  1-\frac{hL}{2}\right)  }-1\right)  ,\text{ si
+}0\leq n\leq N
+\]%
+\[
+\text{donde }e_{n}=y\left(  x_{n}\right)  -y_{n},\ \frac{hL}{2}<1,\ C=\frac
+{5}{12}\max_{x\in\left[  a,b\right]  }\left\Vert y^{\prime\prime\prime}\left(
+x\right)  \right\Vert \
+\]
+
+a pesar de que la regla del trapecio tiene un orden de convergencia mayor que
+el m\'{e}todo de Euler. eso no significa que sea un m\'{e}todo mejor , pues
+hay otra diferencia importante entre ambos m\'{e}todos. el m\'{e}todo de Euler
+es \textit{expl\'{\i}cito,} el valor de $y_{n+1}$ viene dado expl\'{\i
+}citamente en t\'{e}rmino del valor anterior $y_{n}$ y se puede calcular
+f\'{a}cilmente mediante la evaluaci\'{o}n de $f$ y una pocas operaciones
+aritm\'{e}ticas. por el contrario, la regla del trapecio es un m\'{e}todo
+\textit{impl\'{\i}cito}, para calcular $y_{n+1}$ hay que resolver un sistema
+de ecuaciones no lineales, lo que en general es computacionalmente costoso. de
+lo que se deduce, el orden no lo es todo. Aunque en un m\'{e}todo de orden
+alto en principio hay que dar menos pasos, estos pueden ser muy costosos, por
+lo que puede ser mejor un m\'{e}todo de menos orden en el que a pesar de dar
+m\'{a}s pasos cada uno de ellos lleve menos trabajo computacional.
+
+\subsection{Aplicaciones}
+
+Para aplicar este m\'{e}todo resolveremos dos problemas de f\'{\i}sica
+m\'{e}canica anal\'{\i}ticamente y usando Fortran lo resolveremos
+computacionalmente y luego calculamos el error.
+
+\begin{enumerate}
+\item  un objeto que pesa $48\ lb$ se suelta desde el reposo en la parte
+superior de un plano inclinado met\'{a}lico que tiene una inclinaci\'{o}n de
+$30°$ respecto a la horizontal. la resistencia del aire es num\'{e}%
+ricamente igual a un medio de la velocidad (en pies por segundo), el
+coeficiente de rozamiento es $\frac{1}{4}$
+
+\begin{enumerate}
+\item \textquestiondown Cu\'{a}l es el tiempo que tarda el objeto para
+adquirir una velocidad de $10.2$ $ft/s$ despu\'{e}s de haberse soltado?
+
+\item \textquestiondown Cu\'{a}l es la distancia sobre el plano que ha
+recorrido el cuerpo, para alcanzar la velocidad de $10.2$ $ft/s$?%
+%TCIMACRO{\FRAME{dhFU}{2.7691in}{1.8273in}{0pt}{\Qcb{Figura1}}{}{fortran.jpg}%
+%{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "USEDEF";  valid_file "F";
+%width 2.7691in;  height 1.8273in;  depth 0pt;  original-width 2.7268in;
+%original-height 1.7902in;  cropleft "0";  croptop "1";  cropright "1";
+%cropbottom "0";  filename 'fortran.jpg';file-properties "XNPEU";}}}%
+%BeginExpansion
+\begin{center}
+\includegraphics[
+natheight=1.790200in,
+natwidth=2.726800in,
+height=1.8273in,
+width=2.7691in
+]%
+{fortran.jpg}%
+\\
+Figura1
+\end{center}
+%EndExpansion
+\end{enumerate}
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}
+\item [a.]La l\'{i}nea de movimiento es a lo largo del plano, si escogemos el
+origen del sistema de referencia en la parte superior y el sentido positivo de
+las $x$ hacia abajo del plano, entonces las%
+%TCIMACRO{\FRAME{dhFU}{2.8643in}{2.1715in}{0pt}{\Qcb{Figura 2}}{}%
+%{plano.jpg}{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "USEDEF";  valid_file "F";
+%width 2.8643in;  height 2.1715in;  depth 0pt;  original-width 2.8098in;
+%original-height 2.1231in;  cropleft "0";  croptop "1";  cropright "1";
+%cropbottom "0";  filename 'plano.jpg';file-properties "XNPEU";}}}%
+%BeginExpansion
+\begin{center}
+\includegraphics[
+natheight=2.123100in,
+natwidth=2.809800in,
+height=2.1715in,
+width=2.8643in
+]%
+{plano.jpg}%
+\\
+Figura 2
+\end{center}
+%EndExpansion
+fuerzas que act\'{u}na sobre el objeto A son:\newline Su peso de 48 lb que
+act\'{u}a verticalmente hacia abajo.\newline La fuerza normal, N que ejerce el
+plano sobre el objeto la cual act\'{u}a en la direcci\'{o}n positiva y
+perpendicular al plano.\newline La resitencia del aire $f_{a}$,que tiene un
+valor num\'{e}rico igual a $\frac{v}{2}$, puesto que $v>0$ esta fuerza tiene
+una direcci\'{o}n negativa en $x.$\newline La fuerza de rozamiento, que tiene
+un valor $\mu N$ y tiene una direcci\'{o}n negativa en $x.$\newline de la
+gr\'{a}fica 2 y aplicando la segunda ley de Newton obtenemos
+\begin{align*}
+\text{ en }x  &  :\ \ ma\ =Wsen30\U{ba}-f_{s}-f_{r}\\
+f_{r}  &  =\mu N\\
+\text{en }y  &  :0=N-W\cos30\U{ba}%
+\end{align*}
+Reemplazando los valores y resolviendo el sistema de las tres ecuaciones
+anteriores se obtiene:%
+\[
+\frac{3}{2}\frac{dv}{dt}=24-6\sqrt{3}-\frac{1}{2}v
+\]
+al separar variables se obtiene%
+\[
+\frac{dv}{48-12\sqrt{3}-v}=\frac{dt}{3}%
+\]
+como cuando $t=0,\ v=0$ se tiene%
+\begin{align}
+\int_{0}^{10.2}\frac{dv}{48-12\sqrt{3}-v}  &  =\int_{0}^{t}\frac{dt}%
+{3}\label{ec1}\\
+0.469\,66  &  =\frac{1}{3}t\\
+t_{a}  &  =1.\,\allowbreak408\,99\ s
+\end{align}
+de la ecuaci\'{o}n \ref{ec1} observamos que la velocidad final debe cumplir la
+siguiente condici\'{o}n $v<27.\,\allowbreak215$, ya que de no ser as\'{i} el
+cuerpo subir\'{i}a en vez de bajar
+
+\item[b.] Al resolver anal\'{\i}ticamente la ecuaci\'{o}n \ref{ec1} y
+despejando $t$ obtenemos que
+\begin{align*}
+v  &  =\left(  48-12\sqrt{3}\right)  \left(  1-e^{-\frac{t}{3}}\right) \\
+\frac{dx}{dt}  &  =\left(  48-12\sqrt{3}\right)  \left(  1-e^{-\frac{t}{3}%
+}\right)
+\end{align*}
+de lo que se obtiene%
+\[
+\int_{0}^{x}dy=\int_{0}^{1.409}\left(  48-12\sqrt{3}\right)  \left(
+1-e^{-\frac{t}{3}}\right)  dt
+\]
+ya que $x\left(  0\right)  =0\ ,~t_{0}=0,$ al integrar podemos determinar lo
+que nos piden, as\'{\i}:%
+\begin{align*}
+x_{a}  &  =\left(  13.\,\allowbreak662-3.\,\allowbreak415\,6\sqrt{3}\right)
+ft\\
+x_{a}  &  =7.\,\allowbreak746\ ft
+\end{align*}
+\end{enumerate}
+\end{solution}
+
+\begin{solution}
+
+\begin{enumerate}
+\item [a.]Podemos resolver el problema \ num\'{e}ricamente utilizando la
+ecuaci\'{o}n \ref{ec1} y aplicando la regla del trapecio para calcular la
+integral, estableciendo en el algoritmo%
+\[%
+%TCIMACRO{\dint _{a}^{b}}%
+%BeginExpansion
+{\displaystyle\int_{a}^{b}}
+%EndExpansion
+\,\,t(v)\,dv\approx T_{tra}=\dfrac{\Delta v}{2}\left[  f(v_{0})+2f(v_{1}%
+)+2f(v_{2})+\cdots+2f(v_{n-1})+f(v_{n})\right]
+\]
+donde
+\[
+\Delta v=(b-a)/n\text{\quad y\quad}v_{i}=a+i\,\Delta v
+\]%
+%TCIMACRO{\QTR{BOXHEAD}{El error m\'{a}ximo del m\'{e}todo se puede
+%calcular:}}%
+%BeginExpansion
+El error m\'{a}ximo del m\'{e}todo se puede calcular:%
+%EndExpansion
+\newline Suponiendo $\left\vert f^{\prime\prime}(v)\right\vert \leq K$ para
+$a\leq v\leq b$. Si $E_{T}$ es el error del m\'{e}todo del trapecio
+\[
+\left\vert E_{T}\right\vert \leq\frac{K(b-a)^{3}}{12n^{2}}%
+\]
+Para utilizar este m\'{e}todo \ determinaremos varios subintervalos de la
+velocidad.\newline Por ejemplo.
+
+\item[i.] Para $n=15$
+\begin{align*}
+t  &  =3\left(  \frac{0.34}{48-12\sqrt{3}}+0.68\sum_{i=1}^{14}\frac
+{1}{48-12\sqrt{3}-0.68i}+\allowbreak\frac{0.34}{37.\,\allowbreak8-12\sqrt{3}%
+}\right)  s\\
+t  &  =1.\,\allowbreak409\,3.s.
+\end{align*}
+
+\item[ii.] Para $n=30$%
+\begin{align*}
+t_{n}  &  =\left(  \frac{0.51}{48-12\sqrt{3}}+0.34\sum_{i=1}^{29}\frac
+{3}{48-12\sqrt{3}-0.34i}+\allowbreak\frac{0.51}{37.\,\allowbreak8-12\sqrt{3}%
+}\right)  s\\
+&  =\allowbreak1.\,\allowbreak409\,1s
+\end{align*}
+Para $n=50$%
+\begin{align*}
+t_{n}  &  =\left(  \frac{0.306\,}{48-12\sqrt{3}}+0.204\,\sum_{i=1}^{49}%
+\frac{3}{48-12\sqrt{3}-0.204\,i}+\allowbreak\frac{0.306\,}{37.\,\allowbreak
+8-12\sqrt{3}}\right)  s\\
+t_{n}  &  =:1.\,\allowbreak409028s
+\end{align*}
+
+\item[iii.] Para $n=55$%
+\begin{align*}
+t_{n}  &  =\left(  \frac{0.278\,18}{48-12\sqrt{3}}+0.185\,45\sum_{i=1}%
+^{54}\frac{3}{48-12\sqrt{3}-0.185\,45i}+\allowbreak\frac{0.278\,18}%
+{37.\,\allowbreak8-12\sqrt{3}}\right)  s\\
+t_{n}  &  =\allowbreak1.\,\allowbreak409\,99s.
+\end{align*}
+Si observamos las gr\'{a}ficas de la funci\'{o}n cuando $n=15$ y $n=55$
+observamos que el error debe ser menor para $n=55$ el cual calcularemos
+anal\'{\i}ticamente ya que conocemos $t\left(  v\right)  ,$ aunque tambi\'{e}n
+lo calcularemos de acuerdo con la f\'{o}rmula de error del m\'{e}todo\newline
+\end{enumerate}
+\end{solution}%
+
+\begin{tabular}
+[c]{ll}%
+%TCIMACRO{\FRAME{ihFU}{3.1038in}{1.9545in}{0in}{\Qcb{m\'{e}todo del trapecio
+%n=15}}{}{trap15.jpg}{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "USEDEF";  valid_file "F";
+%width 3.1038in;  height 1.9545in;  depth 0in;  original-width 3.0597in;
+%original-height 1.9164in;  cropleft "0";  croptop "1";  cropright "1";
+%cropbottom "0";  filename 'trap15.jpg';file-properties "XNPEU";}}}%
+%BeginExpansion
+{\parbox[b]{3.1038in}{\begin{center}
+\includegraphics[
+natheight=1.916400in,
+natwidth=3.059700in,
+height=1.9545in,
+width=3.1038in
+]%
+{trap15.jpg}%
+\\
+m\'{e}todo del trapecio n=15
+\end{center}}}%
+%EndExpansion
+&
+%TCIMACRO{\FRAME{ihFU}{3.1038in}{1.9545in}{0in}{\Qcb{M\'{e}todo del trapecio
+%n=55}}{}{trap50.jpg}{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "USEDEF";  valid_file "F";
+%width 3.1038in;  height 1.9545in;  depth 0in;  original-width 3.0597in;
+%original-height 1.9164in;  cropleft "0";  croptop "1";  cropright "1";
+%cropbottom "0";  filename 'trap50.jpg';file-properties "XNPEU";}}}%
+%BeginExpansion
+{\parbox[b]{3.1038in}{\begin{center}
+\includegraphics[
+natheight=1.916400in,
+natwidth=3.059700in,
+height=1.9545in,
+width=3.1038in
+]%
+{trap50.jpg}%
+\\
+M\'{e}todo del trapecio n=55
+\end{center}}}%
+%EndExpansion
+\end{tabular}
+\newline Para calcular el error por truncamiento debemos calcular $\left|
+f^{\prime\prime}(v)\right|  $ la cual es
+\begin{align*}
+f^{\prime}\left(  v\right)   &  =\frac{3}{\left(  48-12\sqrt{3}-v\right)
+^{2}}\\
+f^{\prime\prime}\left(  v\right)   &  =\frac{6}{\left(  48-12\sqrt
+{3}-v\right)  ^{3}}\\
+f^{\prime\prime\prime}\left(  v\right)   &  =\allowbreak\frac{18}{\left(
+48-12\sqrt{3}-v\right)  ^{4}}.
+\end{align*}
+Como $f^{\prime\prime\prime}\left(  v\right)  >0$ entonces $f^{\prime\prime
+}\left(  v\right)  $ no tiene maximo relativo, ya que es creciente por tanto
+tomamos como
+\[
+K=\left|  f^{\prime\prime}\left(  10.2\right)  \right|  =\frac{6}{\left(
+48-12\sqrt{3}-10.2\right)  ^{3}}=1.\,\allowbreak217\,9\times10^{-3}.
+\]
+As\'{i} tenemos que el error es
+\begin{align*}
+\left|  E_{T}\right|   &  \leq\frac{K(b-a)^{3}}{12n^{2}}=\frac{\left(
+1.\,\allowbreak217\,9\times10^{-3}\right)  \left(  10.2\right)  ^{3}}{12n^{2}%
+}\\
+\text{si }n  &  =15,\text{\ \ \ }\left|  E_{T}\right|  =\frac{1.\,\allowbreak
+292\,4}{\left(  12\right)  \left(  15\right)  ^{2}}=4.\,\allowbreak
+786\,7\times10^{-4}\\
+\text{si }n  &  =55,\text{\ \ \ }\left|  E_{T}\right|  =\frac{1.\,\allowbreak
+292\,4}{\left(  12\right)  \left(  55\right)  ^{2}}=3.\,\allowbreak
+560\,3\times10^{-5}%
+\end{align*}
+Mientras que los errores relativos para los mismos casos
+\begin{align*}
+&  \varepsilon\%=100\left|  \frac{\left(  t_{a}-t_{n}\right)  }{t_{a}}\right|
+\\
+\text{si }n  &  =15,\ \ \varepsilon\%=100\left|  \frac{\left(  1.\,\allowbreak
+40899-1.\,\allowbreak409\,3\right)  }{1.\,\allowbreak409\,0}\right|
+=2.\,\allowbreak129\,2\times10^{-2}\\
+\text{si }n  &  =55,\ \ \varepsilon\%=100\left|  \frac{\left(  1.\,\allowbreak
+408\,99-\allowbreak1.\,\allowbreak40\,91\right)  }{1.\,\allowbreak
+40\,901}\right|  =7.\,\allowbreak806\,9\times10^{-3}%
+\end{align*}
+Tanto los errores de truncamiento como los errores relativos son peque\~{n}os
+
+Para el caso de la distancia recorrida no realizaremos el an\'{a}lisis,
+realizaremos el estudio utilizando fortran 77
+\begin{verbatim}
+c Este programa utiliza la regla del trapecio para
+c determinar el tiempo que tarda un cuerpo en deslizarse
+c desde la parte mas alta de un plano partiendo del reposo
+c hasta alcanzar una velocidad v.
+c En este problema se considera la resistencia del aire y la
+c friccion del plano sobre el cuerpo
+program trapeciom
+real v0,vf,d,suma,h,Tn,Ta,et,X,sum,Ln,La,el,e,Y
+integer i,j,n,res
+res =1
+30 if (res.eq.1)then
+write(*,*)'******************************************************'
+write(6,*)'Integracion numerica'
+write(6,*)'Regla del Trapecio'
+write(6,*)'******************************************************'
+write(6,*)'Ingrese el valor de v0 entre (0 , 27.215)'
+read(*,*) v0
+write(6,*)'Ingrese el valor de vf mayor que v0 y menor que 27.215'
+read(*,*) vf
+write(6,*)'Ingrese el tama?o de la particion N, N menor de 60'
+read(*,*) n
+c Empieza el algoritmo para calcular la integral usando N subintervalos
+d=(vf-v0)/n
+suma=F(vf)+F(v0)
+X=v0
+do 10 i=2,n
+X=X+d
+suma=suma+2*F(X)
+10 continue
+Tn=(d/2.)*suma
+c Ahora calculamos la distancia recorrida
+h=Tn/n
+sum=R(Tn)+R(0)
+Y=0
+do 20 j=2,n
+Y=Y+h
+sum=sum+2*R(Y)
+20 continue
+Ln=(h/2.)*sum
+Ta=g(vf)-g(v0)
+et=abs((Tn-Ta)/Ta)*100
+La=P(Tn)-P(0)
+el=abs((Ln-La)/La)*100
+e=s(vf)/(12*n**2)
+write(6,*)'***************************************************'
+write(6,*)'Resultado para N=',N,':'
+WRITE(*,'(3(T3,A/),3(T3,A/T3,(3(A,1PE13.6))/))')
+&' ? Valor numerico? Valor analit. ? ',
+&' ? estimado de la? de la integral? Diferencia ',
+&' ? integral ? ? en % ',
+&'?????????????????????????????????????????????????????????????',
+&'Tiempo ? ' ,Tn , ' ? ' ,Ta , ' ? ',et ,
+&'?????????????????????????????????????????????????????????????',
+&'Dista. ? ' ,Ln , ' ? ' ,La , ' ? ',el
+write(6,*) ' Error = ',e
+write(6,*)'***************************************************'
+WRITE(6,*)'El programa termino!'
+print*, 'Si quiere continuar digie 1 si no cero'
+read*, res
+goto 30
+ENDIF
+open(10,file='trapeciom.txt',status='old')
+write(10,200)'Resultado para N=',N,':'
+write(10,201)'***************************************************'
+write(10,202) ' Resultado de la Integral numerica para t: ',Tn
+write(10,203) ' Resultado de la Integral analitica para t: ',Ta
+write(10,204) ' Diferencia = ',et,'%'
+write(10,205) ' Resultado de la Integral numerica para L: ',Ln
+write(10,206) ' Resultado de la Integral analitica para L: ',La
+write(10,207) ' Diferencia = ',el,'%'
+write(10,208) ' Error = ',e
+write(10,209)'***************************************************'
+200 format(a20,i4,a2)
+201 format(a50)
+202 format(a45,f8.6)
+203 format(a45,f8.6)
+204 format(a15,f8.6,a2)
+205 format(a45,f8.6)
+206 format(a45,f8.6)
+207 format(a15,f8.6,a2)
+208 format(a10,D8.3)
+209 format(a50)
+end
+c Declaracion de funciones
+function F(x)
+real x
+F= 3./(48-(12*(sqrt(3.)))-x)
+end
+function g(x)
+real x
+g= 3*(3.3038-log(48.-(12*(sqrt(3.)))-x))
+end
+function R(x)
+real x
+R= (48.-12.*(sqrt(3.)))*(1.-exp(-(x/3.)))
+END
+function P(x)
+real x
+P= (48.-12.*(sqrt(3.)))*(x+3.*exp(-(x/3.))-3.)
+END
+function s(x)
+real x
+s=6./(48.-(12.*(sqrt(3.)))-x)**3
+end
+\end{verbatim}
+
+Las salidas de este programa para los casos estudiados son:
+\begin{verbatim}
+   Resultado para N=  15 :
+**************************************************
+   Resultado de la Integral numerica para t: 1.409236
+  Resultado de la Integral analitica para t: 1.408993
+  Diferencia = 0.017268 %
+   Resultado de la Integral numerica para L: 7.746278
+  Resultado de la Integral analitica para L: 7.748781
+  Diferencia = 0.032295 %
+  Error = .451E-06
+**************************************************
+
+   Resultado para N=  30 :
+**************************************************
+   Resultado de la Integral numerica para t: 1.409054
+  Resultado de la Integral analitica para t: 1.408993
+  Diferencia = 0.004332 %
+   Resultado de la Integral numerica para L: 7.746294
+  Resultado de la Integral analitica para L: 7.746920
+  Diferencia = 0.008076 %
+  Error = .113E-06
+**************************************************
+   Resultado para N=  50 :
+**************************************************
+   Resultado de la Integral numerica para t: 1.409015
+  Resultado de la Integral analitica para t: 1.408993
+  Diferencia = 0.001591 %
+   Resultado de la Integral numerica para L: 7.746302
+  Resultado de la Integral analitica para L: 7.746526
+  Diferencia = 0.002893 %
+  Error = .406E-07
+**************************************************
+
+   Resultado para N=  55 :
+**************************************************
+   Resultado de la Integral numerica para t: 1.409011
+  Resultado de la Integral analitica para t: 1.408993
+  Diferencia = 0.001294 %
+   Resultado de la Integral numerica para L: 7.746296
+  Resultado de la Integral analitica para L: 7.746485
+  Diferencia = 0.002444 %
+  Error = .336E-07
+**************************************************
+
+\end{verbatim}
+
+Vemos que los errores son menores ahora, pero eso era de esperar ya que cuando
+utilizamos el m\'{e}todos anal\'{i}tico cometimos errores de redondeo que son
+mucho menores cuando se usa el computador.
+
+\subsubsection{METODO DE BISECCION}
+
+\bigskip
+
+Si f es una funci\'{o}n continua en el intervalo $\left[  a.b\right]  $ y si
+$f\left(  a\right)  f\left(  b\right)  <0$, entonces $f$ debe tener un cero en
+$\left(  a,b\right)  .$ Esta es una consecuencia del teorema del valor
+intermedio para funciones continuas.
+
+El m\'{e}todo de bisecci\'{o}n explota esta idea de la siguiente manera , si
+$f\left(  a\right)  f\left(  b\right)  <0,$ se calcula $c=1/2(a+b)$ y se
+averigua si $f\left(  a\right)  f\left(  c\right)  <0,$ si lo es, entonces $f$
+tiene un cero en $\left[  a,c\right]  .$ A continuaci\'{o}n se renombra $c$
+como $b$ y se comienza una vez mas con elintervalo $\left[  a,b\right]  ,$
+cuya longitud es igual a la mitad de la longitud del intervalo original.
+
+Si $f\left(  a\right)  f\left(  c\right)  >0,$ entoonces $f\left(  a\right)
+f\left(  b\right)  <0,$y en este caso se renombra $c$ como $a$ , en ambos
+casos se ha generado un nuevo intervalo que contiene un cero de $f$ y el
+proceso puede repetirse.Claro est\'{a} que si $f\left(  a\right)  f\left(
+c\right)  =0,$ entonces $f\left(  c\right)  =0$ y con ello se ha encontrado un
+cero . Sin embargo por los errores de redondeo es poco factible que $f\left(
+c\right)  =0,$ as\'{\i} el criterio para concluir no deber\'{a} depender de
+que $\ f\left(  c\right)  $ sea cero . Se debe permitir una tolerancia
+razonable tal como $f\left(  c\right)  <10^{-5}.$ Si hay varios ceros en el
+intervalo dado, el m\'{e}todo de la bisecci\'{o}n encuentra uno cada vez. Este
+m\'{e}todo tambi\'{e}n se conoce como el m\'{e}todo de la bipartici\'{o}n.
+
+\bigskip
+
+A la hora de programar es conveniente contar con varios criterios que detengan
+el programa, uno es m\'{a}ximo n\'{u}mero de pasos que se permitiran, esto
+reduce las posibilidades de que el programa se quede en un ciclo infinito. Por
+otra parte la ejecuci\'{o}n del programa se puede detener ya sea cuando el
+error sea lo suficientemente peque\~{n}o o cuando lo sea el valor de $f\left(
+c\right)  .$
+
+\bigskip
+
+ANALISIS DE ERRORES
+
+\bigskip Si $\left[  a_{0},b_{0}\right]  ,\left[  a_{1},b_{1}\right]  $,
+...,$\left[  a_{n},b_{n}\right]  $ son los intervalos que resultan del
+proceso, se pueden hacer las siguientes observaciones:%
+
+\begin{align*}
+a_{0}  &  \leqslant a_{1}\leqslant a_{2}\leqslant...\leqslant a_{n}\text{
+}\left(  1\right) \\
+b_{0}  &  \geqslant b_{1}\geqslant b_{2}\geqslant...\geqslant b_{1}\text{
+}\left(  2\right) \\
+b_{n+1}-a_{n+1}  &  =\frac{1}{2}\left(  b_{n}-a_{n}\right)  \text{
+\ \ }\left(  n\geqslant0\right)  \text{ }\left(  3\right)
+\end{align*}
+
+La sucesi\'{o}n $\left[  a_{n}\right]  $ converge debido a que es creciente y
+est\'{a} acotada superiormente , la sucesi\'{o}n $\left[  b_{n}\right]  $
+tambi\'{e}n converge por razones analogas .Si se utiliza $\left(  3\right)  $
+repetidamente se llega a que :%
+
+\[
+b_{n}-a_{n}=2^{-n}\left(  b_{0}-a_{0}\right)
+\]
+
+As\'{\i}%
+
+\[
+\lim_{n\rightarrow\infty}b_{n}-\lim_{n\rightarrow\infty}a_{n}=\lim
+_{n\rightarrow\infty}2^{n}\left(  b_{0}-a_{0}\right)  =0
+\]
+
+Si se escribe%
+
+\[
+r=\lim_{n\rightarrow\infty}b_{n}=\lim_{n\rightarrow\infty}a_{n}%
+\]
+
+entonces tomando l\'{\i}mite en la desigualdad $0\geqslant f\left(
+a_{n}\right)  f\left(  b_{n}\right)  ,$ entonces se obtiene $\ 0\geqslant
+\left[  f\left(  r\right)  \right]  ^{2},$ y por tanto $f\left(  r\right)  =0.$
+
+\bigskip
+
+Sup\'{o}ngase que en cierta etapa del proceso \ se ha definido el intervalo
+$\left[  a_{n},b_{n}\right]  .$ Si se detiene el proceso en este momento, la
+raiz se encontrar\'{a} en este intervalo, en esta etapa la mejor
+estimaci\'{o}n de la raiz es el punto medio del intervalo.
+
+El error se acota de la siguiente forma:%
+
+\[
+\left|  r-c_{n}\right|  \leq\frac{1}{2}\left|  b_{n}-a_{n}\right|
+\leq2^{-\left(  n+1\right)  }\left(  b_{0}-a_{0}\right)
+\]
+
+Resumiendo lo anterior \ se tiene el siguiente
+
+TEOREMA:
+
+Si $\left[  a_{0},b_{0}\right]  ,\left[  a_{1},b_{1}\right]  $, ...,$\left[
+a_{n},b_{n}\right]  ,$..., denotan los intervalos en el m\'{e}todo de la
+bisecci\'{o}n, entonces los l\'{\i}mites $\lim_{n\rightarrow\infty}b_{n}$ y
+$\lim_{n\rightarrow\infty}a_{n},$ existen, son iguales y representan un cero
+de $f.$ Si $r=\lim_{n\rightarrow\infty}c_{n}$ y $c_{n}=\frac{1}{2}\left(
+a_{n}+b_{n}\right)  $, entonces:%
+
+%TCIMACRO{\TEXTsymbol{\backslash}}%
+%BeginExpansion
+$\backslash$%
+%EndExpansion
+begin\{equation*\}%
+
+%TCIMACRO{\TEXTsymbol{\backslash}}%
+%BeginExpansion
+$\backslash$%
+%EndExpansion
+left%
+%TCIMACRO{\TEXTsymbol{\vert}}%
+%BeginExpansion
+$\vert$%
+%EndExpansion
+r-c\_\{n\}%
+%TCIMACRO{\TEXTsymbol{\backslash}}%
+%BeginExpansion
+$\backslash$%
+%EndExpansion
+right%
+%TCIMACRO{\TEXTsymbol{\vert}}%
+%BeginExpansion
+$\vert$%
+%EndExpansion%
+%TCIMACRO{\TEXTsymbol{\backslash}}%
+%BeginExpansion
+$\backslash$%
+%EndExpansion
+leq 2\symbol{94}\{-%
+%TCIMACRO{\TEXTsymbol{\backslash}}%
+%BeginExpansion
+$\backslash$%
+%EndExpansion
+left( n+1%
+%TCIMACRO{\TEXTsymbol{\backslash}}%
+%BeginExpansion
+$\backslash$%
+%EndExpansion
+right) \}%
+%TCIMACRO{\TEXTsymbol{\backslash}}%
+%BeginExpansion
+$\backslash$%
+%EndExpansion
+left( b\_\{0\}-a\_\{0\}%
+%TCIMACRO{\TEXTsymbol{\backslash}}%
+%BeginExpansion
+$\backslash$%
+%EndExpansion
+right)%
+
+%TCIMACRO{\TEXTsymbol{\backslash}}%
+%BeginExpansion
+$\backslash$%
+%EndExpansion
+end\{equation*\}
+
+En el siguiente ejemplo muestra un programa que resuelve una ecuaci\'{o}n
+cuadr\'{a}tica introducida por un usuario.
+\begin{verbatim}
+c **Este programa halla las raices de una ecuaci?n cuadr?tica por el
+c m?todo de la secante**
+program biseccion
+c **Declaraci?n de variables**
+real G,H,I,D,R,u,v,w,a,b,c,e,dis
+integer n,j,resp,k
+D=0.00001
+R=0.00001
+n=300
+resp=1
+do while(resp.EQ.1)
+print*, 'Este programa resuelve una ecuacion cuadratica:'
+print*, 'ax**2 + bx +c '
+Print*, 'Digite el coeficiente a'
+read*, G
+Print*, 'Digite el coeficiente b'
+read*, H
+Print*, 'Digite c'
+read*, I
+dis=(H**2)-(4*G*I)
+if(dis.GT.0)then
+Print*, 'Digite el l?mite inferior del intervalo'
+read*, a
+Print*, 'Digite el l?mite superior del intervalo'
+read*, b
+write(*,*)'La funcion es : ',G,'x**2 ',H,'x ', I
+u= (G*(a**2))+(H*a)+I
+v= (G*(b**2))+(H*b)+I
+if(u.EQ.0)then
+print*,'La raiz es',a
+else
+if(v.EQ.0)then
+print*,'La raiz es',b
+else
+k=1
+do while((v*u.GE.0).and.(k.LT.30))
+k=k+1
+a=a+0.1
+u= (G*(a**2))+(H*a)+I
+v= (G*(b**2))+(H*b)+I
+enddo
+e=b-a
+j=1
+if((u*v).LT.0)then
+do while(j.LT.n)
+j=j+1
+e=e/2
+c=a+e
+w=(G*(c**2))+(H*c)+I
+if(abs(e).GE.D)then
+if(abs(w).GE.R)then
+if((u*w).LT.0)then
+b=c
+v=w
+else
+a=c
+u=w
+endif
+else
+j=n
+endif
+else
+j=n
+endif
+enddo
+write(*,*)'*********************************************'
+print*, 'El numero de iteraciones es',j
+print*, 'La raiz es',c
+print*, 'El error es',e
+write(*,*)'*********************************************'
+else
+print*, 'No existen raices en el intervalo dado,'
+print*,'o el la longitud del intervalo es muy grande'
+endif
+endif
+endif
+else
+print*,'Esta ecuaci?n no tiene raices reales'
+endif
+open(10,file='biseccion.txt',status='unknown')
+write(10,201)'***************************************************'
+write(10,200)'La funcion es : ',G,'x**2 ',H,'x ', I
+write(10,202) ' El numero de iteraciones es : ',j
+write(10,203) ' La raiz es: ',c
+write(10,204) ' El error es ',e
+write(10,205)'***************************************************'
+201 format(a50)
+200 format(a15,f8.6,a5,f8.3,a2,2f8.3)
+202 format(a25,i4)
+203 format(a15,f8.6)
+204 format(a15,f8.6,a2)
+205 format(a50)
+print*,'Si desea continuar digite 1, sino digite 0'
+read*,resp
+enddo
+end
+\end{verbatim}
+
+Utlizaremos el programa para calcular la ra\'{i}z que se encuentra entre
+$[0,3]$ de la ecuaci\'{o}n $x^{2}-5x+3=0$ . en la gr\'{a}fica se presenta como
+trabaja m\'{a}s o menos el programa%
+%TCIMACRO{\FRAME{dhFU}{2.4924in}{1.8109in}{0pt}{\Qcb{Figura5 . M\'{e}todo de
+%bisecci\'{o}n}}{}{bisec1.jpg}{\special{ language "Scientific Word";
+%type "GRAPHIC";  maintain-aspect-ratio TRUE;  display "USEDEF";
+%valid_file "F";  width 2.4924in;  height 1.8109in;  depth 0pt;
+%original-width 8.0315in;  original-height 5.8124in;  cropleft "0";
+%croptop "1";  cropright "1";  cropbottom "0";
+%filename 'bisec1.jpg';file-properties "XNPEU";}}}%
+%BeginExpansion
+\begin{center}
+\includegraphics[
+natheight=5.812400in,
+natwidth=8.031500in,
+height=1.8109in,
+width=2.4924in
+]%
+{bisec1.jpg}%
+\\
+Figura5 . M\'{e}todo de bisecci\'{o}n
+\end{center}
+%EndExpansion
+y la salida es la siguiente
+\begin{verbatim}
+**************************************************
+La funcion es :1.000000x**2   -5.000x    3.000
+ El numero de iteraciones 300
+   La raiz es: 0.697226
+   El error es 0.000006
+**************************************************
+\end{verbatim}
+\end{document}

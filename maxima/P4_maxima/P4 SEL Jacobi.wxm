@@ -1,0 +1,73 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 0.8.3 ] */
+
+/* [wxMaxima: comment start ]
+José Luis da Vila Alonso, 2009)
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: title   start ]
+Método iterativo de Jacobi
+   [wxMaxima: title   end   ] */
+
+/* [wxMaxima: comment start ]
+Método iterativo para resolver sistemas de ecuaciones lineales (SEL)
+
+Entrada:
+         A => matriz asociada al sistema (diagonal dominante)
+         b => vector de segundo miembro del sistema
+         X0 => Vector solución inicial
+         Niter => Número máximo de iteraciones
+         tol => tolerancia ( paramos si |Xact-Xant|<tol )
+
+         
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+A:matrix([3,2,0],[1,3,1],[-1,1,3]); b:[1, 0, -2];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+X0:[1, 0, -2]; Niter:20; tol:1e-6;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Buscamos la solución
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+n:length(A);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+Xant:copylist(X0);Xact:create_list(0,i,1,n);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+for k:1 thru Niter do (
+  for i:1 thru n do (
+    suma:0,
+    for j:1 thru n do (
+        if j#i then (
+            suma:suma + A[i,j]*Xant[j]
+        )    
+    ),
+    Xact[i]:(b[i]-suma)/A[i,i]
+  ), 
+  print("k = ",k," X = ",float(Xact)),
+  if sum(abs(Xact[i]-Xant[i]),i,1,n) < tol then (
+    return(float(Xact))
+  ),
+  Xant:copylist(Xact)
+);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Comprobamos la solución
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+float(A . Xact);
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

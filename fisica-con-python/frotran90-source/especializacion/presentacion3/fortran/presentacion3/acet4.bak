@@ -1,0 +1,71 @@
+
+
+\begin{theorem}
+(Principio del m\'{a}ximo generalizado) Sea $L$ el operador dado en $(1),$
+cuyos coeficientes satisfacen $\left(  2\right)  ,\left(  3\right)  $ y
+$\left(  7\right)  $. Si $u\in W^{1,2}\left(  \Omega\right)  $ es una
+soluci\'{o}n d\'{e}bil de $Lu\geq0\left(  \leq0\right)  $ en $\Omega$,
+entonces
+\[
+\sup_{\Omega}u\leq\sup_{\partial\Omega}u^{+}\text{ \ }\left(  \inf_{\Omega
+}u\geq\inf_{\partial\Omega}u^{+}\right)  .
+\]
+\end{theorem}
+
+\begin{proof}
+Sea $Lu\geq0$. Si $u\in W^{1,2}\left(  \Omega\right)  $ y $v\in W_{0}%
+^{1,2}\left(  \Omega\right)  ,$ seg\'{u}n $\left(  7\right)  $ podemos
+escribir $\mathcal{L}\left(  u,v\right)  \leq0$ en la forma
+\begin{align*}
+\int_{\Omega}\left\{  \sum_{i,j=1}^{n}a^{ij}D_{j}uD_{i}v-\sum_{i=1}^{n}\left(
+b^{i}+c^{i}\right)  vD_{i}u\right\}  dx  & \leq\int\left\{  duv-\sum_{i=1}%
+^{n}b^{i}D_{i}\left(  uv\right)  \right\}  dx\\
+& \leq0,
+\end{align*}
+para todo $v\geq0$ tal que $uv\geq0$. Luego de $\left(  3\right)  $ se sigue
+que
+\begin{equation}
+\int_{\Omega}\sum_{i,j=1}^{n}a^{ij}D_{j}uD_{i}vdx\leq2\rho\lambda_{0}%
+\int_{\Omega}v\left|  Du\right|  dx,\tag{8}%
+\end{equation}
+para todo $v\geq0$ tal que $uv\geq0$.
+
+Ahora se define $l:=\sup\limits_{\partial\Omega}u^{+}$, y sea $k\in\mathbb{R}
+$ tal que $l\leq k<\sup\limits_{\Omega}u$. Si tal $k$ no existe entonces el
+teorema queda demostrado.
+
+Sup\'{o}ngase que tal $k$ existe y definamos
+\begin{equation}
+v:=\left(  u-k\right)  ^{+}.\tag{9}%
+\end{equation}
+Entonces de $\left(  2\right)  ,$ $\left(  8\right)  $ y la desigualdad de
+H\"{o}lder resulta que
+\begin{equation}
+\left\|  \nabla v\right\|  _{L^{2}\left(  \Omega\right)  }\leq2\rho\left\|
+v\right\|  _{L^{2}\left(  F\right)  },\text{ \ donde }F:=\mathbf{supp\ }\nabla
+v\subset\mathbf{supp\ }v.\tag{9}%
+\end{equation}
+
+Ahora por la desigualdad de Sobolev, existe un $c=c\left(  n\right)  >0$ tal
+que
+\begin{equation}
+\left\|  v\right\|  _{L^{\frac{2n}{n-2}}\left(  \Omega\right)  }\leq c\left\|
+\nabla v\right\|  _{L^{2}\left(  F\right)  }\text{ \ \ para }n>2\tag{10}%
+\end{equation}
+Por consiguiente $\left(  9\right)  $ y $\left(  10\right)  $ implican que
+\begin{equation}
+m\left(  \mathbf{supp\ }\nabla v\right)  \geq C^{-n}\text{ \ \ },n>2.\tag{11}%
+\end{equation}
+Desigualdad similar se obtiene cuando $n=2$ pero $c=c\left(  n,\rho,\left|
+\Omega\right|  \right)  $.
+
+Como $\left(  11\right)  $ es independiente del valor de $k$, entonces debe
+cumplirse cuando $k\longrightarrow\sup\limits_{\Omega}u$. Pero $v=\left(
+u-\sup\limits_{\Omega}u\right)  ^{+}=0$ en c.t.p. $x\in\Omega$, lo que implica
+$\nabla v=0$ y esto contradice a $\left(  11\right)  $. En consecuencia
+\[
+\sup_{\Omega}u\leq l\text{.}%
+\]
+El resultado cuando $Lu\leq0$, se obtiene reemplazando en la conclusi\'{o}n
+anterior $u$ por $-u$.
+\end{proof}

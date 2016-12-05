@@ -1,0 +1,120 @@
+
+# 31 julio 2002
+# Version nueva, en que solo las figuras necesitan ser procesadas
+# Los TeX tienen if sobre \pdfoutput para saber que extension de figuras
+# incluir
+
+# PROBLEMA: Al usar includeonly, solo se necesita un subconjunto
+# de las figuras, y un subconjunto de los capitulos. En la regla
+# para mfm.pdf mas abajo ese subconjunto se indica explicitamente,
+# para no tener que convertir *todas* las figuras cuando solo se necesitan
+# unas pocas o ninguna. Pero habria que decidir si esto vale la pena
+# o lo mejor es hacer que mfm.pdf dependa siempre de todas las 
+# figuras y todos lo tex.
+
+#Convert eps to pdf
+EPStoPDF= epstopdf
+#PDF Compiler
+PDFCompiler= pdflatex
+
+figuras-04 = plot2.pdf contornos3.pdf mesh3.pdf
+figuras-05 = figura.pdf 
+figuras-texto-05 = carta_sola.pdf keys_example.pdf
+figuras-06 = c6-f1.pdf c6-f2.pdf c6-f3.pdf c6-f4.pdf
+figuras-09 = c9-f1.pdf c9-f2.pdf 
+figuras-10 = c10-f1.pdf c10-f2.pdf c10-f3.pdf c10-f4.pdf c10-f5.pdf \
+	c10-f6.pdf c10-f7.pdf 
+figuras-11 = c11-f1.pdf c11-f2.pdf c11-f3.pdf c11-f4.pdf c11-f5.pdf \
+	c11-f6.pdf c11-f7.pdf c11-f8.pdf c11-f9.pdf 
+figuras-12 = c12-f1.pdf c12-f2.pdf
+figuras-13 = c13-f1.pdf c13-f2.pdf
+figuras-14 = c14-f1p1.pdf  c14-f1p2.pdf  c14-f1p3.pdf c14-f1p4.pdf \
+	c14-f1p5.pdf \
+	c14-f1p6.pdf c14-f1p7.pdf c14-f1p8.pdf c14-f1p9.pdf c14-f1p10.pdf \
+	c14-f1p11.pdf c14-f1p12.pdf c14-f1p14.pdf c14-f1p15.pdf c14-f1p16.pdf \
+	c14-f1p17a.pdf c14-f1p18.pdf c14-f1p19.pdf c14-f1p20.pdf \
+	c14-f1p22.pdf c14-f1p23.pdf c14-f1p24.pdf c14-f1p25.pdf \
+	c14-f1p26.pdf c14-f1p27.pdf c14-f1p29.pdf c14-f1p30.pdf \
+	c14-f1p31.pdf c14-f1p32.pdf c14-f1p34.pdf c14-f1p37.pdf
+
+figuras = $(figuras-04) $(figuras-05) $(figuras-texto-05) \
+	$(figuras-06) $(figuras-09) \
+	$(figuras-10) $(figuras-11) $(figuras-12) $(figuras-13) \
+	$(figuras-14)
+
+mfm.pdf: $(figuras-11) mfm0-11.tex mfm.tex
+	$(PDFCompiler) mfm.tex
+	$(PDFCompiler) mfm.tex
+
+$(figuras-04): %.pdf: %.eps
+	$(EPStoPDF) $<
+
+$(figuras-05): %.pdf: %.eps
+	$(EPStoPDF) $<
+
+$(figuras-texto-05): %.pdf: %.tex
+	$(PDFCompiler) $<
+
+$(figuras-06): %.pdf: %.eps
+	$(EPStoPDF) $<
+
+$(figuras-09): %.pdf: %.eps
+	$(EPStoPDF) $<
+
+$(figuras-10): %.pdf: %.eps
+	$(EPStoPDF) $<
+
+$(figuras-11): %.pdf: %.eps
+	$(EPStoPDF) $<
+
+$(figuras-12): %.pdf: %.eps
+	$(EPStoPDF) $<
+
+$(figuras-13): %.pdf: %.eps
+	$(EPStoPDF) $<
+
+$(figuras-14): %.pdf: %.eps
+	$(EPStoPDF) $<
+
+#$(figuras): %.pdf: %.eps
+#	$(EPStoPDF) $<
+clean:
+	rm mfm.pdf
+
+# Version antigua, en que figuras y capitulos tenian que ser procesados
+
+##Convert eps to pdf
+#EPStoPDF= epstopdf
+##Create -PDF.tex file from .tex file
+#TEXtoPDFTEX= ./creaPDF.bash
+##PDF Compiler
+#PDFCompiler= pdflatex
+#
+#figuras =	figura.pdf, 
+#figuras = 
+#
+#capitulos = 	mfm0-01-PDF.tex \
+#		mfm0-02-PDF.tex \
+#		mfm0-05-PDF.tex 
+#
+#
+#mfm-PDF.pdf : $(figuras) $(capitulos) mfm-PDF.tex
+#	$(PDFCompiler) mfm-PDF.tex 
+#	$(PDFCompiler) mfm-PDF.tex 
+#
+#$(figuras): %.pdf: %.eps
+#	$(EPStoPDF) $<
+#
+#
+#$(capitulos) : %-PDF.tex: %.tex
+#	$(TEXtoPDFTEX) $(basename $< .tex)
+#
+#mfm-PDF.tex : mfm.tex
+#	$(TEXtoPDFTEX) mfm 
+#
+#clean: 
+#	rm mfm-PDF.pdf
+#
+#
+#
+#

@@ -1,0 +1,27 @@
+
+
+\begin{definition}
+Se dice que $u\in W^{1,2}\left(  \Omega\right)  $ satisface $u\leq0$ sobre
+$\partial\Omega$ si su parte positiva $u^{+}:=\max\left\{  u,0\right\}  \in
+W_{0}^{1,2}\left(  \Omega\right)  .$ Adem\'{a}s $u\geq0$ sobre $\partial
+\Omega$ si $-u\leq0$ sobre $\partial\Omega$ y $u\leq v\in W^{1,2}\left(
+\Omega\right)  $ sobre $\partial\Omega$ si $u-v\leq0$ sobre . Tambi\'{e}n para
+$u\in W^{1,2}\left(  \Omega\right)  $ se definen
+\[
+\sup_{\partial\Omega}u:=\inf\left\{  k\in\mathbb{R}:u\leq k\text{ sobre
+}\partial\Omega\right\}  ,
+\]%
+\[
+\inf_{\partial\Omega}:=-\sup_{\partial\Omega}\left(  -u\right)  \text{ y }%
+\inf\varnothing=\infty\text{, \ donde }\varnothing\text{ es el conjunto
+vacio.}%
+\]
+N\'{o}tese que $\sum_{i=1}^{n}D_{i}b^{i}+d$ es el coeficiente de $u$ en
+$\left(  1\right)  .$ Para el principio del m\'{a}ximo generalizado
+supondremos que est\'{a} expresi\'{o}n es no positiva en el sentido d\'{e}bil,
+esto es,%
+\begin{equation}
+\int_{\Omega}\left(  dv-\sum_{i=1}^{n}b^{i}D_{i}v\right)  dx\leq0\text{
+\ }\forall v\geq0,v\in C_{0}^{1}\left(  \Omega\right)  .\tag{7}%
+\end{equation}
+\end{definition}

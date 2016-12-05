@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0052)http://garota.fismat.umich.mx/mn1/tutor_fort/if.html -->
+<HTML><HEAD><TITLE>Tutorial de Fortran</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY background="Tutorial de Fortranif_archivos/default.gif">
+<HR>
+&nbsp;[7. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/logical.html">Expresiones 
+Lógicas</A> ] &nbsp;[<A 
+href="http://fismat.umich.mx/mn1/tutor_fort/index.html">Tutorial de Fortran</A>] 
+&nbsp;[9. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/loops.html">Ciclos (Loops) 
+</A>] 
+<HR>
+
+<H2>8. La sentencia <TT>if</TT> </H2>Una parte importante de cualquier lenguaje 
+de programación son las <EM>sentencias condicionales</EM>. La sentencia más 
+común en Fortran es <TT>if</TT>, la cual tiene varias formas de uso. La forma 
+más simple de la sentencia <TT>if</TT> es: <PRE>if (<EM>expresión lógica</EM>) <EM>sentencia</EM>
+</PRE>Lo anterior tiene que ser escrito en una sola línea. El siguiente ejemplo 
+obtiene el valor absoluto de x: <PRE>if (x .LT. 0) x = -x
+</PRE>Si más de una sentencia necesita ser ejecutada dentro de la sentencia 
+<TT>if</TT>, entonces la siguiente sintaxis deberá ser usada: <PRE>if (<EM>expresión lógica</EM>) then
+   <EM>sentencias</EM>
+endif
+</PRE>La forma más general más general de la sentencia <TT>if</TT> tiene la 
+siguiente forma: <PRE>if (<EM>expresión lógica</EM>) then
+   <EM>sentencias</EM>
+elseif (<EM>expresión lógica</EM>) then
+   <EM>sentencias</EM>
+:
+:
+else
+   <EM>sentencias</EM>
+endif
+</PRE>El flujo de ejecución es de arriba hacia abajo. Las expresiones 
+condicionales son evaluadas en secuencia hasta que se encuentra una que es 
+verdadera. Entonces el código asociado es ejecutado y el control salta a la 
+siguiente sentencia después de la sentenica <TT>endif</TT>. 
+<H3>Sentencias <TT>if</TT> anidadas</H3>La sentencia <TT>if</TT> puede ser 
+anidada varios niveles. Para asegurar la legibilidad es importante sangrar las 
+sentencias. Se muestra un ejemplo: <PRE>      if (x .GT. 0) then
+         if (x .GE. y) then
+            write(*,*) 'x es positivo y x &gt;= y'
+         else
+            write(*,*) 'x es positivo pero, x &lt; y'
+         endif
+      elseif (x .LT. 0) then
+         write(*,*) 'x es negativo'
+      else
+         write(*,*) 'x es cero'
+      endif
+</PRE>Se debe evitar anidar muchos niveles de sentencias <TT>if</TT> ya que es 
+difícil de seguir. 
+<P>
+<HR>
+
+<H3>Ejercicios</H3>
+<DL>
+  <DT>Ejercicio A 
+  <DD>Escribir un segmento de programa en Fortran 77 que asigne a una variable 
+  tipo real <EM>t</EM> los siguientes valores (suponiendo que <I>x</I> e 
+  <I>y</I> han sido declarados previamente): <PRE><EM>x+y       si x e y son ambos positivos</EM>
+<EM>x-y       si x es positivo e y es negativo</EM>
+<EM>y         si x es negativo</EM>
+<EM>0         si x o y es cero</EM>
+</PRE>
+  <P></P></DD></DL>
+<HR>
+&nbsp;[7. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/logical.html">Expresiones 
+Lógicas</A> ] &nbsp;[<A 
+href="http://fismat.umich.mx/mn1/tutor_fort/index.html">Tutorial de Fortran</A>] 
+&nbsp;[9. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/loops.html">Ciclos (Loops) 
+</A>] </BODY></HTML>

@@ -1,0 +1,52 @@
+\documentclass[svgnames,x11names,x11names,HTML]{book}
+\input{preamble2}
+\input{composicion-codigo}
+ \usepackage{morewrites}
+%\usepackage[makeindex]{imakeidx}
+\usepackage{fancyvrb}
+\usepackage[unicode=true,pdfusetitle,
+ bookmarks=true,bookmarksnumbered=true,bookmarksopen=true,bookmarksopenlevel=1,
+ breaklinks=false,pdfborder={0 0 0},backref=false,colorlinks=false]
+ {hyperref}
+\hypersetup{
+ pdfpagelayout=OneColumn, pdfnewwindow=true, pdfstartview=XYZ, plainpages=false}
+ \newsavebox{\LstBox}
+ %\graphicspath{ {./img/} }
+ \makeatletter
+\def\input@path{{./}{./build/}}
+\makeatother
+ \graphicspath{{./}{./img/}{./build/}}
+ \renewcommand{\baselinestretch}{1.5}
+ \raggedbottom %para que no distibuya los espacios verticales en una hoja
+%\makeindex
+%\makeindex[title=\'Indice ,columns=4, options=-s liro-latex]
+ \begin{document}
+ \frontmatter
+\pagestyle{empty}
+\pagecolor{ptcbackground}
+\let\myclearpage\clearpage
+\tableofcontents
+\let\myclearpage\relax
+\newpage
+\pagecolor{white}
+\mainmatter
+\pagestyle{headings}
+\input{primero.tex}
+\input{segundo.tex}
+\input{tercer.tex}
+\input{cuarto.tex}
+%\input{quinto.tex}
+%\input{sesto1.tex}
+%
+%\input{maestro.tex}
+%\input{ejemplo.tex}
+\input{paquetes.tex}
+%\backmatter
+%\input{biblio}
+%\printindex 
+%\bibliographystyle{plain}
+%\bibliography{bilio}
+\input{biblio}
+ \end{document}
+ 
+ 

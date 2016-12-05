@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0057)http://garota.fismat.umich.mx/mn1/tutor_fort/arrays2.html -->
+<HTML><HEAD><TITLE>Tutorial de Fortran</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY background="Tutorial de Fortran_archivos/default.gif">
+<HR>
+&nbsp;[14. <A href="http://garota.fismat.umich.mx/mn1/tutor_fort/files.html">E/S 
+de archivos </A>] &nbsp;[<A 
+href="http://fismat.umich.mx/mn1/tutor_fort/index.html">Tutorial de Fortran</A>] 
+&nbsp;[16. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/common.html">Bloques comunes 
+</A>
+<HR>
+
+<H2>15. Arreglos en subprogramas</H2>Las llamadas a subprogramas en Fortran 
+están basadas en <EM>llamadas por referencia</EM>. Lo que significa que los 
+parámetros con los que son llamadas los subprogramas no son copiados al 
+subprograma, sino que son pasadas las <EM>direcciones</EM> de los parámetros. 
+Con lo anterior se ahorra una gran cantidad de espacio cuando se manipulan 
+arreglos. No se requiere almacenamiento adicional ya que la subrutina manipula 
+las mismas localidades de memoria como lo hace el código que hizo la llamada. 
+Como programador se debe conocer y tener en cuenta lo anterior. 
+<P>Es posible declarar un arreglo local en un subprograma en Fortran, pero es 
+muy poco usado. Por lo general, todos los arreglos son declarados (y 
+dimensionados) en el programa principal y entonces son pasados a los 
+subprogramas conforme se van necesitando. 
+<P>
+<H3>Arreglos de Longitud Variable</H3>Una operación básica con un vector es la 
+operación <EM>saxpy</EM>, la cual calcula la expresión <PRE>      y := alpha*x + y
+</PRE>donde <TT>alpha</TT> es un escalar y <TT>x</TT> e <TT>y</TT> son vectores. 
+Se muestra una subrutina simple para esto: <PRE>      subroutine saxpy (n, alpha, x, y)
+         integer n
+         real alpha, x(*), y(*)
+c
+c Saxpy: Calcula y := alpha*x + y,
+c        donde x e y son vectores de longitud n (al menos).
+c
+c Variables Locales
+         integer i
+c
+         do 10 i = 1, n
+            y(i) = alpha*x(i) + y(i)
+   10    continue
+c
+         return
+      end
+</PRE>
+<P>La única característica nueva es el uso del asterisco en las declaraciones de 
+<EM>x(*)</EM> e <EM>y(*)</EM>. Con la notación anterior se indica que x e y son 
+arreglos de longitud arbitraria. La ventaja es que se puede usar la misma 
+subrutina para vectores de cualquier longitud. Se debe recordar que como Fortran 
+esta basado en llamadas por referencia, no se requiere espacio adicional, ya que 
+la subrutina trabaja directamente en el arreglo de elementos de la rutina o 
+programa que la llamo. Es la responsabilidad del programador asegurarse que los 
+vectores x e y han sido realmente declarados para tener longitud <EM>n</EM> o 
+más en algún lugar del programa. Un error común en Fortran 77 sucede cuando se 
+intenta acceder arreglos del elemento fuera de los límites. 
+<P>Se pudieron también haber declarado los arreglos como: <PRE>      real x(n), y(n)
+</PRE>Muchos programadores prefieren usar la notación asterisco para recalcar 
+que la "longitud verdadera del arreglo" es desconocida. Algunos programas viejos 
+de Fortran 77 podrían declarar arreglos de longitud variable de la siguiente 
+forma: <PRE>      real x(1), y(1)
+</PRE>La sintaxis anterior es válida, aunque los arreglos sean mayores que uno, 
+pero es un estilo pobre de programación y no se recomienda hacerlo. 
+<P>
+<H3>Pasando subsecciones de un arreglos</H3>Ahora se quiere escribir una 
+subrutina para la multiplicación de matrices. Hay dos formas básicas para 
+hacerlo, ya sea haciendo productos internos u operaciones saxpy. Se intentará 
+ser modular y reusar el código saxpy de la sección previa. Un código simple es 
+dado a continuación. <PRE>      subroutine matvec (m, n, A, lda, x, y)
+         integer m, n, lda
+         real x(*), y(*), A(lda,*)
+c
+c Calcular y = A*x, donde A es m por n y guardado en un arreglo
+c con dimensión principal lda.
+c
+c Variables locales
+         integer i, j
+      
+c Inicializar y
+         do 10 i = 1, m
+            y(i) = 0.0
+   10    continue
+
+c Producto Matriz-vector por saxpy en las columnas de A.
+c Observar que la longitud de cada columna de A es m, y no n
+         do 20 j = 1, n
+            call saxpy (m, x(j), A(1,j), y)
+   20    continue
+
+         return
+      end
+</PRE>Hay varias cosas importantes de comentar. Primero, se debe observar que a 
+pesar de que se pretendió escribir el código tan general como fuera posible para 
+permitir dimensiones arbitrarias de <EM>m</EM> y <EM>n</EM>, se necesita todavía 
+especificar la dimensión principal de la matriz A. La declaración de longitud 
+variable (*) puede ser solamente usado para la <EM>última</EM> dimensión de un 
+arreglo. La razón de lo anterior es la forma como Fortran 77 guarda un arreglo 
+multidimensional. 
+<P>Cuando se calcula <EM>y=A*x</EM>, se necesita acceder las columnas de A. La 
+j-ésima columna de A es A(1:m,j). Sin embargo, en Fortran 77 no se puede usar 
+una sintaxis de subarreglo (pero se puede hacer en Fortran 90). En vez de eso se 
+da un <EM>apuntador</EM> al primer elemento en la columna, el cual es A(1,j) (no 
+es realmente un apuntador, pero puede ser útil pensarlo como si fuera). Se sabe 
+que las siguientes localidades de memoria contendrán los siguientes elementos 
+del arreglo en esta columna. La subrutina <EM>saxpy</EM> tratará a 
+<EM>A(1,j)</EM> como el primer elemento de un vector, y no sabe nada de que este 
+vector es una columna de una matriz. 
+<P>Finalmente, se debe observar que se ha tomado por convención que las matrices 
+tienen <EM>m</EM> renglones y <EM>n</EM> columnas. El índice <EM>i</EM> es usado 
+como un índice de renglones (de 1 a <EM>m</EM>), mientras el índice <EM>j</EM> 
+es usado como un índice de columnas (de 1 a <EM>n</EM>). Muchos programas de 
+Fortran que manejan álgebra lineal usan esta notación, lo cual facilita mucho la 
+lectura del código. 
+<P>
+<H3>Dimensiones Distintas</H3>Algunas veces puede ser benéfico tratar un arreglo 
+de 1-dimiensión como un arreglo de 2 dimensiones y viceversa. Es muy fácil 
+hacerlo en Fortran 77. 
+<P>Se muestra un ejemplo muy simple. Otra operación básica con vectores es el 
+<EM>escalamiento</EM>, por ejemplo, multiplicar cada elemento de un vector por 
+la misma constante. La subrutina es la siguiente: <PRE>      subroutine escala(n, alpha, x)
+         integer n
+         real alpha, x(*)
+c
+c Variables Locales
+         integer i
+
+         do 10 i = 1, n
+            x(i) = alpha * x(i)
+   10    continue
+
+         return
+      end
+</PRE>Supongamos que ahora se tiene una matriz de <EM>m</EM> por <EM>n</EM> que 
+se quiere escalar. En vez de escribir una nueva subrutina para lo anterior, se 
+puede hacer tratando la matriz como un vector y usar la subrutina 
+<TT>escala</TT>. Una versión sencilla se da a continuación: <PRE>      integer m, n
+      parameter (m=10, n=20)
+      real alpha, A(m,n)
+
+c Algunas sentencias definen A ...
+
+c Ahora se quiere escalar A
+      call escala(m*n, alpha, A)
+</PRE>Observar que este ejemplo trabaja porque se asume que la dimensión 
+declarada de <TT>x</TT> es igual a la dimensión actual de la matriz guardada en 
+A. Esto no sucede siempre. Por lo general la dimensión principal <EM>lda</EM> es 
+diferente de la dimensión actual de <EM>m</EM>, y se debe tener mucho cuidado 
+para hacerlo correctamente. Se muestra un subroutina más robusta para escalar 
+una matriz que usa la subrutina <TT>escala</TT> <PRE>      subroutine mescala(m, n, alpha, A, lda)
+         integer m, n, lda
+         real alpha, A(lda,*)
+c
+c Variables Locales
+         integer j
+
+         do 10 j = 1, n
+            call escala(m, alpha, A(1,j) )
+   10    continue
+
+         return
+      end
+</PRE>Esta versión trabaja aún cuando <EM>m</EM> no sea igual a <EM>lda</EM> ya 
+que se escala una columna cada vez y solamente se procesan los <EM>m</EM> 
+primeros elementos de cada columna (dejando los otros sin modificar). 
+<P>
+<HR>
+
+<H3>Ejercicios</H3>
+<DL>
+  <DT>Ejercicio A 
+  <DD>Escribir un programa main que declare una matriz <TT>A</TT> por <PRE>       integer nmax
+       parameter (nmax=40)
+       real A(nmax, nmax)
+</PRE>Declarar apropiadamente los vectores <TT>x</TT> e <TT>y</TT> e 
+  inicializarlos. m=10, n=20, A(i,j) = i+j-2 para 1&lt;=i&lt;=m y 1&lt;=j&lt;=n, 
+  x(j) = 1 para 1&lt;=j&lt;=n. Calcular y = A*x llamando la subrutina 
+  <TT>matvec</TT> dada previamente. Mostrar el resultado de <TT>y</TT>. 
+  <P></P>
+  <DT>Ejercicio B 
+  <DD>Escribe una subrutina que calcule y = A*x con productos escalares, por 
+  ejemplo el índice <EM>j</EM> deberá ser el del ciclo más interno. Prueba tu 
+  rutina con el ejemplo del ejercicio A y compara los resultados. 
+  <P></P></DD></DL>
+<HR>
+&nbsp;[14. <A href="http://garota.fismat.umich.mx/mn1/tutor_fort/files.html">E/S 
+de archivos </A>] &nbsp;[<A 
+href="http://fismat.umich.mx/mn1/tutor_fort/index.html">Tutorial de Fortran</A>] 
+&nbsp;[16. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/common.html">Bloques comunes 
+</A>] </BODY></HTML>

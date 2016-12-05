@@ -1,0 +1,9 @@
+# FCNM-ESPOL. Física con python
+# cálculo de velocidad
+# valores conocidos d y t
+tf=int(input('¿cuantos segundos?: '))
+d=float(input('¿distancia recorrida?: '))
+v=d/tf
+vkmh=(v/1000)*60*60
+print('Velocidad Media(Km/h)')
+print(vkmh)

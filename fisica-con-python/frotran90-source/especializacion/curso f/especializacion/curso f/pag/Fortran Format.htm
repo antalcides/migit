@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0067)http://www.cs.mtu.edu/~shene/COURSES/cs201/NOTES/chap05/format.html -->
+<HTML><HEAD><TITLE>Fortran Format</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY text=#0a0aff vLink=#ff1cac aLink=#666666 link=#22806a 
+background="Fortran Format_archivos/background.jpg">
+<H1>Fortran Formats </H1><IMG height=3 src="Fortran Format_archivos/GrLine.gif" 
+width=700> 
+<P>We have discussed the <A 
+href="http://www.cs.mtu.edu/~shene/COURSES/cs201/NOTES/chap02/read-1.html"><B>READ</B></A> 
+and <A 
+href="http://www.cs.mtu.edu/~shene/COURSES/cs201/NOTES/chap02/write-1.html"><B>WRITE</B></A> 
+statements. These are the so-called <B><I>list-directed</I></B> input/output 
+statements. They are also referred to as <B><I>free-format</I></B> input/output 
+statements. List-directed input/output statements are easy to use; however, we 
+have no control over the appearance of the input and output. To overcome this 
+problem, we should use <B>format</B>s. 
+<P><B>Fortran</B> formats are used to control the appearance of the input and 
+output. It has the following simple form: 
+<BLOCKQUOTE><FONT color=#000000><PRE>( ..... format edit descriptors ..... )
+</PRE></FONT></BLOCKQUOTE>That is, a <B>Fortran</B> format is a pair of 
+parenthesis that contains format edit descriptors separated by commas. 
+<P>There are three possible ways to prepare a <B>Fortran</B> format. 
+<B>Fortran</B> has a <B>FORMAT</B> statement; but, we will not use it because 
+the two methods discussed below offer higher level of flexibility. 
+<UL>
+  <LI>Write the format as a character string and use it to replace the second 
+  asterisk in <B>READ(*,*)</B> or <B>WRITE(*,*)</B>. 
+  <BLOCKQUOTE><FONT color=#000000><PRE>READ(*,'(2I5,F10.2)')  ... variables ...
+READ(*,"(5F10.2)")     ... variables ...
+
+WRITE(*,'(A,I5)')    ... variable and expressions ...  
+WRITE(*,"(10F5.2)")  ... variable and expressions ...
+</PRE></FONT></BLOCKQUOTE>The above has two <B>READ</B> and two <B>WRITE</B> 
+  statements whose second asterisks are replaced with format character strings. 
+  <B>2I5</B>, <B>F10.2</B>, <B>5F10.2</B>, <B>A,I5</B> and <B>10F5.2</B> are 
+  format edit descriptors. 
+  <LI>Since a format is a character string, we can declare a character constant 
+  to hold a format string. 
+  <BLOCKQUOTE><FONT color=#000000><PRE>CHARACTER(LEN=20), PARAMETER :: FMT1 = "(I5,F10.2)"
+CHARACTER(LEN=*), PARAMETER  :: FMT2 = "(4I5, 5E14.7, 8F5.0)"
+
+READ(*,FMT1)  ... variables ...
+READ(*,FMT1)  ... variables ...
+
+WRITE(*,FMT2) ... variables and expressions ...
+WRITE(*,FMT2) ... variables and expressions ...
+</PRE></FONT></BLOCKQUOTE>In the above, character constants (defined as 
+  <B>PARAMETER</B>s) <B>FMT1</B> and <B>FMT2</B> are used as formats. 
+  <LI>We can also use a character variable to hold a format. In the example 
+  below, the character variable <B>String</B> is set to a format and used in 
+  <B>READ</B> and <B>WRITE</B> statements. 
+  <BLOCKQUOTE><FONT color=#000000><PRE>CHARACTER(LEN=80) :: String
+
+String = "(3I5, 10F8.2)"
+
+READ(*,String)  ... variables ...
+
+WRITE(*,String) ... variables and expressions ...
+</PRE></FONT></BLOCKQUOTE>Note that the same format can be used in both 
+  <B>READ</B> and <B>WRITE</B> statements. </LI></UL>
+<P>
+<UL>
+  <CENTER>
+  <TABLE cellPadding=3 border=2>
+    <TBODY>
+    <TR>
+      <TD><FONT color=#ff0000><B><BLINK>WARNING:</BLINK></B></FONT> The length 
+        of the string which contains a format must be large enough. Otherwise, 
+        the format stored there becomes incomplete and causes format error. 
+        Consider the following example. 
+        <BLOCKQUOTE><FONT color=#000000><PRE>CHARACTER(LEN=10) :: FMT
+
+FMT = "(I2,F3.5,E15.7)"
+WRITE(*,FMT) ......
+</PRE></FONT></BLOCKQUOTE>Since <B>FMT</B> has length 10 and the format 
+        contains 15 characters, what <B>FMT</B> can actually have is 
+        <BLOCKQUOTE><FONT color=#000000><PRE>(I2,F3.5,E
+</PRE></FONT></BLOCKQUOTE>which is <I>not</I> a complete format. 
+    </TD></TR></TBODY></TABLE></CENTER></UL>
+<P><IMG height=3 src="Fortran Format_archivos/GrLine.gif" width=700> 
+<H3>Format Edit Descriptors</H3>The tedious part of using <B>Fortran</B> format 
+is to master many format edit descriptors. Each edit descriptor tells the system 
+how to handle certain type of values or activity. Each value requires some 
+<I>position</I>s. For example, an integer of four digits requires at least four 
+positions to print. Therefore, the number of positions to be used is the most 
+important information in an edit descriptor. 
+<P>We shall use the following convention of symbols: 
+<UL>
+  <LI><B><I>w</I></B>: the number of positions to be used 
+  <LI><B><I>m</I></B>: the minimum number of positions to be used 
+  <LI><B><I>d</I></B>: the number of digits to the right of the decimal point 
+  <LI><B><I>e</I></B>: the number of digits in the exponent part 
+</LI></UL>Although we may print a number using as many positions as you want, 
+this is only for input/output. This number of positions is <FONT 
+color=#ff0000><B><I>not</I></B></FONT> the precision (<I>i.e.</I>, the number of 
+significant digits) of that number. To be more precisely, computers normally can 
+store real numbers up to seven significant digits. This is the <I>precision</I> 
+of real numbers. However, we can print a real number using 50 positions in which 
+25 positions are for the fraction part. This is only a way of describing the 
+appearance and does not change the precision of real numbers. 
+<P>The following are the editor descriptors to be discussed. Details will be 
+given on subsequent pages. 
+<P>
+<CENTER>
+<TABLE cellPadding=3 border=2>
+  <TBODY>
+  <TR align=middle>
+    <TD colSpan=2><B><I>Purpose</I></B> </TD>
+    <TD colSpan=2><B><I>Edit Descriptors</I></B> </TD></TR>
+  <TR align=middle>
+    <TD align=left colSpan=2>Reading/writing <B>INTEGER</B>s </TD>
+    <TD><B>I<I>w</I></B> </TD>
+    <TD><B>I<I>w.m</I></B> </TD></TR>
+  <TR align=middle>
+    <TD align=left rowSpan=4>Reading/writing <B>REAL</B>s </TD>
+    <TD align=left>Decimal form </TD>
+    <TD colSpan=2><B>F<I>w.d</I></B> </TD></TR>
+  <TR align=middle>
+    <TD align=left>Exponential form </TD>
+    <TD><B>E<I>w.d</I></B> </TD>
+    <TD><B>E<I>w.d</I>E<I>e</I></B> </TD></TR>
+  <TR align=middle>
+    <TD align=left>Scientific form </TD>
+    <TD><B>ES<I>w.d</I></B> </TD>
+    <TD><B>ES<I>w.d</I>E<I>e</I></B> </TD></TR>
+  <TR align=middle>
+    <TD align=left>Engineering form </TD>
+    <TD><B>EN<I>w.d</I></B> </TD>
+    <TD><B>EN<I>w.d</I>E<I>e</I></B> </TD></TR>
+  <TR align=middle>
+    <TD align=left colSpan=2>Reading/writing <B>LOGICAL</B>s </TD>
+    <TD colSpan=2><B>L<I>w</I></B> </TD></TR>
+  <TR align=middle>
+    <TD align=left colSpan=2>Reading/writing <B>CHARACTER</B>s </TD>
+    <TD><B>A</B> </TD>
+    <TD><B>A<I>w</I></B> </TD></TR>
+  <TR align=middle>
+    <TD align=left rowSpan=3>Positioning </TD>
+    <TD align=left>Horizontal </TD>
+    <TD colSpan=2><B><I>n</I>X</B> </TD></TR>
+  <TR align=middle>
+    <TD align=left>Tabbing </TD>
+    <TD><B>T<I>c</I></B> </TD>
+    <TD><B>TL<I>c</I></B> and <B>TR<I>c</I></B> </TD></TR>
+  <TR align=middle>
+    <TD align=left>Vertical </TD>
+    <TD colSpan=2><B>/</B> </TD></TR>
+  <TR align=middle>
+    <TD align=left rowSpan=4>Others </TD>
+    <TD align=left>Grouping </TD>
+    <TD colSpan=2><B><I>r</I>(....)</B> </TD></TR>
+  <TR align=middle>
+    <TD align=left>Format Scanning Control </TD>
+    <TD colSpan=2><B>:</B> </TD></TR>
+  <TR align=middle>
+    <TD align=left>Sign Control </TD>
+    <TD colSpan=2><B>S</B>, <B>SP</B> and <B>SS</B> </TD></TR>
+  <TR align=middle>
+    <TD align=left>Blank Control </TD>
+    <TD colSpan=2><B>BN</B> and <B>BZ</B> </TD></TR></TBODY></TABLE></CENTER>
+<P>Most edit descriptors can be repeated and several edit descriptors can be 
+grouped into a group. For most of the cases, edit descriptors are separated by 
+commas. The following is an example: 
+<BLOCKQUOTE><FONT color=#000000><PRE>CHARACTER(LEN=30) :: Format
+
+Format = "(5X, I5.2, F10.3, A, ES14.7)"
+
+READ(*,Format)  ... variables ...
+
+WRITE(*,Format) ... variables and expressions ...
+</PRE></FONT></BLOCKQUOTE>In the above example, format <B>Format</B> has five 
+edit descriptors <B>5X</B>, <B>I5.2</B>, <B>F10.3</B>, <B>A</B> and 
+<B>ES14.7</B>. Adjacent edit descriptors are separated by a comma. 
+<P>
+<UL>
+  <CENTER>
+  <TABLE cellPadding=3 border=3>
+    <TBODY>
+    <TR align=left>
+      <TD><FONT color=#ff0000><B>IMPORTANT:</B></FONT> You can use <B>both</B> 
+        listed-directed and formatted <B>READ</B>s and <B>WRITE</B>s in your 
+        program. </TD></TR></TBODY></TABLE></CENTER></UL></BODY></HTML>

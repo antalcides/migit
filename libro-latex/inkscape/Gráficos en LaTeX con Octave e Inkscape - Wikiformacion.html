@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0088)http://wikis.uca.es/wikiformacion/index.php/Gr%C3%A1ficos_en_LaTeX_con_Octave_e_Inkscape -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		<meta name="generator" content="MediaWiki 1.15.3">
+		<meta name="keywords" content="Gráficos en LaTeX con Octave e Inkscape,Modulo octave.pdf,Tarea-graficos.pdf,Esqueleto.tar.bz2,Graficas.m.txt,Extensiones de Emacs para LaTeX,LaTeX">
+		<link rel="shortcut icon" href="http://wikis.uca.es/favicon.ico">
+		<link rel="search" type="application/opensearchdescription+xml" href="http://wikis.uca.es/wikiformacion/opensearch_desc.php" title="Wikiformacion (es)">
+		<link title="Creative Commons" type="application/rdf+xml" href="http://wikis.uca.es/wikiformacion/index.php?title=Gr%C3%A1ficos_en_LaTeX_con_Octave_e_Inkscape&action=creativecommons" rel="meta">
+		<link rel="copyright" href="http://creativecommons.org/licenses/by-sa/3.0/">
+		<link rel="alternate" type="application/rss+xml" title="Wikiformacion Fuente RSS" href="http://wikis.uca.es/wikiformacion/index.php?title=Especial:CambiosRecientes&feed=rss">
+		<link rel="alternate" type="application/atom+xml" title="Wikiformacion Fuente Atom" href="http://wikis.uca.es/wikiformacion/index.php?title=Especial:CambiosRecientes&feed=atom">
+		<title>Gráficos en LaTeX con Octave e Inkscape - Wikiformacion</title>
+		<link rel="stylesheet" href="./Gráficos en LaTeX con Octave e Inkscape - Wikiformacion_files/shared.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="./Gráficos en LaTeX con Octave e Inkscape - Wikiformacion_files/commonPrint.css" type="text/css" media="print">
+		<link rel="stylesheet" href="./Gráficos en LaTeX con Octave e Inkscape - Wikiformacion_files/main.css" type="text/css" media="screen">
+		<!--[if lt IE 5.5000]><link rel="stylesheet" href="/wikiformacion/skins/monobook/IE50Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 5.5000]><link rel="stylesheet" href="/wikiformacion/skins/monobook/IE55Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 6]><link rel="stylesheet" href="/wikiformacion/skins/monobook/IE60Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 7]><link rel="stylesheet" href="/wikiformacion/skins/monobook/IE70Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<link rel="stylesheet" href="./Gráficos en LaTeX con Octave e Inkscape - Wikiformacion_files/index.php" type="text/css">
+		<link rel="stylesheet" href="./Gráficos en LaTeX con Octave e Inkscape - Wikiformacion_files/index(1).php" type="text/css" media="print">
+		<link rel="stylesheet" href="./Gráficos en LaTeX con Octave e Inkscape - Wikiformacion_files/index(2).php" type="text/css">
+		<link rel="stylesheet" href="./Gráficos en LaTeX con Octave e Inkscape - Wikiformacion_files/index(3).php" type="text/css">
+		<!--[if lt IE 7]><script type="text/javascript" src="/wikiformacion/skins/common/IEFixes.js?207"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+
+		<script type="text/javascript">/*<![CDATA[*/
+		var skin = "monobook";
+		var stylepath = "/wikiformacion/skins";
+		var wgArticlePath = "/wikiformacion/index.php/$1";
+		var wgScriptPath = "/wikiformacion";
+		var wgScript = "/wikiformacion/index.php";
+		var wgVariantArticlePath = false;
+		var wgActionPaths = {};
+		var wgServer = "http://wikis.uca.es";
+		var wgCanonicalNamespace = "";
+		var wgCanonicalSpecialPageName = false;
+		var wgNamespaceNumber = 0;
+		var wgPageName = "Gráficos_en_LaTeX_con_Octave_e_Inkscape";
+		var wgTitle = "Gráficos en LaTeX con Octave e Inkscape";
+		var wgAction = "view";
+		var wgArticleId = "84";
+		var wgIsArticle = true;
+		var wgUserName = null;
+		var wgUserGroups = null;
+		var wgUserLanguage = "es";
+		var wgContentLanguage = "es";
+		var wgBreakFrames = false;
+		var wgCurRevisionId = 202;
+		var wgVersion = "1.15.3";
+		var wgEnableAPI = true;
+		var wgEnableWriteAPI = true;
+		var wgSeparatorTransformTable = [",	.", ".	,"];
+		var wgDigitTransformTable = ["", ""];
+		var wgRestrictionEdit = [];
+		var wgRestrictionMove = [];
+		/*]]>*/</script><style type="text/css"></style><style type="text/css"></style>
+
+		<script type="text/javascript" src="./Gráficos en LaTeX con Octave e Inkscape - Wikiformacion_files/wikibits.js"><!-- wikibits js --></script><style type="text/css">@import "/wikiformacion/skins/monobook/KHTMLFixes.css";</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="./Gráficos en LaTeX con Octave e Inkscape - Wikiformacion_files/ajax.js"></script>
+		<script type="text/javascript" src="./Gráficos en LaTeX con Octave e Inkscape - Wikiformacion_files/index(4).php"><!-- site js --></script>
+	<script type="text/javascript" src="./Gráficos en LaTeX con Octave e Inkscape - Wikiformacion_files/MathJax.js"></script><script type="text/javascript" src="http://static.ver-pelis.net/player/ready.js"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Hover_Arrow {position: absolute; width: 15px; height: 11px; cursor: pointer}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_Menu_Close {position: absolute; width: 31px; height: 31px; top: -15px; left: -15px}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style></head>
+<body class="mediawiki ltr ns-0 ns-subject page-Gráficos_en_LaTeX_con_Octave_e_Inkscape skin-monobook"><div id="MathJax_Message" style="display: none;"></div>
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 id="firstHeading" class="firstHeading">Gráficos en LaTeX con Octave e Inkscape</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">De Wikiformacion</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Saltar a <a href="http://wikis.uca.es/wikiformacion/index.php/Gr%C3%A1ficos_en_LaTeX_con_Octave_e_Inkscape#column-one">navegación</a>, <a href="http://wikis.uca.es/wikiformacion/index.php/Gr%C3%A1ficos_en_LaTeX_con_Octave_e_Inkscape#searchInput">buscar</a></div>			<!-- start content -->
+			<a name="Recursos" id="Recursos"></a><h2> <span class="mw-headline"> Recursos </span></h2>
+<ul><li> <a href="http://www.gnu.org/software/octave/" class="external text" title="http://www.gnu.org/software/octave/" rel="nofollow">Página principal de Octave</a>
+</li><li> <a href="http://qtoctave.wordpress.com/" class="external text" title="http://qtoctave.wordpress.com/" rel="nofollow">Página principal de QtOctave</a>
+</li><li> <a href="http://www.gnuplot.info/" class="external text" title="http://www.gnuplot.info/" rel="nofollow">Página principal de gnuplot</a>
+</li><li> <a href="http://www.gnu.org/software/octave/doc/interpreter/" class="external text" title="http://www.gnu.org/software/octave/doc/interpreter/" rel="nofollow">Manual de Octave</a>
+</li><li> <a href="http://wiki.octave.org/" class="external text" title="http://wiki.octave.org/" rel="nofollow">Wiki de Octave</a>
+</li><li> <a href="http://forja.rediris.es/frs/download.php/774/cursomo.pdf" class="external text" title="http://forja.rediris.es/frs/download.php/774/cursomo.pdf" rel="nofollow">Introducción informal a Matlab y Octave</a> <a href="http://wikis.uca.es/wikiformacion/index.php/Archivo:Pdf.gif" class="image" title="Imagen:Pdf.gif"><img alt="Imagen:Pdf.gif" src="./Gráficos en LaTeX con Octave e Inkscape - Wikiformacion_files/Pdf.gif" width="16" height="16" border="0"></a>
+</li><li> <a href="http://wikis.uca.es/wikiformacion/index.php/Archivo:Modulo_octave.pdf" title="Archivo:Modulo octave.pdf">Presentación de Octave en el II curso i-math de software libre</a> <a href="http://wikis.uca.es/wikiformacion/index.php/Archivo:Pdf.gif" class="image" title="Imagen:Pdf.gif"><img alt="Imagen:Pdf.gif" src="./Gráficos en LaTeX con Octave e Inkscape - Wikiformacion_files/Pdf.gif" width="16" height="16" border="0"></a>
+</li><li> <a href="http://www.inkscape.org/" class="external text" title="http://www.inkscape.org/" rel="nofollow">Página principal de Inkscape</a>
+</li></ul>
+<p>Los tutoriales básicos se hallan en Inkscape bajo Ayuda &gt; Tutoriales.
+</p>
+<ul><li> <a href="http://inkscapetutorials.wordpress.com/" class="external text" title="http://inkscapetutorials.wordpress.com/" rel="nofollow">Inkscape Tutorials (avanzados)</a>
+</li><li> <a href="http://tavmjong.free.fr/INKSCAPE/MANUAL/html/index.html" class="external text" title="http://tavmjong.free.fr/INKSCAPE/MANUAL/html/index.html" rel="nofollow">Inkscape: Guide to a Vector Drawing Program</a>
+</li><li> <a href="http://tug.org/PSTricks/main.cgi/" class="external text" title="http://tug.org/PSTricks/main.cgi/" rel="nofollow">Página principal de PSTricks</a>
+</li><li> <a href="http://sourceforge.net/projects/pgf/" class="external text" title="http://sourceforge.net/projects/pgf/" rel="nofollow">Página principal de PGF/Tikz</a>
+</li><li> <a href="http://www.ctan.org/tex-archive/help/Catalogue/entries/psfrag.html" class="external text" title="http://www.ctan.org/tex-archive/help/Catalogue/entries/psfrag.html" rel="nofollow">Página en el CTAN de psfrag</a>
+</li><li> <a href="http://tug.ctan.org/tex-archive/graphics/pstricks/contrib/psgo/" class="external text" title="http://tug.ctan.org/tex-archive/graphics/pstricks/contrib/psgo/" rel="nofollow">Página en el CTAN de psgo</a>
+</li><li> <a href="http://wikis.uca.es/wikiformacion/index.php/Archivo:Tarea-graficos.pdf" title="Archivo:Tarea-graficos.pdf">Ampliación: gráficos avanzados mediante psfrag y PSTricks</a> <a href="http://wikis.uca.es/wikiformacion/index.php/Archivo:Pdf.gif" class="image" title="Imagen:Pdf.gif"><img alt="Imagen:Pdf.gif" src="./Gráficos en LaTeX con Octave e Inkscape - Wikiformacion_files/Pdf.gif" width="16" height="16" border="0"></a>
+</li><li> <a href="http://wikis.uca.es/wikiformacion/index.php/Archivo:Esqueleto.tar.bz2" title="Archivo:Esqueleto.tar.bz2">Documento básico e imágenes</a>
+</li><li> <a href="http://wikis.uca.es/wikiformacion/index.php/Archivo:Graficas.m.txt" title="Archivo:Graficas.m.txt">Fichero Octave de ejemplos</a>
+</li></ul>
+<a name="V.C3.A9ase_tambi.C3.A9n" id="V.C3.A9ase_tambi.C3.A9n"></a><h2> <span class="mw-headline"> Véase también </span></h2>
+<ul><li> <a href="http://wikis.uca.es/wikiformacion/index.php/LaTeX" title="LaTeX">LaTeX</a>
+</li><li> <a href="http://wikis.uca.es/wikiformacion/index.php/Extensiones_de_Emacs_para_LaTeX" title="Extensiones de Emacs para LaTeX">Extensiones de Emacs para LaTeX</a>
+</li></ul>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 7/1000000
+Post-expand include size: 54/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key wikiformacion:pcache:idhash:84-0!1!0!!es!2!edit=0 and timestamp 20130809060746 -->
+<div class="printfooter">
+Obtenido de "<a href="./Gráficos en LaTeX con Octave e Inkscape - Wikiformacion_files/Gráficos en LaTeX con Octave e Inkscape - Wikiformacion.html">http://wikis.uca.es/wikiformacion/index.php/Gr%C3%A1ficos_en_LaTeX_con_Octave_e_Inkscape</a>"</div>
+			<div id="catlinks" class="catlinks"><div id="mw-normal-catlinks"><a href="http://wikis.uca.es/wikiformacion/index.php/Especial:Categor%C3%ADas" title="Especial:Categorías">Categoría</a>: <span dir="ltr"><a href="http://wikis.uca.es/wikiformacion/index.php/Categor%C3%ADa:Wikiformaci%C3%B3n" title="Categoría:Wikiformación">Wikiformación</a></span></div></div>			<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Vistas</h5>
+		<div class="pBody">
+			<ul>
+	
+				 <li id="ca-nstab-main" class="selected"><a href="./Gráficos en LaTeX con Octave e Inkscape - Wikiformacion_files/Gráficos en LaTeX con Octave e Inkscape - Wikiformacion.html" title="Ver el artículo [ctrl-alt-c]" accesskey="c">Página</a></li>
+				 <li id="ca-talk"><a href="http://wikis.uca.es/wikiformacion/index.php/Discusi%C3%B3n:Gr%C3%A1ficos_en_LaTeX_con_Octave_e_Inkscape" title="Discusión acerca del artículo [ctrl-alt-t]" accesskey="t">Discusión</a></li>
+				 <li id="ca-viewsource"><a href="http://wikis.uca.es/wikiformacion/index.php?title=Gr%C3%A1ficos_en_LaTeX_con_Octave_e_Inkscape&action=edit" title="Esta página está protegida; sólo puedes ver su código fuente [ctrl-alt-e]" accesskey="e">Ver código fuente</a></li>
+				 <li id="ca-history"><a href="http://wikis.uca.es/wikiformacion/index.php?title=Gr%C3%A1ficos_en_LaTeX_con_Octave_e_Inkscape&action=history" title="Versiones anteriores de esta página y sus autores [ctrl-alt-h]" accesskey="h">Historial</a></li>			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Herramientas personales</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="http://wikis.uca.es/wikiformacion/index.php?title=Especial:Entrar&returnto=Gr%C3%A1ficos_en_LaTeX_con_Octave_e_Inkscape" title="Te invitamos a registrarse, aunque no es obligatorio [ctrl-alt-o]" accesskey="o">Registrarse/Entrar</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/wikiformacion/skins/common/images/wiki.png);" href="http://wikis.uca.es/wikiformacion/index.php/P%C3%A1gina_Principal" title="Portada [ctrl-alt-z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class="generated-sidebar portlet" id="p-navigation">
+		<h5>Navegación</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-Portada"><a href="http://wikis.uca.es/wikiformacion/index.php/Portada">Portada</a></li>
+				<li id="n-Comunidad"><a href="http://wikis.uca.es/wikiformacion/index.php/Discusi%C3%B3n:Portada">Comunidad</a></li>
+				<li id="n-recentchanges"><a href="http://wikis.uca.es/wikiformacion/index.php/Especial:CambiosRecientes" title="La lista de cambios recientes en el wiki [ctrl-alt-r]" accesskey="r">Cambios recientes</a></li>
+				<li id="n-randompage"><a href="http://wikis.uca.es/wikiformacion/index.php/Especial:Aleatoria" title="Cargar una página aleatoriamente [ctrl-alt-x]" accesskey="x">Página aleatoria</a></li>
+				<li id="n-help"><a href="http://wikis.uca.es/wikiformacion/index.php/Ayuda:Ayuda" title="El lugar para aprender">Ayuda</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Buscar</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="http://wikis.uca.es/wikiformacion/index.php" id="searchform"><div>
+				<input type="hidden" name="title" value="Especial:Search">
+				<input id="searchInput" name="search" type="text" title="Buscar en este wiki [ctrl-alt-f]" accesskey="f" value="">
+				<input type="submit" name="go" class="searchButton" id="searchGoButton" value="Ir" title="Ir al artículo con este nombre exacto si existe">&nbsp;
+				<input type="submit" name="fulltext" class="searchButton" id="mw-searchButton" value="Buscar" title="Busca este texto en las páginas">
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Herramientas</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="http://wikis.uca.es/wikiformacion/index.php/Especial:LoQueEnlazaAqu%C3%AD/Gr%C3%A1ficos_en_LaTeX_con_Octave_e_Inkscape" title="Lista de todas las páginas del wiki que enlazan con ésta [ctrl-alt-j]" accesskey="j">Lo que enlaza aquí</a></li>
+				<li id="t-recentchangeslinked"><a href="http://wikis.uca.es/wikiformacion/index.php/Especial:CambiosEnEnlazadas/Gr%C3%A1ficos_en_LaTeX_con_Octave_e_Inkscape" title="Cambios recientes en las páginas que enlazan con ésta [ctrl-alt-k]" accesskey="k">Cambios relacionados</a></li>
+<li id="t-specialpages"><a href="http://wikis.uca.es/wikiformacion/index.php/Especial:P%C3%A1ginasEspeciales" title="Lista de todas las páginas especiales [ctrl-alt-q]" accesskey="q">Páginas especiales</a></li>
+				<li id="t-print"><a href="http://wikis.uca.es/wikiformacion/index.php?title=Gr%C3%A1ficos_en_LaTeX_con_Octave_e_Inkscape&printable=yes" rel="alternate" title="Versión imprimible de la página [ctrl-alt-p]" accesskey="p">Versión para imprimir</a></li>				<li id="t-permalink"><a href="http://wikis.uca.es/wikiformacion/index.php?title=Gr%C3%A1ficos_en_LaTeX_con_Octave_e_Inkscape&oldid=202" title="Enlace permanente a esta versión de la página">Enlace permanente</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="./Gráficos en LaTeX con Octave e Inkscape - Wikiformacion_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki"></a></div>
+				<div id="f-copyrightico"><a href="http://creativecommons.org/licenses/by-sa/3.0/"><img src="./Gráficos en LaTeX con Octave e Inkscape - Wikiformacion_files/88x31.png" alt="Attribution-Share Alike 3.0 Unported"></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> Esta página fue modificada por última vez el 21:15, 24 may 2010.</li>
+					<li id="viewcount">Esta página ha sido visitada 469 veces.</li>
+					<li id="copyright">El contenido está disponible bajo los términos de la <a href="http://creativecommons.org/licenses/by-sa/3.0/" class="external " title="http://creativecommons.org/licenses/by-sa/3.0/">Attribution-Share Alike 3.0 Unported</a>.</li>
+					<li id="privacy"><a href="http://wikis.uca.es/wikiformacion/index.php/Wikiformacion:Pol%C3%ADtica_de_protecci%C3%B3n_de_datos" title="Wikiformacion:Política de protección de datos">Política de protección de datos</a></li>
+					<li id="about"><a href="http://wikis.uca.es/wikiformacion/index.php/Wikiformacion:Acerca_de" title="Wikiformacion:Acerca de">Acerca de Wikiformacion</a></li>
+					<li id="disclaimer"><a href="http://wikis.uca.es/wikiformacion/index.php/Wikiformacion:Limitaci%C3%B3n_general_de_responsabilidad" title="Wikiformacion:Limitación general de responsabilidad">Aviso legal</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="http://www.google-analytics.com/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-12581780-6");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script><!-- Served in 0.202 secs. -->
+</body></html>

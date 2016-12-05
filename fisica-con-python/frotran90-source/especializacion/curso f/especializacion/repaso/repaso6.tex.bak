@@ -1,0 +1,759 @@
+%\pagestyle{fancy}
+%\thispagestyle{plain}
+%\pagestyle{fancyplain}
+%\lhead[\fancyplain{}{\slshape %\rightmark}]
+%\chead{}
+%\rhead[\fancyplain{}{\slshape %\leftmark}]
+%\lfoot[]{\thepage}
+%\cfoot[]{Estadistica I}
+%\rfoot{\thepage}
+%\setlength{\headrulewidth}{0.4pt}
+%\setlength{\footrulewidth}{0.4pt}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{Version=4.00.0.2312}
+%TCIDATA{LaTeXparent=0,0,Est12.tex}
+%TCIDATA{ChildDefaults=%
+%chapter:6,page:168
+%}
+
+
+\section{DISTRIBUCIONES MUESTRALES}
+
+\section{}
+
+\section{Aproximaci\'{o}n a una distribuci\'{o}n normal est\'{a}ndar}
+
+\begin{theorem}
+[Demoivre-Laplace.]Sup\'{o}ngase que Y tiene una distribuci\'{o}n binomial con
+n pruebas y con probabilidad de tener \newline\'{e}xito en cualquier prueba
+denotada por p. Por lo que podemos con\-siderar a Y, como el n\'{u}mero de
+\'{e}xitos en n pruebas, como una suma de una muestra formada por ceros y
+unos. Entonces
+\[
+\bar{X}=\frac{Y}{n}%
+\]
+tendr\'{a} aproximadamente una distribuci\'{o}n normal con
+\begin{align*}
+E\left(  X_{i}\right)   &  =p\\
+V\left(  X_{i}\right)   &  =\frac{p\left(  1-p\right)  }{n}%
+\end{align*}
+
+\end{theorem}
+
+Ahora indicaremos como obtener una buena aproximaci\'{o}n.
+
+\begin{itemize}
+\item Si \textit{p} se acerca a 0.5 y $n>10$ la aproximaci\'{o}n es muy
+buena.\newline
+
+\item En general si $n\mathit{p}>5$ para0.5$\geq$ $\mathit{p}$ o cuando
+$n\mathit{q}>5$ si $\mathit{p}>0.5$\newline
+
+\item Si \textit{p } se acerca al 0 o al 1 la aproximaci\'{o}n no es buena
+\end{itemize}
+
+\begin{example}
+Durante una epidemia de gripa, se enfermaron el 30\% de la poblaci\'{o}n. En
+un caserio de 2000 personas, \textquestiondown Cu\'{a}l es la probabilidad de
+que al menos 40 padezcan de la enfermedad?, calcular la probabilidad de que 60
+personas padezcan con gripa.
+\end{example}
+
+\begin{solution}
+Tenemos que la variable aleatoria que representa las personas con gripa es
+binomial
+\begin{align*}
+X  &  \leadsto B\left(  n=200,p=0.3\right) \\
+\mu &  =np=60\\
+\sigma^{2}  &  =npq=42\\
+X  &  \approx X_{N}\leadsto N(60,42)\\
+P\left(  40\geq X\right)   &  =P\left(  \frac{40-60}{\sqrt{42}}\geq\frac
+{X-60}{\sqrt{42}}\right)  =0.999\\
+P\left(  X=60\right)   &  =\binom{200}{60}p^{60}q^{140}\approx\frac{1}%
+{\sigma\sqrt{2\pi}}e^{-\frac{\left(  60-\mu\right)  ^{2}}{\sigma^{2}}}=0.063
+\end{align*}
+Otra forma de realizarlo es
+\[
+P\left(  X=60\right)  \approx P\left(  60.5\geq X_{N}\geq59.5\right)  =0.0638
+\]
+
+\end{solution}
+
+\section{Distribuci\'{o}n ji- cuadrado}
+
+
+
+\begin{theorem}
+Sean $Z_{1},Z_{2},Z_{3},\cdots,Z_{k}$ variables aleatorias distribui\-das
+normalmente e independientes con media cero y varianza uno, entonces la
+variable aleatoria
+\[
+X^{2}=\sum_{i=1}^{k}Z_{i}^{2}%
+\]
+tiene una dsitribuci\'{o}n e probabilidad llamada JI-CUADRADO con k grados de
+libertad.\newline Donde $\mu=k$ y $\sigma^{2}=2k,$ si
+\[
+k\longrightarrow\infty\Longrightarrow\chi^{2}\thicksim N\left(  \mu,\sigma
+^{2}\right)
+\]
+Y su funci\'{o}n de densidad es :
+\[
+f_{\chi_{\alpha,k}}\left\{
+\begin{array}
+[c]{ccc}%
+0 & si & x\in(-\infty,0]\\
+\frac{1}{2^{\frac{k}{2}}}\Gamma\left(  \frac{k}{2}\right)  x^{\frac{k}{2}%
+-1}e^{-\frac{x}{2}} & si & x\in\left(  0,\infty\right)
+\end{array}
+\right.
+\]
+
+\end{theorem}
+
+Si $k\rightarrow\infty\Rightarrow\mathcal{X}^{2}\sim N(\mu,\sigma^{2})$ 
+
+\begin{example}
+Un ejemplo de una estad\'{\i}stica ji-cuadrada es:\newline sup\'{o}ngase que
+$X_{1},X_{2},X_{3},\cdots,X_{n}$ es una muestra aleatoria de una poblaci\'{o}n
+normal. con media $\mu$ y varianza $\sigma^{2}$ la funci\'{o}n de varianza
+muestral :
+\[
+\frac{(n-1)S^{2}}{\sigma^{2}}
+\]
+se distribuye como $\mathcal{X}_{n-1}^{2}$
+\end{example}
+
+\begin{example}
+Encuentre el valor $\chi_{0.10,13}^{2}$ el valor es 19.812
+\end{example}
+
+\begin{example}
+Determine la probabilidad P$\left(  38.582\geq\chi^{2}\geq6.844\right)  $
+\end{example}
+
+\section{Distribuci\'{o}n t o Student}
+
+\begin{theorem}
+Sea $Z\sim N(0.1)$ y V una variable ji-cuadrada con k grados de libertad ,si Z
+y V son independientes, entonces la variable aleatoria .
+\[
+T=\frac{Z}{\sqrt{\frac{V}{k}}}%
+\]
+Se dice que tiene una distribuci\'{o}n t con k grados de libertad y se abrevia
+$t_{k}$
+\end{theorem}
+
+La media y la varianza de la distribuci\'{o}n t son $\mu=0$ $\sigma^{2}%
+=\frac{k}{k-2}$ para $k>2$. \newline Por ejemplo si queremos encontrar los
+valores $t_{\alpha,k}$ para los cuales \newline$\alpha\leq0.05$ tenemos :
+\[
+P\{t\geq t_{0.05,10}\}=P\{t\geq1.813\}=0.05
+\]
+del mismo modo para la cola inferior $t_{0.95,10}$ y $-t_{0.05,10}$ es -1.813.
+
+\begin{example}
+Sup\'{o}ngase que $X_{1},X_{2},X_{3},\cdots,X_{n},$ es una muestra aleatoria
+de una distribuci\'{o}n normal con media $\mu$ y varianza $\sigma^{2}$, y sean
+$\overline{X}$ y $S^{2}$ la media y la varianza de la muestra . considerese la
+estad\'{\i}stica .
+\[
+\frac{\overline{X}-\mu}{\frac{S}{\sqrt{n}}}\leadsto t_{n-1}
+\]
+tiene una distribuci\'{o}n t con n-1 grados de libertad.
+\end{example}
+
+\begin{example}
+Suponga que de una poblaci\'{o}n \ con una media de 14 se toma una muestra de
+tama\~{n}o 11, si la media muestral es 18 y la desviaci\'{o}n muetral es de
+14.3 determine la probabilidad de que la media muestral sea mayor que la poblacional.
+\end{example}
+
+\begin{example}
+Suponga que de una poblaci\'{o}n n0rmal con media $\mu=20$ se toma una muestra
+de tama\~{n}o 16. Si la desviaci\'{o}n est\'{a}ndar S = 4, encuentre P$\left(
+\bar{X}<21,753\right)  $
+\end{example}
+
+\begin{solution}
+Encontramos un valor \ t para 21,753. Como
+\[
+t=\frac{21,753-20}{4/4}=1,753
+\]
+As\'{\i}
+\[
+P\left(  \bar{X}<1,753\right)  =1-P\left(  \bar{X}\geq1\right)
+\]
+buscando en la tabla obtenemos
+\[
+P\left(  \bar{X}<1,753\right)  =1-0.05
+\]
+
+\end{solution}
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\alpha$
+
+gl \ \ \ 0.01 \ \ \ \ \textbf{0.05} \ \ \ 0.025 \ 0.010
+
+12 \ \ 1.356 \ \ 1.782 \ 2.179 \ 2.681
+
+13 \ \ 1.350 \ \ 1.771 \ 2.160 \ 2.650
+
+14 \ \ 1.345 \ \ 1.761 \ 2.145 \ 2.624
+
+\textbf{15} \ \ 1.341 \ \ \textbf{1.753} \ 2.131 \ 2.602
+
+16 \ \ 1.337 \ \ 1.746 \ 2.120 \ 2.583
+
+Por tanto P(\={X}
+%TCIMACRO{\TEXTsymbol{>} }%
+%BeginExpansion
+$>$
+%EndExpansion
+1.753) =.05
+
+\section{Distribuci\'{o}n F}
+
+\begin{theorem}
+Sean W y Y variables aleatorias JI-cuadrado independientes con u y v grados de
+libertad respectivamente . EL cociente
+\[
+F=\frac{W}{u}\left/  \frac{V}{v}\right.
+\]
+se dice que tiene una distribuci\'{o}n f co u grados de libertad en el
+numerador y v grados de libertad en el denominador y se denota:
+\[
+F_{u,v}
+\]
+
+\end{theorem}
+
+La media y la varianza son:La variable aleatoria F es no negativa y la
+distribuci\'{o}n es asim\'{e}trica a la derecha, como podemos observar F se
+asemeja a la ji-cuadrado, pero F est\'{a} centrada alrededor de 1 y los
+param\'{e}tros \textit{u } y \textit{v} lo cual le proporcionan mayor
+flexibilidad en cuanto a la forma de su gr\'{a}fica .
+
+\begin{example}
+Si tenemos dos poblaciones normales con varianzas $\sigma_{1}^{2}$ y
+$\sigma_{2}^{2}$ y si tomamos dos muestras aleatorias independientes de
+tama\~{n}o $n_{1}\;y\;n_{2}$ de las poblaciones 1 y 2 respectivamentes y que
+$S_{1}^{2}$ y $S_{2}^{2}$ son las varianzas muestrales entonces:\newline%
+{\Large
+\[
+\frac{S_{1}^{2}}{\sigma_{1}^{2}}\left/  \frac{S_{2}^{2}}{\sigma_{2}^{2}%
+}\right.
+\]
+} \emph{Tiene una distribuci\'{o}n F con $n_{1}-1$ y $n_{2}-1$ grados de
+libertad en el numerador y en el denominador respectivamente.}
+\end{example}
+
+Los puntos porcentuales de la cola inferior F$_{1-\alpha,u,v}=\frac
+{1}{F_{\alpha,v,u}}$
+
+\begin{example}
+En una prueba sobre la efectividad de dos p\'{\i}ldoras para dormir, A y B se
+utilizaron \ dos grupos independientes de personas con insomnio, a un grupo de
+tama\~{n}o 40 se le administrar\'{o} la p\'{\i}ldora A y al otro grupo B de
+tama\~{n}o 60 se la admisnistr\'{o} la p\'{\i}ldora B, registrandose el
+n\'{u}mero de horas de sue\~{n}o de quienes usan cada tipo de p\'{\i}ldora
+\ Si se supone que las distribuciones da cada una de las muestras es normal y
+que $\sigma_{1}^{2}=\sigma_{2}^{2}$ calcule el valor del estad\'{\i}stico F y
+determine $P\left(  \frac{S_{1}^{2}}{S_{2}^{2}}>1.8\right)  $
+\end{example}
+
+\begin{example}
+Si $S_{1}^{2}$ y $S_{1}^{2}$ representan las varianzas de variables aleatorias
+independientes de tama\~{n}o n$_{1}=8$ y n$_{2}=12$, tomadas de poblaciones
+normales con iguales varianzas, encuentre la \newline$P\left(  \frac{S_{1}%
+^{2}}{S_{2}^{2}}<4.89\right)  $
+\end{example}
+
+\begin{example}
+Determine f$_{0.95}$ con v =19 y u = 24
+\end{example}
+
+\chapter{}
+
+\chapter{Intervalos de confianza}
+
+
+
+En las secciones anteriores se trat\'{o} los m\'{e}todos para estimar un
+par\'{a}metro puntual, usando una estad\'{\i}stica adecuada $\widehat{\theta
+}(x)$ cuyo valor $\widehat{\theta}$ se toma como el va\-lor estimado del valor
+desconocido $\theta$, pero en muchas situaciones \'{e}ste m\'{e}todo no nos
+proporciona suficiente informaci\'{o}n acerca del par\'{a}metro de
+inter\'{e}s, ya que s\'{o}lo el n\'{u}mero puede no tener mucho significado,
+entonces hay que hacer lo si\-guiente:
+
+\begin{definition}
+Teniendo una muestra aleatoria $X_{1},X_{2},X_{3},\ldots,X_{n}$ que tiene una
+distribuci\'{o}n $f(x,\theta)$, la cual es conocida para cada par\'{a}metro
+$\theta$ dado un dato $x=(x_{1},x_{2},x_{3},\ldots,x_{n}),$ se procede a
+buscar dos estad\'{\i}sticas $L(x)$ y $U(x)$ que cumplan\newline$L(X)\leq
+U(x)$ para cada posible dato $x$ tal que :\newline$P(L(X)<\theta
+<U(x))\geq1-\alpha_{0}$ pra cierto $\alpha_{0}\,\epsilon\,(0,1)$ fijo lo
+m\'{a}s cercano posible a $1-\alpha_{0}$ .\newline A $I(x)=(L(x),U(x))$ se le
+llama intervalo de confianza para $\theta$ a un nivel de confianza
+$1-\alpha_{0}$.
+\end{definition}
+
+En la pr\'{a}ctica se usan niveles $\alpha_{0}=5\%,1\%,0,1\%$ ya que la idea
+es encontrar un intervalo de confianza tal que la probabilidad de que el
+par\'{a}metro de inter\'{e}s se encuentre dentro sea alto.\newline Por esta
+raz\'{o}n nos interesa un intervalo con l\'{\i}mites muy pr\'{o}ximos y con un
+nivel de confianza elevado.\newline%
+%TCIMACRO{\FRAME{dhF}{6.4251cm}{4.8436cm}{0pt}{}{}{estima.wmf}%
+%{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "USEDEF";  valid_file "F";
+%width 6.4251cm;  height 4.8436cm;  depth 0pt;  original-width 3.2638in;
+%original-height 2.4587in;  cropleft "0";  croptop "0.9974";  cropright "1";
+%cropbottom "0";  filename '../Tacho/Estima.wmf';file-properties "XNPEU";}}}%
+%BeginExpansion
+\begin{center}
+\includegraphics[
+trim=0.000000in 0.000000in 0.000000in 0.006393in,
+natheight=2.458700in,
+natwidth=3.263800in,
+height=4.8436cm,
+width=6.4251cm
+]%
+{../Tacho/Estima.wmf}%
+\end{center}
+%EndExpansion
+Una interpretaci\'{o}n correcta de la confianza%
+%TCIMACRO{\U{b4}}%
+%BeginExpansion
+\'{}%
+%EndExpansion%
+%TCIMACRO{\U{b4}}%
+%BeginExpansion
+\'{}%
+%EndExpansion
+$1-\alpha_{0}$
+%TCIMACRO{\U{b4}}%
+%BeginExpansion
+\'{}%
+%EndExpansion%
+%TCIMACRO{\U{b4} }%
+%BeginExpansion
+\'{}
+%EndExpansion
+tiene que ver con el concepto de probabilidad estoc\'{a}stica, es decir que si
+un experimento $A$ se realiza una y otra vez de frecuencia relativa se acerca
+m\'{a}s al valor de la probabilidad cuantas m\'{a}s veces se realice.
+
+O sea lo que obtenemos es la probabilidad de que el $100\left(  1-\alpha
+_{0}\right)  \%$ de los intervalos posibles con amplitud $U\left(  X\right)
+-L\left(  X\right)  $ contienen al par\'{a}metro $\theta.$%
+\[
+%TCIMACRO{\FRAME{itbpF}{1.8931in}{1.9112in}{0in}{}{}{i90.wmf}%
+%{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "USEDEF";  valid_file "F";
+%width 1.8931in;  height 1.9112in;  depth 0in;  original-width 2.9032in;
+%original-height 2.9308in;  cropleft "0";  croptop "1";  cropright "1";
+%cropbottom "0";  filename '../Tacho/I90.wmf';file-properties "XNPEU";}}}%
+%BeginExpansion
+{\includegraphics[
+natheight=2.930800in,
+natwidth=2.903200in,
+height=1.9112in,
+width=1.8931in
+]%
+{../Tacho/I90.wmf}%
+}%
+%EndExpansion
+\]
+En la gr\'{a}fica estamos suponiendo que solo podemos construir 10 intervalos
+de longitud $U\left(  X\right)  -L\left(  X\right)  $. (En realidad se pueden
+construir infinitos) Observamos en la gr\'{a}fica que s\'{o}lo un intervalo no
+contiene el par\'{a}metro $\theta,$ es decir, que el nivel de confianza es del
+$90\%.$
+
+\section{Intervalo de confianza como estimaci\'{o}n}
+
+En muchas aplicaciones se usa una estimaci\'{o}n $\widehat{\Psi}%
+=q(\widehat{\theta})$, de $\Psi=q(\theta)$ para tomar $L(x)=\widehat{\Psi}-D$,
+$U(x)=\widehat{\Psi}+D$ con $D=D(x)$ una estad\'{\i}stica escogida tal que
+cumpla la definici\'{o}n de intervalo de confianza, es decir:
+\[
+I(x)=(\widehat{\Psi}-D,\widehat{\Psi}+D)
+\]
+Entre m\'{a}s peque\~{n}o sea $D(x)$ o la longitud del intervalo m\'{a}s
+precisa ser\'{a} la estimaci\'{o}n\newline Nota: $D$ puede depender o no de
+$x$.\newline
+
+\begin{example}
+Se tiene una variable de inter\'{e}s con esperanza $\mu$ desconocida y
+varianza $\sigma^{2}$ conocida, entonces se toma como par\'{a}metro
+$\theta=\mu$ .\newline Hay que suponer que las variables muestrales $X_{i}\sim
+N(\mu,\sigma^{2})$ forman una muestra $X$ de tama\~{n}o $n$ para la variable
+de inter\'{e}s, por tanto \newline$\widehat{\mu}=\overline{X}$ es una
+estimaci\'{o}n puntual razonable para $\mu$ por lo cual se buscar\'{a} un
+intervalo de confianza donde se debe derterminar la estad\'{\i}stica $D$ tal
+que:
+\[
+P(\overline{X}-D<\mu<\overline{X}+D)=1-\alpha_{0}\quad\mbox{dado}\quad
+\alpha_{0}
+\]
+y para ello se hace lo siguiente :
+\begin{align*}
+\overline{X}-D<\mu &  <\overline{X}+D\\
+-D<\overline{X}-\mu &  <D\\
+-\frac{Dn^{1/2}}{\sigma}<\frac{n^{1/2}(\overline{X}-\mu)}{\sigma}  &
+<\frac{Dn^{1/2}}{\sigma}%
+\end{align*}
+Ahora si hacemos $Z=\frac{n^{1/2}(\overline{X}-\mu)}{\sigma}\sim N(0,1)$ y
+$z=\frac{n^{1/2}D}{\sigma}$ entonces\newline$P(\overline{X}-D<\mu<\overline
+{X}+D)=\Phi(z)-\Phi(-z)=2\Phi(z)-1=1-\alpha_{0}$\newline fijando $\alpha_{0}$
+se obtiene el valor de $z$ y luego $D=\frac{\sigma z}{n^{1/2}}$%
+%TCIMACRO{\FRAME{dhF}{6.5262cm}{4.8436cm}{0pt}{}{}{ic2cn.wmf}%
+%{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "USEDEF";  valid_file "F";
+%width 6.5262cm;  height 4.8436cm;  depth 0pt;  original-width 3.2638in;
+%original-height 2.4163in;  cropleft "0";  croptop "0.9981";
+%cropright "0.9991";  cropbottom "0";
+%filename '../Tacho/Ic2cn.wmf';file-properties "XNPEU";}}}%
+%BeginExpansion
+\begin{center}
+\includegraphics[
+trim=0.000000in 0.000000in 0.002937in 0.004591in,
+natheight=2.416300in,
+natwidth=3.263800in,
+height=4.8436cm,
+width=6.5262cm
+]%
+{../Tacho/Ic2cn.wmf}%
+\end{center}
+%EndExpansion
+
+\end{example}
+
+NOTA : Si aumentamos el tama\~{n}o de la muestra se puede obtener un intervalo
+de confianza de una longitud tan peque\~{n}a como se quiera.
+
+\begin{example}
+Consideremos ahora que $\sigma$ no se conoce, entonces en este caso
+$\theta=(\mu,\sigma)$ con $\Psi=q(\theta)=\mu$, que es lo que se va a estimar
+.\newline En este caso $Z=\frac{n^{1/2}(\overline{X}-\mu)}{S}\sim T(n-1)$ o
+sea que $\sigma^{2}$ es reemplazada por su estimaci\'{o}n insesgada .\newline
+Como $T_{n-1}$ es sim\'{e}trica entonces \newline$P(Z\geq z)=\alpha_{0}/2$
+obteniendo as\'{\i} la estad\'{\i}stica {\Large $D=\frac{Sz}{n^{1/2}}$}, que
+ahora si depende de la muestra
+\end{example}
+
+\emph{NOTA: Para una muestra fija de tama\~{n}o $n$ y una desviaci\'{o}n
+est\'{a}ndar $\sigma$, cuanto m\'{a}s alto es la nivel de confianza $100(1 -
+\alpha_{0})\%$, es mayor la longitud del intervalo de confianza
+resultante.\newline Como la longitud del intervalo de confianza mide la
+presici\'{o}n de la estimaci\'{o}n, observamos que la presici\'{o}n se
+relaciona inversamente con el nivel de confianza resultante. }
+
+\section{Elecci\'{o}n del tama\~{n}o de la muestra}
+
+La presici\'{o}n del del intervalo de confianza en el ejercicio 9 es
+$\frac{\sigma z}{n^{1/2}}$, es decir el error $e$ que se determina al usar
+$\overline{X}$ para estimar $\mu$ debe ser $e=|\overline{X}-\mu|<D$, con un
+nivel de confianza $100(1-\alpha_{0})\%$ lo que implica, que si el tama\~{n}o
+de la muestra se puede controlar, podemos escoger en $n$ tal que el error
+especifico $e$ sea mayor que el error al estimar $\mu$ para un nivel de
+confianza $100(1-\alpha_{0})$.\newline De lo que se deduce
+\[
+\frac{z\sigma}{\sqrt{n}}\leq e\Rightarrow(\frac{z\sigma}{e})^{2}\leq n
+\]
+
+
+\section{Intervalos de confianza sobre la diferencia de medias}
+
+\begin{example}
+Considerese dos variables aleatorias $X_{1j}$ y $X_{2k}$ con medias $\mu_{1} $
+y $\mu_{2}$, respectivamente, conocidas y con varianzas $\sigma_{1}^{2}$ y
+$\sigma_{2}^{2}$, respectivamente, conocidas. Encontrar un intervalo de
+confianza del $100(1-\alpha_{0})\%$ para la diferencia de las medias $\mu_{1}$
+y $\mu_{2}$.\newline Sea $X_{11},X_{12},X_{13},\ldots,X_{1n_{1}},$ una muestra
+aleatoria de tama\~{n}o $n_{1}$ y \newline$X_{21},X_{22},X_{23},\ldots
+,X_{2n_{2}},$ una muestra aleatoria de tama\~{n}o $n_{2}$ \newline Si
+$\overline{X}_{1\ast}$ y $\overline{X}_{2\ast}$ son las medias de las
+muestras, la estad\'{\i}stica:
+\[
+Z=\frac{\overline{X}_{1\ast}-\overline{X}_{2\ast}-(\mu_{1}-\mu_{2})}%
+{\sqrt{\frac{\sigma_{1}^{2}}{n_{1}}+\frac{\sigma_{2}^{2}}{n_{2}}}}\sim N(0,1)
+\]
+Si $X_{1j}$ y $X_{2k}$ son normales o aproximadamente normales de acuerdo con
+el teorema central del l\'{\i}mite, entonces:
+\[
+P\left(  \overline{X}_{1\ast}-\overline{X}_{2\ast}-D<\mu_{1}-\mu_{2}%
+<\overline{X}_{1\ast}-\overline{X}_{2\ast}+D\right)  =1-\alpha_{0}
+\]
+De lo que se deduce que:\newline%
+\[
+P\left[  \frac{-D}{\sqrt{{\frac{\sigma_{1}^{2}}{n_{1}}+\frac{\sigma_{2}^{2}%
+}{n_{2}}}}}<Z<\frac{D}{\sqrt{{\frac{\sigma_{1}^{2}}{n_{1}}+\frac{\sigma
+_{2}^{2}}{n_{2}}}}}\right]  =2\phi(z)-1
+\]
+Y como $\phi(z)=1-\alpha_{0}/2$ si fijamos $\alpha_{0}$ tenemos que
+$z=\frac{D}{\sqrt{{\frac{\sigma_{1}^{2}}{n_{1}}+\frac{\sigma_{2}^{2}}{n_{2}}}%
+}}$, entonces $D=z\sqrt{{\frac{\sigma_{1}^{2}}{n_{1}}+\frac{\sigma_{2}^{2}%
+}{n_{2}}}}$ y si $n_{1}=n_{2}$ tenemos que; el tama\~{n}o de la muestra se
+acota :
+\[
+(\frac{z}{e})^{2}(\sigma_{1}^{2}+\sigma_{2}^{2})\leq n
+\]
+
+\end{example}
+
+\begin{example}
+Sean dos variables aleatorias independientes $X_{1j}$ y $X_{2k}$ con medias
+$\mu_{1}$ y $\mu_{2}$, respectivamente, conocidas, y con varianzas $\sigma
+_{1}^{2}$ y $\sigma_{2}^{2}$, respectivamente ,desconocidas. Encontrar un
+intervalo de confianza del $100(1-\alpha_{0})\%$ para la diferencia de las
+medias $\mu_{1}$ y $\mu_{2}$.\newline Sea $X_{11},X_{12},X_{13},\ldots
+,X_{1n_{1}},$ una muestra aleatoria de tama\~{n}o $n_{1}$ y \newline%
+$X_{21},X_{22},X_{23},\ldots,X_{2n_{2}},$ una muestra aleatoria de tama\~{n}o
+$n_{2}$ \newline Si $\overline{X}_{1\ast}$ y $\overline{X}_{2\ast}$ son las
+medias de las muestras y $S_{1}^{2}$ y $S_{2}^{2}$ las varianzas muestrales,
+entonces $S_{1}^{2}$ y $S_{2}^{2}$ son estimadores de $\sigma_{1}^{2}$ y
+$\sigma_{2}^{2}$ respectivamente, por lo que hay que considerar dos casos :
+
+\begin{itemize}
+\item si $\sigma_{1}^{2}=\sigma_{2}^{2}=\sigma$, entonces podemos encontrar un
+estimador ponderado de $\sigma$ es decir :
+\[
+S^{2}=\frac{(n_{1}-1)S_{1}^{2}+(n_{2}-1)S_{2}^{2}}{n_{1}+n_{2}-2}
+\]
+De lo que podemos deducir :
+\[
+\frac{(n_{1}+n_{2}-2)S^{2}}{\sigma^{2}}=\frac{(n_{1}-1)S_{1}^{2}}{\sigma^{2}%
+}+\frac{(n_{2}-1)S_{2}^{2}}{\sigma^{2}}
+\]
+que es la suma de dos ji-cuadradas con $n_{1}-1$ y $n_{2}-1$ grados de
+libertad .\newline Ahora podemos determinar el intervalo de confianza \newline%
+\[
+P\{\overline{X}_{1\ast}-\overline{X}_{2\ast}-D<\mu_{1}-\mu_{2}<\overline
+{X}_{1\ast}-\overline{X}_{2\ast}+D\}=1-\alpha_{0}
+\]
+despu\'{e}s de ciertas operaciones llegamos a que podemos transformar la
+expresi\'{o}n en una que depende de:
+\[
+\frac{\overline{X}_{1\ast}-\overline{X}_{2\ast}-(\mu_{1}-\mu_{2})}%
+{S\sqrt{\frac{1}{n_{1}}+\frac{1}{n_{2}}}}\sim t_{n_{1}+n_{2}-2}
+\]
+si fijamos $\alpha_{0}$ obtenemos la estad\'{\i}stica $D=t_{\alpha_{0}%
+/2}S\sqrt{\frac{1}{n_{1}}+\frac{1}{n_{2}}}$\newline NOTA : en los ejemplos 10
+y 12 tenemos que si $n_{1}$ y $n_{2}$ son mayores que 30, la distribuci\'{o}n
+$t$ se aproxima a $N(0,1)$ por lo que el intervalo obtenido en el ejemplo 9 es
+equivalente al de estos dos casos .
+
+\item Si las varianzas poblacionales son diferentes obtenemos una
+estad\'{\i}stica :
+\[
+t=\frac{\overline{X}_{1\ast}-\overline{X}_{2\ast}-(\mu_{1}-\mu_{2})}%
+{\sqrt{\frac{S_{1}^{2}}{n_{1}}+\frac{S_{2}^{2}}{n_{2}}}}\sim t_{v}
+\]
+donde:
+\[
+v=\frac{(\frac{S_{1}^{2}}{n_{1}}+\frac{S_{2}^{2}}{n_{2}})^{2}}{\frac
+{(\frac{S_{1}^{2}}{n_{1}})^{2}}{n_{1}+1}+\frac{(\frac{S_{2}^{2}}{n_{2}})^{2}%
+}{n_{2}+1}}-2
+\]
+de lo que se deduce que :\newline%
+\[
+D=t_{\alpha/2,v}\sqrt{\frac{S_{1}^{2}}{n_{1}}+\frac{S_{2}^{2}}{n_{2}}}
+\]
+
+\end{itemize}
+\end{example}
+
+
+
+\section{Intervalo de confianza sobre la varianza de una distribuci\'{o}n
+normal}
+
+\begin{example}
+Se tiene una variable de inter\'{e}s que se distribuye normalmente con
+esperanza $\mu$ desconocida y varianza $\sigma^{2}$ desconocida, entonces se
+toma como par\'{a}metro $\theta=\sigma^{2}$ .\newline Hay que suponer que las
+variables muestrales $X_{i}\sim N(\mu,\sigma^{2})$ forman una muestra $X$ de
+tama\~{n}o $n$ para la variable de inter\'{e}s, por tanto si $S^{2}$ es la
+varianza muestral. determine el intervalo de confianza $100(1-\alpha_{0})\%$
+respecto a $\sigma^{2}$\newline Tenemos que determinar $P(h(z)\leq\sigma
+^{2}\leq g(z))=1-\alpha_{0}$ donde $g(z)$ y $h(z)$ son funciones positivas
+.\newline Como $\frac{(n-1)S^{2}}{\sigma^{2}}\sim\chi_{n-1}^{2}$ si fijamos
+$\alpha_{0}$ encontramos que :
+\[
+h(z)=\frac{(n-1)S^{2}}{\chi_{\alpha_{0}/2,n-1}^{2}}\quad y\quad g(z)=\frac
+{(n-1)S^{2}}{\chi_{1-\alpha_{0}/2,n-1}^{2}}
+\]
+
+\end{example}
+
+\section{Intervalo de confianza sobre la raz\'{o}n de varianzas de dos
+distribuciones normales}
+
+\begin{example}
+Sean dos variables aleatorias independientes $X_{1j}$ y $X_{2k}$ con medias
+$\mu_{1}$ y $\mu_{2}$, respectivamente,desconocidas, y con varianzas
+$\sigma_{1}^{2}$ y $\sigma_{2}^{2}$, respectivamente ,desconocidas. Encontrar
+un intervalo de confianza del $100(1-\alpha_{0})\%$ respecto al cociente
+$\sigma_{1}^{2}/\sigma_{2}^{2}$\newline Sea $X_{11},X_{12},X_{13}%
+,\ldots,X_{1n_{1}},$ una muestra aleatoria de tama\~{n}o $n_{1}$ y
+\newline$X_{21},X_{22},X_{23},\ldots,X_{2n_{2}},$ una muestra aleatoria de
+tama\~{n}o $n_{2}$ notamos que la distribuci\'{o}n de muestreo \newline%
+\[
+F=\frac{\frac{S_{2}^{2}}{\sigma_{2}^{2}}}{\frac{S_{1}^{2}}{\sigma_{1}^{2}}%
+}\sim F_{n_{2}-1,n_{1}-1}
+\]
+por lo que se puede demostrar que el intervalo de confianza es :\newline%
+\[
+\frac{S_{1}^{2}}{S_{2}^{2}}F_{1-\alpha_{0}/2,n_{2}-1,n_{1}-1}\leq\frac
+{\sigma_{1}^{2}}{\sigma_{2}^{2}}\leq\frac{S_{1}^{2}}{S_{2}^{2}}F_{\alpha
+_{0}/2,n_{2}-1,n_{1}-1}
+\]
+
+\end{example}
+
+\section{Intervalo de confianza sobre una proporci\'{o}n}
+
+\begin{example}
+Teniendo una muestra aleatoria $X_{1},X_{2},X_{3},\ldots,X_{n}$ que cada una
+de las variables aleatorias tienen una distribuci\'{o}n binomial,y que
+$\widehat{p}=\overline{X}$ es el estimador puntual de $p$ . Determine el
+intervalo de confianza del $100(1-\alpha_{0})\%$ para $p$ \newline Si $p$ no
+est\'{a} demasiada cerca de 0 \'{o} 1, y si $n$ es relativamente grande
+tenemos que \newline%
+\[
+Z=\frac{\widehat{p}-p}{\sqrt{\frac{p(1-p)}{n}}}\sim N(0,1)
+\]
+Por lo que podemos demostrar que el intervalo de confianza para $p$ es
+:\newline%
+\[
+\widehat{p}-Z_{\alpha_{0}/2}\sqrt{\frac{p(1-p)}{n}}\leq p\leq\widehat
+{p}+Z_{\alpha_{0}/2}\sqrt{\frac{p(1-p)}{n}}%
+\]
+El tama\~{n}o de la muestra para que el error $e=|p-\widehat{p}|$ al estimar
+$p$ sea menor que $Z_{\alpha_{0}/2}\sqrt{\frac{p(1-p)}{n}}$ es:
+\[
+n=(\frac{Z_{\alpha_{0}/2}}{e})^{2}p(1-p)
+\]
+
+\end{example}
+
+\section{Intervalo de confianza sobre la diferencia en dos proporciones}
+
+\begin{example}
+Sean dos variables aleatorias independientes $X_{1j}$ y $X_{2k}$ tal que cada
+una de las variables aleatorias est\'{a} distribuida binomialmente y
+$\widehat{p}_{1}=\overline{X_{1\ast}}$ y $\widehat{p}_{2}=\overline{X_{2\ast}%
+}$ son estimadores de $p_{1}$ y $p_{2}$ respectivamente. Determinar el
+intervalo de confianza a un nivel de $100(1-\alpha)\%$\newline Tenemos que la
+variable:\newline{\small {\
+\[
+Z=\frac{\widehat{p}_{1}-\widehat{p}_{2}-(p_{1}-p_{2})}{\sqrt{\frac
+{p_{1}(1-p_{1})}{n_{1}}+\frac{p_{2}(1-p_{2})}{n_{2}}}}\sim N(0,1)
+\]
+} Entonces el intervalo de confianza para $p_{1}-p_{2}$ es:\newline%
+\[
+\widehat{p}_{1}-\widehat{p}_{2}-D\leq(p_{1}-p_{2})\leq\widehat{p}_{1}%
+-\widehat{p}_{2}+D
+\]
+Donde :
+\[
+D=Z_{\alpha}\sqrt{\frac{p_{1}(1-p_{1})}{n_{1}}+\frac{p_{2}(1-p_{2})}{n_{2}}}
+\]
+}
+\end{example}
+
+\chapter{Prueba de hip\'{o}tesis}
+
+
+
+\section{Error de tipo I}
+
+Se escoge un valor cr\'{\i}tico $c$ tal que, para cierto $\alpha_{0}\in(0,1)$
+fijo se cumpla
+\[
+P(T\geq c|H_{0})=\sup\limits_{\theta}P(\geq c|\theta)\leq\alpha_{0}%
+\]
+y que esta probabilidad tienda a $\alpha_{0}$ .\newline Cometer un error de
+tipo I. Significa que podemos rechazar $H_{0}$ a pesar de que $H_{0}$ fuera
+correcta, entonces escogiendo $c$ como se indica se controla la probabilidad
+del error de tipo I por medio de $\alpha_{0}$ . Por lo que a veces se dice que
+se rechaza la hip\'{o}tesis nula a un nivel de $\alpha_{0}$ .
+
+\section{Criterio del p-valor}
+
+
+
+El valor p es la probabilidad de obtener una estad\'{\i}stica de prueba igual
+o m\'{a}s exacta que el resultado obtenido a partir de los datos de la
+muestra, dado que la hip\'{o}tesis, $H_{0}$ es realmente verdadera. Por lo que
+este cr\'{\i}terio se conoce como el nivel de significaci\'{o}n
+observado.\newline\newline El procedimiento en este caso es calcular
+un\newline$\alpha=P(T\geq t|H_{0})$ para un $t=T(x)$ que resulta de los datos
+$x$ .\newline Al valor $\alpha=\alpha(T(x))$ se le llama el p-valor
+correspondiente a la hip\'{o}tesis $H_{0}$ y a la observaci\'{o}n $x$.\newline
+En concordancia con el error de tipo I, a menor p-valor, mayor fuerza toma la
+decisi\'{o}n de rechazar $H_{0}$
+
+\subsection{Desviaci\'{o}n del p-valor}
+
+Si $\alpha$ se encuentra en,
+
+\begin{itemize}
+\item $5\%\geq\alpha>1\%$ Se dice que el p-valor tiene una desviaci\'{o}n casi
+significativa de $H_{0}$
+
+\item $1\%\geq\alpha>0,1\%$ Se dice que el p-valor tiene una desviaci\'{o}n
+significativa de $H_{0}$
+
+\item $0,1\%\geq\alpha$ Se dice que el p-valor tiene una desviaci\'{o}n muy
+significativa de $H_{0}$
+
+\item $\alpha>5\%$ Se acepta la hip\'{o}tesis $H_{0}$ en el sentido que no se
+pudo encontrar una desviaci\'{o}n adecuada para rechazar $H_{0}$
+\end{itemize}
+
+
+
+\section{}
+
+
+
+Debido a que rechazar $H_{0}$ siempre es una conclusi\'{o}n fuerte en cambio
+no rechazar generalmente es una conclusi\'{o}n d\'{e}bil, a menos que sepamos
+que $\beta$ es peque\~{n}a, debemos en la mayor parte de los casos construir
+hip\'{o}tesis tal que el enunciado en el cual se desea una conclusi\'{o}n
+fuerte, este en la hip\'{o}tesis alternativa, es decir la hip\'{o}tesis nula
+debe ser siempre de la forma $H_{0}:\theta=\theta_{0}$, mientr\'{a}s que la
+alternativa debe ser de una de las siguientes formas,
+
+\begin{itemize}
+\item $H_{1}:\theta\neq\theta_{0}$
+
+\item $H_{1}:\theta\geq\theta_{0}$
+
+\item $H_{1}:\theta\leq\theta_{0}$
+\end{itemize}
+
+\subsection{}
+
+\begin{thebibliography}{9}                                                                                                %
+
+
+\bibitem {}Williams Mendenhall. \emph{Estad\'{\i}stica matem\'{a}tica con
+aplicaciones}\newline Grupo editorial iberoamericano . 1990
+
+\bibitem {}Murray R . Spiegel . \emph{Estad\'{\i}stica} Mac Graw-Hill .1991
+
+\bibitem {}Paul Meyer . \emph{Probabilidad y aplicaciones estad\'{\i}sticas}%
+\newline Addison Wesley, 1992
+
+\bibitem {}Walpole Ronald . \emph{Probabilidad y estad\'{\i}stica}\newline Mac
+Graw-Hill . 1995
+
+\bibitem {}Hines William. \emph{Probabilidad y estad\'{\i}stica}\newline
+CECSA. 1993
+\end{thebibliography}
+
+
+

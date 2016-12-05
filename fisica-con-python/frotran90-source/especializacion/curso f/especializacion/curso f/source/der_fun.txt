@@ -1,0 +1,19 @@
+C     PROGRAMA QUE OBTIENE LA DERIVADA DE UNA FUNCION ALGEBRAICA.
+      real*4 a(20)
+      write(*,*) 'Dame el grado del polinomio '
+      read(*,*) n
+      m=n-1
+      do 1 i=1,n
+      write(*,*) 'Dame x^',i-1
+      read(*,*) a(i)
+    1 continue
+      do 5 k=2,n
+      j=k-1
+      a(j)=j*(a(k))
+    5 continue
+      write(*,*) 'La derivada es:'
+      do 9 j=1,m
+      write(*,*) a(j),'x^',j-1
+    9 continue
+      stop
+      end

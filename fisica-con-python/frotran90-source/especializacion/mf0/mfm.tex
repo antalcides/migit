@@ -1,0 +1,117 @@
+\documentclass[12pt]{mfm2}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NOTA:
+%      Si se incluye el capitulo 5 (TeX), debe usarse necesariamente
+%      pdflatex
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                           
+
+\newcommand{\bslash}{\symbol{'134}}
+\newcommand{\underscore}{\symbol{'137}}
+\newcommand{\unix}{{\sc unix}}
+\newcommand{\comando}[1]{\boxed{\mbox{\ttfamily #1}}}
+\newcommand{\comandov}[2]{\vspace{.3cm}\noindent\fbox{\tt #1}\quad 
+#2\vspace{.3cm}}
+\newcommand{\grafico}[1]{\scalebox{.3}{\rotatebox{-90}%
+{\includegraphics{#1}}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Comandos especiales copiados de amsldoc.cls
+\def\AmS{{\protect\usefont{OMS}{cmsy}{m}{n}%
+  A\kern-.1667em\lower.5ex\hbox{M}\kern-.125emS}}
+\def\amslatex/{{\protect\AmS-\protect\LaTeX}}
+% Otros
+\def\bibtex{{\sc BiB\TeX}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{floatfig,color}
+\includeonly{mfm0-11}
+\begin{document}
+\initfloatingfigs
+\pagenumbering{roman}      % roman page numbers
+\thispagestyle{empty}
+
+\noindent 
+%\epsfig{file=/home/jrogan/texmf/uchile.eps, height=3.0cm}
+
+\vspace{-2.7cm}\hspace{1.4cm}\mbox{Departamento de F{\'\i}sica, Facultad de Ciencias, Universidad de Chile.}
+
+\hspace{2cm}\mbox{Las Palmeras 3425, {\~N}u{\~n}oa. Casilla 653, Correo 1, Santiago}
+
+\hspace{3cm}\mbox{\sc fono: 562 678 7276 \qquad fax: 562 271 2973}
+
+\hspace{4cm}\mbox{{\sc e-mail:} secretaria@fisica.ciencias.uchile.cl}
+
+\hspace{1.4cm} \rule{12.4cm}{0.1mm}
+
+\vspace{.5cm}
+
+
+\phantom{.}
+\vspace{3cm}
+
+\begin{center}
+{\Large \it Apuntes de un curso de} \\
+\vspace{.5cm}
+{\Huge \bf F{\'I}SICA MATEM{\'A}TICA}\\
+\end{center}
+
+\vspace{10cm}
+
+\begin{flushright}
+\begin{tabular}{l}
+{\Large Jos{\'e} Rogan C.}\\[2mm]
+{\Large V{\'\i}ctor Mu{\~n}oz G.}
+\end{tabular}
+\end{flushright}
+
+\newpage
+\thispagestyle{empty}
+\setcounter{tocdepth}{2}
+\tableofcontents
+%\listoftables
+%\listoffigures
+
+\newpage
+\pagestyle{headings}
+\setcounter{page}{0}
+\pagenumbering{arabic}
+
+\newpage
+\phantom{.}
+\vspace{5cm}
+
+\begin{center}
+{\Large \it Primer Curso} \\
+\vspace{.5cm}
+{\Huge \bf INTRODUCCI{\'O}N A LA F{\'I}SICA MATEM{\'A}TICA}\\
+\end{center}
+
+\newpage
+
+%\part{Computaci{\'o}n.}
+\include{mfm0-01}  % Introducci{\'o}n
+\include{mfm0-02}  %  C++
+\include{mfm0-03} % Grafica
+\include{mfm0-04} % Octave
+\include{mfm0-05}  % TeX 
+%\part{Ecuaciones diferenciales ordinarias.}
+\include{mfm0-06} %Ec dif de primer orden
+\include{mfm0-07} %Ec dif de orden > 1
+\include{mfm0-08} %Sistema Ec dif 
+%\part{M{\'e}todos Num{\'e}ricos.}
+\include{mfm0-09} %Preliminares 
+\setcounter{chapter}{9}
+\include{mfm0-10} %EDO Metodos basicos
+\include{mfm0-11} %EDOII Metodos avanzados
+\include{mfm0-12} %Sistemas de edo
+\include{mfm0-13} %Analisis de datos
+%\part{An{\'a}lisis Vectorial} 
+\include{mfm0-14} %Analisis vectorial
+\end{document}
+
+
+% Local Variables: 
+% TeX-master: "mfm"
+% End: 

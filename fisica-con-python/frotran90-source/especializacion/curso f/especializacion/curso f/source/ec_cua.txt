@@ -1,0 +1,15 @@
+C     PROGRAMA QUE RESUELVE ECUACIONES CUADRATICAS
+      WRITE (*,*) 'DIME LOS COEFICIENTES '
+      READ (*,*) A,B,C
+      D=(B**2.)-(4.*A*C)
+      IF (D.LT.0) GOTO 10
+      X1=(-B+D**(1./2.))/(2.*A)
+      X2=(-B-D**(1./2.))/(2.*A)
+      WRITE (*,*) 'X1=',X1,' X2=',X2
+      GOTO 40
+   10 R=-B/2./A
+      F=(-D)**(1./2.)/2./A
+      WRITE (*,*) 'X1=',R,'+',F,'I'
+      WRITE (*,*) 'X2=',R,'-',F,'I'
+   40 STOP
+      END

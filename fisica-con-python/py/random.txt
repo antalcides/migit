@@ -1,0 +1,13 @@
+numeros aleatórios:
+import random < definir random
+random.randint (3, 95) n. aleatórios sem vírgula 
+random.uniform (33, 3) n. aleatórios com vírgula
+random.seed(23, 23)
+import time< fazer o programa rodar em tal horário/dia/tempo
+tima.time()< (n colocar nada entre os())<conta quantos segundos passaram depois 
+de 19e_poucos.
+random.seed(time.time)< pode rodar várias vezes com num. diferentes, e vai gerar um 
+n aleatório
+com base no time.time, então sempre será diferente.
+fórmula do círculo x^2+y^2=r^2
+formar um valor aleatório entre -1 e 1, tanto para x e para y  usar random.uniform 

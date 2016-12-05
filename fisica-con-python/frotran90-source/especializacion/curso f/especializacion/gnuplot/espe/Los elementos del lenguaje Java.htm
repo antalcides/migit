@@ -1,0 +1,534 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0080)http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/primero.htm -->
+<HTML><HEAD><TITLE>Los elementos del lenguaje Java</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY>
+<H1 align=center>Los elementos del lenguaje Java</H1>
+<TABLE width="100%">
+  <TBODY>
+  <TR>
+    <TD width="32%">
+      <P align=left><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/proyecto.htm"><IMG 
+      height=40 alt="prev.gif (997 bytes)" 
+      src="Los elementos del lenguaje Java_archivos/prev.gif" width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/fundamentos.htm"><IMG 
+      height=40 alt="chapter.gif (1105 bytes)" 
+      src="Los elementos del lenguaje Java_archivos/chapter.gif" width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/curso.htm"><IMG height=40 
+      alt="home.gif (1054 bytes)" 
+      src="Los elementos del lenguaje Java_archivos/home.gif" width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/operadores.htm"><IMG 
+      height=40 alt="next.gif (998 bytes)" 
+      src="Los elementos del lenguaje Java_archivos/next.gif" 
+    width=49></A></P></TD>
+    <TD width="68%">
+      <H3 align=right><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/indice_intro.htm">Introducción</A></H3></TD></TR></TBODY></TABLE>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/primero.htm#Identificadores">Identificadores</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/primero.htm#Comentarios">Comentarios</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/primero.htm#Sentencias">Sentencias</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/primero.htm#Bloques de código">Bloques 
+de código</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/primero.htm#Expresiones">Expresiones</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/primero.htm#Variables">Variables</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/primero.htm#Tipos de datos primitivos">Los 
+tipos básicos de datos</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/primero.htm#Las cadenas de caracteres o strings">Las 
+cadenas de caractares o strings</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/primero.htm#Palabras clave">Palabras 
+reservadas</A></P>
+<HR>
+
+<P>La sintáxis de un lenguaje define los elementos de dicho lenguaje y cómo se 
+combinan para formar un programa. Los elementos típicos de cualquier lenguaje 
+son los siguientes: 
+<UL>
+  <LI>Identificadores: los nombres que se dan a las variables 
+  <LI>Tipos de datos 
+  <LI>Palabras reservadas: las palabras que utiliza el propio lenguaje 
+  <LI>Sentencias 
+  <LI>Bloques de código 
+  <LI>Comentarios 
+  <LI>Expresiones 
+  <LI>Operadores </LI></UL>
+<P>A lo largo de las páginas que siguen examinaremos en detalle cada uno de 
+estos elementos.</P>
+<P>&nbsp;</P>
+<H2><A name=Identificadores>Identificadores</A></H2>
+<P>Un identificador es un nombre que identifica a una variable, a un método o 
+función miembro, a una clase. Todos los lenguajes tienen ciertas reglas para 
+componer los identificadores: 
+<UL>
+  <LI>Todos los identificadores han de comenzar con una letra, el carácter 
+  subrayado ( _ ) o el carácter dollar ( $ ). 
+  <LI>Puede incluir, pero no comenzar por un número 
+  <LI>No puede incluir el carácter espacio en blanco 
+  <LI>Distingue entre letras mayúsculas y minúsculas 
+  <LI>No se pueden utilizar las plabras reservadas como identificadores </LI></UL>
+<P>Además de estas restricciones, hay ciertas convenciones que hacen que el 
+programa sea más legible, pero que no afectan a la ejecución del programa. La 
+primera y fundamental es la de encontrar un nombre que sea significativo, de 
+modo que el programa sea lo más legible posible. El tiempo que se pretende 
+ahorrar eligiendo nombres cortos y poco significativos se pierde con creces 
+cuando se revisa el programa después de cierto tiempo.</P>
+<TABLE cellSpacing=0 width="79%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="26%"><STRONG>Tipo de identificador</STRONG></TD>
+    <TD width="35%"><STRONG>Convención</STRONG></TD>
+    <TD width="39%"><STRONG>Ejemplo</STRONG></TD></TR>
+  <TR>
+    <TD width="26%">nombre de una clase</TD>
+    <TD width="35%">Comienza por letra mayúscula</TD>
+    <TD width="39%">String, Rectangulo, CinematicaApplet</TD></TR>
+  <TR>
+    <TD width="26%">nombre de función</TD>
+    <TD width="35%">comienza con letra minúscula</TD>
+    <TD width="39%">calcularArea, getValue, setColor</TD></TR>
+  <TR>
+    <TD width="26%">nombre de variable</TD>
+    <TD width="35%">comienza por letra minúscula</TD>
+    <TD width="39%">area, color, appletSize</TD></TR>
+  <TR>
+    <TD width="26%">nombre de constante</TD>
+    <TD width="35%">En letras mayúsculas</TD>
+    <TD width="39%">PI, MAX_ANCHO</TD></TR></TBODY></TABLE>
+<P>&nbsp;</P>
+<H2><A name=Comentarios>Comentarios</A></H2>
+<P>Un comentario es un texto adicional que se añade al código para explicar su 
+funcionalidad, bien a otras personas que lean el programa, o al propio autor 
+como recordatorio. Los comentarios son una parte importante de la documentación 
+de un programa. Los comentarios son ignorados por el compilador, por lo que no 
+incrementan el tamaño del archivo ejecutable; se pueden por tanto, añadir 
+libremente al código para que pueda entenderse mejor.</P>
+<P>La programación orientada a objetos facilita mucho la lectura del código, por 
+lo que lo que no se precisa hacer tanto uso de los comentarios como en los 
+lenguajes estructurados. En Java existen tres tipos de comentarios 
+<UL>
+  <LI>Comentarios en una sola línea 
+  <LI>Comentarios de varias líneas 
+  <LI>Comentarios de documentación </LI></UL>
+<P>Como podemos observar un comentario en varias líneas es un bloque de texto 
+situado entre el símbolo de comienzo del bloque <B>/*</B>, y otro de terminación 
+del mismo <B>*/</B>. Teniendo encuentra este hecho, los programadores diseñan 
+comentarios como el siguiente:</P><PRE> /*--------------------------------|
+|   (C) Angel Franco García        |
+|   fecha: Marzo 1999              |
+|   programa: PrimeroApp.java      |
+|---------------------------------*/<FONT face="Courier New" size=1></PRE></FONT>
+<P>Los comentarios de documentación es un bloque de texto situado entre el 
+símbolo de comienzo del bloque <B>/*</B>*, y otro de terminación del mismo 
+<B>*/.</B> El programa <EM>javadoc</EM> utiliza estos comentarios para generar 
+la documentación del código.</P><PRE>/** Este es el primer programa de una
+serie dedicada a explicar los fundamentos del lenguaje Java */</PRE>
+<P>Habitualmente, usaremos comentarios en una sola línea <STRONG>/</STRONG>/, ya 
+que no tiene el inconveniente de aprendernos los símbolos de comienzo y 
+terminación del bloque, u olvidarnos de poner este último, dando lugar a un 
+error en el momento de la compilación. En la ventana de edición del Entorno 
+Integrado de Desarrollo (IDE) los comentarios se distinguen del resto del código 
+por el color del texto.</P><PRE>public class PrimeroApp{
+    public static void main(String[] args) {
+//imprime un mensaje
+        System.out.println("El primer programa");
+    }
+}</PRE>
+<P>Un procedimiento elemental de depuración de un programa consiste en anular 
+ciertas sentencias de un programa mediante los delimitadores de comentarios. Por 
+ejemplo, se puede modificar el programa y anular la sentencia que imprime el 
+mensaje, poniendo delante de ella el delimitador de comentarios en una sola 
+línea.</P><PRE>        //System.out.println("El primer programa");<FONT face="Courier New" size=1></PRE></FONT>
+<P>Al correr el programa, observaremos que no imprime nada en la pantalla. </P>
+<P>La sentencia <EM>System.out.println()</EM> imprime un mensaje en la consola, 
+una ventana DOS que se abre en el escritorio de Windows 95. La función 
+<EM>println</EM> tiene un sólo argumento una cadena de caracteres u objeto de la 
+<A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/string.htm">clase 
+<EM>String</EM>.</A></P>
+<P>&nbsp;</P>
+<H2><A name=Sentencias>Sentencias</A></H2>
+<P>Una sentencia es una orden que se le da al programa para realizar una tarea 
+específica, esta puede ser: mostrar un mensaje en la pantalla, declarar una 
+variable (para reservar espacio en memoria), inicializarla, llamar a una 
+función, etc. Las sentencias acaban con <B>;</B>. este carácter separa una 
+sentencia de la siguiente. Normalmente, las sentencias se ponen unas debajo de 
+otras, aunque sentencias cortas pueden colocarse en una misma línea. He aquí 
+algunos ejemplos de sentencias</P><PRE>	int i=1;
+	import java.awt.*;
+	System.out.println("El primer programa");
+	rect.mover(10, 20);</PRE>
+<P>En el lenguaje Java, los caracteres espacio en blanco se pueden emplear 
+libremente. Como podremos ver en los sucesivos ejemplos, es muy importante para 
+la legibilidad de un programa la colocación de unas líneas debajo de otras 
+empleando tabuladores. El editor del IDE nos ayudará plenamente en esta tarea 
+sin apenas percibirlo.</P>
+<P>&nbsp;</P>
+<H2><A name="Bloques de código">Bloques de código</A></H2>
+<P>Un bloque de código es un grupo de sentencias que se comportan como una 
+unidad. Un bloque de código está limitado por las llaves de apertura 
+<STRONG>{</STRONG> y cierre <STRONG>}. </STRONG>Como ejemplos de bloques de 
+código tenemos la definición de una clase, la definición de una función miembro, 
+una sentencia iterativa <STRONG>for</STRONG>, los bloques <STRONG>try ... 
+catch</STRONG>, para el tratamiento de las excepciones, etc.</P>
+<P>&nbsp;</P>
+<H2><A name=Expresiones>Expresiones</A></H2>
+<P>Una expresión es todo aquello que se puede poner a la derecha del operador 
+asignación =. Por ejemplo:</P>
+<BLOCKQUOTE><PRE>x=123;
+y=(x+100)/4;
+area=circulo.calcularArea(2.5);
+Rectangulo r=new Rectangulo(10, 10, 200, 300);</PRE></BLOCKQUOTE>
+<P>La primera expresión asigna un valor a la variable <EM>x</EM>.</P>
+<P>La segunda, realiza una operación</P>
+<P>La tercera, es una llamada a una función miembro <EM>calcularArea</EM> desde 
+un objeto <EM>circulo</EM> de una clase determinada</P>
+<P>La cuarta, reserva espacio en memoria para un objeto de la clase 
+<EM>Rectangulo</EM> mediante la llamada a una función especial denominada 
+constructor.</P>
+<P>&nbsp;</P>
+<H2><A name=Variables>Variables</A></H2>
+<P>Una variable es un nombre que se asocia con una porción de la memoria del 
+ordenador, en la que se guarda el valor asignado a dicha variable. Hay varios 
+tipos de variables que requieren distintas cantidades de memoria para guardar 
+datos.</P>
+<P>Todas las variables han de declararse antes de usarlas, la declaración 
+consiste en una sentencia en la que figura el tipo de dato y el nombre que 
+asignamos a la variable. Una vez declarada se le podrá asignar valores.</P>
+<P>Java tiene tres tipos de variables: 
+<UL>
+  <LI>de instancia 
+  <LI>de clase 
+  <LI>locales </LI></UL>
+<P>Las variables de instancia o miembros dato como veremos más adelante, se usan 
+para guardar los atributos de un objeto particular. </P>
+<P>Las variables de clase o miembros dato estáticos son similares a las 
+variables de instancia, con la excepción de que los valores que guardan son los 
+mismos para todos los objetos de una determinada clase. En el siguiente ejemplo, 
+<EM>PI</EM> es una variable de clase y <EM>radio</EM> es una variable de 
+instancia. <EM>PI</EM> guarda el mismo valor para todos los objetos de la clase 
+<EM>Circulo</EM>, pero el radio de cada círculo puede ser diferente</P><PRE>class Circulo{
+	static final double PI=3.1416;
+	double radio;
+//...
+}</PRE>
+<P>Las variables locales se utilizan dentro de las funciones miembro o métodos. 
+En el siguiente ejemplo <EM>area</EM> es una variable local a la función 
+<EM>calcularArea</EM> en la que se guarda el valor del área de un objeto de la 
+clase <EM>Circulo</EM>. Una variable local existe desde el momento de su 
+definición hasta el final del bloque en el que se encuentra.</P><PRE>class Circulo{
+//...
+  	double calcularArea(){
+		double area=PI*radio*radio;
+		return area;
+  	}
+}</PRE>
+<P>En el lenguaje Java, las variables locales se declaran en el momento en el 
+que son necesarias. Es una buena costumbre inicializar las variables en el 
+momento en el que son declaradas. Veamos algunos ejemplos de declaración de 
+algunas variables</P><PRE><STRONG>	int</STRONG> x=0;
+<STRONG>	String</STRONG> nombre="Angel";
+<STRONG>	double</STRONG> a=3.5, b=0.0, c=-2.4;
+<STRONG>	boolean</STRONG> bNuevo=true;
+<STRONG>	int[]</STRONG> datos;</PRE>
+<P>Delante del nombre de cada variable se ha de especificar el tipo de variable 
+que hemos destacado en letra negrita. Las variables pueden ser 
+<UL>
+  <LI>Un tipo de dato primitivo 
+  <LI>El nombre de una clase 
+  <LI>Un array </LI></UL>
+<P>El lenguaje Java utiliza el conjunto de caracteres Unicode, que incluye no 
+solamente el conjunto ASCII sino también carateres específicos de la mayoría de 
+los alfabetos. Así, podemos declarar una variable que contenga la letra ñ</P><PRE>	int año=1999;</PRE>
+<P>Se ha de poner nombres significativos a las variables, generalmente formados 
+por varias palabras combinadas, la primera empieza por minúscula, pero las que 
+le siguen llevan la letra inicial en mayúsculas. Se debe evitar en todos los 
+casos nombres de variables cortos como <EM>xx</EM>, <EM>i</EM>, etc. </P><PRE>	double radioCirculo=3.2;</PRE>
+<P>Las variables son uno de los elementos básicos de un programa, y se deben 
+<UL>
+  <LI>Declarar 
+  <LI>Inicializar 
+  <LI>Usar </LI></UL>
+<P>&nbsp;</P>
+<H2><A name="Tipos de datos primitivos">Tipos de datos primitivos</A></H2>
+<TABLE cellSpacing=0 width=623 border=1>
+  <TBODY>
+  <TR>
+    <TD vAlign=center width="12%"><B>Tipo</B></TD>
+    <TD vAlign=center width="88%"><B>Descripcion</B> </TD></TR>
+  <TR>
+    <TD vAlign=center width="12%"><STRONG>boolean</STRONG> </TD>
+    <TD vAlign=center width="88%">Tiene dos valores <STRONG>true</STRONG> o 
+      <STRONG>false</STRONG>. </TD></TR>
+  <TR>
+    <TD vAlign=center width="12%"><STRONG>char</STRONG></TD>
+    <TD vAlign=center width="88%">Caracteres Unicode de 16 bits&nbsp; Los 
+      caracteres alfa-numéricos son los mismos que los ASCII con el bit alto 
+      puesto a 0. El intervalo de valores va desde 0 hasta 65535 (valores de 
+      16-bits sin signo).&nbsp; </TD></TR>
+  <TR>
+    <TD vAlign=center width="12%"><STRONG>byte</STRONG></TD>
+    <TD vAlign=center width="88%">Tamaño 8 bits.&nbsp; El intervalo de valores 
+      va desde -2<SUP>7</SUP> hasta 2<SUP>7</SUP> -1 (-128 a 127) </TD></TR>
+  <TR>
+    <TD vAlign=center width="12%"><STRONG>short</STRONG></TD>
+    <TD vAlign=center width="88%">Tamaño 16 bits.&nbsp; El intervalo de 
+      valores va desde -2<SUP>15</SUP> hasta 2<SUP>15</SUP>-1 (-32768 a 
+  32767)</TD></TR>
+  <TR>
+    <TD vAlign=center width="12%"><STRONG>int</STRONG></TD>
+    <TD vAlign=center width="88%">Tamaño 32 bits.&nbsp; El intervalo de 
+      valores va desde -2<SUP>31</SUP> hasta 2<SUP>31</SUP>-1 (-2147483648 a 
+      2147483647) </TD></TR>
+  <TR>
+    <TD vAlign=center width="12%"><STRONG>long</STRONG></TD>
+    <TD vAlign=center width="88%">Tamaño 64 bits. El intervalo de valores va 
+      desde -2<SUP>63</SUP> hasta&nbsp; 2<SUP>63</SUP>-1 (-9223372036854775808 a 
+      9223372036854775807) </TD></TR>
+  <TR>
+    <TD vAlign=center width="12%"><STRONG>float</STRONG></TD>
+    <TD vAlign=center width="88%">Tamaño 32 bits. Números en coma flotante de 
+      simple precisión. Estándar IEEE 754-1985&nbsp; (de 1.40239846e–45f a 
+      3.40282347e+38f) </TD></TR>
+  <TR>
+    <TD vAlign=center width="12%"><STRONG>double</STRONG> </TD>
+    <TD vAlign=center width="88%">Tamaño 64 bits. Números en coma flotante de 
+      doble precisión. Estándar IEEE 754-1985. (de 
+      4.94065645841246544e–324d&nbsp; a 
+1.7976931348623157e+308d.)</TD></TR></TBODY></TABLE>
+<P>Los tipos básicos que utilizaremos en la mayor parte de los programas serán 
+<STRONG>boolean</STRONG>, <STRONG>int</STRONG> y 
+<STRONG>double</STRONG>.<BR></P>
+<H3>Caracteres</H3>
+<P>En Java los caracteres no están restringidos a los ASCII sino son Unicode. Un 
+carácter está siempre rodeado de comillas simples como 'A', '9', 'ñ', etc. El 
+tipo de dato <STRONG>char</STRONG> sirve para guardar estos caracteres.</P>
+<P>Un tipo especial de carácter es la secuencia de escape, similares a las del 
+lenguaje C/C++, que se utilizan para representar caracteres de control o 
+caracteres que no se imprimen. Una secuencia de escape está formada por la barra 
+invertida (\) y un carácter. En la siguiente tabla se dan las secuencias de 
+escape más utilizadas.</P>
+<TABLE cellSpacing=0 width="43%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="40%"><STRONG>Carácter</STRONG></TD>
+    <TD width="60%"><STRONG>Secuencia de escape</STRONG></TD></TR>
+  <TR>
+    <TD width="40%">retorno de carro</TD>
+    <TD align=middle width="60%">\r</TD></TR>
+  <TR>
+    <TD width="40%">tabulador horizontal</TD>
+    <TD align=middle width="60%">\t</TD></TR>
+  <TR>
+    <TD width="40%">nueva línea</TD>
+    <TD align=middle width="60%">\n</TD></TR>
+  <TR>
+    <TD width="40%">barra invertida</TD>
+    <TD align=middle width="60%">\\</TD></TR></TBODY></TABLE>
+<P>&nbsp;</P>
+<H3>Variables booleanas</H3>
+<P>En el lenguaje C/C++ el valor 0 se toma como falso y el 1 como verdadero. En 
+el lenguaje Java existe el tipo de dato <STRONG>boolean</STRONG>. Una variable 
+booleana solamente puede guardar uno de los dos posibles valores: true 
+(verdadero) y false (falso). </P><PRE>boolean encontrado=false;
+{...}
+encontrado=true;</PRE>
+<P>&nbsp;</P>
+<H3>Variables enteras</H3>
+<P>Una variable entera consiste en cualquier combinación de cifras precedidos 
+por el signo más (opcional), para los positivos, o el signo menos, para los 
+negativos. Son ejemplos de números enteros:</P>
+<P>12, -36, 0, 4687, -3598</P>
+<P>Como ejemplos de declaración de variable enteras tenemos:</P><PRE>	int numero=1205;
+	int x,y;
+	long m=30L;<B></PRE>
+<P>int</B> es la palabra reservada para declarar una variable entera. En el 
+primer caso, el compilador reserva una porción de 32 bits de memoria en el que 
+guarda el número 1205. Se accede a dicha porción de memoria mediante el nombre 
+de la variable, <I>num</I>ero. En el segundo caso, las porciones de memoria 
+cuyos nombres son <I>x</I> e <I>y</I>, guardan cualquier valor entero si la 
+variable es local o cero si la variable es de instancia o de clase. El uso de 
+una variaable local antes de ser convenientemente inicializada puede conducir a 
+consecuencias desastrosas. Por tanto, declarar e inicializar una variable es una 
+práctica aconsejable. </P>
+<P>En la tercera línea 30 es un número de tipo <STRONG>int</STRONG> por defecto, 
+le ponemos el sufijo <STRONG>L</STRONG> en mayúsculas o minúsculas para indicar 
+que es de tipo <STRONG>long.</STRONG></P>
+<P>Existen como vemos en la tabla varios tipos de números enteros 
+(<STRONG>byte</STRONG>, <STRONG>short</STRONG>, <STRONG>int</STRONG>, 
+<STRONG>long</STRONG>), y también existe una clase denominada 
+<EM>BigInteger</EM> cuyos objetos pueden guardar un número entero 
+arbitrariamente grande.</P>
+<P>&nbsp;</P>
+<H3>Variables en coma flotante</H3>
+<P>Las variables del tipo <B>float</B> o <STRONG>double</STRONG> (coma flotante) 
+se usan para guardar números en memoria que tienen parte entera y parte 
+decimal.</P><PRE>	double PI=3.14159; 
+	double g=9.7805, c=2.9979e8;</PRE>
+<P>El primero es una aproximación del número real <FONT face=Symbol>p</FONT>, el 
+segundo es la aceleración de la gravedad a nivel del mar, el tercero es la 
+velocidad de la luz en m/s, que es la forma de escribir&nbsp; 2.9979 
+10<SUP>8</SUP>. El carácter punto '.', separa la parte entera de la parte 
+decimal, en vez del carácter coma ',' que usamos habitualmente en nuestro 
+idioma.</P>
+<P>Otras ejemplos son los siguientes</P><PRE>	float a=12.5f;
+	float b=7f;
+	double c=7.0;
+	double d=7d;</PRE>
+<P>En la primera línea 12.5 lleva el sufijo <STRONG>f</STRONG>, ya que por 
+defecto 12.5 es <STRONG>double</STRONG>. En la segunda línea 7 es un entero y 
+por tanto 7f es un número de tipo <STRONG>float</STRONG>. Y así el resto de los 
+ejemplos.</P>
+<P>Conceptualmente, hay infinitos números de valores entre dos números reales. 
+Ya que los valores de las variables se guardan en un número prefijado de bits, 
+algunos valores no se pueden representar de forma precisa en memoria. Por tanto, 
+los valores de las variables en coma flotante en un ordenador solamente se 
+aproximan a los verdaderos números reales en matemáticas. La aproximación es 
+tanto mejor, cuanto mayor sea el tamaño de la memoria que reservamos para 
+guardarlo. De este hecho, surgen las variables del tipo <STRONG>float</STRONG> y 
+<B>double</B>. Para números de precisión arbitararia se emplea la clase 
+<EM>BigDecimal</EM>.</P>
+<P>&nbsp;</P>
+<H3>Valores constantes</H3>
+<P>Cuando se declara una variable de tipo <B>final</B>, se ha de inicializar y 
+cualquier intento de modificarla en el curso de la ejecución del programa da 
+lugar a un error en tiempo de compilación. </P>
+<P>Normalmente, las constantes de un programa se suelen poner en letras 
+mayúsculas, para distinguirlas de las que no son constantes. He aquí ejemplos de 
+declaración de constantes.</P><PRE>	final double PI=3.141592653589793;
+	final int MAX_DATOS=150;</PRE>
+<P>&nbsp;</P>
+<H2><A name="Las cadenas de caracteres o strings">Las cadenas de caracteres o 
+strings</A></H2>
+<P>Además de los ocho tipos de datos primitivos, las variables en Java pueden 
+ser declaradas para guardar una instancia de una clase, como veremos en el 
+siguiente capítulo (<A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/clases.htm#Los objetos">Clases 
+y objetos</A>).</P>
+<P>Las <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/string.htm">cadenas 
+de caracteres o strings</A> son distintas en Java y en el lenguaje C/C++, en 
+este último, las cadenas son arrays de caracteres terminados en el 
+carácter&nbsp; <STRONG>'\0</STRONG>'. Sin embargo, en Java son objetos de la 
+clase <EM>String</EM>.</P><PRE>	String mensaje="El primer programa";</PRE>
+<P>Empleando strings, el primer programa quedaría de la forma equivalente </P>
+<TABLE cellSpacing=0 width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="100%" bgColor=#f7f7f7><PRE>public class PrimeroApp{
+    public static void main(String[] args) {
+//imprime un mensaje	
+	String mensaje="El primer programa";
+       	System.out.println(mensaje);
+    }
+}</PRE></TD></TR></TBODY></TABLE>
+<P>En una cadena se pueden insertar caracteres especiales como el carácter 
+tabulador '\t' o el de nueva línea '\n'</P><PRE>	String texto="Un string con \t un carácter tabulador y \n un salto de línea";</PRE>
+<P>&nbsp;</P>
+<H2><A name="Palabras clave">Palabras reservadas</A></H2>
+<P>En el siguiente cuadro se listan las palabras reservadas, aquellas que emplea 
+el lenguaje Java, y que el programador no puede utilizar como <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/primero.htm#Identificadores">identificadores</A>. 
+Algunas de estas palabras le resultarán familiares al programador del lenguaje 
+C/C++. Las palabras reservadas señaladas con un arterisco (*) no se 
+utilizan.</P>
+<TABLE cellSpacing=0 width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="20%">abstract</TD>
+    <TD width="20%">boolean</TD>
+    <TD width="20%">break</TD>
+    <TD width="20%">byte</TD>
+    <TD width="20%">byvalue*</TD></TR>
+  <TR>
+    <TD width="20%">case</TD>
+    <TD width="20%">cast*</TD>
+    <TD width="20%">catch</TD>
+    <TD width="20%">char</TD>
+    <TD width="20%">class</TD></TR>
+  <TR>
+    <TD width="20%">const*</TD>
+    <TD width="20%">continue</TD>
+    <TD width="20%">default</TD>
+    <TD width="20%">do</TD>
+    <TD width="20%">double</TD></TR>
+  <TR>
+    <TD width="20%">else</TD>
+    <TD width="20%">extends</TD>
+    <TD width="20%">false</TD>
+    <TD width="20%">final</TD>
+    <TD width="20%">finally</TD></TR>
+  <TR>
+    <TD width="20%">float</TD>
+    <TD width="20%">for</TD>
+    <TD width="20%">future*</TD>
+    <TD width="20%">generic*</TD>
+    <TD width="20%">goto*</TD></TR>
+  <TR>
+    <TD width="20%">if</TD>
+    <TD width="20%">implements</TD>
+    <TD width="20%">import</TD>
+    <TD width="20%">inner*</TD>
+    <TD width="20%">instanceof</TD></TR>
+  <TR>
+    <TD width="20%">int</TD>
+    <TD width="20%">interface</TD>
+    <TD width="20%">long</TD>
+    <TD width="20%">native</TD>
+    <TD width="20%">new</TD></TR>
+  <TR>
+    <TD width="20%">null</TD>
+    <TD width="20%">operator*</TD>
+    <TD width="20%">outer*</TD>
+    <TD width="20%">package</TD>
+    <TD width="20%">private</TD></TR>
+  <TR>
+    <TD width="20%">protected</TD>
+    <TD width="20%">public</TD>
+    <TD width="20%">rest*</TD>
+    <TD width="20%">return</TD>
+    <TD width="20%">short</TD></TR>
+  <TR>
+    <TD width="20%">satatic</TD>
+    <TD width="20%">super</TD>
+    <TD width="20%">switch</TD>
+    <TD width="20%">synchronized</TD>
+    <TD width="20%">this</TD></TR>
+  <TR>
+    <TD width="20%">throw</TD>
+    <TD width="20%">transient</TD>
+    <TD width="20%">true</TD>
+    <TD width="20%">try</TD>
+    <TD width="20%">var*</TD></TR>
+  <TR>
+    <TD width="20%">void</TD>
+    <TD width="20%">volatile</TD>
+    <TD width="20%">while</TD>
+    <TD width="20%">&nbsp;</TD>
+    <TD width="20%">&nbsp;</TD></TR></TBODY></TABLE>
+<P>Las palabras reservadas se pueden clasificar en las siguientes categorías: 
+<UL>
+  <LI>Tipos de datos: <STRONG>boolean, float, double, int, char</STRONG> 
+  <LI>Sentencias condicionales: <STRONG>if, else, switch</STRONG> 
+  <LI>Sentencias iterativas: <STRONG>for, do, while, continue</STRONG> 
+  <LI>Tratamiento de las excepciones: <STRONG>try, catch, finally, 
+  throw</STRONG> 
+  <LI>Estructura de datos: <STRONG>class, interface, implements, 
+  extends</STRONG> 
+  <LI>Modificadores y control de acceso: <STRONG>public, private, protected, 
+  transient</STRONG> 
+  <LI>Otras: <STRONG>super</STRONG>, <STRONG>null, this</STRONG>. </LI></UL>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P></BODY></HTML>

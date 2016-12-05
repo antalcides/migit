@@ -1,0 +1,15 @@
+# ICM00794-Fundamentos de Computación - FCNM-ESPOL
+# Parcial III Término 2003.Tema 2. 
+# Números triangulares
+# Propuesta de solución. edelros@espol.edu.ec.
+t=int(input('Verificar si es triangular: '))
+piso=1
+usados=0
+while not(usados>=t):
+    usados=usados+piso
+    piso=piso+1
+if usados==t:
+    z=1
+else:
+    z=0
+print(z)

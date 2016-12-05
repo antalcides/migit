@@ -1,0 +1,301 @@
+*** Pdf.java.dist	Thu Jun 10 11:10:42 1999
+--- Pdf.java	Mon Aug  2 15:09:36 1999
+***************
+*** 26,31 ****
+--- 26,32 ----
+  import com.etymon.pj.exception.*;
+  import com.etymon.pj.object.*;
+  import com.etymon.pj.util.*;
++ import de.tu_darmstadt.sp.util.*;
+  
+  /**
+     A document representation of a PDF file.
+***************
+*** 783,790 ****
+  	private void readFromFile(String filename) throws IOException,
+  		PjException {
+  		init();
+! 		RandomAccessFile raf = new RandomAccessFile(filename,
+! 							    "r");
+  		try {
+  			PdfParser.getObjects(this, raf);
+  		}
+--- 784,790 ----
+  	private void readFromFile(String filename) throws IOException,
+  		PjException {
+  		init();
+! 		BufferedRandomFileInputStream raf = new BufferedRandomFileInputStream(filename);
+  		try {
+  			PdfParser.getObjects(this, raf);
+  		}
+*** PdfParser.java.dist	Thu Jun 10 11:10:42 1999
+--- PdfParser.java	Wed May  3 11:13:21 2000
+***************
+*** 24,33 ****
+  import java.util.*;
+  import com.etymon.pj.exception.*;
+  import com.etymon.pj.object.*;
+  
+  public class PdfParser {
+  
+! 	public static void getObjects(Pdf pdf, RandomAccessFile raf)
+  		throws IOException, PjException {
+  		long[][] xref = getXref(pdf, raf);
+  		byte[] data;
+--- 24,34 ----
+  import java.util.*;
+  import com.etymon.pj.exception.*;
+  import com.etymon.pj.object.*;
++ import de.tu_darmstadt.sp.util.*;
+  
+  public class PdfParser {
+  
+! 	public static void getObjects(Pdf pdf, BufferedRandomFileInputStream raf)
+  		throws IOException, PjException {
+  		long[][] xref = getXref(pdf, raf);
+  		byte[] data;
+***************
+*** 43,49 ****
+  		}
+  	}
+  
+! 	private static PjObject getObject(Pdf pdf, RandomAccessFile raf, long[][] xref, int num)
+  		throws IOException, PjException {
+  		// check if the object has been loaded
+  		PjObject obj = pdf._objects.objectAt(num);
+--- 44,50 ----
+  		}
+  	}
+  
+! 	private static PjObject getObject(Pdf pdf, BufferedRandomFileInputStream raf, long[][] xref, int num)
+  		throws IOException, PjException {
+  		// check if the object has been loaded
+  		PjObject obj = pdf._objects.objectAt(num);
+***************
+*** 58,64 ****
+  		return obj;
+  	}
+  	
+! 	private static long[][] getXref(Pdf pdf, RandomAccessFile raf) throws
+  		IOException, PjException {
+  		// we assume that the cross-reference table as a whole
+  		// (including all "sections") is contiguous in terms
+--- 59,65 ----
+  		return obj;
+  	}
+  
+! 	private static long[][] getXref(Pdf pdf, BufferedRandomFileInputStream raf) throws
+  		IOException, PjException {
+  		// we assume that the cross-reference table as a whole
+  		// (including all "sections") is contiguous in terms
+***************
+*** 77,83 ****
+  		return getNextXref(pdf, raf, lastXref, null);
+  	}
+  
+! 	private static long[][] getNextXref(Pdf pdf, RandomAccessFile raf, long start,
+  				   long[][] xref)
+  		throws IOException, PjException {
+  		raf.seek(start);
+--- 78,84 ----
+  		return getNextXref(pdf, raf, lastXref, null);
+  	}
+  
+! 	private static long[][] getNextXref(Pdf pdf, BufferedRandomFileInputStream raf, long start,
+  				   long[][] xref)
+  		throws IOException, PjException {
+  		raf.seek(start);
+***************
+*** 104,110 ****
+  		return xr;
+  	}
+  
+! 	private static long getStartXref(RandomAccessFile raf) throws
+  		IOException, PjException {
+  		// locate startxref near the end of the file
+  		long fileSize = raf.length();
+--- 105,111 ----
+  		return xr;
+  	}
+  
+! 	private static long getStartXref(BufferedRandomFileInputStream raf) throws
+  		IOException, PjException {
+  		// locate startxref near the end of the file
+  		long fileSize = raf.length();
+***************
+*** 129,146 ****
+  		return new Long(new String(sb)).longValue();
+  	}
+  
+! 	protected static byte[] readUntil(RandomAccessFile raf, String
+  					  endstr) throws IOException {
+  		StringBuffer sb = new StringBuffer();
+  		char c = '\0';
+  		String s;
+  		char[] compare = new char[endstr.length()];
+  		char lastEol = '\0';
+- 		boolean eof = false;
+  		boolean done = false;
+  		do {
+! 			try {
+! 				c = (char)(raf.readUnsignedByte());
+  				switch (lastEol) {
+  				case '\0':
+  					if ( (c == '\r') || (c ==
+--- 130,149 ----
+  		return new Long(new String(sb)).longValue();
+  	}
+  
+! 	protected static byte[] readUntil(BufferedRandomFileInputStream raf, String
+  					  endstr) throws IOException {
+  		StringBuffer sb = new StringBuffer();
+  		char c = '\0';
+  		String s;
+  		char[] compare = new char[endstr.length()];
+  		char lastEol = '\0';
+  		boolean done = false;
++ 		int tempc;
+  		do {
+! 			        if ((tempc = raf.read()) == -1) {
+! 				  break;
+! 			        }
+! 				c = (char) tempc;
+  				switch (lastEol) {
+  				case '\0':
+  					if ( (c == '\r') || (c ==
+***************
+*** 173,183 ****
+  					done = true;
+  					break;
+  				}
+! 			}
+! 			catch (EOFException e) {
+! 				eof = true;
+! 			}
+! 		} while ( (eof == false) && (done == false) );
+  		int y = sb.length();
+  		byte[] buffer = new byte[y];
+  		for (int x = 0; x < y; x++) {
+--- 176,182 ----
+  					done = true;
+  					break;
+  				}
+! 		} while (done == false );
+  		int y = sb.length();
+  		byte[] buffer = new byte[y];
+  		for (int x = 0; x < y; x++) {
+***************
+*** 190,196 ****
+  	// RandomAccessFile.readLine() does not seem to work!
+  	// this is a replacement, but it also discards the trailing
+  	// '\r' and/or '\n'
+! 	protected static String readLine(RandomAccessFile raf) throws
+  		IOException {
+  		char c = '\0';
+  		StringBuffer sb = new StringBuffer();
+--- 189,195 ----
+  	// RandomAccessFile.readLine() does not seem to work!
+  	// this is a replacement, but it also discards the trailing
+  	// '\r' and/or '\n'
+! 	protected static String readLine(BufferedRandomFileInputStream raf) throws
+  		IOException {
+  		char c = '\0';
+  		StringBuffer sb = new StringBuffer();
+***************
+*** 198,206 ****
+  		boolean endOfFile = false;
+  		boolean startOfNext = false;
+  		boolean firstChar = true;
+  		do {
+! 			try {
+! 				c = (char)(raf.readUnsignedByte());
+  				if ( (c != '\r') && (c != '\n') ) {
+  					if (endOfLine) {
+  						startOfNext = true;
+--- 197,208 ----
+  		boolean endOfFile = false;
+  		boolean startOfNext = false;
+  		boolean firstChar = true;
++ 		int tempc;
+  		do {
+!    		                if ((tempc = raf.read()) == -1) {
+! 				  endOfFile=true; break;
+! 				}
+! 				c = (char)tempc;
+  				if ( (c != '\r') && (c != '\n') ) {
+  					if (endOfLine) {
+  						startOfNext = true;
+***************
+*** 211,222 ****
+  					endOfLine = true;
+  				}
+  				firstChar = false;
+! 			}
+! 			catch (EOFException e) {
+! 				endOfFile = true;
+! 			}
+! 		} while ( (endOfFile == false) && (startOfNext ==
+! 						     false) );
+  		if (startOfNext) {
+  			raf.seek(raf.getFilePointer() - 1);
+  		}
+--- 213,219 ----
+  					endOfLine = true;
+  				}
+  				firstChar = false;
+! 		} while ( startOfNext == false );
+  		if (startOfNext) {
+  			raf.seek(raf.getFilePointer() - 1);
+  		}
+***************
+*** 260,266 ****
+  		}
+  	}
+  	
+! 	public static PjObject parse(Pdf pdf, RandomAccessFile raf, long[][] xref, byte[] data, int start)
+  		throws IOException, PjException {
+  		PdfParserState state = new PdfParserState();
+  		state._data = data;
+--- 257,263 ----
+  		}
+  	}
+  
+! 	public static PjObject parse(Pdf pdf, BufferedRandomFileInputStream raf, long[][] xref, byte[] data, int start)
+  		throws IOException, PjException {
+  		PdfParserState state = new PdfParserState();
+  		state._data = data;
+***************
+*** 302,317 ****
+  				}
+  				state._stream =
+  					((PjNumber)(obj)).getInt();
+! 				if (state._pos < state._data.length) {
+! 					if ((char)(state._data[state._pos]) == '\r') {
+! 						state._pos++;
+! 					}
+! 					if ( (state._pos < state._data.length) &&
+! 					     ((char)(state._data[state._pos]) ==
+! 					      '\n') ) {
+! 						state._pos++;
+! 					}
+! 				}
+  			}
+  			else if (state._token.equals("null")) {
+  				stack.push(new PjNull());
+--- 299,314 ----
+  				}
+  				state._stream =
+  					((PjNumber)(obj)).getInt();
+! // 				if (state._pos < state._data.length) {
+! // 					if ((char)(state._data[state._pos]) == '\r') {
+! // 						state._pos++;
+! // 					}
+! // 					if ( (state._pos < state._data.length) &&
+! // 					     ((char)(state._data[state._pos]) ==
+! // 					      '\n') ) {
+! // 						state._pos++;
+! // 					}
+! // 				}
+  			}
+  			else if (state._token.equals("null")) {
+  				stack.push(new PjNull());

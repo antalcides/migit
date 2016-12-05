@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0061)http://garota.fismat.umich.mx/mn1/tutor_fort/expressions.html -->
+<HTML><HEAD><TITLE>Tutorial de Fortran</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY background="Tutorial de Fortranpr_archivos/default.gif">
+<H2>6. Asignación y Expresiones</H2>
+<H3>Constantes</H3>La forma más simple de una expresión es una 
+<EM>constante</EM>. Hay seis tipos de constantes, que corresponden con los tipos 
+de datos que maneja Fortran. Se muestran a continuación ejemplos de constantes 
+enteras: <PRE>1
+0
+-100
+32767
++15
+</PRE>Ejemplos de constantes de tipo real: <PRE>1.0
+-0.25
+2.0E6
+3.333E-1
+</PRE>La notación <I>E</I> se usa para números que se encuentran escritos en 
+<I>notación científica</I>. Por lo que 2.0E6 es dos millones, mientras que 
+3.333E-1 es aproximadamente la tercera parte de uno 
+<P>Para constantes que rebasen la capacidad de almacenamiento de un real se 
+puede usar doble precisión. En este caso, la notación usada es el símbolon "D" 
+en vez de "E". Por ejemplo: <PRE>2.0D-1
+1D99
+</PRE>Por lo que <I>2.0D-1</I> es la quinta parte de uno almacenada en un tipo 
+doble precisión y <I>1D99</I> es un uno seguido por 99 ceros. 
+<P>El siguiente tipo son constantes complejas. Los cuales son indicados por un 
+par de constantes (enteras o reales), separadas por una coma y encerrados entre 
+paréntesis. Por ejemplo: <PRE>(2, -3)
+(1., 9.9E-1)
+</PRE>El primer número denota la parte real y el segundo la parte imaginaria. 
+<P>El quinto tipo, son las constantes lógicas. Estas sólo pueden tener uno de 
+dos posibles valores, que son: <PRE>.TRUE.
+.FALSE.
+</PRE>Observar que se requiere que se encierren con punto las palabras. 
+<P>El último tipo son las constantes de caracteres. Estas son por lo general 
+usadas como un <EM>arreglo</EM> de caracteres, llamado <EM>cadena</EM>. Estas 
+consisten de una secuencia arbitraria de caracteres encerradas con apóstrofes 
+(comillas sencillas), por ejemplo: <PRE>'ABC'
+'¡Cualquier cosa!'
+'Es un magnífico día'
+</PRE>Las constantes de cadenas son sensibles a mayúsculas y minúsculas. Se 
+presenta un problema cuando se quiere poner un apóstrofe dentro de la cadena. En 
+este caso la cadena debe ser encerrada entre comillas dobles, por ejemplo: <PRE>"Hay muchos CD's piratas"
+</PRE>
+<P>
+<H3>Expresiones</H3>Las expresiones más sencillas son de la forma <PRE><EM>operando   operador   operando</EM>
+</PRE>y un ejemplo es <PRE>x + y
+</PRE>El resultado de una expresión es por si misma otro operando, por lo que se 
+puede hacer anidamiento como lo siguiente: <PRE>x + 2 * y 
+</PRE>Con lo anterior se presenta la pregunta de la precedencia, ¿la última 
+expresión significa <TT>x + (2*y)</TT> o <TT>(x+2)*y</TT>? La precedencia de los 
+operadores aritméticos en Fortran 77 es (de la más alta a la más baja): <PRE>**   <EM>{exponenciación}</EM>
+*  /  <EM>{multiplicación, división}</EM>
++  -  <EM>{suma, resta}</EM>
+</PRE>Todos los operadores son evaluados de izquierda a derecha, excepto el 
+operador de exponenciación, el cual tiene precedencia de derecha a izquierda. Si 
+se desea cambiar el orden de evaluación, se pueden usar paréntesis. 
+<P>Todos los operadores anteriores son binarios. Se tienen también operadores 
+unarios, uno de ellos es el de negación <TT>-</TT> y que tiene una precedencia 
+mayor que los anteriores. Por lo que la expresión <TT>-x+y</TT> significa lo que 
+se esperaría. 
+<P>Se debe tener cuidado al usar el operador de división, el cual devolverá 
+distintos valores dependiendo del tipo de datos que se estén usando. Si ambos 
+operandos son enteros, se hace una división entera, de otra forma se hace una 
+división que devuelve un tipo real. Por ejemplo, <I>3/2</I> es igual a <I>1</I> 
+y <I>3./2.</I> es igual a <I>1.5</I>. 
+<P>
+<H3>Asignación</H3>Una asignación tiene la forma <PRE><EM>nombre_de_variable</EM> = <EM>expresión</EM>
+</PRE>La interpretación es como sigue: se evalúa el lado derecho y se asigna el 
+valor del resultado a la variable de la izquierda. La expresión de la derecha 
+puede contener otras variables, pero estas nunca cambiaran de valor. Por 
+ejemplo: <PRE>area = pi * r**2
+</PRE>no cambia el valor de <TT>pi</TT>, ni de <TT>r</TT>, solamente de 
+<TT>area</TT>. 
+<H3>Conversión de Tipos</H3>Cuando diferentes tipos de datos ocurren en una 
+expresión se lleva a cabo una <EM>conversión de tipos</EM> ya sea explícita o 
+implícitamente. Fortran realiza algo de conversión ímplicita. Por ejemplo <PRE>real x
+x = x + 1
+</PRE>el uno será convertido al tipo real, y se incrementa la variable x en uno. 
+Sin embargo, en expresiones más complicadas, es una buena práctica de 
+programación forzar explícitamente la conversión de tipos. Para números se 
+tienen las siguientes funciones disponibles: <PRE>int
+real
+dble
+ichar
+char
+</PRE>Las primeras tres no requieren explicación. Con <TT>ichar</TT> se toma un 
+caracter y se convierte a un entero y con <TT>char</TT> se hace lo contrario. 
+<P>Ejemplo: ¿Cómo multiplicar dos variables tipo real <TT>x</TT> e <TT>y</TT> 
+usando doble precisión y guardando el resultado en una variable de doble 
+precisión <TT>w</TT>? <PRE>w = dble(x)*dble(y)
+</PRE>Observar que es diferente de: <PRE>w = dble(x*y)
+</PRE>
+<HR>
+
+<H3>Ejercicios</H3>
+<DL>
+  <DT>Exercicio A 
+  <DD>Calcular el valor de las siguientes expresiones de Fortran 77 a mano: <PRE>2+1-10/3/4
+2**3/3*2-5
+-(3*4-2)**(3-2**1+1)/-2
+</PRE>
+  <P></P>
+  <DT>Exercicio B 
+  <DD>Escribir un programa en Fortran 77 que declare <EM>x</EM> e <EM>y</EM> 
+  como variables del tipo real y les asigne un tercio y dos tercios 
+  respectivamente. Sea <EM>w</EM> una variable de doble precisión y compara los 
+  valores de <EM>w</EM> después de asignar <EM>w = x*y</EM> y <EM>w = 
+  dble(x)*dble(y)</EM>. Usar el comando <TT>write(*,*)</TT> para mostrar los 
+  resultados. Compara los dos resultados y explica brevemente por que se obtuvo 
+  o no se obtuvo <I>0.22222222...</I> </DD></DL>
+<HR>
+&nbsp;[5. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/variables.html">Variables, 
+declaraciones y tipos</A> ] &nbsp;[<A 
+href="http://fismat.umich.mx/mn1/tutor_fort/index.html">Tutorial de Fortran</A>] 
+&nbsp;[7. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/logical.html">Expresiones 
+Lógicas</A> ] </BODY></HTML>

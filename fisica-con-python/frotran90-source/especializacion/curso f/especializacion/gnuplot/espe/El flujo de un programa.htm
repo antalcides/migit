@@ -1,0 +1,284 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0079)http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/flujo1.htm -->
+<HTML><HEAD><TITLE>El flujo de un programa</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY>
+<H1 align=center>El flujo de un programa (sentencias iterativas)</H1>
+<TABLE width="100%">
+  <TBODY>
+  <TR>
+    <TD width="30%"><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/flujo.htm"><IMG 
+      height=40 alt="prev.gif (997 bytes)" 
+      src="El flujo de un programa_archivos/prev.gif" width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/fundamentos.htm"><IMG 
+      height=40 alt="chapter.gif (1105 bytes)" 
+      src="El flujo de un programa_archivos/chapter.gif" width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/curso.htm"><IMG height=40 
+      alt="home.gif (1054 bytes)" 
+      src="El flujo de un programa_archivos/home.gif" width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/intro_clases.htm"><IMG 
+      height=40 alt="next.gif (998 bytes)" 
+      src="El flujo de un programa_archivos/next.gif" width=49></A></TD>
+    <TD width="70%">
+      <H3 align=right><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/indice_intro.htm">Introducción</A></H3></TD></TR></TBODY></TABLE>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/flujo1.htm#La sentencia for">La 
+sentencia <EM>for</EM></A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/flujo1.htm#La sentencia while">La 
+sentencia <EM>while</EM></A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/flujo1.htm#La sentencia do...while">La 
+sentencia <EM>do...while</EM></A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/flujo1.htm#La sentencia break">La 
+sentencia <EM>break</EM></A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/flujo1.htm#La sentencia continue">La 
+sentencia <EM>continue</EM></A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/flujo1.htm#primos">Ejemplo: 
+los números primos</A></P>
+<HR>
+
+<P>Tan importantes como las sentencias condiciones son las sentencias iterativas 
+o repetitivas. Normalmente, las sentencias de un programa son ejecutadas en el 
+orden en el que aparecen. Cada sentencia es ejecutada una y solamente una vez. 
+El lenguaje Java, como la mayoría de los lenguajes, proporciona sentencias que 
+permiten realizar una tarea una y otra vez hasta que se cumpla una determinada 
+condición, dicha tarea viene definida por un conjunto de sentencias agrupadas en 
+un bloque. Las sentencias iterativas son <B>for,</B> <B>while</B> y 
+<B>do</B>...<B>while</B></P>
+<P>&nbsp;</P>
+<H2><A name="La sentencia for">La sentencia <EM>for</EM></A></H2>
+<P><IMG height=32 alt="disco.gif (1035 bytes)" 
+src="El flujo de un programa_archivos/disco.gif" width=32 
+align=middle><STRONG>factorial</STRONG>: <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/codigo/FactorialApp.java">FactorialApp.java</A></P>
+<P>Esta sentencia se encuentra en la mayoría de los lenguajes de programación. 
+El bucle <B>for</B> se empleará cuando conocemos el número de veces que se 
+ejecutará una sentencia o un bloque de sentencias, tal como se indica en la 
+figura. La forma general que adopta la sentencia <B>for</B> es</P><PRE>	for(inicialización; condición; incremento)
+		sentencia;
+</PRE>
+<P><IMG height=229 alt="for.gif (1671 bytes)" 
+src="El flujo de un programa_archivos/for.gif" width=302></P>
+<P>El primer término<I> inicialización</I>, se usa para inicializar una variable 
+índice, que controla el número de veces que se ejecutará el bucle. La 
+<I>condición</I> representa la condición que ha de ser satisfecha para que el 
+bucle continúe su ejecución. El <I>incremento</I> representa la cantidad que se 
+incrementa la variable índice en cada repetición. </P>
+<P>Ejemplo: Escribir un programa que imprima los primeros 10 primeros números 
+enteros empezando por el cero</P><PRE>    for (int i = 0; i &lt; 10; i++) {
+        System.out.println(i);
+    } </PRE>
+<P>El resultado será: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9</P>
+<P>La variable índice <I>i</I> se declara y se inicializa en el término 
+<I>inicialización</I>, la <I>condición</I> se expresa de modo que<I> i</I> se 
+debe mantener estrictamente menor que 10; la variable <I>i</I> se incrementa una 
+unidad en cada repetición del bucle. La variable <EM>i</EM> es local al bucle, 
+por lo que deja de existir una vez que se sale del bucle.</P>
+<P>Ejemplo: Escribir un programa que imprima los números pares positivos menores 
+o iguales que 20</P><PRE>    for (int i=2; i &lt;=20; i += 2) {  
+        System.out.println(i);
+    } </PRE>
+<P>Ejemplo: Escribir un programa que imprima los números pares positivos menores 
+o iguales que 20 en orden decreciente</P><PRE>    for (int i=20; i &gt;= 2; i -= 2) {  
+        System.out.println(i);
+    } </PRE>
+<P>Ejemplo: Escribir un programa que calcule el factorial de un número empleando 
+la sentencia iterativa <STRONG>for</STRONG>. Guardar el resultado en un número 
+entero de tipo <STRONG>long</STRONG> .</P>
+<P>Definición: el factorial de un número <EM>n</EM> es el resultado del producto 
+<EM>1*2*3* .... *(n-1)*n</EM>. </P>
+<TABLE cellSpacing=0 width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="100%" bgColor=#f7f7f7><PRE>public class FactorialApp {
+    public static void main(String[] args) {
+        int numero=4;
+        long resultado=1;
+        for(int i=1; i&lt;=numero; i++){
+            resultado*=i;
+        }
+        System.out.println("El factorial es "+resultado);
+     }
+}</PRE></TD></TR></TBODY></TABLE>
+<P>&nbsp;</P>
+<H2><A name="La sentencia while">La sentencia <EM>while</EM></A></H2>
+<P><IMG height=32 alt="disco.gif (1035 bytes)" 
+src="El flujo de un programa_archivos/disco.gif" width=32 
+align=middle><STRONG>factorial1</STRONG>: <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/codigo/FactorialApp1.java">FactorialApp1.java</A></P>
+<P>A la palabra reservada <B>while</B> le sigue una condición encerrada entre 
+paréntesis. El bloque de sentencias que le siguen se ejecuta siempre que la 
+condición sea verdadera tal como se ve en la figura. La forma general que adopta 
+la sentencia <B>while</B> es:</P><PRE>	while (condición)
+		sentencia;
+</PRE>
+<P><IMG height=220 alt="while.gif (1614 bytes)" 
+src="El flujo de un programa_archivos/while.gif" width=294></P>
+<P>Ejemplo: Escribir un programa que imprima los primeros 10 primeros números 
+enteros empezando por el cero, empleando la sentencia iterativa 
+<EM>while</EM>.</P><PRE>	int i=0;
+
+	while (i&lt;10) {
+		System.out.println(i);
+		i++;
+	}</PRE>
+<P>El valor inicial de <I>i</I> es cero, se comprueba la condición 
+<I>(i&lt;10)</I>, la cual resulta verdadera. Dentro del bucle, se imprime 
+<I>i</I>, y se incrementa la variable contador <I>i</I>, en una unidad. Cuando 
+<I>i</I> vale 10, la condición <I>(i&lt;10)</I> resulta falsa y el bucle ya no 
+se ejecuta. Si el valor inicial de <I>i</I> fuese 10, no se ejecutaría el bucle. 
+Por tanto, el bucle <B>while</B> no se ejecuta si la condición es falsa.</P>
+<P><A name=factorial></A>Ejemplo: escribir un programa que calcule el factorial 
+de un número empleando la sentencia iterativa <STRONG>while</STRONG></P>
+<TABLE cellSpacing=0 width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="100%" bgColor=#f7f7f7><PRE>public class FactorialApp1 {
+    public static void main(String[] args) {
+        int numero=4;
+        long resultado=1;
+        while(numero&gt;0){
+            resultado*=numero;
+            numero--;
+        }
+        System.out.println("El factorial es "+resultado);
+     }
+}</PRE></TD></TR></TBODY></TABLE>
+<P>&nbsp;</P>
+<H2><A name="La sentencia do...while">La sentencia <EM>do...while</EM></A></H2>
+<P>Como hemos podido apreciar las sentencias <B>for</B> y <B>while</B> la 
+condición está al principio del bucle, sin embargo, <B>do...while</B> la 
+condición está al final del bucle, por lo que el bucle se ejecuta por lo menos 
+una vez tal como se ve en la figura. <B>do</B> marca el comienzo del bucle y 
+<B>while</B> el final del mismo. La forma general es:</P><PRE>	do{
+		sentencia;
+	}while(condición);
+</PRE>
+<P><IMG height=246 alt="do.gif (1490 bytes)" 
+src="El flujo de un programa_archivos/do.gif" width=195></P>
+<P>Ejemplo: Escribir un programa que imprima los primeros 10 primeros números 
+enteros empezando por el cero, empleando la sentencia iterativa 
+<EM>do..while</EM>.</P><PRE>  int i=0;
+
+  do{
+	System.out.println(i);
+	i++;
+   }while(i &lt; 10);</PRE>
+<P>El bucle <B>do...while</B>, se usa menos que el bucle <B>while</B>, ya que 
+habitualmente evaluamos la expresión que controla el bucle al comienzo, no al 
+final.</P>
+<P>&nbsp;</P>
+<H2><A name="La sentencia break">La sentencia <EM>break</EM></A></H2>
+<P>A veces es necesario interrumpir la ejecución de un bucle <B>for</B>, 
+<B>while</B>, o <B>do...while</B>. </P><PRE>	for(int i = 0; i &lt; 10; i++){
+		if (i == 8)	break;
+		System.out.println(i);
+	}</PRE>
+<P>Consideremos de nuevo el ejemplo del bucle <STRONG>for</STRONG>, que imprime 
+los 10 primeros números enteros, se interrumpe la ejecución del bucle cuando se 
+cumple la condición de que la variable contador <I>i</I> valga 8. El código se 
+leerá: "salir del bucle cuando la variable contador <I>i</I>, sea igual a 8". 
+</P>
+<P>Como podemos apreciar, la ejecución del bucle finaliza prematuramente. Quizás 
+el lector pueda pensar que esto no es de gran utilidad pues, el código anterior 
+es equivalente a </P><PRE>	for(int i = 0; i &lt;=8; i++)
+		System.out.println(i);</PRE>
+<P>Sin embargo, podemos salir fuera del bucle prematuramente si se cumple alguna 
+condición de finalización.</P><PRE>	while(true){
+		if (condicionFinal)	break;
+		//...otras sentencias
+	}</PRE>
+<P>Como podemos apreciar en esta porción de código, la expresión en el bucle 
+<B>while</B> es siempre verdadera, por tanto, tiene que haber algún mecanismo 
+que nos permita salir del bucle. Si la condicion de finalización es verdadera, 
+es decir la variable <EM>condicionFinal</EM> del tipo <STRONG>boolean</STRONG> 
+toma el valor <STRONG>true</STRONG>, se sale del bucle, en caso contrario se 
+continua el procesmiento de los datos.</P>
+<P>&nbsp;</P>
+<H2><A name="La sentencia continue">La sentencia <EM>continue</EM></A></H2>
+<P>La sentencia <B>continue</B>, fuerza al bucle a comenzar la siguiente 
+iteración desde el principio. En la siguiente porción de código, se imprimen 
+todos los números del 0 al 9 excepto el número 8.</P><PRE>	for(int i = 0; i &lt; 10; i++){
+		if (i == 8)	continue;
+		System.out.println(i);
+	}</PRE>
+<H3><BR><A name=Etiquetas>Etiquetas</A></H3>
+<P>Tanto <STRONG>break</STRONG> como <STRONG>continue</STRONG> pueden tener una 
+etiqueta opcional que indica a Java hacia donde dirigirse cuando se cumple una 
+determinada condición.</P><PRE><STRONG>salida:</STRONG>
+	for(int i=0; i&lt;20; i++){
+		while(j&lt;70){
+			if(i*j==500)	<STRONG>break salida;</STRONG>
+			//...
+		}
+		//...
+	}</PRE>
+<P>La etiqueta en este ejemplo se denomina <EM>salida</EM>, y se añade antes de 
+la parte inicial del ciclo. La etiqueta debe terminar con el carácter dos puntos 
+<STRONG>:</STRONG>. Si no disponemos de etiqueta, al cumplirse la condición<EM> 
+i*j==500</EM>, se saldría del bucle interno <STRONG>while</STRONG>, pero el 
+proceso de cálculo continuaría en el bucle externo <STRONG>for</STRONG>.</P>
+<P>&nbsp;</P>
+<H2><A name="Ejemplo: los números primos">Ejemplo: los números primos</A></H2>
+<P><IMG height=32 alt="disco.gif (1035 bytes)" 
+src="El flujo de un programa_archivos/disco.gif" width=32 
+align=middle><STRONG>primos</STRONG>: <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/codigo/PrimosApp.java">PrimosApp.java</A></P>
+<P><A name=primos></A>Escribir un programa que calcule los números primos 
+comprendidos entre 3 y 100.</P>
+<P>Los números primos tienen la siguiente característica: un número primo es 
+solamente divisible por sí mismo y por la unidad, por tanto, un número primo no 
+puede ser par excepto el 2. Para saber si un número impar es primo, dividimos 
+dicho número por todos los números impares comprendidos entre 3 y la mitad de 
+dicho número. Por ejemplo, para saber si 13 es un número primo basta dividirlo 
+por 3, y 5. Para saber si 25 es número primo se divide entre 3, 5, 7, 9, y 11. 
+Si el resto de la división (operación módulo %) es cero, el número no es 
+primo.</P>
+<TABLE cellSpacing=0 width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="100%" bgColor=#f7f7f7><PRE>public class PrimosApp {
+    public static void main(String[] args) {
+        boolean bPrimo;
+        System.out.println("Números primos comprendidos entre 3 y 100");
+        for(int numero=3; numero&lt;100; numero+=2){
+           bPrimo=true;
+            for(int i=3; i&lt;numero/2; i+=2){
+                if(numero%i==0){
+                    bPrimo=false;
+                    break;
+                }
+            }
+            if(bPrimo){
+                System.out.print(numero+" - ");
+            }
+        }
+    }
+}</PRE></TD></TR></TBODY></TABLE>
+<P>En primer lugar, hacemos un bucle <B>for</B> para examinar los números 
+impares comprendidos entre 3 y 100. </P>
+<P>Hacemos la suposición de que <I>numero</I> es primo, es decir, de que la 
+variable de control <I>bPrimo</I> toma el valor <STRONG>true</STRONG>. Para 
+confirmarlo, se halla el resto de la división entera entre <I>numero</I>, y los 
+números <I>i</I> impares comprendidos entre 3 y <I>numero</I>/2. (Se recordará 
+que todo número es divisible por la unidad). Si el número <I>numero</I> es 
+divisible por algún número <I>i</I> (el resto de la división entera 
+<I>numero%i</I> es cero), entonces el número <I>numero</I> no es primo, se 
+abandona el bucle (<B>break</B>) con la variable de control <I>bPrimo</I> 
+tomando el valor <STRONG>false</STRONG>. En el caso de que <I>numero</I> sea un 
+número primo, se completa el bucle interno, tomando la variable de control 
+<I>bPrimo</I> el valor inicial <STRONG>true</STRONG>.</P>
+<P>Por último, si el número es primo, <EM>bPrimo</EM> es <STRONG>true</STRONG>, 
+se imprime en la ventana, uno a continuación del otro separados por un 
+guión.</P>
+<P>En este programa podemos observar la diferencia entre <EM>print</EM> y 
+<EM>println</EM>. El sufijo <EM>ln</EM> en la segunda función indica que se 
+imprime el argumento y a continuación se pasa a la línea siguiente. 
+</P></BODY></HTML>

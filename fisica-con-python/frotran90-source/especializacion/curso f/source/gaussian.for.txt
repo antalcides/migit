@@ -1,0 +1,68 @@
+	program fourier
+	implicit real*8(a-h,o-z)
+	
+c.......create a  Gaussian function Gx
+c...... by Dario Mitnik
+
+	parameter (mxpts=5000)
+	real*8 Gx(mxpts)
+	data rzero,one,two/0.0d0,1.0d0,2.0d0/
+        common/bckdat/pi    
+	
+ 
+c.......Initialization of variabless
+        pi   = two*asin(one)
+
+c........input data
+c	 typical case: npts=500; dx=0.5; wpot=10; apot=125
+	npts = mxpts
+10	print*,' give number of points :'
+	read*,npts
+	if (npts.gt.mxpts) then
+		print*,' the maximum value  allowed is ',mxpts
+		go to 10
+	endif
+	print*,' give the grid step interval :'
+	read*,dx
+	print*,' input function Gx(j+1)=Gauss(x,wpot,apot)'
+	print*,' give the packet spatial width (wpot) in a.u. :'
+	read*,wpot
+	print*,' give the packet spatial localization (apot) in a.u.'
+	read*,apot
+	xmax = dx*npts
+
+c.......open files
+	open(unit=9,file='Gx.dat',status='unknown') 	!! Gaussian
+	open(unit=10,file='Gx2.dat',status='unknown')	!! Gaussian square
+	
+c.......calculate the function G in space domine
+	do 20 i=1,npts	   
+	   Gx(i) = gauss(i,apot,wpot,dx)
+
+c.........print results
+	  write(9,999) i*dx,Gx(i)
+	  write(10,999) i*dx,Gx(i)**2
+20	continue
+999	format(4(1pg12.4,2x))
+
+	stop
+	end
+
+c
+c******************************************************************
+c
+	real*8 function gauss(i,apot,wpot,dx)
+	implicit real*8(a-h,o-z)
+
+c.......construct a Gaussian wavepacket function
+
+        common/bckdat/pi    
+	data rzero,one,two/0.0d0,1.0d0,2.0d0/
+		
+	x = i*dx
+	f1=one/dsqrt(wpot*dsqrt(pi))
+	gauss= f1*exp(-(x-apot)**2/(two*wpot**2))
+
+	return
+	end
+	

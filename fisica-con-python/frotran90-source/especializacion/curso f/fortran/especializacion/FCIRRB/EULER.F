@@ -1,0 +1,23 @@
+c     programa para aplicar el metodo de Euler a EDO's
+c     como ejemplo usaremos la EDO:
+c               dx/dy=2xy
+c               y(0)=1
+
+      program Euler
+      real x(1),y(1),h
+      integer i,n
+c     Se definen condiciones iniciales
+      x(1)=0.0
+      y(1)=1.0
+c     valor a calcular:y(0.5)
+c     se define el ancho o paso de interaccion, donde n es el n£mero de
+c     iteracciones.
+      n=5
+      h=(0.5-0.0)/n
+c     ciclo para la iteracion
+      do 10 i=1,n+1
+       x(i+1)=x(i)+h
+       y(it1)=y(i)+h*2xy
+       print*, 'El valor aproximado de la funci¢n es',y(i)
+10    continue
+      end

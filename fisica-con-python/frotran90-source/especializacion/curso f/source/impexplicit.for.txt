@@ -1,0 +1,278 @@
+
+	program schrodinger
+	
+c.......calculate Schrodinger equation
+c	ih * dFi/dt = -h^2/2m d^2Fi/dx^2 + V(x,t)
+c	(V=0 ; Fi(t=0)=Gaussian wave packet )
+
+c...... by Dario Mitnik
+
+c.......Spacial derivatives:
+c	finite differences on a uniform lattice of N+1 points
+c.......Time derivative
+c	simplest first-order difference
+
+c........Method 3) IMPLICIT-EXPLICIT differencing scheme
+c		   (Crank-Nicolson scheme)
+c	Fi(n+1) = [1+ i/2h Dt*H]^-1 [1 - i/2h Dt*H] [Fi(n)]
+
+	common/bkmesh/ timef,dx,dt,width,rk0,x0,nxpts,ntpts
+
+
+	open(unit=9,file='schrod.inp',status='old')
+	open(unit=10,file='wave0.out',status='unknown')
+	open(unit=11,file='wavef.out',status='unknown')
+	open(unit=12,file='wavean.out',status='unknown')
+	
+	
+c.......read input parameters
+	call readinput
+	
+c.......Initial function (t=0)
+        call waveinit
+	
+c.......calculation of H
+	call hamiltonian
+	
+c.......construction of operator (1-ihHdt/2)(1+ihHdt/2)^-1
+	call operator
+
+c.......Time propagation
+	do 100 it=1,ntpts
+	  call propagation
+100	continue
+
+c.......Print results
+	call printout(timef)
+	
+	stop
+	end
+	
+c---------------------------------------------------
+	subroutine readinput
+	
+c.......read input parameters
+
+	parameter (mxpts=100,mxtime=10000)
+	complex fin(0:mxpts),fin1(0:mxpts)
+	common/bkmesh/ timef,dx,dt,width,rk0,x0,nxpts,ntpts
+	common/bkwave/ fin,fin1
+	namelist /meshlist/nxpts,dx,ntpts,dt,ekin,v0,x0,width
+        data autoev/27.211608d0/
+
+!     nxpts  -- number of total spatial mesh points
+!     dx     -- space integration interval (a.u.)
+!     ntpts  -- number of total time steps
+!     dt     -- time step value (a.u.)
+!     ekin   -- incident electron energy in eV
+!     v0     -- incident electron velocity in a.u.
+!     x0     -- localization radius of initial wavepacket (a.u.)
+!     width  -- gaussian width of initial wavepacket (a.u.)
+
+	ekin=0.0
+	v0 = 0.0
+	read(9,meshlist)
+	
+	if (nxpts.gt.mxpts) then
+		print*,'nxpts .gt. mxpts=:',mxpts,'  (reset)'
+		nxpts=mxpts
+	endif
+	if (ntpts.gt.mxtime) then
+		print*,'ntpts .gt. mxtime=:',mxtime,'  (reset)'
+		ntpts=mxtime
+	endif
+	
+c.......timef  -- total time for propagation
+	timef = ntpts*dt
+
+c........rk0    -- average wave number  ( p0 = hbar*rk0 average momentum)
+	if (ekin.ne.0.0) then
+	   ekinau = ekin/autoev
+           rk0 = sqrt(2.0*ekinau)
+	else
+	   rk0 = v0
+	   ekin = 0.5 * v0**2
+	endif
+	
+	print111,nxpts,ntpts,timef,dx,dt,ekin,rk0,width,x0
+111	format(5x,'nxpts=:',i5,8x,'ntpts=:',i5,5x,'timef=:',1pg12.5,
+     +        /5x,'dx=:',1pg12.5,20x,'dt=:',1pg12.5,
+     +        /5x,'ekin (eV)=:',1pg12.5,20x,'rk0=:',1pg12.5,
+     +        /5x,'width=:',1pg12.5,20x,'X0=:',1pg12.5)
+         print*,'-----------------'
+
+	return
+	end
+
+c---------------------------------------------------
+	subroutine waveinit
+
+c.......Initial function (t=0)
+
+	parameter (mxpts=100,mxtime=10000)
+	complex fin(0:mxpts),fin1(0:mxpts)
+	common/bkmesh/ timef,dx,dt,width,rk0,x0,nxpts,ntpts
+	common/bkwave/ fin,fin1
+	complex eye,hankp
+	
+        pie=2.0*asin(1.0)
+      	eye=cmplx(0.0,1.0)
+       	f1=1.0/sqrt(width*sqrt(pie))	
+
+	do 100 i=0,nxpts
+	  x=i*dx
+          phi = f1*exp(-(x-x0)**2/(2.0*width**2))
+c.........Positive Hankel function (outgoing wavepacket)
+      	  hankp = exp(+eye*rk0*x)
+	  fin(i) = phi*hankp
+     
+     	  write(10,*) x,' ',abs(fin(i))**2
+100	continue
+	
+	return
+	end
+	
+c---------------------------------------------------
+	subroutine hamiltonian
+
+c.......H*Fi = -1/2 *  (d^2/dx^2)Fi
+c            ( coeff * (d^2/dx^2)Fi )
+
+
+	parameter (mxpts=100,mxtime=10000)
+	common/bkmesh/ timef,dx,dt,width,rk0,x0,nxpts,ntpts
+	common/bkH /H(mxpts+1,mxpts+1)
+	
+	rdelt = 1./(dx*dx)
+	coeff = -0.5*rdelt
+	do 200 i=1,nxpts+1
+	   do 50 j=1,nxpts+1
+	   H(i,j)=0
+50	   continue
+	   do 100 j=i-1,i+1
+	        if (j.le.0) go to 100
+		if (j.gt.nxpts+1) go to 200
+		if (j.eq.i) H(i,j) = -2.0*coeff
+		if (j.eq.(i-1)) H(i,j) = coeff
+		if (j.eq.(i+1)) H(i,j) = coeff
+100	   continue
+200	continue
+
+	return
+	end
+
+c---------------------------------------------------
+	subroutine operator
+
+c.......construction of [1+ihDt*H/2]^-1 [1-ihDt*H/2] operator (op)
+
+	parameter (mxpts=100,mxtime=10000)
+	common/bkmesh/ timef,dx,dt,width,rk0,x0,nxpts,ntpts
+	common/bkH /H(mxpts+1,mxpts+1)
+	complex opold(mxpts+1,mxpts+1),op(mxpts+1,mxpts+1)
+	common/bkop /op
+	integer ipiv(mxpts+1)
+	complex eye,zero,zone,ztest
+	
+	eye  = cmplx(0.0,1.0)
+	zero = cmplx(0.0,0.0)
+	zone = cmplx(1.0,0.0)
+	
+	do 100 i=1,nxpts+1
+		  do 50 j=1,nxpts+1
+		  opold(i,j)=0.5*eye*H(i,j)*dt
+50		  continue
+		  opold(i,i)=opold(i,i)+zone
+100	continue
+	do 300 i=1,nxpts+1
+		do 200 j=1,nxpts+1
+		 op(i,j)= -0.5*eye*H(i,j)*dt
+200		continue
+		op(i,i) = op(i,i)+zone
+300	continue
+
+c.......solving OP = (1-iHdt/2)/(1+iHdt/2)        ( == OP/OPOLD )
+c........       OPOLD * OP  = OP
+c........         A   *  X  =  B
+        call CGESV(nxpts+1,nxpts+1,opold,mxpts+1,IPIV,op,mxpts+1,INFO)
+	
+	if (info.ne.0) then
+		print*,'info=:',info
+		stop 'SGESV fails'
+	endif
+		
+	return
+	end
+	
+c---------------------------------------------------
+	subroutine propagation
+
+c.......explicit propagation 
+c	Fi(n+1) = [1 - i/h Dt*H/2][1 + i/h Dt*H/2]^-1 [Fi(n)]
+
+	parameter (mxpts=100,mxtime=10000)
+	complex fin(0:mxpts),fin1(0:mxpts)
+	common/bkmesh/ timef,dx,dt,width,rk0,x0,nxpts,ntpts
+	common/bkwave/ fin,fin1
+	complex op(mxpts+1,mxpts+1)
+	common/bkop /op
+	
+	do 100 i=0,nxpts
+		fin1(i) = 0
+		do 50 j=0,nxpts
+		  fin1(i) = fin1(i) + op(i+1,j+1)*fin(j)
+50	        continue
+100	continue
+	do 200 i=0,nxpts
+		fin(i) = fin1(i)
+200	continue
+	return
+	end
+	
+c---------------------------------------------------
+	subroutine printout(timep)
+
+c.......print output results
+
+	parameter (mxpts=100,mxtime=10000)
+	complex fin(0:mxpts),fin1(0:mxpts)
+	common/bkmesh/ timef,dx,dt,width,rk0,x0,nxpts,ntpts
+	common/bkwave/ fin,fin1
+
+	print*,' results at time=:',timep
+
+	do 100 i=0,nxpts
+	  r2 = analyt(i,timep)
+	  write(11,*) i*dx,' ',abs(fin1(i))**2
+	  write(12,*) i*dx,' ',r2
+100	continue
+
+	return
+	end
+	
+c---------------------------------------------------
+	function analyt(i,t)
+
+c........analytic solution of the problem
+
+	common/bkmesh/ timef,dx,dt,width,rk0,x0,nxpts,ntpts
+
+	pi = 2.0*asin(1.0)
+	sqpi = sqrt(pi)
+	w2 = width**2
+	w4 = width**4
+	c2 = w4 + t**2
+	cf  = sqrt(c2)
+	coeff = width / (cf*sqpi)
+	rxcff = -1.0*w4/c2
+
+	x=i*dx
+	rexp = (x - x0 - rk0*t)**2 / w2
+	rexp = rexp * rxcff
+	analyt = coeff * exp(rexp)	
+
+	return
+	end
+	
+c---------------------------------------------------
+	

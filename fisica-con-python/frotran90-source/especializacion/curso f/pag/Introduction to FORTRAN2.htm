@@ -1,0 +1,314 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0056)http://amath.colorado.edu/student/chartier/Appm/Fortran/ -->
+<HTML><HEAD><TITLE>Introduction to FORTRAN</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY bgColor=white>
+<CENTER>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD><IMG height=288 src="Introduction to FORTRAN2_archivos/parab.gif" 
+      width=412> 
+    <TD align=middle>
+      <H1>Introduction to programming<BR>in FORTRAN<BR><FONT size=-1>workshop by 
+      Tim Chartier</FONT></H1></TR></TBODY></TABLE></CENTER>
+<H3>Introduction</H3>The goal of this workshop is to offer an introduction to 
+programming in FORTRAN. We will discuss the following concepts: 
+<UL>
+  <LI>Basic programming tools in FORTRAN 
+  <LI>How to compile a FORTRAN program, 
+  <LI>How to use makefiles and the C pre-processor 
+  <LI>Introduce how to use Matlab to visualize numerical data. </LI></UL>
+<H3>Downloading example programs</H3>To begin, you will want to download a group 
+of <A 
+href="http://amath.colorado.edu/student/chartier/Appm/Fortran/bundle.tar.Z">bundled 
+files</A>. After you download the files, execute the following commands: 
+<P>
+<DD>uncompress bundle.tar.Z 
+<DD>tar xvf bundle.tar 
+<P>This creates a directory Fortalk with the necessary files. 
+<H3>Example Program</H3>Let us begin with a simple example of a FORTRAN program. 
+The program is <EM>simple.f</EM> in the downloaded directory. Here is what you 
+will find: <PRE>C THIS PROGRAM ADDS SALES TAX TO PRICE
+      REAL PRICE, TAX, 
+     +     TOTAL
+      INTEGER I
+
+      DO 10 I=1,3
+      PRINT *, 'ENTER PRICE NUMBER ',I
+      READ *,PRICE
+      TAX = 0.06 * PRICE
+      TOTAL = PRICE + TAX
+      PRINT *, 'PRICE IS ',PRICE,' COST WITH TAX IS ',TOTAL
+10    CONTINUE
+      STOP
+      END
+</PRE>
+<H3>Statement line</H3>Each line in the program above constitutes a statement 
+line. FORTRAN 77 divides the statement line into four separate regions. 
+<P>Columns 1-5 is the label field. The label field is left blank in most 
+statement lines. The label field is generally used to label a line that is 
+referred to by another line. In the program above, a statement line is labeled 
+"10" and called by the statement "D0 10 i = 1,3". 
+<P>Column 6 is the continuation field. The program above uses this field to 
+continue the statement "REAL PRICE, TAX,". This would have been the same as 
+writing the entire statement on one line. While this was not needed in the above 
+program, it can be helpful to continue a line in many FORTRAN programs. This is 
+due to the fixed width of the statement field. 
+<P>Columns 7-72 is the statement field. The statement field is where actual 
+FORTRAN statements appear. This is seen in the above program. Note, if a line 
+cannot fit within columns 7-72, then the continuation field is helpful. 
+<P>Columns 73-80 are ignored by the compiler. This is important to remember. If 
+you have a statement which overflows into column 73, an error will most likely 
+occur in your program. 
+<P>Finally, if you wish to comment a line, place a "C" in the first column. The 
+remainder of the statement line is ignored. 
+<P>Hence, we get the following at a statement layout: 
+<CENTER>
+<TABLE cellPadding=5 border=1>
+  <CAPTION><STRONG>Fortran Statement Layout</STRONG></CAPTION>
+  <TBODY>
+  <TR>
+    <TD>Columns 1-5 
+    <TD>Label 
+  <TR>
+    <TD>Column 6 
+    <TD>Continuation 
+  <TR>
+    <TD>Columns 7-72 
+    <TD>FORTRAN statements 
+  <TR>
+    <TD>Columns 73-80 
+    <TD>Programmer use 
+  <TR>
+    <TD colSpan=2>Comment statement - C in column 1 comment in columns 2-72 
+  </TR></TBODY></TABLE></CENTER>
+<P>
+<H3>Variables</H3>
+<OL>
+  <LI>Variables must be between 1 and 6 letters or digits. 
+  <LI>No other characters, such as dashes or periods, are allowed. 
+  <LI>The first character should be a a letter. </LI></OL>Declaration types 
+include the following: 
+<OL>
+  <LI><STRONG>INTEGER</STRONG> -- an integer variable 
+  <LI><STRONG>REAL</STRONG> -- a real number 
+  <LI><STRONG>DIMENSION</STRONG> -- creates a matrix. For example, DIMENSION 
+  A(1:5,1:5) creates a 5x5 matrix with variable name A. 
+  <LI><STRONG>REAL*8</STRONG> -- increases the precision of the real variable. 
+  Increased precision is very important in computational work. 
+  <LI><STRONG>IMPLICIT REAL*8(A-H,O-Z)</STRONG> -- is a useful declaration. This 
+  declares all variables beginning with the letter A-H and 0-Z as real 
+  variables. Again, the "*8" increases the precision of the variable. 
+  <LI><STRONG>IMPLICIT NONE</STRONG> -- turns off all implicit declarations. 
+  This can be very helpful as well. A simple typing mistake can cause hours of 
+  debugging time. 
+  <LI><STRONG>CHARACTER*n</STRONG> -- declares a character strong of length n. 
+  </LI></OL>
+<H3>Mathematical operations</H3>The symbols for mathematical operations are as 
+follows: 
+<CENTER>
+<TABLE cellPadding=5 border=1>
+  <CAPTION><STRONG>FORTRAN Mathematical symbols</STRONG></CAPTION>
+  <TBODY>
+  <TR>
+    <TD width=50>**
+    <TD width=150>exponentiation 
+  <TR>
+    <TD>+ 
+    <TD>addition 
+  <TR>
+    <TD>- 
+    <TD>subtraction 
+  <TR>
+    <TD>* 
+    <TD>multiplication 
+  <TR>
+    <TD>/ 
+    <TD>division </TR></TBODY></TABLE></CENTER>
+<H3>Various FORTRAN statement structures</H3>Now, let us look at tools commonly 
+needed in programming. First, we must know the relational operators in FORTRAN. 
+<CENTER>
+<TABLE cellPadding=5 border=1>
+  <CAPTION><STRONG>FORTRAN relational operators</STRONG></CAPTION>
+  <TBODY>
+  <TR>
+    <TD width=50>.EQ.
+    <TD width=150>equals 
+  <TR>
+    <TD>.NE.
+    <TD>not equal to 
+  <TR>
+    <TD>.GT.
+    <TD>greater than 
+  <TR>
+    <TD>.LT.
+    <TD>less than 
+  <TR>
+    <TD>.GE.
+    <TD>greater than or equal to 
+  <TR>
+    <TD>.LE.
+    <TD>less than or equal to </TR></TBODY></TABLE></CENTER>
+<P>The if statement in FORTRAN has the following form: <PRE>      IF (condition&gt; THEN
+      (code if this condition is true)
+      ELSE IF (condition) THEN
+      (code if this condition in this case is true))
+      ELSE 
+      (code for case where all above conditions are false)
+      ENDIF
+</PRE>
+<P>A loop in FORTRAN has the following forms: <PRE>      DO label index= first,last,step
+         (code for loop)
+label CONTINUE
+</PRE>
+<P>FORTRAN does not have a While or Repeat Until looping feature. Hence, FORTRAN 
+programmers use the GOTO command! Here is an example of a while loop. <PRE>      IF (LOOP .NE. 5) THEN
+         (code)
+      ELSE
+         GOTO 10
+      ENDIF
+10    CONTINUE
+</PRE>The loop will continue until loop equals 5. 
+<H3>Compiling</H3>The general command to compile a program such as the simple.f 
+file is: 
+<DD>f77 simple.f<BR>If the file compiles, this creates an executable file named 
+a.out. Generally, it is helpful to use the following command: 
+<DD>f77 -o simple simple.f<BR>This creates an executable file named simple 
+rather than the default name of a.out. 
+<P>It is often helpful to compile a group of files at one time. That is, you can 
+modularize your program by creating a separate file for each part of the code. 
+For example, create a file F.f for the function, main.f for the main calling 
+module, and secant.f if you are coding the secant method. There are several 
+advantages to this: 
+<OL>
+  <LI>Modular code is easier to debug 
+  <LI>Modular code is easier to maintain 
+  <LI>You can create libraries of generic routines like Newton's Method and 
+  Secant Method. If you want to compile these files in a program, you need only 
+  to call them in the compile command. 
+  <LI>If a file compiles, then you will not need to compile it again unless you 
+  make changes. You need only to link it. </LI></OL>To see how to do this, let us 
+look at example code included in the files downloaded from this page. You have 
+the files secant.f, main.f, and F.f. To compile these files together, you should 
+type: 
+<DD>f77 -o sec main.f secant.f F.f<BR>Now, you also have the files F1.f and 
+F2.f. Suppose we want to run the secant method on the function in the file F2.f 
+This is easy to do. We simply copy the file F2.f to F.f and re-compile. To do 
+this type: 
+<DD>cp F2.f F.f 
+<DD>f77 -o sec main.f secant.f F.f<BR>Thus, you can create a list of test 
+functions and easily test your program with them. Now, let us use Makefiles to 
+take advantage of more advanced features. 
+<H3>Makefiles and Using the C Pre-Processor</H3>Makefiles are a helpful feature 
+in programming. Included with the files you downloaded is a rather advanced 
+Makefile. (<EM>Thanks to David Sterling.</EM>) The included Makefile offers many 
+helpful features to your programming and allows more sofisticated compiling 
+options than those outlined above. 
+<P>The makefile allows you to type: </P>
+<DD>make sec<BR>envoking a command to compile the secant files mentioned above. 
+This command will only compile those programs which have changed. So, if you 
+want to test the secant file with F1.f. Type the following: 
+<DD>cp F1.f F.f 
+<DD>make sec<BR>This copies the function in F1.f into F.f and then compiles with 
+the new function. Notice, if you did not delete the object files created by the 
+previous compile, then the only file compiled is F.f. This can save tremendous 
+amounts of time with longer files which take even hours to compile. 
+<P>This makefile allows another important feature. You can send your code 
+through the C pre-processor. Files with C preprocessor code have the extension 
+file.F rather than file.f. The file secant_c.F gives an example of using such a 
+program. By uncommenting the <EM>#define&nbsp;UNIT_FLAG</EM> line, all the lines 
+in the section between <EM>#ifdef&nbsp;DEBUG_SECANT</EM> and <EM>#endif</EM> are 
+included. This is helpful for debugging. 
+<P>You can test this by uncommenting the line <EM>#ifdef&nbsp;DEBUG_SECANT</EM> 
+in the file. Then execute <EM>make csec</EM> on the command line. This makes a 
+file csec. Run the program and note the inclusion of debugging code. Then, 
+comment the line <EM>#ifdef&nbsp;DEBUG_SECANT</EM> in the code again. The 
+debugging code is no longer printed when you run the program. Hence, you can 
+include debugging code in your program and switch it on and off as desired. 
+<P>The <EM>#ifdef UNIT_FLAG</EM> allows another feature. If you uncomment this 
+line, you include lines of code which create a stand alone program. That is, 
+your file is now able to be tested individually. This is very helpful if you are 
+running a larger program calling the Secant Method, and you want to test the 
+subroutine individually. 
+<P>You can view this by uncommenting the line <EM>#ifdef UNIT_FLAG</EM> in the 
+file. Execute <EM>make secant_unit</EM> on the command line. This makes a file 
+secant_unit. Run the program. Then, comment the line <EM>#ifdef UNIT_FLAG</EM> 
+in the code again. Now, you can call make csec as previously. That is, one make 
+call creates a stand alone program. The other make call allows the same 
+subroutine to be linked with other files. 
+<P>Editting the Makefile is simple. If you have a program to compile, edit the 
+following lines in the Makefile: 
+<OL>
+  <LI>You need to be sure you call the list of files you wish to compile in the 
+  make. To do this go to the line in the Makefile: <PRE># your modules 
+# 
+####################### CUSTOMIZE HERE ####################
+secname = <FONT color=blue>main.o F.o secant.o</FONT>
+</PRE>Replace the file names colored in blue with the names of the files you 
+  wish to compile. 
+  <P></P>
+  <LI>Next, go to the following line in the Makefile: <PRE>####################### CUSTOMIZE HERE ####################
+<FONT color=green>sec</FONT>    : $(secname) 
+	${LD} ${LDFLAGS} $(secname) -o <FONT color=red>sec</FONT>
+</PRE>The first sec (colored in green) is what you will make. That is, if you 
+  change this to newt. Then you would type "make newt" rather than "make sec". 
+  The second sec (colored in red) is the name of the executable file created by 
+  the compile. Currently, the executable file "sec" is created. Note, the 
+  "$(secname)" inserts the list of files that you put in the line discussed 
+  previously. 
+  <P></P>
+  <LI>If you wish to create a stand alone program, you need to edit the 
+  following line in the Makefile: <PRE>####################### CUSTOMIZE HERE ####################
+<FONT color=green>secant_unit</FONT>:  <FONT color=blue>secant_c.F</FONT>
+	${FF} -e -DUNIT_TEST <FONT color=blue>secant_c.F</FONT> -o  <FONT color=red>secant_unit</FONT>
+	rm -f secant_c.o         # Remove the object file with the unit tester 
+</PRE>Similar to the previous line, currently you type "make secant_unit" to 
+  make the stand alone program. Change the name as discussed previously. The 
+  file secant_c.F (colored in blue) is the name of the file to compile. Finally, 
+  secant_unit (colored in red) is the name of the created executable file. 
+</LI></OL>
+<P>These are the only lines you need to edit to have all these useful features. 
+I encourage you to take advantage of these features! 
+<H3>Visualizing date with Matlab</H3>Matlab is a useful program to visualize 
+your FORTRAN data. The picture below is a wave equation. The data values were 
+found numerically using FORTRAN and then graphed with Matlab. 
+<P>
+<CENTER><IMG src="Introduction to FORTRAN2_archivos/wave.jpg"> </CENTER>
+<P>To see an example of how to use this feature, complete the following steps: 
+<OL>
+  <LI>Type: 
+  <DD>make parab<BR>at the command line. This compiles a program that finds data 
+  points of a paraboloid. 
+  <P></P></DD>
+  <LI>Run the program by typing: 
+  <DD>parab<BR>The data points were written to the file data.out which is now in 
+  your directory. 
+  <P></P></DD>
+  <LI>Open Matlab and type: 
+  <DD>graph<BR>This calls the "M-file" graph.m found in your directory. This 
+  file contains the necessary commands to open the data and create a plot. 
+  <P></P></DD>
+  <LI>If you wish to print the file then type: 
+  <DD>print &lt;filename&gt;<BR>The graph is now located as a postscript file in 
+  &lt;filename&gt;.ps. 
+  <P>Note, if you want to save a color copy of your work then use the command: 
+  </P>
+  <DD>print -dpsc &lt;filename&gt; 
+  <P>Also, note that you can turn the grid and axis off (and similarly for on) 
+  by the following command respectively: </P>
+  <DD>grid off 
+  <DD>axis off </DD></LI></OL>
+<P>As you can see, FORTRAN and Matlab offer exciting possibilities in data 
+visualization. As you learn more FORTRAN, you can learn to take advantage of 
+MATLAB and its graphing capabilities. 
+<H3>Summary</H3>This Web page offers an introduction to programming in FORTRAN. 
+It also offers some more advanced options. You are encouraged to use the 
+debugging and module programming features even as you begin programming. Creat 
+good programming habits and become an efficient FORTRAN programmer! 
+<P>
+<HR>
+
+<ADDRESS>http://amath.colorado.edu/student/chartier/Appm/Fortran/fortran.html<BR>Created 
+by Tim Chartier<BR>Last updated: October, 1997 </ADDRESS></DD></BODY></HTML>

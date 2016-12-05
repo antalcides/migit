@@ -1,0 +1,249 @@
+    	program hydrogen
+
+c-------generate a complete set of hydrogenic orbitals
+
+c.......Parameters:
+c	mxpts: max number of pmesh points
+      	parameter (mxpts=500,mxlq=10)
+   
+	common/bkdata/ lej,izeff
+	common/bkmesh/pmin,pmax,hp,npmesh
+
+	open(unit=10,file='hydrogen.out',status='unknown')
+	write(10,5)
+	write(10,6)
+5	format(/10x,'Hydrogenic energies and wavefunctions:')
+6	format(10x,38('-'))
+		
+c-------wavefunction parameters
+c.......lej--maximum angular momentum
+	print*,'give the maximum angular momentum: '
+	read*, lej
+	write(10,10) lej
+10   	format(/5x,'Maximum angular momentum lmax=: ',i5)
+	if (lej.gt.mxlq) pause 'increase mxlq parameter' 
+
+
+c-------pspace integration parameters
+c.......hp--pspace integration interval
+c.......npmesh--number of total pmesh steps
+c.......pmesh--pmesh points
+c.......pmin=0.0, pmax=npmesh*hp
+c.......pmesh(1)=pmin+hp, pmesh(npmesh)=pmax
+
+	print*,'give the pspace integration interval (hp):'
+	read*,hp
+	print*,'give the number of total steps (npmesh) (max=',mxpts,')'
+	read*,npmesh
+      	write(10,20), hp,npmesh
+20   	format(5x,'hp=:',f10.4,2x,'npmesh=:',i5)
+	if(npmesh.gt.mxpts) pause 'increase mxpts parameter' 
+
+      	pmin=0.0
+      	pmax=npmesh*hp
+      	write(10,30) pmin,pmax
+30   	format(5x,'pmin=:',f10.4,5x,'pmax=:',f10.4)
+
+c.......izeff--effective atomic number
+	print*,'give the effective atomic number:'
+	read*,izeff
+	write(10,40) izeff
+40   	format(5x,'Effective atomic number izeff=:',i3)
+
+c-------construct complete set of orbitals
+	write(10,50)
+50   	format(//5x,"Constructing complete set of orbitals")
+	write(10,*) ' '
+      
+	call initH
+c-------loop over angular momentum
+        do 100 lq=0,lej
+	   	print*,'l=: ',lq
+      	   	fll=float(lq)
+		call constrH(fll)
+      		call diagH(lq)
+100	continue     	
+
+	call printH
+	
+	stop
+	end
+c---------------------------------------------------------------
+
+c---------------------------------------------------------------
+	subroutine initH
+
+c-------Generates Coulomb potential on the grid.
+
+	parameter (mxpts=500)
+	common/bkdata/ lej,izeff
+	common/bkmesh/pmin,pmax,hp,npmesh
+	common/bkpot/pmesh(mxpts),vpot(mxpts)
+	common/bkhconst/r1,r2
+	
+	data half,one,two/0.5,1.0,2.0/
+ 
+c	Constant usefull in the Hamiltonian generation. l-independent
+        r1 =  one/hp**2
+	r2 =-half/hp**2
+
+      	do 10 i=1,npmesh
+      		pmesh(i) = i*hp
+c.............. Coulomb potential
+		vpot(i)=-one*izeff/pmesh(i)
+10	continue
+	return
+	end
+	
+c---------------------------------------------------------------
+	subroutine constrH(fll)
+	
+c-------Generates the Hamiltonian.
+
+	parameter (mxpts=500)
+	common/bkdata/ lej,izeff
+	common/bkmesh/pmin,pmax,hp,npmesh
+	common/bkpot/pmesh(mxpts),vpot(mxpts)
+	common/bkhamilt/d(mxpts),e(mxpts)
+	common/bkhconst/r1,r2
+	
+	data one,two/1.0,2.0/
+ 
+c.......The non/diagonal parts of the hamiltonian are destroyed for
+c	every call to diag. Therefore, they are generated again, in 
+c	spite they are l-independent.
+c        r1 =  one/hp**2 
+c	 r2 =-half/hp**2
+	
+c-----------construct hamiltonian on the grid
+            do 40 i=1,npmesh
+c...............diagonal terms
+                veff=vpot(i)+fll*(fll+one)/(two*pmesh(i)**2)
+                d(i)= r1 + veff
+c...............non-diagonal terms
+                e(i)=r2
+40          continue
+
+	return
+	end
+c---------------------------------------------------------------
+
+c---------------------------------------------------------------
+	subroutine diagH(lq)
+
+c------- Matrix diagonalization.
+c------- Also stores the Eigenvalues and Eigenvectors.
+
+	parameter (mxpts=500,mxlq=10)
+	common/bkmesh/pmin,pmax,hp,npmesh
+	common/bkhamilt/d(mxpts),e(mxpts)
+c	d(mxpts)			! diagonal part of the Hamiltonian
+c	e(mxpts)			! non-diagonal part of H
+	dimension  v(mxpts,mxpts)	! eigenvectors
+	dimension  wksp(mxpts),iwksp(mxpts) ! working arrays for sorting
+	common/bkeigen/enerv(mxpts,0:mxlq),chi(mxpts,0:mxlq,mxpts)
+c	chi(n,l,mxpts) 		! normalized eigenvectors
+	
+	data zero,one/0.0,1.0/
+	data autoev/27.2113961/
+
+c----------matrix diagonalization
+c..........f02ame--calculates all the eigenvalues and eigenvectors of
+c..........        a real symmetric tridiagonal matrix
+c..........eps--machine precision
+
+c.......... CRAY ...................
+c	   eps=x02aje()
+c	   ifail=0
+c	   call f02ame(npmesh,eps,d,e,v,mxpts,ifail)
+c	   if (ifail.ne.0) pause 'f02ame fails' 
+
+c.......... SUN .....................
+	   call tqli(d,e,npmesh,mxpts,v)
+c----------sorting the eigenvectors/values into ascending energies  
+	   call sort2(npmesh,d,v,mxpts,wksp,iwksp)
+
+
+c------ find and store all bound state wavefunctions
+	nq = lq 	! n principal quantum number
+	do 50 icol=1,npmesh
+	  sign = one
+	  if(d(icol).lt.0.0) then
+      		nq = nq + 1
+      		eau = d(icol)
+      		enerv(nq,lq) = autoev*eau
+                print45, lq,nq,enerv(nq,lq)
+45      format(5x,'l =:',i2,2x,'n =:',i3,5x,'energy =:',f15.4,'eV')
+
+c----------------normalization for all bound state wavefunctions
+		sum=zero
+      		do 10 irow=1,npmesh
+10      		  sum=sum+v(irow,icol)**2
+		ptot=hp*sum
+		if(v(1,icol).lt.zero) sign=-one
+      		do 20 irow=1,npmesh
+20      	   chi(nq,lq,irow)=sign*v(irow,icol)/sqrt(ptot)
+	  end if
+50	continue
+	
+	return
+     	end
+c---------------------------------------------------------------
+
+c---------------------------------------------------------------
+	subroutine printH
+
+c-------Prints the energies and selected wavefunctions.
+
+	parameter (mxpts=500,mxlq=10)
+	common/bkdata/ lej,izeff
+	common/bkmesh/pmin,pmax,hp,npmesh
+	common/bkpot/pmesh(mxpts),vpot(mxpts)
+	common/bkeigen/enerv(mxpts,0:mxlq),chi(mxpts,0:mxlq,mxpts)
+	character*30  outputfile
+	
+	write(10,5)
+5	format(/5x,'Results: ')
+
+	do 20 nq=1,mxpts
+ 	   lmax = min(nq-1,mxlq)
+ 	   if (enerv(nq,0).ge.0.and.enerv(nq,lmax).ge.0) go to 20
+	   write(10,7)  nq
+7	   format(//5x,'Principal quantum number n = : ',i3/)
+ 	   lmax = min(lej,mxlq)
+ 	   do 10 lq=0,lmax
+	   	if (lq.ge.nq) go to 10
+	   	if (enerv(nq,lq).ge.0) go to 10
+		write(10,45) nq,lq,enerv(nq,lq)
+10	   continue
+20	continue		
+45	format(5x,'n =:',i5,5x,'l =:',i5,5x,'energy =: ',f15.4,' eV')
+
+	inptfile = 11
+	outputfile(1:5) = 'prad.'
+50	format(a25)
+100	print*,'give the name of the output file (extension only)'
+	read(*,50) outputfile(6:30)
+52	print*,' give the n and l quantum numbers:'
+	read*, nq,lq
+	if (lq.ge.nq) then
+		print*,'Error !! try again !'
+		go to 52
+	endif
+	open(unit=inptfile,file=outputfile,status='unknown')
+c	write(inptfile,*) ' Wavefunction for n=:',nq,'  l=:',lq
+c	write(inptfile,*) ' '
+	do 75 irow=1,npmesh
+75	    write(inptfile,*) pmesh(irow),' ',chi(nq,lq,irow)
+
+
+	inptfile = inptfile+1
+	if (inptfile.gt.50) inptfile = 11
+	print*,' continue? (no=0) '
+	read*,icont
+	if (icont.ne.0) go to 100
+	
+	return
+     	end
+
+c---------------------------------------------------------------

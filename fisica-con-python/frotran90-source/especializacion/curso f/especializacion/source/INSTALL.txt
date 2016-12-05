@@ -1,0 +1,248 @@
+This file contains instructions for building and installing the f90gl
+libraries.  Check the f90gl web page http://math.nist.gov/f90gl for the
+latest information, makefiles for additional systems, etc.  Look under
+the list of Unix workstations or list of Windows 95/NT systems for the
+status of systems that don't work at the time of this release.  Look
+under Software for additional makefiles.  Look under News for general
+announcements.
+
+Table of Contents:
+
+1) GLUT
+2) system code
+3) fpp preprocessor file
+4) makefile
+5) compile and install
+6) test
+7) system specific notes
+   ** all systems
+   ** NASoftware
+   ** Lahey
+   ** DVF
+   ** Salford
+   ** XLF
+   ** F
+   ** Digital Fortran on Digital Unix
+   ** Pacific Sierra
+
+1) GLUT
+   ----
+
+You need version 3.7 or later of GLUT.  Build GLUT as per the usual
+instructions in the GLUT distribution, but be certain to copy both glut.h
+and glutf90.h, to an include/GL directory.
+
+At the time of this release of f90gl, GLUT 3.7 was still in beta test.
+Earlier 3.7 beta versions will not work with f90gl.  To be certain that
+you have the correct version of GLUT, you should obtain GLUT from the
+f90gl web page http://math.nist.gov/f90gl until the official release of
+GLUT 3.7.  It is available in .tar.gz and .zip formats, and precompiled
+for Windows.
+
+The GLUT home page is http://reality.sgi.com/opengl/glut3/glut3.html
+
+2) system code
+   -----------
+
+Makefiles are provided for all systems on which f90gl has been tested.  To keep
+the names within the 8.3 naming convention, a 4 (or 5) character code is
+assigned to each system configuration.  These characters designate the
+hardware, operating system, Fortran compiler, OpenGL and (optionally) special
+designations.  For example, s4nm is the code for a Sun workstation with
+SunOS 4.x, the NAGware compiler, and Mesa.  Look in the file mf_keys to
+determine the code for your system.
+
+If you do not find a preprocessor file and makefiles for your system, you
+should find a similar system and make your own files using the files for
+that system as a starting point.  If you have success with a new system and
+would like to share your makefiles and preproccessor file with other users,
+send email to william.mitchell@nist.gov.
+
+3) fpp preprocessor file
+   ---------------------
+
+f90gl uses a simple preprocessor for conditional compilations to handle
+differences in the OpenGL version, supported extensions, ways that Fortran
+and C interface, limitations in the subset languages, and compiler bugs.
+
+The directory f90gl/fppincs contains files of definitions for the preprocessor
+for each system.  The names of these files are of the form fppxxxx where xxxx
+is the system code described above.  There is also a file fppnada which is
+used by systems that do not need any information in this file.
+
+As of version 1.2.6, the remainder of this section is relevant only
+to MS Windows systems, except for the last paragraph.
+
+Identify the fpp file for your system, or create one from the file for a
+similar system.  Then verify that the #define statements are correct for
+your system.  There are three sets of these: OpenGL version, extensions, and
+special system designations.
+
+You must first identify the OpenGL version and extensions supported by your
+OpenGL library.  To do this, look at the file ???/include/GL/gl.h.
+
+To determine your OpenGL version, look for the string VERSION.  There
+should be a few of them of the form GL_VERSION_1_1, GL_VERSION_1_2,
+etc.  These tell you what version is supported.
+
+The fpp file should have a #define for each version number up to your version
+of OpenGL.  For example, if you have OpenGL 1.1 then the fpp file should have
+#define OPENGL_1_0
+#define OPENGL_1_1
+!#define OPENGL_1_2
+Note that the last one is commented out.
+
+To determine which extensions are supported by your OpenGL, search for GL_EXT
+in gl.h.  You should find the list of supported extensions, e.g.
+/* Extensions */
+#define GL_EXT_abgr                       1
+#define GL_EXT_blend_color                1
+
+The fpp file has a #define statement for each extension currently supported by
+f90gl.  You should comment out any that are not supported by your OpenGL.
+If you don't comment out one that is not supported, you will get undefined
+symbol errors from the linker.  If you do comment out one that is supported,
+you will not be able to use that extension from Fortran.  If your favorite
+extension is not listed in the fpp file, it is not currently supported by
+f90gl; send email to william.mitchell@nist.gov and we'll consider adding it
+to the next release.
+
+The final set of #define statements indicate system configuration details,
+usually indicating what compiler is being used.  These are only necessary
+when the f90gl source code needs to do something special for this sytem,
+for example work around a compiler bug.  You should probably leave these
+alone, and for a new system not define any.  An exception is GLU_1_1_TESS
+which should be defined if and only if the OpenGL library does not support
+GLU 1.2 tesselation.  Look for GLU_VERSION_1_2 in .../include/GL/glu.h.
+
+4) makefile
+   --------
+
+The makefile names begin with mf.  In the top directory there is a file for
+each system on which f90gl has been tested of the form mfxxxx (for makefiles) or
+mfxxxx.bat (for DOS batch files) where xxxx is the system code.
+
+Identify your makefile and edit it to set the directories in which your
+system keeps the OpenGL and X11 include files.  If your system is not supported,
+then find a similar system and use it as a starting point for your makefile.
+You will probably have to change some additional macros at the beginning of
+the makefile.
+
+The subdirectories util, gl, glu and glut contain makefiles that are called
+by the top level makefile.  Some of these are common to many systems (e.g.
+mfmost for most systems), and some are system specific using the name mfxxxx
+where xxxx is the system code.  You should not have to make any changes to these
+makefiles.
+
+The subdirectory examples contains a makefile for each system on which f90gl
+has been tested.  This will need to be edited to for your system similar to
+the top level makefile.
+
+5) compile and install
+   -------------------
+
+If xxxx is your system code, then from the top f90gl directory:
+
+at a Unix prompt, type make -f mfxxxx
+at a DOS  prompt, type mfxxxx
+exception: for the PGI compiler on Windows, use make
+
+This will compile the f90gl libraries, move them to f90gl/lib, and move
+any "module" files to either f90gl/include/GL or f90gl/lib, depending on
+the system.  After testing, you can either leave them there or move them
+to another home, for example the lib and include directories containing
+OpenGL.
+
+"make -f mfxxxx clean" (in Unix) or "mfxxxx clean" (in DOS) will delete all
+files generated by the building process, but leave the library and module
+files in f90gl/include/GL and f90gl/lib.
+
+"make -f mfxxxx reallyclean" or "mfxxxx reallyclean" will delete the files
+in f90gl/include and f90gl/lib, too.
+
+6) test
+   ----
+
+Finally you should test the libraries by building and running the example
+programs in f90gl/examples.  See the README file in that directory.
+
+7) system specific notes
+   ---------------------
+
+all systems
+
+ - no notes
+
+NASoftware/Linux
+
+ - you must use FortranPlus Version 2.0.5 or later.
+ - you must have the directory containing the libraries
+   (e.g. <path-to-f90gl>/f90gl/lib) in your LIBRARY_PATH environment variable
+   to build the examples
+
+NASoftware/WinNT
+
+ - you must use FortranPlus Version 2.0.55 or later
+
+Lahey
+
+ - Lahey supplies a binary version of f90gl that works with LF90, LF95, and
+   ELF90.  Go to http://www.lahey.com/ and search for OpenGL.
+
+   The remaining comments pertain to building f90gl from the sources instead
+   of using the precompiled libraries.
+
+ - Note that for Lahey/Fujitsu LF95 on Windows the mf key uses "j" for Fujitsu.
+
+ - you must use LF95 if you use MS VC++.  With the Borland C compiler you can
+   use either LF90 or LF95.
+
+ - with LF95 5.5 or later and MS VC++, you may find multiple definitions of
+   WinMain when you link an example.  If so, comment out the line that
+   creates winmain.obj in f90gl/gl/mf8njo
+
+DVF
+
+ - Compaq (Digital) supplies a binary version of f90gl for DVF.  Go to
+   http://www.compaq.com/fortran and look under "Downloads".
+
+Salford
+
+ - does not currently work with Salford ftn95.  Check the f90gl web page for 
+   the latest information.
+
+XLF
+
+ - XLF versions before 3.2.5.2 and 4.1.0.1 do not allow the target attribute
+   on assumed size arrays in both fwrap.fpp and interf.fpp.  If you get a
+   compile time error message related to this, then add "#define OLDXLF" to the
+   end of the fpp file in f90gl/fppincs.  Note that if you do this then arrays
+   for which C keeps a pointer and uses the array later may not work properly
+   (for example, the glutdino example will not draw the sides of the dino).
+
+F
+
+ - currently does not work with F because of size limitations in the F
+   compilers.  Check the f90gl web page for the latest information.
+
+Digital Fortran on Digital Unix
+
+ - with Digital Fortran 90 V4.1 you need to apply a patch to the compiler.
+   Without it you will get an error message about no matching specific
+   routine for the generic subroutine gluTessCallback when you compile the
+   glutdino example.
+   You can either:
+   -- Download ECO 02 for DIGITAL Fortran for DIGITAL UNIX from
+      http://www.digital.com/fortran/downloads.html
+      and patch the compiler before building f90gl, or
+   -- add #define DIGITAL_NO_ECO_02 to the fpp file, but this is a hack
+      that changes the API for gluTessCallback (see USRGUIDE).  I only
+      recommend this for someone who does not have root privileges (so
+      can't patch the compiler) and can't get the sysadmin to patch it
+      right away.  You should reinstall f90gl without the hack once you
+      finally do get the sysadmin to patch the compiler.
+
+PACIFIC SIERRA
+
+ - currently does not work with the Pacific Sierra compiler on Linux.  Check
+   the f90gl web page for the latest information.

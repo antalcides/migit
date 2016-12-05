@@ -1,0 +1,15 @@
+
+package integral1;
+
+public abstract class Trapecio {
+
+    public double integral (double a, double b, int n){
+        double h=(b-a)/n;
+        double suma=(f(a)+f(b))/2;
+        for(int i=1; i<n; i++){
+            suma+=f(a+i*h);
+        }
+        return suma*h;
+    }
+    abstract public double f(double x);
+}

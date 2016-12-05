@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0059)http://garota.fismat.umich.mx/mn1/tutor_fort/readwrite.html -->
+<HTML><HEAD><TITLE>Tutorial de Fortran</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY background="Tutorial de Fortranes_archivos/default.gif">
+<HR>
+&nbsp;[11. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/subprograms.html">Subprogramas 
+</A>] &nbsp;[<A href="http://fismat.umich.mx/mn1/tutor_fort/index.html">Tutorial 
+de Fortran</A>] &nbsp;[13. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/format.html">Sentencia 
+<TT>format</TT></A> ] 
+<HR>
+
+<H2>12. E/S Básica</H2>Una parte importante del cualquier programa de cómputo es 
+manejar la entrada y la salida. En los ejemplos revisados previamente, se han 
+usado las dos construcciones más comunes de Fortran que son: <TT>read</TT> and 
+<TT>write</TT>. La E/S con Fortran puede ser un poco complicada, por lo que nos 
+limitaremos a los casos más sencillos en el tutorial. 
+<P>
+<H3>Lectura y Escritura</H3>La sentencia <TT>read</TT> es usada para la entrada 
+y la sentencia <TT>write</TT> para la salida. El formato es: <PRE>      read (<EM>núm_unidad, núm_formato</EM>) <EM>lista_de_variables</EM>
+      write(<EM>núm_unidad, núm_formato</EM>) <EM>lista_de_variables</EM>
+</PRE>El número de unidad se puede referir a la salida estándar, entrada 
+estándar o a un archivo. Se describirá más adelante. El número de formato se 
+refiere a una etiqueta para la sentencia format, la cual será descrita 
+brevemente. 
+<P>Es posible simplificar estas sentencias usando asteriscos (*) para algunos 
+argumentos, como lo que se ha hecho en los ejemplos anteriores. A lo anterior se 
+le conoce como una lectura/escritura de <EM>lista dirigida</EM>. <PRE>      read (*,*) <EM>lista_de_variables</EM>
+      write(*,*) <EM>lista_de_variables</EM>
+</PRE>La primera sentencia leerá valores de la entrada estándar y asignará los 
+valores a las variables que aparecen en la lista, y la segunda escribe la lista 
+en la salida estándar. 
+<H3>Ejemplos</H3>Se muestra un segmento de código de un programa de Fortran: <PRE>      integer m, n
+      real x, y
+
+      read(*,*) m, n 
+      read(*,*) x, y 
+</PRE>Se ingresan los datos a través de la entrada estándar (teclado), o bien, 
+redireccionando la entrada a partir de un archivo. Un archivo de datos consiste 
+de <EM>registros</EM> de acuerdo a los formatos válidos de Fortran. En el 
+ejemplo, cada registro contiene un número (entero o real). Los registros estan 
+separados por espacios en blanco o comas. Por lo que una entrada válida al 
+programa anterior puede ser: <PRE>   -1  100
+  -1.0 1e+2
+</PRE>O se pueden agregar comas como separadores: <PRE>   -1, 100
+ -1.0, 1e+2
+</PRE>Observar que la entrada en Fortran 77 es sensible a la línea, por lo que 
+es importante contar con el número apropiado de elementos de entrada (registros) 
+en cada línea. Por ejemplo, si se da la siguiente entrada en una sola línea <PRE>   -1, 100, -1.0, 1e+2
+</PRE>entonces a <I>m</I> y a <I>n</I> se asignarán los valores de -1 y 100 
+respectivamente, pero los dos últimos valores serán descartados, dejando a 
+<I>x</I> e <I>y</I> sin definir. 
+<P>
+<H3>Otras versiones (no soportada por f77 de linux)</H3>Para una lista dirigida 
+simple de E/S es posible usar una sintaxis alterna <PRE>      read  *, <EM>lista_de_variables</EM>
+      print *, <EM>lista_de_variables</EM>
+</PRE>la cual tiene el mismo significado que la lista dirigida de lectura y 
+escritura descrita anteriormente. Esta versión siempre lee/escribe a la 
+entrada/salida estándar, por lo que * corresponde al formato. 
+<P>
+<HR>
+&nbsp;[11. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/subprograms.html">Subprogramas 
+</A>] &nbsp;[<A href="http://fismat.umich.mx/mn1/tutor_fort/index.html">Tutorial 
+de Fortran</A>] &nbsp;[13. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/format.html">Sentencia 
+<TT>format</TT></A> ] </BODY></HTML>

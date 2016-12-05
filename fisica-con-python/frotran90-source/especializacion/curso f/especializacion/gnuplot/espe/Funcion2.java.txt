@@ -1,0 +1,10 @@
+
+
+package ecuacion1;
+
+public class Funcion2 extends Ecuacion{
+
+    public double f(double x){
+        return Math.pow(x+1, 1.0/3);
+    }
+}

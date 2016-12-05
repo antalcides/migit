@@ -1,0 +1,25 @@
+C     PROGRAMA QUE EVALUA UN POLINOMIO EN UN PUNTO DADO.
+      real*4 p(20)
+      write(*,*) 'Dame el valor del punto a calcular '
+      read(*,*) x
+      write(*,*) 'Dame el orden del polinomio '
+      read(*,*) n
+      c=0
+      k=0
+      z=0
+    8 c=c+1
+      if (c.le.n) then
+      write(*,*) 'Dame el coeficiente de X^',c-1
+      read(*,*) p(c)
+      goto 8
+      else
+   16 k=k+1
+      if (k.le.n) then
+      z=z+(p(k))*x**(k-1)
+      goto 16
+      else
+      write(*,*) 'el valor de p(x) es ',z
+      endif
+      endif
+      stop
+      end

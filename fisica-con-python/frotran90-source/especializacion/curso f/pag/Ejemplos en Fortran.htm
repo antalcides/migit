@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0071)http://telematica.cicese.mx/computo/super/cicese2000/scsl/ejemploF.html -->
+<HTML><HEAD><TITLE>Ejemplos en Fortran</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY bgColor=white>
+<CENTER>
+<TABLE width="80%" border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <CENTER><FONT color=blue>
+      <P>
+      <H2>EJEMPLOS EN FORTRAN</H2>
+      <P></P></FONT></CENTER>
+      <HR>
+      <BR><BR><B>Ejemplo 1. Subrutina <I>sgemm</I> (BLAS-3)</B> <PRE>c Programa en fortran77 que resuelve un producto de 
+c dos matrices, usando BLAS
+        program mul_mat
+        implicit none
+c
+c Declaracion de variables
+        integer K, LDA,LDB,LDC, M, N
+        parameter   (K = 4)
+        parameter   (M = 3)
+        parameter   (N = 2)
+        parameter   (LDA = M)
+        parameter   (LDB = K)
+        parameter   (LDC = M)
+        real A(LDA,K), ALPHA, B(LDB,N), BETA, C(LDC,N)
+        integer I,J
+c
+c Inicializa los arreglos A, B con los sig. valores:
+c 
+c        1  2 6 -1          2  1    
+c    A = 2 -1 1  1     B = -1  3  
+c        3 -2 2 -3          1  1    
+c                           3 -2
+c
+        data A / 1.0, 2.0, 3.0,
+     $           2.0, -1.0, -2.0,
+     $           6.0, 1.0, 2.0, 
+     $          -1.0, 1.0, -3.0 /
+        data B / 2.0, -1.0, 1.0, 3.0, 1.0, 3.0, 1.0, -2.0 /
+c
+        print 1000
+        print 1010, ((A(I,J), J=1,K), I=1,M)
+        print 1020
+        print 1030, ((B(I,J), J=1,N), I=1,K) 
+        ALPHA = 1.0
+        BETA = 0.0
+c
+c Invocacion de la rutina SGEMM de BLAS
+        call SGEMM('No transpuesta de A','No transpuesta de B', M, N, K, 
+     $       ALPHA, A, LDA, B, LDB, BETA,C, LDC)
+        print 1040
+        print 1030, ((C(I,J), J=1,N), I=1,M) 
+ 1000   format (1X, 'A:')
+ 1010   format (4(3X, F5.1))
+ 1020   format (/1X, 'B:')
+ 1030   format (2(3X, F5.1)) 
+ 1040   format (/1X, 'AB:')
+        end
+</PRE>
+      <TABLE cellPadding=3 width="100%">
+        <TBODY>
+        <TR>
+          <TD bgColor=#c4c4c4><FONT size=-1><B>Para compilar:</B> <BR><BR>
+            <DD>% <B>f77</B><I> mul_mat.f</I> <B>-o</B><I> mul_mat</I> 
+            <B>-lscs</B> </FONT></DD></TD></TR></TBODY></TABLE><BR><BR><B>Ejemplo 2. 
+      Subrutina <I>sgesv</I> (LAPACK)</B> <PRE>c Programa en fortran77 que resuelve un sistema de
+c ecuaciones lineales de la forma A*x=b usando LAPACK
+        Program lineal
+        Implicit none
+c
+c matriz A de 3x3
+        Real*4 A(3,3), b(3)
+        integer i, j, pivote(3), info
+c
+c Matriz de coeficientes de A
+        A(1,1)=1.0
+        A(1,2)=1.0
+        A(1,3)=3.0
+        A(2,1)=2.0
+        A(2,2)=3.0
+        A(2,3)=-5.0
+        A(3,1)=5.0
+        A(3,2)=2.0
+        A(3,3)=5.0
+c
+c Definicion del vector b
+        b(1)=12.0
+        b(2)=-21.0
+        b(3)=23.0
+c
+c Invocacion de la rutina SGESV de LAPACK
+        call SGESV(3, 1, A, 3, pivote, b, 3, info)
+c
+c    El primer parametro es el orden de la matriz A,
+c    Segundo. El numero de columnas del vector b,
+c    Tercero. La matriz A,
+c    Cuarto. Dimension de la matriz A,
+C    Quinto. Arreglo que registra el pivoteo,
+c    Sexto.  Solucion del vector x que se guardan en b 
+c    Septimo. Dimension del vector b
+c    Octavo. Bandera de status.       
+c       
+c     Imprime el vector x
+        do i=1, 3
+           write(*,*) b(i)
+        end do
+        end
+</PRE><BR>
+      <TABLE cellPadding=3 width="100%">
+        <TBODY>
+        <TR>
+          <TD bgColor=#c4c4c4><FONT size=-1><B>Para compilar:</B> <BR><BR>
+            <DD>% <B>f77</B><I> lineal.f</I> <B>-o</B><I> lineal</I> 
+            <B>-lscs</B> </FONT></DD></TD></TR></TBODY></TABLE>
+      <HR>
+    </TD></TR></TBODY></TABLE></CENTER></BODY></HTML>

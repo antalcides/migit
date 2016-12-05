@@ -1,0 +1,37 @@
+Here (in this zip file downloaded from www.sci.muni.cz/~mikulik/gnuplot/) 
+you find precompiled Windows binaries of the CURRENT DEVELOPMENT VERSION 
+of gnuplot as available from gnuplot's SourceForge CVS tree
+on May 14 2003, gnuplot version 3.8j.
+See also files ChangeLog and NEWS for more details on updates and new features.
+
+THIS IS A DEVELOPMENT VERSION OF GNUPLOT. USE AT YOUR OWN RISK.
+
+You are welcome to download the sources from
+  setlocal
+  set HOME=.
+  SET CVSROOT=:pserver:anonymous@cvs.gnuplot.sourceforge.net:/cvsroot/gnuplot
+  cvs login
+  cvs -z3 checkout -P gnuplot
+  endlocal
+
+There you may find demo/, more docs, more installation details etc. Only 
+the basic set of information is available in the ./gnuplot/ subdirectory.
+
+The latest "official" version of gnuplot is available from many sites, 
+including the main gnuplot repository www.gnuplot.org, 
+ftp://ftp.ucc.ie/pub/gnuplot/ or CTAN.
+This older version, however, does not contain the mouse support.
+
+
+Notes:
+
+  - You can avoid writing mouse coordinates over xlabel by:
+	- do not use mouse coordinates and xlabel simultaneously,
+	- try 'set bmargin 4'.
+
+  - Notice that this development version switched to new syntax, mainly:
+	- 'set noXXX' changed to 'unset XXX',
+	- 'set data style XXX' changed to 'set style data XXX'.
+
+
+Petr Mikulik, May 2003

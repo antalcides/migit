@@ -1,0 +1,911 @@
+This is TeX, Version 3.14159 (preloaded format=latex 97.9.16)  14 NOV 2003 17:46
+**&latex_ml C:/SWP30/Docs/irina/tarea4/asig4.tex
+(C:/SWP30/Docs/irina/tarea4/asig4.tex
+LaTeX2e <1997/06/01>
+Babel <v3.6h> and hyphenation patterns for american, english, french, dutch, ge
+rman, loaded.
+(C:\SWP30\TCITeX\tex\LaTeX\base\article.cls
+Document Class: article 1997/06/16 v1.3v Standard LaTeX document class
+(C:\SWP30\TCITeX\tex\LaTeX\base\size10.clo
+File: size10.clo 1997/06/16 v1.3v Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(C:\SWP30\TCITeX\tex\LaTeX\packages\graphics\graphicx.sty
+Package: graphicx 1997/06/09 v1.0d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\SWP30\TCITeX\tex\LaTeX\packages\graphics\keyval.sty
+Package: keyval 1995/09/21 v1.09 key=value parser (DPC)
+)
+(C:\SWP30\TCITeX\tex\LaTeX\packages\graphics\graphics.sty
+Package: graphics 1997/06/07 v1.0d Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\SWP30\TCITeX\tex\LaTeX\packages\graphics\trig.sty
+Package: trig 1994/10/16 v1.08 sin cos tan (DPC)
+)
+(C:\SWP30\TCITeX\tex\LaTeX\packages\graphics\graphics.cfg)
+Package graphics Info: Driver file: tcidvi.def on input line 84.
+
+(C:\SWP30\TCITeX\tex\LaTeX\packages\graphics\tcidvi.def
+File: tcidvi.def 1996/12/12 v3.0d Driver-dependant file (DPC,SPQR)
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+(C:\SWP30\TCITeX\tex\LaTeX\packages\amslatex\inputs\amsmath.sty
+Package: amsmath 1997/03/20 v1.2d AMS math features
+\@mathmargin=\skip43
+
+(C:\SWP30\TCITeX\tex\LaTeX\packages\amslatex\inputs\amstext.sty
+Package: amstext 1996/10/28 v1.2b
+
+(C:\SWP30\TCITeX\tex\LaTeX\packages\amslatex\inputs\amsgen.sty
+File: amsgen 1996/10/29 v1.2b
+\@emptytoks=\toks14
+\ex@=\dimen105
+))
+(C:\SWP30\TCITeX\tex\LaTeX\packages\amslatex\inputs\amsbsy.sty
+Package: amsbsy 1996/10/28 v1.2b
+\pmbraise@=\dimen106
+)
+(C:\SWP30\TCITeX\tex\LaTeX\packages\amslatex\inputs\amsopn.sty
+Package: amsopn 1996/10/28 v1.2b operator names
+)
+LaTeX Info: Redefining \frac on input line 188.
+\uproot@=\count87
+\leftroot@=\count88
+\classnum@=\count89
+\DOTSCASE@=\count90
+LaTeX Info: Redefining \dots on input line 335.
+LaTeX Info: Redefining \ldots on input line 418.
+LaTeX Info: Redefining \cdots on input line 422.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen107
+LaTeX Font Info:    Redeclaring font encoding OML on input line 500.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 501.
+\skewcharcount@=\count91
+\familycount@=\count92
+\pointcount@=\count93
+\accentdimen@=\dimen108
+\accentmu@=\count94
+\minaw@=\dimen109
+\c@MaxMatrixCols=\count95
+\dotsspace@=\muskip10
+\c@parentequation=\count96
+\dspbrk@lvl=\count97
+\tag@help=\toks15
+\row@=\count98
+\column@=\count99
+\maxfields@=\count100
+\andhelp@=\toks16
+\eqnshift@=\dimen110
+\alignsep@=\dimen111
+\tagshift@=\dimen112
+\tagwidth@=\dimen113
+\totwidth@=\dimen114
+\lineht@=\dimen115
+\@envbody=\toks17
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+)
+\c@theorem=\count101
+
+(C:\SWP30\TCITeX\tex\LaTeX\tci\tcilatex.tex
+TCILATEX Macros for Scientific Word 3.0 <05 August 1998>.
+NOTICE: This macro file is NOT proprietary and may be freely copied and distrib
+uted.
+\@hour=\count102
+\@minute=\count103
+\GRAPHICSTYPE=\count104
+\draft=\count105
+\dispkind=\count106
+\c@chapter=\count107
+\theight=\dimen116
+LaTeX Info: Redefining \rm on input line 556.
+LaTeX Info: Redefining \sf on input line 557.
+LaTeX Info: Redefining \tt on input line 558.
+LaTeX Info: Redefining \bf on input line 559.
+LaTeX Info: Redefining \it on input line 560.
+LaTeX Info: Redefining \sl on input line 561.
+LaTeX Info: Redefining \sc on input line 562.
+\c@equationnumber=\count108
+amsmath already loaded) (.\asig4.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+
+Underfull \hbox (badness 10000) in paragraph at lines 59--60
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 99--100
+
+ []
+
+[1
+
+]
+Overfull \hbox (10.78036pt too wide) in paragraph at lines 131--138
+[]\T1/cmr/m/n/10 Dada la fun-ci^^f3n es-criba un pro-grama donde cal-cule las p
+rimeras dos derivadas
+ []
+
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 140.
+
+(C:\SWP30\TCITeX\tex\LaTeX\base\t1cmtt.fd
+File: t1cmtt.fd 1997/06/16 v2.5e Standard LaTeX font definitions
+)
+Overfull \hbox (6.66412pt too wide) in paragraph at lines 275--275
+[]\T1/cmtt/m/n/10 C DESCRIPCION: Este programa calcula las derivadas parciales 
+usando[] 
+ []
+
+[2]
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 275--275
+[]\T1/cmtt/m/n/10 CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCC[] 
+ []
+
+
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 275--275
+[]     \T1/cmtt/m/n/10 & '*****************************************************
+**********'[] 
+ []
+
+
+Overfull \hbox (305.84106pt too wide) in paragraph at lines 275--275
+[]     \T1/cmtt/m/n/10 & '\UNICODE{0xc5}*******************\UNICODE{0xc5}******
+**************\UNICODE{0xc5}********************\UNICODE{0xc5}'[] 
+ []
+
+
+Overfull \hbox (116.8872pt too wide) in paragraph at lines 275--275
+[]     \T1/cmtt/m/n/10 & ' calcule la 1\UNICODE{0xa7} y 2\UNICODE{0xa6} derivad
+a de f(x) = sin((pi/2)*x)',[] 
+ []
+
+
+Overfull \hbox (305.84106pt too wide) in paragraph at lines 275--275
+[]     \T1/cmtt/m/n/10 & '\UNICODE{0xc5}****************\UNICODE{0xc5}*********
+********\UNICODE{0xc5}**************************\UNICODE{0xc5}'[] 
+ []
+
+
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 275--275
+[]     \T1/cmtt/m/n/10 & '*****************************************************
+**********'[] 
+ []
+
+
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 275--275
+[]      \T1/cmtt/m/n/10 Write(*,*) '                                           
+          '[] 
+ []
+
+
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 275--275
+[]      \T1/cmtt/m/n/10 Write(*,*) '                                           
+          '[] 
+ []
+
+
+Overfull \hbox (27.659pt too wide) in paragraph at lines 275--275
+[]\T1/cmtt/m/n/10 C************************************************************
+**********[] 
+ []
+
+
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 275--275
+[]      \T1/cmtt/m/n/10 ! errord,errort,errorc representan los errores de las d
+erivadas[] 
+ []
+
+
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 275--275
+[]\T1/cmtt/m/n/10 C************************************************************
+***********[] 
+ []
+
+[3]
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 275--275
+[]      \T1/cmtt/m/n/10 Write(*,*) '                                           
+          '[] 
+ []
+
+
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 275--275
+[]      \T1/cmtt/m/n/10 Write(*,*) '                                           
+          '[] 
+ []
+
+
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 275--275
+[]      \T1/cmtt/m/n/10 Write(*,*) '                                           
+          '[] 
+ []
+
+
+Overfull \hbox (363.57697pt too wide) in paragraph at lines 275--275
+[]     \T1/cmtt/m/n/10 &' 1\UNICODE{0xa7} Derivada  \UNICODE{0xb3} Valor       
+  \UNICODE{0xb3}  2\UNICODE{0xa6} Derivada  \UNICODE{0xb3}              ',[] 
+ []
+
+
+Overfull \hbox (295.34363pt too wide) in paragraph at lines 275--275
+[]     \T1/cmtt/m/n/10 &'  diferencia  \UNICODE{0xb3}  del          \UNICODE{0x
+b3}   diferencia  \UNICODE{0xb3}    N\UNICODE{0xa7} de paso',[] 
+ []
+
+
+Overfull \hbox (227.11029pt too wide) in paragraph at lines 275--275
+[]     \T1/cmtt/m/n/10 &'    centrada  \UNICODE{0xb3}   paso        \UNICODE{0x
+b3}    centrada   \UNICODE{0xb3}              ',[] 
+ []
+
+
+Overfull \hbox (227.11029pt too wide) in paragraph at lines 275--275
+[]     \T1/cmtt/m/n/10 &'              \UNICODE{0xb3}               \UNICODE{0x
+b3}               \UNICODE{0xb3}              ',[] 
+ []
+
+
+Overfull \hbox (4457.57721pt too wide) in paragraph at lines 275--275
+[]     \T1/cmtt/m/n/10 &'\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc
+4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICOD
+E{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc5}\U
+NICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0x
+c4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICO
+DE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc5}\UNICODE{0xc4}\
+UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0
+xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNIC
+ODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc5}\UNICODE{0xc4}\UNICODE{0xc4}
+\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{
+0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNI
+CODE{0xc4}'                                                    '[] 
+ []
+
+
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 275--275
+[]      \T1/cmtt/m/n/10 Write(*,*) '                                           
+          '[] 
+ []
+
+
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 275--275
+[]      \T1/cmtt/m/n/10 Write(*,*) '                                           
+          '[] 
+ []
+
+
+Overfull \hbox (237.60773pt too wide) in paragraph at lines 275--275
+[]     \T1/cmtt/m/n/10 &'     Error    \UNICODE{0xb3}    Valor  del   \UNICODE{
+0xb3}  Error        \UNICODE{0xb3}              ',[] 
+ []
+
+
+Overfull \hbox (300.59235pt too wide) in paragraph at lines 275--275
+[]     \T1/cmtt/m/n/10 &'     En %     \UNICODE{0xb3}     paso        \UNICODE{
+0xb3}  En %         \UNICODE{0xb3}    N\UNICODE{0xa7} de paso'[] 
+ []
+
+
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 275--275
+[]      \T1/cmtt/m/n/10 Write(*,*) '                                           
+          '[] 
+ []
+
+
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 275--275
+[]      \T1/cmtt/m/n/10 Write(*,*) '                                           
+          '[] 
+ []
+
+[4]
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 275--275
+[]\T1/cmtt/m/n/10 C************************************************************
+***********[] 
+ []
+
+
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 275--275
+[]\T1/cmtt/m/n/10 C************************************************************
+***********[] 
+ []
+
+
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 275--275
+[]\T1/cmtt/m/n/10 C************************************************************
+***********[] 
+ []
+
+
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 275--275
+[]\T1/cmtt/m/n/10 C************************************************************
+***********[] 
+ []
+
+[5]
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 480--480
+[]\T1/cmtt/m/n/10 CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCC[] 
+ []
+
+
+Overfull \hbox (6.66412pt too wide) in paragraph at lines 480--480
+[]\T1/cmtt/m/n/10 C DESCRIPCION: Este programa calcula las derivadas parciales 
+usando[] 
+ []
+
+
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 480--480
+[]\T1/cmtt/m/n/10 CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCC[] 
+ []
+
+
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 480--480
+[]     \T1/cmtt/m/n/10 & '*****************************************************
+**********'[] 
+ []
+
+
+Overfull \hbox (305.84106pt too wide) in paragraph at lines 480--480
+[]     \T1/cmtt/m/n/10 & '\UNICODE{0xc5}*******************\UNICODE{0xc5}******
+**************\UNICODE{0xc5}********************\UNICODE{0xc5}'[] 
+ []
+
+[6]
+Overfull \hbox (101.14105pt too wide) in paragraph at lines 480--480
+[]     \T1/cmtt/m/n/10 & ' calcule la 1\UNICODE{0xa7} y 2\UNICODE{0xa6} derivad
+a de f(x) = (x**3)-5*x',[] 
+ []
+
+
+Overfull \hbox (305.84106pt too wide) in paragraph at lines 480--480
+[]     \T1/cmtt/m/n/10 & '\UNICODE{0xc5}****************\UNICODE{0xc5}*********
+********\UNICODE{0xc5}**************************\UNICODE{0xc5}'[] 
+ []
+
+
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 480--480
+[]     \T1/cmtt/m/n/10 & '*****************************************************
+**********'[] 
+ []
+
+
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 480--480
+[]      \T1/cmtt/m/n/10 Write(*,*) '                                           
+          '[] 
+ []
+
+
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 480--480
+[]      \T1/cmtt/m/n/10 Write(*,*) '                                           
+          '[] 
+ []
+
+
+Overfull \hbox (27.659pt too wide) in paragraph at lines 480--480
+[]\T1/cmtt/m/n/10 C************************************************************
+**********[] 
+ []
+
+
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 480--480
+[]      \T1/cmtt/m/n/10 ! errord,errort,errorc representan los errores de las d
+erivadas[] 
+ []
+
+
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 480--480
+[]\T1/cmtt/m/n/10 C************************************************************
+***********[] 
+ []
+
+
+Overfull \hbox (305.84106pt too wide) in paragraph at lines 480--480
+[]     \T1/cmtt/m/n/10 & '\UNICODE{0xc5}*******************\UNICODE{0xc5}******
+**************\UNICODE{0xc5}********************\UNICODE{0xc5}'[] 
+ []
+
+
+Overfull \hbox (101.14105pt too wide) in paragraph at lines 480--480
+[]     \T1/cmtt/m/n/10 & ' calcule la 1\UNICODE{0xa7} y 2\UNICODE{0xa6} derivad
+a de f(x) = (x**3)-5*x',[] 
+ []
+
+
+Overfull \hbox (305.84106pt too wide) in paragraph at lines 480--480
+[]     \T1/cmtt/m/n/10 & '\UNICODE{0xc5}****************\UNICODE{0xc5}*********
+********\UNICODE{0xc5}**************************\UNICODE{0xc5}'[] 
+ []
+
+
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 480--480
+[]     \T1/cmtt/m/n/10 & '*****************************************************
+**********'[] 
+ []
+
+
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 480--480
+[]      \T1/cmtt/m/n/10 Write(15,*) '                                          
+          '[] 
+ []
+
+
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 480--480
+[]      \T1/cmtt/m/n/10 Write(15,*) '                                          
+          '[] 
+ []
+
+
+Overfull \hbox (27.659pt too wide) in paragraph at lines 480--480
+[]      \T1/cmtt/m/n/10 Write(15,*) '                                          
+         '[] 
+ []
+
+[7]
+Overfull \hbox (431.8103pt too wide) in paragraph at lines 480--480
+[]     \T1/cmtt/m/n/10 &' 1\UNICODE{0xa7} Derivada  \UNICODE{0xb3} 1\UNICODE{0x
+a7} Derivada   \UNICODE{0xb3}  2\UNICODE{0xa6} Derivada  \UNICODE{0xb3}        
+      ',[] 
+ []
+
+
+Overfull \hbox (295.34363pt too wide) in paragraph at lines 480--480
+[]     \T1/cmtt/m/n/10 &'  diferencia  \UNICODE{0xb3}  diferencia   \UNICODE{0x
+b3}   diferencia  \UNICODE{0xb3}    N\UNICODE{0xa7} de paso',[] 
+ []
+
+
+Overfull \hbox (227.11029pt too wide) in paragraph at lines 480--480
+[]     \T1/cmtt/m/n/10 &'    hacia     \UNICODE{0xb3}    hacia      \UNICODE{0x
+b3}    centrada   \UNICODE{0xb3}              ',[] 
+ []
+
+
+Overfull \hbox (227.11029pt too wide) in paragraph at lines 480--480
+[]     \T1/cmtt/m/n/10 &'  adelante    \UNICODE{0xb3}    atras      \UNICODE{0x
+b3}               \UNICODE{0xb3}              ',[] 
+ []
+
+
+Overfull \hbox (4179.39514pt too wide) in paragraph at lines 480--480
+[]     \T1/cmtt/m/n/10 &'\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc
+4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICOD
+E{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc5}\U
+NICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0x
+c4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICO
+DE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc5}\UNICODE{0xc4}\
+UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0
+xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNIC
+ODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc5}\UNICODE{0xc4}\UNICODE{0xc4}
+\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{
+0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNI
+CODE{0xc4}'[] 
+ []
+
+
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 480--480
+[]      \T1/cmtt/m/n/10 Write(*,*) '                                           
+          '[] 
+ []
+
+
+Overfull \hbox (431.8103pt too wide) in paragraph at lines 480--480
+[]     \T1/cmtt/m/n/10 &' 1\UNICODE{0xa7} Derivada  \UNICODE{0xb3} 1\UNICODE{0x
+a7} Derivada   \UNICODE{0xb3}  2\UNICODE{0xa6} Derivada  \UNICODE{0xb3}        
+      ',[] 
+ []
+
+
+Overfull \hbox (295.34363pt too wide) in paragraph at lines 480--480
+[]     \T1/cmtt/m/n/10 &'  diferencia  \UNICODE{0xb3}  diferencia   \UNICODE{0x
+b3}   diferencia  \UNICODE{0xb3}    N\UNICODE{0xa7} de paso',[] 
+ []
+
+
+Overfull \hbox (227.11029pt too wide) in paragraph at lines 480--480
+[]     \T1/cmtt/m/n/10 &'    hacia     \UNICODE{0xb3}    hacia      \UNICODE{0x
+b3}    centrada   \UNICODE{0xb3}              ',[] 
+ []
+
+
+Overfull \hbox (227.11029pt too wide) in paragraph at lines 480--480
+[]     \T1/cmtt/m/n/10 &'  adelante    \UNICODE{0xb3}    atras      \UNICODE{0x
+b3}               \UNICODE{0xb3}              ',[] 
+ []
+
+
+Overfull \hbox (4179.39514pt too wide) in paragraph at lines 480--480
+[]     \T1/cmtt/m/n/10 &'\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc
+4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICOD
+E{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc5}\U
+NICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0x
+c4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICO
+DE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc5}\UNICODE{0xc4}\
+UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0
+xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNIC
+ODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc5}\UNICODE{0xc4}\UNICODE{0xc4}
+\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{
+0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNI
+CODE{0xc4}'[] 
+ []
+
+
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 480--480
+[]      \T1/cmtt/m/n/10 write(6,'(T5,A/)')'                                    
+          '[] 
+ []
+
+
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 480--480
+[]      \T1/cmtt/m/n/10 write(6,'(T5,A/)')'                                    
+          '[] 
+ []
+
+
+Overfull \hbox (227.11029pt too wide) in paragraph at lines 480--480
+[]     \T1/cmtt/m/n/10 &'     Error    \UNICODE{0xb3}    Error      \UNICODE{0x
+b3}  Error        \UNICODE{0xb3}              ',[] 
+ []
+
+
+Overfull \hbox (290.09491pt too wide) in paragraph at lines 480--480
+[]     \T1/cmtt/m/n/10 &'     En %     \UNICODE{0xb3}    En %       \UNICODE{0x
+b3}  En %         \UNICODE{0xb3}    N\UNICODE{0xa7} de paso'[] 
+ []
+
+
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 480--480
+[]      \T1/cmtt/m/n/10 write(15,'(T5,A/)')'                                   
+          '[] 
+ []
+
+
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 480--480
+[]      \T1/cmtt/m/n/10 write(15,'(T5,A/)')'                                   
+          '[] 
+ []
+
+
+Overfull \hbox (227.11029pt too wide) in paragraph at lines 480--480
+[]     \T1/cmtt/m/n/10 &'     Error    \UNICODE{0xb3}    Error      \UNICODE{0x
+b3}  Error        \UNICODE{0xb3}              ',[] 
+ []
+
+
+Overfull \hbox (290.09491pt too wide) in paragraph at lines 480--480
+[]     \T1/cmtt/m/n/10 &'     En %     \UNICODE{0xb3}    En %       \UNICODE{0x
+b3}  En %         \UNICODE{0xb3}    N\UNICODE{0xa7} de paso'[] 
+ []
+
+[8]
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 480--480
+[]\T1/cmtt/m/n/10 C************************************************************
+***********[] 
+ []
+
+
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 480--480
+[]\T1/cmtt/m/n/10 C************************************************************
+***********[] 
+ []
+
+
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 480--480
+[]\T1/cmtt/m/n/10 C************************************************************
+***********[] 
+ []
+
+
+Overfull \hbox (32.90771pt too wide) in paragraph at lines 480--480
+[]\T1/cmtt/m/n/10 C************************************************************
+***********[] 
+ []
+
+[9]
+Overfull \hbox (263.85132pt too wide) in paragraph at lines 526--526
+[] \T1/cmtt/m/n/10 \UNICODE{0xc5}*******************\UNICODE{0xc5}*************
+*******\UNICODE{0xc5}********************\UNICODE{0xc5}[] 
+ []
+
+
+Overfull \hbox (69.64874pt too wide) in paragraph at lines 526--526
+[]     \T1/cmtt/m/n/10 calcule la 1\UNICODE{0xa7} y 2\UNICODE{0xa6} derivada de
+ f(x) = (x**3)-5*x[] 
+ []
+
+
+Overfull \hbox (279.59747pt too wide) in paragraph at lines 526--526
+[]    \T1/cmtt/m/n/10 \UNICODE{0xc5}****************\UNICODE{0xc5}*************
+****\UNICODE{0xc5}**************************\UNICODE{0xc5}[] 
+ []
+
+
+Overfull \hbox (6.66412pt too wide) in paragraph at lines 526--526
+[]    \T1/cmtt/m/n/10 *********************************************************
+******[] 
+ []
+
+
+Overfull \hbox (332.08466pt too wide) in paragraph at lines 526--526
+[]     \T1/cmtt/m/n/10 1\UNICODE{0xa7} Derivada  \UNICODE{0xb3} 1\UNICODE{0xa7}
+ Derivada   \UNICODE{0xb3}  2\UNICODE{0xa6} Derivada  \UNICODE{0xb3}[] 
+ []
+
+
+Overfull \hbox (269.10004pt too wide) in paragraph at lines 526--526
+[]      \T1/cmtt/m/n/10 diferencia  \UNICODE{0xb3}  diferencia   \UNICODE{0xb3}
+   diferencia  \UNICODE{0xb3}    N\UNICODE{0xa7} de paso[] 
+ []
+
+
+Overfull \hbox (127.38464pt too wide) in paragraph at lines 526--526
+[]        \T1/cmtt/m/n/10 hacia     \UNICODE{0xb3}    hacia      \UNICODE{0xb3}
+    centrada   \UNICODE{0xb3}[] 
+ []
+
+
+Overfull \hbox (127.38464pt too wide) in paragraph at lines 526--526
+[]      \T1/cmtt/m/n/10 adelante    \UNICODE{0xb3}    atras      \UNICODE{0xb3}
+               \UNICODE{0xb3}[] 
+ []
+
+
+Overfull \hbox (4158.40027pt too wide) in paragraph at lines 526--526
+[]    \T1/cmtt/m/n/10 \UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\
+UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0
+xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc5}\UNIC
+ODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}
+\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{
+0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc5}\UNICODE{0xc4}\UNI
+CODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4
+}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE
+{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc5}\UNICODE{0xc4}\UNICODE{0xc4}\UN
+ICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc
+4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICOD
+E{0xc4}[] 
+ []
+
+
+Overfull \hbox (1.4154pt too wide) in paragraph at lines 526--526
+[]    \T1/cmtt/m/n/10 -4.24385          -4.26769          ********           0.
+00001[] 
+ []
+
+
+Overfull \hbox (1.4154pt too wide) in paragraph at lines 526--526
+[]    \T1/cmtt/m/n/10 -4.25100          -4.24862          ********           0.
+00010[] 
+ []
+
+
+Overfull \hbox (1.4154pt too wide) in paragraph at lines 526--526
+[]    \T1/cmtt/m/n/10 -4.24838          -4.25148           3.09944           0.
+00100[] 
+ []
+
+
+Overfull \hbox (1.4154pt too wide) in paragraph at lines 526--526
+[]    \T1/cmtt/m/n/10 -4.09000          -4.39000           2.99999           0.
+10000[] 
+ []
+
+
+Overfull \hbox (1.4154pt too wide) in paragraph at lines 526--526
+[]    \T1/cmtt/m/n/10 -3.25000          -4.75000           3.00000           0.
+50000[] 
+ []
+
+
+Overfull \hbox (127.38464pt too wide) in paragraph at lines 526--526
+[]         \T1/cmtt/m/n/10 Error    \UNICODE{0xb3}    Error      \UNICODE{0xb3}
+  Error        \UNICODE{0xb3}[] 
+ []
+
+
+Overfull \hbox (269.10004pt too wide) in paragraph at lines 526--526
+[]         \T1/cmtt/m/n/10 En %     \UNICODE{0xb3}    En %       \UNICODE{0xb3}
+  En %         \UNICODE{0xb3}    N\UNICODE{0xa7} de paso[] 
+ []
+
+
+Overfull \hbox (1.4154pt too wide) in paragraph at lines 526--526
+[]    \T1/cmtt/m/n/10 .1446892          .4162957          ********           0.
+00001[] 
+ []
+
+
+Overfull \hbox (1.4154pt too wide) in paragraph at lines 526--526
+[]    \T1/cmtt/m/n/10 .0236062          .0324922          ********           0.
+00010[] 
+ []
+
+
+Overfull \hbox (1.4154pt too wide) in paragraph at lines 526--526
+[]    \T1/cmtt/m/n/10 .0381021          .0348259          ********           0.
+00100[] 
+ []
+
+
+Overfull \hbox (1.4154pt too wide) in paragraph at lines 526--526
+[]    \T1/cmtt/m/n/10 ********          ********          .0004927           0.
+10000[] 
+ []
+
+
+Overfull \hbox (1.4154pt too wide) in paragraph at lines 526--526
+[]    \T1/cmtt/m/n/10 ********          ********          .0000000           0.
+50000[] 
+ []
+
+
+Overfull \hbox (269.10004pt too wide) in paragraph at lines 568--568
+[]  \T1/cmtt/m/n/10 \UNICODE{0xc5}*******************\UNICODE{0xc5}************
+********\UNICODE{0xc5}********************\UNICODE{0xc5}[] 
+ []
+
+[10]
+Overfull \hbox (69.64874pt too wide) in paragraph at lines 568--568
+[]     \T1/cmtt/m/n/10 calcule la 1\UNICODE{0xa7} y 2\UNICODE{0xa6} derivada de
+ f(x) = (x**3)-5*x[] 
+ []
+
+
+Overfull \hbox (279.59747pt too wide) in paragraph at lines 568--568
+[]    \T1/cmtt/m/n/10 \UNICODE{0xc5}****************\UNICODE{0xc5}*************
+****\UNICODE{0xc5}**************************\UNICODE{0xc5}[] 
+ []
+
+
+Overfull \hbox (6.66412pt too wide) in paragraph at lines 568--568
+[]    \T1/cmtt/m/n/10 *********************************************************
+******[] 
+ []
+
+
+Overfull \hbox (332.08466pt too wide) in paragraph at lines 568--568
+[]     \T1/cmtt/m/n/10 1\UNICODE{0xa7} Derivada  \UNICODE{0xb3} 1\UNICODE{0xa7}
+ Derivada   \UNICODE{0xb3}  2\UNICODE{0xa6} Derivada  \UNICODE{0xb3}[] 
+ []
+
+
+Overfull \hbox (269.10004pt too wide) in paragraph at lines 568--568
+[]      \T1/cmtt/m/n/10 diferencia  \UNICODE{0xb3}  diferencia   \UNICODE{0xb3}
+   diferencia  \UNICODE{0xb3}    N\UNICODE{0xa7} de paso[] 
+ []
+
+
+Overfull \hbox (127.38464pt too wide) in paragraph at lines 568--568
+[]        \T1/cmtt/m/n/10 hacia     \UNICODE{0xb3}    hacia      \UNICODE{0xb3}
+    centrada   \UNICODE{0xb3}[] 
+ []
+
+
+Overfull \hbox (127.38464pt too wide) in paragraph at lines 568--568
+[]      \T1/cmtt/m/n/10 adelante    \UNICODE{0xb3}    atras      \UNICODE{0xb3}
+               \UNICODE{0xb3}[] 
+ []
+
+
+Overfull \hbox (4158.40027pt too wide) in paragraph at lines 568--568
+[]    \T1/cmtt/m/n/10 \UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\
+UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0
+xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc5}\UNIC
+ODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}
+\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{
+0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc5}\UNICODE{0xc4}\UNI
+CODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4
+}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE
+{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc5}\UNICODE{0xc4}\UNICODE{0xc4}\UN
+ICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc
+4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICOD
+E{0xc4}[] 
+ []
+
+
+Overfull \hbox (1.4154pt too wide) in paragraph at lines 568--568
+[]     \T1/cmtt/m/n/10 1.76430           1.76430           0.00000           0.
+00001[] 
+ []
+
+
+Overfull \hbox (1.4154pt too wide) in paragraph at lines 568--568
+[]     \T1/cmtt/m/n/10 1.74999           1.74999           0.00000           0.
+00010[] 
+ []
+
+
+Overfull \hbox (1.4154pt too wide) in paragraph at lines 568--568
+[]     \T1/cmtt/m/n/10 1.75476           1.74570           9.05991           0.
+00100[] 
+ []
+
+
+Overfull \hbox (1.4154pt too wide) in paragraph at lines 568--568
+[]     \T1/cmtt/m/n/10 2.21000           1.31000           8.99999           0.
+10000[] 
+ []
+
+
+Overfull \hbox (1.4154pt too wide) in paragraph at lines 568--568
+[]     \T1/cmtt/m/n/10 4.25000          -0.25000           9.00000           0.
+50000[] 
+ []
+
+
+Overfull \hbox (127.38464pt too wide) in paragraph at lines 568--568
+[]         \T1/cmtt/m/n/10 Error    \UNICODE{0xb3}    Error      \UNICODE{0xb3}
+  Error        \UNICODE{0xb3}[] 
+ []
+
+
+Overfull \hbox (269.10004pt too wide) in paragraph at lines 568--568
+[]         \T1/cmtt/m/n/10 En %     \UNICODE{0xb3}    En %       \UNICODE{0xb3}
+  En %         \UNICODE{0xb3}    N\UNICODE{0xa7} de paso[] 
+ []
+
+
+Overfull \hbox (1.4154pt too wide) in paragraph at lines 568--568
+[]    \T1/cmtt/m/n/10 .8169991          .8169991          ********           0.
+00001[] 
+ []
+
+
+Overfull \hbox (1.4154pt too wide) in paragraph at lines 568--568
+[]    \T1/cmtt/m/n/10 .0004360          .0004360          ********           0.
+00010[] 
+ []
+
+
+Overfull \hbox (1.4154pt too wide) in paragraph at lines 568--568
+[]    \T1/cmtt/m/n/10 .2720356          .2456733          .6656117           0.
+00100[] 
+ []
+
+
+Overfull \hbox (1.4154pt too wide) in paragraph at lines 568--568
+[]    \T1/cmtt/m/n/10 ********          ********          .0000954           0.
+10000[] 
+ []
+
+
+Overfull \hbox (1.4154pt too wide) in paragraph at lines 568--568
+[]    \T1/cmtt/m/n/10 ********          ********          .0000000           0.
+50000[] 
+ []
+
+[11] [12] [13] [14] [15] (.\asig4.aux) )
+(\end occurred when \ifx on line 769 was incomplete)
+Here is how much of TeX's memory you used:
+1312 strings out of 25902
+12852 string characters out of 248789
+72008 words of memory out of 262141
+4222 multiletter control sequences out of 20000
+5846 words of font info for 21 fonts, out of 300000 for 255
+14 hyphenation exceptions out of 607
+27i,13n,28p,964b,308s stack positions out of 300i,40n,60p,5000b,10000s
+
+Output written on asig4.dvi (15 pages, 31928 bytes).

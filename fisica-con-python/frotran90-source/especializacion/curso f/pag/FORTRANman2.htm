@@ -1,0 +1,411 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0061)http://www.lafacu.com/apuntes/informatica/fortran/default.htm -->
+<HTML><HEAD><TITLE>FORTRAN</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY leftMargin=50 background=FORTRANman2_archivos/back2.gif><B><I><FONT 
+face=Arial size=2>
+<P><APPLET codeBase=../../../_fpclass/ height=24 width=98 code=fphover.class><PARAM NAME="text" VALUE="Página Ppal."><PARAM NAME="color" VALUE="#7D620F"><PARAM NAME="hovercolor" VALUE="#FFFF00"><PARAM NAME="textcolor" VALUE="#FFFFFF"><PARAM NAME="effect" VALUE="glow"><PARAM NAME="url" VALUE="../../../default.htm"></APPLET> <APPLET 
+codeBase=../../../_fpclass/ height=24 width=83 code=fphover.class><PARAM NAME="text" VALUE="Apuntes"><PARAM NAME="color" VALUE="#7D620F"><PARAM NAME="hovercolor" VALUE="#FFFF00"><PARAM NAME="textcolor" VALUE="#FFFFFF"><PARAM NAME="effect" VALUE="glow"><PARAM NAME="url" VALUE="../../default.htm"></APPLET> <APPLET 
+codeBase=../../../_fpclass/ height=24 width=114 code=fphover.class><PARAM NAME="text" VALUE="Informática"><PARAM NAME="color" VALUE="#7D620F"><PARAM NAME="hovercolor" VALUE="#FFFF00"><PARAM NAME="textcolor" VALUE="#FFFFFF"><PARAM NAME="effect" VALUE="glow"><PARAM NAME="url" VALUE="../default.htm"></APPLET> <APPLET 
+codeBase=../../../_fpclass/ height=24 width=101 code=fphover.class><PARAM NAME="text" VALUE="Universidades"><PARAM NAME="color" VALUE="#7D620F"><PARAM NAME="hovercolor" VALUE="#FFFF00"><PARAM NAME="textcolor" VALUE="#FFFFFF"><PARAM NAME="effect" VALUE="glow"><PARAM NAME="url" VALUE="../../../universidades/default.htm"></APPLET> <APPLET 
+codeBase=../../../_fpclass/ height=24 width=76 code=fphover.class><PARAM NAME="text" VALUE="Buscar"><PARAM NAME="color" VALUE="#7D620F"><PARAM NAME="hovercolor" VALUE="#FFFF00"><PARAM NAME="textcolor" VALUE="#FFFFFF"><PARAM NAME="effect" VALUE="glow"><PARAM NAME="url" VALUE="../../../buscar/default.htm"></APPLET> 
+</FONT></I></P></B>
+<P><FONT size=6><U><B>FORTRAN</B></U></FONT></P>
+<P align=justify>&nbsp;</P><U><B>
+<P align=justify>Formato de las líneas</P></B></U>
+<P>1 2 3 4 5 6 7 8 
+......................................................................... 72 73 
+74 ................. 80</P>
+<P align=justify>Etiqueta Sentencia Fortran Campo de identific.</P><B>
+<P align=justify>Las columnas 1 a 5:</B> se reservan para la posible etiqueta 
+identificadora de la instrucción. Una </P>
+<P align=justify>C o un * en la columna 1 indicaría al compilador que la línea 
+contiene </P>
+<P align=justify>comentarios. </P><B>
+<P align=justify>La columna 6:</B> es la de continuación, si una sentencia es 
+demasiado larga para una sola </P>
+<P align=justify>línea, puede continuarse en la siguiente colocando cualquier 
+símbolo </P>
+<P align=justify>distinto de un espacio en blanco o un 0 en la columna 6.</P><B>
+<P align=justify>Las columnas 7 a 72:</B> en ellas se escribirán las 
+sentencias.</P><B>
+<P align=justify>Las columnas 73 a 80:</B> no se usan en modo interactivo. 
+Tenían sentido cuando se trabajaba </P>
+<P align=justify>con tarjetas perforadas.</P><U><B>
+<P align=justify>Tipos de datos y constantes</P></B></U>
+<P align=justify>- INTEGER (entero. Ej: 2, +4, -6)</P>
+<P align=justify>- REAL (real simple precisión, 8 decimales. Ej: 3.5E+6 <FONT 
+face=Symbol>®</FONT> 3.5x10<SUP>6</SUP>)</P>
+<P align=justify>- DOUBLE PRECISION (REAL*8) (16 decimales. Ej: 3.5D-6 <FONT 
+face=Symbol>®</FONT> 3.5x10<SUP>-6</SUP>)</P>
+<P align=justify>- COMPLEX (complejo simple precisión. Ej: 2.,3.1)</P>
+<P align=justify>Para definir una constante de tipo complejo, colocaremos dos 
+números reales entre </P>
+<P align=justify>paréntesis y separados por una coma. Ejemplo: S = (0.0, 2.0) 
+</P>
+<P align=justify>- DOUBLE COMPLEX (COMPLEX*16) (complejo doble precisión)</P>
+<P align=justify>- CHARACTER (alfanumérico. Ej: ‘AF123’)</P>
+<P align=justify>- LOGICAL (lógico. Posibles valores .TRUE. y .FALSE.)</P>
+<P align=justify>- Vectores y matrices: se declaran asignando tipo y a 
+continuación los valores extremos de los </P>
+<P align=justify>subíndices mediante la sentencia DIMENSION.</P>
+<P align=justify>Ej: REAL X,Y,Z</P>
+<P align=justify>DIMENSION X(20) <FONT face=Symbol>®</FONT> X(1), X(2), ... 
+X(20) son reales.</P>
+<P align=justify>DIMENSION Y(-5:20) <FONT face=Symbol>®</FONT> Y(-5), Y(-4), ... 
+Y(20) son reales.</P>
+<P align=justify>DIMENSION Z(0:10,5) <FONT face=Symbol>®</FONT> El primer índice 
+varía de 0 a 10 y el segundo de 1 a 5.</P>
+<P align=justify>Para definir un vector o matriz del que no sabemos su 
+dimensión:</P>
+<P align=justify>En la definición de variables: REAL nom_var [ALLOCATABLE<FONT 
+face=Symbol>]</FONT> (: , :) (2 dimens.)</P>
+<P align=justify>Y cuando se conoce el tamaño: ALLOCATE (nom_var (dim1, 
+dim2))</P>
+<P align=justify>Al final del programa: DEALLOCATE (nom_var)</P><U><B>
+<P align=justify>Variables</P></B></U>
+<P align=justify>Secuencia de letras y dígitos (primero letra). La asociación de 
+tipo a una variable se realiza:</P>
+<P align=justify><B>1- Por defecto:</B> en función de la primera letra del 
+nombre.</P>
+<P align=justify>I, J, K, L, M, N <FONT face=Symbol>®</FONT> INTEGER</P>
+<P align=justify>Otra letra <FONT face=Symbol>®</FONT> REAL</P>
+<P align=justify>Podemos alterar la asignación implícita mediante la sentencia 
+IMPLICIT:</P>
+<P align=justify>IMPLICIT REAL (A-C) <FONT face=Symbol>®</FONT> A, B, C 
+reales.</P>
+<P align=justify>IMPLICIT REAL*8 (X-Z) <FONT face=Symbol>®</FONT> X, Y, Z doble 
+precisión.</P>
+<P align=justify>IMPLICIT INTEGER (D-W) <FONT face=Symbol>®</FONT> D, ..., W 
+enteras.</P>
+<P align=justify><B>2- Explícitamente:</P></B>
+<P align=justify>REAL*8 origen, imagen</P>
+<P align=justify>CHARACTER*10 nombre, calle, ciudad</P>
+<P align=justify>CHARACTER nombre*10, calle*20, ciudad*8</P><U><B>
+<P align=justify>Expresiones aritméticas</B></U> </P><B>
+<P align=justify>1- Operadores aritméticos: </B>+, -, *, /, ** (potencias).</P>
+<P align=justify>A**-2 <FONT face=Symbol>®</FONT> incorrecto (dos operadores 
+seguidos)</P>
+<P align=justify>A**(-2) <FONT face=Symbol>®</FONT> correcto</P>
+<P align=justify>Las expresiones en las que sólo intervienen enteros dan como 
+resultado otro número </P>
+<P align=justify>entero. En la división entre enteros, si el cociente no es un 
+entero, el resultado queda </P>
+<P align=justify>truncado al entero de menor valor absoluto.</P>
+<P align=justify>Conversión de tipos: 3 / 2 = 1 (operandos enteros, resultado 
+entero)</P>
+<P align=justify>2. + 1 / 3 = 2. + 0 = 2.0 (operandos real y entero, resultado 
+real)</P>
+<P align=justify>2 + 1. / 2 = 2 + 0.5 = 2.5</P>
+<P align=justify>En general domina el de mayor rango: complejo + real = 
+complejo</P><B>
+<P align=justify>2- Jerarquía de operadores aritméticos:</P></B>
+<P align=justify>( ( ) ) paréntesis de internos a externos</P>
+<P align=justify>** exponenciación</P>
+<P align=justify>* y / con igual prioridad de izquierda a derecha</P>
+<P align=justify>+ y - con igual prioridad de izquierda a derecha</P><B><U>
+<P align=justify>Asignación de valores a las variables</P></U>
+<P align=justify>1- En fase de ejecución del programa:</P></B>
+<P align=justify>Sentencia de asignación: Variable = Expresión</P>
+<P align=justify>Ejemplos: X real X = 2.0 + 15. * 5. <FONT face=Symbol>®</FONT> 
+asigna 77. a X</P>
+<P align=justify>NOMBRE caracter NOMBRE=‘Antonio’</P>
+<P align=justify>Se produce conversión automática de tipos.</P>
+<P align=justify>X real y X = 12 / 7 <FONT face=Symbol>®</FONT> asigna 1. a 
+X</P>
+<P align=justify>I entera y I = 2.1 * 5.0 <FONT face=Symbol>®</FONT> asigna 10 a 
+I</P><B>
+<P align=justify>2- En fase de compilación:</P></B>
+<P align=justify>Las sentencias DATA y PARAMETER</P>
+<P align=justify>DATA lista de variables / lista de valores/</P>
+<P align=justify>Lógicamente habrá correspondencia de tipos. Ejemplos:</P>
+<P align=justify>REAL X</P>
+<P align=justify>CHARACTER nombre</P>
+<P align=justify>INTEGER I</P>
+<P align=justify>DIMENSION X(30)</P>
+<P align=justify>DATA X, I, nombre / 30*0.0, 20, ‘LUIS’/ <FONT 
+face=Symbol>®</FONT> asigna el valor 0. a las 30 </P>
+<P align=justify>componentes del vector X, el valor 20 a I y el valor ‘LUIS’ a 
+la variable nombre.</P>
+<P align=justify>PARAMETER (variable = valor, variable = valor, ...)</P>
+<P align=justify>Para definir constantes. Al asignar un valor mediante la 
+sentencia PARAMETER, la </P>
+<P align=justify>variable no puede cambiar de valor a lo largo del programa y 
+pueden realizar </P>
+<P align=justify>cualquier función reservada para las constantes, excepto la de 
+etiqueta de instrucción.</P><U><B>
+<P align=justify>Funciones matemáticas intrínsecas</P></B></U>
+<P align=justify>LOG (x) <FONT face=Symbol>®</FONT> logaritmo neperiano SINH (x) 
+<FONT face=Symbol>®</FONT> seno hiperbólico</P>
+<P align=justify>LOG10 (x) <FONT face=Symbol>®</FONT> log, en base 10 COSH (x) 
+<FONT face=Symbol>®</FONT> coseno hiperbólico</P>
+<P align=justify>EXP (x) <FONT face=Symbol>®</FONT> exponencial TANH (x) <FONT 
+face=Symbol>®</FONT> tangente hiperbólica</P>
+<P align=justify>SQRT (x) <FONT face=Symbol>®</FONT> raíz cuadrada MAX 
+(x<SUB>1</SUB>, x<SUB>2</SUB>, ..) <FONT face=Symbol>®</FONT> máximo</P>
+<P align=justify>SIN (x) <FONT face=Symbol>®</FONT> seno MIN (x<SUB>1</SUB>, 
+x<SUB>2</SUB>, ..) <FONT face=Symbol>®</FONT> mínimo</P>
+<P align=justify>COS (x) <FONT face=Symbol>®</FONT> coseno MOD (x, y) <FONT 
+face=Symbol>®</FONT> resto de x / y</P>
+<P align=justify>TAN (x) <FONT face=Symbol>®</FONT> tangente REAL (x) <FONT 
+face=Symbol>®</FONT> convierte x a real</P>
+<P align=justify>ABS (x) <FONT face=Symbol>®</FONT> valor absoluto CMPLX (x) 
+<FONT face=Symbol>®</FONT> convierte x a complejo</P>
+<P align=justify>ASIN (x) <FONT face=Symbol>®</FONT> arco seno INT (x) <FONT 
+face=Symbol>®</FONT> trunca x a entero</P>
+<P align=justify>ACOS (x) <FONT face=Symbol>®</FONT> arco coseno NINT (x) <FONT 
+face=Symbol>®</FONT> redondea x a entero</P>
+<P align=justify>ATAN (x) <FONT face=Symbol>®</FONT> arco tangente</P><B><U>
+<P align=justify>Funciones para trabajo con cadenas</P></U>
+<P align=justify>Subcadenas</B> <FONT face=Symbol>®</FONT> nombre cadena 
+(posición inicial : posición final)</P>
+<P align=justify>para arrays nombre cadena (índice) (pos ini : pos fin)</P>
+<P align=justify>1 <FONT face=Symbol>£</FONT> pos ini <FONT face=Symbol>£</FONT> 
+pos final <FONT face=Symbol>£</FONT> longitud cadena</P><B>
+<P align=justify>Concatenación</B> <FONT face=Symbol>®</FONT> cadena1 // 
+cadena2</P><B>
+<P align=justify>LEN (cadena)</B> <FONT face=Symbol>®</FONT> número de 
+caracteres</P><B>
+<P align=justify>INDEX (cadena, subcadena) </B><FONT face=Symbol>®</FONT> 
+posición de comienzo de la primera comparecencia de </P>
+<P align=justify>subcadena dentro de cadena, o 0 si la cadena no contiene a la 
+subcadena. </P><B>
+<P align=justify>CHAR (I)</B> <FONT face=Symbol>®</FONT> caracter ASCII 
+correspondiente al número I</P><B>
+<P align=justify>ICHAR (caracter)</B> <FONT face=Symbol>®</FONT> código ASCII 
+del caracter especificado</P><U><B>
+<P align=justify>Expresiones lógicas</P></B></U>
+<P align=justify>a operador b</P>
+<P align=justify>a y b son expresiones constantes, variables numéricas o 
+alfanuméricas. El resultado de la expresión será .TRUE. o .FALSE.</P>
+<P align=justify><B>Operadores relacionales:</P></B>
+<P align=justify>.EQ. <FONT face=Symbol>®</FONT> igual a .NE. <FONT 
+face=Symbol>®</FONT> distinto a </P>
+<P align=justify>.GT. <FONT face=Symbol>®</FONT> mayor que .GE. <FONT 
+face=Symbol>®</FONT> mayor o igual que</P>
+<P align=justify>.LT. <FONT face=Symbol>®</FONT> menor que .LE. <FONT 
+face=Symbol>®</FONT> menor o igual que</P>
+<P align=justify><B>Operadores lógicos:</P></B>
+<P align=justify>.AND. .OR. .NOT.</P>
+<P align=justify><B>Jerarquía de operadores:</P>
+<P align=justify></B>Operaciones aritméticas o entre cadenas.</P>
+<P align=justify>Operadores relacionales de izquierda a derecha.</P>
+<P align=justify>Operadores lógicos (.AND. tiene prioridad sobre .OR. y entre 
+iguales, de izquierda a </P>
+<P align=justify>derecha).</P><B><U>
+<P align=justify>SENTENCIAS DE ENTRADA Y SALIDA.</P>
+<P align=justify>Dirigida por lista o de formato libre</P></U>
+<P align=justify>Entrada:</P>
+<P align=justify></B>READ *, lista de variables separadas por comas</P>
+<P align=justify>READ (*,*), lista de variables</P>
+<P align=justify>Ambas instrucciones son equivalentes. Al leer introducimos los 
+valores separados por </P>
+<P align=justify>comas o por &lt;RETURN&gt;. Los valores correspondientes a 
+variables alfanuméricas </P>
+<P align=justify>entre apóstrofos. Lectura desde teclado.</P>
+<P align=justify>READ (número canal,*), lista de variables</P>
+<P align=justify>leerá los datos desde el fichero abierto con el número de canal 
+especificado, donde los </P>
+<P align=justify>datos estarán a su vez separados por comas</P><B>
+<P align=justify>Salida:</P>
+<P align=justify></B>PRINT *, lista de constantes, variables o expresiones</P>
+<P align=justify>WRITE (*,*) lista de constantes, variables o expresiones</P>
+<P align=justify>Ambas expresiones son equivalentes y saldrán los resultados por 
+pantalla.</P>
+<P align=justify>PRINT número canal, lista</P>
+<P align=justify>WRITE (número canal,*) lista</P>
+<P align=justify>En este caso los resultados se escribirán en el fichero 
+asignado al número de canal </P>
+<P align=justify>especificado.</P><B><U>
+<P align=justify>Entradas y salidas mediante formato. La sentencia 
+FORMAT</P></U>
+<P align=justify>Entrada:</P>
+<P align=justify></B>READ (*, número etiqueta) lectura desde teclado</P>
+<P align=justify>READ (número canal, número etiqueta)</P><B>
+<P align=justify>Salida:</P>
+<P align=justify></B>WRITE (*, número etiqueta)</P>
+<P align=justify>WRITE (número canal, número etiqueta)</P>
+<P align=justify>Tanto en entrada como en salida, el número de etiqueta 
+corresponde al número de etiqueta de una instrucción que contiene una sentencia 
+FORMAT, en la que se especificará el modo deseado de presentación de datos o 
+resultados. En lugar del número de etiqueta podemos utilizar las 
+especificaciones de formato en la propia sentencia READ o WRITE y entonces la 
+pondremos entre apóstrofos.</P><B>
+<P align=justify>Sentencia FORMAT:</P></B>
+<P align=justify>FORMAT (especificación1, especificación2, especificación3, 
+...)</P>
+<P align=justify>Las comas pueden ser sustituidas por /</P>
+<P align=justify>Especificaciones de formato:</P><B>
+<P align=justify>1- Numéricas:</P></B>
+<P align=justify>Formato F: F w . d (para números reales en forma decimal)</P>
+<P align=justify>w <FONT face=Symbol>®</FONT> número total de dígitos, incluido 
+signo y punto decimal</P>
+<P align=justify>d <FONT face=Symbol>®</FONT> número de decimales</P>
+<P align=justify>Ej: WRITE (*,12) X }</P>
+<P align=justify>12 FORMAT F6.2 } equivalente a WRITE (*,’(F6.2)’) X</P>
+<P align=justify>Si escribimos con estas sentencias X=12.5 quedará +12.50</P>
+<P align=justify>Formato I: I w (para números enteros)</P>
+<P align=justify>w <FONT face=Symbol>®</FONT> anchura total del campo</P>
+<P align=justify>Ej: READ (5,21) J</P>
+<P align=justify>21 FORMAT I9</P>
+<P align=justify>Si en el fichero 5 aparece el número 23 en las posiciones 4 y 
+5, es decir:</P>
+<P align=justify>1 2 3 4 5 6 7 8 9 ....</P>
+<P align=justify>2 3</P>
+<P align=justify>el número 23 al ser leído con el formato I9 se interpretará 
+como 230000, sin embargo </P>
+<P align=justify>de haberse encontrado en las posiciones 8 y 9, se habría 
+interpretado como 23. </P>
+<P align=justify>Formato E: E w.d (para reales en notación científica)</P>
+<P align=justify>w <FONT face=Symbol>®</FONT> anchura total del campo, 
+incluyendo signo de la base y del exponente, punto </P>
+<P align=justify>decimal y la letra E. Al exponente se le asignan dos de estos 
+dígitos. </P>
+<P align=justify>d <FONT face=Symbol>®</FONT> número de dígitos significativos 
+detrás del punto decimal.</P>
+<P align=justify>Formato D: D w.d (para doble precisión en científica)</P>
+<P align=justify>El mismo razonamiento que para el formato E, pero se reservan 
+tres dígitos para el </P>
+<P align=justify>exponente (además del signo).</P><B>
+<P align=justify>2- Descriptores de posición:</P></B>
+<P align=justify>Formato X: nX (salta n espacios)</P>
+<P align=justify>Formato /: / (salta a la línea siguiente)</P>
+<P align=justify>Formatos T: Tn (nos sitúa en la columna n)</P>
+<P align=justify>TRn (salta n espacios hacia la derecha)</P>
+<P align=justify>TLn (salta n espacios hacia la izquierda)</P><B>
+<P align=justify>3- Alfanuméricos:</P></B>
+<P align=justify>Formato A: A w</P>
+<P align=justify>w <FONT face=Symbol>®</FONT> longitud de la expresión 
+alfanumérica. Si no se especifica w, el ordenador lo </P>
+<P align=justify>calcula automáticamente en función de la longitud expresada en 
+la declaración </P>
+<P align=justify>de variables alfanuméricas. </P>
+<P align=justify>&nbsp;</P><B><U>
+<P align=justify>SENTENCIAS DE PROCEDIMIENTO Y CONTROL</P></U>
+<P align=justify>A</B> - PROGRAM nombre <FONT face=Symbol>®</FONT> Define nombre 
+del programa a utilizar para ejecución.</P>
+<P align=justify>STOP ‘mensaje’ <FONT face=Symbol>®</FONT> Final de ejecución. 
+Mensaje en pantalla opcional.</P>
+<P align=justify>END <FONT face=Symbol>®</FONT> Indicativa de final de programa 
+o de subprograma. Se </P>
+<P align=justify>recomienda evitar que el programa llegue a ella. </P><B>
+<P align=justify>B - Subprogramas:</P></B>
+<P align=justify>SUBROUTINE nombre (lista de argumentos)</P>
+<P align=justify>nombre <FONT face=Symbol>®</FONT> Define punto de entrada a 
+subrutina. No se le asigna valor.</P>
+<P align=justify>lista de argumentos <FONT face=Symbol>®</FONT> nombre de 
+variables o "arrays". Es opcional.</P>
+<P align=justify>FUNCTION nombre (lista de argumentos)</P>
+<P align=justify>lista de argumentos <FONT face=Symbol>®</FONT> en este caso 
+obligatoria (al menos uno).</P>
+<P align=justify>RETURN <FONT face=Symbol>®</FONT> Devuelve control desde 
+subprograma a programa principal.</P>
+<P align=justify>END <FONT face=Symbol>®</FONT> Indicativo de final.</P>
+<P align=justify>CALL nombre (lista de argumentos) <FONT face=Symbol>®</FONT> 
+Llamada a subrutina.</P>
+<P align=justify>nombre <FONT face=Symbol>®</FONT> Nombre de la subrutina que 
+debe ejecutarse.</P>
+<P align=justify>lista de argumentos <FONT face=Symbol>®</FONT> constantes, 
+variables o arrays que coinciden en número y tipo, </P>
+<P align=justify>aunque no en nombre, con la lista de argumentos de la sentencia 
+</P>
+<P align=justify>SUBROUTINE correspondiente. </P>
+<P align=justify>Nombre (lista de argumentos) <FONT face=Symbol>®</FONT> Llamada 
+a función.</P>
+<P align=justify>En realidad no es una sentencia, sino que actuará como un valor 
+del tipo definido para </P>
+<P align=justify>dicho nombre y por tanto ocupará, dentro del programa, las 
+posiciones y tareas </P>
+<P align=justify>asignadas a los mismos. </P>
+<P align=justify>Nombre <FONT face=Symbol>®</FONT> Nombre de la función a 
+ejecutarse. En este caso antes de la sentencia </P>
+<P align=justify>RETURN es recomendable asignarle valor a dicho nombre.</P>
+<P align=justify>lista de argumentos <FONT face=Symbol>®</FONT> constantes, 
+variables o "arrays" como en el caso de la </P>
+<P align=justify>sentencia CALL.</P>
+<P align=justify>NOTA: En ningún caso existe recursividad, es decir, un 
+subprograma no puede llamarse a sí </P>
+<P align=justify>mismo. </P><U>
+<P align=justify>Ejemplo de posible estructura:</P></U>
+<P align=justify>PROGRAM ejemplo</P>
+<P align=justify>REAL a(11,5), d, x, ejemfun</P>
+<P align=justify>INTEGER i</P>
+<P align=justify>. . .</P>
+<P align=justify>CALL ejemsub (a, i, 5)</P>
+<P align=justify>. . . </P>
+<P align=justify>D = 3 * ejemfun(x) - 4</P>
+<P align=justify>. . . </P>
+<P align=justify>STOP</P>
+<P align=justify>END</P>
+<P align=justify>SUBROUTINE ejemsub (p, j, t)</P>
+<P align=justify>REAL p(11,5)</P>
+<P align=justify>. . . </P>
+<P align=justify>RETURN</P>
+<P align=justify>END</P>
+<P align=justify>FUNCTION ejemfun (x1)</P>
+<P align=justify>. . . </P>
+<P align=justify>ejemfun = expresión real</P>
+<P align=justify>RETURN</P>
+<P align=justify>END</P><U><B>
+<P align=justify>SENTENCIAS DE CONTROL DE FLUJO</P>
+<P align=justify>Estructuras de selección:</P></B></U>
+<P align=justify>IF (condición o expresión lógica) THEN</P>
+<P align=justify>. . . </P>
+<P align=justify>ELSE IF (condición) THEN</P>
+<P align=justify>. . . </P>
+<P align=justify>ELSE IF (condición) THEN</P>
+<P align=justify>. . . </P>
+<P align=justify>ELSE</P>
+<P align=justify>. . . </P>
+<P align=justify>ENDIF</P>
+<P align=justify>SELECT CASE (constante, variable o expresión entera, caracter o 
+lógica)</P>
+<P align=justify>CASE (valor1, valor2, ...)</P>
+<P align=justify>. . . </P>
+<P align=justify>CASE (valor1, valor2, ...)</P>
+<P align=justify>. . . </P>
+<P align=justify>CASE DEFAULT</P>
+<P align=justify>. . . </P>
+<P align=justify>END SELECT</P><U><B>
+<P align=justify>Estructuras de repetición:</P></B></U>
+<P align=justify>DO (inicio, fin, paso) DO WHILE (expresión lógica)</P>
+<P align=justify>. . . . . . </P>
+<P align=justify>ENDDO ENDDO</P>
+<P align=justify>EXIT <FONT face=Symbol>®</FONT> Para finalizar un bucle DO 
+antes de agotar las repeticiones. Va a la línea siguiente </P>
+<P align=justify>del END del bucle.</P>
+<P align=justify>CYCLE <FONT face=Symbol>®</FONT> No ejecuta las instrucciones 
+siguientes dentro del bucle y vuelve al inicio del </P>
+<P align=justify>bucle.</P>
+<P align=justify>&nbsp;</P><U><B>
+<P align=justify>SENTENCIAS PARA EL CONTROL DE FICHEROS DE DATOS</P></B></U>
+<P align=justify>Básicamente necesitaremos ficheros de acceso secuencial para 
+lectura de datos y almacenamiento de resultados, cuando el excesivo número de 
+los mismos así lo aconseje. Por ejemplo en el trabajo con matrices la escritura 
+de resultados en un fichero nos permitirá leerlos y escribirlos posteriormente 
+con la presentación deseada.</P>
+<P align=justify>OPEN (UNIT = u, FILE =‘nombre.ext’, ACCESS = acc, ...) <FONT 
+face=Symbol>®</FONT> apertura.</P>
+<P align=justify>u <FONT face=Symbol>®</FONT> número de canal que se usará 
+posteriormente para indicar la vía de acceso a los </P>
+<P align=justify>datos.</P>
+<P align=justify>acc <FONT face=Symbol>®</FONT> ‘SEQUENTIAL’ o ‘DIRECT’</P>
+<P align=justify>Se pueden incluir otras especificaciones:</P>
+<P align=justify>STATUS = stat</P>
+<P align=justify>stat <FONT face=Symbol>®</FONT> ‘OLD’ o ‘NEW’</P>
+<P align=justify>ERR = sl</P>
+<P align=justify>sl <FONT face=Symbol>®</FONT> etiqueta de la sentencia a 
+ejecutar en caso de error en la apertura del </P>
+<P align=justify>fichero.</P>
+<P align=justify>REWIND (UNIT = u) <FONT face=Symbol>®</FONT> rebobinado del 
+fichero. Volvemos al primer registro.</P>
+<P align=justify>BACKSPACE (UNIT = u) <FONT face=Symbol>®</FONT> retrocede un 
+registro en un fichero secuencial.</P>
+<P align=justify>CLOSE (UNIT = u, ...)</P><I>
+<P align=justify>NOTA:</I> en las condiciones de un estructura IF o DO WHILE se 
+puede utilizar la expresión lógica EOF (número de unidad), que tomará el valor 
+cierto cuando se alcance el final del fichero. Ejemplo: DO WHILE (.NOT. 
+EOF(8))</P>
+<P><FONT face=Arial size=1>lafacu.com no se responsabiliza por el uso que otros 
+o terceros, puedan darle a esta información.</FONT></P></BODY></HTML>

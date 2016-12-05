@@ -1,0 +1,91 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 0.8.3 ] */
+
+/* [wxMaxima: comment start ]
+José Luis da Vila Alonso, 2009)
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: title   start ]
+INTERPOLACIÓN: Polinomio de Lagrange
+   [wxMaxima: title   end   ] */
+
+/* [wxMaxima: comment start ]
+Entrada:
+          datos -> matriz con los datos conocidos
+          x0    -> punto donde hallar el valor de la función
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+datos:matrix([2,7],[1,4],[7,5],[10,4],[12,5]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+x0:15;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Hallamos el polinomio
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+load(interpol);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+lagrange(datos);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+poli(x):=''%;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+expand(poli(x));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Estimación para x = x0
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+box(float(poli(x0)));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Gráfica
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+xmin:lmin(create_list(datos[i,1],i,1,length(datos)));
+xmax:lmax(create_list(datos[i,1],i,1,length(datos)));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+load(draw);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+draw2d(
+        title  = "Interpolación de Lagrange",
+        grid   = true,
+        color      = blue,
+        key        = "Polinomio de Lagrange",
+        explicit(poli(x),x,min(xmin,x0)-1,max(xmax,x0)+1),
+        point_size = 1,
+        point_type = 7,
+        color      = red,
+        key        = "Puntos de muestra",
+        points(datos),
+        point_size = 2,
+        point_type = 7,
+        color      = green,
+        key        = "Estimación",
+        points([[x0,poli(x0)]]))$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+
+   [wxMaxima: comment end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

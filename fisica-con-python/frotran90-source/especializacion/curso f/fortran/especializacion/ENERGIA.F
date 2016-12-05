@@ -1,0 +1,20 @@
+           program circulo
+c           declaramos las variables
+           real Ec, vf, m , v
+
+
+c        Este programa calcula la energia cinetica
+
+        m=20
+        v=80
+            vf=(v*1000)/3600
+           Ec=0.5*m*vf**2
+        open(10,file='energia.txt',status='old')
+         write (10,200) 'Energia cinetica = ',Ec ,' J'
+200      format(a25,f8.3,a2)
+         write (*,*) 'Energia cinetica = ',Ec ,' J'
+
+          stop
+           end
+
+           

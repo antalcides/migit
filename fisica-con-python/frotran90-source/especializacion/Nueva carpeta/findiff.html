@@ -1,0 +1,1197 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./findiff_archivos/filelist.xml">
+<link rel=Edit-Time-Data href="./findiff_archivos/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Descomposición del dominio - diferencias finitas</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Estudiantemesa3</o:Author>
+  <o:LastAuthor>Estudiantemesa3</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>0</o:TotalTime>
+  <o:Created>2004-06-30T00:14:00Z</o:Created>
+  <o:LastSaved>2004-06-30T00:14:00Z</o:LastSaved>
+  <o:Pages>9</o:Pages>
+  <o:Words>1768</o:Words>
+  <o:Characters>10083</o:Characters>
+  <o:Company>UNIVERSIDAD DEL NORTE</o:Company>
+  <o:Lines>84</o:Lines>
+  <o:Paragraphs>20</o:Paragraphs>
+  <o:CharactersWithSpaces>12382</o:CharactersWithSpaces>
+  <o:Version>9.4402</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:HyphenationZone>21</w:HyphenationZone>
+ </w:WordDocument>
+</xml><![endif]-->
+<link rel=Stylesheet type="text/css" media=all
+href="http://numerix.us.es/pers/denk/_parallel/estilo.css">
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:536871559 0 0 0 415 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p
+	{font-size:12.0pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+pre
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";}
+p.bodyline, li.bodyline, div.bodyline
+	{mso-style-name:bodyline;
+	font-size:12.0pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:70.85pt 3.0cm 70.85pt 3.0cm;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:916475840;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1813525592 -1600777258 1336819224 2098376150 1466093696 960004000 -1467334388 -865424088 1546655166 1975795972;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor="#e0f0ff" lang=ES link=blue vlink=blue style='tab-interval:35.4pt'>
+
+<div class=Section1>
+
+<h2 style='margin-right:15.0pt;margin-left:15.0pt'><a name=slide1></a><a
+href="http://numerix.us.es/pers/denk/_parallel/contenidos.html"><span
+style='text-decoration:none;text-underline:none'><img border=0 width=14
+height=10 id="_x0000_i1025"
+src="http://numerix.us.es/pers/denk/_parallel/img/xgoup.gif"></span></a><a
+href="#slide2"><span style='text-decoration:none;text-underline:none'><img
+border=0 width=10 height=10 id="_x0000_i1026"
+src="http://numerix.us.es/pers/denk/_parallel/img/xgnext.gif"></span></a>Descomposición
+del dominio - diferencias finitas</h2>
+
+<p style='margin-right:15.0pt;margin-left:15.0pt'>En esta sección escribiremos
+nuestro primer programa con MPI que realiza un cálculo numérico en paralelo. El
+método de las diferencias finitas es un buen ejemplo para estudiar la
+descomposición del dominio. </p>
+
+<div align=center>
+
+<table border=0 cellpadding=0 style='mso-cellspacing:1.5pt;margin-left:15.0pt'>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <ul type=disc>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l0 level1 lfo1;tab-stops:list 36.0pt'><span
+       style='font-family:Verdana'><a href="#slide2">Diferencias finitas para
+       la ecuación Laplace</a> <o:p></o:p></span></li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l0 level1 lfo1;tab-stops:list 36.0pt'><span
+       style='font-family:Verdana'><a href="#slide3">El programa convencional</a>
+       <o:p></o:p></span></li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l0 level1 lfo1;tab-stops:list 36.0pt'><span
+       style='font-family:Verdana'><a href="#slide4">Descomposición del dominio
+       </a><o:p></o:p></span></li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l0 level1 lfo1;tab-stops:list 36.0pt'><span
+       style='font-family:Verdana'><a href="#slide5">Versión paralela del
+       programa</a> <o:p></o:p></span></li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l0 level1 lfo1;tab-stops:list 36.0pt'><span
+       style='font-family:Verdana'><a href="#slide6">Algunas pruebas</a> <o:p></o:p></span></li>
+  </ul>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+
+<div class=MsoNormal align=center style='margin-top:300.0pt;margin-right:15.0pt;
+margin-bottom:0cm;margin-left:15.0pt;margin-bottom:.0001pt;text-align:center'>
+
+<hr size=2 width="100%" align=center>
+
+</div>
+
+
+<h3 style='margin-top:0cm;margin-right:15.0pt;margin-bottom:2.25pt;margin-left:
+15.0pt'><a name=slide2></a><a href="#slide1"><span style='text-decoration:none;
+text-underline:none'><img border=0 width=10 height=10 id="_x0000_i1028"
+src="http://numerix.us.es/pers/denk/_parallel/img/xgprev.gif"></span></a><a
+href="#slide3"><span style='text-decoration:none;text-underline:none'><img
+border=0 width=10 height=10 id="_x0000_i1029"
+src="http://numerix.us.es/pers/denk/_parallel/img/xgnext.gif"></span></a>Diferencias
+finitas para la ecuación de Laplace </h3>
+
+<p style='margin-right:15.0pt;margin-left:15.0pt'>La ecuación de Laplace </p>
+
+<p class=MsoNormal align=center style='margin-top:0cm;margin-right:15.0pt;
+margin-bottom:0cm;margin-left:15.0pt;margin-bottom:.0001pt;text-align:center'><img
+border=0 width=440 height=104 id="_x0000_i1030"
+src="http://numerix.us.es/pers/denk/_parallel/img/img1.gif"></p>
+
+<p style='margin-right:15.0pt;margin-left:15.0pt'>puede resolverse
+numéricamente utilizando una discretización del operador diferencial: </p>
+
+<p class=MsoNormal align=center style='margin-top:0cm;margin-right:15.0pt;
+margin-bottom:0cm;margin-left:15.0pt;margin-bottom:.0001pt;text-align:center'><img
+border=0 width=544 height=56 id="_x0000_i1031"
+src="http://numerix.us.es/pers/denk/_parallel/img/img2.gif"></p>
+
+<p style='margin-right:15.0pt;margin-left:15.0pt'>Este sistema lineal puede
+resolverse de forma directa (sistemas grandes, pero estructura de bandas) o
+mediante métodos iterativos. El método de Jacobi consiste en </p>
+
+<p class=MsoNormal align=center style='margin-top:0cm;margin-right:15.0pt;
+margin-bottom:0cm;margin-left:15.0pt;margin-bottom:.0001pt;text-align:center'><img
+border=0 width=544 height=80 id="_x0000_i1032"
+src="http://numerix.us.es/pers/denk/_parallel/img/img3.gif"></p>
+
+<p style='margin-right:15.0pt;margin-left:15.0pt'>proporcionando una
+configuración inicial que cumple las condiciones de contorno. Escribiremos un
+programa paralelo para realizar esta iteración. <br>
+<br>
+Nota: El método de Jacobi es un algoritmo poco eficáz para resolver este tipo
+de problemas. Lo utilizaremos como ejemplo para la programación pero no recomendamos
+su uso para problemas reales. </p>
+
+
+<div class=MsoNormal align=center style='margin-top:300.0pt;margin-right:15.0pt;
+margin-bottom:0cm;margin-left:15.0pt;margin-bottom:.0001pt;text-align:center'>
+
+<hr size=2 width="100%" align=center>
+
+</div>
+
+
+<h3 style='margin-top:0cm;margin-right:15.0pt;margin-bottom:2.25pt;margin-left:
+15.0pt'><a name=slide3></a><a href="#slide2"><span style='text-decoration:none;
+text-underline:none'><img border=0 width=10 height=10 id="_x0000_i1034"
+src="http://numerix.us.es/pers/denk/_parallel/img/xgprev.gif"></span></a><a
+href="#slide4"><span style='text-decoration:none;text-underline:none'><img
+border=0 width=10 height=10 id="_x0000_i1035"
+src="http://numerix.us.es/pers/denk/_parallel/img/xgnext.gif"></span></a>El
+programa convencional </h3>
+
+<pre style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:
+15.0pt;margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>//----------------------------------------------------------------------------</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>// Example code for solution of Laplace equation on a square</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>// (x,y)=([0,1],[0,1]). The Dirichlet boundary conditions</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>// are: u(x,y)=1 on the boundaries. This gives the trivial solution</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>// u(x,y)=1 on the square</pre><pre style='margin-top:
+0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;margin-bottom:
+.0001pt'>//</pre><pre style='margin-top:0cm;margin-right:15.0pt;margin-bottom:
+0cm;margin-left:15.0pt;margin-bottom:.0001pt'>// Serial version </pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>//</pre><pre style='margin-top:0cm;margin-right:15.0pt;
+margin-bottom:0cm;margin-left:15.0pt;margin-bottom:.0001pt'>//----------------------------------------------------------------------------</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>#include &lt;stdio.h&gt;</pre><pre style='margin-top:
+0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;margin-bottom:
+.0001pt'>#include &lt;math.h&gt;</pre><pre style='margin-top:0cm;margin-right:
+15.0pt;margin-bottom:0cm;margin-left:15.0pt;margin-bottom:.0001pt'>#define NMAX 64<span style="mso-spacerun: yes">               </span>// number of grid point</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>#define ITERMAX 10000<span style="mso-spacerun: yes">         </span>// max. number of iterations</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>// global vars</pre><pre style='margin-top:0cm;
+margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>// --------------------------------------</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>// provide an initial guess for iteration</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>// --------------------------------------</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>void initialize_guess(double u[NMAX][NMAX]) {</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>int i,j;</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>for (i=0;i&lt;NMAX;i++) {<span style="mso-spacerun: yes">         </span>// boundary conditions</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">    </span>u[i][0]<span style="mso-spacerun: yes">     </span>=<span style="mso-spacerun: yes">  </span>1.0;</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">    </span>u[i][NMAX-1]=<span style="mso-spacerun: yes">  </span>1.0;</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">    </span>u[0][i]<span style="mso-spacerun: yes">     </span>=<span style="mso-spacerun: yes">  </span>1.0;</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">    </span>u[NMAX-1][i]=<span style="mso-spacerun: yes">  </span>1.0;</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>}</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>for (i=1;i&lt;NMAX-1;i++)<span style="mso-spacerun: yes">         </span>// inner points are 0</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">    </span>for (j=1;j&lt;NMAX-1;j++)</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">      </span>u[i][j]=0.0;</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>}</pre><pre style='margin-top:0cm;margin-right:15.0pt;
+margin-bottom:0cm;margin-left:15.0pt;margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>// ----------------------------------------------------</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>// print max absolute deviation of solution on the grid</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>// ----------------------------------------------------</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bott                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                :0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>int i,j,ierr=-1,jerr=-1;</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>for (i=0;i&lt;NMAX;i++) {</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">    </span>for (j=0;j&lt;NMAX;j++) {</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">      </span>derr=fabs(u[i][j]-1.0);</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">      </span>if (derr &gt; err) {</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">        </span>err=derr;ierr=i;jerr=j;<span style="mso-spacerun: yes">  </span>// error and grid point</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">      </span>}</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">    </span>}</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>}</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>printf(&quot;maximum error on grid: (%d,%d) %e\n&quot;,ierr,jerr,err);</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>return err;</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>}</pre><pre style='margin-top:0cm;margin-right:15.0pt;
+margin-bottom:0cm;margin-left:15.0pt;margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>// ------------------------</pre><pre style='margin-top:
+0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;margin-bottom:
+.0001pt'>// update inner grid points</pre><pre style='margin-top:0cm;
+margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;margin-bottom:.0001pt'>// ------------------------</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>void update_grid(double ou[NMAX][NMAX],double u[NMAX][NMAX]) {</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>int i,j;</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>for (i=1;i&lt;NMAX-1;i++) </pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">    </span>for (j=1;j&lt;NMAX-1;j++) </pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">      </span>u[i][j]=0.25*(ou[i-1][j]+ou[i+1][j]+ou[i][j-1]+ou[i][j+1]);</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>for (i=1;i&lt;NMAX-1;i++) </pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">    </span>for (j=1;j&lt;NMAX-1;j++) </pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">      </span>ou[i][j]=u[i][j];</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>}</pre><pre style='margin-top:0cm;margin-right:15.0pt;
+margin-bottom:0cm;margin-left:15.0pt;margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>// ------------</pre><pre style='margin-top:0cm;
+margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;margin-bottom:.0001pt'>// main program</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>// ------------</pre><pre style='margin-top:0cm;
+margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>int main() {</pre><pre style='margin-top:0cm;margin-right:
+15.0pt;margin-bottom:0cm;margin-left:15.0pt;margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>int n;</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>double u[NMAX][NMAX];<span style="mso-spacerun: yes">         </span>// discrete values on a grid</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>double ou[NMAX][NMAX];</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>initialize_guess(u);<span style="mso-spacerun: yes">          </span>// initialize matrix</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>initialize_guess(ou); </pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>n=0;</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>while (n &lt; ITERMAX) {<span style="mso-spacerun: yes">         </span>// relaxation</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">   </span>update_grid(ou,u);</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">   </span>n++;</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>}</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'> <span style="mso-spacerun: yes"> </span>print_maxerr_grid(u);<span style="mso-spacerun: yes">         </span>// compare with exact solution</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>return 0;</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>}</pre>
+
+<div class=MsoNormal align=center style='margin-top:300.0pt;margin-right:15.0pt;
+margin-bottom:0cm;margin-left:15.0pt;margin-bottom:.0001pt;text-align:center'>
+
+<hr size=2 width="100%" align=center>
+
+</div>
+
+
+<h3 style='margin-top:0cm;margin-right:15.0pt;margin-bottom:2.25pt;margin-left:
+15.0pt'><a name=slide4></a><a href="#slide3"><span style='text-decoration:none;
+text-underline:none'><img border=0 width=10 height=10 id="_x0000_i1037"
+src="http://numerix.us.es/pers/denk/_parallel/img/xgprev.gif"></span></a><a
+href="#slide5"><span style='text-decoration:none;text-underline:none'><img
+border=0 width=10 height=10 id="_x0000_i1038"
+src="http://numerix.us.es/pers/denk/_parallel/img/xgnext.gif"></span></a>Descomposición
+del dominio </h3>
+
+<p style='margin-right:15.0pt;margin-left:15.0pt'>El algoritmo de las
+diferencias finitas es altamente <b>local</b>: el cálculo de u<sub>i,j</sub>
+sólo requiere datos de nudos en la cercanía del nudo (i,j) (dependiendo de la
+fórmula elegida). Esta localidad y la regularidad de la rejilla facilitan el
+uso del método &quot;domain decomposition&quot; (descomposición del dominio): </p>
+
+<p class=MsoNormal align=center style='margin-top:0cm;margin-right:15.0pt;
+margin-bottom:0cm;margin-left:15.0pt;margin-bottom:.0001pt;text-align:center'><img
+border=0 width=510 height=562 id="_x0000_i1039"
+src="http://numerix.us.es/pers/denk/_parallel/img/findiff.gif"></p>
+
+<p style='margin-right:15.0pt;margin-left:15.0pt'>Hemos elegido una
+descomposición <b>unidimensional</b> del domino, los datos que deben
+comunicarse entre procesos son <b>contiguos</b> en la representación interna de
+matrices en C. En FORTRAN podria resultar mas conveniente una descomposición
+del domino en la coordenada y. </p>
+
+
+<div class=MsoNormal align=center style='margin-top:300.0pt;margin-right:15.0pt;
+margin-bottom:0cm;margin-left:15.0pt;margin-bottom:.0001pt;text-align:center'>
+
+<hr size=2 width="100%" align=center>
+
+</div>
+
+
+<h3 style='margin-top:0cm;margin-right:15.0pt;margin-bottom:2.25pt;margin-left:
+15.0pt'><a name=slide5></a><a href="#slide4"><span style='text-decoration:none;
+text-underline:none'><img border=0 width=10 height=10 id="_x0000_i1041"
+src="http://numerix.us.es/pers/denk/_parallel/img/xgprev.gif"></span></a><a
+href="#slide6"><span style='text-decoration:none;text-underline:none'><img
+border=0 width=10 height=10 id="_x0000_i1042"
+src="http://numerix.us.es/pers/denk/_parallel/img/xgnext.gif"></span></a>Versión
+paralela del programa </h3>
+
+<pre style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:
+15.0pt;margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>//----------------------------------------------------------------------------</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>// Example code for solution of Laplace equation on a square</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>// (x,y)=([0,1],[0,1]). The Dirichlet boundary conditions</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>// are: u(x,y)=1 on the boundaries. This gives the trivial solution</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>// u(x,y)=1 on the square</pre><pre style='margin-top:
+0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;margin-bottom:
+.0001pt'>//</pre><pre style='margin-top:0cm;margin-right:15.0pt;margin-bottom:
+0cm;margin-left:15.0pt;margin-bottom:.0001pt'>// Parallel version with domain decomposition in one dimension</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>// This code uses unnecessary replication of data on all processes.</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>//</pre><pre style='margin-top:0cm;margin-right:15.0pt;
+margin-bottom:0cm;margin-left:15.0pt;margin-bottom:.0001pt'>//----------------------------------------------------------------------------</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>#include &lt;stdio.h&gt;</pre><pre style='margin-top:
+0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;margin-bottom:
+.0001pt'>#include &lt;math.h&gt;</pre><pre style='margin-top:0cm;margin-right:
+15.0pt;margin-bottom:0cm;margin-left:15.0pt;margin-bottom:.0001pt'>#include &quot;mpi.h&quot;</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>#define NDIMMAX 64<span style="mso-spacerun: yes">             </span>// actual dimension of matrix</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>#define NMAX 64<span style="mso-spacerun: yes">                </span>// number of grid point in each dim. is NMAX</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>#define ITERMAX 10000<span style="mso-spacerun: yes">          </span>// max. number of iterations</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>// --------------------------------------</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>// provide an initial guess for iteration</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>// --------------------------------------</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>void initialize_guess(double u[NDIMMAX][NDIMMAX],int myid, int np, int nsize) {</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>int i,j,nlo,nhi;</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>nlo=myid*nsize;<span style="mso-spacerun: yes">                 </span>// lowest iteration index</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>nhi=nlo+nsize;<span style="mso-spacerun: yes">                  </span>// highest iteration index + 1</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>for (i=nlo;i&lt;nhi;i++) {<span style="mso-spacerun: yes">     </span><span style="mso-spacerun: yes">    </span>// left and right is the same on all procs</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">    </span>u[i][0]<span style="mso-spacerun: yes">       </span>= 1.0;</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">    </span>u[i][NMAX-1]<span style="mso-spacerun: yes">  </span>= 1.0;</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>}</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>if (myid==0)<span style="mso-spacerun: yes">                    </span>// upper border: first process</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">    </span>for (i=1;i&                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                in-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">    </span>for (i=1;i&lt;NMAX-1;i++)</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">      </span>u[NMAX-1][i]= 1.0;</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>if (myid==0)<span style="mso-spacerun: yes">                    </span>// adjust low for first process</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">    </span>nlo++;</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>if (myid==(np-1))<span style="mso-spacerun: yes">               </span>// adjust hi for last process</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">    </span>nhi--;</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>for (i=nlo;i&lt;nhi;i++)<span style="mso-spacerun: yes">           </span>// inner points are 0</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">    </span>for (j=1;j&lt;NMAX-1;j++)</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">      </span>u[i][j]=0.0;</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>}</pre><pre style='margin-top:0cm;margin-right:15.0pt;
+margin-bottom:0cm;margin-left:15.0pt;margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>// ----------------------------------------------------</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>// print max absolute deviation of solution on the grid</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>// ----------------------------------------------------</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>double print_maxerr_grid(double u[NDIMMAX][NDIMMAX],int myid, int np, int nsize) {</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>int i,j,ierr=-1,jerr=-1,nlo,nhi;</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>double err=0.0,derr;</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>nlo=myid*nsize;<span style="mso-spacerun: yes">                 </span>// lowest iteration index</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>nhi=nlo+nsize;<span style="mso-spacerun: yes">                  </span>// highest iteration index + 1</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>for (i=nlo;i&lt;nhi;i++) {</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">    </span>for (j=0;j&lt;NMAX;j++) {</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">      </span>derr=fabs(u[i][j]-1.0);</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">      </span>if (derr &gt; err) {</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">        </span>err=derr;ierr=i;jerr=j;<span style="mso-spacerun: yes">   </span>// error and grid point</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">      </span>}</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">    </span>}</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>}</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>printf(&quot;maximum error on grid: (%d,%d) %e\n&quot;,ierr,jerr,err);</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>return err;</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>}</pre><pre style='margin-top:0cm;margin-right:15.0pt;
+margin-bottom:0cm;margin-left:15.0pt;margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>// ------------------------</pre><pre style='margin-top:
+0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;margin-bottom:
+.0001pt'>// update inner grid points</pre><pre style='margin-top:0cm;
+margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;margin-bottom:.0001pt'>// ------------------------</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>void update_grid(double ou[NDIMMAX][NDIMMAX], double u[NDIMMAX][NDIMMAX],</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>int myid, int np, int nsize) {</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>int i,j,nlo,nhi,ierr;</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>MPI_Status status;</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>nlo=myid*nsize;<span style="mso-spacerun: yes">                 </span>// lowest iteration index</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>nhi=nlo+nsize;<span style="mso-spacerun: yes">                  </span>// highest iteration index + 1</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>if (myid &gt; 0) {<span style="mso-spacerun: yes">                 </span>// all but first send up </pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">    </span>MPI_Send(&amp;u[nlo][1],NMAX-2,MPI_DOUBLE,myid-1,1,MPI_COMM_WORLD);</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>}</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>if (myid &lt; (np-1) ) {<span style="mso-spacerun: yes">           </span>// all but last receive from lower</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">    </span>MPI_Recv(&amp;ou[nhi][1],NMAX-2,MPI_DOUBLE,myid+1,1,MPI_COMM_WORLD,&amp;status);</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>}</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>if (myid &lt; (np-1)) {<span style="mso-spacerun: yes">            </span>// all but last send down</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">    </span>MPI_Send(&amp;u[nhi-1][1],NMAX-2,MPI_DOUBLE,myid+1,2,MPI_COMM_WORLD);</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>}</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>if (myid &gt; 0) {<span style="mso-spacerun: yes">                 </span>// all but first receive from upper</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">    </span>MPI_Recv(&amp;ou[nlo-1][1],NMAX-2,MPI_DOUBLE,myid-1,2,MPI_COMM_WORLD,&amp;status);</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>}</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>if (myid==0)<span style="mso-spacerun: yes">                    </span>// adjust low for first process</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">    </span>nlo++;</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>if (myid==(np-1))<span style="mso-spacerun: yes">               </span>// adjust hi for last process</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">    </span>nhi--;</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>for (i=nlo;i&lt;nhi;i++)</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">    </span>for (j=1;j&lt;NMAX-1;j++)</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">      </span>u[i][j]=0.25*(ou[i-1][j]+ou[i+1][j]+ou[i][j-1]+ou[i][j+1]);</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>for (i=nlo;i&lt;nhi;i++)</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">    </span>for (j=1;j&lt;NMAX-1;j++)</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">      </span>ou[i][j]=u[i][j];</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>}</pre><pre style='margin-top:0cm;margin-right:15.0pt;
+margin-bottom:0cm;margin-left:15.0pt;margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>// ------------</pre><pre style='margin-top:0cm;
+margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;margin-bottom:.0001pt'>// main program</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>// ------------</pre><pre style='margin-top:0cm;
+margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>int main(int argc, char *argv[]) {</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>int n;</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>int np;<span style="mso-spacerun: yes">                             </span>// number of processes</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>int myid;<span style="mso-spacerun: yes">                           </span>// own process id</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>int nsize;<span style="mso-spacerun: yes">                          </span>// local problem size</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>double u[NDIMMAX][NDIMMAX];<span style="mso-spacerun: yes">         </span>// discrete values on a grid</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>double ou[NDIMMAX][NDIMMAX];<span style="mso-spacerun: yes">        </span>// discrete values on a grid</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>double tstart,tend;<span style="mso-spacerun: yes">                 </span>// timing</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>char pname[MPI_MAX_PROCESSOR_NAME]; // process name</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>int namelen;</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>MPI_Init(&amp;argc,&amp;argv);<span style="mso-spacerun: yes">                  </span>// --&gt; initialize</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>MPI_Comm_size(MPI_COMM_WORLD,&amp;np);<span style="mso-spacerun: yes">      </span>// get # of procs</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>MPI_Comm_rank(MPI_COMM_WORLD,&amp;myid);<span style="mso-spacerun: yes">    </span>// get my number</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>MPI_Get_processor_name(pname,&amp;namelen);</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>if (NMAX % np !=0) {<span style="mso-spacerun: yes">                    </span>// check if NMAX is multiple of n</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">    </span>if (myid==0)</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">      </span>printf(&quot;problem size must be multiple of %d!\n&quot;,np);</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">    </span>MPI_Finalize();</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">    </span>exit();</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>}</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>MPI_Barrier(MPI_COMM_WORLD);<span style="mso-spacerun: yes">            </span>// wait for all processes</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>if (myid==0)</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">    </span>tstart=MPI_Wtime();</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>nsize=NMAX/np;</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>printf(&quot;process %d started on %s\n&quot;,myid,pname);<span style="mso-spacerun: yes">   </span>// show we are alive</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>initialize_guess(u,myid,np,nsize);<span style="mso-spacerun: yes">        </span>// initialize matrix</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>initialize_guess(ou,myid,np,nsize);<span style="mso-spacerun: yes">       </span>// initialize matrix</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>n=0;</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>while (n &lt; ITERMAX) {<span style="mso-spacerun: yes">                     </span>// relaxation</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">   </span>update_grid(ou,u,myid,np,nsize);</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">   </span>n++;</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>}</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>print_maxerr_grid(u,myid,np,nsize);<span style="mso-spacerun: yes">       </span>// compare with exact solution</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>MPI_Barrier(MPI_COMM_WORLD);</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>if (myid==0) {</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">    </span>tend=MPI_Wtime();</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">    </span>printf(&quot;execution time: %e\n&quot;,tend-tstart);</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>}</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>MPI_Finalize();<span style="mso-spacerun: yes">                            </span>// --&gt; finalize</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'><span style="mso-spacerun: yes">  </span>return 0;</pre><pre
+style='margin-top:0cm;margin-right:15.0pt;margin-bottom:0cm;margin-left:15.0pt;
+margin-bottom:.0001pt'>}</pre>
+
+<div class=MsoNormal align=center style='margin-top:300.0pt;margin-right:15.0pt;
+margin-bottom:0cm;margin-left:15.0pt;margin-bottom:.0001pt;text-align:center'>
+
+<hr size=2 width="100%" align=center>
+
+</div>
+
+
+<h3 style='margin-top:0cm;margin-right:15.0pt;margin-bottom:2.25pt;margin-left:
+15.0pt'><a name=slide6></a><a href="#slide5"><span style='text-decoration:none;
+text-underline:none'><img border=0 width=10 height=10 id="_x0000_i1044"
+src="http://numerix.us.es/pers/denk/_parallel/img/xgprev.gif"></span></a><a
+href="#slide7"><span style='text-decoration:none;text-underline:none'><img
+border=0 width=10 height=10 id="_x0000_i1045"
+src="http://numerix.us.es/pers/denk/_parallel/img/xgnext.gif"></span></a>Algunas
+pruebas </h3>
+
+<h4 align=center style='margin-right:15.0pt;margin-left:15.0pt;text-align:center'>Versión
+convencional</h4>
+
+<p align=center style='margin-right:15.0pt;margin-left:15.0pt;text-align:center'>gcc
+-O2, platform PII 233 MHz</p>
+
+<div align=center>
+
+<table border=1 cellpadding=0 style='mso-cellspacing:1.5pt;margin-left:15.0pt'>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-family:Verdana'>N<o:p></o:p></span></b></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-family:Verdana'>iter<o:p></o:p></span></b></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-family:Verdana'>T<sub>1</sub> (sec.)<o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>64 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>10000 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>5.45 <o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>128 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>2500 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>6.1 <o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>256 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>625 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>10.0 <o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>512 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>156 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>10.8 <o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+<p align=center style='margin-right:15.0pt;margin-left:15.0pt;text-align:center'>gcc
+-O2, platform PIII 800 MHz</p>
+
+<div align=center>
+
+<table border=1 cellpadding=0 style='mso-cellspacing:1.5pt;margin-left:15.0pt'>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-family:Verdana'>N<o:p></o:p></span></b></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-family:Verdana'>iter<o:p></o:p></span></b></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-family:Verdana'>sec.<o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>64 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>10000 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>1.3 <o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>128 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>2500 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>5.5 <o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>256 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>625 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>9.76 <o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>512 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>156 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>10.4 <o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+<h4 align=center style='margin-right:15.0pt;margin-left:15.0pt;text-align:center'>Versión
+paralela</h4>
+
+<p align=center style='margin-right:15.0pt;margin-left:15.0pt;text-align:center'>gcc
+-O2, platform PII 233 MHz, un procesador</p>
+
+<div align=center>
+
+<table border=1 cellpadding=0 style='mso-cellspacing:1.5pt;margin-left:15.0pt'>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-family:Verdana'>N<o:p></o:p></span></b></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-family:Verdana'>iter<o:p></o:p></span></b></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-family:Verdana'>T<sub>1</sub> (sec.)<o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>64 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>10000 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>5.47 <o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>128<o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>2500 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>5.56 <o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>256<o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>625 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>10.1 <o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>512<o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>156 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>10.8 <o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+<p align=center style='margin-right:15.0pt;margin-left:15.0pt;text-align:center'>gcc
+-O2, platform PII 233 MHz, varios procesadores (ethernet 10 MBit)</p>
+
+<div align=center>
+
+<table border=1 cellpadding=0 style='mso-cellspacing:1.5pt;margin-left:15.0pt'>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-family:Verdana'>N<o:p></o:p></span></b></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-family:Verdana'>iter<o:p></o:p></span></b></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-family:Verdana'>np <o:p></o:p></span></b></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-family:Verdana'>T<sub>np</sub> (sec.)<o:p></o:p></span></b></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-family:Verdana'>T<sub>1</sub>/T<sub>np</sub></span></b>scaling
+  (padding 1) <b><span style='font-family:Verdana'><o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>256<o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>625 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>1 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>9.25<o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>1.0 <o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>256<o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>625 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>2<o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>6.6 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>1.4 <o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>256<o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>625 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>4 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>8.2 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>1.13 <o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>512<o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>156 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>1 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>10.0<o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>1.0 <o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>512<o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>156 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>2 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>6.3 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>1.58<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>512<o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>156 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>4 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>5.3 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>1.88 <o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>510<o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>157 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>6 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>8.2 <o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-family:Verdana'>1.21 <o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+
+<div class=MsoNormal align=center style='margin-top:300.0pt;margin-right:15.0pt;
+margin-bottom:0cm;margin-left:15.0pt;margin-bottom:.0001pt;text-align:center'>
+
+<hr size=2 width="100%" align=center>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

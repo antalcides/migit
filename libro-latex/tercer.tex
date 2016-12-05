@@ -1,0 +1,202 @@
+\chapter{tercer}
+\chaptertoc 
+\begin{objetivos}
+\begin{lista}
+\item Comprender el esquema básico de funcionamiento de \TeX\, y \LaTeX .
+\item Conocer las diferentes salidas que produce \LaTeX.
+\item Conocer las diferentes herramientas que intecactuan con \LaTeX.
+\item Aprender a instalar \LaTeX\, en diferentes sistemas.
+\end{lista}
+\end{objetivos}
+\section{Reglas generales}
+
+\begin{description}
+\item[$\clubsuit$] Usar espacios para separar palabras.
+
+\item Un espacio vale igual que mil.
+
+\begin{description}
+\item[$\clubsuit$] Los fines de linea sencillos no valen.
+
+\item[$\clubsuit$] Usar líneas vac\'{\i}as para separar p\'{a}rrafos.
+\end{description}
+\end{description}
+
+Una linea vac\'{\i}a vale igual que mil.
+
+\begin{description}
+\item
+\begin{description}
+\item[$\clubsuit$] El espaciado y las sangr\'{\i}as son trabajo de
+\end{description}
+
+\item LATEX, y lo sabe hacer muy bien.
+
+\begin{description}
+\item[$\clubsuit$] No forzar espacios ni cortes de l\'{\i}nea.
+\end{description}
+\end{description}
+
+\subsection{Ejemplo 1}
+\begin{verbatim}
+\begin{document}
+\maketitle Este es el primer párrafo ,
+y esta sigue
+siendo par te del primer p árrafo
+ Este ya es e l segundo párrafo .
+%y esto es un comentario
+Aquí puedes e s c r i b i r más .
+\ end{ document }
+
+\end{verbatim}
+
+\subsection{Ejemplo 2}
+\begin{verbatim}
+
+\begin{document}
+\maketitle Este es un ejemplo con un
+p á r ra fo m\'{a}s grande
+que , por c i e r t o , tambi \'{e}n
+es mucho m\'{a}s i n te re sa
+n te . Recuerda que un p\'{a} r ra fo
+debe expresar una idea
+completa y coherente . Justo como este
+ p \'{a} r ra fo que nos ha
+servido como un ejemplo genial . Observa
+que los p \'{a} r ra fo s
+en \ LaTeX { } forman l a unidad
+e s t r u c t u r a l m\'{a}s
+peque~na dent ro de los documentos .
+ Recuerda que es tu responsabilidad
+  e l contenido de estos
+párrafos , y de \ LaTeX { } e l
+que se vean boni tos . \ end{ document }
+\end{verbatim}
+
+\subsection{Acentos}
+
+La opci\'{o}n activeacute de babel permite
+
+usar acentos cortos: \'{a}, \'{a}, \'{a}, \~{n}, etc.
+
+Los acentos cortos no funcionan en el
+
+pre\'{a}mbulo, all\'{\i} hay que usar acentos largos:
+
+\'{a}
+%TCIMACRO{\TEXTsymbol{\backslash}}%
+%BeginExpansion
+$\backslash$%
+%EndExpansion
+\'a \'{o}
+%TCIMACRO{\TEXTsymbol{\backslash}}%
+%BeginExpansion
+$\backslash$%
+%EndExpansion
+\'o
+
+\'{e}
+%TCIMACRO{\TEXTsymbol{\backslash}}%
+%BeginExpansion
+$\backslash$%
+%EndExpansion
+\'e \'{u}
+%TCIMACRO{\TEXTsymbol{\backslash}}%
+%BeginExpansion
+$\backslash$%
+%EndExpansion
+\'u
+
+\'{\i}
+%TCIMACRO{\TEXTsymbol{\backslash}}%
+%BeginExpansion
+$\backslash$%
+%EndExpansion
+'\{%
+%TCIMACRO{\TEXTsymbol{\backslash}}%
+%BeginExpansion
+$\backslash$%
+%EndExpansion
+i\} \~{n}
+%TCIMACRO{\TEXTsymbol{\backslash}}%
+%BeginExpansion
+$\backslash$%
+%EndExpansion%
+%TCIMACRO{\U{2dc}}%
+%BeginExpansion
+\protect\rule{0.1in}{0.1in}
+%EndExpansion
+n
+
+\textquestiondown Por qu\'{e} no usar directamente los caracteres
+
+acentuados en mi c\'{o}digo de \LaTeX?
+
+Tambi\'{e}n podemos usar el paquete inputenc con la opci\'{o}n latin1
+
+\subsection{F\'{o}rmulas en l\'{\i}neas}
+
+\begin{description}
+\item[$\blacksquare$] Los signos \$ \$ son para indicar el contenido
+\end{description}
+
+matem\'{a}tico.
+
+\begin{description}
+\item[$\blacksquare$] Todo el contenido matem\'{a}tico (y s\'{o}lo el
+\end{description}
+
+contenido matem\'{a}tico) debe de ser marcado.
+
+\begin{description}
+\item[$\blacksquare$] No usar el contenido matem\'{a}tico para poner
+\end{description}
+
+it\'{a}licas.
+
+\begin{description}
+\item[$\blacksquare$] Y no usar comandos de formato para marcar
+\end{description}
+
+contenido matem\'{a}tico.
+
+\begin{description}
+\item[$\blacksquare$] Pensar en el contenido, \textexclamdown no en el formato!.
+\end{description}
+
+\subsection{Mas ejemplos}
+
+\begin{example}
+Haciendo salvedad de ((efectos es-peciales)),
+para escribir un texto
+normal en \TeX \,basta con teclear
+exactamente el texto que se de-
+sea. El cajista (\TeX) se ocupa de
+formar y ajustar las l\'{\i}neas. Para
+separar las palabras se emplean
+espacios en blanco o ((retornos de
+carro)) (nueva l\'{\i}nea). El n\'{u}mero
+de espacios en blanco no impor-
+ta: uno es igual que                100.
+\end{example}
+\subsection{Tipos de documentos}
+\begin{description}
+\item[$\blacksquare$] Clase del documento
+\item (\lstinline+\documentclass[...]{clase}+):
+
+\item[$\bigstar$]  article: art\'{\i}culos, trabajos, : : :
+
+\item[$\bigstar$]  letter: cartas
+
+\item[$\bigstar$]  report, book: documentos m\'{a}s largos, con cap\'{\i}tulos
+
+\item[$\bigstar$]  slides: presentaciones (transparencias)
+\item[$\blacksquare$] Par\'{a}metros opcionales (\lstinline+\documentclass[opciones]{...}+):
+\end{description}
+
+10pt, 11pt, 12pt: tama\~{n}os o tipos
+
+letterpaper, a4paper:  tama\~{n}o o papel
+
+twocolumn: dos columnas
+

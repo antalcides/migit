@@ -1,0 +1,595 @@
+\usepackage{marco}
+\usepackage{lettrine}
+%\usepackage{keyval}% http://ctan.org/pkg/keyval
+%\usepackage{environ}% http://ctan.org/pkg/environ
+\usetikzlibrary{calc,trees,positioning,arrows,chains,shapes.geometric,
+decorations.pathreplacing,decorations.pathmorphing,shapes,%
+matrix,shapes.symbols,plotmarks,decorations.markings,shadows}
+\usepackage{theoremref} %refereciar teoremas Por ejemplo: \thlabel{foobar}
+\usepackage{marginnote}
+\usepackage{fancybox}
+\usepackage{hhline}
+\usepackage{multirow} 
+\usepackage{colortbl}%
+\usepackage{pifont} 
+\usepackage{eurosym} %para el Euro
+%\usepackage{xltxtra}%para logos de la familia TeX
+%\usepackage{mathspec}
+\usepackage{metalogo}
+%\usepackage{tabular}
+%\usepackage{amsmath}
+\usepackage{lipsum-es}
+%\usepackage{xparse}% para declarar comandos
+\usepackage{amssymb}
+%\usepackage[thref,thmmarks,framed, amsthm]{ntheorem}
+\usepackage{comment}
+\usepackage[explicit]{titlesec}
+\usepackage{emptypage}%pagina en blanco al final de capitulo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\documentclass[openany,svgnames,x11names]{book}
+\usepackage{titletoc}
+\usepackage{fancyhdr}
+\usepackage{pagecolor}
+\usepackage[spanish]{layout}
+\usepackage{ucs}%codificacion vieja
+\usepackage[utf8x]{inputenc}
+%\usepackage[latin1]{inputenc}
+%\usepackage{showframe}% traza layout en cada pagina
+%%%======================================revisar
+\usepackage{pifont}
+\usetikzlibrary{shapes,snakes,positioning}
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+\usepackage{wallpaper}
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows}
+\usepackage{epstopdf}
+\usepackage{floatflt}
+\usepackage{pgfplots}
+\usepackage{setspace}
+\usepackage{amsmath,amssymb}
+\usepackage{float}
+%\usepackage{booktabs}
+\usepackage{courier}
+\usepackage{units}
+\usepackage{url}
+\usepackage{float}
+\usepackage{mathpazo}
+\usepackage{amsfonts}
+\usepackage{fancyvrb}
+\usepackage{enumerate}
+\usepackage{ifthen}
+\usepackage{cancel}
+\usepackage{layout}
+\usepackage{footnote}
+\usepackage{etex}%si pgfplot tiene problemas con new dim para uamentar el numero de registros
+\usepackage[frame,letter,cam]{crop}
+\usepackage{microtype,soul,filecontents}
+\usepackage{bbding}
+\usepackage{lettrine,caption,multicol}
+\usepackage{soul}
+\usepackage{palatino}
+\usepackage{calligra}
+\usepackage[T1]{fontenc}
+\usepackage[listings,theorems]{tcolorbox}
+\usepackage{filecontents,ragged2e}
+\usepackage{floatflt}
+\usepackage[makeindex]{imakeidx}
+\usepackage{lmodern}
+\usepackage{etoolbox}
+\usepackage{tabularx}
+%\usepackage{minitoc}
+\usepackage{etoc}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[paperheight=27.9cm,%
+paperwidth=21.6cm,%
+%centering,%
+%textheight=22.9cm,
+left=2cm,%
+right=2cm,
+%
+top=2.5cm,%
+bottom=2cm,%
+headheight=1cm,%
+headsep=20pt,%
+footskip=1cm,%
+marginparsep=20pt,
+pdftex=false,
+letterpaper
+]{geometry}
+%\usepackage[paperheight=25cm,%
+%paperwidth=17cm,%
+%centering,%
+%left=1.5cm,%
+%right=2cm,%
+%top=2.5cm,%
+%bottom=1.5cm,%
+%headheight=0.5cm,%
+%headsep=10pt,%
+%%footskip=1cm,%
+%marginparsep=20pt,
+%margin=2cm,
+%pdftex=false
+%]{geometry}
+%\usepackage[frame,center,letter,pdflatex]{crop}
+%\usepackage{amsthm}
+%\usepackage[framed, amsthm]{ntheorem}
+\usepackage{listings}
+\definecolor{lightgrey}{rgb}{0.9,0.9,0.9}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\usepackage{fourier-orns}
+% % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % % %preamble de framed % % %
+\usepackage{fixltx2e}
+%\usepackage{etex}
+\usepackage{lmodern}
+\usepackage{textcomp}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{microtype}
+\newcommand*{\mail}[1]{\href{mailto:#1}{\texttt{#1}}}
+\newcommand*{\pkg}[1]{\textsf{#1}}
+\newcommand*{\cs}[1]{\texttt{\textbackslash#1}}
+\makeatletter
+\newcommand*{\cmd}[1]{\cs{\expandafter\@gobble\string#1}}
+\makeatother
+\newcommand*{\env}[1]{\texttt{#1}}
+\newcommand*{\opt}[1]{\texttt{#1}}
+\newcommand*{\meta}[1]{\textlangle\textsl{#1}\textrangle}
+\newcommand*{\marg}[1]{\texttt{\{}\meta{#1}\texttt{\}}}
+
+% % % % % % % % % % % % % % % % %framed
+\def\indexname{\'Indice}
+\def\contentsname{ CONTENIDO}
+\def\listfigurename{Tabla de figuras}
+\def\bibname{Bibliograf\'{\i}a}
+\def\tablename{Tabla}
+\def\proofname{Demostraci\'on}
+\def\appendixname{Ap\'endice}
+\def\chaptername{ Cap\'{\i}tulo}
+\def\figurename{Figura}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% definicion de colores ================)
+\definecolor{est1}{RGB}{0,177,235}
+\definecolor{est2}{RGB}{0,119,158}
+\definecolor{est3}{RGB}{235,137,0}
+\definecolor{est4}{RGB}{158,66,0}
+\definecolor{est5}{RGB}{20,20,20}
+\definecolor{est6}{RGB}{235,235,235}
+\definecolor{naranja1}{rgb}{1,0.5,0}
+\definecolor{naranja2}{RGB}{255,127,0}
+\definecolor{naranja3}{cmyk}{0,0.5,1,0}
+\definecolor{naranja4}{HTML}{FF7F00}
+%rgb
+\definecolor{rojo}{rgb}{1,0,0}
+\definecolor{verde}{rgb}{0,1,0}
+\definecolor{azul}{rgb}{0,0,1}
+%cmyk
+\definecolor{blanco}{cmyk}{0,0,0,0}
+\definecolor{cian}{cmyk}{1,0,0,0}
+\definecolor{magenta}{cmyk}{0,1,0,0}
+\definecolor{amarillo}{cmyk}{0,0,1,0}
+\definecolor{negro}{cmyk}{0,0,0,1}
+\definecolor{theblue}{rgb}{0.02,0.04,0.48}
+\definecolor{thered}{rgb}{0.65,0.04,0.07}
+\definecolor{thegreen}{rgb}{0.06,0.44,0.08}
+\definecolor{thegrey}{gray}{0.5}
+\definecolor{theshade}{gray}{0.94}
+\definecolor{theframe}{gray}{0.75}
+\definecolor{burl}{rgb}{0.27,0.22,0.20}
+\definecolor{caper}{rgb}{0.36,0.46,0.23}
+\definecolor{rhodo}{rgb}{0.58,0.63,0.45}
+\definecolor{wood}{rgb}{0.61,0.51,0.43}
+\definecolor{mesh}{rgb}{0.97,0.93,0.81}
+\definecolor{wood}{rgb}{0.61,0.51,0.43}
+\definecolor{warningColor}{named}{Red3}
+\definecolor{doc}{RGB}{0,60,110}
+\definecolor{boxheadcol}{gray}{.6}
+\definecolor{boxcol}{gray}{.9}
+\definecolor[named]{PowderBlue}{HTML}{B0E0E6}
+\definecolor[named]{MidnightBlue}{HTML}{191970}
+\definecolor{bl}{rgb}{0,0.2,0.8}
+\definecolor{shcolor}{HTML}{FDEDD0}
+\definecolor[named]{GreenTea}{HTML}{CAE8A2}
+\definecolor[named]{MilkTea}{HTML}{C5A16F}
+\definecolor[named]{SaddleBrown}{HTML}{8B4513}
+\definecolor{FrameColor}{rgb}{0.25,0.25,1.0}
+\definecolor{TitleColor}{rgb}{1.0,1.0,1.0}
+\definecolor{TFFrameColor}{HTML}{CAE8A2}
+\definecolor{TFTitleColor}{HTML}{C5A16F}
+\definecolor{secnum}{RGB}{13,151,225}
+\definecolor{ptcbackground}{RGB}{212,237,252}
+\definecolor{ptctitle}{RGB}{0,177,235}
+\definecolor{shadecolor}{RGB}{212,237,252}
+\definecolor{visgreen}{rgb}{0.733, 0.776, 0}
+\definecolor{myBGcolor}{HTML}{F6F0D6}
+\definecolor[named]{PowderBlue}{HTML}{B0E0E6}
+\definecolor[named]{MidnightBlue}{HTML}{191970}
+\definecolor{mybrown}{RGB}{128,64,0}
+\definecolor{lightgrey}{rgb}{0.9,0.9,0.9}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\definecolor{Tan}{cmyk}{0.14,0.42,0.56,0}
+%%%%%%%%%%%%%%%%
+%%%%% Definicion de listing===========
+\usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{gray}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{C\'odigo \thesection .\ 
+\thesource\ #3}}}
+\captionsetup[source]{format=listing,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
+\newcounter{source}[section]
+\lstnewenvironment{source}[2][]
+{\refstepcounter{source}
+\captionsetup{options=source}
+\lstset{%
+basicstyle=\tiny\ttfamily\bf,language={[LaTeX]TeX},caption=#1,label=#2,  
+numbersep=5mm, numbers=left, numberstyle=\tiny, % number style
+breaklines=true,framexleftmargin=10mm, xleftmargin=10mm,
+backgroundcolor=\color{ptcbackground!60},frameround=fttt,escapeinside=??,
+rulecolor=\color{ptctitle},
+morekeywords={% Give key words here                                         % keywords
+    maketitle},
+keywordstyle=\color[rgb]{0,0,1},                    % keywords
+        commentstyle=\color[rgb]{0.133,0.545,0.133},    % comments
+        stringstyle=\color[rgb]{0.627,0.126,0.941}  % strings
+%columns=fullflexible   
+}
+        }
+{}
+%%%%================= definicion del capitulo ======================)
+ \newcommand*\chapterlabel{}
+\titleformat{\chapter}
+  {\gdef\chapterlabel{}
+   \normalfont\sffamily\Huge\bfseries\scshape}
+  {\gdef\chapterlabel{\thechapter\ }}{0pt}
+  {\begin{tikzpicture}[remember picture,overlay]
+    \node[yshift=-3cm] at (current page.north west)
+      {\begin{tikzpicture}[remember picture, overlay]
+        \draw[fill=ptcbackground!60,draw=ptcbackground!60] (0,0) rectangle
+          (\paperwidth,3cm);
+          \draw[ultra thick,fill=ptctitle,draw=ptctitle](0,0) -- (current page.east |- 0,0 );
+          \draw [ptctitle,fill=ptctitle, ultra thick] (0.5,0) circle [radius=0.1];
+         \draw[ptctitle,fill=ptctitle, ultra thick] (21,0) circle [radius=0.1];
+        \node[anchor=east,xshift=.9\paperwidth,rectangle,
+              rounded corners=20pt,inner sep=11pt,
+              fill=ptctitle,draw=ptctitle]
+              {\color{white}\chapterlabel#1};
+%               \draw[fill=green] (current page.north west) rectangle (current page.south east);
+       \end{tikzpicture}        
+      }; 
+      \begin{pgfonlayer}{background}
+%          \path (-1.4cm,2.8cm) node (tl) {};
+%          \path (2.3cm, -8.4cm) node (br) {};
+          \path[fill=ptcbackground] (current page.north west) rectangle (current page.south east);
+      \end{pgfonlayer}
+   \end{tikzpicture}  
+     \vspace{20pt}
+  }
+\titlespacing*{\chapter}{0pt}{50pt}{-60pt}
+
+%%%======================================== TOC
+\preto{\frontmatter}{\pagecolor{ptcbackground}}{}{}
+\preto{\mainmatter}{\pagecolor{myBGcolor}}{}{}
+\preto{\backmatter}{\pagestyle{empty}\pagecolor{myBGcolor}}{}{}{}
+%\patchcmd{\backmatter}{\pagecolor{myBGcolor}\pagestyle{empty}}{}{}{}
+%\preto{\tableofcontents}{\begin{snugshade*}}{}{}
+%\appto{\tableofcontents}{\end{snugshade*}}{}{}
+%\patchcmd{\tableofcontents}{\contentsname}{\color{ptctitle}\contentsname}{}{}
+
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \setcounter{tocdepth}{2}
+    \titlecontents{subsection}
+  [5.8em]{\sffamily}
+  {\color{secnum}\contentslabel{2.3em}\normalcolor}{}
+  {\titlerule*[1000pc]{.}\contentspage\\\hspace*{-5.8em}\vspace*{2pt}%
+    \color{ptctitle}\rule{\dimexpr\textwidth-15.5pt\relax}{1pt}}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \titlecontents{section}
+  [4em]{\sffamily}
+  {\color{secnum}\contentslabel{2.3em}\normalcolor}{}
+  {\titlerule*[1000pc]{.}\contentspage\\\hspace*{-3em}\vspace*{2pt}%
+    \color{ptctitle}\rule{\dimexpr\textwidth-20pt\relax}{1pt}}
+
+\titlecontents{lsection}
+  [5.8em]{\sffamily}
+  {\color{secnum}\contentslabel{2.3em}\normalcolor}{}
+  {\titlerule*[1000pc]{.}\contentspage\\\hspace*{-5.8em}\vspace*{2pt}%
+    \color{ptctitle}\rule{\dimexpr\textwidth-15.5pt\relax}{1pt}}
+
+\makeatletter
+\renewcommand*\l@chapter[2]{%
+\thispagestyle{empty}
+  \ifnum \c@tocdepth >\m@ne
+    \addpenalty{-\@highpenalty}%
+    \vskip 1.0em \@plus\p@
+    \setlength\@tempdima{1.5em}%
+    \begingroup
+      \parindent \z@ \rightskip \@pnumwidth
+      \parfillskip -\@pnumwidth
+      \leavevmode
+      \advance\leftskip\@tempdima
+      \hskip -\leftskip
+      \colorbox{ptctitle}{\strut%
+        \makebox[\dimexpr\textwidth-2\fboxsep-7pt\relax][l]{%
+          \color{white}\bfseries\sffamily#1%
+          \nobreak\hfill\nobreak\hb@xt@\@pnumwidth{\hss #2}}}\par\smallskip
+      \penalty\@highpenalty
+    \endgroup
+  \fi}
+\makeatother
+%%% crear toc por capitulo con etoc 
+\newcommand*\chaptertoc{% 
+  \setcounter{tocdepth}{2}% 
+  \etocsettocstyle{\subsection*{\subtoc}}{}% 
+  {\footnotesize \localtableofcontents }
+} 
+\def\subtoc{\colorbox{ptctitle}{
+\renewcommand{\baselinestretch}{1}
+     \parbox[t]{\dimexpr\textwidth-2\fboxsep\relax}{%
+    \strut\color{white}\bfseries\sffamily \makebox[5em]{%
+Contenido      }\hfill Cap\'{i}tulo~\thechapter\hfill P\'agina}
+}}
+%%% crear toc por capitulo con titlesec
+\newcommand\PartialToC{%
+\startcontents[chapters]%
+\begin{mdframed}[backgroundcolor=ptcbackground,hidealllines=true]
+\printcontents[chapters]{l}{1}{\colorbox{ptctitle}{%
+  \parbox[t]{\dimexpr\textwidth-2\fboxsep\relax}{%
+    \strut\color{white}\bfseries\sffamily \makebox[5em]{%
+Contenido      }\hfill Cap\'{i}tulo~\thechapter\hfill P\'agina}}\vskip5pt}
+\end{mdframed}%
+}
+% Define partial toc for part pages
+%% Set the uniform width of the colour box
+%% displaying the page number in footer
+%% to the width of "99"
+\newlength\pagenumwidth
+\settowidth{\pagenumwidth}{99}
+
+%% Define style of page number colour box
+\tikzset{pagefooter/.style={
+anchor=base,font=\sffamily\bfseries\small,
+text=white,fill=ptctitle,text centered,
+text depth=17mm,text width=\pagenumwidth}}
+
+%% Concoct some colours of our own
+\definecolor[named]{GreenTea}{HTML}{CAE8A2}
+\definecolor[named]{MilkTea}{HTML}{C5A16F}
+%%%%%%%%%%%%%%% Encabezado y pie de pagina
+%%%%%%%%%%
+%%% Re-define running headers on non-chapter pages
+%%%%%%%%%%
+\fancypagestyle{headings}{%
+  \fancyhf{}   % Clear all headers and footers first
+  %% Right headers on odd pages
+  \fancyhead[RO]{%
+    %% First draw the background rectangles
+    \begin{tikzpicture}[remember picture,overlay]
+    \fill[ptcbackground] (current page.north east) rectangle (current page.south west);
+    \fill[white, rounded corners] ([xshift=-10mm,yshift=-20mm]current page.north east) rectangle ([xshift=15mm,yshift=17mm]current page.south west);
+    \begin{pgfonlayer}{background}
+    %          \path (-1.4cm,2.8cm) node (tl) {};
+    %          \path (2.3cm, -8.4cm) node (br) {};
+              \path[fill=brown!20] (current page.north west) rectangle (current page.south east);
+          \end{pgfonlayer}
+    \end{tikzpicture}
+    %% Then the decorative line and the right mark
+    \begin{tikzpicture}[xshift=-.75\baselineskip,yshift=.25\baselineskip,remember picture,    overlay,fill=ptctitle,draw=ptctitle]\fill circle(3pt);
+    \draw[semithick](0,0) -- (current page.west |- 0,0);
+        \end{tikzpicture} \sffamily\itshape\small\nouppercase{\rightmark}
+  }
+
+  %% Left headers on even pages
+  \fancyhead[LE]{%
+    %% Background rectangles first
+    \begin{tikzpicture}[remember picture,overlay]
+     \fill[brown!20] (current page.north east) rectangle (current page.south west);
+    \fill[ptcbackground] (current page.north east) rectangle (current page.south west);
+    \fill[white, rounded corners] ([xshift=-15mm,yshift=-20mm]current page.north east) rectangle ([xshift=10mm,yshift=17mm]current page.south west);
+           \end{tikzpicture}
+    %% Then the right mark and the decorative line
+    \sffamily\itshape\small\nouppercase{\leftmark}\ 
+    \begin{tikzpicture}[xshift=.5\baselineskip,yshift=.25\baselineskip,remember picture, overlay,fill=ptctitle,draw=ptctitle]
+    \fill (0,0) circle (3pt); \draw[semithick](0,0) -- (current page.east |- 0,0 );
+       \end{tikzpicture}
+  }
+
+  %% Right footers on odd pages and left footers on even pages,
+  %% display the page number in a colour box
+  \fancyfoot[RO,LE]{\tikz[baseline]\node[pagefooter]{\thepage};}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+%%%%%%%%%%
+%%% Re-define running headers on chapter pages
+%%%%%%%%%%
+\fancypagestyle{plain}{%
+  %% Clear all headers and footers
+  \fancyhf{}
+  %% Right footers on odd pages and left footers on even pages,
+  %% display the page number in a colour box
+  \fancyfoot[RO,LE]{\tikz[baseline]\node[pagefooter]{\thepage};}
+  
+    %% First draw the background rectangles
+     \fancyhead[LE]{\begin{tikzpicture}[remember picture,overlay]
+    \fill[ptcbackground] (current page.north east) rectangle (current page.south west);
+    \fill[white, rounded corners] ([xshift=-10mm,yshift=-20mm]current page.north east) rectangle ([xshift=15mm,yshift=17mm]current page.south west);
+    \begin{pgfonlayer}{background}
+    %          \path (-1.4cm,2.8cm) node (tl) {};
+    %          \path (2.3cm, -8.4cm) node (br) {};
+              \path[fill=ptcbackground] (current page.north west) rectangle (current page.south east);
+          \end{pgfonlayer}
+    \end{tikzpicture}
+    \sffamily\itshape\small\nouppercase{\rightmark}
+  }
+    \fancyhead[RO]{%
+    %% First draw the background rectangles
+    \begin{tikzpicture}[remember picture,overlay]
+    \fill[ptcbackground] (current page.north east) rectangle (current page.south west);
+    \fill[white, rounded corners] ([xshift=-10mm,yshift=-20mm]current page.north east) rectangle ([xshift=15mm,yshift=17mm]current page.south west);
+    \begin{pgfonlayer}{background}
+    %          \path (-1.4cm,2.8cm) node (tl) {};
+    %          \path (2.3cm, -8.4cm) node (br) {};
+              \path[fill=ptcbackground] (current page.north west) rectangle (current page.south east);
+          \end{pgfonlayer}
+    \end{tikzpicture}
+    \sffamily\itshape\small\nouppercase{\rightmark}
+  }
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+%%%%% def de seccion
+ \usetikzlibrary{shapes.symbols,shadows,calc}
+% the tikz picture that will be used for the title formatting
+% \SecTitle{<signal direction>}{<node anchor>}{<node horiz, shift>}{<node x position>}{#5}
+% the fifth argument will be used by \titleformat to write the section title using #1
+\newcommand\SecTitle[5]{%
+\begin{tikzpicture}[overlay,every node/.style={signal, draw, text=white, signal to=nowhere}]
+  \node[ptctitle,fill, signal to=#1, inner sep=1em, drop shadow,
+    text=white,font=\huge\sffamily,anchor=#2,
+    xshift=\the\dimexpr-\marginparwidth-\marginparsep-#3\relax] 
+    at (#4,0) {#5};
+\end{tikzpicture}%
+}
+
+\titleformat{name=\section,page=even}
+{\normalfont}{}{20pt}
+{\SecTitle{east}{west}{16pt}{5cm}{\thesection\ #1}}[\addvspace{20pt}]
+
+\titleformat{name=\section,page=odd}
+{\normalfont\sffamily}{}{0em}
+{\SecTitle{west}{east}{16pt}{\paperwidth}{#1\  \thesection}}[\addvspace{20pt}]
+  %%%%%8============ Final de tabla de contenido ===========================)
+% % % % % % % % % % % %bibname url
+\usepackage{url}
+
+%% Define a new 'leo' style for the package that will use a smaller font.
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
+\makeatother
+%% Now actually use the newly defined style.
+\urlstyle{leo}
+% % % % % % % % % % % % % % % %
+\usepackage{bodegraph}
+
+\usetikzlibrary{intersections}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+% Define the layers to draw the diagram
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+
+
+% % % % % % % % % % % % % % % % % %
+\newenvironment{lista}{
+\begin{itemize}
+ \renewcommand{\labelitemi}{{
+ \colorbox{wood!70!black}{\color{white}{\ding{42}}}
+ }}
+}{\end{itemize}}
+\newenvironment{figura}[3]{\begin{figure}[H]
+\centering
+                               #1
+                              \caption{#2}
+                              \label{#3}
+                              \end{figure}
+}{ \vskip 5pt }
+\newcommand{\nota}{\colorbox{teal!20!white}{\color{black}{Nota:}}\ }
+\def\texto{Sean $f$ y $g$ dos funciones y sean $\alpha$ y $\beta$ dos n\'umeros reales. 
+Entonces se verifican las siguientes propiedades:
+
+ \[1.\quad \int (f(x)+g(x))\,dx = \int f(x)\,dx + \int g(x)\,dx  \]
+ \[2.\quad \int \alpha f(x)\, dx =\alpha \int f(x)\,dx \]
+
+ Estas dos propiedades se pueden englobar en una:
+ \[ \int (\alpha f(x)+\beta g(x)) \, dx = \alpha\int f(x)\,dx+\beta\int
+   g(x)\,dx \]
+{\bf Ejemplo}:
+
+ \[ \int (2x-3x^2)\, dx = 2\int x\,dx -3\int x^2\, dx \]}
+ \def\Web#1{\href{#1}{%
+     \tikz \node[fill=myBGcolor](0,0) {#1};%
+   }}
+   \def\Item{\colorbox{wood!70!black}{\color{white}{\ding{42}}}}
+   \def\web#1{\Item\ \href{http://ctan.org/pkg/#1}{\textbf{#1.}}\par\vspace{10pt}}
+   % % % % % %listing
+   \lstset{%
+   basicstyle=\small\ttfamily\bf,language={[LaTeX]TeX}, numbersep=5mm, numbers=left, numberstyle=\tiny, % number style
+   breaklines=true,framexleftmargin=10mm, xleftmargin=10mm,
+   backgroundcolor=\color{ptcbackground!60},frameround=fttt,escapeinside=??,
+   rulecolor=\color{ptctitle},
+   morekeywords={% Give key words here                                         % keywords
+       maketitle},
+   keywordstyle=\color[rgb]{0,0,1},                    % keywords
+           commentstyle=\color[rgb]{0.133,0.545,0.133},    % comments
+           stringstyle=\color[rgb]{0.627,0.126,0.941}  % strings
+   %columns=fullflexible   
+   }
+   % % % % % %
+%%%%%% Definicion de caja %%%%%%%%%%%%%%%%%%%%%
+  \newboxedtheorem[title= Teorema. \thesection.\thecaja ,labelbox= ,boxcolor=MilkTea,background = ptcbackground!60,titleboxcolor=black,titleboxcolor=MilkTea,titlebackground=ptctitle]{caja}{Teorema}
+  % % % % % % % %
+  \newboxedtheorem[title=Lemma.\ \thecaja ,labelbox= ,boxcolor=MilkTea,background = ptcbackground!60,titleboxcolor=black,titleboxcolor=MilkTea,titlebackground=ptctitle]{cajo}{Teorema}
+  % % % % % % % % % % % % % %
+  \nboxedtheorem[boxcolor=MilkTea,background = ptcbackground!60,titleboxcolor=black,titleboxcolor=MilkTea,titlebackground=ptctitle]{ncaja}{Postulado}
+  % % % % % % % % % % % % % % %
+ \tipptheorem[tipplogo=interrogacion,boxheadcol=MidnightBlue,boxcol=PowderBlue]{notas}{Nota}
+ % % % % % % % % % % % %
+ \notatheorem[tipplogo=pregunta,boxheadcol=MidnightBlue,boxcol=PowderBlue]{obs}{Observaci\'on}
+ %%%%%%%%%%%%%%
+ \frametheorem[]{ejemplo}{Ejemplo}
+ %%%%%%%%%%%%%%
+ \beamertheorem[]{beamercaja}{Estilo Beamer}
+ %%%%%%%%%%%%%%
+ \framedtheorem[]{frameth}{Fancy}
+ %%%%%%%%%%%%%%%%%%%
+ \xcolortheorem[background=mybrown!5 ,titlebackground=mybrown!40!black ,titleboxcolor=mybrown!40!black ,boxcolor=mybrown!40!black]{geo}{Ejemplo}
+ %%%%%%%%%%%%%%
+%  \warningtheorem[textcol=black, boxheadcol=gray!80, boxcol=ptctitle, tipplogo=icon-tipp, texttcolor=black ,labeltext=, size=0.8\textwidth, iconline=red ]{xcolorth}{Fancy}
+  %%%%%%%%%%tcolorbox%%%
+  \newcounter{postulado}
+\newenvironment{postulado}[2]{\vskip 5pt
+\refstepcounter{postulado}
+    \begin{tcolorbox}[colback=mybrown!5,colframe=mybrown!40!black,title=Postulado.\thechapter.\thepostulado  \ \bf{#2}]
+ #1
+\end{tcolorbox}\index{Postulado!#2}            }{
+
+                \vskip 5pt
+ }
+  %%%%%%%%%%%%%%%
+  %%%<
+\newcommand{\cdefault}[4][named]{\begin{tikzpicture}
+\fill[#2,draw=negro] (0,0) rectangle ++(2,1);
+\node[below] at (1,0) {#2};
+\node[below=4mm] at (1,0) {\tiny #3 \{#4\}};
+\node[below=6mm] at (1,0) {\tiny #1};
+\end{tikzpicture}}
+%%%%%%%%%%%%%>
+%  \lstnewenvironment{javacode}[2]
+%{\singlespacing\lstset{language=java, label=#1, caption=#2}}
+%{}
+%%%%%%%%%%%%%%%cambio de margen
+\newenvironment{changemargin}[5]
+{
+\begin{list}{}
+{
+\global\setlength{\textheight}{#1}%
+  \global\setlength{\textwidth}{#2}
+\setlength{\topsep}{0pt}
+\setlength{\evensidemargin}{0pt}%
+\setlength{\oddsidemargin}{0pt}
+\setlength{\leftmargin}{#3}%
+\setlength{\rightmargin}{#4}%
+\setlength{\listparindent}{\parindent}%
+\setlength{\itemindent}{\parindent}%
+\setlength{\parsep}{\parskip}%
+\hoffset #5
+}
+\item[]
+}
+{\end{list}}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%% Empieza el documento

@@ -1,0 +1,68 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 0.8.3 ] */
+
+/* [wxMaxima: comment start ]
+José Luis da Vila Alonso, 2009)
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: title   start ]
+Método de Simpson
+   [wxMaxima: title   end   ] */
+
+/* [wxMaxima: comment start ]
+Calcula la integral definida de la función f(x) entre a y b,
+usando el método de Simpson.
+
+Datos:  f(x), a, b, n (par)
+
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+f(x):=(1/sqrt(2*%pi))*exp(-x^2/2);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+a:0; b:1; n:100;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Calculamos los puntos intermedios
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+h:(b-a)/n; xi:makelist(a+i*(b-a)/n,i,0,n);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Calculamos el valor de f(x) en los puntos intermedios
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+yi:makelist(f(xi[i+1]),i,0,n);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Calculamos los coeficientes de ponderación
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+ci:makelist(
+   if i=0 or i=n then (1) else
+   if floor(i/2)=i/2 then 2 else 4
+,i,0,n);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Realizamos el cálculo de la suma
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+float((h/3)*sum(ci[i+1]*yi[i+1],i,0,n));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+print("  La aproximación de la integral es ",box(%))$
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

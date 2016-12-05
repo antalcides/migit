@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0074)http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/section3_2.html -->
+<HTML><HEAD><TITLE>Using GNUPLOT for <IMG ALIGN=BOTTOM ALT="" SRC="_9659_tex2html_wrap11982.xbm">: a Tutorial</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY 
+background="Using GNUPLOT for IMG ALIGN=BOTTOM ALT= SRC=_9659_tex2html_wrap11982_xbm a Tutorial_archivos/summer_p.gif">
+<P>
+<HR>
+<A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_1.html" 
+name=tex2html42><IMG 
+src="Using GNUPLOT for IMG ALIGN=BOTTOM ALT= SRC=_9659_tex2html_wrap11982_xbm a Tutorial_archivos/next_motif.gif" 
+align=middle></A> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/latextut.html" 
+name=tex2html40><IMG 
+src="Using GNUPLOT for IMG ALIGN=BOTTOM ALT= SRC=_9659_tex2html_wrap11982_xbm a Tutorial_archivos/up_motif.gif" 
+align=middle></A> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/section3_1.html" 
+name=tex2html34><IMG 
+src="Using GNUPLOT for IMG ALIGN=BOTTOM ALT= SRC=_9659_tex2html_wrap11982_xbm a Tutorial_archivos/previous_motif.gif" 
+align=middle></A> <BR><B>Next:</B> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_1.html" 
+name=tex2html43>Example 1:</A> <B>Up:</B> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/latextut.html" 
+name=tex2html41>LaTeX and the GNUPLOT </A><B>Previous:</B> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/section3_1.html" 
+name=tex2html35>Introduction and History</A> 
+<HR>
+
+<P>
+<H1><A name=SECTION0002000000000000000>Using GNUPLOT for <IMG alt="" 
+src="Using GNUPLOT for IMG ALIGN=BOTTOM ALT= SRC=_9659_tex2html_wrap11982_xbm a Tutorial_archivos/_9659_tex2html_wrap11982.xbm" 
+align=bottom>: a Tutorial</A></H1>
+<P>GNUPLOT is by nature an interactive program. Users making plots for <IMG 
+alt="" 
+src="Using GNUPLOT for IMG ALIGN=BOTTOM ALT= SRC=_9659_tex2html_wrap11982_xbm a Tutorial_archivos/_9659_tex2html_wrap11982.xbm" 
+align=bottom> will generally not use GNUPLOT interactively. Whenever hard copy 
+is desired from GNUPLOT, the program need not be run on a graphics terminal. In 
+this case the output is directed to a file or pipe, then sent to the appropriate 
+output device. For example, output from the terminal type <TT>unixplot</TT> may 
+be sent to a program interpreting the Unix plotting standard. The terminal types 
+<TT>imagen</TT> and <TT>postscript</TT> may be used for output to printers 
+understanding those languages. (A shell script (<TT>lasergnu</TT>) is supplied 
+with the distribution that will accept a GNUPLOT command or input file and send 
+the output to an Imagen or Postscript laser printer. This script may have been 
+adapted to your site.) The terminal type <TT>fig</TT> outputs FIG code that can 
+be read by the Fig graphics program and translated into forms usable in both 
+<IMG alt="" 
+src="Using GNUPLOT for IMG ALIGN=BOTTOM ALT= SRC=_9659_tex2html_wrap11982_xbm a Tutorial_archivos/_9659_tex2html_wrap11520.xbm" 
+align=bottom> and <IMG alt="" 
+src="Using GNUPLOT for IMG ALIGN=BOTTOM ALT= SRC=_9659_tex2html_wrap11982_xbm a Tutorial_archivos/_9659_tex2html_wrap11982.xbm" 
+align=bottom> documents. 
+<P>We now ignore the interactive nature of GNUPLOT and provide the input to 
+GNUPLOT from a file, <EM>i.e.</EM>, <PRE><TT>
+      gnuplot gnu.input</TT></PRE>In this example, all of the commands to 
+GNUPLOT are contained in the file <TT>gnu.input</TT>. Multiple filenames may be 
+supplied to GNUPLOT this way, read in the order they are given. The output (one 
+or more plots) may be piped to another program or redirected to a file. Usually, 
+however, we direct the output explicitly with an instruction to GNUPLOT (the 
+<TT>set output</TT> command). GNUPLOT continues to print error messages to the 
+terminal (stderr). 
+<P>
+<HR>
+
+<UL>
+  <LI><A 
+  href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_1.html#SECTION0002001000000000000" 
+  name=tex2html44>Example 1:</A> 
+  <LI><A 
+  href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_2.html#SECTION0002002000000000000" 
+  name=tex2html45>Example 2:</A> 
+  <LI><A 
+  href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_3.html#SECTION0002003000000000000" 
+  name=tex2html46>Example 3:</A> 
+  <LI><A 
+  href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_4.html#SECTION0002004000000000000" 
+  name=tex2html47>Example 4:</A> 
+  <LI><A 
+  href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_5.html#SECTION0002005000000000000" 
+  name=tex2html48>Going further:</A> 
+  <LI><A 
+  href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_6.html#SECTION0002006000000000000" 
+  name=tex2html49>Line and point types:</A> 
+  <LI><A 
+  href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/subsection3_2_1.html#SECTION0002100000000000000" 
+  name=tex2html50>Summary - Use with <IMG alt="" 
+  src="Using GNUPLOT for IMG ALIGN=BOTTOM ALT= SRC=_9659_tex2html_wrap11982_xbm a Tutorial_archivos/_9659_tex2html_wrap11982.xbm" 
+  align=bottom></A> </LI></UL>
+<HR>
+<A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_1.html" 
+name=tex2html42><IMG 
+src="Using GNUPLOT for IMG ALIGN=BOTTOM ALT= SRC=_9659_tex2html_wrap11982_xbm a Tutorial_archivos/next_motif.gif" 
+align=middle></A> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/latextut.html" 
+name=tex2html40><IMG 
+src="Using GNUPLOT for IMG ALIGN=BOTTOM ALT= SRC=_9659_tex2html_wrap11982_xbm a Tutorial_archivos/up_motif.gif" 
+align=middle></A> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/section3_1.html" 
+name=tex2html34><IMG 
+src="Using GNUPLOT for IMG ALIGN=BOTTOM ALT= SRC=_9659_tex2html_wrap11982_xbm a Tutorial_archivos/previous_motif.gif" 
+align=middle></A> <BR><B>Next:</B> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_1.html" 
+name=tex2html43>Example 1:</A> <B>Up:</B> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/latextut.html" 
+name=tex2html41>LaTeX and the GNUPLOT </A><B>Previous:</B> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/section3_1.html" 
+name=tex2html35>Introduction and History</A> 
+<HR>
+
+<P>
+<HR>
+
+<P>
+<ADDRESS>David.Kotz@dartmouth.edu </ADDRESS></BODY></HTML>

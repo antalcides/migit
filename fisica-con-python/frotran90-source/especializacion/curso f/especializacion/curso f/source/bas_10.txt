@@ -1,0 +1,26 @@
+C     PROGRAMA QUE TRANSFORMA NUMEROS EN BASE B A BASE 10
+      write (*,*) 'que numero deseas transformar '
+      read (*,*) s
+      write (*,*) 'en que base lo tienes '
+      read (*,*) b
+      z=0
+      j=0
+      l=0
+      i=int(s)
+      f=s-i
+    4 if (i.eq.0) goto 10
+      a=i/10.
+      z=z+(a-int(a))*b**(j)*10
+      j=j+1
+      i=int(a)
+      goto 4
+   10 l=l-1
+      if (f.eq.0) goto 15
+      o=f*10.
+      z1=z1+(int(o))*b**(l)
+      f=o-int(o)
+      goto 10
+   15 z2=z+z1
+      write(*,*) 'el numero en base 10 es ',z2
+      stop
+      end

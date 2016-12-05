@@ -1,0 +1,2720 @@
+
+TEMA 1: ESTRUCTURAS Y ELEMENTOS DEL LENGUAJE FORTRAN.
+
+CARACTERES DEL LENGUAJE FORTRAN.
+-El lenguaje Fortran tiene unos n£meros y signos que utiliza y que
+ funcionan como caracteres o letras, siendo los caracteres permitidos
+ por este lenguaje los siguientes:
+
+	-Letras de la A a la Z (Tanto may£sculas como min£sculas).
+	-N£meros del 0 al 9.
+	-Caracteres de puntuaci¢n ., ;.
+	-Caracteres matem ticos +, *, /, -.
+	-Caracteres especiales $,  , =, <, >, (), :, ´, y el blanco.
+
+-El lenguaje Fortran no distingue en la sintaxis las letras may£sculas
+ y min£sculas salvo en el caso de los literales, y los signos de la
+ comparaci¢n no los suele utilizar.
+-Las nuevas versiones de Fortran usan todos los c¢digos relacionales
+ pero con la excepci¢n de que forman parte de los literales.
+-Sem ntica, es lo que define el contenido de ciertas palabras y un
+ conjunto de palabras reservadas cada una con un cometido especial. En
+ este lenguaje hay un conjunto peque¤o de palabras reservadas.
+-No existen palabras reservadas como tal, sino palabras clave, sabiendo
+ que cualquier palabra puede ser un identificador v lido.
+-Con objeto de dar nombre a las cosas que se manipulan (M¢dulo, ficheros
+ estructuras, constantes, etc.) se establecen unas normas que son:
+
+	-El car cter de una palabra debe ser un car cter alfab‚tico, que
+		 aparte de las 52 letras considera como caracteres alfab‚ticos los
+		 s¡mbolos $ y  .
+	-El n£mero m ximo de caracteres que se pueden utilizar son 31, 
+		 aunque el compilador s¢lo reconoce los seis primeros.
+	-El nombre de los objetos debe tener un significado sobre el 
+		 objeto que se est  tratando (Que tenga sentido), se debe hacer
+		 una normalizaci¢n de los nombres.
+
+FORMATO DEL LENGUAJE FORTRAN.
+-El lenguaje Fortran no est  formateado. Las cinco primeras columnas son
+ columnas reservadas para las etiquetas (Un n£mero desde el uno hasta el
+ 9) y referenciar  una l¡nea.
+-La etiqueta comprender  un n£mero del 1 al 99999 entero y sin signo, 
+ que deber  ser £nica y ocupar  memoria.
+-No tiene por qu‚ estar ordenada pero no se puede poner una etiqueta
+ m s de una vez en un programa (Recomendable colocar la etiqueta para
+ los formatos).
+-La sexta columna ir  en blanco y s¢lo se utiliza para indicar que la
+ l¡nea que se est  tratando es una l¡nea de continuaci¢n (Cualquier
+ car cter es v lido). 
+-Como m ximo se pueden continuar 19 l¡neas de programa y hay que hacer
+ una indicaci¢n.
+-Las columnas 7 a 72 sirven para colocar el c¢digo fuente. Todas las
+ sentencias se clasificar n en dos grupos:
+
+	-Ejecutables (Especifican la acci¢n y generan una instrucci¢n).
+	-No ejecutables (Informaci¢n y naturaleza de los datos).
+
+-Las columnas 73 a 80 sirven para realizar todo tipo de comentarios,
+ entre los cuales pueden figurar:
+
+	-Nombre del programador.
+	-Versi¢n del programa.
+	-Fecha del programa.
+	-Descripci¢n del programa.
+	-E/S del programa.
+	-Variables y qu‚ representan.
+
+-La primera columna puede llevar un conjunto de caracteres con un
+ significado especial que ser n la c, C, * y el s¡mbolo $.
+-Los comentarios no pueden ir entre l¡neas de continuaci¢n pero pueden
+ estar en cualquier parte del programa excepto la anteriormente citada.
+
+TIPOS DE MODULOS.
+-Para referenciar un programa principal en Fortran se utilizar  el
+ siguiente formato, teniendo en cuenta que dentro del programa principal
+ ir n las acciones a cumplir:
+
+	- PROGRAM Identificador 
+		acci¢n1
+		acci¢n2
+		.......
+		acci¢nn
+	 END
+
+-El especificador o identificador del programa puede ser omitido y no
+ es necesario colocarlo dentro de un programa.
+
+	-FUNCTION Identificador (Par metros)
+		acci¢n1
+		acci¢n2
+		.......
+		acci¢nn
+	 END
+
+-Se utilizar  la estructura de Funci¢n cuando se necesite devolver o no
+ un valor, teniendo en cuenta que la lista de los par metros pasados
+ deben ser separados por comas.
+
+	-SUBROUTINE Identificador (Par metros)
+		acci¢n1
+		acci¢n2
+		.......
+		acci¢nn
+	 END
+
+-La Subrutina o Procedimiento se utilizar  en aquellos casos en los que
+ se necesite establecer una relaci¢n de m s de un tipo de dato. La lista
+ de par metros pasados deben ser separados por comas.
+
+	-BLOCK DATA Identificador
+		acci¢n1
+		acci¢n2
+		.......
+		acci¢nn
+	 END
+
+-Esta estructura representa un conjunto de instrucciones meramente
+ descriptivas que ser n datos comunes o aparte de los Subprogramas y
+ se pueden inicializar.
+-Estos cuatro elementos se pueden colocar a partir del programa 
+ principal o se pueden ejecutar y compilar separadamente.
+-El lenguaje no necesita que una variable est‚ declarada anteriormente
+ sino que tienen una declaraci¢n impl¡cita (Lo distingue por la primera
+ letra).
+
+TIPOS DE DATOS.
+-Como norma general el lenguaje no utiliza tipos de datos. 
+
+DATOS DE TIPO ENTERO.
+-Son todas las variables que comiencen por una letra que est‚ en el 
+ intervalo I-N, ser n variables tomadas como enteras si no se declara 
+ expl¡citamente de otro tipo o tambi‚n se pueden declarar como uno de 
+ los siguientes:
+
+	-INTEGER *1  (Asigna al entero un byte de longitud).
+	-INTEGER *2  (Asigna al entero dos bytes de longitud).
+	-INTEGER *4  (Asigna al entero cuatro bytes de longitud).
+
+-Si despu‚s de la palabra reservada INTEGER no se pone nada la longitud 
+ por defecto de la variable declarada ser n 4 bytes.
+-El separador usado suele ser la coma y para definir varias variables de 
+ tipo entero se pueden usar los siguientes formatos:
+
+	-INTEGER *1  Cont, Cont1, Cont2 (Declara 3 variables enteras).
+	-Signo  2..36   0..9 ¢ A..Z .
+	- N£mero (Indica base 16 y es perfectamente v lido).
+
+-El segundo formato define un n£mero en otra base que no sea base 
+ decimal, siendo el s¡mbolo   el que indica la base en la que se va ha 
+ representar el n£mero.
+
+DATOS DE TIPO REAL.
+-Es el n£mero manipulado por excelencia en Fortran. Hay dos operaciones 
+ de tipo general que son la coma fija y la coma flotante.
+-Los formatos que utilizan los n£meros reales ser n:
+
+	-Signo parte entera. parte fraccionaria (C. fija).
+	-Signo parte entera E signo parte fraccionaria (C. flotante)
+
+-Para declarar una variable de tipo real se usar  uno de los siguientes 
+ formatos:
+
+	-REAL *4  (Asigna al real cuatro bytes de longitud).
+	-REAL *8  (Asigna al real ocho bytes de longitud).
+
+-El error que se comete al usar cuatro bytes de longitud se producir  en 
+ las siete u ocho cifras despu‚s de la coma.
+-Cuando se utiliza un formato de cuatro bytes estamos ante un n£mero de 
+ simple precisi¢n.
+-El real declarado como ocho bytes abarca despu‚s de la coma 14 o 15 
+ cifras significativas para la parte entera del n£mero que es 
+ aproximadamente el doble del formato de cuatro bytes.
+-Cuando se utiliza un formato de ocho bytes estamos ante un n£mero de 
+ doble precisi¢n.
+
+DATOS DE TIPO COMPLEJO.
+-Este tipo de datos consta de una parte real y de una parte que es 
+ imaginaria y en su representaci¢n se asumir  la parte real y se quedar  
+ con la parte imaginaria.
+-Los formatos que se utilizan para los n£meros complejos ser n:
+
+	-Complejo (Real, Imaginario).
+
+-Para declarar una variable de tipo complejo se usar n uno de los
+ siguientes formatos:
+
+	-COMPLEX *4  (Asigna al complejo cuatro bytes de longitud).
+	-COMPLEX *8  (Asigna al complejo ocho bytes de longitud).
+
+-Despu‚s de la palabra reservada COMPLEX puede aparecer un signo, y la 
+ parte real e imaginaria ir n entre comas).
+-Al igual que en otros tipos de datos cuatro bytes ser n simple  
+ precisi¢n y ocho bytes ser n doble precisi¢n.
+
+DATOS DE TIPO CARACTER.
+-Estas variables se representan por la palabra reservada CHARACTER y el 
+ formato que utiliza Fortran para definir las variables de este tipo 
+ son:
+
+	-CHARACTER *N£mero .
+
+-En este formato, n£mero nos indica la longitud en caracteres de la 
+ variable, siendo el tama¤o m ximo que puede tomar un campo car cter 
+ desde 256 hasta 32767 caracteres.
+-Este formato define el tratamiento de cadenas.
+
+DATOS DE TIPO LOGICO.
+-Las variables de tipo l¢gico se representan mediante la palabra
+ reservada LOGICAL con las variables separadas por comas y con un
+ formato como el siguiente:
+
+	-LOGICAL *2  (Asigna al campo dos bytes de longitud).
+	-LOGICAL *4  (ASigna al campo cuatro bytes de longitud).
+
+-Los valores que puede tomar una variable de tipo l¢gico son los t¡picos 
+ de True y False.
+
+DATOS DE TIPO REGISTRO.
+-Para este tipo de variables tenemos que definir previamente una
+ estructura y sus correspondientes campos que se van ha tomar, siendo 
+ dicha estructura del tipo:
+
+	-STRUCTURE Identificador
+		CHARACTER *25  Campo1
+		INTEGER        Campo2
+		REAL        Campo3
+		LOGICAL     Campo4
+		.....................
+	 END STRUCTURE
+
+-La implementaci¢n del registro que podr¡a usarse con la estructura 
+ representada podr¡a ser la siguiente:
+
+	-RECORD Identificador1 Identificador2 (N£mero).
+
+-Donde identificador1 representa el nombre de la estructura creada, 
+ identificador2 ser  el nombre del registro y N£mero ser  el n£mero de 
+ elemento del registro.
+-Si por ejemplo deseamos referenciar a un real del registro n£mero 25 
+ tendremos que utilizar la siguiente forma:
+
+	-Identificador2 (25).Campo3.
+
+CONSTANTES.
+-Para definir una constante en Fortran deberemos utilizar el siguiente
+ formato:
+
+	-PARAMETER (Identificador=constante, ...).
+
+-La lista de constantes ir  separada por comas. Las constantes podr n
+ ser de tipo num‚rico o de tipo Hollerith (Cadena de caracteres con 
+ cualquier car cter imprimible). Tambi‚n podr n ser expresiones.
+-Las constantes num‚ricas podr n tener los siguientes formatos:
+
+	-Sin punto decimal ni coma.
+	-Precedida por un signo, en los enteros.
+	-Coma fija con punto decimal, en los reales.
+	-Coma flotante con exponente entero, en los reales.
+	-Simple precisi¢n (n.m, n., .m, n.mEe, n.E+e, nE+e).
+	-Doble precisi¢n (n.mD+e, n.De, mDe, nDe).
+	-Compleja como un par ordenado entre par‚ntesis.
+	-L¢gicas .TRUE. y .FALSE..
+	-De caracteres.
+
+-La constante Hollerith podr  tener el siguiente formato:
+
+	-N£mero H car cter.
+
+-Una constante simb¢lica definida en PARAMETER puede aparecer como una
+ expresi¢n o como un valor de DATA.
+
+VARIABLES.
+-Para definir una variable el compilador conoce ya de antemano si la
+ variable va a ser de tipo real o de tipo entera, siendo por defecto de
+ tipo real.
+-La estructura que deber n seguir las declaraciones de las variables en
+ un programa Fortran ser  la siguiente:
+
+	-PROGRAM Identificador
+	 PARAMETER (Lista de constantes)
+	 *VARIABLES
+	 INTEGER Lista de variables
+	 REAL Lista de variables
+	 COMPLEX Lista de variables
+		 CHARACTER Lista de variables
+	 LOGICAL Lista de variables
+	 RECORD Tipos
+	 *INICIO
+	 .......
+
+-Un atributo es una palabra reservada que acompa¤a a la variable y sirve
+ para que el programa realice un mejor aprovechamiento de memoria, mejor
+ dimensionamiento de arrays din micos, etc.
+-Si la variable comienza con una letra que se encuentre en el intervalo
+ I-N se tratar  de una variable de tipo entera. An logamente si comienza
+ con una letra del intervalo A-H, O-Z se tratar  de una variable real.
+-Como norma general, una variable debe ser declarada antes de que pueda
+ utilizarse. Para inicializar una lista de variables a determinados
+ valores se usar  el siguiente formato:
+
+	-DATA Lista de variables, lista de constantes.
+
+-Esta sentencia debe preceder a cualquier sentencia ejecutable. Una
+ constante seguida de un asterisco indicar  repetici¢n.
+
+EXPRESIONES.
+-En las expresiones aritm‚ticas sabemos que si se realiza una operaci¢n 
+ de un entero con un real, siempre se codificar  el entero como real y 
+ luego se realiza la operaci¢n.
+-Se convierte el tipo que contiene al otro, realiz ndose siempre con la
+ m xima precisi¢n. Los operandos que se van a usar en las expresiones
+ aritm‚ticas ser n los siguientes:
+
+	-** (Operador potencia).
+	-/ (Operador divisi¢n real).
+	-* (Operador producto).
+	-- (Operador resta).
+	-+ (Operador suma).
+	-() (Par‚ntesis).
+
+-Para el uso de operadores relacionales, Fortran no admite como unos
+ operadores relacionales los signos siguientes:
+
+	-<=, >=, <, >, <>.
+
+-Los operadores relacionales que est n permitidos en este lenguaje ser n
+ los siguientes:
+
+	-.LT. (Operador menor que).
+	-.LE. (Operador menor o igual que).
+	-.NE. (Operador distinto de).
+	-.GT. (Operador mayor que).
+	-.GE. (Operador mayor o igual que).
+	-.EQ. (Operador igual que).
+
+-Una expresi¢n relacional compara los valores de dos expresiones de tipo
+ aritm‚tico o de caracteres y el resultado es de tipo l¢gico. Los 
+ formatos que puede tomar una sentencia relacional ser n:
+
+	-Variable operador variable.
+	-Variable operador constante.
+
+-Las variables no han de ser necesariamente variables, tambi‚n pueden
+ ser expresiones de todo tipo.
+-En cuanto a los operadores l¢gicos que est n permitidos por Fortran se 
+ encuentran los siguientes:
+
+	-.NOT. (Operador negaci¢n).
+	-.AND. (Operador producto l¢gico).
+	-.OR. (Operador suma l¢gica).
+	-.XOR. (Operador suma exclusiva l¢gica).
+	-.EQV. (Operador de equivalencia l¢gica).
+	-.NEQV. (Operador de no equivalencia l¢gica).
+
+-El resultado de la evaluaci¢n de una expresi¢n de tipo l¢gico ser  un
+ valor de tipo l¢gico, pudiendo ser el formato de la expresi¢n:
+
+	-Operando1 operador operando2.
+
+-El orden de prioridad establecido para la creaci¢n de variables en
+ lenguaje Fortran ser  por tanto el siguiente:
+
+	-Expresiones aritm‚ticas.
+	-Expresiones de caracteres.
+	-Expresiones relacionales.
+	-Expresiones l¢gicas.
+
+-Para la declaraci¢n de variables se utiliza la palabra reservada
+ IMPLICIT, que toma una variable cualquiera a no ser que se indique lo
+ contrario. El formato que utiliza la instrucci¢n es el siguiente:
+
+	-IMPLICIT REAL (A-Z).
+
+-El formato anterior indica que todas las variables que empiecen desde
+ la a hasta la z sean tratadas como reales de forma impl¡cita. Una
+ variable suele ser tratada siempre como un real.
+
+FINAL DE UN PROGRAMA.
+-Hay dos formas de terminar la ejecuci¢n de un programa, l¢gicamente o
+ f¡sicamente.
+-Para terminar la ejecuci¢n de un programa l¢gicamente se utiliza el
+ siguiente formato:
+
+	-STOP N£mero.
+
+-N£mero es la constante de caracteres o constante entera sin signo de
+ cinco d¡gitos, o puede ser un mensaje de error encerrado entre dos
+ comillas.
+-Para terminar la ejecuci¢n de un programa f¡sicamente se utiliza el
+ siguiente formato:
+
+	-END.
+
+ENTRADA Y SALIDA DE DATOS.
+-Para la introducci¢n de datos se utiliza la palabra reservada READ con
+ el formato siguiente:
+
+	-READ (N£mero, Etiqueta).
+
+-Donde n£mero es el n£mero que indica la unidad de entrada, colocando el 
+ valor * si no se quiere poner nada. Etiqueta indica la etiqueta que va 
+ ha definir un formato, si no se quiere poner nada se usa el valor *.
+-Para la lectura de elementos con READ las variables se separan por un
+ blanco o por comas, si se ha de introducir una frase o algo de tipo
+ car cter, ir  encerrado entre comillas.
+-Si no hay suficientes datos para esta instrucci¢n se produce un error
+ y el programa aborta.
+-Para la salida de datos se utilizan dos m‚todos igualmente v lidos, que
+ son dos palabras reservadas y que tienen el siguiente formato:
+
+	-PRINT *, Lista de variables (Separadas por comas).
+	-WRITE (*,*), Lista de variables (Separadas por comas).
+
+-La lista de variables pueden ser tanto variables, como constantes como
+ expresiones de todo tipo. El cursor avanza a la siguiente l¡nea. Este
+ tipo de sentencias se suelen incluir antes de una sentencia READ.
+
+
+TEMA 2: FUNCIONES INTRINSECAS.
+
+CONCEPTO DE FUNCION.
+-Son aquellas funciones incorporadas al compilador, que son accesibles
+ desde un programa. Pueden ser llamadas en un programa dando el
+ identificador de la Funci¢n seguido por sus argumentos entre 
+ par‚ntesis.
+-Estas funciones pueden tener uno o varios argumentos y se caracterizan
+ porque:
+
+	-El nombre y sus valores de entrada son uno mismo.
+	-Nunca puede ser usada en el lado izquierdo de la asignaci¢n.
+	-El nombre determina el tipo de salida de la Funci¢n.
+	-Los argumentos son del mismo tipo que la Funci¢n.
+	-Los argumentos pueden ser expresiones de todo tipo.
+
+-El formato de la Funci¢n ser  el siguiente:
+
+	-Nombre (Identificador1, identificador2, ..., identificadorn).
+
+FUNCIONES ARITMETICAS.
+-Son aquellas que realizan alg£n tipo de operaci¢n matem tica.
+-Calcula el valor absoluto de un argumento real y devuelve un resultado
+ real y positivo:
+
+	-ABS (Expresi¢n num‚rica).
+
+-Convierte un real a un entero trunc ndolo o eliminando la parte decimal
+ devuelve un entero:
+
+	-Var=INT (Expresi¢n num‚rica).
+	-INT (10**VarN*VarX)/10**VarN (N son los decimales a truncar).
+	-INT (10**VarN*VarX+0.5)/10**VarN (N son los decimales deseados).
+	-NINT (Expresi¢n num‚rica) (Realiza un redondeo).
+
+-Convierte un n£mero entero a un real:
+
+	-FLOAT (Expresi¢n num‚rica).
+
+-Eleva un n£mero real a la en‚sima potencia donde e es la base del
+ logaritmo natural, devuelve un real:
+
+	-EXP (N£mero).
+	-Var=EXP (N£mero).
+	-DEXP (N£mero) (Donde n£mero es de doble precisi¢n).
+	-CEXP (N£mero) (Donde n£mero es un n£mero complejo).
+
+-Calcula el logaritmo natural de base e y es la inversa de la Funci¢n
+ anterior, devuelve un real:
+
+	-Var=LOG (Expresi¢n num‚rica).
+
+-Calcula el logaritmo decimal o de base diez del argumento indicado,
+ devuelve un real:
+
+	-Var=LOG10 (Expresi¢n num‚rica).
+
+-Calcula la ra¡z cuadrada del argumento indicado, devuelve un real:
+
+	-Var=SQRT (Expresi¢n num‚rica).
+
+-Devuelve el mayor valor de una serie de argumentos indicados:
+
+	-MAX0 (Lista de identificadores) (Devuelve un entero).
+	-AMAX1 (Lista de identificadores) (Devuelve un real).
+	-DMAX1 (Lista de identificadores) (Devuelve un doble precisi¢n).
+
+-Devuelve el menor valor de una serie de argumentos indicados:
+
+	-MIN0 (Lista de identificadores) (Devuelve un entero).
+	-AMIN1 (Lista de identificadores) (Devuelve un real).
+	-DMIN1 (Lista de identificadores) (Devuelve un doble precisi¢n).
+
+-Calcula el m¢dulo o resto de dos n£meros, devuelve un entero:
+
+	-MOD (N£mero1, n£mero2).
+
+-Transfiere el signo del segundo identificador al primero:
+
+	-SIGN (Expresi¢n1, expresi¢n2).
+
+-Convierte un n£mero de doble precisi¢n a un n£mero real:
+
+	-SNGL (N£mero).
+
+FUNCIONES TRIGONOMETRICAS.
+-Son aquellas que realizan alguna operaci¢n con las razones de tipo
+ trigonom‚trico.
+-Calcula el seno de una expresi¢n dada, devuelve un real y debe estar
+ entre 1 y -1:
+
+	-Var=SIN (Expresi¢n num‚rica) (Devuelve un real).
+	-DSIN (Expresi¢n num‚rica) (Devuelve un doble precisi¢n).
+	-CSIN (Expresi¢n num‚rica) (Devuelve un complejo).
+
+-Calcula el coseno de una expresi¢n dada, devuelve un real y debe estar
+ entre 1 y -1:
+
+	-Var=COS (Expresi¢n num‚rica) (Devuelve un real).
+	-DCOS (Expresi¢n num‚rica) (Devuelve un doble precisi¢n).
+	-CCOS (Expresi¢n num‚rica) (Devuelve un complejo).
+
+-Calcula la tangente de una expresi¢n dada, devuelve un real:
+
+	-Var=TAN (Expresi¢n num‚rica) (Devuelve un real).
+	-DTAN (Expresi¢n num‚rica) (Devuelve un doble precisi¢n).
+
+-Calcula el arcoseno de una expresi¢n dada, devuelve un real:
+
+	-Var=ASIN (Expresi¢n num‚rica).
+
+-Calcula el arcocoseno de una expresi¢n dada, devuelve un real:
+
+	-Var=ACOS (Expresi¢n num‚rica).
+
+-Calcula el arcotangente de una expresi¢n dada, devuelve un real:
+
+	-Var=ATAN (Expresi¢n num‚rica).
+
+-Calcula el seno hiperb¢lico de una expresi¢n dada, devuelve un real:
+
+	-Var=SINH (Expresi¢n num‚rica).
+
+-Calcula el coseno hiperb¢lico de una expresi¢n dada, devuelve un real:
+
+	-Var=COSH (Expresi¢n num‚rica).
+
+-Calcula la tangente hiperb¢lico de una expresi¢n dada, devuelve un 
+ real:
+
+	-Var=TANH (Expresi¢n num‚rica).
+
+FUNCIONES DE NUMEROS COMPLEJOS.
+-Realiza diferentes funciones con los n£meros complejos.
+-Toma la parte real de un argumento complejo:
+
+	-REAL (Expresi¢n compleja).
+
+-Toma la parte imaginaria de un argumento complejo:
+
+	-AIMAG (Expresi¢n compleja).
+
+-Calcula el conjugado de un argumento complejo:
+
+	-CONJ (Expresi¢n compleja).
+
+-Representa un argumento complejo tomado de n£meros reales:
+
+	-COMPLEX (N£mero1, n£mero2).
+
+
+TEMA 3: ESTRUCTURAS DE CONTROL SELECTIVAS Y REPETITIVAS.
+
+ESTRUCTURAS DE BIFURCACION INCONDICIONAL.
+-Este tipo de estructuras son unas herramientas que sirven para 
+ confeccionar las estructuras selectivas. No son recomendables y s¢lo se
+ mantienen por compatibilidad con otras versiones.
+-La siguiente estructura es un IF aritm‚tico, en el que se realiza la
+ elecci¢n de tres posibles etiquetas. Se eval£a la condici¢n y en 
+ Funci¢n de esa condici¢n se tomar n los siguientes valores:
+
+	-Condici¢n <0 toma Etiqueta1.
+	-Condici¢n =0 toma Etiqueta2.
+	-Condici¢n >0 toma Etiqueta3.
+
+-En este formato se pueden colocar dos etiquetas iguales, siendo el
+ formato de la instrucci¢n:
+
+	-IF (Expresi¢n aritm‚tica) Etiqueta1, Etiqueta2, Etiqueta3.
+
+-La siguiente instrucci¢n se usar  en el caso de que haya sentencias
+ repetitivas que no est‚n implementadas en el compilador, siendo su
+ misi¢n la de transferir el control a la sentencia especicada en la
+ etiqueta:
+
+	-GOTO Etiqueta.
+
+-La siguiente instrucci¢n transfiere el control a la etiqueta en‚sima
+ de la lista seg£n un valor entero. Es el GOTO calculado.
+-En esta sentencia se eval£a la expresi¢n entera entre uno y el n£mero
+ de etiquetas, y se bifurcar  a la etiqueta indicada para ejecutar un
+ conjunto de sentencias seg£n la expresi¢n entera. Su formato es:
+
+	-GOTO (Etiqueta1, etiqueta2, ..., etiquetan) Expresi¢n entera.
+
+-La instrucci¢n GOTO asignado tiene como formato el siguiente:
+
+	-ASSIGN Constante entera TO Variable entera.
+	-GOTO Variable entera (Etiqueta1, etiqueta2, ..., etiquetan).
+
+-Esta instrucci¢n produce una estructura multibifurcaci¢n. La variable
+ debe tener una de las etiquetas de GOTO y su funcionamiento es igual
+ que la anterior.
+-Para llevar la variable a la etiqueta se usa la opci¢n de ASSIGN. Si
+ la variable no est  asignada el GOTO no es v lido.
+
+ESTRUCTURAS ALTERNATIVAS.
+-Dentro de las estructuras alternativas hay tres tipos.
+-La estructura alternativa simple, realiza un conjunto de acciones si la
+ condici¢n es verdadera y sigue el flujo de control secuencial si la
+ condici¢n es falsa.
+-En las estructuras alternativas todas las condiciones se colocan
+ siempre entre par‚ntesis. El formato de la alternativa simple es:
+
+	-IF (Expresi¢n l¢gica) Sentencia.
+
+-La expresi¢n l¢gica est  formada por una expresi¢n con relacionales y 
+ la sentencia a continuaci¢n no pueden ser las palabras reservadas DO,
+ ELSEIF, ELSE, ENDIF, END o IF.
+-La estructura alternativa doble, selecciona una de dos opciones. Si la
+ condici¢n es verdadera se ejecutan unas acciones y si es falsa otras
+ acciones. El formato de esta estructura ser¡a:
+
+	-IF (Condici¢n) THEN
+		acci¢n1
+		acci¢n2
+		.......
+		acci¢nn
+	 ENDIF
+
+-Esta £ltima estructura se puede anidar con varias sentencias IF, y su
+ estructura quedar¡a:
+
+	-IF (Condici¢n) THEN
+		acci¢n1
+		acci¢n2
+		.......
+		acci¢nn
+	 ELSE
+		acci¢nn+1
+		acci¢nn+2
+		.........
+		acci¢nn+n
+	 ..............
+	 ENDIF
+
+-Si se quieren anidar varios niveles de sentencias IF-ELSE usaremos la
+ siguiente estructura:
+
+	-IF (Condici¢n) THEN
+		acci¢n1
+		acci¢n2
+		.......
+		acci¢nn
+	 ELSEIF (Condici¢n2) THEN
+			acci¢nn+1
+			acci¢nn+2
+			.........
+			acci¢nn+n
+	 ....................
+	 ELSE
+		acci¢nm+1
+		acci¢nm+2
+		.........
+		acci¢nm+n
+	 ENDIF
+
+-La estructura alternativa m£ltiple se utiliza cuando la condici¢n tiene
+ m s de dos valores con selecci¢n m£ltiple. El valor de su expresi¢n a 
+ de ser un entero, car cter o l¢gico.
+-Si el car cter utilizado es num‚rico no ir  entre comillas, mientras 
+ que si es de tipo car cter ir  entre comillas. Esta £ltima medida exige
+ que el c¢digo ASCII del primer car cter sea menor que el segundo.
+-El formato de la estructura ser  el siguiente:
+
+	-SELECT CASE (Expresi¢n)
+		CASE (Caso1)
+			acci¢n1
+			acci¢n2
+			.......
+			acci¢nn
+		CASE (Caso2)
+			acci¢nn+1
+			acci¢nn+2
+			.........
+			acci¢nn+n
+		...............
+		 CASE DEFAULT 
+			acci¢nm+1
+			acci¢nm+2
+			.........
+			acci¢nm+n
+	 END SELECT
+
+CONCEPTO DE BUCLE.
+-Consiste en una estructura de control que gobierna los procesos de tipo
+ repetitivo dentro de un programa. Repite una secuencia de acciones  
+ mientras o hasta una condici¢n sea verdadera o falsa.
+-Iteraci¢n de un bucle es la repetici¢n de sentencias interiores que hay
+ dentro de un bucle.
+
+ESTRUCTURA REPETITIVA. SENTENCIA "DO".
+-Esta estructura contiene dos formatos. El primer formato se utiliza
+ cuando se conoce el n£mero de iteraciones y su formato es:
+
+	-DO  Etiqueta  VarA=Inicio, Final,  Incremento .
+
+-Las variables se separan por comas y el incremento puede ser positivo o
+ negativo y es opcional. Normalmente inicio debe ser menor que la
+ variable final.
+-El otro formato es lo mismo que una estructura de tipo repetir. Se usa
+ cuando se desea repetir una condici¢n un n£mero de veces siendo una por
+ defecto. Su formato es:
+
+	-DO  Etiqueta  VarA=Inicio, Final,  Incremento 
+		acci¢n1
+		acci¢n2
+		.......
+		acci¢nn
+	  Etiqueta CONTINUE 
+	  ENDDO 
+
+-Las variables pueden ser enteras, constantes o expresiones, y es m s
+ r pida y potente con variables y constantes con lo que se evitan los
+ errores de redondeo.
+-Como m¡nimo se ejecuta una vez. Ejecuta un conjunto de instrucciones
+ hasta que se encuentra a la etiqueta, y si no se usa la etiqueta se
+ deber  cerrar el bucle con ENDDO.
+-Por defecto el incremento del bucle es uno. Si se usa la etiqueta habr 
+ que tener en cuenta una serie de restricciones:
+
+	-No se puede usar un GOTO incondicional o asignado.
+	-No se puede usar ELSE, IF, SELECT CASE, ENDIF.
+	-No puede seguirle un ENDSELECT, EXIT, RETURN o STOP.
+
+-Para evitar estas restricciones bastar  con colocar una sentencia en
+ blanco. Si se quiere usar una variable ¡ndice despu‚s de salir la
+ variable ¡ndice la variable tendr  el valor final m s el incremento.
+
+ESTRUCTURA REPETITIVA. SENTENCIA "WHILE".
+-Utiliza una condici¢n que puede ser una expresi¢n l¢gica o relacional.
+ Esta condici¢n se eval£a antes y despu‚s de cada ejecuci¢n del bucle.
+ Si la condici¢n es falsa no se ejecuta nunca.
+-Los bucles deben terminar siempre y pueden ser controlados por:
+
+	-Contador, necesita una variable dentro del bucle que se debe
+		 inicializar, comprobar e incrementar.
+	-Centinela, es un valor especial para el final de una lista y es
+		 un valor que jam s se procesa, pero debe ser del mismo tipo que
+		 los datos.
+	-Interruptor, es una variable l¢gica.
+
+-El formato de la instrucci¢n ser  la siguiente:
+
+	-DO  Etiqueta  WHILE (Expresi¢n l¢gica)
+		acci¢n1
+		acci¢n2
+		.......
+		acci¢nn
+	  Etiqueta CONTINUE 
+	  ENDDO 
+
+-Todas las restricciones anteriormente indicadas para la otra estructura
+ repetitiva sirven para DO WHILE.
+-Si por cualquier circunstancia el compilador no reconoce este tipo de
+ estructuras se podr  implementar de la siguiente:
+
+	-Etiqueta IF (Condici¢n) THEN
+		acci¢n1
+		acci¢n2
+		.......
+		acci¢nn
+	 GOTO Etiqueta
+	 ENDIF
+
+-Hay que tener en cuenta que GOTO s¢lo se usar  en el caso de este tipo
+ de circunstancias y s¢lamente para ellas.
+-Cuando se usen etiquetas, una s¢la etiqueta valdr  para cerrar varios
+ bucles que est‚n anidados. Pero si se usan ENDDO hay que colocar tantos
+ como DO hayan.
+
+
+TEMA 4: ENTRADAS Y SALIDAS CON FORMATOS.
+
+INSTRUCCION CON FORMATO DE ENTRADA. SENTENCIA "READ".
+-Este tipo de instrucciones no es muy potente porque s¢lo est n pensadas
+ para introducir y sacar datos. La unidad est ndar en el teclado est 
+ denominado como un asterisco (*).
+-La lectura mediante la instrucci¢n READ se realiza con la siguiente
+ sintaxis:
+
+	-READ (Lista de descriptores), Lista de variables.
+
+-La Lista de variables siempre ir  separada por comas.
+-Con esta sintaxis la lectura se realiza del dispositivo predefinido que
+ puede ser uno de los siguientes:
+
+	-Constante entera (Que referencia otra sentencia).
+	-Variable car cter.
+	-Array de caracteres.
+	-Expresi¢n car cter (Entre par‚ntesis y ap¢strofes).
+	-Variable entera (Con una etiqueta FORMAT).
+
+-Dentro de la lista de descriptores podemos encontrarnos las siguientes
+ opciones:
+
+	-Unidad, que sirve para que a cada dispositivo se le asigne una
+	 unidad o un entero (Sin signo) y la palabra UNIT es opcional. Si
+	 no se coloca UNIT debe ir en primer lugar, si se pone la palabra
+	 reservada UNIT podr  ir en otro lugar. Su sintaxis es:
+
+		- UNIT=  Entero.
+
+	-Formato, en el que podr n colocarse los siguientes par metros:
+
+		-Etiqueta, asignada a la sentencia especial que ser  FORMAT.
+		-Variable, entera a la que previamente se le halla asignado
+		 una Etiqueta v lida.
+		-Expresi¢n, de tipo cadena que contenga los c¢digos de los
+		 formateos entre par‚ntesis que estar n cerrados entre unas
+		 comillas.
+		-Variable o array, de caracteres a los cuales se le hallan
+		 asignado los c¢digos de formato.
+		-Asterisco (*), que indicar  una entrada sin formato.
+
+	 sabiendo que el formato estar  definido por la sintaxis:
+
+		- FMT=  Formato.
+
+	-N£mero de registro, que s¢lo se usar  en el tratamiento de los
+	 archivos de acceso directo, donde se le indica que lea el n£mero
+	 relativo al registro siendo su estructura o sintaxis:
+
+		-REC=N£mero registro.
+
+	-C¢digo chequeador, de la operaci¢n al cual deposita el resultado
+	 de analizar la operaci¢n siendo su sintaxis:
+
+		-IOSTAT=Variable entera.
+
+	-Control del fin de archivo, que se especifica con la sintaxis:
+
+		-END=Etiqueta.
+
+	-Transferencia de control, que se produce cuando hay un error y
+	 que contiene la siguiente sintaxis:
+
+		-ERR=Etiqueta.
+
+-Si se admiten UNIT y FMT, sus correspondientes valores deber n estar
+ en el primer y segundo lugar de la instrucci¢n READ respectivamente.
+-Los dos primeros formatos se han de usar obligatoriamente, mientras que
+ los otros par metros s¢lo se usar n para ficheros externos. Un ejemplo
+ de uso de esta sentencia ser¡a:
+
+	-READ (UNIT=3, FMT=20, REC=10, IOSTAT=Cod, END=100, ERR=Error).
+
+-Si la lectura es desde teclado el fin de fichero debe ser tecleado por
+ el usuario con la combinaci¢n CTRL+Z.
+
+INSTRUCCION CON FORMATO DE SALIDA. SENTENCIA "WRITE".
+-Para este tipo de instrucciones nos encontramos dos formatos que est n
+ diferenciados:
+
+	-PRINT (Lista de descriptores), Lista de salida.
+	-WRITE (Lista de descriptores), Lista de salida.
+
+-El primer formato siempre se utilizar  cuando el dispositivo de salida
+ est‚ predefinido por el sistema, mientras que el segundo formato se
+ usar  para una salida a una unidad espec¡fica.
+-La lista de descriptores que se podr  usar ser n los mismos que en la
+ instrucci¢n READ. UNIT y FMT podr n no figurar si se pone primero el
+ n£mero de la unidad y luego el formato.
+
+INSTRUCCION DE FORMATOS. SENTENCIA "FORMAT".
+-Esta instrucci¢n facilita la informaci¢n necesaria para que se haga un
+ reconocimiento de la representaci¢n que los datos van a tomar en la
+ memoria principal. La sintaxis de FORMAT ser  la siguiente:
+
+	-Etiqueta FORMAT (Lista de c¢digo de formato).
+
+-Etiqueta ser  el n£mero de etiqueta (Obligatorio), aunque se podr 
+ referenciar tambi‚n con una variable entera a la cual se ha asignado
+ una etiqueta con ASSIGN.
+-La lista de c¢digos puede estar vac¡a si la lista de sentencias de E/S
+ est  vac¡a con un salto de l¡nea.
+-Esta sentencia no es ejecutable, puede escribirse en cualquier parte y
+ conviene agruparlas todas al principio o al final del programa.
+-La Lista de c¢digo de formato podr  contener uno o varios de los 
+ siguientes tipos:
+
+	-C¢digos num‚ricos o de datos (Repetibles) entre los cuales
+		 tenemos:
+
+		-C¢digo I.
+		-C¢digo F.
+		-C¢digo E.
+		-C¢digo D.
+		-C¢digo G.
+		-C¢digo P.
+		-C¢digo L.
+		-C¢digo A.
+		
+	-C¢digos de posicionamiento (No repetibles) entre los cuales
+	 tenemos:
+
+		-C¢digo X.
+		-C¢digos T, Tl, Tr.
+		-C¢digo /.
+
+	-C¢digos especiales (No repetibles) entre los cuales tenemos:
+
+		-C¢digos S, Sp, Ss.
+		-C¢digos Bn, Bz.
+		-C¢digo H.
+		-C¢digo :.
+		-C¢digo  .
+		-C¢digos de control de carro.
+
+CODIGO NUMERICO "I".
+-En los c¢digos de datos o num‚ricos siempre hay que diferenciar tres
+ partes que son fundamentales:
+
+	-Tipo de dato a representar.
+	-Tama¤o para la representaci¢n.
+	-Puntos y tama¤os de la parte fraccionaria.
+
+-Entre los c¢digos num‚ricos existen una serie de caracter¡sticas:
+
+	-Los blancos de relleno son ignorados.
+	-Si el signo es negativo se genera el signo -.
+	-Tiene prioridad el punto decimal de entrada ante la posici¢n
+	 decimal especificada.
+	-Los campos se ajustan a la derecha.
+	-Si se produce error de salida salen asteriscos.
+
+-Para la entrada de este c¢digo los datos deben ser de tipo entero, 
+ siendo I el identificador de c¢digo y w el ancho del campo y la 
+ sintaxis:
+
+	-Iw.
+
+-Transfiere datos enteros desde el soporte externo a variables, tantos
+ caracteres como valor tenga w contando d¡gitos, blancos y signos y
+ asocia variables de izquierda a derecha con las normas siguientes:
+
+	-Blancos entre d¡gitos o al final se interpretan como ceros.
+	-No usan c¢digo de formato cuando la lectura es por teclado.
+	-Con Bn los blancos se ignoran y con Bz se toman como ceros.
+
+-Para la salida los datos van desde la memoria interna al soporte
+ externo con un valor w de ancho ajust ndose a la derecha y si es
+ negativo se coloca un signo delante del d¡gito m s significativo.
+-Si el n£mero de caracteres es mayor que el ancho de salida el campo de
+ salida se llena de asteriscos.
+-Si se utiliza un coeficiente de repetici¢n n deber  ser una constante
+ entera sin signo mayor que cero con la sintaxis:
+
+	-nIw.
+
+-Si se quiere indicar el n£mero m¡nimo de d¡gitos que aparecer n en la
+ salida se usar  m, una constante entera sin signo con la sintaxis:
+
+	-nIw.m.
+
+-Se debe contemplar la opci¢n de que el n£mero sea negativo con lo que
+ se deber  aumentar el formato en una unidad.
+-Si en la salida se colocan menos d¡gitos que en el formato indicado
+ se suprimir n todos los ceros que no sean significativos.
+
+CODIGO NUMERICO "F".
+-Este c¢digo transfiere datos de tipo real desde un dispositivo externo
+ hasta la memoria o a la inversa, siendo su sintaxis la siguiente:
+
+	-Fw.d.
+
+-En este c¢digo, F ser  el car cter del c¢digo, w ser  la longitud total
+ del campo incluyendo los blancos, signos, puntos y d¡gitos, y d ser 
+ el n£mero de decimales de la parte real.
+-Si no se introduce un punto decimal se sit£an los decimales de forma
+ autom tica. El c¢digo F permite ser un c¢digo repetible con lo que su
+ sintaxis ser  la siguiente:
+
+	-nFw.d.
+
+-Se pueden introducir n£meros reales en notaci¢n exponencial, siendo el
+ exponente que sigue al n£mero real de dos formas:
+
+	-Constante entera con signo + o -.
+	-Car cter E o D seguido de un signo y una constante entera.
+
+-Los caracteres de las variables reales se ajustan a la derecha del
+ campo de anchura. El punto decimal se genera con d posiciones a la
+ derecha.
+-En la salida no se producen ceros a la izquierda a no ser que la
+ mantisa sea menor que uno, con lo que habr  un cero a la izquierda del
+ punto decimal.
+-Si la parte fraccionaria tiene m s anchura que d habr  un redondeo del
+ valor antes de ajustarse y si el dato no cabe en w se producir  una
+ salida de w asteriscos.
+-Entre los ejemplos que se pueden citar para este formato estar n:
+
+
+CODIGO NUMERICO "E".
+-Este formato lee o escribe datos reales en simple o doble precisi¢n en
+ notaci¢n exponencial. E es el c¢digo del exponente, w el ancho del 
+ campo y d los d¡gitos decimales con una sintaxis del tipo:
+
+	-Ew.d.
+
+-La opci¢n w contar  la mantisa, el d¡gito que precede al punto decimal
+ el punto decimal de la mantisa y el exponente que tendr  tres d¡gitos
+ de forma que la representaci¢n ser  del tipo:
+
+	-(-)0.E(-)nn.
+
+-Si el punto no figura en la entrada, la parte decimal ser n los d
+ d¡gitos m s a la derecha de la mantisa. Si aparece el punto decimal
+ en la entrada no se tendr  en cuenta la especificaci¢n d en el formato.
+-El signo del exponente se omite si es positivo y E o D pueden omitirse
+ si el exponente tiene signo. Es recomendable especificar el punto
+ decimal en la entrada.
+-Para la salida han de reservarse una posici¢n para el punto decimal y  
+ el d¡gito cero que precede al punto decimal si hay posici¢n para ‚l. Si 
+ la mantisa es negativa otra posici¢n y el exponente cuatro posiciones.
+-Se ejecuta la anchura del campo a la derecha y si w es menor que las
+ posiciones para la salida se muestran asteriscos.
+-En Funci¢n del desplazamiento del punto decimal se calcula el exponente
+ y la mantisa se puede redondear, pudi‚ndose omitir el cero antecedente
+ al punto decimal si no hay posici¢n.
+-El c¢digo E puede ser repetible con la siguiente sintaxis:
+
+	-nEw.d.
+
+-Otro formato en el que una constante entera e nos indica el n£mero de
+ d¡gitos del exponente ser¡a:
+
+	-Ew.dEe.
+
+-Entre los ejemplos que se pueden citar para este formato estar n:
+
+
+CODIGO NUMERICO "D".
+-Describe n£meros reales en simple o doble precisi¢n en forma 
+ exponencial con el mismo efecto que el c¢digo E siendo su sintaxis:
+
+	-Dw.d.
+
+-Para la entrada de datos este c¢digo es tratado de igual manera que el
+ c¢digo E. Normalmente se utiliza este c¢digo para enfatizar que el
+ n£mero que se trata es de doble precisi¢n.
+-El exponente para la salida cambia la letra E por la letra D y tiene
+ la siguiente sintaxis:
+
+	-D(+/-)nn.
+
+-Este c¢digo num‚rico es repetible siendo su sintaxis:
+
+	-nDw.d.
+
+CODIGO NUMERICO "G".
+-Se utiliza este c¢digo para entrada y salida de datos de simple y doble
+ precisi¢n siendo sus sintaxis m s generales las siguientes:
+
+	-Gw.d.
+	-Gw.dEe.
+
+-La entrada de datos reales tiene el mismo significado que los c¢digos
+ F, E y D.
+-En la salida act£a como formato F cuando el valor de salida est  en el
+ rango entre 0.1 y 10**d, mientras que act£a como formato E cuando el
+ n£mero es m s peque¤o de 0.1 o mayor que 10**d.
+-Si act£a como formato F entonces los £ltimos cuatro caracteres ser n
+ blancos y el valor se imprimir  en un ancho de campo de w-4 caracteres.
+-Si se usan formatos a la entrada y se coloca un punto decimal cuando
+ el formato es distinto, habr  disyunci¢n entre el formato del teclado
+ y el establecido en el programa.
+-Siempre se da prioridad al formato introducido por teclado.
+-Entre los ejemplos que se pueden citar para este formato estar n:
+
+
+CODIGO DE DATOS "P".
+-Es un factor de escala y sirve para ver los valores exponenciales con
+ un entero delante del punto decimal, aplicable s¢lamente a los c¢digos
+ F, E, D y G, afectando a la entrada de datos y a su salida.
+-El valor n ser  un entero que puede llevar signo y su sintaxis ser :
+
+	-nP.
+
+-Al aplicar el c¢digo P en la entrada s¢lo es aplicable si el valor
+ externo carece de exponente con lo que se expresar  mediante la
+ relaci¢n:
+
+	-Valor interno=(Valor externo)/10n.
+
+-El factor de escala afecta a los c¢digos de formato que aparecen a
+ continuaci¢n hasta encontrar otro factor de escala.
+-Cuando se usa para el c¢digo F en la salida se produce desplazamiento
+ del punto en el valor verdadero siendo su relaci¢n:
+
+	-Valor externo=Valor interno*10n.
+
+-Si se usa en concexi¢n con D o E la salida no cambia pero se desplaza
+ el punto de la mantisa al hacer el producto por 10**n, y el exponente
+ se decrementa en n, al igual que con la forma mantisa-exponente.
+-Con el formato G no se usa el factor de escala porque da problemas.
+-Si tenemos las siguientes instrucciones:
+
+	-100 FORMAT (2PE7.2, F6.3, -1P8.4)
+	 READ (5, 100) VarA, VarB, VarC
+	 WRITE (*, '(1X, 3F12.5)') VarA, VARB, VarC
+
+ y le introducimos la siguiente entrada:
+
+	-b17.E0157.132-453261.7.
+
+ tendremos la siguiente tabla de referencia:
+
+
+CODIGO DE DATOS "L".
+-Este c¢digo se usa para la edici¢n de datos l¢gicos siendo w el ancho
+ del campo y siendo su sintaxis la siguiente:
+
+	-Lw.
+
+-Para la entrada busca en el campo de forma que si el primer car cter
+ es T (True) o F (False) los dem s caracteres del campo son ignorados.
+-Para la salida se produce una conversi¢n de TRUE a FALSE o T a F
+ ajust ndose a la derecha del campo.
+-El c¢digo L es un c¢digo de tipo repetible siendo su sintaxis:
+
+	-nLw.
+
+CODIGO DE DATOS "A".
+-Este c¢digo transfiere datos de tipo car cter de la memoria al soporte
+ externo y a la inversa, permitiendo el manejo, entrada y salida de
+ cualquier variable de tipo car cter, siendo su sintaxis:
+
+	-Aw.
+
+-Tambi‚n tiene formato repetible siendo su sintaxis:
+
+	-nAw.
+
+-En las entradas se debe colocar ap¢strofes que delimiten la cadena si
+ es con lista directa, pero con el c¢digo A puede evitarse y tomar  la
+ longitud de la variable asociada teniendo en cuenta:
+
+	-Si w=n todo el dato es asignado a la variable car cter.
+	-Si w>n los £ltimos n caracteres se almacenan en la variable.
+	-Si w<n los caracteres se ajustan a la izquierda rellen ndose los
+	 n-w caracteres de la derecha a blancos.
+
+-En las salidas existen otras consideraciones:
+
+	-Si w=n tendr  de longitud n.
+	-Si w>n los n caracteres se ajustan a la derecha y los w-n 
+	 primeros caracteres se rellenan a blancos.
+	-Si w<n los w primeros caracteres de la cadena salen a la salida
+	 perdi‚ndose los restantes.
+
+CODIGO DE POSICIONAMIENTO "X".
+-Los c¢digos de posicionamiento determinan la posici¢n dentro de una
+ l¡nea. La posici¢n puede ser relativa a la actual del cursor o una
+ posici¢n absoluta.
+-El c¢digo X salta n caracteres tanto para la salida como para la 
+ entrada en el medio externo siendo su sintaxis:
+
+	-nX.
+
+-La opci¢n n indica los caracteres a saltar a partir de la posici¢n
+ actual del cursor.
+-Para la entrada salta n posiciones hacia adelante desde la posici¢n
+ del cursor. Para la salida en la l¡nea o registro de salida genera n
+ blancos y mueve el cursor n posiciones a la derecha.
+-Este c¢digo no es repetible.
+
+CODIGOS DE POSICIONAMIENTO "T", "Tl" Y "Tr".
+-Estos c¢digos producen una tabulaci¢n en el registro y T especifica
+ una posici¢n absoluta dentro del registro de entrada o salida siendo
+ su sintaxis:
+
+	-Tc.
+
+-La opci¢n c indica la columna dentro del registro desde donde se va a
+ posicionar el cursor y donde comienzan las transferencias de datos.
+-El tabulador Tl mueve la posici¢n del cursor hacia la izquierda y Tr
+ mueve la posici¢n del cursor hacia la derecha con las siguientes
+ sintaxis:
+
+	-Tls.
+	-Trs.
+
+-La opci¢n s indica el n£mero de posiciones que se han de desplazar el
+ cursor desde la posici¢n actual.
+-Si tenemos las siguientes instrucciones:
+
+	-50 FORMAT (2A, I2, T1, A, T18, A, I2)
+	 CHARACTER *6 Nombre1, Nombre2, Apellido1*8, Apellido2*8
+	 INTEGER Edad1, Edad
+	 READ (1, 50) Nombre1, Apellido1, Edad1, Nombre2, Apellido2, Edad
+
+ y le introducimos la siguiente entrada:
+
+	-Jos‚-Martinez8Torralva25.
+
+ obtendremos la siguiente lista de variables en la salida:
+
+	-Nombre1 - Jos‚-.
+	-Apellido1 - Mart¡nez.
+	-Edad1 - 0.
+
+-De modo an logo, si tenemos las siguientes instrucciones:
+
+	-100 FORMAT (T8, I5, Tl2, I4, Tl6, A6)
+	 CHARACTER *8 Cadena
+	 INTEGER VarA, VarB
+	 READ (*, 100) VarA, VarB, Cadena
+
+ y le introducimos la siguiente entrada:
+
+	-Visita12345678.
+
+ obtendremos la siguiente lista de variables en la salida:
+
+	-M - 23456.
+	-N - 5678.
+	-Cadena - 345678.
+
+-Estos c¢digos no son repetibles.
+
+CODIGO DE POSICIONAMIENTO "/".
+-Este es un c¢digo de posicionamiento vertical que da por terminado un
+ registro o deja registros o l¡neas vac¡as y su sintaxis es:
+
+	-/.
+
+-Puede separase por comas o no y sit£a el puntero en el primer car cter
+ de un nuevo registro.
+-En la salida causa n-1 registros o l¡neas vac¡as y no es un c¢digo de
+ tipo repetible.
+
+CODIGOS ESPECIALES "S", "Sp" Y "Ss".
+-Estos c¢digos s¢lo son v lidos para formatos de salida, para n£meros
+ y controlan la salida del signo + en los n£meros positivos de forma:
+
+	-S no imprime el signo +.
+	-Sp imprime el signo +.
+	-Ss no imprime el signo +.
+
+-El formato Sp s¢lo valdr  hasta que sea el final de los especificadores
+ de formato o hasta un c¢digo S o Ss.
+-Estos c¢digos no son repetibles.
+
+CODIGOS ESPECIALES "Bn" Y "Bz".
+-Estos c¢digos dirigen la interpretaci¢n de los caracteres en blanco
+ en los formatos num‚ricos de forma que:
+
+	-Bn ignora los blancos.
+	-Bz toma los blancos como ceros.
+
+-Si un campo de entrada est  en blanco se considera como cero.
+
+CODIGO ESPECIAL "HOLLERITH".
+-Este c¢digo s¢lo puede formar parte de un formato de salida y no es
+ v lido para entradas, siendo su sintaxis:
+
+	-wHc.
+
+-Este c¢digo indica que habr  una salida de w caracteres que son los
+ que van a aparecer en c. Los ap¢strofes se consideran como cualquier
+ otro car cter.
+-El n£mero de caracteres de la constante car cter determina el ancho del
+ campo de salida.
+
+CODIGO ESPECIAL ":".
+-Este c¢digo provoca la terminaci¢n de la operaci¢n de salida si no hay
+ m s elementos en la lista de la sentencia de salida.
+-Si el c¢digo es encontrado durante una entrada de datos o si quedan
+ elementos en la lista de salida es ignorado.
+
+CODIGO ESPECIAL " ".
+-Este c¢digo facilita formatear la salida de datos en la pantalla. Este
+ c¢digo se aplica en formatos de sentencias de salida.
+-Causa que el procesador suprima en la salida de acceso secuencial la
+ separaci¢n de registros actual y el siguiente registro.
+
+CODIGOS ESPECIALES DE CONTROL DE CARRO.
+-Exigen que se escriban los c¢digos como primer car cter dentro de la
+ sentencia WRITE que emplea la impresora como salida siendo sus c¢digos
+ los siguientes:
+
+	-Blanco avanza una l¡nea.
+	-0 avanza dos l¡neas.
+	-1 sit£a en la primera l¡nea de la siguiente p gina.
+	-+ imprime sobre la misma l¡nea y no avanza.
+
+-Si el primer car cter no es un signo de estos se toma como blanco. En
+ la mayor¡a de las sentencias FORMAT tiene especificado en la columna
+ 1 o 1X.
+
+REGISTROS MULTIPLES.
+-Si el n£mero de elementos de la lista de entrada y salida es menor que
+ el n£mero de c¢digos de datos, los c¢digos sobrantes se ignoran.
+-Si el n£mero de elementos es mayor que el n£mero de c¢digos de formato
+ se van asociando los c¢digos de datos con los datos de izquierda a
+ derecha.
+-Cuando se alcanza el par‚ntesis de cierre de FORMAT se empieza un nuevo
+ registro repiti‚ndose los c¢digos a partir del par‚ntesis de apertura
+ precedente.
+
+
+TEMA 5: SUBPROGRAMAS Y FUNCIONES EN FORTRAN.
+
+UNIDADES DE PROGRAMA.
+-Ante la necesidad de una organizaci¢n jer rquica Fortran permite
+ dividir el programa en m¢dulos llamados unidades de programa. Hay dos
+ clases de unidades de programa:
+
+	-Programa principal.
+	-Subprograma.
+
+-Cada programa tiene un s¢lo programa principal que puede contener cero
+ o m s Subprogramas que pueden ser:
+
+	-Funciones.
+	-Subrutinas.
+
+-Las Funciones pueden ser de varios tipos:
+
+	-Externas, es un m¢dulo independiente.
+	-Intr¡nsecas, es un m¢dulo independiente.
+	-Unil¡neas, son locales al m¢dulo o unidad de programa donde est n
+	 definidas.
+
+-Las Subrutinas son Subprogramas que pueden ser usados para devolver un
+ conjunto de cero a n datos y suelen ser de prop¢sito general.
+-Los m¢dulos pueden estar uno a continuaci¢n del otro y no estar n
+ separados a nivel l¢gico aunque s¡ lo estar n a nivel f¡sico.
+-La Funci¢n se usa cuando se necesita devolver un s¢lo valor, mientras
+ que las Subrutinas se utilizan para devolver m s valores o en su 
+ defecto ninguno.
+
+FUNCIONES SENTENCIA (UNILINEA).
+-Es un procedimiento especificado en una sentencia simple, con forma
+ similar a una sentencia de asignaci¢n aritm‚tica, l¢gica o car cter.
+ Este tipo de Funciones representan una f¢rmula.
+-Se escribe en la misma unidad de programa que va a ser usada, son
+ locales a la unidad de programa en la que est  definida.
+-Es una sentencia de tipo no ejecutable y ha de ser escrita antes de ser
+ invocada, su sintaxis suele ser:
+
+	- Tipo  Identificador (Lista de par metros actuales)=Expresi¢n.
+
+-Si no se colocan par metros, habr  que poner par‚ntesis igualmente. 
+-El tipo de dato del identificador de la Funci¢n sentencia y los 
+ argumentos ficticios est n determinados por el tipo impl¡cito del 
+ identificador.
+-La invocaci¢n se realiza escribiendo su identificador y entre 
+ par‚ntesis los argumentos verdaderos o actuales que sustituyen a los 
+ argumentos que son ficticios.
+-Los argumentos actuales pueden ser expresiones y han de corresponderse
+ en n£mero, orden y tipo con los argumentos ficticios. La llamada a la
+ Funci¢n debe formar parte de una sentencia ejecutable.
+-Se puede invocar el paso de varios par metros separados por una coma
+ o no ser invocados.
+
+FUNCIONES INTRINSECAS.
+-Son las Funciones propias del lenguaje Fortran, que ya fueron descritas
+ en el tema 2.
+-Estas Funciones se usan con el identificador de la Funci¢n seguido de
+ los valores de los par metros.
+-Habr  que tener en cuenta que los argumentos sean del mismo tipo y que
+ correspondan dentro del rango.
+
+FUNCIONES EXTERNAS.
+-Este tipo de Funciones devuelve un valor a trav‚s del identificador de 
+ la Funci¢n aunque puede devolver otros valores. Su sintaxis es:
+
+	- Tipo  FUNCTION Identificador (Lista de par metros formales)
+		acci¢n1
+		acci¢n2
+		.......
+		acci¢nn
+		Identificador=Expresi¢n
+		.......
+	 RETURN
+	 END
+
+-El tipo es opcional y especifica el tipo de datos del valor que se 
+ devuelve. Si no se especifica se siguen las normas del tipo impl¡cito
+ de los identificadores.
+-Esta sentencia debe ser la sentencia inicial de una Subrutina FUNCTION.
+ El tipo de la Funci¢n est  determinado por la especificaci¢n tipo en la
+ cabecera.
+-Puede tener cualquier sentencia excepto las definiciones de otras
+ Subrutinas. El valor asignado debe ser del mismo tipo que el de la
+ Funci¢n.
+-El f¡n l¢gico de una Funci¢n es RETURN que puede aparecer m s veces.
+ La £ltima sentencia de c¢digo fuente de definici¢n de una Funci¢n es
+ END que ser  el f¡n f¡sico.
+-Desde una Funci¢n se puede invocar otra Subrutina pero no a la misma
+ Funci¢n y no se permite la recursividad.
+
+LLAMADA A FUNCIONES EXTERNAS.
+-La llamada a una Funci¢n ha de formar parte de una sentencia siendo la
+ sintaxis de la llamada la siguiente:
+
+	-Identificador (Lista de par metros actuales).
+
+-La referencia a la Funci¢n se puede realizar desde cualquier otra
+ unidad de programa. La lista de par metros deber  estar separada por
+ comas.
+-Los par metros se pueden pasar por valor colocando la palabra reservada
+ VALUE delante de las variables. No se debe modificar los valores de las
+ variables de la lista. Es mejor duplicarlos o protegerlos.
+-Los par metros actuales deben coincidir con los argumentos ficticios
+ con las siguientes especificaciones:
+
+	-Constantes, variables o expresiones, excepto la concatenaci¢n
+	 de operandos.
+	-Nombre de array.
+	-Funciones intr¡nsecas o externas.
+	-Subrutinas.
+
+PASO DE ARGUMENTOS A LAS SUBRUTINAS.
+-Las llamadas por valor realizan unas copias del argumento verdadero
+ con lo que ‚ste no cambia durante la ejecuci¢n de la Subrutina.
+-Las llamadas por referencia no realizan esa copia y el argumento
+ verdadero puede cambiar durante la ejecuci¢n de la Subrutina.
+-Para saber cuando se deben pasar valores por valor o referencia nos
+ fijaremos en la siguiente tabla:
+
+	-Por referencia si es una variable, array, elemento de array o
+	 caracteres.
+	-Por valor si es una constante o una expresi¢n.
+
+SUBRUTINAS.
+-Las Subrutinas empiezan con la sentencia SUBROUTINE y puede tener
+ cualquier sentencia excepto las usadas para definir otros m¢dulos o
+ unidades de programa.
+-Puede devolver cero, uno o m s valores siendo la transmisi¢n por
+ par metros de cabecera. La ejecuci¢n termina con un f¡n l¢gico o RETURN
+ siendo la £ltima sentencia el f¡n f¡sico o END.
+-Si s¢lo hay un RETURN se puede omitir porque END funcionar  como si
+ fuera RETURN. La sintaxis de las Subrutinas es:
+
+	-SUBROUTINE Identificador (Lista de par metros formales)
+		acci¢n1
+		acci¢n2
+		.......
+		acci¢nn
+	 RETURN
+		.......
+	 END
+
+-El identificador del procedimiento ha de ser £nico, el primer car cter
+ debe ser una letra.
+-En la Subrutina no se asocia un valor al identificador de la misma,
+ devuelve los datos de salida modificando sus argumentos si son:
+
+	-Nombres de variable.
+	-Nombres de array.
+	-Subrutinas ficticias.
+	-Asteriscos.
+
+-El tipo de los argumentos se especifica expl¡cita o impl¡citamente. El
+ argumento array se define con un tama¤o fijo, anidado o ajustable.
+-El argumento asterisco se usa para la salida m£ltiple de una Subrutina
+ no permitiendo la autollamada o la recursi¢n.
+
+LLAMADA A SUBRUTINAS.
+-Una Subrutina puede ser invocada desde otra Subrutina o unidad de
+ programa principal con la siguiente sintaxis:
+
+	-CALL Identificador (Lista de par metros actuales).
+
+-Los argumentos deben coincidir en orden y tipo con los argumentos
+ ficticios de la Subrutina referenciada. La ejecuci¢n de CALL causa que
+ el control de la ejecuci¢n pase a la Subrutina referenciada.
+-Los argumentos de CALL pueden ser:
+
+	-Expresiones.
+	-Arrays.
+	-Subrutinas.
+
+-El argumento correspondiente al asterisco ha de ser del tipo *N siendo
+ N una etiqueta de una sentencia ejecutable. Los valores se transmiten
+ por referencia.
+-Un ejemplo de la utilizaci¢n de Subrutinas podr¡a ser:
+
+	-CHARACTER *20 Cab
+	 REAL Gwr
+	 PARAMETER (Cab='Especificaci¢n de la gravedad')
+	 Gwr=9.82337
+	 WRITE (*, *) Cab, Gwr
+	 CALL Lista (Cab, Gwr)
+	 WRITE (*, *) Cab, Gwr
+
+	 SUBROUTINE Lista (T¡tulo, Datos)
+		CHARACTER *20 T¡tulo
+		REAL Datos
+		T¡tulo='Densidad Kg/cm'
+		Datos=0.57975
+		WRITE (*, *) T¡tulo, Datos
+	 RETURN
+	 END
+
+-El resultado que proporcionar  el anterior trozo de c¢digo ser  un
+ resultado imprevisible, puesto que no se puede modificar una constante
+ a una variable.
+-La relaci¢n general para el paso de par metros ser  la siguiente:
+
+	Par metros actuales  Par metros formales
+	Variables         Nombre variable
+	Elementos de array   Nombre variable
+	Estructuras       Nombre variable
+	Expresiones       Nombre variable
+	Arrays         Array
+	*Etiqueta         Etiqueta
+	Subrutinas        Nombre £nico
+	Funciones         Nombre £nico
+
+SENTENCIAS "EXTERNAL" E "INTRINSIC".
+-Estas sentencias se usan para cuando el argumento es el identificador
+ simb¢lico de un Subprograma o Funci¢n.
+-La sentencia EXTERNAL declara que un identificador es un nombre de una
+ Funci¢n externa o de una Subrutina. No es una sentencia ejecutable y
+ debe aparecer antes del c¢digo de sentencias ejecutables.
+-La sintaxis de EXTERNAL es:
+
+	-EXTERNAL Identificador1, Identificador2, ..., Identificadorn.
+
+-La sentencia INTRINSIC declara que un identificador es nombre de una
+ Funci¢n intr¡nseca, apareciendo el identificador en la sintaxis:
+
+	-INTRINSIC Funci¢n1, Funci¢n2, ..., Funci¢nn.
+
+-Las Funciones intr¡nsecas que no pueden ser argumentos actuales de las
+ Subrutinas son los siguientes:
+
+	-De conversi¢n de tipos, INT, IFIX, IDINT, FLOAT y CHAR.
+	-Lexicogr ficas, LGE, LGT, LLE y LLT.
+	-De m ximos y m¡nimos.
+
+ENTRADA MULTIPLE A UNA SUBRUTINA. SENTENCIA "ENTRY".
+-Sirve para que el comienzo de una Subrutina sea en una sentencia
+ espec¡fica contenida en la Subrutina. Puede estar en cualquier punto
+ del programa excepto dentro de un bloque IF o DO.
+-Esta sentencia es de tipo no ejecutable siendo su sintaxis:
+
+	-ENTRY Identificador (Lista de par metros actuales).
+
+-Los identificadores simb¢licos de varios puntos de entrada tienen que
+ ser diferentes entre s¡ y del nombre del procedimiento.
+-Un punto ENTRY se referencia desde otro m¢dulo. El proceso prosigue
+ hasta encontrar un RETURN.
+
+SALIDA MULTIPLE DE UNA SUBRUTINA. SENTENCIA "RETURN N".
+-Esta sentencia causa que el control de la ejecuci¢n retorne a la unidad
+ de programa desde donde se invoc¢. La sintaxis es la siguiente:
+
+	-RETURN n.
+
+-La especificaci¢n n se usar  en una Subrutina, para devolver el control
+ a una sentencia espec¡fica, sin ser la siguiente a la llamada.
+-El valor de n ha de estar comprendido entre uno y el n£mero de 
+ asteriscos de la cabecera de la Subrutina.
+
+
+TEMA 6: VECTORES Y MATRICES (ARRAYS).
+
+ARRAYS UNIDIMENSIONALES.
+-Consiste en una lista de un n£mero finito de datos del mismo tipo que 
+ se referencian por un identificador com£n y un n£mero de orden que son
+ consecutivos.
+-Las variables que representan los arrays se denominan variables de
+ sub¡ndice. El tama¤o de un vector es el n£mero de elementos que
+ componen el vector. Una variable de sub¡ndice tiene el formato:
+
+	-Variable (Sub¡ndice).
+
+-La variable puede ser un array de los siguientes tipos:
+
+	-Num‚rico.
+	-Cadena.
+	-L¢gico.
+	-Complejo.
+
+-El sub¡ndice puede ser:
+
+	-Constante num‚rica.
+	-Variable.
+	-Expresi¢n matem tica.
+
+-Para saber una determinada posici¢n de un elemento se deben cumplir las
+ siguientes caracter¡sticas:
+
+	-Todos los elementos del array son del mismo tipo.
+	-El vector tiene un nombre £nico y los elementos est n ordenados
+	 por el sub¡ndice.
+
+DECLARACION DE UN ARRAY. SENTENCIA "DIMENSION".
+-Hay dos formas de definir un vector o matriz, utilizando la forma
+ com£n a todas las versiones cuyo formato ser :
+
+	-DIMENSION Identificador1 (M¡nimo:M ximo), ..., Identificadorn
+	 (M¡nimo:M ximo).
+
+-El n£mero de elementos que obtendremos vendr  dado por la f¢rmula
+ M ximo-M¡nimo+1, sabiendo que m ximo deber  ser mayor o igual que el
+ valor de m¡nimo.
+-El identificador es una variable con las mismas reglas. Opcionalmente
+ se puede colocar despu‚s del Identificador un alias o ALLOCATE que se
+ usar  cuando estemos en tiempo de ejecuci¢n. Como ejemplos:
+
+	-ALLOCATE Array (Valor).
+	-DIMENSION Array (11:25).
+	-DIMENSION (14).
+	-Array (:).
+
+-Lo que indica la opci¢n ALLOCATE es que el valor de sus sub¡ndices se
+ va a dimensionar durante la fase de ejecuci¢n.
+-El sub¡ndice izquierdo puede tomar los valores cero, negativo o
+ positivo al igual que el sub¡ndice derecho, pero ‚ste £ltimo debe ser
+ igual o mayor que el sub¡ndice izquierdo.
+-No se puede modificar la dimensi¢n una vez definida, y es necesario
+ colocar corchetes para definir un array en tiempo de ejecuci¢n.
+-En el ejemplo siguiente se declara un array de una dimensi¢n que se
+ dimensionar  posteriormente:
+
+	-DIMENSION Array ALLOCATE  (:).
+
+-Para desasignar el array y liberar la memoria se utilizar  la opci¢n
+ DEALLOCATE como sigue:
+
+	-DEALLOCATE Array (Valor).
+
+-Las dimensiones se separan por comas y se pueden definir como m ximo
+ siete dimensiones, aunque pueden ser m s dependiendo de la memoria 
+ del ordenador.
+-Si el l¡mite es uno se puede omitir el valor de m¡nimo, quedando la
+ sintaxis siguiente:
+
+	-DIMENSION Identificador1 (M ximo), ..., Identificadorn (M ximo).
+
+-La segunda forma de definir vectores es con la especificaci¢n de tipos
+ de sintaxis:
+
+	-Tipo Identificador (M¡nimo:M ximo).
+
+-Tipo es cualquiera de los tipos definidos en Fortran. Mediante esta 
+ forma se asocia el tipo de dato al identificador y definirlo como un
+ array con tantos elementos como haya.
+-Los l¡mites inferiores y superiores son expresiones enteras siempre
+ con constantes nunca variables.
+-Otros atributos que podemos colocar despu‚s del identificador son:
+
+	-REFERENCE.
+	-C.
+	-PASCAL.
+	-VALUE.
+
+-Se usar n estas opciones cuando se va a pasar el array por par metro a
+ otros lenguajes, por lo que habr  que normalizar el lenguaje.
+-Los arrays se almacenan en la memoria de una forma distinta que en
+ otros lenguajes, ya que se almacenan columnas a columnas unas a
+ continuaci¢n de otras.
+-Se almacenan en orden creciente de sus sub¡ndices a partir de una
+ posici¢n determinada. Para sacar los elementos por filas se usar  el
+ DO impl¡cito.
+
+OPERACIONES CON ARRAYS Y ELEMENTOS DE UN ARRAY.
+-Hay dos tipos de operaciones b sicas, con los elementos que ser n las
+ mismas que permiten los tipos de datos o con estructuras como el
+ recorrido de un array.
+-Para hacer el recorrido de un array se usar  una estructura del tipo
+ FOR como:
+
+	-DO  Etiqueta  VarA=Izquierdo, Derecho
+		acci¢n1
+		acci¢n2
+		.......
+		acci¢nn
+	  Etiqueta  CONTINUE
+	  ENDDO 
+		
+-Se puede leer o escribir un array completo con s¢lo poner el 
+ Identificador del array en la sentencia de E/S.
+-Se puede inicializar un array completo con s¢lo poner su identificador
+ y los valores que se inicializan en la sentencia DATA.
+-Consiste en obtener datos de un dispositivo externo y almacenarlos en
+ un vector o escribir en un dispositivo los datos de un array.
+-La E/S puede realizarse con el identificador del array y por tanto
+ se procesa en total o elemento a elemento con un DO impl¡cito o 
+ expl¡cito.
+
+ENTRADA Y SALIDA DE ARRAYS CON DO "IMPLICITO".
+-Se utiliza en vez de la estructura de tipo FOR. Esta estructura est 
+ ya definida y hace sencilla la manipulaci¢n de los arrays en la lectura
+ y escritura.
+-Con este tipo de DO se ejecuta una s¢la vez la sentencia READ de modo
+ que se lee un s¢lo registro f¡sico. Su sintaxis es:
+
+	-READ (*, *) (Identificador (VarA), VarA=Inicio, Final, 
+		 Incremento).
+
+-Cuando el incremento es uno se puede omitir. Tambi‚n puede emplearse
+ para acceder a los elementos de un array de m s de una dimensi¢n para
+ leer o escribir e inicializar.
+-El DO impl¡cito se puede anidar con tantos niveles como sea necesario
+ o tantos niveles como dimensiones tenga el array.
+-Un ejemplo del uso del DO impl¡cito ser¡a:
+
+	-READ (*, *) (Array (VarA), VarA=1, 20).
+
+-El ejemplo anterior lee veinte variables estableci‚ndose un bucle. Otro
+ ejemplo:
+
+	-READ (*, *) (Array (VarA), VarA=Izdo, Dcho, Paso).
+
+-En el ejemplo anterior Paso indica que la variable toma el valor de 
+ izdo y sus sucesivos valores repitiendo el proceso hasta que dcho 
+ tiene mayor valor que izdo.
+-Pero si paso es negativo entonces dcho ha de ser menor forzosamente. El
+ siguiente ejemplo tendr¡a como representaci¢n con DO la siguiente:
+
+	-READ (*, 100) (Array (VarA), VarB=1)
+	 READ (*, *) ((Array (VarA, VarB), VarB=1, VarC), VarA=1, VarD)
+
+	-DO VarA=1, VarD
+		DO VarB=1, VarC
+			READ (*, *) (Array (VarA, VarB))
+		ENDDO
+	 ENDDO
+
+PASO DE ARRAYS POR PARAMETRO.
+-El paso de un array se realiza por referencia y cuando un array es
+ pasado, en realidad se pasa la direcci¢n en memoria del primer elemento
+ ahorr ndose memoria y espacio.
+-Un ejemplo de ello es el siguiente:
+
+	-REAL Array (100, 200), VarA, VarB
+	 CALL Lista (Array, VarA, VarB)
+	 SUBROUTINE Lista (Arrayauxiliar, VarC, VarD)
+
+-En la definici¢n de los argumentos ficticios para los arrays en las
+ Subrutinas o Funciones, no es necesario que sean iguales los l¡mites
+ superior e inferior de cada dimensi¢n con los l¡mites del argumento
+ actual del array transmitido.
+-Siempre se exige que una variable sea dimensionada por lo que dentro
+ de la Subrutina se colocar  la siguiente declaraci¢n:
+
+	-REAL Arrayauxiliar (100, 200).
+
+-En esta Subrutina no se crea la variable arrayauxiliar sino que se
+ define dicha variable. El array en esa declaraci¢n se puede ajustar
+ siempre que la dimensi¢n sea menor que la declarada anteriormente.
+-En todo caso el tama¤o del argumento ficticio para el array no puede
+ ser mayor que el del argumento actual.
+-Se puede poner un asterisco que es la opci¢n por defecto y que indica
+ que toma el valor de la dimensi¢n iniciada en el programa principal.
+
+ARRAYS DE TAMAÑO AJUSTABLE Y TAMAÑO ASUMIDO.
+-El argumento ficticio array en la Funci¢n M ximo su tama¤o se ajusta
+ a N elementos que es un dato transmitido, y por tanto la definici¢n
+ de arrays ajustables.
+-La definici¢n de un argumento ficticio array de tama¤o ajustable en 
+ una Funci¢n o en una Subrutina es la £nica situaci¢n en la que una
+ definici¢n de array puede incluir una variable en la especificaci¢n del
+ rango de cada dimensi¢n.
+-Para definir un argumento ficticio array como asumido se especifica el
+ l¡mite superior de la £ltima dimensi¢n del array con un asterisco. El
+ n£mero de elementos del array ficticio es el mismo que el array pasado
+ por par metro.
+-S¢lo se puede especificar el l¡mite superior de la £ltima dimensi¢n
+ con un asterisco, aunque para los caracteres tambi‚n es v lido.
+-Para las Funciones car cter externas usaremos la siguiente sintaxis:
+
+	-CHARACTER * (*) FUNCTION Identificador (Lista de par metros).
+
+
+TEMA 7: SENTENCIAS ESPECIALES DE FORTRAN.
+
+SENTENCIA "EQUIVALENCE".
+-Esta sentencia declara que dos o m s identificadores son equivalentes
+ y al menos dos. Hace que compartan la misma posici¢n de almacenamiento
+ que puede ser referenciado de m s de una forma.
+-La sintaxis de esta orden es la siguiente:
+
+	-EQUIVALENCE (Lista de Identificadores).
+
+-En una misma sentencia EQUIVALENCE pueden haber m s de una lista de
+ identificadores, cada una de las cuales se refiere a la misma posici¢n
+ de almacenamiento:
+
+	-EQUIVALENCE (Lista de Identificadores),
+	 +           (Lista de Identificadores).
+
+-Las variables de distinto tipo pueden hacerse equivalentes, de forma
+ que habr  almacenamiento compartido pero no una posible conversi¢n de
+ tipos.
+-La sentencia de almacenamiento de los identificadores de la lista
+ comienza con la primera unidad de almacenamiento de las entidades de
+ la lista.
+-Se pueden hacer equivalentes los arrays y los elementos de los arrays.
+ Los ¡ndices de las variables array escritos en una lista de la
+ sentencia deben ser constantes o expresiones formadas por constantes.
+-En una sentencia EQUIVALENCE no puede provocarse que una misma variable
+ ocupe dos posiciones de memoria distintas.
+-Esta sentencia puede utilizarse entre variables o arrays de tipo
+ car cter aunque sus longitudes no sean las mismas.
+-Las variables car cter equivalentes tendr n el mismo primer car cter
+ ubicado en la misma posici¢n de memoria.
+-En Fortran 77 no est  permitido hacer equivalentes variables de tipo
+ car cter con variables num‚ricas, y los nombres de Funci¢n no pueden
+ hacerse equivalentes con otra entidad.
+-Esta sentencia se suele utilizar cuando la memoria de que se dispone
+ es muy peque¤a, pero produce que la l¢gica del programa pueda acceder
+ a la variable correcta.
+
+SENTENCIA "COMMON".
+-Una forma de comunicarse entre el programa o Unidad de programa que
+ llama a una Subrutina o Funci¢n, y la Subrutina o Funci¢n llamada, es 
+ a trav‚s de la lista de argumentos.
+-Con estos argumentos se referencian zonas de memoria comunes desde
+ distintas Unidades de programa, la Unidad de programa que llama y la
+ Unidad llamada.
+-Con esta sentencia se pueden definir zonas comunes de memoria entre
+ diversas Unidades de que forman parte un programa, entre la Unidad
+ principal y una o varias Subrutinas o Funciones.
+-Es una sentencia no ejecutable que debe aparecer en la Unidad de 
+ programa que llama y en el Subprograma llamado antes de todas las
+ sentencias ejecutables.
+-En esta sentencia se listan los nombres de las variables y los nombres
+ de los arrays con su dimensi¢n y es una forma alternativa de comunicar
+ datos a la lista de argumentos de los Subprogramas.
+-Si un array va ha estar en una zona com£n se puede definir su lista de
+ identificadores en la lista COMMON o definir el array y ponerlo en la
+ lista de la sentencia COMMON.
+-Las variables y los arrays son asignados a un almacenamiento com£n en
+ el orden en que aparecen en la sentencia COMMON, siendo la sintaxis de
+ esta:
+
+	-COMMON Identificador1, Identificador2, ..., Identificadorn.
+
+-La sintaxis anterior pertenece a una sentencia COMMON sin nombre o en
+ blanco, pero existe una sentencia COMMON etiquetada o con nombre.
+-El orden de los identificadores especificados en una sentencia COMMON
+ determina la equivalencia de identificadores simb¢licos entre varias
+ Unidades de un programa (El bloque com£n de memoria es lo global).
+-La lista de identificadores deben ser de igual tipo en todas las
+ sentencias COMMON estableci‚ndose las equivalencias por el orden en 
+ que est n en la lista.
+-Un identificador de una lista COMMON no puede figurar como argumento en
+ una Subrutina o Funci¢n ni como par metro en las llamadas (Puede haber
+ un solapamiento de memoria).
+-El bloque com£n de memoria es £nico para todo el programa. La memoria
+ com£n se establece de forma contigua.
+-En un bloque com£n de memoria no puede haber variables car cter y no
+ car cter mezcladas, siendo todo de variables car cter o variables no
+ car cter.
+-Las variables o arrays que figuran en la lista de COMMON sin nombre
+ no pueden ser inicializadas con DATA, s¢lo pueden inicializarse con
+ sentencias de asignaci¢n.
+
+SENTENCIA "COMMON" CON NOMBRE. USO CONJUNTO DE "COMMON" Y "EQUIVALENCE".
+-Esta sentencia etiquetada permite definir varias zonas comunes de
+ memoria, cada una con su nombre o etiqueta.
+-Se forman de igual manera que las anteriores pero se escribe su nombre
+ o etiqueta con dos barras (Slash) antes de la lista de variables.
+-El nombre de COMMON debe ser un identificador v lido y pueden definirse
+ dos o m s zonas comunes. Es conveniente usar tantas sentencias COMMON
+ como zonas comunes haya.
+-Se pueden mezclar en una zona com£n variables num‚ricas con variables
+ o arrays l¢gicos.
+-En el siguiente ejemplo tendremos s¢lamente dos bloques COMMON uno
+ con nombre y otro sin nombre:
+
+	-COMMON /Nombre-1/ VarA, VarB, VarC
+	 COMMON VarH, VarI, VarJ
+	 COMMON /Nombre-1/ VarK, VarL
+	 COMMON VarM, VarN
+
+-Una comparaci¢n entre un trozo de programa con COMMON y otro sin ‚l
+ podr¡a ser el siguiente:
+
+	-REAL VarD, VarE, VarF, VarG, VarZ
+	 READ *, VarD, VarE, VarF, VarG
+	 VarZ=2
+	 VarT=Funci¢n (VarD, VarE, VarF, VarG)
+	 STOP
+	 END
+
+	 FUNCTION Funci¢n (VarA, VarB, VarC, VarX)
+		VarI=VarA*VarX**2+VarB*VarX+VarC
+	 RETURN
+	 END
+
+	-REAL VarD, VarE, VarF, VarG, VarZ
+	 COMMON /Coeficientes/ VarD, VarE, VarF
+	 VarZ=2
+	 VarT=Funci¢n (VarZ)
+	 STOP
+	 END
+
+	 FUNCTION Funci¢n (VarX)
+		COMMON /Coeficientes/ VarA, VarB, VarC
+		VarF=VarA*VarX**2+VarB*VarX+VarC
+	 RETURN
+	 END
+
+-Si en una sentencia COMMON se precede a los identificadores de dos
+ barras o slash indicar  que son zonas comunes sin nombre. Es  
+ indiferente el orden de definici¢n de las zonas comunes.
+-Los arrays o variables de COMMON con etiqueta pueden ser inicializados
+ con la sentencia DATA, pero no las variables de un COMMON sin nombre.
+-Un COMMON con etiqueta tiene que tener el mismo tama¤o en todas las
+ Unidades de programa.
+-Las variables o arrays pueden aparecer en ambas sentencias COMMON y
+ EQUIVALENCE siempre que no causen conflicto en el orden en el que se
+ almacenan.
+-Dos variables que est‚n en una zona com£n no pueden ser equivalentes
+ entre s¡.
+
+SENTENCIA "SAVE".
+-Esta sentencia se utiliza para almacenar est ticamente los valores
+ o datos de una invocaci¢n a otra.
+-SAVE declara que las variables locales y los arrays sean retenidos
+ despu‚s de ejecutar RETURN o la siguiente llamada al Subprograma. 
+-Las variables o arrays locales contendr n el £ltimo valor adquirido
+ en la ejecuci¢n anterior al Subprograma. Su sintaxis es:
+
+	-SAVE (Lista de identificadores).
+
+-La lista de identificadores, que podr n ser variables, arrays o bloques 
+ COMMON, retendr  el £ltimo valor adquirido antes de la ejecuci¢n de
+ RETURN.
+-Las excepciones en las que las variables no quedan indefinidas al salir
+ de un Subprograma son:
+
+	-Sentencias SAVE del Subprograma.
+	-Bloques COMMON en blanco o sin nombre.
+	-Bloques COMMON etiquetados y definidos en la Unidad de programa
+	 principal y uno o m s Subprogramas.
+
+-Las variables en bloques COMMON etiquetados en Subprogramas quedan
+ indefinidos s¢lo cuando hay una salida desde un Subprograma pero no se
+ pueden retener con SAVE y el nombre del bloque COMMON.
+-En una lista de SAVE no pueden aparecer par metros de Subrutinas o
+ Funciones, ni nombres de Funci¢n y Subrutinas ni variables o arrays
+ de bloques COMMON.
+-Puede haber m s de un SAVE o escribir la lista en un s¢lo SAVE. Si hay
+ m s de un SAVE no podr n repetirse nombres de variables o arrays.
+
+INICIALIZACION DE VARIABLES. SENTENCIA "DATA".
+-Esta sentencia permite inicializar variables con la siguiente sintaxis:
+
+	-DATA Lista1 /Constantes/, ..., Listan /Constantes/.
+
+-La lista contendr  los nombres de las variables o arrays a inicializar
+ separados por comas e inicializa las constantes que vendr n separadas
+ por comas.
+-Puede especificarse m s de una lista y sus constantes o agrupar todas
+ las variables en una s¢la lista. La inicializaci¢n se realiza en el
+ orden en el que aparecen, de izquierda a derecha.
+-Si hay constantes consecutivas iguales se podr  poner:
+
+	-N£mero*Constante.
+
+-En el formato anterior N£mero es el n£mero de repeticiones que se
+ especificar  de dicha forma.
+-Las reglas m s importantes de las sentencias DATA son las siguientes:
+
+	-El n£mero de constantes ha de ser igual al n£mero de elementos
+	 de la lista, variables o arrays.
+	-No pueden aparecer argumentos ficticios de Subprogramas, nombres
+	 de Funci¢n y elementos de bloque COMMON en blanco.
+	-S¢lo pueden estar los bloques COMMON etiquetados en los bloques 
+	 DATA.
+
+-El tipo de variable o array a inicializar debe corresponderse con el 
+ tipo de la constante. Lo mismo para las variables de tipo car cter 
+ (Si hay exceso se ignora y si hay defecto se completa con blancos a la
+ derecha).
+-Esta sentencia no es ejecutable y puede aparecer despu‚s de las
+ especificaciones de datos pero es mejor colocarlas antes de las
+ sentencias ejecutables.
+-Las sentencias DATA pueden utilizar el DO impl¡cito para inicializar
+ el array a los datos que se quieran o s¢lo definirlo. Un ejemplo de
+ ello ser¡a:
+
+	-INTEGER VarA, Orden, Alfa, Lista (100)
+	 REAL Coeficiente (4), Epsilon (2), Pi (5), VarX (5, 5)
+	 CHARACTER *15 Ayuda
+	 DATA VarA /0/, Orden /3/
+	 DATA Coeficiente /1.0, 2*3.0, 1.0/, Epsilon (1) /0.0001/
+	 DATA ((VarX (VarI, VarJ), VarI=1, VarJ), VarJ=1.5) /15*1.0/
+	 DATA Lista /100*0/
+	 DATA Ayuda /'Ayuda'/
+
+-El siguiente formato puede ir en cualquier parte del programa y tiene
+ como misi¢n hacer una llamada al camino o ruta especificado:
+
+	-$INCLUDE 'Path Nombre.For'.
+
+SENTENCIA "PARAMETER".
+-Esta sentencia identifica constantes mediante nombres identificadores 
+ o simb¢licos para que despu‚s se pueda hacer referencia a la constante
+ por el identificador. La sintaxis de la orden es:
+
+	-PARAMETER (Identificador=Expresi¢n constante).
+
+-Dentro de los par‚ntesis se pueden especificar tantos par metros como
+ se quiera separ ndolos por comas.
+-La expresi¢n debe coincidir en su tipo con el identificador y el valor
+ que va ha representar el identificador al evaluarse la expresi¢n. Debe
+ ajustarse a las reglas establecidas para las sentencias de asignaci¢n.
+-El tipo de dato del identificador puede definirse de forma impl¡cita
+ o expl¡cita, describiendo la sentencia de definici¢n antes.
+-La expresi¢n constante puede hacer referencia a otro par metro pero
+ ha de estar definida antes en otro PARAMETER o en la misma sentencia
+ PARAMETER.
+-Un identificador de constante no puede cambiar despu‚s el valor que se
+ le ha impuesto.
+-El  mbito de los par metros es la Unidad de programa en que est n
+ definidos y una vez que el par metro es definido puede ser referenciado
+ en los sitios en que pueden referenciarse las constantes excepto:
+
+	-No se pueden usar los par metros en una especificaci¢n de un
+	 formato.
+	-Un par metro no puede usarse como parte de otra constante.
+
+-Esta sentencia no es ejecutable y puede aparecer despu‚s de cualquier
+ sentencia de especificaci¢n de tipo o antes de que se haga uso del
+ par metro.
+-Cuando un valor aparece varias veces en una Unidad de programa se debe
+ asociarle un nombre simb¢lico y usar dicho nombre para despu‚s hacer
+ la referencia a dicho nombre.
+
+INICIALIZACION DE UN COMMON CON NOMBRE. SUBPROGRAMA "BLOCK DATA".
+-Este Subprograma asigna valores iniciales a variables y a arrays de un
+ COMMON etiquetado, puesto que los COMMON en blanco se inicializan en
+ las sentencias DATA.
+-La sentencia BLOCK DATA que puede tener un identificador termina con la
+ sentencia END y las sentencias que se pueden especificar son todas las
+ no ejecutables para la inicializaci¢n de la lista de COMMON etiquetados
+ y que son:
+
+	-IMPLICIT.
+	-PARAMETER.
+	-DIMENSION.
+	-SAVE.
+	-COMMON.
+	-EQUIVALENCE.
+	-DATA.
+
+-La sintaxis de este Subprograma ser :
+
+	-BLOCK DATA  Identificador 
+		sentencia1
+		sentencia2
+		..........
+		sentencian
+	 END
+
+-Si el identificador se coloca es considerado como un identificador
+ global y no puede coincidir con el nombre de una Funci¢n o el de una
+ Subrutina.
+-El COMMON etiquetado al inicializarlo hay que especificarlo en el
+ Subprograma BLOCK DATA de forma completa aunque haya variables no
+ inicializables.
+-En un programa ejecutable pueden haber m s de un BLOCK DATA pero s¢lo
+ uno puede ser sin nombre y todos los dem s nombres distintos. Un COMMON
+ s¢lo puede estar en un s¢lo BLOCK DATA.
+-Un ejemplo del uso de este Subprograma ser¡a:
+
+	-BLOCK DATA Nombre
+		COMPLEX VarA, VarB
+		LOGICAL VarC, VarD
+		INTEGER VarI, VarJ, VarK, Lista
+		REAL VarX
+		COMMON /Bloque1/ VarX (10), VarI, VarJ, VarA
+		COMMON /Bloque2/ Lista (6), VarC, VarD, VarB
+		DATA VarX /10*0.0/, VarI, VarJ /1, 0/, VarC /False/
+		DATA VarA, VarB, /2*(0, 1)/
+	 END
+
+-Normalmente este tipo de Subprogramas se suelen colocar cuando acaba 
+ el programa principal.
+
+TIPO DE DATO COMPLEJO.
+-Este tipo de datos se representa por un par ordenado de n£meros reales
+ de doble precisi¢n, enteros o una combinaci¢n de ellos encerrados entre
+ par‚ntesis y separados por comas.
+-Para definir un identificador de tipo complejo contamos con COMPLEX, y
+ pueden haber variables, arrays complejos y Funciones complejas.
+-La memoria que ocupa una variable compleja es el doble de una variable
+ real. Se puede asignar una constante compleja, otra variable compleja
+ o una expresi¢n compleja inicializ ndose con DATA.
+-Cuando a la variable compleja se le quiere asignar un n£mero complejo
+ que tiene la parte real, la parte imaginaria o ambas debe usarse la
+ Funci¢n intr¡nseca COMPLEX.
+-Los n£meros complejos pueden sumarse, restarse, multiplicarse, elevarse
+ a una potencia y dividirse. No puede usarse en la expresi¢n aritm‚tica
+ de la sentencia IF aritm‚tico, y no puede usarse como sub¡ndice de un
+ array.
+-Otras Funciones que tienen los n£meros complejos son:
+
+	-AIMAG (Expresi¢n num‚rica) (Parte imaginaria como n£mero real).
+	-CONJ (Expresi¢n num‚rica) (Devuelve el complejo conjugado).
+
+-Otras Funciones internas que tienen un nombre espec¡fico para el
+ argumento complejo y el valor que devuelven es tambi‚n complejo son:
+
+	-CSQRT (Expresi¢n num‚rica) (Ra¡z cuadrada de un complejo).
+	-CABS (Expresi¢n num‚rica) (M¢dulo del complejo).
+	-CEXP (Expresi¢n num‚rica) (Funci¢n exponencial de un complejo).
+	-CLOG (Expresi¢n num‚rica) (Logaritmo natural de un complejo).
+	-CSIN (Expresi¢n num‚rica) (Seno de un complejo).
+	-CCOS (Expresi¢n num‚rica) (Coseno de un complejo).
+
+SENTENCIA "PAUSE".
+-Esta sentencia hace una parada temporal en la ejecuci¢n de un programa
+ para detener la salida hasta que el usuario haya podido leer toda la
+ informaci¢n. Su sintaxis es:
+
+	-PAUSE.
+	-PAUSE 'Cadena de caracteres'.
+	-PAUSE N£mero (Constante de hasta cinco d¡gitos).
+
+-Al producirse la parada se visualiza un mensaje propio regido por el
+ n£mero indicado o la cadena si ha sido especificada.
+
+ASIGNACION DE ETIQUETAS A VARIABLES ENTERAS. SENTENCIA "ASSIGN TO".
+-Esta sentencia permite asignar un n£mero de etiquetas por una constante
+ entera a una variable entera siendo su sintaxis:
+
+	-ASSIGN Etiqueta TO Variable.
+
+-Etiqueta es la etiqueta de una sentencia ejecutable o de una sentencia
+ FORMAT, siendo variable el identificador de una variable entera.
+-Despu‚s de la ejecuci¢n de ASSIGN el valor de la variable no puede ser
+ considerada como un dato entero. 
+-Si la etiqueta asignada a la variable es la de una sentencia FORMAT, la 
+ variable puede ser usada como un identificador de formato.
+-Si la etiqueta asignada es ejecutable la variable puede ser usada en
+ un GOTO asignado como:
+
+	-GOTO Variable.
+	-GOTO Variable (Etiqueta1, Etiqueta2, ..., Etiquetan).
+
+-Cuando se ejecuta una sentencia GOTO asignada el control del programa
+ es transferido a la sentencia con la etiqueta del £ltimo valor asignado
+ a la variable con ASSIGN.
+
+
+TEMA 8: TRATAMIENTO DE CADENAS EN FORTRAN.
+
+CADENAS DE CARACTERES.
+-Una cadena es un conjunto de caracteres encerrados entre ap¢strofes.
+ Si se quiere representar un ap¢strofe dentro de una cadena se deber 
+ representar por dos ap¢strofes consecutivos.
+-Una cadena se declara con la siguiente sintaxis:
+
+	-CHARACTER  *N£mero  Lista de variables.
+
+-Aqu¡ n£mero representa el n£mero de caracteres de las variables de una
+ cadena. Un array que contiene caracteres se define con una sentencia
+ CHARACTER y declarada de dos modos distintos.
+
+LAS CADENAS COMO ARGUMENTO DE SUBPROGRAMAS.
+-Un Subprograma puede especificar una cadena de caracteres sin darle una
+ longitud espec¡fica y equivale a la longitud de una array con una
+ variable entera.
+-Se puede definir en un Subprograma un array de n variables cada una con
+ su cadena de caracteres sin especificar la longitud de cadena en la
+ sentencia CHARACTER.
+-La longitud de la cadena es siempre positiva nunca igual a cero, y
+ dicha longitud no se puede alterar aunque s¡ asignar cadenas cuya
+ longitud es diferente.
+-Una cadena con longitud m s corta que la de la variable, rellena a
+ blancos por la derecha y si es m s larga la trunca.
+
+ASIGNACION DE VALORES A LAS CADENAS.
+-Se realiza con la sentencia de asignaci¢n y una constante de caracteres
+ us ndose una variable cadena para inicializar otra variable de cadena.
+-Si los caracteres asignados no coinciden con la longitud se rellenan
+ a blancos y si es mayor que la longitud se trunca por la derecha.
+
+COMPARACION DE CADENAS.
+-Esta comparaci¢n se realiza car cter a car cter de izquierda a derecha
+ con las siguientes reglas:
+
+	-Si las cadenas tienen igual longitud y los caracteres son los
+	 mismos, las cadenas son iguales.
+	-Si una cadena es m s corta que la otra se a¤aden blancos a la
+	 derecha de la otra cadena, de modo que pueda proceder a la
+	 evaluaci¢n como si las cadenas fueran iguales.
+
+-Las reglas de ordenaci¢n t¡picas son las siguientes:
+
+	-Las letras may£sculas est n ordenadas de A a Z.
+	-Los d¡gitos ordenados de 0 a 9.
+	-El car cter blanco es menor que cualquier letra o n£mero.
+
+SUBCADENAS.
+-Es cualquier cadena que representa un subconjunto de la cadena original
+ y mantiene el orden original. Para especificar una subcadena de una
+ variable de car cter o un elemento de un array de car cter se usa:
+
+	-Nombrecadena ( Expresi¢n1 : Expresi¢n2 ).
+
+-Expresi¢n1 es la posici¢n en nombrecadena del primer car cter de la
+ subcadena y expresi¢n2 es la posici¢n en nombrecadena del £ltimo
+ car cter de la subcadena.
+-Expresi¢n1 y expresi¢n2 deben ser del tipo entero y cumplir:
+
+	-1<=Expresi¢n1<=Expresi¢n2<=Longitud de la cadena.
+
+-Si se omite la expresi¢n1 se toma por defecto uno. Si se omite la
+ expresi¢n2 se toma el valor de la longitud de la cadena original, 
+ siendo la subcadena:
+
+	-Expresi¢n2-Expresi¢n1+1.
+
+CONCATENACION DE CADENAS.
+-Consiste en combinar dos o m s cadenas de caracteres en una £nica
+ cadena, siendo el operador que realiza la concatencaci¢n o uni¢n de
+ cadenas el siguiente:
+
+	-//.
+
+FUNCION LONGITUD. SENTENCIAS "LEN" Y "GETLEN".
+-LEN determina la longitud de la cadena de caracteres argumento siendo
+ su sintaxis:
+
+	-LEN (Cadena de caracteres).
+
+-Si la cadena de caracteres es una constante de car cter su longitud es
+ el n£mero de caracteres. Si es una variable de cadena o elemento de 
+ array la longitud es la definida en la declaraci¢n.
+-Si cadena es una subcadena con el formato (Expresi¢n1:Expresi¢n2) su
+ longitud es la siguiente:
+
+	-Expresi¢n2-Expresi¢n1+1.
+
+-GETLEN calcula la longitud de una cadena de caracteres excluyendo a los
+ caracteres en blanco siendo su formato:
+
+	-GETLEN (Cadena de caracteres).
+
+FUNCIONES DE TRATAMIENTO DE CARACTERES. SENTENCIAS "CHAR" E "ICHAR".
+-CHAR determina el car cter de la cadena que ocupa la posici¢n relativa
+ en la secuencia de caracteres ASCII siendo su sintaxis:
+
+	-CHAR (Posici¢n).
+
+-El valor de posici¢n debe estar entre 0 y 255 caracteres de la cadena.
+-ICHAR es la Funci¢n inversa de CHAR. El argumento es un car cter y la
+ Funci¢n devuelve un entero que es la posici¢n del car cter en la
+ secuencia ordenada de caracteres ASCII con el formato:
+
+	-ICHAR (Car cter).
+
+FUNCION DE BUSQUEDA. SENTENCIA "INDEX".
+-Esta Funci¢n localiza una subcadena dentro de otra. Devuelve un valor
+ entero que indica la posici¢n inicial de la cadena de caracteres 
+ destino dentro de la cadena original siendo su sintaxis:
+
+	-INDEX (Cadena fuente, Cadena destino).
+
+-Si la cadena destino no existe el formato devuelve el valor cero.
+
+OTRAS FUNCIONES.
+-La Funci¢n LEN_TRIM devuelve la longitud de la cadena dada sin los
+ espacios en blanco siendo su sintaxis:
+
+	-LEN_TRIM (Cadena de caracteres).
+
+-La Funci¢n SCAN busca una subcadena en una cadena dada y muestra la
+ primera posici¢n en la que coinciden ambas cadenas, buscando car cter
+ a car cter, siendo su sintaxis:
+
+	-SCAN (Cadena1, Cadena2).
+
+-La Funci¢n VERIFY devuelve un entero y verifica que una cadena est 
+ inclu¡da en otra, devolviendo la posici¢n del car cter que sea distinto
+ de los dem s y siendo su sintaxis:
+
+	-VERIFY (Cadena1, Cadena2).
+
+-Otras Funciones que devuelven un valor l¢gico y que sirven para la
+ comparaci¢n son:
+
+	-LGE (Cadena1, Cadena2), verifica si cadena1 es mayor o igual que
+	 cadena2.
+	-LGT (Cadena1, Cadena2), verifica si cadena1 es mayor que cadena2.
+	-LLE (Cadena1, Cadena2), verifica si cadena1 es menor o igual que
+	 cadena2.
+	-LLT (Cadena1, Cadena2), verifica si cadena1 es menor que cadena2.
+
+-En estas cuatro £ltimas Funciones el argumento debe ser siempre un
+ car cter.
+
+
+TEMA 9: FICHEROS.
+
+INTRODUCCION.
+-
+
+TEMA 9: FICHEROS.
+
+ESTRUCTURA DE UN FICHERO.
+-Un fichero es una colección de datos organizados de alguna manera y
+ almacenados generalmente en disco o cinta.
+-Un fichero está formado por registros y estos constan de campos que 
+ pueden ser numéricos o de caracteres.
+-Los ficheros formateados pueden ser editados, imprimirse o visualizarse
+ mientras que los ficheros no formateados no pueden hacer esas acciones.
+ Aunque la lectura y la escritura son más rápidas y ocupan poca memoria.
+
+ORGANIZACION DE FICHEROS.
+-Se consideran dos tipos de acceso a los registros de un fichero que
+ son los siguientes:
+
+	-Acceso Secuencial.
+	-Acceso Directo.
+
+-El acceso Secuencial implica el acceso a un fichero según el orden de
+ almacenamiento de sus registros, uno a uno.
+-El acceso Directo implica situarse en un registro determinado sin que 
+ ello implique la consulta de los registros precedentes.
+-La Organización de un fichero define la forma en que los registros se
+ disponen sobre el soporte de almacenamiento:
+
+	-Organización Secuencial.
+	-Organización Directa.
+	-Organización Indexada.
+
+-Un fichero con organización Secuencial es una sucesión de registros
+ almacenados consecutivamente sobre un soporte externo de tal modo que
+ para acceder al registro n, necesariamente hay que pasar por los n-1
+ registros precedentes.
+-Un fichero con organización Directa exige soporte direccionable. Cada
+ posición se localiza por su dirección absoluta, que en el caso del
+ disco suele venir definida por número de pista y de sector.
+-El lenguaje Fortran no es muy fuerte es la manipulación de archivos
+ aunque tiene capacidad para manipularlos.
+-Los archivos suelen ser pequeños y la información a tratar suele estar
+ en sentencias DATA.
+
+APERTURA DE UN FICHERO. SENTENCIA "OPEN".
+-Esta sentencia es la encargada de la apertura de un fichero, conectando
+ un fichero a un número de Unidad, de forma que para referirse después
+ al fichero se hará con el número de Unidad establecido en la apertura.
+-Cuando se quiere crear un fichero en un programa se utilizará la
+ sentencia OPEN para que quede en una Unidad.
+-La sentencia OPEN también es usada para declarar las propiedades del
+ fichero, si es Secuencial o Directo, si es Formateado o no Formateado
+ y otras propiedades.
+-La sintaxis de la sentencia será la siguiente:
+
+	-OPEN ( UNIT= N,  FILE='Nombre' ,  ACCESS=Tipo ,  FORM=Formato ,
+	  STATUS=Estado ,  IOSTAT=N ,  ERR=Etiqueta ,  BLANK=Tipo ,  
+        RECL=N ,  BLOCKSIZE=N , MODE=Tipo ).
+
+-La sentencia OPEN es la primera sentencia que debe aparecer al utilizar
+ un fichero.
+-La opción UNIT siempre debe figurar en la sentencia OPEN y se podrá
+ omitir, en cuyo caso N deberá figurar como primer parámetro.
+-Esta opción se encarga de asignar un canal de comunicación para
+ ejecutar el archivo.
+-La opción FILE indica el nombre del fichero que va a estar conectado a
+ la unidad N. Si no se coloca el nombre del fichero se podrá pasar por
+ parámetro el nombre de dicho fichero.
+-La opción ACCESS, donde Tipo es una expresión de tipo carácter e indica
+ el tipo de fichero que se va a utilizar, siendo por defecto Secuencial
+ y puediendo tomar los valores:
+
+	-SEQUENTIAL.
+	-DIRECT.
+
+-La opción FORM, donde Formato es una expresión de tipo carácter en que
+ el valor por defecto es Secuencial, asigna un formato al fichero,
+ siendo los valores que puede tomar:
+
+	-FORMATTED.
+	-UNFORMATTED.
+	-BINARY.
+
+-Si la opción es omitida OPEN asumirá FORMATTED si el fichero es de tipo
+ Secuencial y UNFORMATTED si es un fichero Directo. BINARY se utiliza en
+ Fortran 90 y representa a los ficheros binarios.
+-La opción STATUS, donde Estado es una expresión de tipo carácter y se
+ usa para saber si el fichero ya existe o es nuevo y por tanto va a ser
+ creado. Sus opciones son las siguientes:
+
+	-OLD (Si el fichero existe, sino produce error).
+	-NEW (Crea el nuevo fichero y FILE no debe existir en la Unidad).
+	-SCRATCH (Si crea un fichero temporal y no debe darse nombre al
+	 fichero).
+	-UNKNOWN (Si no se sabe si existe o no el fichero siendo la opción
+	 por defecto).
+
+-Un fichero SCRATCH desaparece cuando se cierra la Unidad o cuando 
+ termina la ejecución.
+-La opción IOSTAT, donde N es un identificador de una variable entera.
+ Almacena un código numérico de cómo se ejecuta la sentencia OPEN. Si
+ OPEN se ejecuta sin error se almacena un cero en N.
+-La opción ERR, donde Etiqueta es la sentencia donde se bifurca
+ incondicionalmente si el fichero no puede ser abierto al producirse un
+ error.
+-La opción BLANK, donde Tipo es una expresión de tipo carácter que 
+ puede tomar los siguientes valores:
+
+	-NULL (Los blancos son ignorados y es opción por defecto).
+	-ZERO (Los blancos son interpretados como ceros).
+
+-Esta opción se usa para especificar la interpretación de los espacios
+ en blanco en los datos de entrada.
+-La opción RECL, donde N es una expresión entera, indica la longitud
+ en caracteres de los registros en un fichero de acceso Directo. Sólo
+ debe aparecer en los ficheros Directos.
+-La opción BLOCKSIZE, donde N es un número entero, asigna un tamaño al
+ buffer de lectura intermedio.
+-La opción MODE, donde Tipo es una cadena de caracteres, es el modo de 
+ apertura del fichero. La opción por defecto es la de lectura escritura
+ siendo las opciones:
+
+	-READ.
+	-WRITE.
+	-READWRITE.
+
+-Todas las opciones son opcionales excepto UNIT que es obligatorio, y si
+ el fichero es de acceso Directo es obligatorio especificar RECL.
+
+ESCRITURA DE UN FICHERO SECUENCIAL.
+-Consiste en transferir información desde la memoria principal al 
+ soporte externo donde está el fichero.
+-Para escribir en un fichero Secuencial se usa WRITE especificando la 
+ Unidad a la que está conectada el fichero indicando que el fichero es
+ Secuencial.
+-La sentencia de escritura tiene la siguiente sintaxis:
+
+	-WRITE ( UNIT= N ,  FORM=Formato ,  ERR=Etiqueta , IOSTAT=N ,
+        ENDFILE=Unidad ).
+
+-La única opción obligatoria sería UNIT, todas las demás han quedado
+ explicadas.
+-Al crear un fichero los registros se escriben uno a continuación del
+ otro, escribiendo un registro especial EOF al final de los datos
+ escritos.
+-Normalmente con CLOSE el registro EOF es automáticamente escrito al
+ cerrar el fichero, aunque se puede usar la siguiente sentencia:
+
+	-ENDFILE N.
+	-ENDFILE ( UNIT= N ,  ERR=Etiqueta ,  IOSTAT=N ).
+
+-Donde N es el número de la Unidad a la que se conectó el fichero
+ Secuencial. La sintaxis más empleada es la primera. Todas las demás
+ opciones ya han quedado explicadas.
+-Si se ejecuta ENDFILE, el nombre de la Unidad a la que está conectado
+ un fichero nuevo, sin datos, creará un fichero vacío.
+
+SENTENCIA DE CIERRE DE UN FICHERO "CLOSE".
+-Esta sentencia rompe la conexión de un fichero con la Unidad a la que
+ se conectó un OPEN siendo su sintaxis:
+
+	-CLOSE ( UNIT= N ,  STATUS=Tipo ,  IOSTAT=N ,  ERR=Etiqueta ).
+
+-La opción UNIT, siendo N un entero, es el número de la Unidad donde
+ se encuentra el fichero que se va a desconectar y puede omitirse, en
+ cuyo caso, será el primer parámetro de CLOSE.
+-La opción STATUS, siendo Tipo una expresión tipo carácter indica el
+ estado del fichero en ese momento, puediendo tener los valores:
+
+	-KEEP (El fichero se guarda después de ser cerrado).
+	-DELETE (El fichero es borrado perdiéndose después del cierre).
+
+-Por defecto toma el valor KEEP, excepto para los ficheros que son de
+ tipo SCRATCH.
+-Los posibles valores que se pueden sacar de las opciones FORM y ACCESS
+ son los siguientes:
+
+	-Registros Secuencial-Formateados.
+	-Registros Secuencial-No formateados.
+	-Registros Directo-Formateados.
+	-Registros Directo-No formateados.
+	-Registros Binario-Formateado.
+	-Registros Binario-No formateado.
+
+-Los registros de tipo Secuencial-Formateados se almacenan en código
+ ASCII y permiten verse con cualquier editor de texto y manipularlos.
+-Si tenemos las siguientes instrucciones:
+
+	-VarI=4
+	 OPEN (33, FILE='FSEQ')
+	 WRITE (33, '(A, I3)') 'RECORD', I/3
+	 WRITE (33, 'C3')
+	 WRITE (33, '(11H El Reg-N3)')
+	 CLOSE (33)
+
+-La salida que dará este ejemplo serán tres segmentos de longitud 
+ variable cuya estructura de registros será la siguiente:
+
+
+-Se puede observar como después de la primera marca de fichero OA, el 
+ segundo registro no aparece por ser de 0 bytes, mientras que el primero
+ tendrá 9 bytes y el tercero tendrá 11 bytes.
+-Los registros de tipo Secuencial-No formateados tienen longitud 
+ variable y no están en código ASCII, sino otro código que lo introduce
+ el programa y lo organiza en bloques físicos de 128 bytes como máximo.
+-Si tenemos las siguientes instrucciones:
+
+	-CHARACTER Array (3)
+	 INTEGER *4 Datos (35)
+	 DATA Datos /35*-1/, Array / 'X', 'Y', 'Z'/
+	 OPEN (33, FILE='UFSEQ', FORM='UNFORMATTED')
+	 WRITE (33) Datos
+	 WRITE (33) Array
+	 CLOSE (33)
+
+-La salida que dará este ejemplo será la siguiente:
+
+
+-Como el bloque tiene un tamaño máximo de 128 bytes por registro, al
+ sacar todos los elementos del Array Datos (Que necesitará 140 bytes)
+ se particiona en dos registros uno de 128 bytes y otro de 12 bytes.
+-Los registros de tipo Directo-Formateados tienen la misma longitud, 
+ que se deberá especificar en la longitud del registro. 
+-A cada registro siempre se le añade el carácter de control de carro 
+ (OD) y el carácter de avance de línea (OA). Si tenemos las siguientes
+ instrucciones:
+
+	-OPEN (33, FILE='FDIR', FORM='FORMATTED', ACCESS='DIRECT',
+	 RECL=10)
+	 WRITE (33, '(A)', REC=1) 'Registro 1'
+	 WRITE (33, '(I5)', REC=3) 30303
+	 CLOSE (33)
+
+-La salida que dará este ejemplo será la siguiente:
+
+
+-Se puede ver que del registro primero se pasa al tercero. En los 
+ ficheros Directos, se reserva espacio para los registros.
+-De esa forma si luego viene un registro segundo se insertaría entre los
+ registros primero y tercero.
+-Los registros de tipo Directo-No formateados es la opción por defecto,
+ en la que la longitud del registro es la misma para todos pero el
+ compilador no introduce los caracteres OD y OA.
+
+LECTURA DE UN FICHERO SECUENCIAL.
+-Transfiere la información contenida en los registros del fichero a la
+ memoria del ordenador representada por las variables que aparecen en 
+ la lista de la sentencia de lectura.
+-La sentencia READ tiene la sintaxis para ficheros Secuenciales
+ siguiente:
+
+	-READ ( UNIT= N,  FORM=Formato ,  END=Etiqueta ,  ERR=Etiqueta ,
+	  IOSTAT=N ,  REC=N ) Lista de variables.
+
+-La opción que siempre debe figurar es el número de Unidad perteneciente
+ al de apertura del fichero Secuencial.
+-La opción END, donde Etiqueta es un número entero indica que al
+ detectar el carácter de fin de fichero transfiera el control de 
+ ejecución del programa a la etiqueta indicada.
+-Todas las demás opciones ya se han explicado.
+-Para leer un fichero la primera opción a realizar es abrirlo en la 
+ opción STATUS con el valor OLD.
+
+POSICIONAMIENTO EN UN FICHERO SECUENCIAL.
+-La lectura y escritura de registros se realiza uno a uno y en serie.
+ Hay dos sentencias para regresar un registro (BACKSPACE) y para
+ posicionarse al principio del fichero (REWIND).
+-La sintaxis de BACKSPACE es la siguiente:
+
+	-BACKSPACE N.
+	-BACKSPACE ( UNIT= N,  IOSTAT=N ,  ERR=Etiqueta ).
+
+-N es el número de la Unidad a la cual está conectado el fichero. Si no 
+ hay registro anterior porque el fichero se acaba de abrir no tiene
+ efecto.
+-Todas las demás opciones ya se han explicado.
+-La sentencia REWIND tiene la siguiente sintaxis:
+
+	-REWIND N.
+	-REWIND ( UNIT= N,  IOSTAT=N ,  ERR=Etiqueta ).
+
+-El efecto es rebobinar el fichero al comienzo, apuntando al primer
+ registro. Todas las demás opciones ya se han explicado.
+
+CREACION DE UN FICHERO DE ACCESO DIRECTO.
+-Cada registro de un fichero de acceso Directo es identificado
+ únicamente por su posición lógica en el fichero o número de registro
+ que es un entero de 1 a n.
+-El acceso a los registros se hace siempre a partir del número de 
+ registro con el que fue creado. En un fichero de acceso Directo no
+ tiene sentido el registro EOF.
+-Por ello ENDFILE no se debe ejecutar sobre estos ficheros, porque no
+ tiene efecto.
+-En un fichero de acceso Directo se reserva espacio de almacenamiento
+ para todos los posibles registros.
+-En los ficheros de acceso Directo los datos de entrada o de salida
+ deben ir siempre con formato. Este tipo de ficheros es creado al
+ abrirlo, especificando acceso directo y dándole una longitud.
+-Los ficheros no formateados guardan la información en código binario,
+ siendo el acceso a los registros más rápidos porque se elimina el 
+ tiempo de conversión a binario.
+-Los registros pueden ser escritos o leídos en cualquier orden. Siempre
+ hay que indicar en las sentencias READ y WRITE un parámetro REC que
+ indicará el número de registro a acceder.
+-El proceso para leer un registro es similar al de escribir. Hay que
+ especificar el número de registro que se quiere leer.
+
+SENTENCIA "INQUIRE".
+-Con esta sentencia durante la ejecución de un programa puede obtenerse
+ información sobre las características de una Unidad o de un fichero.
+-Puede ejecutarse antes de que un fichero haya sido abierto, conectado
+ a una Unidad. 
+-La información que puede requerirse de un fichero o de una Unidad es 
+ muy variada. La sintaxis para esta sentencia es la siguiente:
+
+	-INQUIRE (UNIT=N, Lista de especificadores).
+
+-Donde N es un número de unidad sobre el que se va a preguntar siendo
+ la lista de especificadores opcionales los siguientes:
+
+	-ACCESS=Var*10 ('SEQUENTIAL' o 'DIRECT').
+	-BLANK=Var*4 ('NULL' o 'ZERO').
+	-DIRECT=Var*7 ('YES', 'NO' o 'UNKNOWN').
+	-EXIST=Var ('.TRUE.' o '.FALSE.').
+	-FORM=Var ('UNFORMATTED' o 'FORMATTED).
+	-FORMATTED=Var ('YES', 'NO' o 'UNKNOWN').
+	-NAME=Var*3 ('.TRUE.', '.FALSE.' o 'Nombre').
+	-NEXTREC=N (Registro después del último accedido).
+	-NUMBER=N (Número de Unidad igual a UNIT).
+	-OPENED=Var ('.TRUE.' o '.FALSE.').
+	-RECL=N (Longitud del registro).
+	-SEQUENTIAL=Var ('YES', 'NO' o 'UNKNOWN').
+	-UNFORMATTED=Var ('YES', 'NO' o 'UNKNOWN').
+	-IOSTAT=N (Código de estado).
+	-ERR=Etiqueta (Bifurcaciones de error).
+	-BINARY=Var*10 ('YES', 'NO' o 'UNKNOWN').
+	-BLOKSIZE=N (Tamaño del buffer).
+
+-Si se produce error en INQUIRE todas las variables que figuran en la
+ sentencia queda un valor indefinido excepto la variable entera de
+ STATUS y las variables de los especificadores pueden ser elementos de
+ un Array.
+-Otra posibilidad de INQUIRE es preguntar por el fichero con la
+ siguiente sintaxis:
+
+	-INQUIRE (FILE='Nombre', Lista de especificadores).
+
+-La lista de especificadores es la misma que la anterior. Si el nombre
+ del fichero es un identificador válido para el sistema y si el fichero
+ existe se añadirán los siguientes:
+
+	-DIRECT, FORMATTED, NAME, SEQUENTIAL y UNFORMATTED.
+
+-Si el fichero está abierto puede aplicarse:
+
+	-ACCESS, BLANK, FORM, NEXTREC, NUMBER, BELL, IOSTAT y ERR.
+
+-La ventaja es que provee de información muy valiosa para abrir ficheros
+ o evitar errores que abortan la ejecución de un programa.
+
+FICHEROS INTERNOS.
+-Cuando el programa ejecuta READ o WRITE con un fichero o dispositivo
+ externo se realizan las dos operaciones conjuntamente.
+-En los ficheros internos la transferencia de información se produce 
+ entre dos áreas de memoria interna. Un fichero interno es un área de
+ almacenamiento interno.
+-Las entradas o salidas con ficheros internos deben ser siempre
+ formateadas con los códigos de formato deseados por el programador.
+-Con los ficheros internos hay que especificar siempre los códigos de
+ formato en las sentencias WRITE y READ.
+-Para acceder a más de un registro en un fichero interno hay que
+ ejecutar una sóla vez la sentencia READ o WRITE.
+-Las opciones que no se permiten usar son las siguientes:
+
+	-OPEN, CLOSE, INQUIRE, REWIND, BACKSPACE y ENDFILE.
+
+FICHEROS BINARIOS.
+-Es un fichero de tipo Secuencial aunque también podemos tener ficheros
+ Directos, pero de esta forma permite recibir o escribir más de un 
+ registro a la vez.
+-No se separan los registros y se lee de la misma manera pero en el
+ Directo hay que poner en la opción de formato lo siguiente:
+
+	-FORM='BINARY'.
+
+-Si tenemos las siguientes instrucciones:
+
+	-INTEGER *1 VarA (4)
+	 CHARACTER VarB (3)
+	 CHARACTER *4 VarC
+	 DATA VarA /4*7/
+	 DATA VarC /'Esto'/, VarB /'A', 'B', 'C'/
+	 OPEN (33, FILE='FBIN', FORM='BINARY')
+	 WRITE (33) VarB, VarC
+	 WRITE (33) 'Que', 'Quieres'
+	 WRITE (33) VarA
+	 CLOSE (33)
+
+-La salida que producirá en el registro será la siguiente:
+
+
+-Notar que la separación es imaginaria. Siempre en un fichero Directo
+ se han de inicializar las variables normalmente.
+
+

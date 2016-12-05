@@ -1,0 +1,10 @@
+   Resultado para N=  55 :
+**************************************************
+   Resultado de la Integral numerica para t: 1.409011
+  Resultado de la Integral analitica para t: 1.408993
+  Diferencia = 0.001294 %
+   Resultado de la Integral numerica para L: 7.746296
+  Resultado de la Integral analitica para L: 7.746485
+  Diferencia = 0.002444 %
+  Error = .336E-07
+**************************************************

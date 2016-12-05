@@ -1,0 +1,19 @@
+% ICM00794-Fundamentos de Computación - FCNM-ESPOL
+% Parcial II Termino 2003. Tema 2
+% Sumar términos de progresión geométrica
+% Propuesta de solución. edelros@espol.edu.ec.
+n=input('¿Valor de n?: ');
+a=input('factor a: ');
+do
+    r=input('factor r ,(r~=1): ');
+until (r~=1) 
+s=0;
+i=0;
+do 
+    t=a*(r^i);
+    s=s+t;
+    i=i+1;
+until (i>n)
+disp(s);
+
+    

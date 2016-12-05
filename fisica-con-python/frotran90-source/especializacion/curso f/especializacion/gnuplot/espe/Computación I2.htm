@@ -1,0 +1,318 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0072)http://www.dcc.uchile.cl/~lmateu/CC10A99/Apuntes/funciones+if/index.html -->
+<HTML><HEAD><TITLE>Computación I</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252"><RIGHT>
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY><EM>Miércoles 17 de Marzo</EM> </RIGHT>
+<CENTER>
+<H3>Funciones y ejecución condicional</H3>
+<P></CENTER>Objetivos: Introducir las funciones predefinidas y la instrucción 
+if.
+<P>Temas:
+<P>
+<UL>
+  <LI>Suma de horas con minutos. 
+  <LI>Funciones predefinidas. 
+  <LI>Ejecución condicional de instrucciones. 
+  <LI>Agrupación de instrucciones. </LI></UL>
+<HR>
+
+<H4>Suma de horas con minutos</H4>
+<P>(ver enunciado en clase anterior.)
+<P>Obtener datos:
+<P><CODE><PRE>    print("Hora ? ");
+    int horas1= readInt();
+    print("Minutos ? ");
+    int minutos1= readInt();
+    print("Hora ? ");
+    int horas2= readInt();
+    print("Minutos ? ");
+    int minutos2= readInt();
+</PRE></CODE>Sumar los tiempos: Alternativa 1
+<P><CODE><PRE>    // Sumar hora y minutos por separado
+    int horas= horas1+horas2;
+    int minutos= minutos1+minutos2;
+    // Si minutos &gt;= 60, pasarlos a las horas.
+    print("Suma= "); print(horas+minutos/60);
+    print(" hrs. "); print(minutos%60); print(" min.");
+</PRE></CODE>Sumar los tiempos: Alternativa 2
+<P><CODE><PRE>    // Sumar en minutos
+    int minutos= horas1*60+minutos1 + horas2*60+minutos2;
+    print("Suma= "); print(minutos/60); print(" hrs. ");
+    print(minutos%60); print(" min. ");
+</PRE></CODE>Propuesto: Modificar el programa para que sea capaz de sumar horas, 
+minutos y segundos.
+<P>
+<HR>
+
+<H4>Funciones predefinidas</H4>
+<P>En el lenguaje Java se pueden calcular las funciones matemáticas típicas que 
+vienen en una calculadora. Por ejemplo para calcular el lado de un cuadrado a 
+partir de su área se puede usar la función que calcula la raíz cuadrada:
+<P><CODE><PRE>    double lado= sqrt(area);
+</PRE></CODE>En esta instrucción, <CODE>sqrt(area)</CODE> es una llamada a una 
+función. Una llamada a función es una forma de expresión aritmética. Su sintaxis 
+general es:
+<P>
+<CENTER>``<EM>función</EM>''( ``<EM>argumentos</EM>'')</CENTER>
+<P>En donde ``<EM>argumentos</EM>'' son una o más expresiones separadas por 
+coma. Una llamada a una función se puede colocar en cualquier parte en donde sea 
+válido colocar una expresión.
+<P>Una función puede ser por ejemplo:
+<P>(Obs. a los profesores: vean sólo algunas de estas funciones. La idea es 
+mostrar la sintaxis.)
+<P>
+<CENTER>
+<TABLE cellSpacing=4 cellPadding=4 border=2>
+  <TBODY>
+  <TR>
+    <TH>Función 
+    <TH>Significado 
+    <TH>Ejemplo 
+    <TH>Valor 
+  <TR>
+    <TD>sqrt(x) 
+    <TD>raíz cuadrada 
+    <TD>sqrt(4.0) 
+    <TD>2.0 
+  <TR>
+    <TD>abs(x) 
+    <TD>valor absoluto 
+    <TD>abs(-3.0) 
+    <TD>3.0 
+  <TR>
+    <TD>pow(x,y) 
+    <TD>x elevado a y 
+    <TD>pow(2.0, 3.0) 
+    <TD>8.0 
+  <TR>
+    <TD>exp(x) 
+    <TD>e a la x 
+    <TD>exp(1.0) 
+    <TD>2.71... 
+  <TR>
+    <TD>log(x) 
+    <TD>logaritmo natural 
+    <TD>log(E) 
+    <TD>1.0 </TR></TBODY></TABLE></CENTER>
+<P>O puede ser una función trigonométrica:
+<P>
+<CENTER>
+<TABLE cellSpacing=4 cellPadding=4 border=2>
+  <TBODY>
+  <TR>
+    <TH>Función 
+    <TH>Significado 
+    <TH>Ejemplo 
+    <TH>Valor 
+  <TR>
+    <TD>sin(x) 
+    <TD>seno 
+    <TD>sin(PI/2) 
+    <TD>1.0 
+  <TR>
+    <TD>cos(x) 
+    <TD>coseno 
+    <TD>sin(PI) 
+    <TD>-1.0 
+  <TR>
+    <TD>tan(x) 
+    <TD>tangente 
+    <TD>tan(PI/4) 
+    <TD>1.0 
+  <TR>
+    <TD>asin(x) 
+    <TD>arco seno 
+    <TD>asin(1.0) 
+    <TD>PI/2 
+  <TR>
+    <TD>acos(x) 
+    <TD>arco coseno 
+    <TD>asin(-1.0) 
+    <TD>PI 
+  <TR>
+    <TD>atan(x) 
+    <TD>arco tangente 
+    <TD>atan(1.0) 
+    <TD>PI/4 </TR></TBODY></TABLE></CENTER>
+<P>O puede ser una función de conversión:
+<P>
+<CENTER>
+<TABLE cellSpacing=4 cellPadding=4 border=2>
+  <TBODY>
+  <TR>
+    <TH>Función 
+    <TH>Significado 
+    <TH>Ejemplo 
+    <TH>Valor 
+  <TR>
+    <TD>round(x) 
+    <TD>redondea 
+    <TD>round(1.5) 
+    <TD>2.0 
+  <TR>
+    <TD>
+    <TD>
+    <TD>round(1.4) 
+    <TD>1.0 
+  <TR>
+    <TD>floor(x) 
+    <TD>piso 
+    <TD>floor(3.9) 
+    <TD>3.0 
+  <TR>
+    <TD>
+    <TD>
+    <TD>floor(-5.2) 
+    <TD>-6.0 
+  <TR>
+    <TD>ceil(x) 
+    <TD>techo 
+    <TD>ceil(3.9) 
+    <TD>4.0 
+  <TR>
+    <TD>
+    <TD>
+    <TD>ceil(-5.2) 
+    <TD>-5.0 </TR></TBODY></TABLE></CENTER>
+<P>O puede ser una función para calcular el máximo o mínimo:
+<P>
+<CENTER>
+<TABLE cellSpacing=4 cellPadding=4 border=2>
+  <TBODY>
+  <TR>
+    <TH>Función 
+    <TH>Significado 
+    <TH>Ejemplo 
+    <TH>Valor 
+  <TR>
+    <TD>max(x) 
+    <TD>máximo 
+    <TD>max(3.5, 5.2) 
+    <TD>5.2 
+  <TR>
+    <TD>min(x) 
+    <TD>mínimo 
+    <TD>min(3.5, 5.2) 
+    <TD>3.5 </TR></TBODY></TABLE></CENTER>
+<P>Todas las funciones anteriores operan con números reales (double). La 
+siguiente función toma un número real y devuelve un entero:
+<P>
+<CENTER>
+<TABLE cellSpacing=4 cellPadding=4 border=2>
+  <TBODY>
+  <TR>
+    <TH>Función 
+    <TH>Significado 
+    <TH>Ejemplo 
+    <TH>Valor 
+  <TR>
+    <TD>trunc(x) 
+    <TD>convierte 
+    <TD>trunc(3.9) 
+    <TD>3 
+  <TR>
+    <TD>
+    <TD>a entero 
+    <TD>trunc(-5.2) 
+    <TD>-5 </TR></TBODY></TABLE></CENTER>
+<P>Ejercicio: Calcular el máximo de 3 números.
+<P><SAMPLE><PRE>    Primer número ? <U>2.1</U>
+    Segundo número ? <U>8.6</U>
+    Tercer número ? <U>-2.0</U>
+    El máximo es : 8.6
+</PRE></SAMPLE>Solución 1:
+<P><CODE><PRE>    // Leer datos
+    print("Primer número ? ");
+    double a= readDouble();
+    print("Segundo número ? ");
+    double b= readDouble();
+    print("Tercer número ? ");
+    double c= readDouble();
+    // Calcular el máximo
+    print("El máximo es : ");
+    print(max(max(a,b),c);
+</PRE></CODE>Los argumentos de una llamada a una función pueden ser el resultado 
+de otra llamada a función.
+<P>
+<HR>
+
+<H4>Ejecución condicional de instrucciones</H4>
+<P>Motivación: Indicar si una ecuación de segundo grado tiene raíces reales o 
+complejas.
+<P><SAMPLE><PRE>    Coeficiente a ? <U>1.</U>
+    Coeficiente b ? <U>4.</U>
+    Coeficiente c ? <U>7.</U>
+    La ecuación tiene raíces complejas
+</PRE></SAMPLE>La idea es que si b*b &gt;= 4*a*c, la ecuación tiene raíces 
+reales, si no, son complejas. Por lo tanto, hay que desplegar mensajes 
+distintos. Hay que ejecutar instrucciones distintas.
+<P><CODE><PRE>    <B>if</B> (b*b &gt;= 4*a*c)
+      print("La ecuación tiene raíces reales");
+    <B>else</B>
+      print("La ecuación tiene raíces complejas");
+</PRE></CODE>Sintaxis de <B>if</B>:
+<P><PRE>    if (``condición'')
+      ``instrucción 1''
+    else
+      ``instrucción 2''
+</PRE>Semántica de <B>if</B>:
+<P>
+<UL>
+  <LI>Se evalúa la ``condición''. 
+  <LI>Si resulta verdadera se ejecuta la ``instrucción 1'' y no se ejecuta 
+  ``instrucción 2''. 
+  <LI>Si resulta falsa se ejecuta la ``instrucción 2'' y no se ejecuta 
+  ``instrucción 1''. </LI></UL>
+<P>La condición sigue la siguiente sintaxis:
+<P>
+<CENTER>``<EM>expresión 1</EM>'' ``<EM>operador relacional</EM>'' 
+``<EM>expresión 2</EM>''</CENTER>
+<P>En donde el operador relacional compara expresiones numéricas y puede ser: 
+&gt;, &lt;, &gt;= (mayor o igual), &lt;= (menor o igual), == (igual) o != 
+(distinto).
+<P>Ejercicio: desplegar el máximo entre a y b sin usar max.
+<P>Solución incorrecta:
+<P><CODE><PRE>    if (a&gt;b)
+      print("El máximo es ");
+      print(a);
+    else
+      print("El máximo es ");
+      print(b);
+</PRE></CODE>¡Entre if (a&gt;b) y el else solo puede haber una instrucción!
+<P>
+<HR>
+
+<H4>Agrupación de instrucciones</H4>
+<P>Se puede agrupar instrucciones usando { }:
+<P><CODE><PRE>    { print("El máximo es "); print(a); }
+</PRE></CODE>Encerradas entre { }, las dos instrucciones son ahora una sola 
+instrucción compuesta, que se puede colocar en cualquier lugar en donde sea 
+válido colocar una instrucción. La forma general es:
+<P>
+<CENTER>{ ``<EM>instrucción 1</EM>'' ``<EM>instrucción 2</EM>'' ... 
+``<EM>instrucción n</EM>'' } </CENTER>
+<P>Por lo tanto, el máximo se puede escribir como:
+<P><CODE><PRE>    if (a&gt;b) {
+      print("El máximo es ");
+      print(a);
+    }
+    else {
+      print("El máximo es ");
+      print(b);
+    }
+</PRE></CODE>La cantidad de líneas que ocupe una instrucción es irrelevante.
+<P>
+<HR>
+Tarea:
+<P>Complete el programa que calcula las raíces de la ecuación de segundo grado. 
+Cuando la ecuación tiene raíces reales, el diálogo debe ser el siguiente:
+<P>Por ejemplo:
+<P><SAMPLE><PRE>    Coef. a ? <B>1.</B>
+    Coef. b ? <B>-3.</B>
+    Coef. c ? <B>2.</B>
+    Las raíces son 1.0 y 2.0
+</PRE></SAMPLE>
+<HR>
+
+<P></P></BODY></HTML>

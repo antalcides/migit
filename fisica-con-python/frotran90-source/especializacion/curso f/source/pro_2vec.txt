@@ -1,0 +1,31 @@
+C     PROGRAMA QUE CALCULA EL PRODUCTO PUNTO ENTRE DOS VECTORES
+      real*4 a(20)
+      real*4 b(20)
+      write(*,*) ' da el numero de componentes '
+      read(*,*) n
+      c=0
+      d=0
+      h=0
+    1 c=c+1
+      if (c.le.n) then
+      write(*,*) 'la componente a(',c,') '
+      read(*,*) a(c)
+      goto 1
+      else
+    5 d=d+1
+      if (d.le.n) then
+      write(*,*) 'la componente b(',d,') '
+      read(*,*) b(d)
+      goto 5
+      else
+    9 h=h+1
+      if (h.le.n) then
+      z=z+(a(h))*(b(h))
+      goto 9
+      else
+      write(*,*) 'el producto punto entre a y b es ',z
+      endif
+      endif
+      endif
+      stop
+      end

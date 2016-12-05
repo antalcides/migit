@@ -1,0 +1,9 @@
+
+h3 { font-size: 12pt; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular }
+body      { font-size: 11pt; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular }
+p       { font-size: 11pt; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular }
+td   { font-size: 11pt; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular }
+a:link    { color: navy; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; text-decoration: none }
+a:visited        { color: navy; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; text-decoration: none }
+a:hover  { color: red; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; text-decoration: none }
+a:active    { color: navy; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; text-decoration: none }

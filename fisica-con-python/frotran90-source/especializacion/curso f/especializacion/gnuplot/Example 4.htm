@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0082)http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_4.html -->
+<HTML><HEAD><TITLE>Example 4:</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY background="Example 4_archivos/summer_p.gif">
+<P>
+<HR>
+<A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_5.html" 
+name=tex2html89><IMG src="Example 4_archivos/next_motif.gif" align=middle></A> 
+<A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/section3_2.html" 
+name=tex2html87><IMG src="Example 4_archivos/up_motif.gif" align=middle></A> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_3.html" 
+name=tex2html81><IMG src="Example 4_archivos/previous_motif.gif" 
+align=middle></A> <BR><B>Next:</B> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_5.html" 
+name=tex2html90>Going further:</A> <B>Up:</B> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/section3_2.html" 
+name=tex2html88>Using GNUPLOT for </A><B>Previous:</B> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_3.html" 
+name=tex2html82>Example 3:</A> 
+<HR>
+
+<P>
+<H4><A name=SECTION0002004000000000000>Example 4:</A></H4>In the above plots of 
+<IMG alt="" src="Example 4_archivos/_9659_tex2html_wrap11756.xbm" align=bottom>, 
+it would make more sense to label the axis in units of <IMG alt="" 
+src="Example 4_archivos/_9659_tex2html_wrap11758.xbm" align=bottom>. The 
+position and labels of the tic labels may be specified by the user, with the 
+<TT>set xtics</TT> and <TT>set ytics</TT> commands. This is demonstrated by the 
+following example, shown in Figure <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_4.html#eg4">4</A>. 
+
+<P><PRE><TT>
+    set terminal latex
+    set output "eg4.tex"
+    set format y "$%g$"
+    set format x "$%.2f$"
+    set title "This is $\sin(x)$"
+    set xlabel "This is the $x$ axis"
+    set ylabel "$\sin(x)$"
+    set nokey
+    set xtics -pi, pi/4
+    plot [-pi:pi] [-1:1] sin(x)</TT></PRE>
+<P><A name=9164><IMG src="Example 4_archivos/invis_anchor.xbm" align=middle></A>
+<P><A name=eg4><IMG src="Example 4_archivos/invis_anchor.xbm" 
+align=middle></A><IMG alt="" src="Example 4_archivos/_9659_figure8178.gif" 
+align=bottom>
+<P>
+<P>Since <TT>pi</TT> is a predefined variable in GNUPLOT, we can use it anywhere 
+we may use an expression. The <TT>set xtics</TT> command here specifies that the 
+tics on the <IMG alt="" src="Example 4_archivos/_9659_tex2html_wrap11744.xbm" 
+align=bottom> axis start at <IMG alt="" 
+src="Example 4_archivos/_9659_tex2html_wrap11808.xbm" align=bottom> and 
+increment by <IMG alt="" src="Example 4_archivos/_9659_tex2html_wrap11810.xbm" 
+align=bottom>. Since no end point is given, the tics continue to the right edge. 
+We have also turned off the key, and changed the format to restrict the <IMG 
+alt="" src="Example 4_archivos/_9659_tex2html_wrap11744.xbm" align=bottom>-axis 
+tic labels to 2 decimal places. 
+<P>With a little more work, the plot can look even better. Another form of this 
+command allows us to specify the label and position of each tic individually. 
+Replacing the above <TT>set xtics</TT> command with the following gives us 
+Figure <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_4.html#eg5">5</A>. 
+We also make use of the line continuation character, the backslash (\), to 
+spread out this command for readability. 
+<P><PRE><TT>
+    set xtics ("$-\pi$" -pi,\
+     "$-\frac{\pi}{2}$" -pi/2,\
+     "0" 0,\
+     "$\frac{\pi}{2}$" pi/2,\
+     "$\pi$" pi)</TT></PRE>
+<P><A name=10124><IMG src="Example 4_archivos/invis_anchor.xbm" 
+align=middle></A>
+<P><A name=eg5><IMG src="Example 4_archivos/invis_anchor.xbm" 
+align=middle></A><IMG alt="" src="Example 4_archivos/_9659_figure9168.gif" 
+align=bottom>
+<P>
+<P>
+<HR>
+
+<P>
+<ADDRESS>David.Kotz@dartmouth.edu </ADDRESS></BODY></HTML>

@@ -1,0 +1,498 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0068)http://www.dcc.uchile.cl/~lmateu/CC10A99/Apuntes/sintaxis/index.html -->
+<HTML><HEAD><TITLE>Computación I</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY><RIGHT><EM>Lunes 26 de Abril</EM> </RIGHT>
+<CENTER>
+<H3>La sintaxis de Java</H3>
+<P></CENTER>Objetivos: Mostrar que la estructura de los programas se rige por 
+reglas sintácticas que se pueden aplicar matemáticamente para determinar si un 
+programa está sintácticamente bien escrito.
+<P>Esta materia no será preguntada en ningún control, sin embargo, el profesor 
+de este curso estima conveniente conocerla, puesto que su comprensión ayudará a 
+los alumnos a explicarse muchos de los errores que arrojan los compiladores.
+<P>Temas:
+<P>
+<UL>
+  <LI>La sintaxis. 
+  <LI>Categorías sintácticas. 
+  <LI>Reglas sintácticas o gramaticales. 
+  <LI>El árbol sintáctico. 
+  <LI>Reglas de desambiguación. 
+  <LI>La expresión de asignación. </LI></UL>
+<HR>
+
+<P>
+<H4>La sintaxis</H4>Para un inexperto, la forma en que se combinan las palabras 
+y símbolos para formar programas ejecutables puede parecer confusa y casi 
+antojadiza. Sin embargo, la escritura de programas computacionales se rige por 
+un reducido conjunto de reglas gramaticales. Este conjunto de reglas se denomina 
+la <EM>sintaxis</EM> del lenguaje de programación. Por esta razón, también se 
+habla de reglas sintácticas como sinónimo de reglas gramaticales.
+<P>Las reglas gramaticales son similares a sus contrapartes de los lenguajes 
+hablados. La diferencia radica en que en un lenguaje hablado <EM>una frase 
+gramaticalmente mal formada, una persona es capaz de comprender</EM>. Al 
+contrario, en un lenguaje de programación, cualquier descuido en el cumplimiento 
+de su gramática o sintaxis se traduce en un mensaje de error, y por lo tanto, un 
+programa que no funciona.
+<P>Por ejemplo, la siguiente instrucción:
+<P><CODE><PRE>    a+1 = b;
+</PRE></CODE>podría ser interpretada como calcular <TT>a+1</TT> y asignársela a 
+<TT>b</TT>. Pero el compilador es incapaz de captar esta interpretación y 
+termina con un mensaje de error.
+<P>Por esta razón, es sumamente importante dominar la gramática del lenguaje que 
+se usa para programar. Su conocimiento, permite comprender más rápidamente los 
+errores que se cometerán inevitablemente al escribir un programa. Tales errores 
+serán típicamente comunicados por el compilador en un lenguaje rudo y críptico.
+<P>A lo largo del curso, hemos descrito estas reglas gramaticales. Sin embargo, 
+éste es un buen momento para repasar tales reglas y verlas como un todo. También 
+aprovecharemos el momento para presentar nuevas reglas no vistas hasta el 
+momento.
+<P>Cada lenguaje de programación posee su propia sintaxis. Las reglas que rigen 
+para Java, no son las mismas que para Pascal o Visual Basic. Por razones de 
+tiempo, en este curso solo veremos en profundidad las reglas del lenguaje Java. 
+La buena noticia es que una vez que se entiende la sintaxis de un lenguaje 
+específico, es muy fácil aprender la sintaxis de otros lenguajes de 
+programación.
+<P>
+<HR>
+
+<H4>Categorías sintácticas</H4>Las reglas gramaticales que constituyen la 
+sintaxis de un lenguaje se basan en la existencia de <EM>categorías 
+sintácticas</EM>. Por ejemplo, en Java, <EM>instrucciones</EM>, 
+<EM>expresiones</EM>, <EM>asignaciones</EM>, etc. son ejemplos de categorías 
+sintácticas de la misma forma que las proposiciones, los verbos, los 
+sustantivos, son categorías sintácticas en un lenguaje hablado como el 
+castellano.
+<P>Cuando una regla gramatical especifica que en tal contexto debe ir tal 
+categoría sintáctica, significa que ahí puede y <EM>debe</EM> ir cualquier 
+construcción del lenguaje que sea considerada de esa categoría.
+<P>Para el caso específico del lenguaje Java, las categorías sintácticas más 
+importantes son las siguientes:
+<P>
+<UL>
+  <LI>identificadores. 
+  <LI>constantes. 
+  <LI>operadores binarios y unario. 
+  <LI>expresiones. 
+  <LI>instrucciones. </LI></UL>
+<HR>
+
+<H4>Reglas sintácticas</H4>La sintaxis de un lenguaje permite determinar 
+matemáticamente si un programa es correcto desde el punto de vista sintáctico o 
+no. Esta sintaxis se expresa en base a un conjunto de reglas gramaticales del 
+estilo:
+<P>
+<CENTER><EM>exp</EM> -&gt; <EM>exp</EM> <EM>op-bin</EM> <EM>exp</EM>
+<P></CENTER>En donde <EM>exp</EM> y <EM>op-bin</EM> son abreviaciones de las 
+categorías sintácticas <EM>expresión</EM> y <EM>operador binario</EM> (un 
+símbolo que denota una operación entre dos valores).
+<P>Lo que aparece a la izquierda del símbolo -&gt; es el nombre de la categoría 
+sintáctica que se pretende describir. A la derecha se indica una de las formas 
+de construir frases del lenguaje que pertenecen a esa categoría. La regla 
+sintáctica anterior se lee como: <EM>una expresión puede ser construida a partir 
+de otra expresión seguida de un operador binario y luego una tercera 
+expresión</EM>.
+<P>Una sola regla gramatical no basta para describir lo que es una expresión. No 
+todas las expresiones se construyen en base a operaciones sobre otras 
+expresiones. La siguientes reglas indican que una constante o un identificador 
+también son expresiones.
+<P>
+<CENTER>
+<TABLE cellSpacing=4 cellPadding=4>
+  <TBODY>
+  <TR>
+    <TD><EM>exp</EM> 
+    <TD>-&gt; <EM>const</EM> 
+  <TR>
+    <TD>
+    <TD>-&gt; <EM>ident</EM> </TR></TBODY></TABLE></CENTER>
+<P>En donde <EM>const</EM> es la abreviación para una constante e <EM>ident</EM> 
+es un identificador.
+<P>(Obs.: en la última regla sintáctica se ha omitido la categoría sintáctica 
+<EM>exp</EM> con el objeto de aligerar la notación.)
+<P>También se necesita describir qué es un operador binario. Esto se hace 
+mediante las siguientes reglas gramaticales:
+<P>
+<CENTER>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD><EM>op-bin</EM> 
+    <TD>-&gt; 
+    <TD><TT>+</TT> 
+  <TR>
+    <TD>
+    <TD>-&gt; 
+    <TD><TT>-</TT> 
+  <TR>
+    <TD>
+    <TD>-&gt; 
+    <TD><TT>*</TT> 
+  <TR>
+    <TD>
+    <TD>-&gt; 
+    <TD><TT>/</TT> 
+  <TR>
+    <TD>
+    <TD>-&gt; 
+    <TD><TT>%</TT> </TR></TBODY></TABLE></CENTER>
+<P>
+<HR>
+
+<H4>Arbol sintáctico</H4>Una árbol sintáctico permite demostrar que una 
+secuencia de caracteres es una determinada categoría sintáctica. Por ejemplo, el 
+siguiente es un árbol sintáctico que demuestra que 'a+5' es una expresión:
+<P><SAMPLE><PRE>      a     +     5
+      |     |     |     
+    ident op-bin const
+      |     |     |
+     exp    |    exp
+        \   |   /
+         \  |  /
+           exp
+</PRE></SAMPLE>Para que un árbol sintáctico sea válido se necesita que para cada 
+bifurcación del estilo:
+<P><SAMPLE><PRE>        sub-categorías ...
+            \  |  /
+           categoría
+</PRE></SAMPLE>exista la siguiente regla sintáctica:
+<P>
+<CENTER>
+<TABLE cellSpacing=4 cellPadding=4>
+  <TBODY>
+  <TR>
+    <TD><EM>categoría</EM> 
+    <TD>-&gt; <EM>sub-categorías</EM> ... </TR></TBODY></TABLE></CENTER>
+<P>Por ejemplo la siguiente bifurcación:
+<P><SAMPLE><PRE>         exp op-bin exp
+           \   |   /
+            \  |  /
+              exp
+</PRE></SAMPLE>es posible gracias a que existe la regla:
+<P>
+<CENTER>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD><EM>exp</EM> 
+    <TD>-&gt; <EM>exp</EM> <EM>op-bin</EM> <EM>exp</EM> 
+</TR></TBODY></TABLE></CENTER>
+<P>El principio básico de la sintaxis consiste en que una frase corresponde a 
+una categoría sintáctica determinada, sí y solo sí (i) es posible construir un 
+árbol sintáctico en donde en la raíz aparezca la categoría sintáctica pretendida 
+y (ii) la lectura secuencial de las hojas corresponde a la frase original.
+<P>La secuencia 'a+b*c' también es una expresión, puesto que su árbol sintáctico 
+es:
+<P><SAMPLE><PRE>    a    +    b    *     c
+    |    |    |    |     |
+  ident  |  ident  |    ident
+    |    |    |    |     |
+    |    |   exp op-bin exp
+    |    |      \  |   /
+   exp op-bin     exp
+      \   \      /
+       \   \    /
+           exp
+</PRE></SAMPLE>En general, basta construir un sólo arbol sintáctico para 
+demostrar que una frase corresponde a la categoría que aparece en la raíz. Si no 
+es posible construir este árbol, entonces la frase no corresponde a esa 
+categoría. Por ejemplo, no es posible construir un árbol sintáctico que muestre 
+que 'a + b c' es una expresión.
+<P>Sin embargo, con las reglas que hemos enunciado para una expresión hasta el 
+momento, no podemos mostrar que '-a + b' es una expresión. El siguiente grupo de 
+reglas sintácticas permite enriquecer el conjunto de frases que corresponden a 
+expresiones:
+<P>
+<CENTER>
+<H4>Expresiones</H4>
+<P>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD><EM>exp</EM> 
+    <TD>-&gt; <EM>const</EM> 
+    <TD>(1) 
+  <TR>
+    <TD>
+    <TD>-&gt; <EM>ident</EM> 
+    <TD>(2) 
+  <TR>
+    <TD>
+    <TD>-&gt; <EM>op-unario</EM> <EM>exp</EM> 
+    <TD>(3) 
+  <TR>
+    <TD>
+    <TD>-&gt; <EM>exp</EM> <EM>op-bin</EM> <EM>exp</EM> 
+    <TD>(4) 
+  <TR>
+    <TD>
+    <TD>-&gt; ( <EM>exp</EM> ) 
+    <TD>(5) </TR></TBODY></TABLE></CENTER>
+<P>
+<CENTER>
+<H4>Operadores binarios</H4>
+<P>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD>aritméticos: 
+    <TD><EM>op-bin</EM> 
+    <TD>-&gt; 
+    <TD><TT>+</TT> 
+  <TR>
+    <TD>
+    <TD>
+    <TD>-&gt; 
+    <TD><TT>-</TT> 
+  <TR>
+    <TD>
+    <TD>
+    <TD>-&gt; 
+    <TD><TT>*</TT> 
+  <TR>
+    <TD>
+    <TD>
+    <TD>-&gt; 
+    <TD><TT>/</TT> 
+  <TR>
+    <TD>
+    <TD>
+    <TD>-&gt; 
+    <TD><TT>%</TT> 
+  <TR>
+    <TD>relacionales: 
+    <TD>
+    <TD>-&gt; 
+    <TD><TT>==</TT> 
+  <TR>
+    <TD>
+    <TD>
+    <TD>-&gt; 
+    <TD><TT>!=</TT> 
+  <TR>
+    <TD>
+    <TD>
+    <TD>-&gt; 
+    <TD><TT>&gt;=</TT> 
+  <TR>
+    <TD>
+    <TD>
+    <TD>-&gt; 
+    <TD><TT>&lt;=</TT> 
+  <TR>
+    <TD>
+    <TD>
+    <TD>-&gt; 
+    <TD><TT>&gt;</TT> 
+  <TR>
+    <TD>
+    <TD>
+    <TD>-&gt; 
+    <TD><TT>&lt;</TT> 
+  <TR>
+    <TD>booleanos: 
+    <TD>
+    <TD>-&gt; 
+    <TD><TT>&amp;&amp;</TT> 
+  <TR>
+    <TD>
+    <TD>
+    <TD>-&gt; 
+    <TD><TT>||</TT> </TR></TBODY></TABLE></CENTER>
+<P>
+<CENTER>
+<H4>Operadores unarios</H4>
+<P>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD>aritméticos: 
+    <TD><EM>op-unario</EM> 
+    <TD>-&gt; 
+    <TD><TT>-</TT> 
+  <TR>
+    <TD>
+    <TD>
+    <TD>-&gt; 
+    <TD><TT>+</TT> 
+  <TR>
+    <TD>booleanos: 
+    <TD>
+    <TD>-&gt; 
+    <TD><TT>!</TT> </TR></TBODY></TABLE></CENTER>
+<P>Hemos enumerado las reglas que describen lo que es una expresión para indicar 
+cuando se aplican en los árboles sintácticos que mostrares a continuación:
+<P>
+<UL>
+  <LI>-a + b
+  <P><SAMPLE><PRE>        -       a     +      5
+        |       |     |      |
+    op-unario ident op-bin const
+        \       |     |      |
+         \     exp(2)/      exp(1)
+          \   /     /      /
+           exp(3)  /      /
+              \   /      /
+               --+-------
+                 |
+                exp(4)
+</PRE></SAMPLE>
+  <LI>a - ( b - c )
+  <P><SAMPLE><PRE>    a     -    (   b     -      5    )
+    |     |    |   |     |      |    |
+  ident op-bin | ident op-bin const  |
+    |     |    |   |     |      |    |
+   exp(2) |    |  exp(2) |     exp(1)|
+      \    \    \    \   |    /     /
+       \    \    \    ---+----     /
+        \    \    \     exp(4)    /
+         \    \    \     |       /
+          \    \    -----+-------
+           \    \       exp(5)
+            \    \     /
+             -----\----
+                  exp(4)
+</PRE></SAMPLE>
+  <LI>a + - b
+  <P><SAMPLE><PRE>     a     +        -         b
+     |     |        |         |
+   ident   |      op-unario ident
+     |     |        \      /
+     |     |         \   exp(2)
+     |     |          \ /  
+    exp(2) op-bin     exp(3)
+       \    |        /
+        ----|--------
+           exp(4)
+</PRE></SAMPLE></LI></UL>Del mismo modo, se puede mostrar que 'a+!b' también es 
+una expresión. Para ello basta cambiar el '-' por '!' en el árbol anterior. Sin 
+embargo, aún cuando sintácticamente se trate de una expresión bien escrita, es 
+una expresión incorrecta, puesto que no es posible asignarle un tipo a esta 
+expresión. Esto quedará más claro cuando hablemos sobre <EM>el sistema de 
+tipos</EM>.
+<P>Ejercicios:
+<P>
+<UL>
+  <LI>Construya un arbol sintáctico del la siguiente expresión:
+  <P><CODE><PRE>    -(a+-5*b)
+</PRE></CODE>Para cada expresión que aparezca en el árbol, indique el número 
+  de la regla que justifica esa bifurcación.
+  <P></P>
+  <LI>En el siguiente árbol hay dos errores. Indique cuáles son:
+  <P><SAMPLE><PRE>     a     +    5     c
+     |     |    |     |
+   ident   |  const ident
+     |     |    |     |
+     |     |   exp   exp
+     |     |     \   /  
+    exp    |      exp
+       \   |      /
+        ---|------
+          exp
+</PRE></SAMPLE></LI></UL>
+<HR>
+
+<H4>Reglas de desambiguación</H4>El árbol sintáctico no sólo muestra que una 
+frase es una expresión, si no que además indica cuál es la parentización que 
+usará el compilador para evaluar la expresión. Por ejemplo, más arriba se vió un 
+árbol sintáctico para la expresión 'a-b*c'. En ese árbol se formaba una 
+sub-expresión a partir de 'b*c'. Al tomar esa decisión se manifiesta que primero 
+se evalúa b*c y luego a + (b*c).
+<P>El problema es que esta expresión posee un segundo árbol sintáctico:
+<P><SAMPLE><PRE>    a     -      b     *      c
+    |     |      |     |      |
+  ident op-bin ident op-bin ident
+    \     |     /   /      /
+     exp  |   exp  /     exp
+       \  |  /    /     /
+         exp     /     /
+            \   /     /
+             --+-----
+              exp
+</PRE></SAMPLE>En este otro árbol, se calcula 'a-b' y el resultado se multiplica 
+por c, lo que claramente es distinto de lo anterior. Este tipo de expresiones 
+son entonces ambiguas. El lenguaje hablado está típicamente plagado de 
+ambiguedades que a veces causan problemas de interpretación. Sin embargo, un 
+lenguaje computacional no puede ser ambiguo.
+<P>Por esta razón, los lenguajes de programación incluyen además de las reglas 
+sintácticas, reglas de desambiguación que le dan un sentido único a las 
+expresiones como la anterior. Estas reglas son las siguientes:
+<P>
+<UL>
+  <LI><EM>Precedencia</EM>
+  <P>Indica qué operadores tienen precedencia al momento de construir el árbol 
+  sintáctico. En Java, las prioridades son las siguientes:
+  <P>
+  <CENTER>
+  <TABLE cellSpacing=4 cellPadding=4>
+    <TBODY>
+    <TR>
+      <TD><TT>- + </TT>
+      <TD>(operadores unarios) 
+    <TR>
+      <TD><TT>* / %</TT> 
+    <TR>
+      <TD><TT>+ - </TT>
+      <TD>(operadores binarios) 
+    <TR>
+      <TD><TT>== != &gt;= &lt;= &gt; &lt;</TT> 
+    <TR>
+      <TD><TT>!</TT> 
+    <TR>
+      <TD><TT>&amp;&amp; ||</TT> </TR></TBODY></TABLE></CENTER>
+  <P>Estas reglas eliminan el segundo árbol sintáctico como posible 
+  interpretación. Java interpreta inequívocamente la expresion <TT>'a-b*c'</TT> 
+  por medio del primer árbol sintáctico.
+  <P></P>
+  <LI><EM>Asociatividad</EM>
+  <P>Indica como parentizar en caso de operadores de la misma precedencia. En 
+  Java casi todos los operadores se parentizan de izquierda a derecha. Esto 
+  significa que:
+  <P><SAMPLE><PRE>   a+b+c     es equivalente a   (a+b)+c
+</PRE></SAMPLE></LI></UL>Con las reglas de desambiguación toda expresión tiene 
+un único árbol sintáctico válido.
+<P>
+<HR>
+
+<H4>La expresión de asignación</H4>En Java la asignación es una expresión como 
+cualquier otra y por lo tanto se puede colocar válidamente en cualquier lugar en 
+donde deba ir una expresión. La regla sintáctica que describe la asignación es 
+la siguiente:
+<P>
+<CENTER>
+<TABLE cellSpacing=4 cellPadding=4>
+  <TBODY>
+  <TR>
+    <TD><EM>exp</EM> 
+    <TD>-&gt; <EM>ident</EM> = <EM>exp</EM> </TR></TBODY></TABLE></CENTER>
+<P>Con esta regla, la siguiente expresión está sintácticamente bien escrita:
+<P><SAMPLE><PRE>    a= b= 0       o equivalentemente:   a= (b= 0) 
+</PRE></SAMPLE>Su significado semántico también es correcto: la expresión 'b=0' 
+indica que se asigna 0 a la variable b. El resultado de esa expresión es el 
+mismo valor asignado, es decir 0. Ese mismo valor se asigna luego a la variable 
+a.
+<P>Este tipo de construcciones puede ser útil para realizar varias 
+inicializaciones en una misma línea:
+<P><SAMPLE><PRE>    a= b= c= d= e= 0
+</PRE></SAMPLE>Gracias a que la asignación es una expresión, también es posible 
+escribir:
+<P><CODE><PRE>    ...
+    while ( (a= readInt())!=0 ) {
+      ...
+    }
+
+    en vez de:
+
+    a= readInt();
+    while ( a!=0 ) {
+      ...
+      a= readInt();
+    }
+</PRE></CODE>Se puede apreciar que el primer trozo de código resulta más breve 
+que el segundo.
+<P>
+<HR>
+
+<P></P></BODY></HTML>

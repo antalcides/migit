@@ -1,0 +1,474 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0038)http://www6.uniovi.es/gptug/node6.html -->
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds --><HTML><HEAD><TITLE>More on Plotting</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="More on Plotting" name=description>
+<META content=gptug name=keywords>
+<META content=document name=resource-type>
+<META content=global name=distribution>
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY lang=EN><A href="http://www6.uniovi.es/gptug/node7.html" 
+name=tex2html103><IMG height=24 alt=next 
+src="More on Plotting_archivos/next_motif.gif" width=37 align=bottom></A> <A 
+href="http://www6.uniovi.es/gptug/gptug.html" name=tex2html101><IMG height=24 
+alt=up src="More on Plotting_archivos/up_motif.gif" width=26 align=bottom></A> 
+<A href="http://www6.uniovi.es/gptug/node5.html" name=tex2html95><IMG height=24 
+alt=previous src="More on Plotting_archivos/previous_motif.gif" width=63 
+align=bottom></A> <A href="http://www6.uniovi.es/gptug/node1.html" 
+name=tex2html105><IMG height=24 alt=contents 
+src="More on Plotting_archivos/contents_motif.gif" width=65 align=bottom></A> 
+<BR><B>Next:</B> <A href="http://www6.uniovi.es/gptug/node7.html" 
+name=tex2html104>Getting Hard Copy</A> <B>Up:</B> <A 
+href="http://www6.uniovi.es/gptug/gptug.html" name=tex2html102>gnuplot 3.5 
+User's Guide</A> <B>Previous:</B> <A 
+href="http://www6.uniovi.es/gptug/node5.html" name=tex2html96>Working in the 
+gnuplot </A><BR>
+<P>
+<H1><A name=SECTION00060000000000000000>More on Plotting</A></H1>
+<P><A name=secmoreplot></A> 
+<P>You have already seen the basic plotting commands in Section&nbsp;<A 
+href="http://www6.uniovi.es/gptug/node3.html#secstart"><IMG alt=gif 
+src="More on Plotting_archivos/cross_ref_motif.gif" align=bottom></A>. In this 
+section, you will learn how to create several different kinds of plots with 
+<I>gnuplot</I>. 
+<P>
+<H2><A name=SECTION00061000000000000000>Two-dimensional Plots</A></H2>
+<P><A name=subsectwodplot></A> 
+<P><I>gnuplot</I> can create two types of two-dimensional plots. The first is 
+the usual <I>y</I>=<I>f</I>(<I>x</I>) in Cartesian coordinates or <IMG height=29 
+alt=tex2html_wrap_inline5715 src="More on Plotting_archivos/img17.gif" width=66 
+align=middle> in polar coordinates. The other type is a <EM>parametric 
+curve</EM> (<EM>e.g.</EM>&nbsp; <IMG height=31 alt=tex2html_wrap_inline5717 
+src="More on Plotting_archivos/img18.gif" width=126 align=middle> ). Plotting 
+<I>y</I>=<I>f</I>(<I>x</I>) should be a trivial task after going through the 
+previous sections. To plot <IMG height=29 alt=tex2html_wrap_inline5715 
+src="More on Plotting_archivos/img17.gif" width=66 align=middle> in polar 
+coordinates, you first tell <I>gnuplot</I> to switch to polar coordinates by the 
+command <TT>set polar</TT>. The syntax for plotting functions in the polar 
+coordinates is exactly the same as that for Cartesian coordinates, except that 
+<TT>x</TT> is the angle and the value of the function is the radius. For 
+example, to plot the function <IMG height=33 alt=tex2html_wrap_inline5723 
+src="More on Plotting_archivos/img19.gif" width=65 align=middle> , you can do 
+the following: <PRE>  set polar
+  plot 1/cos(x)</PRE>Note that the default unit for the angle is radians. You 
+can change the unit to degrees by <TT>set angle degree</TT>. You can change the 
+name of the dummy variable from <TT>x</TT> to <TT>theta</TT> by <PRE>  set dummy theta
+  plot 1/cos(theta)</PRE>
+<P>To switch back to Cartesian coordinates, use the command <TT>set 
+nopolar</TT>. 
+<P>Parametric curves are very handy. If you define the <I>x</I>- and 
+<I>y</I>-coordinates as functions of a dummy variable, <I>t</I>, you can plot 
+things like circles, ellipses, and other curves that cannot be expressed in the 
+functional form <I>y</I>=<I>f</I>(<I>x</I>). Try the following examples: <PRE>  set parametric
+  plot sin(t), cos(t)
+  plot 3*sin(t-3), 2*cos(t+2), cos(3*t), sin(2*t)
+  set noparametric</PRE>The first command tells <I>gnuplot</I> that you want to 
+plot parametric curves. The first plot is a circle (with aspect ratio 
+distortion). The second plot shows an ellipse (the functions <IMG height=29 
+alt=tex2html_wrap_inline5733 src="More on Plotting_archivos/img20.gif" width=255 
+align=middle> ), and a strange-looking curve (the functions <IMG height=27 
+alt=tex2html_wrap_inline5735 src="More on Plotting_archivos/img21.gif" width=165 
+align=middle> ). Note that up to three ranges can be specified on the 
+<TT>plot</TT> command, in the order <I>t</I>, <I>x</I>, and <I>y</I>. The 
+command <TT>set noparametric</TT> switches back to ordinary 
+<I>y</I>=<I>f</I>(<I>x</I>) mode. 
+<P>You can also plot parametric curves in polar coordinates. In this case you 
+define <I>r</I>=<I>r</I>(<I>t</I>) and <IMG height=29 
+alt=tex2html_wrap_inline5747 src="More on Plotting_archivos/img22.gif" width=61 
+align=middle> . Try the following: <PRE>  set parametric; set polar
+  plot sin(t),cos(t)</PRE>Did you guess what the curve will look like? 
+<P>In <TT>parametric polar</TT> mode, <TT>rrange</TT> sets the distance from the 
+origin to the edge, <TT>xrange</TT> sets the angle, and <TT>yrange</TT> sets the 
+extent of the plot, which will be square. For instance, try: <PRE>  set parametric; set polar
+  set rrange [-1:1]; set yrange [-2:2]
+  plot t,0</PRE>
+<P>Note that under <TT>parametric</TT> mode, the range of <I>t</I> can be 
+specified by the <TT>set trange</TT> command. The syntax is the same as <TT>set 
+xrange</TT>. 
+<P>You can set the number of points where each function is to be evaluated by 
+the command <TT>set samples</TT>. For example: <PRE>  set samples 100; plot f(x)
+  set xrange [0:-10]; set samples 11; plot g(x)</PRE>The first example tells 
+<I>gnuplot</I> to plot <I>f</I>(<I>x</I>) at 100 points equally-spaced in the 
+default <I>x</I>-range. The second example tells <I>gnuplot</I> to plot 
+<I>g</I>(<I>x</I>) at integer-valued <I>x</I> from 0 to -10 (yes, you can 
+reverse the direction that an axis increases just by specifying the endpoints 
+appropriately). 
+<P>By now you have noticed that each function is listed in the key in the upper 
+right-hand corner of the plot. Perhaps you'd like to specify a title other than 
+the one <I>gnuplot</I> gives you by default. The option is simply <TT>title 
+'</TT> <IMG height=29 alt=tex2html_wrap_inline5637 
+src="More on Plotting_archivos/img7.gif" width=4 align=middle> 
+<EM>curve-name</EM> <IMG height=29 alt=tex2html_wrap_inline5639 
+src="More on Plotting_archivos/img8.gif" width=4 align=middle> <TT>'</TT>. 
+Similarly you can control how the curve is shown by adding the option 
+<TT>with</TT> <IMG height=29 alt=tex2html_wrap_inline5637 
+src="More on Plotting_archivos/img7.gif" width=4 align=middle> <EM>style</EM> 
+<IMG height=29 alt=tex2html_wrap_inline5639 
+src="More on Plotting_archivos/img8.gif" width=4 align=middle> where <IMG 
+height=29 alt=tex2html_wrap_inline5637 src="More on Plotting_archivos/img7.gif" 
+width=4 align=middle> <EM>style</EM> <IMG height=29 alt=tex2html_wrap_inline5639 
+src="More on Plotting_archivos/img8.gif" width=4 align=middle> can be 
+<TT>lines</TT>, <TT>points</TT>, <TT>impulses</TT>, etc. The <I>gnuplot</I> 
+manual has the complete list. If you have several curves on your plot and they 
+are plotted with the same style, <I>gnuplot</I> has several versions of each 
+style which it cycles through. You can override its selections by adding the 
+integral style codes (line, then point) after <TT>with</TT> <IMG height=29 
+alt=tex2html_wrap_inline5637 src="More on Plotting_archivos/img7.gif" width=4 
+align=middle> <EM>style</EM> <IMG height=29 alt=tex2html_wrap_inline5639 
+src="More on Plotting_archivos/img8.gif" width=4 align=middle> . (You can see 
+all of the available options by entering the command <TT>test</TT>.) Try <PRE>  set samples n+1; set xrange [0:n]
+  mu=5; n=15; p=0.4
+  i(x)=int(x+.1)
+  pd(x)=mu**x*exp(-mu)/i(x)!
+  bd(x)=n!/(i(x)!*(n-i(x))!)*p**x*(1-p)**(n-x)
+  plot bd(x) title 'binomial distribution, p=0.4' with linespoints,\
+       pd(x) title 'Poisson distribution, mu=5' with impulses</PRE>You can leave 
+a function out of the key entirely by replacing <TT>title '...'</TT> with 
+<TT>notitle</TT>, and you can eliminate the key completely by the command 
+<TT>set nokey</TT>. 
+<P>If you want to plot a bargraph, use <TT>with boxes</TT>. The width of the 
+bars are controlled by the <TT>set boxwidth</TT> command. Without any argument, 
+<TT>set boxwidth</TT> tells <I>gnuplot</I> to calculate the width so that 
+successive bars are adjacent to each other (as in a histogram). 
+<P>
+<H2><A name=SECTION00062000000000000000>Three-dimensional Plots</A></H2>
+<P><A name=subsecthreedplot></A> 
+<P>For three-dimensional plots, <I>gnuplot</I> supports only Cartesian 
+coordinates. Therefore you can only plot surfaces of the type 
+<I>z</I>=<I>f</I>(<I>x</I>,<I>y</I>) or <IMG height=29 
+alt=tex2html_wrap_inline5779 src="More on Plotting_archivos/img23.gif" width=283 
+align=middle> . Try the following: <PRE>  set hidden3d
+  f(x,y)=x**2+x*y-y**2
+  splot f(x,y)
+  set parametric
+  splot u-v**2, u**2*v, exp(v)
+  set noparametric</PRE>The command <TT>set hidden3d</TT> turns on the 
+hidden-line removal, which means lines ``behind'' other lines are not drawn. 
+This feature is not available in the MS-DOS version due to memory limitations. 
+The Windows, OS/2 and Unix versions do support this feature, however. 
+<P><I>gnuplot</I> can generate contour lines on the <I>xy</I>-plane, on the 
+surface itself, or both. The command is <TT>set contour <IMG height=29 
+alt=tex2html_wrap_inline5637 src="More on Plotting_archivos/img7.gif" width=4 
+align=middle> <EM>place</EM> <IMG height=29 alt=tex2html_wrap_inline5639 
+src="More on Plotting_archivos/img8.gif" width=4 align=middle> </TT>, where <IMG 
+height=29 alt=tex2html_wrap_inline5637 src="More on Plotting_archivos/img7.gif" 
+width=4 align=middle> <EM>place</EM> <IMG height=29 alt=tex2html_wrap_inline5639 
+src="More on Plotting_archivos/img8.gif" width=4 align=middle> is either 
+<TT>base</TT>, <TT>surface</TT>, or <TT>both</TT>. You can control the contour 
+levels by the command <TT>set cntrparm</TT> <IMG height=29 
+alt=tex2html_wrap_inline5637 src="More on Plotting_archivos/img7.gif" width=4 
+align=middle> <EM>options</EM> <IMG height=29 alt=tex2html_wrap_inline5639 
+src="More on Plotting_archivos/img8.gif" width=4 align=middle> . Here are a few 
+examples: <PRE>  set cntrparam levels auto 5           # set 5 automatic levels
+  set cntrparam levels incr 0,.1,1      # 11 levels from 0 to 1
+  set cntrparam levels disc .1,.2,.4,.8 # 4 discrete levels</PRE>Please refer to 
+the online help or the <I>gnuplot</I> manual for more advanced options for 
+<TT>set cntrparam</TT>. 
+<P>Note that on a color output device, contour lines at different levels are 
+drawn with different colors. On a monochrome display or non-color printer, they 
+are shown in different line styles. Also note that if you specify contours on 
+the surface and turn on the hidden-line removal, the contour lines will not be 
+shown. This is because contour lines are drawn ``underneath'' the surface, not 
+on top of the surface. You can specify <TT>set nosurface</TT> to plot only the 
+contour lines. 
+<P><I>gnuplot</I> cannot generate a contour plot from parametric functions. 
+<P>The number of values of each coordinate for which the function is evaluated 
+(and hence the number of lines on the surface) is set by the command <TT>set 
+isosamples <IMG height=29 alt=tex2html_wrap_inline5637 
+src="More on Plotting_archivos/img7.gif" width=4 align=middle> <EM>x-number</EM> 
+<IMG height=29 alt=tex2html_wrap_inline5639 
+src="More on Plotting_archivos/img8.gif" width=4 align=middle> , <IMG height=29 
+alt=tex2html_wrap_inline5637 src="More on Plotting_archivos/img7.gif" width=4 
+align=middle> <EM>y-number</EM> <IMG height=29 alt=tex2html_wrap_inline5639 
+src="More on Plotting_archivos/img8.gif" width=4 align=middle> </TT>, where <IMG 
+height=29 alt=tex2html_wrap_inline5637 src="More on Plotting_archivos/img7.gif" 
+width=4 align=middle> <EM>x-number</EM> <IMG height=29 
+alt=tex2html_wrap_inline5639 src="More on Plotting_archivos/img8.gif" width=4 
+align=middle> and <IMG height=29 alt=tex2html_wrap_inline5637 
+src="More on Plotting_archivos/img7.gif" width=4 align=middle> <EM>y-number</EM> 
+<IMG height=29 alt=tex2html_wrap_inline5639 
+src="More on Plotting_archivos/img8.gif" width=4 align=middle> are the number of 
+lines to draw along the <I>x</I>- and <I>y</I>-axes. <TT>set samples</TT> 
+(discussed above) sets the number of points evaluated along each 
+<TT>isosample</TT>. 
+<P>Sometimes you may want to look at the three-dimensional surface plot from 
+another direction. This is accomplished by the <TT>set view</TT> command. The 
+first number following <TT>set view</TT> changes the rotation angle around the 
+<I>x</I>-axis and the second changes the rotation around the <I>z</I>-axis. The 
+default view is 60 degrees about the <I>x</I>-axis and 30 degrees about the 
+<I>z</I>-axis. For example, try <PRE>  set xlabel 'x'; set ylabel 'y'
+  splot [0:1] [0,1] x**2*y*(1-y)
+  set view 15,75
+  replot</PRE>Try a few other rotations. 
+<P>You can make a two-dimensional contour map of a surface by using the settings 
+<PRE>  set nosurface
+  set contour
+  set view 0,0
+  replot</PRE>but the <I>y</I>-axis is labeled on the right. Different rotations 
+around the <I>z</I> axis may come closer to what you want. 
+<P>
+<H2><A name=SECTION00063000000000000000>Plotting Data Files</A></H2>
+<P><A name=subsecplotdata></A> 
+<P><I>gnuplot</I> can produce plots from tabulated data. In this section, you 
+will see how to handle different kinds of data with <I>gnuplot</I>. Note that 
+you can put comments in a data file the same way you can in a <I>gnuplot</I> 
+script file; <I>gnuplot</I> ignores everything on the line after the <TT>#</TT> 
+symbol. 
+<P>The essential rule of data organization is that <I>gnuplot</I> reads one data 
+point per line. 
+<P>Perhaps the simplest data to plot are a series. Suppose you have the data for 
+a variable stored in a column in a plain text file. The command <TT>plot ' <IMG 
+height=29 alt=tex2html_wrap_inline5637 src="More on Plotting_archivos/img7.gif" 
+width=4 align=middle> <EM>data-filename</EM> <IMG height=29 
+alt=tex2html_wrap_inline5639 src="More on Plotting_archivos/img8.gif" width=4 
+align=middle> '</TT> will plot the values of the variable as the 
+<I>y</I>-coordinates - the first value with <I>x</I>-coordinate 0, the second 
+value with <I>x</I>-coordinate 1, etc. This is useful for plotting time series 
+data. 
+<P>If your data really are a time series, you may want a plot where the 
+<I>x</I>-axis is either the day-of-the-week or the month. The commands <TT>set 
+xdtics</TT> and <TT>set xmtics</TT> will do these for you. For <TT>xdtics</TT>, 
+0 is treated as Sunday, 1 as Monday and so on. Numbers larger than 6 are 
+converted modulo 7. For <TT>xmtics</TT>, 1 is treated as January, 2 as February 
+and so on. Numbers larger than 12 are converted modulo 12 plus 1. 
+<P>You can also plot series from a bivariate data set. In this case the first 
+column in the data file is taken as the <I>x</I>-coordinate and the second 
+column is taken as the <I>y</I>-coordinate. This allows you to plot data with 
+scattered <I>x</I>'s or series data with a variable step size. 
+<P>The data file can have many columns. You can tell <I>gnuplot</I> which 
+columns to plot by the <TT>using</TT> keyword following <TT>' <IMG height=29 
+alt=tex2html_wrap_inline5637 src="More on Plotting_archivos/img7.gif" width=4 
+align=middle> <EM>data-filename</EM> <IMG height=29 alt=tex2html_wrap_inline5639 
+src="More on Plotting_archivos/img8.gif" width=4 align=middle> '</TT> on the 
+<TT>plot</TT> command. For example, suppose your data set is stored in the file 
+<TT>reg.dat</TT> and contains ten columns. Consider the following commands: <PRE>  plot 'reg.dat' using 1:2
+  plot 'reg.dat' using 2:3, 'reg.dat' using 2:6,\
+       'reg.dat' using 8:4 with lines</PRE>The first command plots the first 
+column in the file as <I>x</I> and the second column as <I>y</I> (which is the 
+default). The second command overlays three plots: third column (<I>y</I>) 
+versus second column (<I>x</I>), sixth column (<I>y</I>) versus second column 
+(<I>x</I>), and fourth column (<I>y</I>) versus eighth column (<I>x</I>). The 
+first two are plotted with points, and the third with a line. 
+<P>With the <TT>using</TT> option, you can now plot data directly from labeled 
+tables prepared by some other program, as long as you remember to put the 
+<TT>#</TT> at the beginning of each heading line. 
+<P>When you plot a data set with style <TT>lines</TT>, a null line (a line of 
+zero length - not a line of spaces) in the data file breaks the line in the 
+plot. 
+<P>If you wish to put error bars on your plotted data, you need to give 
+<I>gnuplot</I> the error data in either a three-column (<I>x</I>, <I>y</I>, <IMG 
+height=25 alt=tex2html_wrap_inline5869 src="More on Plotting_archivos/img24.gif" 
+width=22 align=middle> ) or a four-column (<I>x</I>, <I>y</I>, <IMG height=17 
+alt=tex2html_wrap_inline5875 src="More on Plotting_archivos/img25.gif" width=27 
+align=middle> , <IMG height=18 alt=tex2html_wrap_inline5877 
+src="More on Plotting_archivos/img26.gif" width=32 align=middle> ) format. You 
+then specify <TT>with errorbars</TT>. There is also a style 
+<TT>boxerrorbars</TT>, which requires a fifth column of data containing the box 
+width. 
+<P>If you want to have control over the width of the bars in a bar graph, the 
+bar width data must be in the fifth column of the data file (or the fifth item 
+in the <TT>using</TT> list, <EM>e.g.</EM>&nbsp;<TT>using 1:2:2:2:3</TT> for a 
+three-column file) or defined by the command <TT>set boxwidth</TT>. 
+<P>If you have lots of data and only want to put error bars on some of them, 
+there is no way to do so directly in <I>gnuplot</I>. You'll need to make a 
+separate file with the subset, or you could edit the data file, setting the 
+errors to zero for those points to be plotted without error bars. If you're 
+running under Unix, you could use a filter like <TT>awk</TT> to do the same 
+thing. 
+<P>One nice feature of <I>gnuplot</I> is that it can transform the <I>y</I> 
+values of the data with the <TT>thru</TT> option of the <TT>plot</TT> command. 
+For example, <PRE>  plot 'reg.dat' thru sqrt(x)</PRE>produces the same plot as the first 
+example above, except that the <I>y</I> data are transformed to <IMG height=25 
+alt=tex2html_wrap_inline5883 src="More on Plotting_archivos/img27.gif" width=23 
+align=middle> . The function doesn't have to be one built into <I>gnuplot</I>; 
+you can define one yourself. Just remember that the syntax is a bit odd; you 
+<TT>plot thru f(x)</TT> even though you're really plotting <I>f</I>(<I>y</I>). A 
+transformation can only be applied to the <I>y</I> data in a two-dimensional 
+plot; currently there is no built-in mechanism in <I>gnuplot</I> to transform 
+the <I>x</I> data, nor is there any transformation available for 
+three-dimensional plots. A short discussion of <TT>thru</TT> can be found in the 
+manual or online help, under <EM>plot data-file</EM>, which also mentions how to 
+transform both <I>x</I> and <I>y</I> with <TT>awk</TT> under Unix. 
+<P>If you are interested in fitting a curve to a set of <I>x</I>-<I>y</I> data, 
+there are several programs (<TT>fudgit</TT> and <TT>gnufit</TT><A 
+href="http://www6.uniovi.es/gptug/footnode.html#477" name=tex2html6><IMG alt=gif 
+src="More on Plotting_archivos/foot_motif.gif" align=bottom></A>, for example) 
+that perform nonlinear least squares fits. Each of these couples easily to 
+<I>gnuplot</I>. If you are looking for more extensive features, check out 
+Octave<A href="http://www6.uniovi.es/gptug/footnode.html#478" 
+name=tex2html7><IMG alt=gif src="More on Plotting_archivos/foot_motif.gif" 
+align=bottom></A> (available for Unix only). Octave is a Matlab-like program 
+that performs many numerical computations. It uses <I>gnuplot</I> as its 
+plotting tool. Thus you can do curve fitting to your data and then pass the 
+result to <I>gnuplot</I>\ from Octave, for instance. 
+<P>You can create three-dimensional scatter plots as easily as two-dimensional 
+ones. Suppose the data file <TT>3d.dat</TT> contains five columns of numerical 
+data. The commands <PRE>  splot '3d.dat'
+  splot '3d.dat' using 1:4:3</PRE>first plot the points 
+(<I>x</I>,<I>y</I>,<I>z</I>) with first column as <I>x</I>, second as <I>y</I>, 
+and third column as <I>z</I>, and then first column as <I>x</I>, fourth column 
+as <I>y</I>, and third column as <I>z</I>. 
+<P>The file <TT>3d.dat</TT> can even contain more than one set of data. If you 
+separate the sets with two null lines, <I>gnuplot</I> will refer to the first 
+set as <TT>index 0</TT>, the second as <TT>index 1</TT>, and so on. You tell 
+<I>gnuplot</I>\ which one to plot by placing <TT>index</TT> and the number 
+immediately after <IMG height=29 alt=tex2html_wrap_inline5637 
+src="More on Plotting_archivos/img7.gif" width=4 align=middle> 
+<EM>data-filename</EM> <IMG height=29 alt=tex2html_wrap_inline5639 
+src="More on Plotting_archivos/img8.gif" width=4 align=middle> . (It is a pity 
+that <TT>plot</TT> doesn't have this option, too.) 
+<P>If you want to make a contour plot from a three-dimensional data set, the 
+number of <TT>isosamples</TT> is set by the data. Your data set must be 
+organized as rasters, <IMG height=13 alt=tex2html_wrap_inline5917 
+src="More on Plotting_archivos/img28.gif" width=28 align=bottom> , <PRE>  x(1)   y(1)   z(1,1)
+  x(1)   y(2)   z(1,2)
+  x(1)   y(3)   z(1,3)</PRE><IMG height=15 alt=tex2html_wrap_inline5919 
+src="More on Plotting_archivos/img29.gif" width=2 align=bottom> <PRE>  x(2)   y(1)   z(2,1)
+  x(2)   y(2)   z(2,2)
+  x(2)   y(3)   z(2,3)</PRE><IMG height=15 alt=tex2html_wrap_inline5919 
+src="More on Plotting_archivos/img29.gif" width=2 align=bottom> <BR>
+<P>and so on. Each raster of constant <I>x</I>-index is terminated by a null 
+line. (The data can be a single column of <I>z</I>'s, but the null lines will 
+still be needed.) There must be the same number of points in each raster, but 
+the <I>x</I> and <I>y</I> values don't have to be the same! 
+<P>If you have data that are not defined in the tidy grid fashion shown above 
+and you want to draw contours anyway, <I>gnuplot</I> has a command <TT>set 
+dgrid3d</TT> which does the necessary interpolations for you. 
+<P>The options on the <TT>plot</TT> and <TT>splot</TT> commands are 
+order-dependent. The proper sequences are <PRE>  plot ranges data-file thru using title style
+  plot ranges functions title style
+  splot ranges data-file index using title style
+  splot ranges functions title style</PRE>where we have listed only the options 
+for clarity. 
+<P>
+<H2><A name=SECTION00064000000000000000>Customizing Your Plot</A></H2>
+<P><A name=subseccustomize></A> 
+<P>In this section you will see how your plots can be customized further with 
+the <TT>set</TT> command. 
+<P>Note that you can check the settings of all the options that the command 
+<TT>set</TT> controls by the <TT>show</TT> command. For example, to check the 
+current <I>x</I> range, use the command <TT>show xrange</TT>. 
+<P><TT>set logscale</TT> makes the specified axis logarithmic. It takes one or 
+two arguments. The first argument can be <TT>x, y, xy,</TT> or <TT>z</TT>. The 
+second argument specifies the base of the logarithms and is optional (the 
+default is base 10). <TT>set nologscale</TT> turns off logarithmic scaling. 
+<P><TT>set zeroaxis</TT> causes the <I>x</I>- and <I>y</I>-axes to be plotted, 
+if the plotting range contains either axis. <TT>set nozeroaxis</TT> turns off 
+plotting of the axes. The commands <TT>set xzeroaxis</TT>, <TT>set 
+yzeroaxis</TT>, <TT>set noxzeroaxis</TT> and <TT>set noyzeroaxis</TT> work 
+similarly. 
+<P><TT>set key</TT> tells <I>gnuplot</I> where to put the legend of the plot. 
+For a two-dimensional plot, <TT>set key <I>x</I>,<I>y</I></TT> says to put the 
+legend at the point (<I>x</I>,<I>y</I>) in the plot. For a three-dimensional 
+surface plot, the <I>z</I>-coordinate can be specified. The units for <I>x</I> 
+and <I>y</I> are the same as for the plotted data or functions. <I>x</I> and 
+<I>y</I> are Cartesian coordinates even in polar mode. 
+<P><TT>set label</TT> lets you add text to the plot. For example, <PRE>  set label 1 'Max' at .5, 2.3 center
+  set label 2 'Min' at 1.3, -.3 right
+  set label 2 at 1.3, .3</PRE>put the text ``Max'' centered at the point 
+(0.5,2.3), and the text ``Min'' right-justified at the point (1.3,-0.3). The 
+number after the keyword <TT>label</TT> is the identifier for that label. The 
+third sample shows that you can move an identified label to a different position 
+(or change its justification) without retyping the label. The same comments 
+about the position that were made in reference to <TT>set key</TT> apply here. 
+To turn off label number two, use <TT>set nolabel 2</TT>. To turn off all 
+labels, use <TT>set nolabel</TT>. 
+<P><TT>set arrow</TT> can be used to draw arrows or line segments in a plot. For 
+example, <PRE>  set arrow 1 from 1,2 to -.5,3
+  set arrow 2 to 4,4 nohead</PRE>The first command draws an arrow from the point 
+(1,2) to the point (-0.5,3). The second command draws a line segment (no arrow 
+head) from the origin (since the <TT>from</TT> is omitted) to the point (4,4). 
+The same comments about the position that were made in reference to <TT>set 
+key</TT> once again apply here. The command <TT>set noarrow</TT> can be used to 
+turn off one or all arrows, like <TT>set nolabel</TT>. The identifier works the 
+same way as in <TT>set label</TT>, too. 
+<P><TT>set grid</TT> causes grid lines to be drawn (in dotted lines) on the 
+plot. For a three-dimensional surface plot, the grid lines are drawn at the base 
+of the plot. <TT>set nogrid</TT> turns off the grid lines. 
+<P><TT>set border</TT> causes a box to be drawn around the plot (the default 
+setting). To get rid of the box, use <TT>set noborder</TT>. 
+<P><TT>set data <IMG height=29 alt=tex2html_wrap_inline5637 
+src="More on Plotting_archivos/img7.gif" width=4 align=middle> <EM>options</EM> 
+<IMG height=29 alt=tex2html_wrap_inline5639 
+src="More on Plotting_archivos/img8.gif" width=4 align=middle> </TT>and <TT>set 
+function <IMG height=29 alt=tex2html_wrap_inline5637 
+src="More on Plotting_archivos/img7.gif" width=4 align=middle> <EM>options</EM> 
+<IMG height=29 alt=tex2html_wrap_inline5639 
+src="More on Plotting_archivos/img8.gif" width=4 align=middle> </TT>can be used 
+to control the default line or point style for plotting data files and 
+functions. These are similar to the <TT>with</TT> option on <TT>plot</TT> and 
+<TT>splot</TT>, but apply to more than one plot. For example, {<PRE>  set data style points
+  set function style lines
+  plot f1(x),f2(x),'data1','data2'</PRE>would produce a plot with lines (one 
+solid, one dashed) representing the functions <IMG height=29 
+alt=tex2html_wrap_inline5971 src="More on Plotting_archivos/img30.gif" width=38 
+align=middle> and <IMG height=29 alt=tex2html_wrap_inline5973 
+src="More on Plotting_archivos/img31.gif" width=38 align=middle> and with two 
+different symbols representing the data in the two files. 
+<P><TT>set tics</TT> takes one argument: either <TT>in</TT> or <TT>out</TT>. 
+This indicates whether the tic marks are to be plotted inside the box or outside 
+the box. 
+<P><TT>set xtics</TT> gives you control over which <I>x</I>-values are to be 
+given tic marks and how these are to be labeled. There are two syntaxes: <PRE>set xtics 0,.5,10
+set xtics ('5' 1, ' ' 2, 'Hi, Mom' 4)</PRE>The first example will produce 
+labeled tics at 0, .5, 1, 1.5, ..., 9.5, 10. The second will produce three tic 
+marks, one of which will be unlabeled. If no label is specified, the tic mark 
+will be labeled with its <I>x</I>-value. <TT>set noxtics</TT> does precisely 
+what you think it does. <TT>set ytics</TT> and <TT>set ztics</TT> work the same 
+way. 
+<P><TT>set ticslevel</TT> sets the ``height'' of the surface when doing 
+<TT>splot</TT>. <TT>set tickslevel 0</TT> causes the surface to be drawn from 
+the base. Giving a positive argument to <TT>set ticslevel</TT> ``elevates'' the 
+surface. Negative arguments are not allowed. 
+<P><TT>set size <IMG height=29 alt=tex2html_wrap_inline5637 
+src="More on Plotting_archivos/img7.gif" width=4 align=middle> <EM>height</EM> 
+<IMG height=29 alt=tex2html_wrap_inline5639 
+src="More on Plotting_archivos/img8.gif" width=4 align=middle> , <IMG height=29 
+alt=tex2html_wrap_inline5637 src="More on Plotting_archivos/img7.gif" width=4 
+align=middle> <EM>width</EM> <IMG height=29 alt=tex2html_wrap_inline5639 
+src="More on Plotting_archivos/img8.gif" width=4 align=middle> </TT>changes the 
+size of the plot. The argument <IMG height=29 alt=tex2html_wrap_inline5637 
+src="More on Plotting_archivos/img7.gif" width=4 align=middle> <EM>height</EM> 
+<IMG height=29 alt=tex2html_wrap_inline5639 
+src="More on Plotting_archivos/img8.gif" width=4 align=middle> and <IMG 
+height=29 alt=tex2html_wrap_inline5637 src="More on Plotting_archivos/img7.gif" 
+width=4 align=middle> <EM>width</EM> <IMG height=29 alt=tex2html_wrap_inline5639 
+src="More on Plotting_archivos/img8.gif" width=4 align=middle> are multiples of 
+the default size (which is different for each terminal type). For example, the 
+terminal type <TT>postscript</TT> has default size 10 inches wide and 7 inches 
+high. The command <TT>set size 5./10., 5./7.</TT> changes the size to 5 inches 
+by 5 inches. This command is useful for controlling the size of your plot when 
+printing it on paper. But it doesn't scale the plot quite like you'd expect, 
+because <TT>size</TT> actually scales an area larger than the plot to include 
+the exterior labels. So if you want a plot of a specific size on the paper (for 
+overlays, perhaps), you'll have to experiment. If you are using a windowing 
+system, (<EM>e.g.</EM>&nbsp;MS-Windows, OS/2, X Windows, etc.) you can change 
+the size of the plot simply by changing the size of the plot window. 
+<P>The <TT>pause</TT> command is useful when you are creating several plots with 
+a script file and viewing them on the screen. The commands <PRE>  plot f(x)
+  pause -1 'Hit &lt;return&gt; for next plot'
+  plot g(x)</PRE>plot <I>f</I>(<I>x</I>), and then show the message ``<TT>Hit 
+&lt;return&gt; for next plot</TT>'' on the screen. After you hit the return key, 
+<I>g</I>(<I>x</I>) is plotted. A positive argument to the <TT>pause</TT> command 
+is taken as the number of seconds to wait before going on to the next command. 
+<P>
+<HR>
+<A href="http://www6.uniovi.es/gptug/node7.html" name=tex2html103><IMG height=24 
+alt=next src="More on Plotting_archivos/next_motif.gif" width=37 
+align=bottom></A> <A href="http://www6.uniovi.es/gptug/gptug.html" 
+name=tex2html101><IMG height=24 alt=up 
+src="More on Plotting_archivos/up_motif.gif" width=26 align=bottom></A> <A 
+href="http://www6.uniovi.es/gptug/node5.html" name=tex2html95><IMG height=24 
+alt=previous src="More on Plotting_archivos/previous_motif.gif" width=63 
+align=bottom></A> <A href="http://www6.uniovi.es/gptug/node1.html" 
+name=tex2html105><IMG height=24 alt=contents 
+src="More on Plotting_archivos/contents_motif.gif" width=65 align=bottom></A> 
+<BR><B>Next:</B> <A href="http://www6.uniovi.es/gptug/node7.html" 
+name=tex2html104>Getting Hard Copy</A> <B>Up:</B> <A 
+href="http://www6.uniovi.es/gptug/gptug.html" name=tex2html102>gnuplot 3.5 
+User's Guide</A> <B>Previous:</B> <A 
+href="http://www6.uniovi.es/gptug/node5.html" name=tex2html96>Working in the 
+gnuplot </A>
+<P>
+<ADDRESS><I>Andy Liaw <BR>Tue Jul 16 23:20:34 CDT 1996</I> 
+</ADDRESS></BODY></HTML>

@@ -1,0 +1,129 @@
+%&LaTeX
+\documentclass{article}
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+\newcommand{\tab}{\hspace{5mm}}
+
+
+\begin{document}
+
+c Este programa utiliza la regla del trapecio\\
+c para resolver el movimiento de un cuerpo\\
+c sobre un plano inclinado considerando la\\
+c resistencia del aire y la fricci\hbox{\rm\rlap/c}n \\
+\textbf{program }trapecio \\
+\textbf{real }a,b,d,suma,Ia,In,et,h,sum,Ln,La,el \\
+\textbf{integer }i,n,j ,res \\
+res =1\\
+20 \textbf{if }(res\textbf{.eq.}1)\textbf{then \\
+write}(*,*)'***************************************************' 
+\\
+\textbf{write}(*,*)'Integracion numerica' \\
+\textbf{write}(*,*)'regla del Trapecio' \\
+\textbf{write}(*,*)'***********************' \\
+\textbf{write}(*,*) 'Ingrese el limite inferior entre 0 y L' \\
+\textbf{read}(*,*) a \\
+\textbf{write}(*,*) 'Ingrese el limite superior entre 0 y L' \\
+\textbf{read}(*,*) b \\
+\textbf{write}(*,*) 'Ingrese el numero N de puntos en [a,b], N es 
+natural' \\
+\textbf{read}(*,*) n \\
+d=(b-a)/(2*(n-1)) \\
+suma=0 \\
+\textbf{do }2 i=1,n-2 \\
+suma=suma+y(a+i*(2*d))\\
+2 \textbf{continue }\\
+In=d*(Y(a)+(2.*suma)+Y(b)) \\
+Ia=g(b)-g(a) \\
+et=abs((Ia-In)/Ia)*100\\
+c definimos en esta parte la forma para determinar la distancia 
+\\
+h=In/(2*(n-1)) \\
+sum=0 \\
+\textbf{do }3 j=1,n-2 \\
+sum=sum+R(j*(2*h))\\
+3 \textbf{continue }\\
+Ln=h*(R(0)+(2*sum)+R(In)) \\
+La=T(In)-T(0) \\
+el=abs((La-Ln)/La)*100. 
+
+ \textbf{write}(6,*)'Resultado para N=',N,':' \\
+\textbf{WRITE}(*,'(3(T3,A/),3(T3,A/T3,(3(A,1PE13.6))/))') \\
+\&' \ensuremath{^3} Valor numerico\ensuremath{^3} Valor analit. \ensuremath{^3} ', 
+\\
+\&' \ensuremath{^3} estimado de la\ensuremath{^3} de la integral\ensuremath{^3} Diferencia 
+', \\
+\&' \ensuremath{^3} integral \ensuremath{^3} \ensuremath{^3} en \% ', \\
+\&'\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}{\AA}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}{\AA}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}{\AA}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}', 
+\\
+\&'Tiempo \ensuremath{^3} ' ,In , ' \ensuremath{^3} ' ,Ia , ' \ensuremath{^3} ',et 
+, \\
+\&'\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\ensuremath{^3}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\ensuremath{^3}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\ensuremath{^3}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}\"{A}', 
+\\
+\&'Dista. \ensuremath{^3} ' ,Ln , ' \ensuremath{^3} ' ,La , ' \ensuremath{^3} ',el 
+\\
+\textbf{WRITE}(6,*)'El programa termino!' \\
+\textbf{print}*, 'Si quiere continuar digie 1 si no cero' \\
+\textbf{read}*, res \\
+\textbf{goto }20 \\
+\textbf{ENDIF \\
+open}(10,file='trapecio21.txt',status='old') \\
+\textbf{write}(10,200)'Resultado para N=',N,':' \\
+\textbf{write}(10,201)'***************************************************' 
+\\
+\textbf{write}(10,202) ' Resultado de la Integral numerica para t: 
+',In \\
+\textbf{write}(10,203) ' Resultado de la Integral analitica para t: 
+',Ia \\
+\textbf{write}(10,204) ' Diferencia = ',et,'\%' \\
+\textbf{write}(10,205) ' Resultado de la Integral numerica para L: 
+',Ln \\
+\textbf{write}(10,206) ' Resultado de la Integral analitica para L: 
+',La \\
+\textbf{write}(10,207) ' Diferencia = ',el,'\%' \\
+\textbf{write}(10,208)'***************************************************'
+
+200 \textbf{format}(a20,i4,a2)\\
+201 \textbf{format}(a50)\\
+202 \textbf{format}(a45,f8.7)\\
+203 \textbf{format}(a45,f8.7)\\
+204 \textbf{format}(a15,f8.7,a2)\\
+205 \textbf{format}(a45,f8.7)\\
+206 \textbf{format}(a45,f8.7)\\
+207 \textbf{format}(a15,f8.7,a2)\\
+208 \textbf{format}(a50)
+
+ \textbf{end }
+
+\textbf{c Declaracion de funciones \\
+function }y(x) \\
+\textbf{real }x \\
+y= 3./(48-(12*(sqrt(3.)))-x) \\
+\textbf{end }
+
+  \textbf{function }g(z) \\
+\textbf{real }z \\
+g= 3*(3.3038-log(48.-(12*(sqrt(3.)))-z)) \\
+\textbf{end }
+
+ \textbf{function }R(t) \\
+\textbf{real }t \\
+R= (48-12*(sqrt(3.)))*(1-exp(-(t/3.))) \\
+\textbf{END }
+
+ \textbf{function }T(w) \\
+\textbf{real }w \\
+T= (48-12*(sqrt(3.)))*(w+3*exp(-(w/3.))-3) \\
+\textbf{END }
+
+
+
+\end{document}

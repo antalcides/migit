@@ -1,0 +1,2997 @@
+\chapter{Elementos del sistema operativo \unix.}
+
+
+\vspace{-1cm}
+\hfill {\tiny versi{\'o}n preliminar 2.2-8 de abril de 2002}
+
+\section{Introducci{\'o}n.} 
+
+En este cap{\'\i}tulo se intentar{\'a} dar los elementos b{\'a}sicos para poder
+trabajar en un ambiente \unix. Sin pretender cubrir todos los aspectos
+del mismo, nuestro inter{\'e}s se centra en dar las herramientas al lector
+para que pueda realizar los trabajos del curso bajo este sistema
+operativo.  Como comentario adicional, concientemente se ha evitado la
+traducci{\'o}n de gran parte de la terminolog{\'\i}a t{\'e}cnica teniendo en mente
+que  documentaci{\'o}n disponible se encuentre por lo general  en ingl{\'e}s y nos
+interesa que el lector sea capaz se reconocer los t{\'e}rminos.
+
+
+El sistema operativo {\unix} es el m{\'a}s usado en investigaci{\'o}n
+cient{\'\i}fica, tiene una larga historia y muchas de sus ideas y m{\'e}todos
+se encuentran presentes en otros sistemas operativos. Algunas de las
+caracter{\'\i}sticas relevantes del {\unix} moderno son:
+
+\begin{itemize}
+  
+\item Memoria grande, lineal y virtual: Un programa en una m{\'a}quina de
+  32 Bits puede acceder y usar direcciones hasta los 4 GB en un
+  m{\'a}quina de s{\'o}lo 4 MB de RAM. El sistema s{\'o}lo asigna memoria
+  aut{\'e}ntica cuando le hace falta, en caso de falta de memoria de RAM,
+  se utiliza el disco duro ({\it swap}).
+  
+\item Multitarea ({\it Multitasking}): Cada programa tiene asignado su
+  propio ``espacio'' de memoria. Es {\bf imposible} que un programa
+  afecte a otro sin usar los servicios del sistema operativo.  Si dos
+  programas escriben en la misma direcci{\'o}n de memoria cada uno
+  mantiene su propia ``idea'' de su contenido.
+  
+\item Multiusuario: M{\'a}s de una persona puede usar la m{\'a}quina al mismo
+  tiempo. Programas de otros usuarios contin{\'u}an ejecut{\'a}ndose a pesar
+  de que un nuevo usuario entre a la m{\'a}quina.
+  
+\item Casi todo tipo de dispositivo puede ser accedido como un
+  archivo.
+  
+\item Existen muchos aplicaciones dise{\~n}adas para trabajar desde la
+  l{\'\i}nea de comandos. Adem{\'a}s, la mayor{\'\i}a de las aplicaciones permiten que
+  la salida de una pueda ser la entrada de la otra.
+
+\item Permite compartir dispositivos (como disco duro) entre una red
+  de m{\'a}quinas.
+
+\end{itemize}
+
+Por su naturaleza de multiusuario, {\bf nunca} se debe apagar una
+m{\'a}quina {\unix}\footnote{Incluyendo el caso en que la m{\'a}quina es un PC
+  normal corriendo Linux u otra versi{\'o}n de {\unix}.}, ya que una
+m{\'a}quina apagada sin raz{\'o}n puede matar trabajos de d{\'\i}as, perder los
+{\'u}ltimos cambios de tus archivos e ir degradando el sistema de archivos
+en dispositivos como el disco duro.
+
+Entre los sistemas operativos {\unix} actuales cabe destacar:
+
+\begin{itemize}
+  
+\item Linux: esta disponible para: Intel x86; Motorola 68k, en
+  particular, para las estaciones Sun3, computadores personales Apple
+  Macintosh, Atari y Amiga; Sun SPARC; Alpha; Motorola/IBM PowerPC;
+  ARM, m{\'a}quinas NetWinder; Sun UltraSPARC; MIPS CPUs, m{\'a}quinas SGI y
+  estaciones Digital; HP PA-RISC; IA-64, arquitectura Intel de
+  64-bits; S/390, servidores IBM S/390 y SuperH procesadores Hitachi
+  SuperH.
+
+\item SunOS\footnote{SunOS 4.1.x tambi{\'e}n se conoce como Solaris 1.}:
+  disponible para la familia 68K as{\'\i} como para la familia {\sc sparc}
+  de estaciones de trabajo {\sc sun}
+  
+\item Solaris\footnote{Tambi{\'e}n conocido como SunOS 5.x, solaris 2 o
+    Slowaris :-).} : disponible para la familia {\sc sparc} de {\sc
+    Sun} as{\'\i} como para la familia x86.
+
+\item OSF1\footnote{Tambi{\'e}n conocido como Dec Unix.}: disponible para Alpha.
+  
+\item Ultrix: disponible para {\sc vax} de Digital  
+  
+\item SYSVR4\footnote{Tambi\'en conocido como Unixware y Novell-Unix.}:
+  disponible para la familia x86, vax.
+
+\item IRIX: disponible para {\sc mips}.
+  
+\item AIX\footnote{Tambi{\'e}n conocido como Aches.}: disponible para
+  RS6000 de IBM y PowerPC.
+
+\end{itemize}
+
+\section{Ingresando al sistema.}
+
+En esta secci{\'o}n comentaremos las operaciones de comienzo y fin de una
+sesi{\'o}n en {\unix} as{\'\i} como la modificaci{\'o}n de la contrase{\~n}a (que a
+menudo no es la deseada por el usuario, y que por lo tanto puede
+olvidar con facilidad).
+
+\subsection{Terminales.}
+
+Para iniciar una sesi{\'o}n es necesario poder acceder a un terminal.
+Pueden destacarse dos tipos de terminales:
+
+\begin{itemize}
+\item Terminal de texto: consta de una pantalla y de un teclado. Como
+  indica su nombre, en la pantalla s{\'o}lo es posible imprimir caracteres
+  de texto.
+  
+\item Terminal gr{\'a}fico: Consta de pantalla gr{\'a}fica, teclado y {\it
+    mouse}.  Dicha pantalla suele ser de alta resoluci{\'o}n.  En este
+  modo se pueden emplear ventanas que emulan el comportamiento de un
+  terminal de texto (\verb+xterm+ o \verb+gnome-terminal+).
+
+\end{itemize}
+
+\subsection{Login.}
+
+El primer paso es encontrar un terminal libre donde aparezca el {\it
+  login prompt} del sistema:
+
+\begin{verbatim}
+Debian GNU/Linux 2.2 hostname tty2
+
+hostname login:
+\end{verbatim}
+
+
+Tambi{\'e}n pueden ocurrir un par de cosas cosas:
+
+\begin{itemize}
+
+\item La pantalla no muestra nada.
+
+\begin{itemize}
+
+\item Comprobar que la pantalla est{\'e} encendida.
+\item Pulsar alguna tecla o mover el {\it mouse} para desactivar el
+  protector de pantalla.
+
+\end{itemize}
+
+\item Otra persona ha dejado una sesi{\'o}n abierta. En este caso existe
+  la posibilidad de intentar en otra m{\'a}quina o bien finalizar la
+  sesi{\'o}n de dicha persona (si {\'e}sta no se halla en las proximidades).
+  
+  Una vez que se haya superado el paso anterior de encontrar el {\it
+    login prompt} se procede con la introducci{\'o}n de tu {\it Username}
+  al {\it prompt} de {\it login} y despu{\'e}s la contrase{\~n}a ({\it
+    password}) adecuado.
+
+\end{itemize}
+
+\subsection{Passwords.}
+
+El {\it password} puede ser cualquier secuencia de caracteres a
+elecci{\'o}n.  Deben seguirse las siguientes pautas:
+
+\begin{itemize}
+  
+\item Debe ser f{\'a}cil de recordar por uno mismo. Si se olvida, deber{\'a}
+  pasarse un mal rato dici{\'e}ndole al administrator de sistema que uno
+  lo ha olvidado.
+  
+\item Para evitar que alguna persona no deseada obtenga la {\it
+    password} y tenga libre acceso a los archivos de tu cuenta:
+
+\begin{itemize}
+
+\item Las may{\'u}sculas y min{\'u}sculas no son equivalentes sin embargo se
+recomienda que se cambie de una a otra.
+
+\item Los caracteres num{\'e}ricos y no alfab{\'e}ticos tambi{\'e}n ayudan. Debe
+  tenerse sin embargo la precauci{\'o}n de usar caracteres alfanum{\'e}ricos
+  que se puedan encontrar en todos los terminales desde los que se
+  pretenda acceder.
+
+\item Las palabras de diccionario deben ser evitadas.
+
+\end{itemize}
+
+\item Debes cambiarlo si crees que tu {\it password} es conocido por otras
+  personas, o descubres que alg{\'u}n intruso\footnote{Intruso es
+    cualquier persona que no sea el usuario.} est{\'a} usando tu cuenta.
+
+\item El {\it password} debe de ser cambiado con regularidad.
+
+\end{itemize}
+
+La orden para cambiar el password en \unix\ es \verb+passwd+. A menudo
+cuando existen varias m{\'a}quinas que comparten recursos (disco duro,
+impresora, correo electr{\'o}nico, \ldots ), para facilitar la administraci{\'o}n
+de dicho sistema se unifican los recursos de red (entre los que se
+hayan los usuarios de dicho sistema) en una base de datos com{\'u}n. Dicho
+sistema se conoce como NIS ({\it Network Information
+  Service})\footnote{Antiguamente se conoc{\'\i}a como YP ({\it Yellow
+    Pages}), pero debido a un problema de marca registrada de {\it
+    United Kingdom of British Telecomunications} se adoptaron las
+  siglas {\sc nis}.}. Si el sistema empleado dispone de este servicio,
+la modificaci{\'o}n de la contrase{\~n}a en una m{\'a}quina supone la modificaci{\'o}n
+en todas las m{\'a}quinas que constituyan el dominio NIS.
+
+\subsection{Cerrando la sesi{\'o}n.}
+
+Es importante que nunca se deje abierta una sesi{\'o}n, pues alg{\'u}n
+``intruso''\ podr{\'\i}a tener libre acceso a archivos de tu propiedad y
+manipularlos de forma indeseable para ti. Para evitar todo esto basta
+teclear \verb+logout+ {\'o} \verb+exit+ y habr{\'a} acabado tu sesi{\'o}n de
+\unix\ en dicha m{\'a}quina\footnote{En caso que se estuviera trabajando
+  bajo X-Windows debes cerrar la sesi{\'o}n con {\tt Log out of Gnome}.}.
+
+\section{Archivos y directorios.}
+
+Aunque haya diferentes distribuciones y cada una traiga sus programas,
+la estructura b{\'a}sica de directorios y archivos es m{\'a}s o menos la
+misma en todas:
+\begin{verbatim}
+/-|--> bin
+  |--> boot
+  |--> cdrom
+  |--> dev
+  |--> etc
+  |--> floppy
+  |--> home
+  |--> lib
+  |--> mnt
+  |--> proc
+  |--> root
+  |--> sbin
+  |--> tmp
+  |--> usr -|--> X11
+  |         |--> bin
+  |         |--> include
+  |         |--> lib
+  |         |--> local -|--> bin
+  |         |           |--> lib
+  |         |--> man
+  |         |--> src --> linux
+  |         |--> doc
+  |--> var --> adm
+\end{verbatim}
+
+
+El {\'a}rbol que observamos muestra un t{\'\i}pico {\'a}rbol de directorios en
+Linux. Pueden variar, sin embargo, algunos de los nombres dependiendo
+de la distribuci{\'o}n o versi{\'o}n de Linux que se est{\'e} usando. Algunos
+directorios destacados son:
+
+\begin{itemize}
+
+\item \verb+/home+ - Espacio reservado para las cuentas de los usuarios.
+
+\item \verb+/bin+, \verb+/usr/bin+ - Binarios (ejecutables) b{\'a}sicos de \unix.
+
+\item \verb+/etc+, aqu{\'\i} se encuentran los archivos de configuraci{\'o}n de
+  todo el software de la m{\'a}quina.
+  
+\item \verb+/proc+, es un sistema de archivo virtual. Contiene
+  archivos que residen en memoria pero no en el disco duro. Hace
+  referencia a los programas que se est\'an corriendo en el momento en
+  el sistema.
+  
+\item \verb+/dev+ ({\it device}) (dispositivo). Aqu{\'\i} se guardan los
+  controladores de dispositivos. Se usan para acceder a los
+  dispositivos f{\'\i}sicos del sistema y recursos como discos duros, {\it
+    modems}, memoria, {\it mouse}, etc.  Algunos dispositivos:
+\begin{itemize}
+
+\item \verb+hd+: \verb+hda1+ ser{\'a} el disco duro IDE, primario (\verb+a+), y la primera 
+partici{\'o}n (\verb+1+).
+ 
+\item \verb+fd+: As{\'\i} tambien, los archivos que empiecen con las letras
+  \verb+fd+ se referir{\'a}n a los controladores de las disketteras:
+  \verb+fd0+ ser{\'\i}a la primera diskettera, \verb+fd1+ ser{\'\i}a la segunda y
+  as{\'\i} sucesivamente.
+  
+\item \verb+ttyS+: se usan para acceder a los puertos seriales como
+  por ejemplo, \verb+ttyS0+ es el puerto conocido como \verb+com1+.
+  
+\item \verb+sd+: son los dispositivos SCSI. Su uso es muy similar al
+  del \verb+hd+.
+  
+\item \verb+lp+: son los puertos paralelos. \verb+lp0+ es el puerto
+  conocido como \verb+LPT1+.
+  
+\item \verb+null+: este es usado como un agujero negro, ya que todo lo
+  que se dirige all{\'\i} desaparece.
+  
+\item \verb+tty+: hacen referencia a cada una de las consolas
+  virtuales. Como es de suponerse, \verb+tty1+ ser{\'a} la primera consola
+  virtual, \verb+tty2+ la segunda, etc.
+
+\end{itemize}
+
+\item \verb+/usr/local+ - Zona con las aplicaciones no comunes a todos
+  los sistemas \unix, pero no por ello menos utilizadas. En
+  \verb+/usr/doc+ se puede encontrar informaci{\'o}n relacionada con
+  dicha aplicaci{\'o}n (en forma de p{\'a}ginas de manual, texto, html o bien
+  archivos dvi, Postscript o pdf). Tambi{\'e}n encontramos archivos de ejemplo,
+  tutoriales, {\it HOWTO}, etc.
+
+\end{itemize}
+
+\section{\'Ordenes b{\'a}sicas.}
+
+Para ejecutar un comando, basta con teclear su nombre (tambi{\'e}n debes
+tener permiso para hacerlo). Las opciones o modificadores empiezan
+normalmente con el car{\'a}cter \verb+-+ (p.\ ej.\ \verb+ls -l+).  
+Para especificar m\'as de
+una opci\'on, se pueden agrupar en una sola cadena de caracteres
+(\verb+ls -l -h+ es equivalente a \verb+ls -lh+). Algunos comandos
+aceptan tambi\'en opciones dadas por palabras completas, en cuyo caso
+usualmente comienzan con \verb+--+ (\verb+ls --color=auto+). 
+
+\subsection{Archivos y directorios.}
+
+En un sistema computacional la informaci{\'o}n se encuentra en archivos
+que la contienen (tabla de datos, texto {\sc ASCII}, fuente en
+lenguaje C, fortran o C++, ejecutable, imagen, mp3, figura, resultados
+de simulaci{\'o}n, \ldots ).  Para organizar toda la informaci{\'o}n se dispone de
+una entidad denominada directorio, que permite el almacenamiento en su
+interior tanto de archivos como de otros
+directorios\footnote{Normalmente se acude a la imagen de una carpeta
+  que puede contener informes, documentos o bien otras carpetas, y as{\'\i}
+  sucesivamente.}.  Se dice que la estructura de directorios en \unix\ 
+es jer{\'a}rquica o arborescente, debido a que todos los directorios nacen
+en un mismo punto (denominado directorio ra{\'\i}z).  De hecho la zona
+donde uno trabaja es un nodo de esa estructura de directorios,
+pudiendo uno a su vez generar una estructura por debajo de ese punto.
+Un archivo se encuentra situado siempre en un directorio y su acceso
+se realiza empleando el camino que conduce a {\'e}l en el {\'A}rbol de
+Directorios del Sistema. Este camino es conocido como el {\it path}.
+El acceso a un archivo se puede realizar empleando:
+
+\begin{itemize}
+
+\item Path Absoluto, aquel que empieza con \verb+/+
+
+Por ejemplo : \verb+/etc/printcap+
+
+\item Path Relativo, aquel que {\sc no} empieza con \verb+/+
+
+Por ejemplo : \verb+../examples/rc.dir.01+
+
+\item Nombres de archivos y directorios pueden usar un m{\'a}ximo de 255
+  caracteres, cualquier combinaci{\'o}n de letras y s{\'\i}mbolos ( el car{\'a}cter
+  \verb+/+ no se permite).
+
+\end{itemize}
+
+  Los caracteres comod{\'\i}n pueden ser empleados para acceder a un
+  conjunto de archivos con caracter{\'\i}sticas comunes. El signo \verb+*+ puede
+  sustituir cualquier conjunto de caracteres\footnote{Incluido el
+    punto `.', \unix\ no es {\sc dos}.} y el signo \verb+?+ cualquier caracter
+  individual. Por ejemplo:\footnote{{\tt bash\$} es el prompt en todos los
+    ejemplos.}
+
+{\tt
+\begin{tabular}{lllll}
+bash\$ ls& & & &\\
+f2c.1 &flexdoc.1 &rcmd.1 &rptp.1 &zforce.1 \\
+face.update.1 &ftptool.1 &rlab.1 &rxvt.1 &zip.1 \\
+faces.1 &funzip.1 &robot.1 &zcat.1 &zipinfo.1 \\
+flea.1 &fvwm.1 &rplay.1 &zcmp.1 &zmore.1 \\
+flex.1 &rasttoppm.1 &rplayd.1 &zdiff.1 &znew.1\\
+bash\$ ls rp* & & & &\\
+rplay.1 &rplayd.1 &rptp.1 & & \\
+bash\$ ls *e?? & & & & \\
+ face.update.1 &zforce.1 &zmore.1 & &\\
+\end{tabular} 
+}
+
+\noindent
+Los archivos cuyo nombre comiencen por {\bf .} se denominan {\bf
+  ocultos}, as{\'\i} por ejemplo en el directorio de partida de un usuario.
+
+{\tt
+\begin{tabular}{lllll}
+bash\$ ls -a ~user & & & & \\
+ . &.alias &.fvwmrc &.login &.xinitrc \\
+.. &.cshrc &.joverc &.profile & \\
+.Xdefaults &.enviroment &.kshrc &.tcshrc &\\
+\end{tabular}
+}
+
+Algunos caracteres especiales para el acceso a archivos son:
+
+\begin{tabular}{ll}
+ . &Directorio actual \\
+.. &Directorio superior en el {\'a}rbol \\
+\~ &Directorio {\tt \$HOME} \\
+{\tt \~\!user} &Directorio {\tt \$HOME} del usuario user\\
+\end{tabular}
+
+\subsection{Ordenes relacionadas con directorios.}
+
+\comando{ls} (LiSt)\\
+Este comando permite listar los archivos de un determinado directorio.
+Si no se le suministra argumento, lista los archivos y directorios en
+el directorio actual. Si se a{\~n}ade el nombre de un directorio el
+listado es del directorio suministrado. Existen varias opciones que
+modifican su funcionamiento entre las que destacan:
+
+\begin{itemize}
+\item {\verb+-l+} (Long listing) proporciona un listado extenso, que
+  consta de los permisos\footnote{Se comentar{\'a} posteriormente este
+    concepto.} de cada archivo, el usuario el tama{\~n}o del archivo, \ldots
+
+\item {\verb+-a+} (list All) lista tambi{\'e}n los archivos ocultos.
+  
+\item {\verb+-R+} (Recursive) lista recursivamente el contenido de todos
+  los directorios que se encuentre.
+  
+\item {\verb+-t+} ordena los archivos por tiempo de modificaci{\'o}n.
+
+\item {\verb+-S+} ordena los archivos por tama{\~n}o.
+
+\item {\verb+-r+} invierte el sentido de un orden.
+
+\item \verb+-p+ agrega un car\'acter al final de cada nombre de
+  archivo, indicando el tipo de archivo (por ejemplo, los directorios
+  son identificados con un \verb+/+ al final).
+
+\end{itemize}
+
+\noindent  
+\comando{pwd} (Print Working Directory) \\[1mm]
+Este comando proporciona el nombre del directorio actual.
+
+\noindent 
+\comando{cd} (Change Directory) \\
+Permite moverse a trav{\'e}s de la estructura de directorios. Si no se le
+proporciona argumento se provoca un salto al directorio \verb+$HOME+.
+El argumento puede ser un nombre absoluto o relativo de un directorio.
+\verb+cd -+ vuelve al \'ultimo directorio visitado.
+
+\noindent 
+\comando{mkdir} (MaKe DIRectory)\\
+Crea un directorio con el nombre (absoluto o relativo) proporcionado.
+
+\noindent 
+\comando{rmdir} (ReMove DIRectory)\\
+Elimina un directorio con el nombre (absoluto o relativo)
+suministrado. Dicho directorio debe de estar vac{\'\i}o.
+
+\subsection{Visitando archivos.}
+
+Este conjunto de {\'o}rdenes permite visualizar el contenido de un archivo
+sin modificar su contenido.
+
+\noindent
+\comando{cat}\\
+Muestra por pantalla el contenido de un archivo que se suministra como
+argumento.
+
+\noindent
+\comando{more}\\
+Este comando es an{\'a}logo a la anterior, pero permite la paginaci{\'o}n.
+
+\noindent
+\comando{less}\\
+Es una versi{\'o}n mejorada del anterior. Permite moverse en ambas
+direcciones. Otra ventaja es que no lee el archivo entero antes de
+arrancar.
+
+\subsection{Copiando, moviendo y borrando archivos.}
+
+\noindent
+\comando{cp} (CoPy)\\
+copia un archivo(s) con otro nombre y/o a otro directorio. Veamos
+algunas opciones:
+
+\begin{itemize}
+  
+\item {\verb+-i+} (interactive), impide que la copia provoque una
+  p{\'e}rdida del archivo destino si {\'e}ste existe\footnote{Muchos sistemas
+    tienen esta opci{\'o}n habilitada a trav{\'e}s de un alias, para evitar
+    equivocaciones.}.
+  
+\item {\verb+-R+} (recursive), copia un directorio y toda la
+  estructura que cuelga de {\'e}l.
+
+\end{itemize}
+
+
+\noindent
+\comando{mv} (MoVe)\\
+Mover un archivo(s) a otro nombre y/o a otro directorio. Dispone de
+opciones an{\'a}logas al caso anterior.
+
+\noindent
+\comando{rm} (ReMove)\\
+Borrar un archivo(s). En caso de que el argumento sea un directorio y
+se haya sumnistrado la opci{\'o}n {\verb+-r+}, es posible borrar el directorio
+y todo su contenido. La opci{\'o}n {\verb+-i+} pregunta antes de borrar.
+
+\subsection{Espacio de disco.}
+
+El recurso de almacenamiento en el disco es siempre limitado, a
+continuaci{\'o}n se comentan un par de comandos relacionados con la
+ocupaci{\'o}n de este recurso:
+
+\noindent
+\comando{du} (Disk Usage)\\
+Permite ver el espacio de disco ocupado (en bloques de
+disco\footnote{1 bloque normalmente es 1 Kbyte.}) por el archivo o
+directorio suministrado como argumento. La opci{\'o}n {\verb+-s+} impide que
+cuando se aplique recursividad en un directorio se muestren los
+subtotales. La opci{\'o}n {\verb+-h+} imprime los tama{\~n}os en un formato
+f{\'a}cil de leer (Human readable).
+
+\noindent
+\comando{df} (Disk Free)\\
+Muestra los sistemas de archivos que estan montados en el sistema, con
+las cantidades totales, usadas y disponibles para cada uno. 
+\verb+df -h+ muestra los tama\~nos en formato f\'acil de leer.
+
+\subsection{Links.}
+
+\noindent
+\comando{ln} (LiNk)\\
+Permite realizar un enlace (link) entre dos archivos o directorios. Un
+enlace puede ser:
+
+\begin{itemize}
+  
+\item {\it hard link}: se puede realizar s{\'o}lo entre archivos del mismo
+  sistema de archivos. El archivo enlazado apunta a la zona de disco
+  donde se halla el archivo original. Por tanto, si se elimina el
+  archivo original, el enlace sigue teniendo acceso a dicha
+  informaci{\'o}n. Es el enlace por omisi{\'o}n.
+  
+\item {\it symbolic link}: permite enlazar
+  archivos/directorios\footnote{Debe hacerse notar que los directorios
+    s{\'o}lo pueden ser enlazados simb{\'o}licamente.} de diferentes sistemas
+  de archivos.  El archivo enlazado apunta al nombre del original. As{\'\i}
+  si se elimina el archivo original el enlace apunta hacia un nombre
+  sin informaci{\'o}n asociada. Para realizar este tipo de enlace debe
+  emplearse la opci{\'o}n {\verb+-s+}.
+
+\end{itemize}
+
+  Un enlace permite el uso de un archivo en otro directorio distinto
+  del original sin necesidad de copiarlo, con el consiguiente ahorro
+  de espacio.
+
+\subsection{Protecci{\'o}n de archivos.}
+
+Dado que el sistema de archivos {\unix} es compartido por un conjunto
+de usuarios, surge el problema de la necesidad de privacidad. Sin
+embargo, dado que existen conjuntos de personas que trabajan en com{\'u}n,
+es necesario la posibilidad de que un conjunto de usuarios puedan
+tener acceso a una serie de archivos (que puede estar limitado para el
+resto de los usuarios).  Cada archivo y directorio del sistema dispone de
+un propietario, un grupo al que pertenece y unos {\bf permisos}.
+Existen tres tipos fundamentales de permisos:
+
+\begin{itemize}
+  
+\item {\bf lectura} ({\bf r}-{\it Read}): en el caso de un archivo
+  significa poder examinar el contenido del mismo; en el caso de un
+  directorio significa poder entrar en dicho directorio.
+  
+\item {\bf escritura} ({\bf w}-{\it Write}): en el caso de un archivo
+  significa poder modificar su contenido; en el caso de un directorio
+  es crear un archivo o directorio en su interior.
+  
+\item {\bf ejecuci{\'o}n} ({\bf x}-{\it eXecute}): en el caso de un
+  archivo significa que ese archivo se pueda ejecutar (binario o
+  archivo de procedimientos); en el caso de un directorio es poder
+  ejecutar alguna orden dentro de {\'e}l.
+\end{itemize}
+
+Se distinguen tres grupos de personas sobre las que especificar
+permisos:
+
+\begin{itemize}
+
+\item {\bf  user}: el usuario propietario del archivo.
+  
+\item {\bf group}: el grupo propietario del archivo (excepto el
+  usuario). Como ya se ha comentado, cada usuario puede pertenecer a
+  uno o varios grupos y el archivo generado pertenece a uno de los
+  mismos.
+  
+\item {\bf other}: el resto de los usuarios (excepto el usuario y los
+  usuarios que pertenezcan al grupo)
+\end{itemize}  
+  Tambi{\'e}n se puede emplear {\it all} que es la uni{\'o}n de todos los
+  anteriores. Para visualizar las protecciones de un archivo o
+  directorio se emplea la orden \verb+ls -l+, cuya salida es de la forma:
+
+{\verb+-rw-r--r-- +}{\tt  ...otra informaci{\'o}n... }{\verb+nombre+}
+
+Los 10 primeros caracteres muestran las protecciones de dicho archivo:
+
+\begin{itemize}
+
+\item  El primer car{\'a}cter indica el tipo de archivo de que se trata:
+\begin{itemize}
+\item archivo
+\item \verb+d+ directorio
+\item \verb+l+ enlace ({\it link})
+\item \verb+c+ dispositivo de caracteres (p.e. puerta serial)
+\item \verb+b+ dispositivo de bloques (p.e. disco duro)
+\item \verb+s+ socket (conexi{\'o}n de red) 
+\end{itemize}
+
+\item Los caracteres 2, 3, 4 son los permisos de usuario
+\item Los caracteres 5, 6, 7 son los permisos del grupo 
+\item Los caracteres 8, 9, 10 son los permisos del resto de usuarios
+                                                               
+  As{\'\i} en el ejemplo anterior {\verb+-rw-r--r--+} se trata de un
+  archivo donde el usuario puede leer y escribir, mientras que el
+  grupo y el resto de usuarios s{\'o}lo pueden leer. Estos suelen ser los
+  permisos por omisi{\'o}n para un archivo creado por un usuario. Para un
+  directorio los permisos por omisi{\'o}n suelen ser:{\verb+drwxr-xr-x+}
+  donde se permite al usuario ``entrar'' en el directorio y ejecutar
+  {\'o}rdenes desde {\'e}l.
+  
+  \noindent
+\comando{chmod} (CHange MODe)\\
+  Esta orden permite modificar los permisos de un archivo.\\
+{\verb+ chmod+} {\it permisos files}\\
+ Existen dos modos de especificar los permisos:
+
+ 
+\item Modo absoluto o modo num{\'e}rico. Se realiza empleando un n{\'u}mero
+  que resulta de la \verb+OR+ binario de los siguientes modos:
+
+\begin{tabular}{rl}
+ 400 &lectura por el propietario.\\
+ 200 &escritura por el propietario.\\
+ 100 &ejecuci{\'o}n (b{\'u}squeda) por el propietario.\\
+ 040 &lectura por el grupo.\\
+ 020 &escritura por el grupo.\\
+ 010 &ejecuci{\'o}n (b{\'u}squeda) por el grupo. \\
+004 &lectura por el resto.\\
+ 002 &escritura por el resto.\\
+ 001 &ejecuci{\'o}n (b{\'u}squeda) por el resto.\\
+ 4000 &Set User ID, cuando se ejecuta el proceso corre \\
+ &con los permisos del due{\~n}o del archivo.\\
+\end{tabular}
+
+Por ejemplo:\\
+{\verb+chmod 640 *.txt+}\\
+Permite la lectura y escritura por el usuario, lectura para el grupo y
+ning{\'u}n permiso para el resto, de un conjunto de archivos que acaban
+en {\verb+.txt+}
+
+\item Modo simb{\'o}lico o literal. Se realiza empleando una cadena (o
+  cadenas separadas por comas) para especificar los permisos. Esta
+  cadena se compone de los siguientes tres elementos:
+  {\verb+who operation permission+}\\
+ 
+\begin{itemize}
+\item {\verb+who+} : es una combinaci{\'o}n de:
+\begin{itemize}
+\item {\verb+u+} : user
+\item {\verb+g+} : group
+\item {\verb+o+} : others
+\item {\verb+a+} : all (equivalente a {\verb+ugo+})
+\end{itemize}
+Si se omite este campo se supone \verb+a+, con la restricci{\'o}n de no ir
+en contra de la m{\'a}scara de creaci{\'o}n ({\verb+umask+}).
+
+\item {\verb+operation+}: es una de las siguientes operaciones:
+\begin{itemize}
+\item \verb=+= : a{\~n}adir permiso.
+\item \verb+-+ : eliminar permiso. 
+\item \verb+=+ : asignar permiso, el resto de permisos de la misma categor{\'\i}a
+  se anulan.
+\end{itemize}
+\item {\verb+permission+}: es una combinaci{\'o}n de los caracteres:
+\begin{itemize}
+\item {\verb+r+} : {\it read}.
+\item {\verb+w+} : {\it write}.
+\item {\verb+x+} : {\it execute}.
+\item {\verb+s+} : en ejecuci{\'o}n usar los permisos de due{\~n}o.
+\end{itemize}
+\end{itemize}
+Por ejemplo:\\
+{\verb=chmod u+x tarea=}\\
+Permite la ejecuci{\'o}n por parte del usuario\footnote{Un error muy
+  frecuente es la creaci{\'o}n de un archivo de {\'o}rdenes ({\it script
+    file}) y olvidar y permitir la ejecuci{\'o}n del mismo.} del archivo
+{\verb+tarea+}.
+ 
+{\verb+chmod u=rx, go=r *.txt+}\\
+Permite la lectura y ejecuci{\'o}n del usuario, y s{\'o}lo la lectura por
+parte del grupo y el resto de usuarios. La opci{\'o}n {\verb=-r=} hace que
+la orden se efect{\'u}e recursivamente.
+
+\end{itemize}
+
+\noindent
+\comando{umask}\\
+Esta es una orden intr{\'\i}nseca del Shell que permite asignar los
+permisos que se desea tengan los archivos y directorios por omisi{\'o}n.
+El argumento que acompa{\~n}a a la orden es un n{\'u}mero octal que aplicar{\'a}
+una {\sc xor} sobre los permisos por omisi{\'o}n ({\verb+rw-rw-rw-+}) para
+archivos y ({\verb+rwxrwxrwx+}) para directorios. El valor por omisi{\'o}n
+de la m{\'a}scara es {\verb+022+} que habilita al usuario para
+lectura-escritura, al grupo y al resto para lectura. Sin argumentos
+muestra el valor de la m{\'a}scara.
+
+\noindent
+\comando{chgrp} (CHange GRouP)\\
+Cambia el grupo propietario de una serie de archivos/directorios\\
+{\verb+chgrp +}{\it grupo files}\\
+El usuario que efect{\'u}a esta orden debe de pertenecer al grupo
+mencionado.
+
+\noindent
+\comando{chown} (CHange OWNer)\\
+Cambia el propietario y el grupo de una serie de archivos/directorios\\
+{\verb+chown +}{\it user:group files}\\
+La opci{\'o}n {\verb=-r=} hace que la orden se efect{\'u}e recursivamente. 
+
+
+\noindent
+\comando{id}\\
+Muestra la identificaci{\'o}n del usuario\footnote{A pesar de que el
+  usuario se identifica por una cadena denominada {\it username},
+  tambi{\'e}n existe un n{\'u}mero denominado {\sc uid} que es un
+  identificativo num{\'e}rico de dicho usuario.}, as{\'\i} como el conjunto de
+grupos a los que el usuario pertenece.
+\begin{verbatim}
+user@hostname:~$ id
+uid=1000(user) gid=1000(group) groups=1000(group),25(floppy),29(audio)
+user@hostname:~$
+\end{verbatim}
+
+
+\subsection{Filtros.}
+
+Existe un conjunto de {\'o}rdenes en \unix\ que permiten el procesamiento
+de archivos de texto. Se denominan {\bf filtros} ({\it Unix Filters})
+porque normalmente se trabaja empleando redirecci{\'o}n recibiendo datos
+por su {\verb+stdin+}\footnote{Entrada est{\'a}ndar.} y retorn{\'a}ndolos
+modificados por su {\verb+stdout+}\footnote{Salida est{\'a}ndar.}.
+
+Para facilitar la comprensi{\'o}n de los ejemplos siguientes supondremos
+que existe dos archivo llamado \verb+mylist.txt+ y \verb+yourlist.txt+
+que tienen en su interior:
+\begin{verbatim}
+mylist.txt       yourlist.txt
+
+1 190            1 190
+2 280            2 281
+3 370            3 370
+\end{verbatim}
+
+\noindent
+\comando{awk} \\
+Es un procesador de archivos de texto que permite la manipulaci{\'o}n de
+las l{\'\i}neas de forma tal que tome decisiones en funci{\'o}n del contenido
+de la misma. Ejemplo, supongamos que tenemos nuestro archivo
+{\verb+mylist.txt+} con sus dos columnas
+\begin{verbatim}
+user@hostname:~$ awk '{print $2, $1 }'  mylist.txt
+190 1
+280 2
+370 3
+user@hostname:~$
+\end{verbatim} 
+Imprime esas dos columnas en orden inverso.
+ 
+ \noindent
+\comando{cat}\\
+ Es el filtro m{\'a}s b{\'a}sico, copia la entrada a la salida.
+\begin{verbatim}
+user@hostname:~$ cat  mylist.txt
+1 190
+2 280
+3 370
+user@hostname:~$
+\end{verbatim}
+
+\noindent
+\comando{cut}\\
+Para un archivo compuesto por columnas de datos, permite escribir
+sobre la salida cierto intervalo de columnas. La opci{\'o}n \verb=-b N-M=
+permite indicar el intervalo en bytes que se escribiran en la salida.
+\begin{verbatim}
+user@hostname:~$ cut -b 3-4 mylist.txt
+19
+28
+37
+user@hostname:~$
+\end{verbatim}
+
+\noindent
+\comando{diff}\\
+Permite comparar el contenido de dos archivos
+\begin{verbatim}
+user@hostname:~$ diff mylist.txt yourlist.txt
+2c2
+< 2 280
+---
+> 2 281
+user@hostname:~$
+\end{verbatim}
+Hay una diferencia entre los archivos en la segunda fila. 
+
+\noindent
+\comando{find}\\
+Permite la b{\'u}squeda de un archivo en la estructura de directorios\\
+{\verb+find . -name file.dat -print+}\\
+Comenzando en el directorio actual recorre la estructura de
+directorios buscando el archivo {\verb+file.dat+}, cuando lo encuentre
+imprime el path al mismo.\\
+{\verb+find . -name '*~' -exec rm '{}' \;+}
+ 
+Busca en la estructura de directorios un archivo que acabe en \verb+~+ y lo
+borra. {\verb+xargs+} ordena repetir orden para cada argumento que se
+lea desde {\it stdin}. Permite el uso muy eficiente de {\verb+find+}.\\
+{\verb+find . -name '*.dat' -print | xargs mv ../data \;+}\\
+Busca en la estructura de directorios todos los archivos que acaben en
+{\verb+.dat+}, y los mueve al directorio {\verb+../data+}.
+
+\noindent
+\comando{grep}\\
+Permite la b{\'u}squeda de una cadena de caracteres en uno o varios
+archivos, imprimiendo el nombre del archivo y la l{\'\i}nea en que
+encuentra la cadena. 
+\begin{verbatim}
+user@hostname:~$ grep 1 *list.txt
+mylist.txt:1 190
+yourlist.txt:1 190
+yourlist.txt:2 281
+user@hostname:~$
+\end{verbatim}
+Algunas opciones {\'u}tiles
+\begin{itemize}
+\item {\verb+-c+} Elimina la salida normal y s{\'o}lo cuenta el n{\'u}mero de
+  apariciones de la cadena en cada archivos.
+\item {\verb+-i+} Ignora para la comparaci{\'o}n entre la cadena dada y el
+  archivo si la cadena est{\'a} en may{\'u}sculas o min{\'u}sculas.
+\item {\verb+-n+} Incluye el n{\'u}mero de l{\'\i}neas en que aparece la cadena
+  en la salida normal.
+\item {\verb+-r+} La busqueda la hace recursiva.
+\item {\verb+-v+} Invierte la busqueda mostrando todas las l{\'\i}neas
+  donde no aparece al cadena pedida.
+\end{itemize}
+
+
+\noindent
+\comando{head}\\
+ Muestra las primeras diez l{\'\i}neas de un archivo.\\
+{\verb+head -30 file+} Muestra las 30 primeras l{\'\i}neas de {\it file}.
+\begin{verbatim}
+user@hostname:~$ head -1  mylist.txt
+1 190
+user@hostname:~$
+\end{verbatim}
+
+\noindent
+\comando{tail}\\
+Muestra las diez {\'u}ltimas l{\'\i}neas de un archivo. \\
+\verb=tail -30 file= Muestra las 30 {\'u}ltimas l{\'\i}neas de {\it file}.\\
+\verb=tail +30 file= Muestra desde la l{\'\i}nea 30 en adelante de {\it file}.
+\begin{verbatim}
+user@hostname:~$ tail -1  mylist.txt
+3 370
+user@hostname:~$
+\end{verbatim}
+
+\noindent
+\comando{tar} \\
+Este comando permite la creaci{\'o}n/extracci{\'o}n de archivos contenidos en
+un {\'u}nico archivo denominado \verb+tarfile+ (o \verb+tarball+). Este
+\verb+tarfile+ suele ser luego comprimido con \verb+gzip+ la versi{\'o}n
+de compresi{\'o}n {\bf gnu}\footnote{{\bf gnu} es un acr{\'o}nimo recursivo,
+  significa: {\bf gnu}'s Not \unix!  {\bf gnu} es el nombre del
+  producto de la {\it Free Software Foundation}, una organizaci{\'o}n
+  dedicada a la creaci{\'o}n de programas compatible con \unix\ (y
+  mejorado respecto a los est{\'a}ndars) y de libre distribuci{\'o}n. La
+  distribuci{\'o}n de Linux {\bf gnu} es {\bf debian}.} o bien con
+\verb+bzip2+.
+
+La acci{\'o}n a realizar viene controlada por el primer argumento:
+\begin{itemize}
+\item \verb+c+ (Create) creaci{\'o}n
+\item \verb+x+ (eXtract) extracci{\'o}n
+\item \verb+t+ (lisT) mostrar contenido 
+\item \verb+r+ a{\~n}adir al final 
+\item \verb+u+ (Update) a{\~n}adir aquellos archivos que no se hallen en el tarfile o que
+  hayan sido modificados con posterioridad a la versi{\'o}n que aparece.
+\end{itemize}
+A continuaci{\'o}n se colocan algunas de las opciones:
+\begin{itemize}
+\item \verb+v+ Verbose (indica qu\'e archivos son agregados a medida
+  que son procesados) 
+\item \verb+z+ Comprimir o descomprimir el contenido con \verb+gzip+.
+\item \verb+I+ Comprimir o descomprimir el contenido con \verb+bzip2+.
+\item \verb+f+ File: permite especificar el archivo para el tarfile.
+\end{itemize}
+Veamos algunos ejemplos:
+
+\verb+tar cvf simul.tar *.dat+\\
+Genera un archivo \verb+simul.tar+ que contiene todos los archivos que
+terminen en \verb+.dat+ del directorio actual. A medida que se va
+realizando indica el tama{\~n}o en bloques de cada
+archivo a{\~n}adido modo {\it verbose}.
+
+\verb+tar czvf simul.tgz *.dat+\\
+Igual que en el caso anterior, pero el archivo generado simul.tgz ha
+sido comprimido empleando gzip.
+
+\verb+tar tvf simul.tar+\\
+Muestra los archivos contenidos en el tarfile \verb+simul.tar+.
+
+\verb+tar xvf simul.tar+\\
+Extrae todos los archivos contenidos en el tarfile \verb+simul.tar+.
+
+\vspace{0.3cm}
+
+\noindent
+\comando{wc} ({\it Word Count})
+Contabiliza el n{\'u}mero de l{\'\i}neas, palabras y caracteres de un archivo.
+\begin{verbatim}
+user@hostname:~$ wc  mylist.txt
+      3       6      18 mylist.txt
+user@hostname:~$
+\end{verbatim}
+El archivo tiene 3 l{\'\i}neas, 6 palabras, al considerar cada n{\'u}mero como
+una palabra {\it i.e.} 1 es la primera palabra y 190 la segunda, y
+finalmente 18 caracteres. ?`Cu{\'a}les son los 18 caracteres?
+
+
+\subsection{Otros usuarios y m\'aquinas}
+
+\noindent
+\comando{users} \comando{who} \comando{w}\\
+Para ver  qui{\'e}n est{\'a} conectado en la m{\'a}quina.
+
+\vspace{.5cm}
+
+\noindent
+\comando{ping}\\[1mm]
+Verifica si una m{\'a}quina est{\'a} conectada a la red y si el camino de Internet
+hasta la misma funciona correctamente.
+
+\vspace{.5cm}
+
+\noindent
+\comando{finger}\\
+\verb+finger user+, muestra informaci{\'o}n\footnote{La informaci{\'o}n
+  proporcionada es el nombre de completo del usuario, las {\'u}ltimas
+  sesiones en dicha m{\'a}quina, si ha leido o no su correo y el contenido
+  de los archivos {\tt .project} y {\tt .plan} del usuario.} sobre el
+usuario \verb+user+ en la m{\'a}quina local.
+
+\noindent
+\verb+finger user@hostname+, muestra informaci{\'o}n sobre un usuario
+llamado \verb+user+ en una m{\'a}quina \verb+hostname+. 
+
+\noindent
+\verb+finger @hostname+, muestra los usuarios conectados de la m{\'a}quina
+\verb+hostname+.
+
+\subsection{Fecha}
+
+\noindent
+\comando{cal}\\
+Muestra el calendario del mes actual. Con la opci{\'o}n \verb=-y= y el a{\~n}o
+presenta el calendario del a{\~n}o completo.
+
+\vspace{.5cm}
+
+\noindent
+\comando{date}\\
+Muestra el d{\'\i}a y la hora actual.
+
+
+\subsection{Transferencia a diskettes.}
+
+La filosof{\'\i}a de diferentes unidades (A:, B:,\ldots ) difiere de la
+estructura {\'u}nica del sistema de archivos que existe en {\unix}. Son
+varias las alternativas que existen para la transferencia de
+informaci{\'o}n a diskette.
+\begin{itemize}
+\item Una posibilidad es disponer de una m{\'a}quina {\sc win9x} con ftp
+  instalado y acceso a red.  Empleando dicha aplicaci{\'o}n se pueden
+  intercambiar archivos entre un sistema y el otro.
+  
+\item Existe un conjunto de comandos llamados \verb+mtools+ disponible
+  en multitud plataformas, que permiten el acceso a diskettes en
+  formato {\sc win9x} de una forma muy eficiente.
+
+\noindent
+\comando{mdir a:} Muestra el contenido de un diskette en  \verb+a:+.
+
+\noindent
+\comando{mcopy file a:} Copia el archivo \verb+file+ del sistema de
+archivos {\unix} en un diskette en \verb+a:+.
+
+\noindent
+\comando{mcopy a:file file} Copia el archivo \verb+a:file+ del
+diskette en el sistema de archivos {\unix} con el nombre \verb+file+.
+
+\noindent
+\comando{mdel a:file} Borra el archivo \verb+a:file+ del
+diskette.
+
+Con \verb+a:+ nos referimos a la primera diskettera \verb+/dev/fd0+,
+luego el archivo que se encuentra en el diskette su nombre se compone
+de \verb+a:filename+. Si se desea emplear el caracter comod{\'\i}n para un
+conjunto de archivos del diskette debe de rodearse de dobles comillas
+el mismo para evitar la actuaci{\'o}n del {\it shell} 
+(p.e. \verb+mcopy ``a:*.dat''+).  La opci{\'o}n \verb+-t+ realiza la conversi{\'o}n necesaria
+entre {\unix} y {\sc win9x}, que se debe realizar {\bf s{\'o}lo} en
+archivos de texto.
+
+\item Una alternativa final es montar el dispositivo \verb+/dev/fd0+
+  en alg{\'u}n directorio, t{\'\i}picamente \verb+/floppy+, considerando el
+  tipo especial de sistema de archivos que posee \verb+vfat+ y luego
+  copiar y borrar usando comandos {\unix}. Hay que hacer notar que
+  esta forma puede estar restringida s{\'o}lo a \verb+root+, el comando:
+\verb+mount -t vfat /dev/fd0 /floppy+
+
+\end{itemize}
+
+\subsection{Diferencias entre los sistemas.}
+
+Cuando se transfieren archivos de texto entre {\sc dos} y {\unix} sin las
+precauciones adecuadas pueden aparecer los siguientes problemas:
+
+\begin{itemize}
+\item En {\sc dos} los nombres de los archivos pueden tener un m{\'a}ximo
+  de 8 caracteres y una extensi{\'o}n de 3 caracteres. En {\unix} no
+  existe restricci{\'o}n respecto a la longitud del nombre, y aunque
+  pueden llevar extensi{\'o}n, no es obligatorio. Tambi{\'e}n pueden tener m{\'a}s
+  de una extensi{\'o}n \verb+algo.v01.tar.gz+ esto complica mucho a otros
+  sistemas que tienen limitaciones en los nombres.
+  
+\item El cambio de l{\'\i}nea en {\sc dos} se compone de {\it Carriage
+    Return} y {\it Line Feed}. Sin embargo, en {\unix} s{\'o}lo existe el
+  {\it Carriage Return}. As{\'\i} un archivo de {\unix} visto desde DOS parece una
+  {\'u}nica l{\'\i}nea. El caso inverso es la aparici{\'o}n del car{\'a}cter \verb+^M+ al
+  final de cada l{\'\i}nea. Adem{\'a}s, el fin de archivo en {\sc dos} es
+  \verb+^Z+ y en {\unix} es \verb+^D+.
+  
+\item La presencia de caracteres con c{\'o}digo {\sc ascii} por encima del
+  127 ({\sc ascii} extendido) suele plantear problemas. Debido a que
+  en DOS dicho c{\'o}digo depende de la asignaci{\'o}n hecha, que a su vez
+  depende del pa{\'\i}s.
+
+\end{itemize}
+
+
+
+\section{Shells.}
+
+El sistema operativo {\unix} soporta varios int{\'e}rpretes de comandos o
+{\it shells}, que ayudan a que la interacci{\'o}n con el sistema sea lo m{\'a}s
+c{\'o}moda y amigable posible. La elecci{\'o}n de cu{\'a}l es el {\it shell} m{\'a}s c{\'o}moda
+es algo personal; en este punto s{\'o}lo indicaremos las cuatro m{\'a}s
+significativas y populares:
+
+\begin{itemize}
+\item {\bf sh} : Bourne SHell, el {\it shell} b{\'a}sico, no pensado para uso
+  interactivo. 
+
+\item {\bf csh} : C-SHell,  {\it shell} con sintaxis como el lenguaje  ``C''.
+El archivo de configuraci{\'o}n es \verb+.cshrc+ (en el directorio {\tt \$HOME}).
+
+\item {\bf tcsh} : alTernative C-Shell (Tenex-CSHell), con editor de
+  l{\'\i}nea de comando.  El archivo de configuraci{\'o}n es \verb+.tcshrc+, o
+  en caso de no existir, \verb+.cshrc+ (en el directorio {\tt \$HOME}).
+  
+\item {\bf bash} : Bourne-Again Shell, con lo mejor de sh, ksh y tcsh.
+  El archivo de configuraci{\'o}n es \verb+.bash_profile+ cuando se entra
+  a la cuenta por primera vez, y despu{\'e}s el archivo de configuraci{\'o}n
+  es \verb+.bashrc+ siempre en el directorio {\tt \$HOME}. La l{\'\i}nea de
+  comando puede ser editada usando comandos (secuencias de teclas) del
+  editor \verb+emacs+. Es el {\it shell} por defecto de Linux.
+\end{itemize}
+
+Si queremos cambiar de {\it shell} en un momento dado, s{\'o}lo ser{\'a}
+necesario que tecleemos el nombre del mismo y estaremos usando dicho
+{\it shell}. Si queremos usar de forma permanente otro {\it shell} del
+que tenemos asignado por omisi{\'o}n\footnote{Por omisi{\'o}n se asigna bash.}
+podemos emplear la orden \verb+chsh+ que permite realizar esta acci{\'o}n.
+
+En los archivos de configuraci{\'o}n se encuentran las definiciones de las
+variables de entorno ({\it enviroment variables}) como camino de b{\'u}squeda
+\verb+PATH+, los aliases y otras configuraciones personales.  Veamos
+unos caracteres con especial significado para el Shell:
+
+\begin{itemize}
+  
+\item \comando{`}\ \footnote{Acento agudo o inclinado hacia
+    atr{\'a}s, {\it backquote}.}permite que el output de un comando reemplace al nombre del
+  comando. Por ejemplo: \verb+echo `pwd`+ imprime por pantalla el
+  nombre del directorio actual.
+\begin{verbatim}
+user@hostname:~$ echo `pwd`
+/home/user
+user@hostname:~$
+\end{verbatim}
+  
+\item \comando{'}\ \footnote{Acento usual o inclinado hacia adelante,
+    {\it single quote}.}
+preserva el  significado literal de cada uno de los caracteres de la
+cadena que delimita.
+\begin{verbatim}
+user@hostname:~$ echo 'Estoy en `pwd`'
+Estoy en `pwd`
+user@hostname:~$
+\end{verbatim}
+
+\item \boxed{\tt "}\  \footnote{\it double quote.} preserva el
+  significado literal de todos los caracteres de la cadena que
+  delimita, salvo {\tt \$}, {\tt `}, \verb+\+.
+\begin{verbatim}
+user@hostname:~$ echo "Estoy en `pwd`"
+Estoy en /home/user
+user@hostname:~$
+\end{verbatim}
+
+\item \comando{;}\ permite la ejecuci{\'o}n  de m{\'a}s de una orden
+  en una
+sola l{\'\i}nea de comando.
+\begin{verbatim}
+user@hostname:~$ mkdir mydir; cd mydir; cp *.txt . ; cd ..
+user@hostname:~$
+\end{verbatim}
+
+\end{itemize}
+
+
+\subsection{ Variables de entorno.}
+
+Las variables de entorno permiten la configuraci{\'o}n, por defecto, de
+muchos programas cuando ellos buscan datos o preferencias.  Se
+encuentran definidas en los archivos de configuraci{\'o}n anteriormente
+mencionados. Para referenciar a las variables se debe poner el s{\'\i}mbolo
+{\tt \$} delante, por ejemplo, para mostrar el camino al directorio por
+defecto del usuario \verb+user+:
+\begin{verbatim}
+user@hostname:~$ echo $HOME 
+/home/user
+user@hostname:~$
+\end{verbatim}
+%$
+Las variables de entorno m{\'a}s importantes son:
+
+\begin{itemize}
+\item \verb+HOME+ - El directorio por defecto del usuario.
+
+\item \verb+PATH+ - El camino de b{\'u}squeda, una lista de directorios
+separado con `:' para buscar programas.
+
+\item \verb+EDITOR+ - El editor por defecto del usuario.
+
+\item \verb+DISPLAY+ - Bajo el sistema de X windows, el nombre de
+m{\'a}quina y pantalla que est{\'a} usando. Si esta variable toma el valor
+\verb+:0+ el despliegue es local.
+
+\item \verb+TERM+ - El tipo de terminal. En la mayor{\'\i}a de los
+  casos bajo el sistema X windows se trata de \verb+xterm+ y en la
+  consola en Linux es \verb+linux+, en otros sistemas puede ser \verb+vt100+.
+
+\item \verb+SHELL+ - La {\it shell} por defecto.
+
+\item \verb+MANPATH+ - Camino para buscar p{\'a}ginas de manuales.
+
+\item \verb+PAGER+ - Programa de paginaci{\'o}n de texto (\verb+less+ o \verb+more+).
+
+\item \verb+TMPDIR+ - Directorio para archivos temporales.
+
+\end{itemize}
+
+
+\subsection{Redirecci{\'o}n.}
+
+Cuando un programa espera que se teclee algo, aquello que el usuario
+teclea se conoce como el {\it Standard Input}: \verb+stdin+. Los
+caracteres que el programa retorna por pantalla es lo que se conoce
+como {\it Standard Output}: \verb+stdout+ (o {\it Standard Error}:
+\verb+stderr+\footnote{Si estos mensajes son de error.}).  El signo
+\verb+<+ permite que un programa reciba el \verb+stdin+ desde un
+archivo en vez de la interacci{\'o}n con el usuario. Por ejemplo:
+\verb+mail root < file+, invoca el comando \verb+mail+ con argumento
+(destinatario del mail) \verb+root+, siendo el contenido del mensaje
+el contenido del archivo \verb+file+ en vez del texto que usualmente
+teclea el usuario. M{\'a}s a menudo aparece la necesidad de almacenar en
+un archivo la salida de un comando. Para ello se emplea el signo
+\verb+>+.  Por ejemplo, \verb+man bash > file+, invoca el comando
+\verb+man+ con argumento (informaci{\'o}n deseada) \verb+bash+ pero
+indicando que la informaci{\'o}n debe ser almacenada en el archivo
+\verb+file+ en vez de ser mostrada por pantalla.
+
+En otras ocasiones uno desea que la salida de un programa sea la
+entrada de otro. Esto se logra empleando los denominados {\it pipes},
+para ello se usa el signo \verb+|+. Este signo permite que el \verb+stdout+ de
+un programa sea el \verb+stdin+ del siguiente. Por ejemplo:\\
+\verb+zcat  manual.gz | more+\\
+Invoca la orden de descompresi{\'o}n de \verb+zcat+ y conduce
+el {\bf flujo} de caracteres hacia el paginador \verb+more+, de forma que
+podamos ver p{\'a}gina a p{\'a}gina el archivo descomprimido.
+A parte de los s{\'\i}mbolos mencionados existen otros que permiten
+acciones tales como:
+\begin{itemize}
+\item \verb+>>+ A{\~n}adir el \verb+stdout+ al final del archivo indicado ({\it append\/}).\footnote{En {\tt bash} si el archivo no existe es creado.}
+\item \verb+>&+ o \verb+&>+ (s\'olo \verb+csh+, \verb+tcsh+ y
+  \verb+bash+) 
+Redireccionar el \verb+stdout+ y \verb+stderr+. Con \verb+2>+
+  redirecciono s{\'o}lo el \verb+stderr+.
+
+\item \verb+>>&+ Igual que \verb+>&+ pero en modo {\it append}.
+ 
+\item \verb+>>!+ Igual que \verb+>>+ pero con la adici{\'o}n que funciona
+  tambi{\'e}n cuando el archivo no existe.
+
+\end{itemize}
+
+
+
+\subsection{Ejecuci{\'o}n de comandos.}
+
+\begin{itemize}
+\item Si el comando introducido es propio del {\it shell} ({\it built-in}), se
+ejecuta directamente.
+
+\item En caso contrario:
+ \begin{itemize}
+\item Si el comando contiene \verb+/+, el {\it shell} lo considera un \verb+PATH+ e
+ intenta resolverlo (entrar en cada directorio especificado para
+ encontrar el comando). 
+\item En caso contrario el {\it shell} busca en una tabla {\it hash table}
+  que contiene los nombres de los comandos que se han encontrado en
+  los directorios especificados en la variable \verb+PATH+, cuando ha
+  arrancado el {\it shell}.
+
+\end{itemize}
+\end{itemize}
+
+\subsection{Aliases.}
+
+Para facilitar la entrada de algunas {\'o}rdenes o realizar operaciones
+complejas, los {\it shells} interactivos permiten el uso de 
+aliases. La orden \verb+alias+ permite ver qu{\'e} aliases hay definidos
+y tambi{\'e}n definir nuevos. Es corriente definir el alias 
+\verb+ rm =`rm -i'+, de esta forma la orden siempre pide confirmaci{\'o}n para borrar
+un archivo. Si alguna vez quieres usar \verb+rm+ sin alias s{\'o}lo hace
+falta poner delante el s{\'\i}mbolo \verb+\+, denominado {\it backslash} .  Por
+ejemplo \verb+\rm+ elimina los alias aplicados a \verb+rm+.  Otro
+ejemplo, bastante frecuente (en \verb+tcsh/csh+) podr{\'\i}a ser (debido a la
+complejidad de la orden): \verb+alias ffind 'find . -name \!* -print'+ 
+Para emplearlo: \verb+ffind tema.txt+ el resultado es la
+b{\'u}squeda recursiva a partir del directorio actual de un archivo que se
+llame \verb+tema.txt+, mostrando el camino hasta el mismo.
+
+\subsection{Las shells csh y tcsh.} 
+
+Son dos de los Shells interactivos m{\'a}s empleados.  Una de las
+principales ventajas de \verb+ tcsh+ es que permite la edici{\'o}n de la
+l{\'\i}nea de comandos, y el acceso a la historia de {\'o}rdenes usando las
+teclas de cursores.\footnote{{\tt bash} tambi{\'e}n lo permite.}
+
+
+\subsubsection{Comandos propios.}
+
+Los comandos propios o intr{\'\i}nsecos {\it Built-In Commands} son
+aqu\'ellos que proporciona el propio {\it shell}\ \footnote{A diferencia
+  de los comandos que provienen de un ejecutable situado en alguno de
+  los directorios de la variable {\tt PATH}.}.
+
+\vspace{.3cm}
+
+\noindent
+\comando{alias name def}\\
+Asigna el nombre \verb+name+ al comando \verb+def+. 
+
+\vspace{.3cm}
+\noindent
+\rule{5.1cm}{.03cm}\\
+\rule[-1.3cm]{0.03cm}{1.8cm}
+{\tt foreach var (wordlist)}
+\rule[-1.3cm]{0.03cm}{1.8cm}\\
+\vspace{-1.25cm}\\
+\phantom{aaaa}commands\\
+\phantom{a}{\tt end}\\
+\rule[.3cm]{5.1cm}{.03cm}\\
+La variable \verb+var+ se asigna sucesivamente a los valores de cadena
+\verb+wordlist+, y se ejecutan el conjunto de comandos. El contenido
+de dicha variable puede ser empleado en los comandos: {\tt \$var}.
+
+\vspace{.3cm}
+
+\noindent
+\comando{history}\\[1mm]
+Muestra las {\'u}ltimas {\'o}rdenes introducidas en el {\it shell}. Algunos
+comandos relacionados con el {\it Command history} son:
+\begin{itemize}
+\item \comando{!!}\\ Repite la {\'u}ltima orden.
+\item \comando{!n}\\ Repite la orden n-{\'e}sima.
+\item \comando{!string}\\[1mm] Repite la orden m{\'a}s reciente que empiece por
+  la cadena \verb+string+.
+\item \comando{!?string}\\[1mm] 
+Repite la orden m{\'a}s reciente que contenga la cadena \verb+string+.
+\item \boxed{^\land\text{\tt str1}^\land\text{\tt str2}} o \comando{!!:s/str1/str2/}\\[1mm]
+({\it substitute}) Repite la {\'u}ltima orden reemplanzando la
+primera ocurrencia de la cadena \verb+str1+ por la cadena \verb+str2+.
+\item \comando{!!:gs/str1/str2/}\\[1mm]
+({\it global substitute}) Repite la {\'u}ltima orden reemplazando todas
+las ocurrencias de la cadena \verb+str1+ por la cadena \verb+str2+.
+\item \comando{!\$}\\[1mm]
+Es el {\'u}ltimo argumento de la orden anterior que se haya tecleado.
+\end{itemize}
+
+\noindent
+\comando{pushd}\\[1mm]
+Cambia de directorio, recordando el directorio actual.
+
+\vspace{0.2cm}
+
+\noindent
+\comando{popd}\\[1mm]
+Retorna al directorio desde donde se hizo \verb+pushd+ la {\'u}ltima vez. 
+
+\vspace{0.2cm}
+\noindent
+\comando{repeat count command}\\[1mm]
+Repite \verb+count+ veces el comando \verb+command+.
+
+\vspace{0.2cm}
+\noindent
+\comando{rehash}\\[1mm]
+Rehace la tabla de comandos ({\it hash table}).
+
+\vspace{0.2cm}
+\noindent
+\comando{set variable = VALUE}\\[1mm]
+Asigna el valor de una variable del {\it shell}.
+
+\vspace{0.2cm}
+\noindent
+\comando{set variable}\\
+Muestra el valor de la variable
+
+\vspace{0.2cm}
+\noindent
+\comando{setenv VARIABLE VALUE}\\[1mm]
+Permite asignar el valor de una variable de entorno.
+
+\vspace{0.2cm}
+\noindent
+\comando{source file}\\[1mm]
+Ejecuta las {\'o}rdenes del fichero \verb+file+ en el {\it shell} actual.
+
+\vspace{0.2cm}
+\noindent
+\comando{unset variable}\\[1mm]
+Desasigna el valor de una variable del {\it shell}.
+
+\vspace{0.2cm}
+\noindent
+\comando{unsetenv VARIABLE VALUE}\\[1mm]
+Permite desasignar el valor de una variable de entorno.
+
+\vspace{0.2cm}
+\noindent
+\comando{umask value}\\[1mm]
+Asigna la m{\'a}scara para los permisos por omisi{\'o}n.
+
+\vspace{0.2cm}
+\noindent
+\comando{unalias name}\\[1mm]
+Elimina un alias asignado.
+
+
+\subsubsection{Variables propias del shell.}
+
+Existe un conjunto de variables denominadas {\it shell variables}, que
+permiten modificar el funcionamiento del {\it shell}.\\
+\comando{filec} ({\it FILE Completion})\\[1mm]
+Es una variable {\it toggle} que permite que el {\it shell}
+complete autom{\'a}ticamente el nombre de un archivo o un
+directorio\footnote{{\tt bash} permite no s{\'o}lo completar
+  ficheros/directorios sino tambi{\'e}n comandos.}. Para ello, si el
+usuario introduce s{\'o}lo unos cuantos caracteres de un archivo y pulsa
+el \verb+TAB+ el {\it shell} completa dicho nombre. Si s{\'o}lo existe una
+posibilidad, el completado es total y el {\it shell} deja un espacio
+tras el nombre. En caso contrario hace sonar un pitido. Pulsando
+\verb+Ctrl-D+ el {\it shell} muestra las formas existentes para
+completar.
+
+\noindent
+\comando{prompt}\\[1mm]
+Es una variable de cadena que contiene el texto que aparece al
+principio de la l{\'\i}nea de comandos.
+
+\noindent
+\comando{savehist}\\
+Permite definir el n{\'u}mero de {\'o}rdenes que se desea se almacenen al
+abandonar el {\it shell}. Esto permite recordar las {\'o}rdenes que se
+ejecutaron en la sesi{\'o}n anterior.
+
+
+\subsection{Las shell sh y bash.}
+
+S{\'o}lo \verb+bash+ puede considerarse un {\it shell} interactivo,
+permitiendo la edici{\'o}n de la l{\'\i}nea de comandos, y el acceso a la
+historia de {\'o}rdenes ({\it readline}). En uso normal (historia y editor
+de l{\'\i}nea de comandos) \verb+BASH+ es compatible con \verb+TCSH+ y
+\verb+KSH+.  El modo de completado ({\it file completion}) es
+autom{\'a}tico (usando \verb+TAB+ s{\'o}lo) si el {\it shell} es interactivo.
+
+\subsubsection{Comandos propios del shell.}
+
+Los comandos \comando{umask}, \comando{source}, \comando{pushd}, 
+\comando{popd}, \comando{history}, \comando{unalias},
+\comando{hash}\ \footnote{En {\tt bash/sh} la {\it hash table} se va
+  generando din{\'a}micamente a medida que el usuario va empleando las
+  {\'o}rdenes. As{\'\i} el arranque del {\it shell} es m{\'a}s r{\'a}pido, y el uso de orden  
+  equivalente {\tt hash -r} casi nunca hace falta.},  funcionan igual
+que en la {\it shell} \verb+TCSH+.
+
+\vspace{.3cm}
+\noindent
+\comando{help}\\[1mm]
+Ayuda interna sobre los comandos del {\it shell}.
+
+\vspace{.3cm}
+\noindent
+\comando{VARIABLE=VALUE}\\[1mm]
+Permite asignar el valor de una variable de entorno.  Para que dicha
+variable sea ``heredada'' es necesario emplear: \verb+export VARIABLE+ o
+bien combinarlas: \verb+export VARIABLE=VALUE+.
+
+\vspace{.3cm}
+\noindent
+\comando{alias}\\[1mm]
+En \verb+bash+ \verb+alias+ s{\'o}lo sirve para substituci{\'o}n simple de una
+cadena por otra, Por ejemplo: \verb+alias ls='ls -F'+.  Para crear
+aliases con argumentos se usan funciones. 
+
+Las funciones se definen con
+\verb+()+ y los comandos a realizar entre llaves \verb+{}+.  El empleo
+de los argumentos se realiza mediante \verb=$0=$,\dots,$\verb=$n=, siendo {\tt
+  \$\#} el n{\'u}mero de argumentos.  Por ejemplo:
+
+\begin{verbatim}
+setenv() {
+if [ $# -gt 1 ]; then
+export $1=$2
+ else
+env
+ fi 
+}+
+\end{verbatim}
+o bien,\\
+ \verb+setenv () { if [ $# -gt 1 ]; then export $1=$2 ; else env; fi;}+ \\
+define una funci{\'o}n igual que el \verb+setenv+ de \verb+tcsh+. 
+
+El
+siguiente c\'odigo define una funci\'on equivalente al alias 
+\verb+ffind+ de \verb+tcsh+:
+\begin{verbatim}
+ffind() {
+if [ $# != 1 ]; then
+echo Error, falta argumento 
+else
+find . -name \$1 -print 
+fi 
+}
+\end{verbatim}
+%$
+
+Las funciones pueden usar todas las {\'o}rdenes de {\it shell} y de
+{\unix} presentando una forma muy potente para construir aliases.
+
+\section{Ayuda y documentaci{\'o}n.}
+
+Para obtener ayuda sobre comandos de {\unix}, se puede emplear la
+ayuda {\it on-line}, en la forma de p{\'a}ginas de manual. Asi
+\verb+man comando+ proporciona la ayuda sobre el \verb+comando+
+deseado.  Por ejemplo, para leer el manual de los shells, puedes
+entrar: \verb+man sh csh tcsh bash+ la orden formatea las p{\'a}ginas
+y te permite leer los manuales en el orden pedido. En el caso de
+\verb+bash+ se puede usar el comando \verb+help+, por ejemplo,
+\verb+help alias+. Adem{\'a}s, para muchos comandos y programas se
+puede obtener informaci{\'o}n y tipeando \verb+info comando+. 
+Finalmente, algunos comandos tienen una opci\'on de ayuda
+(\verb+--help+),
+para recordar r\'apidamente las opciones m\'as comunes disponibles
+(\verb+ls --help+).
+
+
+
+\section{Procesos.}
+
+En una m{\'a}quina existen una multitud de procesos que pueden estar
+ejecut{\'a}ndose simult{\'a}nemente. La mayor{\'\i}a de ellos no corresponden a
+ninguna acci{\'o}n realizada por el usuario y no merecen que se les
+preste mayor atenci{\'o}n.  Estos procesos corresponden a programas
+ejecutados en el arranque del sistema y tienen que ver con el
+funcionamiento global del servidor. En general, los programas suelen
+tener uno de estos dos modos de ejecuci{\'o}n:
+\begin{itemize}
+  
+\item {\bf foreground}: Son aquellos procesos que requieren de la
+  interacci{\'o}n y/o atenci{\'o}n del usuario mientras se est{\'a}n ejecutando,
+  o bien en una de sus fases de ejecuci{\'o}n ({\it i.e.} Introducci{\'o}n de
+  datos). As{\'\i} por ejemplo, una consulta de una p{\'a}gina de manual es
+  un proceso que debe ejecutarse claramente en {\it foreground}.
+  
+\item {\bf background}: Son aquellos procesos que no requieren de la
+  interacci{\'o}n con el usuario para su ejecuci{\'o}n. Si bien el usuario
+  desear{\'\i}a estar informado cuando {\'e}ste proceso termine. Un ejemplo
+  de este caso ser{\'\i}a la impresi{\'o}n de un archivo.
+\end{itemize}  
+
+Sin embargo, esta divisi{\'o}n que a primera vista pueda parecer tan clara
+y concisa, a menudo en la pr{\'a}ctica aparece la necesidad de conmutar de
+un modo al otro, detenci{\'o}n de tareas indeseadas, etc.  As{\'\i} por
+ejemplo, puede darse el caso de que estemos leyendo una p{\'a}gina de
+manual y de repente necesitemos ejecutar otra tarea.  Un proceso viene
+caracterizado por:
+
+\begin{itemize}
+
+\item {\it process number}
+
+\item {\it job number}
+
+\end{itemize}
+
+Veamos algunas de las {\'o}rdenes m{\'a}s frecuentes para la manipulaci{\'o}n de
+procesos:
+
+\begin{itemize}
+
+\item \verb+comando &+ Ejecuci{\'o}n de un comando en el
+  {\it background}.\ \footnote{Por omisi{\'o}n un comando se ejecuta siempre
+    en el {\it foreground}.}
+  
+\item \verb+Ctrl-Z+ Detiene el proceso que estuviera ejecut{\'a}ndose en
+  el {\it foreground} y lo coloca detenido en el {\it background}.
+  
+\item \verb+Ctrl-C+ Termina un proceso que estaba ejecut{\'a}ndose en {\it
+    foreground}.
+  
+\item \verb+Ctrl-\+ Termina de forma definitiva un proceso que
+  estaba ejecut{\'a}ndose en {\it foreground}.
+  
+\item \verb+ps x+ Lista todos los procesos que pertenezcan al usuario,
+  incluyendo los que no est{\'a}n asociados a un terminal.
+  
+\item \verb+jobs+  Lista los procesos que se hayan ejecutado desde el
+  {\it shell} actual, mostrando el {\it job number}.
+  
+\item \verb+fg (job number)+ Pasa a ejecuci{\'o}n en {\it foreground}
+  un proceso que se hallase en {\it background}.
+  
+\item \verb+bg (job number)+ Pasa a ejecuci{\'o}n en {\it background} un
+  proceso que se hallase detenido con \verb+Ctrl-Z+.
+  
+\item \verb+kill (process number)+ Env{\'\i}a una se{\~n}al\footnote{Para ver
+    las se{\~n}ales disponibles entra la orden {\tt kill -l} (l por {\it
+      list}).} a un proceso {\unix}.  En particular para  enviar la
+  se{\~n}al de t{\'e}rmino a un programa, damos el comando \verb+kill -KILL+, 
+pero no hace falta al ser la se{\~n}al por defecto.
+\end{itemize}
+
+
+Cuando se intenta abandonar una sesi{\'o}n con alg{\'u}n proceso a{\'u}n detenido
+en el {\it background} del {\it shell}, se informa de ello con un mensaje del
+tipo: \verb+There are stopped jobs+ si no importa, el usuario puede intentar
+abandonar de nuevo el {\it shell} y \'este matar{\'a} los {\it jobs}, o puedes utilizar
+\verb+fg+ para traerlos al {\it foreground} y ah{\'\i} terminar el mismo.
+
+\section{Editores.}
+
+Un editor es un programa que permite crear y/o modificar un archivo.
+Existen multitud de editores diferentes, y al igual que ocurre con los
+{\it shells}, cada usuario tiene alguno de su predilecci{\'o}n. Mencionaremos
+algunos de los m{\'a}s conocidos:
+
+\begin{itemize}
+
+\item {\bf vi} - El editor standard de {\unix}.
+  
+\item {\bf emacs (xemacs)} - Editor muy configurable escrito en
+  lenguaje Lisp.  Existen multitud de modos para este editor (lector
+  de mail, news, www,\ldots) que lo convierten en un verdadero {\it
+    shell} para multitud de usuarios. Las {\'u}ltimas versiones del mismo
+  permiten la ejecuci{\'o}n desde X-windows o terminal indistintamente con
+  el mismo binario.  Posee un tutorial en l{\'\i}nea, comando \verb+C-H t+
+  dentro del editor. El archivo de configuraci{\'o}n personalizada es:
+  {\tt \$HOME/.emacs}.
+  
+\item {\bf jove} - Basado en Emacs, (Jonathan's Own Version of Emacs).
+  Posee tutorial en una utilidad asociada: \verb+teachjove+. El
+  archivo de configuraci{\'o}n personalizada es: {\tt \$HOME/.joverc}.
+  
+\item {\bf jed} - Editor configurable escrito en S-Lang.  Permite la
+  emulaci{\'o}n de editores como emacs, edt\footnote{Para usuarios VMS.} y
+  Wordstar.  Posee una ayuda en l{\'\i}nea \verb+C-H C-H+.  El archivo de
+  configuraci{\'o}n personalizada es: {\tt \$HOME/.jedrc}.
+
+\item {\bf gedit} - Editor por defecto de gnome.
+  
+\item {\bf xjed} - Versi{\'o}n de jed para el {X-windows system}.  Presenta
+  como ventaja que es capaz de funcionar en muchos modos: lenguaje C,
+  Fortran, TeX, etc, reconociendo palabras clave y signos de
+  puntuaci{\'o}n, empleando un colorido distinto para ellos. El archivo de
+  configuraci{\'o}n personalizada es el mismo que el de de jed.
+
+\end{itemize}
+
+Dado que los editor del tipo de {\bf gedit} disponen de men{\'u}s
+autoexplicativos, daremos a continuaci{\'o}n unas ligeras nociones s{\'o}lo de
+\verb+vi+ y \verb+emacs+.
+
+\subsection{El editor vi.}
+
+
+El \verb+vi+ es un editor de texto muy poderoso pero un poco dif{\'\i}cil
+de usar. Lo importante de este editor es que se puede encontrar en
+cualquier sistema {\unix} y s{\'o}lo hay unas pocas diferencias entre un
+sistema y otro. Explicaremos lo b{\'a}sico solamente. Comencemos con el
+comando para invocarlo:\\
+\verb+localhost:/# vi+\\
+\rule{12.4cm}{0.1mm}
+\begin{verbatim}
+~
+~
+~
+/tmp/vi.9Xdrxi: new file: line 1 
+\end{verbatim}
+\rule{12.4cm}{0.1mm}\\
+La sintaxis para editar un archivo es:\\ 
+\verb+localhost:/# vi nombre.de.archivo+\\
+\rule{12.4cm}{0.1mm}
+\begin{verbatim}
+~
+~
+~
+nombre.de.archivo: new file: line 1
+\end{verbatim}
+\rule{12.4cm}{0.1mm}
+
+\subsubsection{Insertar y borrar texto en vi.}
+
+Cuando se inicia el \verb+vi+, editando un archivo, o no, se entra en
+un modo de \'ordenes, es decir, que no se puede empezar a escribir
+directamente.  Si se quiere entrar en modo de inserci{\'o}n de texto se
+debe presionar la tecla \verb+i+. Entrando en el modo de inserci{\'o}n, se
+puede empezar a escribir. Para salir del modo de inserci{\'o}n de texto y
+volver al modo de \'ordenes se aprieta \verb+ESC+.
+
+\newpage 
+\noindent
+\rule{12.4cm}{0.1mm}
+\begin{verbatim}
+Aqui ya estamos escribiendo porque apretamos 
+la tecla 'i' al estar en modo ordenes.
+~
+~
+\end{verbatim}
+\rule{12.4cm}{0.1mm}
+
+\vspace{.3cm}
+
+La tecla \verb+a+ en el modo de \'ordenes tambi{\'e}n entra en modo de
+inserci{\'o}n de texto, pero en vez de comenzar a escribir en la posici{\'o}n
+del cursor, empieza un espacio despu{\'e}s.
+
+La tecla \verb+o+ en el modo de {\'o}rdenes inserta texto pero desde la
+l{\'\i}nea que sigue a la l{\'\i}nea donde se est{\'a} ubicado.
+
+Para borrar texto, hay que salir al modo {\'o}rdenes, y presionar la tecla
+\verb+x+ que borrar{\'a} el texto que se encuentre sobre el cursor. Si se
+quiere borrar las l{\'\i}neas enteras, entonces se debe presionar dos veces la
+tecla \verb+d+ sobre la l{\'\i}nea que deseo eliminar. Si se presionan las teclas
+\verb+dw+ se borra la palabra sobre la que se est{\'a} ubicado.
+
+La letra \verb+R+ sobre una palabra se puede escribir encima de
+ella. Esto es una especie de modo de inserci{\'o}n de texto pero s{\'o}lo
+se podr{\'a} modificar la palabra sobre la que se est{\'a} situado. La tecla
+\verb+~+ cambia de may{\'u}scula a min{\'u}scula la letra sobre la que se est{\'a}
+situado.
+
+
+\subsubsection{Moverse dentro de vi.}
+
+Estando en modo ordenes podemos movernos por el archivo que se est{\'a}
+editando usando las flechas hacia la izquierda, derecha, abajo o
+arriba.  Con la tecla \verb+0+ nos movemos al comienzo de la l{\'\i}nea y
+con la tecla {\tt \$} nos movemos al final de la misma.  
+
+Con las teclas \verb+w+ y \verb+b+ nos movemos al comienzo de la
+siguiente palabra o al de la palabra anterior respectivamente.  Para
+moverme hacia la pantalla siguiente la combinacion de teclas
+\verb+CTRL F+ y para volver a la pantalla anterior \verb+CTRL B+.
+Para ir hasta el principio del archivo se presiona la tecla \verb+G+.
+
+
+\subsubsection{Opciones de comandos.}
+
+Para entrar al men{\'u} de comandos se debe presionar la tecla \verb+:+ en
+el modo de {\'o}rdenes. Apareceran los dos puntos (\verb+:+). 
+Aqu{\'\i} se pueden
+ingresar ordenes para guardar, salir, cambiar de archivo entre otras cosas.
+Veamos algunos ejemplos:
+
+\begin{itemize}
+ 
+\item \verb+:w+ Guardar los cambios.
+ 
+\item \verb+:w otherfile.txt+ Guardar con el nuevo nombre
+  \verb+otherfile.txt+
+ 
+\item \verb+:wq+ Guardar los cambios y salir.
+ 
+\item \verb+:q!+ Salir del archivo sin guardar los cambios. 
+  
+\item \verb+:e file1.txt+ Si deseo editar otro archivo al que se le
+  pondr{\'a} por nombre \verb+file1.txt+.
+
+\item \verb+:r file.txt+ Si se quiere insertar un archivo que ya
+  existente, por ejemplo \verb+file.txt+.
+ 
+\item \verb+:r! comando+ Si se quiere ejecutar alg{\'u}n comando del {\it
+    shell} y que su salida aparezca en el archivo que se est{\'a}
+  editando.
+
+\end{itemize} 
+
+\subsection{Editores modo emacs.}
+
+El editor \verb+GNU Emacs+, escrito por Richard Stallman de la {\it Free
+  Software Foundation}, es uno de los que tienen mayor aceptaci{\'o}n
+entre los usuarios de {\unix}, estando disponible bajo licencia {\bf
+  GNU GPL}\footnote{La licencia de GNU, da el permiso de libre uso de
+  los programas con su fuentes, pero los autores mantienen el {\it
+    Copyright} y no es permitido distribuir los binarios sin acesso a
+  sus fuentes, los programas derivados de dichos fuentes heredan la
+  licencia GNU.} para una gran cantidad de arquitecturas. Tambi{\'e}n
+existe otra versi{\'o}n de emacs llamada \verb+XEmacs+ totalmente
+compatible con la anterior pero presentando mejoras significativas
+respecto al \verb+GNU Emacs+.  Dentro de los ``inconvenientes'' que
+presenta es que no viene por defecto incluido en la mayor{\'\i}a de los
+sistemas {\unix}. Las actuales distribuciones de Linux y en particular
+Debian GNU/Linux contienen ambas versiones de emacs, tanto 
+\verb+GNU Emacs+ como \verb+XEmacs+, como tambi{\'e}n versiones de \verb+jove+,
+\verb+jed+, \verb+xjed+ y muchos otros editores.
+
+Los editores tipo emacs se parecen mucho y en su mayor\'{\i}a sus comandos
+son los mismos. Para ejemplificar este tipo de editores nos
+centraremos en \verb+XEmacs+, pero los comandos y descripciones se aplican
+casi por igual a todos ellos. Los editores tipo emacs constan de tres zonas:
+\begin{itemize}
+  
+\item La zona de edici{\'o}n: donde aparece el texto que est{\'a} siendo
+  editado y que ocupa la mayor parte de la pantalla.
+  
+\item La zona de informaci{\'o}n: es una barra que esta situada en la
+  pen{\'u}ltima l{\'\i}nea de la pantalla.
+  
+\item La zona de introducci{\'o}n de datos: es la {\'u}ltima l{\'\i}nea de la
+  pantalla.
+\end {itemize}
+
+Emacs es un editor que permite la edici{\'o}n visual de un archivo (en
+constraste con el modo de edici{\'o}n de \verb+vi+). 
+El texto se agrega o modifica en la zona de edici\'on, usando las
+teclas disponibles en el teclado. 
+
+Adem\'as, existen una serie de
+comandos disponibles para asistir en esta tarea.
+
+La mayor{\'\i}a de los comandos
+de emacs se realizan empleando la tecla de \verb+CONTROL+ o la tecla
+\verb+META+\footnote{Dado que la mayor{\'\i}a de los teclados actuales no
+  poseen la tecla {\tt META} se emplea ya sea {\tt ESC} o {\tt ALT}.}.
+Emplearemos la nomenclatura: \verb+C-key+ para indicar que la tecla
+\verb+key+ debe de ser pulsada junto con \verb+CONTROL+ y \verb+M-key+
+para indicar que la tecla \verb+META+ debe de ser pulsada junto a
+\verb+key+. En este {\'u}ltimo caso NO es necesario pulsar simult{\'a}neamente
+las teclas \verb+ESC+ y \verb+key+, pudiendo pulsarse secuencialmente
+\verb+ESC+ y luego \verb+key+, sin embargo, si se usa \verb+ALT+ como
+\verb+META+ deben ser pulsadas simult\'aneamente.  Observemos que
+en un teclado normal hay unos 50 caracteres (letras y n\'umeros). Usando 
+\verb+SHIFT+ se agregan otros 50. As\'{\i}, usando \verb+CONTROL+ y
+\verb+META+, hay unos $50\cdot 4 = 200$ comandos
+disponibles. Adem\'as, existen comandos especiales llamados {\it
+  prefijos}, que modifican el comando siguiente. Por ejemplo, 
+\verb+C-x+ es un prefijo, y si \verb+C-s+ es un comando (de b\'usqueda
+en este caso), \verb+C-x C-s+ es otro (grabar archivo). As\'{\i}, a
+trav\'es de un prefijo, se duplican el n\'umero de comandos
+disponibles s\'olo con el teclado, hasta llegar a unos $200\cdot 2 =
+400$ comandos en total.
+
+Aparte de estos comandos accesibles por teclas, algunos de los cuales
+ comentaremos a continuaci\'on, existen comandos que es posible ejecutar por
+nombre, haciendo as\'{\i} el n\'umero de comandos disponibles
+virtualmente infinito.
+
+Revisemos los comandos m\'as usuales, ordenados por t\'opico.
+
+\vspace{0.1cm}
+
+\noindent
+{\bf Abortar y deshacer}
+
+En cualquier momento, es posible abortar la operaci\'on en curso, o
+deshacer un comando indeseado:
+
+\begin{center}
+  \begin{tabular}{|ll|}
+\hline
+& \\
+{\bf  C-g}  &        abortar\\
+{\bf C-x u} & deshacer\\[1mm] \hline
+  \end{tabular}
+\end{center}
+
+
+\noindent
+{\bf Archivos}
+
+\vspace{0.1cm}
+
+\begin{center}
+\begin{tabular}{|ll|}
+\hline 
+&  \\
+{\bf C-x C-f} &    cargar archivo \\
+{\bf C-x i} &     insertar archivo \\
+{\bf C-x C-s}       &   grabar archivo \\
+{\bf C-x C-w} &  grabar con nombre \\
+{\bf C-x C-c}  & salir  \\[1mm] \hline
+\end{tabular}
+\end{center}
+
+
+\noindent
+{\bf Ventanas}
+
+\verb+Emacs+ permite dividir la pantalla en varias ventanas. En cada
+ventana se puede editar texto e ingresar comandos
+independientemente. Esto es \'util en dos situaciones: a) si necesitamos
+editar un solo archivo, pero necesitamos ver su contenido en dos
+posiciones distintas (por ejemplo, el comienzo y el final de archivos
+muy grandes); y b) si necesitamos editar o ver varios archivos
+simult\'aneamente. Naturalmente, aunque son independientes, 
+s\'olo es posible editar un archivo a la vez. A la ventana en la cual
+se encuentra el cursor en un momento dado le llamamos la ``ventana
+actual''. 
+
+\vspace{.1cm}
+
+\begin{center}\begin{tabular}{|ll|}
+\hline
+& \\
+{\bf C-x 2} &         dividir ventana actual en 2 partes, con
+l\'{\i}nea horizontal\\
+{\bf C-x 3} & dividir ventana actual en 2 partes, con l\'{\i}nea
+vertical\\
+{\bf C-x 1} & s\'olo 1 ventana (la ventana actual, eliminando las
+otras) \\
+{\bf C-x 0} & elimina s\'olo la ventana actual \\
+{\bf C-x o}       &  cambia el cursor a la  siguiente ventana \\[1mm]
+\hline
+\end{tabular}\end{center}
+
+El cambio del cursor a una ventana cualquiera se puede hacer tambi\'en
+r\'apidamente a trav\'es del {\it mouse}.
+
+% Para otra version quizas
+%
+%\noindent
+%{\bf Buffers}
+
+%Cada archivo que se edita en \verb+emacs+ es, durante la sesi\'on,
+%cargado en memoria, en una zona denominada {\it buffer}. Durante una
+%misma sesi\'on, podemos abrir muchos archivos (ya sea en ventanas
+%distintas o no). Cada uno de estos archivos est\'a en un {\it
+%  buffer\/} determinado.
+
+%{\bf C-x b}       & conmutar de buffer\\
+
+\vspace{.3cm}
+
+\noindent
+{\bf Comandos de movimiento}
+
+\vspace{0.1cm}
+
+Algunos de estos comandos tienen dos teclas asociadas, como se indica
+a continuaci\'on. 
+
+\begin{center}
+\begin{tabular}{|ll|ll|}
+\hline
+& & & \\
+{\bf C-b} o $\mathbf \gets$ & izquierda un car\'acter  & 
+{\bf C-f} o $\mathbf \to$ &derecha un car\'acter\\ 
+{\bf C-p} o $\mathbf \uparrow$ & arriba una l{\'\i}nea & 
+{\bf C-n} o $\mathbf \downarrow$ & abajo una l{\'\i}nea \\ 
+{\bf C-a} o \verb+Home+ & principio de la l{\'\i}nea&
+{\bf C-e} o \verb+End+ & fin de la l{\'\i}nea\\
+{\bf M-$<$} o {\bf C-\verb+Home+} & principio del documento&
+{\bf M-$>$} o {\bf C-\verb+End+} & fin del documento \\
+{\bf M-f} o {\bf M-}$\mathbf \to$ & avanza una palabra & 
+{\bf M-b} o {\bf M-}$\mathbf \gets$ & retrocede una palabra \\ 
+{\bf C-v} o \verb+Page Up+&  avanza una p{\'a}gina &
+{\bf M-v} o \verb+Page Down+&  retrocede una p{\'a}gina\\
+{\bf M-g} (n{\'u}mero) & salta a la l{\'\i}nea (n{\'u}mero)&
+{\bf C-l} & refresca la pantalla \\[1mm] \hline
+\end{tabular}
+\end{center}
+
+\vspace{0.2cm}
+
+\noindent
+{\bf Comandos de inserci{\'o}n y  borrado}
+
+Al ser un editor en modo visual, las modificaciones se
+pueden hacer en el texto sin necesidad de entrar en ning{\'u}n modo
+especial.   
+
+\begin{center}
+\begin{tabular}{|ll|}
+\hline
+& \\
+{\bf C-d} o \verb+Delete+ & borra un car\'acter despu\'es del cursor \\
+\verb+Backspace+ & borra un car\'acter antes del cursor \\
+{\bf C-k} &
+borra desde la posici{\'o}n del cursor hasta el fin de l{\'\i}nea \\
+&(no incluye el cambio de l{\'\i}nea)  \\
+{\bf M-d} & borra desde el cursor hacia adelante, 
+hasta que termina una palabra\\
+{\bf M-\verb+Backspace+} & borra desde el cursor hacia atr\'as, hasta
+que comienza una palabra\\
+{\bf C-o} & Inserta una l{\'\i}nea en la posici\'on del cursor  \\
+[1mm] \hline
+\end{tabular}
+\end{center}
+
+\noindent
+{\bf May{\'u}sculas y  min{\'u}sculas}
+\begin{center}
+\begin{tabular}{|ll|}
+\hline
+& \\
+{\bf M-u} & Cambia a may{\'u}scula desde la posici{\'o}n del cursor hasta el fin de la palabra   \\
+{\bf M-l} & Cambia a min{\'u}scula desde la posici{\'o}n del cursor hasta el fin de la palabra   \\
+{\bf M-c} & Cambia a may{\'u}scula el car\'acter en la posici{\'o}n del cursor y \\
+& a min{\'u}scula hasta el fin de la palabra
+\\[1mm] \hline
+\end{tabular}
+\end{center}
+
+
+Por ejemplo, veamos el efecto de cada uno de estos comandos sobre la
+palabra \verb+EmAcS+, si el cursor est\'a sobre la letra \verb+E+
+(!`el efecto es distinto si est\'a sobre cualquier otra letra!):
+
+\begin{center}
+  \begin{tabular}{l@{\hspace{.3cm}:\hspace{.3cm}}l@{\hspace{.3cm}$\longrightarrow$\hspace{.3cm}}l}
+{\bf M-u} & \verb+EmAcS+ & \verb+EMACS+\\
+{\bf M-l} & \verb+EmAcS+ & \verb+emacs+\\
+{\bf M-c} & \verb+EmAcS+ & \verb+Emacs+
+  \end{tabular}
+\end{center}
+
+\vspace{.2cm}
+
+\noindent
+{\bf  Transposici{\'o}n} 
+
+Los siguientes comandos toman como referencia la posici\'on actual del
+cursor. Por ejemplo, {\bf C-t} intercambia el car\'acter justo antes
+del cursor con el car\'acter justo despu\'es.
+
+\begin{center}\begin{tabular}{|ll|}
+\hline
+& \\ 
+{\bf C-t} & Transpone dos caracteres   \\
+{\bf M-t} & Transpone dos palabras   \\
+{\bf C-x C-t} & Transpone  dos l{\'\i}neas  \\[1mm] \hline
+\end{tabular}\end{center}
+
+\vspace{0.2cm}
+
+\noindent
+{\bf B\'usqueda y reemplazo}
+
+\begin{center}
+  \begin{tabular}{|ll|}
+\hline
+& \\
+{\bf C-s}& B{\'u}squeda hacia el fin del texto  \\
+{\bf C-r}&  B{\'u}squeda hacia el inicio del texto \\
+{\bf M-\%} & B{\'u}squeda y sustituci{\'o}n (pide confirmaci\'on cada
+vez) \\
+{\bf M-\&} & B\'usqueda y sustituci\'on (sin confirmaci\'on)
+ \\[1mm]
+\hline
+  \end{tabular}
+\end{center}
+
+\noindent
+{\bf Definici{\'o}n de regiones y reemplazo}
+
+Uno de los conceptos importantes en \verb+emacs+ es el de
+regi\'on. Para ello, necesitamos dos conceptos auxiliares: el {\it
+  punto\/} y la {\it marca}. El punto es simplemente el
+cursor. Espec\'{\i}ficamente, es el punto donde {\em comienza\/} el
+cursor. As\'{\i}, si el cursor se encuentra sobre la letra {\tt c} en
+{\tt emacs}, el punto est\'a entre la {\tt a} y la {\tt c}. La marca,
+por su parte, es una se\~nal que se coloca en alg\'un punto del
+archivo con los comandos apropiados. La {\it regi\'on\/} es el espacio
+comprendido entre el punto y la marca. 
+
+Para colocar una marca basta ubicar el cursor en el lugar deseado, y
+teclear {\bf C-\verb+Space+} o {\bf C-@}. Esto coloca la marca donde est\'a
+el punto (en el ejemplo del p\'arrafo  anterior, quedar\'{\i}a entre
+las letras {\tt a} y {\tt c}. Una vez colocada la marca, podemos mover
+el cursor a cualquier otro lugar del archivo (hacia atr\'as o hacia
+adelante respecto a la marca). Esto define una cierta ubicaci\'on para
+el punto, y, por tanto, queda definida la regi\'on autom\'aticamente. 
+
+La regi\'on es una porci\'on del archivo que se puede manipular como
+un todo. Una regi\'on se puede borrar, copiar, pegar en otro punto del
+archivo o incluso en otro archivo; una regi\'on se puede imprimir,
+grabar como un archivo distinto; etc. As\'{\i}, muchas operaciones importantes
+se pueden efectuar sobre un bloque del archivo.  
+
+Por ejemplo, si queremos duplicar una regi\'on, basta con definir la
+regi\'on deseada (poniendo la marca y el punto donde corresponda) y
+teclear {\bf M-w}. Esto copia la regi\'on a un buffer temporal
+(llamado {\em kill buffer}). Luego movemos el cursor al lugar donde
+queremos insertar el texto duplicado, y hacemos {\bf C-y}. Este
+comando toma el contenido del {\em kill buffer} y lo inserta en el
+archivo. El resultado final es que hemos duplicado una cierta
+porci\'on del texto. 
+
+ Si la intenci\'on era mover dicha porci\'on, el procedimiento es el
+ mismo, pero con el comando {\bf C-w} en vez de {\bf M-w}. {\bf C-w}
+tambi\'en copia la regi\'on a un {\em kill buffer}, pero borra el
+texto de la pantalla.
+
+Resumiendo:
+
+\vspace{0.2cm}
+
+\begin{center}
+\begin{tabular}{|ll|}
+\hline
+& \\
+{\bf C-\verb+Space+} o {\bf C-@}  & Comienzo de regi{\'o}n \\
+{\bf M-w} & Copia regi{\'o}n \\
+{\bf C-w} & Corta regi{\'o}n\\
+{\bf C-y} & Pega regi{\'o}n \\[1mm] \hline
+\end{tabular}
+\end{center}
+
+El concepto de {\em kill buffer\/} es mucho m\'as poderoso que lo
+explicado reci\'en. En realidad, muchos comandos, no s\'olo {\bf M-w}
+y {\bf C-w}, copian texto en un {\em kill buffer}. En general,
+cualquier comando que borre m\'as de un car\'acter a la vez, lo
+hace. Por ejemplo, {\bf C-k} borra una l\'{\i}nea. Lo que hace no es
+s\'olo borrarla, sino adem\'as copiarla en un {\em kill buffer}. Lo
+mismo ocurre con los comandos que borran palabras completas ({\bf
+  M-d}, {\bf M-\verb+Backspace+}), y muchos otros. Lo interesante es
+que {\bf C-y} funciona tambi\'en en todos esos casos: {\bf C-y} lo
+\'unico que hace es tomar el \'ultimo texto colocado en un {\em kill
+  buffer} (resultado de la \'ultima operaci\'on que borr\'o m\'as de
+un car\'acter a la vez), y lo coloca en el archivo. Por lo tanto, no
+s\'olo podemos copiar o mover ``regiones'', sino tambi\'en palabras o
+l\'{\i}neas. M\'as a\'un, el {\em kill buffer\/} no es borrado con el
+{\bf C-y}, as\'{\i} que ese mismo texto puede ser duplicado muchas
+veces. Continuar\'a disponible con {\bf C-y} mientras no se ponga un
+nuevo texto en el {\em kill buffer}.
+ 
+
+Adem\'as, {\tt emacs} dispone no de uno sino de muchos {\em kill
+  buffers}. Esto permite recuperar texto borrado hace mucho rato. En
+efecto,
+cada vez que se borra m\'as de un car\'acter de una vez,
+se una un nuevo {\em kill buffer}. Por ejemplo, consideremos el texto:
+
+\begin{verbatim}
+La primera linea del texto,
+la segunda linea,
+y finalmente la tercera. 
+\end{verbatim}
+
+Si en este p\'arrafo
+borramos la primera l\'{\i}nea (con {\bf C-k}),  despu\'es borramos la
+primera palabra de la segunda (con {\bf M-d}, por ejemplo), y
+luego la segunda palabra de la \'ultima,
+entonces habr\'a tres {\em kill buffers\/} ocupados: 
+
+\begin{center}
+  \begin{tabular}{l@{\hspace{.3cm}:\hspace{.3cm}}l}
+buffer 1 & {\tt La primera linea del texto,} \\
+buffer 2 & {\tt la} \\
+buffer 3 & {\tt finalmente}
+  \end{tabular}
+\end{center}
+
+Al colocar el cursor despu\'es del punto final, 
+{\bf C-y} toma el
+contenido del \'ultimo {\em kill buffer\/} y lo coloca en el texto:
+
+\begin{verbatim}
+
+ segunda linea,
+y  la tercera. finalmente
+\end{verbatim}
+
+Si se teclea ahora {\bf M-y}, el \'ultimo texto recuperado, {\tt
+  finalmente}, es reemplazado por el pen\'ultimo texto borrado, y que
+est\'a en el {\em kill buffer\/} anterior:
+
+\begin{verbatim}
+
+ segunda linea,
+y  la tercera. la
+\end{verbatim}
+
+Adem\'as, la posici\'on de los  {\em
+  kill buffers\/} se rota:
+
+\begin{center}
+  \begin{tabular}{l@{\hspace{.3cm}:\hspace{.3cm}}l}
+buffer 1 & {\tt finalmente} \\
+buffer 2 & {\tt La primera linea del texto,} \\
+buffer 3 & {\tt la}
+  \end{tabular}
+\end{center}
+
+Sucesivas aplicaciones de {\bf M-y} despu\'es de un {\bf C-y} 
+rotan sobre todos los {\em kill buffers\/} (que pueden ser muchos).
+El editor, as\'{\i},
+conserva un conjunto de las {\'u}ltimas zonas borradas
+durante la edici{\'o}n, pudiendo recuperarse una antigua a pesar de haber
+seleccionado una nueva zona, o borrado una nueva palabra o
+l\'{\i}nea. Toda la
+informaci\'on en los {\em kill buffers\/} se pierde al salir de {\tt
+  emacs} ({\bf C-c}).
+
+Resumimos entonces los comandos para manejo de los {\em kill
+  buffers\/}:
+
+\begin{center}
+  \begin{tabular}{|ll|}
+\hline 
+& \\
+{\bf C-y} & Copia el contenido del \'ultimo {\em kill buffer\/}
+ocupado\\
+{\bf M-y} & Rota los {\em kill buffers\/} ocupados\\[1mm]
+\hline
+  \end{tabular}
+\end{center}
+
+
+\vspace{0.2cm}
+
+\noindent
+{\bf Definici{\'o}n de macros}
+\vspace{0.2cm}
+
+La clave de la configurabilidad de {\tt emacs} est\'a en la
+posibilidad de definir nuevos comandos que modifiquen su
+comportamiento o agreguen nuevas funciones de acuerdo a nuestras
+necesidades. Un modo de hacerlo es a trav\'es del archivo de
+configuraci\'on {\tt \$HOME/.emacs}, para lo cual se sugiere leer la
+documentaci\'on disponible en la distribuci\'on instalada. Sin
+embargo, si s\'olo necesitamos un nuevo comando en la sesi\'on de
+trabajo actual,  un modo
+m\'as simple es definir una {\em macro}, un conjunto de \'ordenes que
+son ejecutados como un solo comando. Los comandos relevantes son:
+
+\begin{center}
+\begin{tabular}{|ll|}
+\hline
+& \\
+{\bf C-x (} &
+Comienza la definici{\'o}n de una macro  \\
+{\bf C-x )} &
+ Termina la definici{\'o}n de una macro   \\
+{\bf C-x e} & Ejecuta una macro definida   
+\\[1mm] \hline
+\end{tabular}
+\end{center}
+
+Todas las sucesiones de teclas y comandos dados entre {\bf C-x (} y
+{\bf C-x )} son recordados por {\tt emacs}, y despu\'es pueden ser
+ejecutados de una vez con {\bf C-x e}.
+
+Como ejemplo, consideremos el siguiente texto, con los cinco primeros lugares 
+del r\'anging ATP (sistema de
+entrada) al 26 de marzo de 2002:
+
+\begin{verbatim}
+1 hewitt, lleyton (Aus)
+2 kuerten, gustavo (Bra)
+3 ferrero, juan (Esp)
+4 kafelnikov, yevgeny (Rus)
+5 haas, tommy (Ger)
+\end{verbatim}
+
+Supongamos que queremos: (a) poner los nombres y apellidos con
+may\'uscula (como deber\'{\i}a ser); 
+(b) poner las siglas de pa\'{\i}ses s\'olo en
+may\'usculas. 
+
+Para definir una macro, 
+colocamos el cursor al comienzo de la primera l\'{\i}nea, en el {\tt
+  1}, y damos {\bf C-x (}. Ahora realizamos todos los comandos
+necesarios para hacer las tres tareas solicitadas para el primer
+jugador solamente: {\bf M-f} (avanza una palabra, hasta el espacio
+antes de {\tt hewitt}; {\bf M-c} {\bf M-c} (cambia a {\tt Hewitt,
+  Lleyton}); {\bf M-u} (cambia a {\tt AUS}); {\tt Home} (vuelve el
+cursor al comienzo de la l\'{\i}nea);  $\downarrow$ (coloca el cursor
+al comienzo de la l\'{\i}nea siguiente, en el {\tt 2}). Los dos
+\'ultimos pasos son importantes, porque dejan el cursor en la
+posici\'on correcta para ejecutar el comando nuevamente. Ahora
+terminamos la definici\'on con {\bf C-x )}. Listo. Si ahora ejecutamos
+la macro, con {\bf C-x e}, veremos que la segunda l\'{\i}nea queda
+modificada igual que la primera, y as\'{\i} podemos continuar hasta el
+final:
+
+\begin{verbatim}
+1 Hewitt, Lleyton (AUS)
+2 Kuerten, Gustavo (BRA)
+3 Ferrero, Juan (ESP)
+4 Kafelnikov, Yevgeny (RUS)
+5 Haas, Tommy (GER)
+\end{verbatim}
+
+
+\vspace{0.2cm}
+
+\noindent
+{\bf Comandos por nombre}
+\vspace{0.2cm}
+
+Aparte de los ya comentados existen muchas otras {\'o}rdenes que no tienen
+necesariamente una tecla asociada ({\it bindkey}) asociada. Para su
+ejecuci{\'o}n debe de teclearse previamente:
+
+\verb+M-x+\\
+\noindent
+y a continuaci{\'o}n en la zona inferior de la pantalla se introduce el
+comando deseado. Empleando el \verb+TAB+ se puede completar dicho
+comando (igual que en \verb+bash+).
+
+De hecho, esto sirve para cualquier comando, incluso si tiene tecla
+asociada. Por ejemplo, ya sabemos {\bf M-g} {\tt n} va a la l\'{\i}nea $n$
+del documento. Pero esto no es sino el comando {\tt goto-line}, y se
+puede tambi\'en ejecutar tecleando: \verb+M-x goto-line n+.
+
+
+\vspace{0.2cm}
+
+\noindent
+{\bf Repetici{\'o}n} 
+\vspace{0.2cm}
+ 
+Todos los comandos de {\tt emacs}, tanto los que tienen una tecla
+asociada como los que se ejecutan con nombre, se pueden ejecutar m\'as
+de una vez, anteponi\'endoles un argumento num\'erico con
+\begin{verbatim}
+M-(number)
+\end{verbatim}
+
+ Por ejemplo, si deseamos escribir 20 letras
+\verb+e+, basta teclear \verb+M-20 e+. Esto es particularmente \'util
+con las macros definidos por el usuario. En el ejemplo anterior, con
+el r\'anking ATP, despu\'es de definir la macro quedamos en la
+l\'{\i}nea 2, y en vez de ejecutar {\bf C-x e} 4 veces, podemos
+teclear \verb+M-4 C-x e+, con el mismo resultado, pero en mucho menos
+tiempo.
+
+
+\vspace{.3cm}
+
+Para terminar la discusi\'on de este editor, diremos que es
+conveniente 
+conocer las secuencias de control b{\'a}sico de {\tt emacs}:\\
+\verb+C-a, C-e, C-k, C-y, C-w, C-t, C-d+, etc.,\\
+porque funcionan para editar la l{\'\i}nea de comandos en el {\it shell},
+como tambi{\'e}n en muchos programas de texto y en ventanas de di{\'a}logo de
+las aplicaciones {\it X Windows}. A su vez, los editores \verb+jed+,
+\verb+xjed+, \verb+jove+ tambi{\'e}n usan por defecto estas combinaciones.
+
+
+\section{El sistema X Windows.}
+
+El {\it X Windows system} es el sistema est{\'a}ndar de ventanas en las
+estaciones de trabajo. Es corriente que el sistema de ventanas sea
+arrancando autom{\'a}ticamente cuando la m{\'a}quina parte. En caso
+contrario, la orden para arrancarlo es \verb+startx+. En el sistema
+{\it X Windows} deben distinguirse dos conceptos:
+
+\begin {itemize}
+  
+\item {\bf server} : Es un programa que se encarga de escribir en el
+  dispositivo de video y de capturar las entradas (por teclado,
+  rat{\'o}n, etc). Asimismo se encarga de mantener los recursos y
+  preferencias de las aplicaciones. S{\'o}lo puede existir un server para
+  cada pantalla.
+  
+\item {\bf client} : Es cualquier aplicaci{\'o}n que se ejecute en el
+  sistema {\it X Windows}.  No hay l{\'\i}mite (en principio) en el n{\'u}mero
+  de clientes que pueden estarse ejecutando simult{\'a}neamente. Los
+  clientes pueden ser locales o remotos.  
+\end{itemize}.
+
+\noindent
+{\bf Window Manager (WM)} Es un cliente con ``privilegios especiales'':
+Controla el comportamiento (forma, tama{\~n}o,\ldots) del resto de
+clientes. 
+Existen varios, destacando:
+\begin{itemize} 
+\item {\bf fvwm} : {\it F* Virtual Window Manager}, el instalado por
+defecto.
+\item {\bf olwm} : {\it Open Look Window Manager}, propio de  las
+  estaciones de trabajo SUN.
+\item {\bf twm} : {\it Tab Window Manager}, suministrado con la
+  distribuci{\'o}n X11R* del MIT.
+\item {\bf icewm} : {\it Ice Window Manager}, uno de los {\it window
+    managers} gnome compatible.
+\end{itemize}
+
+El {\it look and feel} (o GUI) de {\it X Windows} es extremadamente
+configurable, y puede parecer que dos m{\'a}quinas son muy distintas, pero esto se debe al
+\verb+WM+ que se est{\'e} usando y no a que las aplicaciones sean distintas.
+
+Para configurar tu sesi{\'o}n es necesario saber qu{\'e} programas est{\'a}s
+usando y ver las p{\'a}ginas de manual. Los archivos pricipales son:
+
+\begin{itemize}    
+\item \verb+.xinitrc+ {\'o} \verb+.xsession+ archivo le{\'\i}do al arrancar
+  {\it X Windows}.  Aqu{\'\i} se pueden definir los programas que aparecen al inicio de tu
+  sesi{\'o}n.  
+\item \verb+.fvwmrc+ archivo de configuraci{\'o}n del \verb+fvwm+. Ver las
+  p{\'a}ginas del manual de \verb+fvwm+.
+  
+\item \verb+.olwmrc+ archivo de configuraci{\'o}n del \verb+olwm+. Ver las
+  p{\'a}ginas del manual de \verb+olwm+.
+  
+\item \verb+.Xdefaults+ Configuraci{\'o}n general de las aplicaciones de 
+X Windows. Aqu{\'\i} puedes definir los {\it resources} que encontrar{\'a}s en
+  los manuales de las aplicaciones de X.  
+
+\end{itemize}
+    
+  En caso de que tengas que correr una aplicaci{\'o}n de X que no est{\'e}
+  disponible en la m{\'a}quina que est{\'a}s usando, eso no representa ning{\'u}n
+  problema. Las {\'o}rdenes necesarias son (por ejemplo, para arrancar un
+  \verb+gnome-terminal+ remoto):
+
+\begin{verbatim}
+userA@hostname1:~$ xhost +hostname2
+hostname2 being added to access control list
+user@hostname1:~$ ssh userB@hostname2
+userB@hostname2's password:
+userB@hostname2:~$ export DISPLAY=hostname1:0
+userB@hostname2:~$ gnome-terminal &
+\end{verbatim}
+
+Si todo est{\'a} previamente configurado, es posible que no haga falta
+dar la {\it password}.
+
+Cuando quieres salir, normalmente puedes encontrar un icono con la
+opci{\'o}n \verb+Log out+, en un men{\'u} o panel de la pantalla. 
+
+\section{Uso del rat{\'o}n.}
+
+El rat{\'o}n es un dispositivo esencial en el uso de programas X, sin
+embargo, la funci{\'o}n que realiza en cada uno de ellos no est{\'a}
+normalizada.
+
+Comentaremos la pauta seguida por la mayor{\'\i}a de las aplicaciones, pero
+debe tenerse presente que es muy frecuente encontrar aplicaciones que
+no las respetan.\footnote{Las aplicaciones que son conscientes de un
+  uso anormal y est{\'a}n realizadas por programadores inteligentes,
+  muestran en pantalla la funci{\'o}n de cada bot{\'o}n cuando son posibles
+  varias alternativas.}
+
+\begin{itemize}
+  
+\item {\bf Bot{\'o}n izquierdo} (LB): Seleccionar. Comienza el bloque de
+  selecci{\'o}n.
+  
+\item {\bf Bot{\'o}n central} (MB): Pegar. Copia la selecci{\'o}n en la
+  posici{\'o}n del cursor.
+
+\item {\bf Bot{\'o}n derecho} (RB): Habitualmente ofrece un menu para
+  partir aplicaciones.
+\end{itemize}
+  
+Existen dos modos para determinar cu{\'a}l es la {\bf ventana activa},
+aquella que recibe las entradas de teclado:
+
+\begin{itemize}
+\item {\it Focus Follows Mouse}: La ventana que contenga al rat{\'o}n es la
+  que es activa. No usado por defecto actualmente. 
+  
+\item {\it Click To Focus}: La ventana seleccionada es la activa. El
+  modo que est{\'e} activo depende de la configuraci{\'o}n del {\it Window
+    Manager}.
+\end{itemize}
+
+
+\section{Internet.}
+ 
+En esta secci{\'o}n denominaremos \verb+unix1+ a la m{\'a}quina local (desde
+donde ejecutamos la orden) y \verb+unix2+ a la m{\'a}quina remota (con la que
+interaccionamos). Ambos son los \verb+hostnames+ de las respectivas
+m{\'a}quinas. Existen algunos conceptos que previamente debemos comentar:
+
+\begin{itemize}
+  
+\item \verb+IP-number+: es un conjunto de 4 n{\'u}meros separados por
+  puntos (p.e.  146.83.57.34) que se asocia a cada m{\'a}quina. No puede
+  haber dos m{\'a}quinas conectadas en la misma red con el mismo
+  n{\'u}mero.
+  
+\item \verb+hostname+: es el nombre que tiene asociada la m{\'a}quina
+  (p.e. \verb+macul+). A este nombre se le suelen a{\~n}adir una serie de
+  sufijos separados por puntos que constituye el denominado dominio
+  (p.e. \verb+macul.ciencias.uchile.cl+). Una m{\'a}quina por tanto puede
+  tener m{\'a}s de un nombre reconocido (se habla en este caso de alias).
+  Se denomina resoluci{\'o}n a la identificaci{\'o}n entre un \verb+hostname+
+  y el \verb+IP-number+ correspondiente. La consulta se realiza
+  inicialmente en el archivo \verb+/etc/hosts+, donde normalmente se
+  guardan las identificaciones de las m{\'a}quinas m{\'a}s comunmente
+  empleadas. En caso de que no se lograse se accede al servicio
+  \verb+DNS+ ({\it Domain Name Service}), que permite la
+  identificaci{\'o}n (resoluci{\'o}n) entre un \verb+hostname+ y un
+  \verb+IP-number+.  
+
+\item \verb+mail-address+: es el nombre que se emplea para enviar
+  correo electr{\'o}nico. Este nombre puede coincidir con el nombre de
+  una m{\'a}quina, pero se suele definir como un alias, con objeto de
+  que la direcci{\'o}n no deba de cambiarse si la m{\'a}quina se estropea o se
+  cambia por otra.
+
+\end{itemize}
+
+
+\subsection{Acceso a la red.}
+
+Existen muchos programas para la conexi{\'o}n de la red, los m{\'a}s usados
+son:
+
+\begin{itemize}
+  
+\item \verb+telnet unix2+, hace un login en la m{\'a}quina \verb+unix2+,
+  debe ingresarse el usuario y su respectiva \verb+passwd+. Aderm{\'a}s,
+  permite especificar el puerto en conexi{\'o}n en la m{\'a}quina remota.
+  
+\item \verb+ssh nombre@unix2+, muy similar a \verb+telnet+ pero se
+  puede especificar el usuario, si no se especifica se usa el nombre
+  de la cuenta local. Adem{\'a}s, la \verb+passwd+ pasa encriptada a
+  trav{\'e}s de la red.
+
+  
+\item \verb+scp file1 usuario2@unix2:path/file+, copia el archivo
+  \verb+file1+, del usuario1, que se encuentra en el directorio local
+  en la m{\'a}quina \verb+unix1+ en la cuenta del \verb+usuario2+ en la
+  m{\'a}quina \verb+unix2+ en {\tt \$HOME/path/file}. Si no se especifica
+  el nombre del usuario se usa el nombre de la cuenta local. Si se
+  quiere copiar el archivo \verb+file2+ del \verb+usuario3+ en
+  \verb+unix2+ en la cuenta actual de \verb+unix1+ el comando
+  ser{\'\i}a: \verb+scp usuario3@unix2:file2 .+.  Antes de realizar
+  cualquiera de las copias el sistema preguntar{\'a} por la \verb+passwd+
+  del usuario en cuesti{\'o}n en la m{\'a}quina \verb+unix2+.  Nuevamente, la
+  \verb+passwd+ pasa encriptada a trav{\'e}s de la red.
+
+\item \verb+talk usuario1@unix2+, Intenta hacer una conexi{\'o}n para
+  hablar con el \verb+usuario1+ en la m{\'a}quina \verb+unix2+. Existen varias
+  versiones de \verb+talk+ en los diferentes sistemas operativos, de forma
+  que no siempre es posible establecer una comunicaci{\'o}n entre
+  m{\'a}quinas con sistemas operativos diferentes.
+
+  
+\item \verb+ftp unix2+, (file transfer protocol) aplicaci{\'o}n para
+  copiar archivos entre m{\'a}quinas de una red. \verb+ftp+ exige un
+  nombre de cuenta y password para la m{\'a}quina remota. Algunas de las
+  opciones m{\'a}s empleadas (una vez establecida la conexi{\'o}n) son:
+
+\begin{itemize}
+\item \verb+bin+: Establece el modo de comunicaci{\'o}n binario. Es decir,
+  transfiere una imagen exacta del archivo.
+  
+\item \verb+asc+: Establece el modo de comunicaci{\'o}n \verb+ascii+.
+  Realiza las conversiones necesarias entre las dos m{\'a}quinas en
+  comunicaci{\'o}n. Es el modo por defecto.
+
+\item \verb+cd+: Cambia directorio en la m{\'a}quina remota. 
+
+\item \verb+lcd+: Cambia directorio en la m{\'a}quina local. 
+
+\item \verb+ls+: Lista el directorio remoto. 
+
+\item \verb+!ls+: Lista el directorio local. 
+
+\item \verb+prompt+ : No pide confirmaci{\'o}n para transferencia m{\'u}ltiple
+  de archivos. 
+  
+\item \verb+get rfile [lfile]+: transfiere el archivo \verb+rfile+ de
+  la m{\'a}quina remota a la m{\'a}quina local denomin{\'a}ndolo \verb+lfile+. En
+  caso de no suministrarse el segundo argumento supone igual nombre en
+  ambas m{\'a}quinas.
+  
+\item \verb+put lfile [rfile]+ : transfiere el archivo \verb+lfile+ de
+  la m{\'a}quina local a la m{\'a}quina remota denomin{\'a}ndolo \verb+rfile+. En
+  caso de no suministrarse el segundo argumento supone igual nombre en
+  ambas m{\'a}quinas. Tambi{\'e}n puede usarse \verb+send+.
+  
+\item \verb+mget rfile+ : igual que \verb+get+, pero con m{\'a}s de un
+  archivo (\verb+rfile+ puede contener car{\'a}cteres comodines).
+  
+\item \verb+mput lfile+ : igual que \verb+put+, pero con m{\'a}s de un
+  archivo (\verb+lfile+ puede contener car{\'a}cteres comodines).
+
+\end{itemize}
+
+Existen versiones mejoras de \verb+ftp+ con muchas m{\'a}s posibilidades,
+por ejemplo, \verb+ncftp+. Tambi{\'e}n existen versiones gr{\'a}ficas de
+clientes \verb+ftp+ donde la elecci{\'o}n de archivo, el sentido de la
+transferencia y el modo de esta se elige con el {\it mouse} (p.e.
+\verb+wxftp+).
+
+
+\item \verb+rlogin -l nombre unix2+, ({\it remote login}), hace un
+  \verb+login+ a la m{\'a}quina \verb+unix2+ como el usuario \verb+nombre+
+  por defecto, sin los argumentos \verb+-l nombre+ \verb+rlogin+ usa
+  el nombre de la cuenta local. Normalmente \verb+rlogin+ pide el {\it
+    password} de la cuenta remota, pero con el uso del archivo \verb+.rhosts+
+  o \verb+/etc/hosts.equiv+ esto no es siempre necesario.
+  
+\item \verb+rsh -l nombre unix2 orden+, ({\it remote shell}), ejecuta
+  la orden orden en la m{\'a}quina \verb+unix2+ como usuario
+  \verb+nombre+. Es necesario que pueda entrar en la m{\'a}quina remota
+  sin {\it password} para ejecutar una orden remota. Sin especificar orden
+  act{\'u}a como \verb+rlogin+.
+\end{itemize}
+
+\subsection{El correo electr{\'o}nico.} 
+
+El correo electr{\'o}nico (\verb+e-mail+) es un servicio para el env{\'\i}o de
+mensajes entre usuarios, tanto de la misma m{\'a}quina como de diferentes
+m{\'a}quinas. 
+
+\subsubsection{Direcciones de correo electr{\'o}nico.} 
+
+Para mandar un \verb+e-mail+ es necesario conocer la direcci{\'o}n del
+destinatario. Esta direcci{\'o}n consta de dos campos que se combinan
+intercalando entre ellos el @ ({\it at}): \verb+user@domain+
+
+\begin{itemize}
+\item \verb+user+ : es la identificaci{\'o}n del usuario ({\it i.e.}
+  \verb+login+) en la m{\'a}quina remota. 
+  
+\item \verb+domain+ : es la m{\'a}quina donde recibe correo el
+  destinatario. A menudo, es frecuente que si una persona tiene acceso
+  a un conjunto de m{\'a}quinas, su direcci{\'o}n de correo no corresponda con
+  una m{\'a}quina sino que corresponda a un alias que se resolver{\'a} en un
+  nombre espec{\'\i}fico de m{\'a}quina en forma oculta para el que env{\'\i}a.
+\end{itemize}
+
+Si el usuario es local no es necesario colocar el campo \verb+domain+
+(ni tampoco el @).
+
+\subsubsection{Nomenclatura.}
+
+Veamos algunos conceptos relacionados con el correo electr{\'o}nico:
+
+\begin{itemize}
+  
+\item {\bf Subject} : Es una parte de un mensaje que piden los
+  programas al comienzo y sirve como t{\'\i}tulo para el mensaje.
+    
+\item {\bf Cc} (Carbon Copy) : Permite el env{\'\i}o de copias del mensaje
+  que est{\'a} siendo editado a terceras personas.
+    
+\item {\bf Reply} : Cuando se env{\'\i}a un mensaje en respuesta a otro se
+  suele a{\~n}adir el comienzo del {\it subject:} \verb+Re:+, con objeto
+  de orientar al destinatario sobre el tema que se responde. Es
+  frecuente que se incluya el mensaje al que se responde para
+  facilitar al destinatario la comprensi{\'o}n de la respuesta.
+  
+\item {\bf Forward} : Permite el env{\'\i}o de un mensaje (con
+  modificaciones o sin ellas) a una tercera persona.
+  
+\item {\bf Forwarding Mail} : Permite a un usuario que disponga de
+  cuentas en varias m{\'a}quinas no relacionadas, de concentrar su correo
+  en una cuenta {\'u}nica\footnote{Este comando debe usarse con
+    conocimiento pues en caso contrario podr{\'\i}a provocar un {\it loop}
+    indefinido y no recibir nunca correo.  }. Para ello basta con
+  tener un archivo {\tt \$HOME/.forward} que contenga la direcci{\'o}n
+  donde desea centralizar su correo.
+  
+\item {\bf Mail group} : Un grupo de correo es un conjunto de usuarios
+  que reciben el correo dirigido a su grupo. Existen {\'o}rdenes para
+  responder a un determinado correo recibido por esa v{\'\i}a de forma que
+  el resto del grupo sepa lo que ha respondido un miembro del mismo.
+  
+\item {\bf In-Box} : Es el archivo donde se almacena el correo que
+  todav{\'\i}a no ha sido le{\'\i}do por el usuario. Suele estar localizado en
+  \verb+/var/spool/mail/user+.
+  
+\item {\bf Mailer-Daemon} : Cuando existe un problema en la
+  transmisi{\'o}n de un mensaje se recibe un mensaje proviniente del {\it
+    Mailer-Daemon} que indica el problema que se ha presentado.
+
+\end{itemize}
+
+\subsubsection{Aplicaci{\'o}n mail.}
+
+Es posiblemente la aplicaci{\'o}n m{\'a}s simple. Para la lectura de mail
+teclear simplemente: \verb+mail+ y a continuaci{\'o}n aparece un {\'\i}ndice
+con los diferentes mensajes recibidos. Cada mensaje tiene una l{\'\i}nea de
+identificaci{\'o}n con n{\'u}mero. Para leer un mensaje basta teclear su
+n{\'u}mero y a continuaci{\'o}n \verb+return+. Para enviar un mensaje:
+\verb+mail (address)+ se pregunta por el \verb+Subject:+ y a
+continuaci{\'o}n se introduce el mensaje.  Para acabar se teclea s{\'o}lo un
+punto en una l{\'\i}nea o bien \verb+Ctr-D+. Por {\'u}ltimo, se pregunta por
+\verb+Cc:+. Es posible personalizar el funcionamiento mediante el
+archivo {\tt \$HOME/.mailrc}. Para enviar un archivo de texto a trav{\'e}s del
+correo se suele emplear la redirecci{\'o}n de entrada: 
+\verb+mail (address) < file+.
+
+\subsection{Ftp anonymous.} 
+
+Existen servidores que permiten el acceso por \verb+ftp+ a usuarios
+que no disponen de cuenta en dichas m{\'a}quinas. Para ello se emplea como
+\verb+login+ de entrada el usuario \verb+anonymous+ y como
+\verb+passwd+ la direcci{\'o}n de {\it e-mail} personal. Existen
+servidores que no aceptan conexiones desde m{\'a}quinas que no est{\'a}n
+declaradas correctamente en el servicio de nombre ({\it dns}), as{\'\i}
+como algunas que no permiten la entrada a usuarios que no se
+identifican correctamente.  Dada la sobrecarga que existe, muchos de
+los servidores tienen limitado el n{\'u}mero de usuarios que pueden
+acceder simult{\'a}neamente.
+
+\subsection{WWW.}
+
+WWW son las siglas de {\it World-Wide Web}. Este servicio permite el
+acceso a informaci{\'o}n entrelazada (dispone de un texto donde un
+t{\'e}rmino puede conducir a otro texto): {\it hyperlinks}. Los archivos est{\'a}n
+realizados en un lenguaje denominado {\it html}. Para acceder a este
+servicio es necesario disponer de un lector de dicho lenguaje conocido
+como {\it browser} o navegador. Destacan actualmente: Netscape,
+Mozilla, Opera y el simple pero muy r{\'a}pido Lynx.
+
+\section{Impresi{\'o}n.} 
+\label{impresion}
+
+Cuando se quiere obtener una copia impresa de un archivo se emplea el comando \verb+lpr+.\\
+
+\verb+lpr file+ - Env{\'\i}a el archivo \verb+file+ a la cola de impresi{\'o}n
+por defecto.  Si la cola est{\'a} activada, la impresora lista y ning{\'u}n
+trabajo por encima del enviado, nuestro trabajo ser{\'a} procesado de
+forma autom{\'a}tica.
+
+A menudo existen varias posibles impresoras a las que poder enviar los
+trabajos. Para seleccionar una impresora en concreto (en vez de la por
+defecto) se emplea el modificador: \verb+lpr -Pimpresora+, siendo
+\verb+impresora+ el nombre l{\'o}gico asignado a esta otra
+impresora. Para recibir una lista de las posibles impresoras
+  de un sistema as{\'\i} como su estado se puede emplear el comando {\tt
+    /usr/sbin/lpc status}. La lista de impresoras y su
+configuraci\'on tambi\'en est\'a disponible en el archivo
+\verb+/etc/printcap+. 
+
+Otras {\'o}rdenes para la manipulaci{\'o}n de la cola de impresi{\'o}n son:
+
+\begin{itemize}
+
+\item \verb+lpq [-Pprinter]+, permite examinar el estado de una
+  determinada cola (para ver la cantidad de trabajos sin procesar de
+  {\'e}sta, por ejemplo).
+  
+\item \verb+lprm [-Pprinter] jobnumber+, permite eliminar un trabajo
+  de la cola de impresi{\'o}n.
+
+\end{itemize}
+
+Uno de los lenguajes de impresi{\'o}n gr{\'a}fica m{\'a}s extendidos en la
+actualidad es {\it PostScript}. La extensi{\'o}n de los archivos {\it
+  PostScript\/} empleada es \verb+.ps+. Un archivo {\it PostScript} puede ser
+visualizado e imprimirso mediante los programas: \verb+gv, gnome-gv+ o
+\verb+ghostview+.
+ Por ello muchas de las impresoras actuales
+s{\'o}lo admiten la impresi{\'o}n en dicho formato. 
+
+En caso de desear imprimir
+un archivo {\tt ascii} deber{\'a} previamente realizarse la conversi{\'o}n a
+{\it PostScript} empleando la orden \verb+a2ps+: \verb+a2ps file.txt+
+Esta orden env{\'\i}a a la impresora el archivo {\tt ascii file.txt}
+formateado a 2 p{\'a}ginas por hoja. Otro programa que permite
+convertir un archivo {\tt ascii} en postscript es \verb+enscript+. 
+
+
+Otro tipo de archivos ampliamente difundido y que habitualmente se
+necesita imprimir es el conocido como {\it Portable Document Format}.
+Este tipo de archivo posee una extensi{\'o}n \verb+.pdf+ y pueden ser
+visualizados e impresos usando aplicaciones tales como:
+\verb+acroread, gv+ o \verb+xpdf+.
+
+\section{Compresi{\'o}n.}
+
+A menudo necesitamos comprimir un archivo para disminuir su tama{\~n}o, o
+bien crear un respaldo ({\it backup}) de una determinada estructura de
+directorios.  Se comentan a continuaci{\'o}n una serie de comandos que
+permiten ejecutar dichas acciones:
+
+El compresor \verb+compress+ esta relativamente fuera de uso, pero es
+la est{\'a}dar de {\unix}.
+
+\begin{itemize}
+\item \verb+compress file+ : comprime el archivo, creando el archivo
+  \verb+file.Z+, destruye el archivo original.
+  
+\item \verb+uncompress file.Z+ : descomprime el archivo, creando el
+  archivo \verb+file+, destruye el archivo original.
+  
+\item \verb+zcat file.Z+ : muestra por el \verb+stdout+ el contenido
+  descomprimido del archivo (sin destruir el original).
+\end{itemize}
+
+Otra alternativa de compresor mucho m{\'a}s usada es \verb+gzip+ el
+compresor de \verb+GNU+ que posee una mayor raz{\'o}n de compresi{\'o}n
+que \verb+compress+. Veamos los comandos:
+
+\begin{itemize}
+\item \verb+gzip file+ : comprime el archivo, creando el archivo
+  \verb+file.gz+,  destruye el archivo original.
+  
+\item \verb+gunzip file.gz+ : descomprime el archivo, creando el
+  archivo \verb+file+,  destruye el archivo original.
+  
+\item \verb+zless file.gz+ : muestra por el \verb+stdout+ el contenido
+  descomprimido del archivo paginado por \verb+less+.
+\end{itemize}
+
+La extensi{\'o}n empleada en los archivos comprimidos con \verb+gzip+
+suele ser \verb+.gz+ pero a veces se usa \verb+.gzip+. Adicionalmente
+el programa \verb+gunzip+ tambi{\'e}n puede descomprimir archivos creados
+con \verb+compress+. 
+
+La opci{\'o}n con mayor tasa de compresi{\'o}n que \verb+gzip+ es \verb+bzip2+
+y su descompresor \verb+bunzip2+.  La extensi{\'o}n usada en este caso es
+\verb+.bz2+.  El {\it kernel} de Linux se distribuye en formato
+\verb+bzip2+.
+
+Existe tambi{\'e}n versiones de los compresores compatibles con otros
+sistemas operativos: \verb+zip+, \verb+unzip+, \verb+unarj+, \verb+lha+ y
+\verb+ zoo+.
+
+En caso que se desee crear un archivo comprimido con una estructura de
+directorios debe ejecutarse la orden:\\ 
+\verb+tar cvzf  nombre.tgz directorio+\\ 
+o bien\\
+\verb+tar cvIf  nombre.tgz directorio+\\
+En el primer caso comprime con \verb+gzip+ y en el segundo con
+\verb+bzip2+. Para descomprimir y reestablecer la estructura de
+directorio almacenada se usan los comandos:\\
+\verb+tar xvzf  nombre.tgz directorio+\\ 
+si se realiz{\'o} la compresi{\'o}n con \verb+gzip+ o bien\\ 
+\verb+tar xvIf  nombre.tgz directorio+\\
+si se realiz{\'o} la compresi{\'o}n con \verb+bzip2+.
+
+
+\section{Compilaci{\'o}n y debugging.}
+
+\subsection{Compiladores.} 
+
+El comando para usar el compilador de lenguaje C es \verb+gcc+, para
+usar el compilador de C++ es \verb=g++= y para usar el compilador de
+fortran 77 es \verb+g77+.  Centr{\'e}mosnos en el compilador de C++, los
+dem{\'a}s funcionan en forma muy similar. Su uso m{\'a}s elemental es:\\
+\verb=g++ filename.cc=\\
+Esto compila el archivo \verb+filename.cc+ y crea un archivo
+ejecutable que se denomina \verb+a.out+ por omisi{\'o}n. Existen diversas
+opciones para el compilador, s{\'o}lo comentaremos una pocas.
+
+\begin{itemize}
+\item \verb+-c+ realiza s{\'o}lo la compilaci{\'o}n pero no el {\it link}:\\
+\verb=g++ -c filename.cc=\\
+genera el archivo \verb+filename.o+ que es c{\'o}digo objeto.
+
+\item  \verb+-o exename+ define el nombre del ejecutable creado, en
+  lugar del por defecto \verb+a.out+.\\
+\verb=g++ -o outputfile filename.cc=
+
+\item \verb+-lxxx+ incluye la librer{\'\i}a \verb+/usr/lib/libxxx.a+ en la compilaci{\'o}n.\\
+\verb=g++ filename.cc -lm=\\
+En este caso se compila con la librer{\'\i}a matem{\'a}tica verb+libm.a+.
+
+\item  \verb+-g+ permite el uso de un debugger posteriormente. 
+  
+\item \verb+-On+ optimizaci{\'o}n de grado \verb+n+ que puede tomar
+  valores de 1 (por defecto) a 3.  El objetivo inicial del compilador es
+  reducir el tiempo de la compilaci{\'o}n. Con \verb+-On+, el compilador
+  trata de reducir el tama{\~n}o del ejecutable y el tiempo de ejecuci{\'o}n,
+  con \verb+n+ se aumenta el grado de optimizaci{\'o}n.
+  
+\item \verb=-Wall= Notifica todos los posibles {\it warnings} en el
+  c{\'o}digo que est{\'a} siendo compilado.
+\end{itemize}
+
+El compilador \verb+gcc+ ({\it the GNU C compiler}) es compatible
+ANSI.
+
+\section{make \& Makefile.} 
+
+Frecuentemente los programas est{\'a}n compuestos por diferentes
+subprogramas que se hayan contenidos en diferentes archivos. La orden
+de compilaci{\'o}n necesaria puede ser muy engorrosa, y a menudo no es
+necesario volver a compilar todos los archivos, sino s{\'o}lo aquellos que
+hayan sido modificados. {\unix} dispone de una orden denominada
+\verb+make+ que evita los problemas antes mencionados y permite el
+mantenimiento de una biblioteca personal de programas. Este comando
+analiza qu{\'e}  archivos fuentes han sido modificados despu{\'e}s de la
+{\'u}ltima compilaci{\'o}n y evita recompilaciones innecesarias. 
+
+En su uso m{\'a}s simple s{\'o}lo es necesario suministrar una lista de
+dependencias y/o instrucciones a la orden \verb+make+ en un archivo
+denominado \verb+Makefile+.  Una dependencia es la relaci{\'o}n entre dos
+archivos de forma que un archivo se considera actualizado siempre que
+el otro tenga una fecha de modificaci{\'o}n inferior a {\'e}ste. Por ejemplo,
+si el archivo \verb+file.cc+ incluye el archivo \verb+file.h+, no se
+puede considerar actualizado el archivo \verb+file.o+ si el archivo
+\verb+file.cc+ o el archivo \verb+file.h+ ha sido modificado despu{\'e}s
+de la {\'u}ltima compilaci{\'o}n.  Se dice que el archivo \verb+file.o+
+depende de \verb+file.cc+ y el archivo \verb+file.cc+ depende de
+archivo \verb+file.h+. El Makefile se puede crear con un editor de
+texto y tiene el siguiente aspecto para establecer una dependencia:
+\begin{verbatim}
+# Esto es un ejemplo de Makefile.
+# Se pueden poner comentarios tras un caracter hash (#).
+
+FILE1: DEP1 DEP2 
+        comandos para generar FILE1 
+ETIQUETA1: FILE2
+FILE2: DEP3 DEP4 
+        comandos para generar FILE2
+ETIQUETA2: 
+        comandos
+\end{verbatim}
+Se comienza con un destino, seguido de dos puntos (\verb+:+) y los
+prerrequisitos o dependencias necesarios. Tambi{\'e}n puede ponerse una
+etiqueta y como dependencia un destino, o bien una etiqueta y un o m{\'a}s
+comandos. Si existen muchos prerrequisitos, se puede finalizar la l{\'\i}nea
+con un backslash (\verb+\+) y continuar en la siguiente l{\'\i}nea.
+
+En la(s) l{\'\i}nea(s) siguiente(s) se escriben uno o m{\'a}s comandos. Cada
+l{\'\i}nea se considera como un comando independiente. Si se desea utilizar
+m{\'u}ltiples l{\'\i}neas para un comando, se deber{\'\i}a poner un backslash
+(\verb+\+) al final de cada l{\'\i}nea del comando. El comando \verb+make+
+conectar{\'a} las l{\'\i}neas como si hubieran sido escritas en una {\'u}nica
+l{\'\i}nea. En esta situaci{\'o}n, se deben separar los comandos con un punto y
+coma (\verb+;+) para prevenir errores en la ejecuci{\'o}n de el {\it
+  shell}. {\bf Los comandos deben ser indentados con un tabulador, no
+  con 8 espacios}
+
+
+Make lee el \verb+Makefile+ y determina para cada archivo destino
+(empezando por el primero) si los comandos deben ser ejecutados. Cada
+destino, junto con los prerrequisitos o dependencias, es denominado
+una regla.
+
+Si \verb+make+ se ejecuta sin argumentos, s{\'o}lo se ejecutar{\'a} el primer
+destino. Veamos un ejemplo:
+\begin{verbatim}
+file.o: file.cc file.h
+        g++ -c file.cc
+\end{verbatim}
+En este caso se comprueba las fechas de las {\'u}ltima modificaciones de
+los archivo \verb+file.cc+ y \verb+file.h+, si estas fecha son m{\'a}s
+recientes que la del archivo \verb+file.o+ se procede a la
+compilaci{\'o}n.
+
+El comando \verb+make+ se puede suministrar con un argumento, que
+indica la etiqueta situada a la izquierda de los dos puntos. As{\'\i} en el
+ejemplo anterior podr{\'\i}a invocarse \verb+make file.o.+. 
+
+Gracias a las variables, un \verb+Makefile+ se puede simplificar
+significativamente. Las variables se definen de la siguiente manera:\\
+{\tt VARIABLE1=valor1}\\
+{\tt VARIABLE2=valor2 }\\
+Una variable puede ser utilizada en el resto del \verb+Makefile+
+refiriendonos a ella con la expresi{\'o}n {\tt \$(VARIABLE)}.  Por
+defecto, \verb+make+ sabe las {\'o}rdenes y dependencias (reglas
+impl{\'\i}citas) para compilar un archivo \verb+*.cc+ y producir un archivo
+\verb+*.o+, entonces basta especificar solamente los dependecias que
+make no puede deducir a partir de los nombres de los archivos, por ejemplo:
+\begin{verbatim}
+OUTPUTFILE = prog 
+OBJS = prog.o misc.o aux.o 
+INCLUDESMISC = misc.h aux.h 
+INCLUDESFILE = foo.h $(INCLUDESMISC) 
+LIBS = -lmylib -lg++ -lm
+
+prog.o: $(INCLUDESFILE) 
+misc.o: $(INCLUDESMISC) 
+aux.o: aux.h
+
+$(OUTPUTFILE): $(OBJS)
+        gcc $(OBJS) -o $(OUTPUTFILE) $(LIBS)
+\end{verbatim}
+
+Las reglas patrones son reglas en las cuales se especifican multiples
+destinos y construye el nombre de las dependencias para cada blanco
+basada en el nombre del blanco. La sintaxis de una regla patr{\'o}n:
+\begin{verbatim}
+destinos ... : destino patron:dependencias patrones
+        comandos
+\end{verbatim}
+La lista de destinos especifica aquellos sobre los que se aplicar{\'a} la
+regla. El destino patr{\'o}n y las dependencias patrones dicen c{\'o}mo
+calcular las dependencias para cada destino. Veamos un ejemplo:
+\begin{verbatim}
+objects = foo.o \
+          bar.o
+
+all: $(objects)
+
+$(objects): %.o: %.cc
+        $(CXX) -c $(CFLAGS) $< -o $@
+\end{verbatim}
+Cada uno de los destinos (\verb+foo.o bar.o+) es comparado con el
+destino patr{\'o}n {\tt \%.o} para extraer parte de su nombre. La parte que
+se extrae es conocida como el tronco o {\it stem}, \verb+foo+ y
+\verb+bar+ en este caso. A partir del tronco y la regla patr{\'o}n de las
+dependencias {\tt \%.cc} \verb+make+ construye los nombres completos de
+ellas (\verb+foo.cc bar.cc+).  Adem{\'a}s, en el comando del ejemplo
+anterior aparecen un tipo de variables especiales conocidas como
+autom{\'a}ticas. La variable {\tt \$$<$} mantiene el nombre de la
+dependencia actual y la variable {\tt \$@} mantiene el nombre del
+destino actual.  Finalmente un ejemplo completo:
+\begin{verbatim}
+# Makefile for C++ program EMBAT 
+# Embedded Atoms Molecular Dynamics
+#
+# You should do a "make" to compile 
+############################################################
+
+#Compiler name
+CXX = g++
+#Linker name
+LCC = g++
+
+#Compiler flags you want to use 
+MYFLAGS = -Wall 
+OPFLAGS = -O4
+
+CPPFLAGS = $(MYFLAGS) $(OPFLAGS)  
+
+#Library flags you want to use 
+MATHLIBS = -lm 
+CLASSLIBS= -lg++
+LIBFLAGS = $(MATHLIBS) $(CLASSLIBS)
+############################################################
+
+OBJFILES = embat.o lee2.o crea100.o errores.o\
+           archivos.o azar.o lista.o rij.o\
+           escribir2.o velver.o cbc.o force.o\
+           fMetMet.o fDf.o relaja.o funciones.o\
+           initvel.o leerfns.o spline.o
+
+embat : $(OBJFILES)
+        $(LCC) -o embat $(OBJFILES) $(LIBFLAGS)
+
+$(OBJFILES): %.o:%.cc
+        $(CXX) -c $(CPPFLAGS) $< -o $@ 
+
+############################################################
+clean:
+        rm embat  $(OBJFILES) 
+############################################################
+
+\end{verbatim}
+
+
+% Local Variables: 
+% TeX-master: "mfm"
+% End: 

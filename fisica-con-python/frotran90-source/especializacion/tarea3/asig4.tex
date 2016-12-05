@@ -1,0 +1,134 @@
+%% This document created by Scientific Word (R) Version 3.0
+
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{CSTFile=LaTeX article (bright).cst}
+%TCIDATA{Created=Fri Nov 14 13:09:39 2003}
+%TCIDATA{LastRevised=Fri Nov 14 15:10:13 2003}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="General\Blank Document">}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+
+
+\begin{document}
+
+\begin{center}
+ASIGNACION N$%
+%TCIMACRO{\UNICODE{0xb0}}%
+%BeginExpansion
+{{}^\circ}%
+%EndExpansion
+4$ DE FISICA MATEMATICA \ Y
+
+COMPUTACIONAL.
+\end{center}
+
+\begin{enumerate}
+\item  Halle la aproximaci\'{o}n en diferencias hacia delante y hacia
+atr\'{a}s de orden $\left(  \Delta x\right)  $para $\frac{\partial^{6}%
+f}{\left(  \partial x\right)  ^{6}}$.(sugerencia: utilice las ecuaciones 19,20
+y 21 de las notas)
+\end{enumerate}
+
+\bigskip SOLUCION
+
+\begin{enumerate}
+\item  Hacia adelante
+\end{enumerate}%
+
+\begin{align*}
+\frac{\partial^{6}f}{\left(  \partial x\right)  ^{6}}  & =\frac{\left(
+\Delta^{6}xf_{i}\right)  }{\left(  \Delta x\right)  ^{6}}\\
+& =\frac{\Delta x^{5}\left(  \Delta xf_{i}\right)  }{\left(  \Delta x\right)
+^{6}}\\
+& =\frac{\Delta x^{5}\left(  f_{i+1}-f_{i}\right)  }{\left(  \Delta x\right)
+^{6}}\\
+& =\frac{\Delta x^{4}\left(  \Delta x\left(  f_{i+1}-f_{i}\right)  \right)
+}{\left(  \Delta x\right)  ^{6}}\\
+& =\frac{\Delta x^{4}\left(  f_{i+2}-2f_{i+1}+f_{i}\right)  }{\left(  \Delta
+x\right)  ^{6}}\\
+& =\frac{\Delta x^{3}\left(  \Delta x\left(  f_{i+2}-2f_{i+1}+f_{i}\right)
+\right)  }{\left(  \Delta x\right)  ^{6}}\\
+& =\frac{\Delta x^{3}\left(  f_{i+3}-3f_{i+2}+3f_{i+1}-f_{i}\right)  }{\left(
+\Delta x\right)  ^{6}}\\
+& =\frac{\Delta x^{2}\left(  \Delta x\left(  f_{i+3}-3f_{i+2}+3f_{i+1}%
+-f_{i}\right)  \right)  }{\left(  \Delta x\right)  ^{6}}\\
+& =\frac{\Delta x^{2}\left(  f_{i+4}-4f_{i+3}+6f_{i+2}-4f_{i+1}+f_{i}\right)
+}{\left(  \Delta x\right)  ^{6}}\\
+& =\frac{\Delta x\left(  \Delta x\left(  f_{i+4}-4f_{i+3}+6f_{i+2}%
+-4f_{i+1}+f_{i}\right)  \right)  }{\left(  \Delta x\right)  ^{6}}\\
+& =\frac{\Delta x\left(  f_{i+5}-5f_{i+4}+10f_{i+3}-10f_{i+2}+5f_{i+1}%
+-f_{i}\right)  }{\left(  \Delta x\right)  ^{6}}\\
+\frac{\partial^{6}f}{\partial x^{6}}  & =\frac{\left(  f_{i+6-}6f_{i+5}%
++15f_{i+4}-20f_{i+3}+15f_{i+2}-6f_{i+1}+f_{i}\right)  }{\left(  \Delta
+x\right)  ^{6}}%
+\end{align*}
+
+Hacia atr\'{a}s:%
+
+\begin{align*}
+\frac{\partial^{6}f}{\left(  \partial x\right)  ^{6}}  & =\frac{\left(
+\nabla^{6}xf_{i}\right)  }{\left(  \Delta x\right)  ^{6}}\\
+& =\frac{\nabla^{5}x\left(  \Delta xf_{i}\right)  }{\left(  \Delta x\right)
+^{6}}\\
+& =\frac{\nabla^{5}x\left(  f_{i}-f_{i-1}\right)  }{\left(  \Delta x\right)
+^{6}}\\
+& =\frac{\nabla^{4}x\left(  \nabla x\left(  f_{i}-f_{i-1}\right)  \right)
+}{\left(  \Delta x\right)  ^{6}}\\
+& =\frac{\Delta x^{4}\left(  f_{i}-2f_{i-1}+f_{i-2}\right)  }{\left(  \Delta
+x\right)  ^{6}}\\
+& =\frac{\nabla^{3}x\left(  \nabla x\left(  f_{i}-2f_{i-1}+f_{i-2}\right)
+\right)  }{\left(  \Delta x\right)  ^{6}}\\
+& =\frac{\nabla^{3}x\left(  f_{i}-3f_{i-1}+3f_{i-2}-f_{i-3}\right)  }{\left(
+\Delta x\right)  ^{6}}\\
+& =\frac{\nabla^{2}x\left(  \nabla x\left(  f_{i}-3f_{i-1}+3f_{i-2}%
+-f_{i-3}\right)  \right)  }{\left(  \Delta x\right)  ^{6}}\\
+& =\frac{\nabla^{2}x\left(  f_{i}-4f_{i-1}+6f_{i-2}-4f_{i-3}+f_{i-4}\right)
+}{\left(  \Delta x\right)  ^{6}}\\
+& =\frac{\nabla x\left(  \nabla x\left(  f_{i}-4f_{i-1}+6f_{i-2}%
+-4f_{i-3}+f_{i-4}\right)  \right)  }{\left(  \Delta x\right)  ^{6}}\\
+& =\frac{\nabla x\left(  f_{i}-5f_{i-1}+10f_{i-2}-10f_{i-3}+5f_{i-4}%
+-f_{i-5}\right)  }{\left(  \Delta x\right)  ^{6}}\\
+\frac{\partial^{6}f}{\partial x^{6}}  & =\frac{\left(  f_{i-}6f_{i-1}%
++15f_{i-2}-20f_{i-3}+15f_{i-4}-6f_{i-5}+f_{i-6}\right)  }{\left(  \Delta
+x\right)  ^{6}}%
+\end{align*}
+
+\begin{enumerate}
+\item  Dada la funci\'{o}n escriba un programa donde calcule las primeras dos
+derivadas en x = 1.5 en diferencias centradas de orden para los siguientes
+'step sizes' 0.0005, 0.001, 0.01, 0.1, 0.2. Determine el error num\'{e}rico
+para cada c\'{o}mputo
+
+\item  Dada la funci\'{o}n escriba un programa para calcular en x = 0.5 y x =
+1.5 por diferencias hacia delante y hacia atr\'{a}s de orden y diferencias
+centradas de orden . Use 'step sizes' de 0.00001, 0.0001, 0.001, 0.1 y 0.5.
+Haga una gr\'{a}fica del error para cada una de los c\'{o}mputos.
+\end{enumerate}
+\end{document}

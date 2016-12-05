@@ -1,0 +1,533 @@
+<title>source code for slides-cp2000</title>
+<body bgcolor=aqua>
+<h2 align=center>source code for slides-cp2000</h2>
+The document <a href="slides-cp2000.pdf"><i>Universally Quantified
+Interval Constraint Solving</i></a>, by
+Fr&eacute;d&eacute;ric Benhamou and Fr&eacute;d&eacute;ric Goualard
+(Institut de Recherche en Informatique de Nantes, France),
+uses <b>prosper</b> and incorporates lots of overlays and PostScript images.
+LaTeX source:
+
+<p><hr><pre>
+<b>\documentclass</b>[<font color=red>pdf,contemporain,slideColor,colorBG,accumulate,nototal</font>]{<font color=blue>prosper</font>}</b>
+\usepackage{<font color=blue>macros-cp</font>}
+
+\newcommand{\ItvSet}{ITVSET}
+\newcommand{\ITVCC}[2]{\[#1,$2\]}
+\newcommand{\ItvComplement}{ITVCOMPL}
+\newcommand{\SetVarItvBox}{SETVARITVBOX}
+\newcommand{\RSet}{\Re{}}
+\newcommand{\Vector}[1]{{\bf #1}}
+\newcommand{\Relation}{Relation}
+\newcommand{\FUNC}{FUNC}
+\newcommand{\Hull}{Hull}
+\newcommand{\CRel}{CRel}
+\newcommand{\UCRel}{UCRel}
+\newcommand{\ALGO}{ALGO}
+
+\title{Universally Quantified~\ \\ Interval Constraint Solving}
+\author{Frédéric Benhamou and Frédéric Goualard}
+\institution{Institut de Recherche en Informatique de Nantes, France}
+
+\begin{document}
+\maketitle
+
+<font color=blue>%---------------------------------------------------------------</font> first slide
+
+\overlays{4}{%
+\begin{slide}{Motivations}
+\small
+
+\vspace*{-10pt}
+
+Object $\Omega$ with trajectory:
+{\scriptsize$\left[\begin{array}{l}
+    x(\theta)=3\sin\theta\cos\theta(\sin\theta-\cos\theta)\\
+    y(\theta)=3\sin\theta\cos\theta(\sin\theta+\cos\theta)\\
+    z(\theta)=0
+  \end{array}\right.$}
+
+\PDForPS{%
+\untilSlide{3}{\rput[t](8.9,1.9){\includegraphics[angle=45,bb=36 603 243 801,width=5.5cm]{trajectoirePDF.ps}}}}{%
+\untilSlide{3}{\rput[t](8.9,1.9){\includegraphics[angle=45,bb=36 603 243 801,width=5.5cm]{trajectoirePS.ps}}}}%
+\onlyInPDF{\fromSlide{4}{\rput[t](8.5,.6){\includegraphics[width=4cm]{exemple-WOpAC-2.ps}}}}%
+
+\fromSlide{2}{%
+  \vspace*{10pt}
+  \begin{minipage}{5cm}
+  Positions of a camera $\Gamma$ s.t. \\ $|\Gamma,\Omega|\geq0.5$ at any time?
+\end{minipage}}
+
+\fromSlide{3}{%
+  \vspace*{1.5cm}
+  {\fontsize{6pt}{6pt}\selectfont$\forall\theta\in\ITVCC{-\pi}{\pi}\colon$\\
+  $\sqrt{(3\sin\theta\cos\theta(\sin\theta-\cos\theta)-x)^2+
+    (3\sin\theta\cos\theta(\sin\theta+\cos\theta)-y)^2+
+    z^2}\geq0.5$}}%
+
+\fromSlide{4}{Non-linear real constraint: compulsory to solve it
+  \emph{soundly}}
+
+\end{slide}}
+
+<font color=blue>%-------------------------------------------------------------------</font> next slide
+
+\begin{slide}{Outline}
+
+\vspace*{-8pt}
+  \begin{itemize}
+    \item Sound techniques
+      \begin{itemize}
+      \item Cylindrical Algebraic Decomposition
+      \item Interval arithmetic and inner-approximation computation
+      \end{itemize}
+  \item Complete techniques
+    \begin{itemize}
+    \item Interval constraint solving
+    \end{itemize}
+  \item Interval constraint solving and soundness
+  \item Solving constraints with universal quantifiers
+  \item Conclusion and perspectives
+  \end{itemize}
+\end{slide}
+
+<font color=blue>%-------------------------------------------------------------------</font> next slide
+
+\overlays{2}{%
+\begin{slide}{Cylindrical Algebraic Decomposition}
+
+[Collins, 1973] (quantifier elimination)
+
+\begin{itemize}
+\item Powerful method (handling of universal/existential quantifiers)
+\item Sound solving of real constraints
+\end{itemize}
+
+\FromSlide{2}%
+But:
+\begin{itemize}
+\item Method restricted to polynomial constraints
+\item High complexity (time consuming)
+\end{itemize}
+
+\end{slide}}
+
+<font color=blue>%------------------------------------------------------------------</font> next slide
+
+\begin{slide}{Interval Arithmetic}
+
+\vspace*{-11pt}
+\scriptsize
+
+[Moore, 1966] Interval set \ItvSet:
+$\ITVCC{a}{b}=\{x\in\RSet\mid a\leq x\leq b\}$
+
+\medskip
+\textbf{Interval extension:}
+\begin{itemize}
+\item \emph{Extension of a real function.} $f\colon\RSet^n\to\RSet$,
+$F\colon\ItvSet^n\to\ItvSet$ s.t.
+$\forall\Vector{B}\colon\mathcal{D}_f(\Vector{B})\subseteq F(\Vector{B})$
+
+\vspace*{-.2cm}
+\PDForPS{%
+  \hspace*{-.1cm}\includegraphics[bb=45 359 563 512,height=3.3cm]{evaluation-forme-horner-2.ps}}{%
+  \hspace*{-.1cm}\includegraphics[bb=45 359 563 512,height=3.3cm]{evaluation-forme-horner-2-ps.ps}}
+\item \emph{Extension of a real relation $\rho\subseteq\RSet^n~$.} Set of
+  boxes $\mathcal{R}$ such that:
+
+\vspace*{-24pt}
+  \begin{equation}
+    (a_1,\dots,a_n)\in\rho\Rightarrow\exists(I_1,\dots,I_n)\in\mathcal{R}
+    \mbox{ s.t. } a_1\in I_1,\dots, a_n\in I_n
+  \end{equation}
+\end{itemize}
+\end{slide}
+
+<font color=blue>%------------------------------------------------------------------</font> next slide
+
+\overlays{5}{%
+\begin{slide}{Approximation of a relation}
+\small
+
+\vspace*{-12pt}
+Outer approximation of $\rho$: $\Hull{\rho}=\bigcap\{\Vector{B}\in\ItvSet^n
+          \mid \Relation\subseteq \Vector{B}\}$
+Inner approximation of $\rho$:
+
+\vspace*{-.6cm}
+  \begin{equation}
+    \FUNC{Inner}(\rho)=\{a\in\RSet^n\mid\Hull{\{a\}}\subseteq\rho\}
+  \end{equation}
+Splitting/evaluation scheme (SES) for straightforward
+inner approximation computation:
+
+\textbf{Example.} $c\colon f(x)\leq0$?
+\begin{center}
+\PDForPS{%
+\onlySlide*{1}{%
+\includegraphics[bb=50 331 566 509,height=3cm]{correction-eval-1.ps}}%
+\onlySlide*{2}{%
+\includegraphics[bb=50 331 566 509,height=3cm]{correction-eval-2.ps}}%
+\onlySlide*{3}{%
+\includegraphics[bb=50 331 566 509,height=3cm]{correction-eval-3.ps}}%
+\onlySlide*{4}{%
+\includegraphics[bb=50 331 566 509,height=3cm]{correction-eval-4.ps}}%
+\fromSlide*{5}{%
+\includegraphics[bb=50 331 566 509,height=3cm]{correction-eval-5.ps}}}{%
+\includegraphics[bb=50 331 566 509,height=3cm]{correction-eval-ps.ps}}%
+\end{center}
+\end{slide}}
+
+<font color=blue>%--------------------------------------------------------------------</font> next slide
+
+\overlays{5}{%
+\begin{slide}{EIA4}
+\small
+
+\vspace*{-12pt}
+[Jardillier \& Languénou, 1998] (Modelling of camera movements)
+
+Solving $\forall v\in\ITVCC{a}{b}\colon c(x,v)$ with the SES:
+
+\bigskip
+\begin{center}
+\onlySlide*{1}{%
+  \includegraphics[height=4cm]{eia4-d.eps}}%
+\onlySlide*{2}{%
+  \includegraphics[height=4cm]{eia4-c.eps}}%
+\onlySlide*{3}{%
+  \includegraphics[height=4cm]{eia4-b.eps}}%
+\onlySlide*{4}{%
+  \includegraphics[height=4cm]{eia4-a.eps}}%
+\onlySlide*{5}{%
+  \includegraphics[height=4cm]{eia4.eps}}%
+\end{center}
+
+\vspace*{-10pt}
+\onlySlide{5}{$\Rightarrow$ algorithm EIA4 (very costly)}
+\end{slide}}
+
+<font color=blue>%--------------------------------------------------------------------</font> next slide
+
+\begin{slide}{Interval constraint solving}
+\small
+
+  \vspace*{-10pt}
+  \begin{itemize}
+  \item Variables $x_1,\dots,x_n$ $\rightarrow$ domains $D_1,\dots,D_n$
+  \item Constraint $c(x_1,\dots,x_n)$ \\
+    \hspace*{1cm}$\rightarrow$ \emph{contracting operator} $\CNO{c}$ \par
+    \hspace*{1cm}{\footnotesize[\textsc{Benhamou} \& \textsc{Older}, \textsc{Apt}, \dots]}
+
+    \medskip
+    {\small$\Vector{D}=D_1\times\cdots\times D_n$
+    \raisebox{-7pt}{\PDForPS{\includegraphics[height=20pt]{cno.eps}}{%
+        \includegraphics[height=20pt]{cno-ps.eps}}}
+    $\Vector{D'}\subseteq\Vector{D}$}\\[6pt]
+  \item Properties: contractance, monotony,\\
+    \emph{completeness} ($\CRel{c}\cap\Vector{D}\subseteq N[c](\Vector{D})$)
+  \item Constraint system $c_1,\dots,c_m$~:
+  domain propagation algorithm (AC3 [\textsc{Mackworth,1977}])
+  \item Discarding values: \emph{local consistency} $+$ splitting
+\end{itemize}
+\end{slide}
+
+<font color=blue>%------------------------------------------------------------------------</font> next slide
+
+\begin{slide}{Box consistency}
+\small
+
+\vspace*{-10pt}
+  [Benhamou, McAllester, Van Hentenryck, 1994]
+
+  Given $c$ a real constraint, $C$ an interval extension for $c$,
+  $\Vector{B}=I_1\times\allowbreak\cdots\times I_n$ a box
+
+  $c$ is \emph{box-consistent w.r.t.\ \Vector{B}} iff $\forall k\in\{1,\dots,n\}\colon$
+
+  \vspace*{-24pt}
+ {\footnotesize
+  \begin{equation}
+    \begin{array}{l}
+    I_k=\Hull{I_k\cap\{a_k\in \RSet\mid C(I_1,\dots,I_{k-1},
+      \Hull{\{a_k\}},I_{k+1},\dots,I_n)\}}
+    \end{array}
+  \end{equation}
+
+\vspace*{-2cm}
+  \PDForPS{%
+    \rput(8.3,-1.5){\includegraphics[bb=48 357 563 573,
+      height=3cm]{box-consistance-1.ps}}}{%
+    \rput(8.3,-1.5){\includegraphics[bb=48 357 563 573,height=3cm]{box-consistance-ps.ps}}}
+
+\vspace{2.6cm}
+Box consistency operator:
+
+\vspace{-30pt}
+  \begin{multline*}
+    \Vector{B}\cap\CRel{c} \subseteq \FUNC{OCb}_{c}(\Vector{B})=
+    \max\{\Vector{B'}\mid
+    \Vector{B'}\subseteq\Vector{B}\\[-5pt]
+    \wedge c\mbox{ is box-consistent \Wrt\ }
+    \Vector{B'}\}
+  \end{multline*}
+\end{slide}
+
+<font color=blue>%-----------------------------------------------------------------------</font> next slide
+
+\overlays{2}{%
+\begin{slide}{Interval constraint solving}
+\small
+
+%\vspace*{-10pt}
+  \begin{itemize}
+  \item Efficiency
+    (systems of non-linear real equations with punctual solutions)
+  \item No restriction to polynomials
+  \item Completeness: no solution lost
+  \end{itemize}
+
+\FromSlide{2}%
+But:
+\begin{itemize}
+\item Continuum of solutions? (systems of inequations)
+\item Soundness ?
+\item Quantified variables?
+\end{itemize}
+\end{slide}}
+
+<font color=blue>%------------------------------------------------------------------------</font> next slide
+
+\overlays{2}{%
+\begin{slide}{Achieving soundness}
+\small
+
+  Computing with interval constraint prog. techniques on $\neg c$:\\
+$\Rightarrow$ completeness for $\neg c$\\
+$\Rightarrow$ \emph{correctness} for $c$
+
+For discarded box $\Vector{B}=I_1\times\cdots\times I_n\times I_v$:
+$\neg(\exists x_1\dots\exists x_n\exists v\colon
+x_1\in I_1\dots x_n\in I_n v\in I_v\wedge \neg c(x_1,\dots,x_n,v))$
+
+\FromSlide{2}%
+\medskip
+That is: $\forall x_1\dots\forall x_n\forall v\colon
+x_1\in I_1\dots x_n\in I_n v\in I_v\Rightarrow c(x_1,\dots,x_n,v)$\\
+(computation of inner approximation for \CRel{c})
+
+\bigskip
+Negation of $c$: easy for inequations
+\end{slide}}
+
+<font color=blue>%---------------------------------------------------------------------</font> next slide
+
+\overlays{2}{%
+\begin{slide}{Handling quantifiers}
+\small
+
+\vspace*{-10pt}
+Solving $\forall v\in I_v\colon c$
+
+\vspace*{-7pt}
+\begin{itemize}
+\item Computing box consistency on $\neg c$
+\item Saving discarded boxes $B'=I'_1\times\cdots\times I'_n\times I'_v$
+  with $I_v=I'_v$
+\item Splitting undiscarded boxes and iterating
+\end{itemize}
+
+\FromSlide{2}%
+Solving
+$\forall v\in I^1\colon c_1\wedge\cdots\wedge\forall v\in I^m\colon c_m$
+
+\vspace*{-7pt}
+\begin{itemize}
+\item Applying the previous scheme on $c_1,\dots,c_n$ in sequence once
+\item Using the output after $c_i$ as input for $c_{i+1}$
+\end{itemize}
+
+\end{slide}}
+
+<font color=blue>%---------------------------------------------------------------------</font> next slide
+
+\begin{slide}{Solving $\forall v\in I_v\colon c$}
+\footnotesize
+
+\vspace*{-12pt}
+  \begin{tabbing}
+    123\=12345\=12345\=12345\=12345\=\kill
+    \NUM{1}\>$\ALGO{ICAb3}_{c}$($\KWD{in}\colon\Vector{B}\in\ISet^n, %
+v\in\VariableSet_{\RSet}$;
+    $\:\KWD{out}\colon\GSet{W}\in\PIFSetN{n}$)\\[-3pt]
+    \NUM{2}\>\BEGIN \\[-3pt]
+    \NUM{3} \>\> \Vector{B'} \Gets \OCB{c}{\Vector{B}} \\[-3pt]
+    \NUM{4} \>\> \IF{\Domain{v}{\Vector{B'}}=\Domain{v}{\Vector{B}}} \THEN \\[-3pt]
+    \NUM{5}\>\>\> \Vector{D} \Gets \OCB{\CNeg{c}}{\Vector{B'}}\\[-3pt]
+    \NUM{6}\>\>\> $\GSet{W}$\Gets $\ItvComplement{\Vector{B'}}{\SetVarItvBox{\Vector{D}}{v}{\Vector{B'}}}$\\[-3pt]
+    \NUM{7}\>\>\> \IF{\Vector{D}\neq\emptyset ~\AND~ \neg\CanonicalV{\Vector{D}}{v}} \THEN \\[-3pt]
+    \NUM{8}\>\>\>\> $(\Vector{D_1},\Vector{D_2})$ \Gets %
+\SplitV{v}{\SetVarItvBox{\Vector{D}}{v}{\Vector{B'}}}\\[-3pt]
+    \NUM{9}\>\>\>\> $\GSet{W}$ \Gets $\GSet{W}\cup\ICBThree{c}{\Vector{D_1}}{v}\cup\ICBThree{c}{\Vector{D_2}}{v}$ \\[-3pt]
+    \NUM{10}\>\>\> \FI \\[-3pt]
+    \NUM{11}\>\>\> \RETURN{\GSet{W}} \\[-3pt]
+    \NUM{12} \>\> \ELSE \\[-3pt]
+    \NUM{13} \>\>\> \RETURN{\emptyset} \\[-3pt]
+    \NUM{14}\>\END
+  \end{tabbing}
+\end{slide}
+
+<font color=blue>%-----------------------------------------------------------------------</font> next slide
+
+\begin{slide}{Constraint systems and $\forall$}
+\footnotesize
+
+\vspace*{-14pt}
+Solving
+$\forall v\in I^1\colon c_1\wedge\cdots\wedge\forall v\in I^m\colon c_m$
+
+   \begin{tabbing}
+    123\=12345\=12345\=12345\=12345\=12345\=\kill
+    \NUM{1}\>\FUNC{ICAb5}($\KWD{in}\colon\Set=\{(c_1,I^1),\dots,
+    (c_m,I^m)\},$\\[-5pt]
+    \>\>$\GSet{A}\in\PIFSetN{n}$, $v\in\VariableSet_{\RSet}$; %
+    $\:\KWD{out}\colon\GSet{W}\in\PIFSetN{n}$)\\[-6pt]
+    \NUM{2}\>\BEGIN \\[-6pt]
+    \NUM{3}\>\> \IF{\Set\neq\emptyset} \THEN\\[-6pt]
+    \NUM{4}\>\>\> $\GSet{B} \Gets \emptyset$\\[-6pt]
+    \NUM{5}\>\>\> \FOREACH $\Vector{D}\in \GSet{A}$ \DO\\[-6pt]
+    \NUM{7}\>\>\>\> $\GSet{B}$ \Gets
+       $\GSet{B}\cup\ICBThree{c_1}{\SetVarItvBox{\Vector{D}}{v}{I^1},v}$\\[-6pt]
+    \NUM{9}\>\>\> \ENDFOREACH\\[-6pt]
+    \NUM{10}\>\>\> \IF{\GSet{B}=\emptyset} \THEN\\[-6pt]
+    \NUM{11}\>\>\>\> \RETURN{\emptyset}\\[-6pt]
+    \NUM{12}\>\>\> \ELSE\\[-6pt]
+    \NUM{13}\>\>\>\> \RETURN{\ALGO{ICAb5}(\Set
+        \setminus\{(c_1,I^1)\},\GSet{B},v)}\\[-6pt]
+    \NUM{14}\>\>\> \FI\\[-6pt]
+    \NUM{15}\>\> \ELSE \\[-6pt]
+    \NUM{16}\>\>\> \RETURN{\GSet{A}}\\[-6pt]
+    \NUM{17}\>\> \FI\\[-6pt]
+    \NUM{18}\>\END
+  \end{tabbing}
+
+\end{slide}
+
+<font color=blue>%----------------------------------------------------------------------</font> next slide
+
+\begin{slide}{Properties}
+Given \UCRel{i}, relation associated with $\forall v\in I_v\colon c_i$
+
+\bigskip
+Soundness:
+\begin{equation}
+\begin{array}{l}
+  \ALGO{ICAb3}_c(\Vector{B},v)\subseteq\FUNC{Inner}(\Vector{B}\cap\UCRel{c})\\
+  \ALGO{ICAb5}(\Set,\{\Vector{B}\},v)\subseteq
+  \FUNC{Inner}(\Vector{B}\cap\UCRel{1}\cap
+  \cdots\cap\UCRel{m})
+\end{array}
+\end{equation}
+Comparison with EIA4:
+\begin{equation}
+  \ALGO{EIA4}(\{c_1,\dots,c_m\},\Vector{B},v)
+  \subseteq\ALGO{ICAb5}(\GSet{S},\{\Vector{B}\},v)
+\end{equation}
+
+%Termination
+\end{slide}
+
+<font color=blue>%----------------------------------------------------------------------</font> next slide
+
+\begin{slide}{ICAb5 vs. EIA4}
+\footnotesize
+
+\vspace*{-12pt}
+All solutions:
+
+\medskip
+\begin{center}\renewcommand{\arraystretch}{.95}
+\begin{tabular}{lrrr}
+\hline
+Benchmark &  \FUNC{EIA4}  & \FUNC{ICAb5} & $\quad\FUNC{EIA4}/\FUNC{ICAb5}$  \\
+\hline
+Projection$_{3,5}$ & 783 & 68 & 11\\
+Projection$_{3,10}$ & $>$9000 & 3634 & $>${2}\\
+Projection$_{5,5}$ & $>${9000} & {3612} & $>${2}\\
+School Problem$_{3,1}$   & {156}      & {13} & {12}\\
+Flying Saucer$_{4,1}$    & {1459}      & {1078} & {1}\\
+Simple Circle$_{2,1}$    & {12789}    & {651} & {19}\\
+Simple Circle$_{2,2}$    & {1579}    & {56} & {28}\\
+\hline
+\multicolumn{4}{r}{\tiny\textit{Time in s.\ on a SUN UltraSparc 1/167\,MHz.}}
+\end{tabular}
+\end{center}
+
+\medskip
+N.B.: first solution only $\Rightarrow$ speed-up much more important
+\end{slide}
+
+<font color=blue>%----------------------------------------------------------------------</font> next slide
+
+\begin{slide}{Conclusion and perspectives}
+\footnotesize
+
+\vspace*{-10pt}
+Alg.\ ICAb5:
+
+\vspace*{-7pt}
+\begin{itemize}\setlength{\itemsep}{-1pt}
+\item solving of non-linear real constraints (polynomial or not)
+  with one universally quantified variable per constraint
+\item Speed-up compared to splitting/evaluation (EIA4)
+\item Still costly
+\end{itemize}
+
+Solutions?
+
+\vspace*{-7pt}
+\begin{itemize}\setlength{\itemsep}{-1pt}
+\item More precise interval extensions (Bernstein)
+\item Other interval arithmetics (Kaucher/Markov, modal arithmetic)
+\item Cooperation of symbolic/numerical methods (CAD?)
+\end{itemize}
+
+\vspace{-4pt}
+Handling of constraints as full first-order expressions?
+\end{slide}
+
+<font color=blue>%--------------------------------------------------------------</font> final slide
+
+\overlays{5}{%
+\begin{slide}{Interval constraint solving (2)}
+\small
+\begin{itemize}
+\item Constraint system $c_1,\dots,c_m$~:
+  domain propagation algorithm (AC3 [\textsc{Mackworth,1977}])
+\end{itemize}
+\PDForPS{%
+\onlySlide*{1}{%
+  \includegraphics[bb=136 706 304 790,width=7cm]{exemple-store-1.ps}}%
+\onlySlide*{2}{%
+  \includegraphics[bb=136 706 304 790,width=7cm]{exemple-store-2.ps}}%
+\onlySlide*{3}{%
+  \includegraphics[bb=136 706 304 790,width=7cm]{exemple-store-3.ps}}%
+\fromSlide*{4}{%
+  \includegraphics[bb=136 706 304 790,width=7cm]{exemple-store-4.ps}}}{%
+  \includegraphics[bb=136 706 304 790,width=7cm]{exemple-store-ps.ps}}%
+\FromSlide{5}
+\rput[tl](0,3.4){\begin{minipage}{5cm}
+    Properties:
+    \begin{itemize}\setlength{\itemsep}{-2pt}
+    \item Termination
+    \item Contractance
+    \item Confluency
+    \item Completeness
+    \end{itemize}\end{minipage}}
+\end{slide}
+}
+
+\end{document}
+</pre>
+</body>

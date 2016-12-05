@@ -1,0 +1,25 @@
+# ICM00794-Fundamentos de Computación - FCNM-ESPOL
+# 3ra Evaluación 2009. Tema 2. Billetes de cajero automático
+# Propuesta función. edelros@espol.edu.ec.
+import numpy
+
+
+def billete(cantidad):
+    #Procedimiento
+    # division entera o cociente //
+    billete50=cantidad//50
+    saldo=cantidad-50*(billete50)
+    billete20=saldo//20
+    saldo=saldo-20*(billete20)
+    billete10=saldo//10
+    saldo=saldo-10*(billete10)
+    billete05=saldo//5
+    billete01=saldo-5*(billete05)
+    # define variable de salida
+    entrega=numpy.array([0, 0, 0, 0, 0], int)
+    entrega[0]=billete50
+    entrega[1]=billete20
+    entrega[2]=billete10
+    entrega[3]=billete05
+    entrega[4]=billete01
+    return entrega

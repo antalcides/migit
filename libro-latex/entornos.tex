@@ -1,0 +1,59 @@
+\chapter{Entornos}
+\chaptertoc
+\section{source}
+%\begin{source}[Preámbulo]{c1}
+%\documentclass[opciones separadas por coma]{tipo de documento}
+%\usepackage{fancyhdr} % Cabeceras/Pies
+%\pagestyle{fancy} % Cabeceras/Pies
+%\fancyhf{} % borra todos los ajustes anteriores
+%\fancyhead[C]{\LaTeX}
+%\fancyhead[LR]{}
+%\fancyfoot[L]{Antalcides Olivo}
+% \fancyfoot[R]{\thepage}
+% \fancyfoot[C]{}
+% \begin{document}
+%\section{Ejemplo 1}
+%\lipsum[1]
+%\end{document}
+%\end{source}
+%%%%%%%%%%%%%%
+\begin{example}
+\begin{source}[Pre\'ambulo]{c1}
+\documentclass[opciones separadas por coma]{tipo de documento}
+\usepackage{fancyhdr} % Cabeceras/Pies
+\pagestyle{fancy} % Cabeceras/Pies
+\fancyhf{} % borra todos los ajustes anteriores
+\fancyhead[C]{\LaTeX}
+\fancyhead[LR]{}
+\fancyfoot[L]{Antalcides Olivo}
+ \fancyfoot[R]{\thepage}
+ \fancyfoot[C]{}
+ \begin{document}
+\section{Ejemplo 1}
+\lipsum[1]
+\end{document}
+\end{source}
+\end{example}
+\section{Problema}
+\begin{problema}
+\documentclass{article}
+\usepackage{lipsum-es}
+\usepackage{fancyhdr} % Cabeceras/Pies
+\pagestyle{fancy} % Cabeceras/Pies
+\fancyhf{} % borra todos los ajustes anteriores
+\fancyhead[C]{\LaTeX}
+\fancyhead[LR]{}
+\fancyfoot[L]{Antalcides Olivo}
+ \fancyfoot[R]{\thepage}
+ \fancyfoot[C]{}
+ \begin{document}
+\section{Ejemplo 1}
+\lipsum
+\end{document}
+\end{problema}
+
+%\begin{source}[Uso del entorno example]{c1}
+%\begin{example}
+%\LaTeX
+%\end{example}
+%\end{source}

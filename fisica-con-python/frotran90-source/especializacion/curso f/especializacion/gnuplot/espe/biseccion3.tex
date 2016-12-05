@@ -1,0 +1,244 @@
+
+\documentclass{article}
+\usepackage{amssymb}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Created=Fri Oct 24 14:50:50 2003}
+%TCIDATA{LastRevised=Fri Oct 24 17:09:00 2003}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="General\Blank Document">}
+%TCIDATA{CSTFile=LaTeX article (bright).cst}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{tcilatex}
+
+\begin{document}
+
+
+METODO DE BISECCION
+
+\bigskip 
+
+Si f es una funci\'{o}n continua en el intervalo $\left[ a.b\right] $ y si $%
+f\left( a\right) f\left( b\right) <0$, entonces $f$ debe tener un cero en $%
+\left( a,b\right) .$ Esta es una consecuencia del teorema del valor
+intermedio para funciones continuas. 
+
+El m\'{e}todo de bisecci\'{o}n explota esta idea de la siguiente manera , si 
+$f\left( a\right) f\left( b\right) <0,$ se calcula $c=1/2(a+b)$ y se
+averigua si $f\left( a\right) f\left( c\right) <0,$ si lo es, entonces $f$
+tiene un cero en $\left[ a,c\right] .$ A continuaci\'{o}n se renombra $c$
+como $b$ y se comienza una vez mas con elintervalo $\left[ a,b\right] ,$
+cuya longitud es igual a la mitad de la longitud del intervalo original.
+
+Si $f\left( a\right) f\left( c\right) >0,$ entoonces $f\left( a\right)
+f\left( b\right) <0,$y en este caso se renombra $c$ como $a$ , en ambos
+casos se ha generado un nuevo intervalo que contiene un cero de $f$ y el
+proceso puede repetirse.Claro est\'{a} que si $f\left( a\right) f\left(
+c\right) =0,$ entonces $f\left( c\right) =0$ y con ello se ha encontrado un
+cero . Sin embargo por los errores de redondeo es poco factible que $f\left(
+c\right) =0,$ as\'{i} el criterio para concluir no deber\'{a} depender de
+que $\ f\left( c\right) $ sea cero . Se debe permitir una tolerancia
+razonable tal como $f\left( c\right) <10^{-5}.$ Si hay varios ceros en el
+intervalo dado, el m\'{e}todo de la bisecci\'{o}n encuentra uno cada vez.
+Este m\'{e}todo tambi\'{e}n se conoce como el m\'{e}todo de la bipartici\'{o}%
+n.
+
+\bigskip 
+
+A la hora de programar es conveniente contar con varios criterios que
+detengan el programa, uno es m\'{a}ximo  n\'{u}mero de pasos que se
+permitiran, esto reduce las posibilidades de que el programa se quede en un
+ciclo infinito. Por otra parte la ejecuci\'{o}n del programa se puede
+detener ya sea cuando el error sea lo suficientemente peque\~{n}o o cuando
+lo sea el valor de $f\left( c\right) .$
+
+\bigskip 
+
+ANALISIS DE ERRORES
+
+\bigskip Si $\left[ a_{0},b_{0}\right] ,\left[ a_{1},b_{1}\right] $, ...,$%
+\left[ a_{n},b_{n}\right] $ son los intervalos que resultan del proceso, se
+pueden hacer las siguientes observaciones:
+
+\begin{eqnarray*}
+a_{0} &\leqslant &a_{1}\leqslant a_{2}\leqslant ...\leqslant a_{n}\text{ }%
+\left( 1\right)  \\
+b_{0} &\geqslant &b_{1}\geqslant b_{2}\geqslant ...\geqslant b_{1}\text{ }%
+\left( 2\right)  \\
+b_{n+1}-a_{n+1} &=&\frac{1}{2}\left( b_{n}-a_{n}\right) \text{ \ \ }\left(
+n\geqslant 0\right) \text{ }\left( 3\right) 
+\end{eqnarray*}
+
+La sucesi\'{o}n $\left[ a_{n}\right] $ converge debido a que es creciente y
+est\'{a} acotada superiormente , la sucesi\'{o}n $\left[ b_{n}\right] $ tambi%
+\'{e}n converge por razones analogas .Si se utiliza $\left( 3\right) $
+repetidamente se llega a que :
+
+\begin{equation*}
+b_{n}-a_{n}=2^{-n}\left( b_{0}-a_{0}\right) 
+\end{equation*}
+
+As\'{i}
+
+\begin{equation*}
+\lim_{n\rightarrow \infty }b_{n}-\lim_{n\rightarrow \infty
+}a_{n}=\lim_{n\rightarrow \infty }2^{n}\left( b_{0}-a_{0}\right) =0
+\end{equation*}
+
+Si se escribe
+
+\begin{equation*}
+r=\lim_{n\rightarrow \infty }b_{n}=\lim_{n\rightarrow \infty }a_{n}
+\end{equation*}
+
+entonces tomando l\'{i}mite en la desigualdad $0\geqslant f\left(
+a_{n}\right) f\left( b_{n}\right) ,$ entonces se obtiene $\ 0\geqslant \left[
+f\left( r\right) \right] ^{2},$ y por tanto $f\left( r\right) =0.$
+
+\bigskip 
+
+Sup\'{o}ngase que en cierta etapa del proceso \ se ha definido el intervalo $%
+\left[ a_{n},b_{n}\right] .$ Si se detiene el proceso en este momento, la
+raiz se encontrar\'{a} en este intervalo, en esta etapa la mejor estimaci%
+\'{o}n de la raiz es el punto medio del intervalo.
+
+El error se acota de la siguiente forma:
+
+\begin{equation*}
+\left| r-c_{n}\right| \leq \frac{1}{2}\left| b_{n}-a_{n}\right| \leq
+2^{-\left( n+1\right) }\left( b_{0}-a_{0}\right) 
+\end{equation*}
+
+Resumiendo lo anterior \ se tiene el siguiente 
+
+TEOREMA:
+
+Si $\left[ a_{0},b_{0}\right] ,\left[ a_{1},b_{1}\right] $, ...,$\left[
+a_{n},b_{n}\right] ,$..., denotan los intervalos en el m\'{e}todo de la
+bisecci\'{o}n, entonces los l\'{i}mites $\lim_{n\rightarrow \infty }b_{n}$ y 
+$\lim_{n\rightarrow \infty }a_{n},$ existen, son iguales y representan un
+cero de $f.$ Si $r=\lim_{n\rightarrow \infty }c_{n}$ y $c_{n}=\frac{1}{2}%
+\left( a_{n}+b_{n}\right) $, entonces:
+\begin{verbatim}
+\begin{equation*}
+\left| r-c_{n}\right| \leq 2^{-\left( n+1\right) }\left( b_{0}-a_{0}\right) 
+\end{equation*}
+\end{verbatim}
+
+En el siguiente ejemplo muestra un programa que resuelve una ecuaci\'{o}n
+cuadr\'{a}tica introducida por un usuario.
+\begin{verbatim}
+c     **Este programa halla las raices de una ecuaci\UNICODE{0xa2}n cuadrtica por el
+c     mtodo de la secante**
+      program biseccion
+      
+c     **Declaraci\UNICODE{0xa2}n de variables**
+ 
+      real G,H,I,D,R,u,v,w,x,a,b,c,e,dis
+      integer n,j,resp,k
+      D=0.00001
+      R=0.00001
+      n=300
+      resp=1
+      do while(resp.EQ.1)
+        print*, 'Este programa resuelve una ecuaci\UNICODE{0xa2}n cuadrtica:'
+        print*, 'ax**2 + bx  +c '
+        Print*, 'Digite el coeficiente a'
+        read*, G
+        Print*, 'Digite el coeficiente b'
+        read*, H
+        Print*, 'Digite  c'
+        read*, I
+        dis=(H**2)-(4*G*I)
+        if(dis.GT.0)then
+         Print*, 'Digite los l\UNICODE{0xa1}mites del intervalo'
+         read*, a
+         read*, b
+ 
+         u= (G*(a**2))+(H*a)+I
+         v= (G*(b**2))+(H*b)+I
+         if(u.EQ.0)then
+          print*,'La raiz es',a
+         else
+          if(v.EQ.0)then
+           print*,'La raiz es',b
+          else
+            k=1
+            do while((v*u.GE.0).and.(k.LT.30))
+             k=k+1
+             a=a+0.1
+             u= (G*(a**2))+(H*a)+I
+             v= (G*(b**2))+(H*b)+I
+            enddo
+            e=b-a
+            j=1
+            if((u*v).LT.0)then
+               do while(j.LT.n)
+                 j=j+1
+                 e=e/2
+                 c=a+e
+                 w=(G*(c**2))+(H*c)+I
+ 
+                 if(abs(e).GE.D)then
+                   if(abs(w).GE.R)then
+                     if((u*w).LT.0)then
+                      b=c
+                      v=w
+                     else
+                      a=c
+                      u=w
+                     endif
+                   else
+                     j=n
+                   endif
+                 else
+                 j=n
+                 endif
+               enddo
+               print*, 'La raiz es',c
+ 
+            else
+               print*, 'No existen raices en el intervalo dado,'
+               print*,'o el la longitud del intervalo es muy grande'
+            endif
+           endif
+          endif
+        else
+         print*,'Esta ecuaci\UNICODE{0xa2}n no tiene raices reales'
+        endif
+        print*,'Si desea continuar digite 1, sino digite 0'
+        read*,resp
+      enddo
+ 
+ 
+      end
+\end{verbatim}
+
+
+\end{document}

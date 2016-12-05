@@ -1,0 +1,17 @@
+% ICM00794-Fundamentos de Computación - FCNM-ESPOL
+% 3ra Evaluación 2009. Tema 2. Billetes de cajero automático
+% Propuesta funcion. edelros@espol.edu.ec
+function entrega=billetes(cantidad)
+billete50=fix(cantidad/50);
+saldo=cantidad-50*(billete50);
+billete20=fix(saldo/20);
+saldo=saldo-20*(billete20);
+billete10=fix(saldo/10);
+saldo=saldo-10*(billete10);
+billete05=fix(saldo/05);
+billete01=saldo-05*(billete05);
+entrega(1)=billete50;
+entrega(2)=billete20;
+entrega(3)=billete10;
+entrega(4)=billete05;
+entrega(5)=billete01;

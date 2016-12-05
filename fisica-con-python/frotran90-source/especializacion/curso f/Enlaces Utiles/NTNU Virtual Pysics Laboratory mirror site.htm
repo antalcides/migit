@@ -1,0 +1,410 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0077)http://www.edu.aytolacoruna.es/aula/fisica/applets/Hwang/ntnujava/indexH.html -->
+<HTML><HEAD><TITLE>NTNU Virtual Pysics Laboratory mirror site</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="Fu-Kwun Hwang ¶ÀºÖ©[" name=Author>
+<META content="MSHTML 6.00.2716.2200" name=GENERATOR>
+<META 
+content="Virtual Pysics Java Laboratory, more than 50 physics related java applets developed at NTNU" 
+name=Description>
+<META content=physics name=Classification>
+<META content="physics, java applets, Virtual Physics Laboratory" name=KeyWords>
+<SCRIPT>
+
+ function moveto(list)
+
+{
+
+	if(list!=""){
+
+		durl=(list.options[list.selectedIndex].value);
+
+		location.href = durl;
+
+	}
+
+}
+
+function jump(url){
+
+  location.href=url;
+
+}
+
+function under_scroll(seed,count)
+
+{      var m1  = "Welcome to the NTNU Virtual Physics Laboratory! ";
+
+       var m2  = "Play and learn Physics! Enjoy more than 60 java applets! ";
+
+       var m3  = "There are 27 mirror sites around the world. Mirrors are updated every other month...";
+
+       var msg=m1+m2+m3;
+
+       var out = " ";
+
+       var c   = 1;
+
+	var wait=70;
+
+       if (seed > 0) {
+
+               for (c=0 ; c < seed ; c++) {
+
+                       out+=" ";
+
+               }
+
+               out+=msg;
+
+       } else if (-seed < msg.length) {
+
+               out+=msg.substring(-seed,msg.length);
+
+               for (c=0 ; c > seed ; c--) {
+
+                       out+=" ";
+
+               }
+
+		wait=150;
+
+               seed--;
+
+       }else {
+
+		count--;
+
+		out=' ';
+
+		seed=101;
+
+       }
+
+       seed--;
+
+       var cmd="under_scroll(" + seed +","+ count + ")";
+
+       if(count>0){
+
+	       window.status=out;
+
+		timerTwo=window.setTimeout(cmd,wait);
+
+	}else window.status="Welcome to Virtual Physics Lab. Fu-Kwun Hwang at NTNU Physics"; 
+
+}
+
+</SCRIPT>
+</HEAD>
+<BODY text=#000000 vLink=#551a8b aLink=#ff0000 link=#0000ee bgColor=#80ffff 
+onload="timerONE=window.setTimeout('under_scroll(100,3)',500);">
+<CENTER><FONT size=-1>Last modified :@
+<SCRIPT language=JavaScript>
+
+ <!--hide script from old browsers
+
+ document.write(document.lastModified);
+
+ // end hiding -->
+
+</SCRIPT>
+ (Average: 2 new java applets/month <A 
+href="http://www.edu.aytolacoruna.es/aula/fisica/applets/Hwang/ntnujava/NTNUjava.html">.</A>)</FONT> 
+</CENTER>
+<CENTER>
+<TABLE cellSpacing=5 cellPadding=5 bgColor=#ffff80 border=10>
+  <TBODY>
+  <TR>
+    <TD><A href="http://www.edu.aytolacoruna.es/aula/fisica/index.htm"><IMG 
+      height=48 alt=inicio 
+      src="NTNU Virtual Pysics Laboratory mirror site_archivos/inicio6.jpg" 
+      width=79 border=0></A></TD>
+    <TD>
+      <CENTER><B><FONT color=#0000ff><FONT size=+2>Mirror del Laboratorio 
+      Virtual de Física de NTNU</FONT></FONT></B> 
+      <P><B>Autor</B>: <FONT size=+2><A 
+      href="http://www.edu.aytolacoruna.es/aula/fisica/applets/Hwang/ntnujava/indexH.html#autor">Fu-Kwun 
+      Hwang</A></FONT></P></CENTER></TD>
+    <TD align=right><A 
+      href="http://www.edu.aytolacoruna.es/aula/fisica/applets/applets_indice.htm"><IMG 
+      height=48 alt="{short description of image}" 
+      src="NTNU Virtual Pysics Laboratory mirror site_archivos/atras6.jpg" 
+      width=79 border=0></A></TD></TR></TBODY></TABLE></CENTER>
+<CENTER>Applets para profesores de Física. ¿Cuál te gustaría ver ?<BR>Pídemelo y 
+trataré de hacerlo para que lo uses en tus clases de física. <BR>(Cuanto más 
+detallada sea la descripción de lo que quieres, antes lo tendrás.) Click <A 
+href="http://www.phy.ntnu.edu.tw/cgi-bin/email?hwang">HERE</A>. </CENTER>
+<P></P>
+<CENTER><FONT size=-1>Los siguientes 47 applets de java que tienen el título en 
+español fueron traducidos por J.Villasuso.</FONT> 
+<P><FONT size=-1>(Dentro de poco tiempo estarán traducidos los que 
+faltan)</FONT></P></CENTER>
+<CENTER>
+<TABLE cellSpacing=3 cellPadding=3 bgColor=#ffffff border=6>
+  <TBODY>
+  <TR>
+    <TD align=middle>
+      <CENTER><FONT color=#0000ff>Mecánica</FONT> </CENTER>
+      <P><FONT color=#ff0000 size=-1>(español)</FONT></P></TD>
+    <TD><BR><BR>
+      <P><FONT color=#0000ff><A 
+      href='javascript:jump("Reaction/reactionTime_s.htm")'>1. Medida del tiempo 
+      de reacción</A></FONT></P>
+      <P><A href="javascript:jump('carDistance/carAccident_s.htm')">Tiempo de 
+      reacción y accidentes de coche</A> *</P>
+      <P><FONT color=#0000ff><A 
+      href='javascript:jump("trafficControl/trafficControl_s.htm")'>2. 
+      Semáforos*</A></FONT> </P>
+      <P><FONT color=#0000ff><A 
+      href='javascript:jump("relativeVelocity/relativeVelocity_s.htm")'>3. 
+      Movimiento relativo (sistema de referencia)</A></FONT><A 
+      href='javascript:jump("cd-labo/velocity/f_exper.htm")'></A> </P>
+      <P><FONT color=#0000ff><A 
+      href='javascript:jump("FreeRolling/FreeRolling_s.htm")'>4. Rodadura y 
+      movimiento circular</A></FONT> </P>
+      <P><FONT color=#0000ff><A 
+      href='javascript:jump("racingBall/racingBall_s.htm")'>5. Carrera de 
+      bolas</A></FONT> </P>
+      <P><FONT color=#0000ff><A href='javascript:jump("xva/xva_s.htm")'>6. 
+      Movimiento en una dimensión (XVA)</A></FONT><A 
+      href='javascript:jump("cd-labo/motion1d/f_exper.htm")'></A> </P>
+      <P><FONT color=#0000ff><A 
+      href='javascript:jump("projectile/projectile_s.htm")'>7. Movimiento de 
+      proyectiles (Cañón frente a cañón)*</A></FONT> </P><A 
+      href='javascript:jump("projectile3/projectile3_s.htm")'><FONT 
+      color=#0000ff>8. Interesante propiedad del movimiento de 
+      proyectiles</FONT></A> 
+      <BLOCKQUOTE><FONT color=#0000ff><A 
+        href='javascript:jump("dragForce/dragForce_s.htm")'>Proyectil frenado 
+        por el aire</A></FONT> </BLOCKQUOTE>
+      <P><FONT color=#0000ff><A 
+      href='javascript:jump("bouncingBall/bouncingBall_s.htm")'>9. El rebote de 
+      una bola</A></FONT> </P>
+      <P><FONT color=#0000ff><A 
+      href='javascript:jump("equalArea/equalArea_s.htm")'>10. El área barrida y 
+      el momento angular</A></FONT> </P>
+      <P><FONT color=#0000ff><A href='javascript:jump("shm/shm_s.htm")'>11. 
+      Movimiento Armónico Simple (M.A.S)</A></FONT><A 
+      href='javascript:jump("cd-labo/shm/f_exper.htm")'></A></P>
+      <P><FONT color=#0000ff><A 
+      href='javascript:jump("springForce/springForce_s.htm")'>12. Fuerza de un 
+      muelle y M.A.S.)</A></FONT><A 
+      href='javascript:jump("cd-labo/springwv/f_exper.htm")'></A> </P>
+      <P><FONT color=#0000ff><A 
+      href='javascript:jump("rotateDisk/pingpong_s.htm")'>13. Movimiento de una 
+      bola de ping-pong</A></FONT><A 
+      href='javascript:jump("cd-labo/pingpong/f_exper.htm")'></A></P></TD></TR>
+  <TR>
+    <TD align=middle><FONT color=#0000ff>Dinámica</FONT><BR><FONT 
+      color=#ff0000>(español)</FONT></TD>
+    <TD><A href='javascript:jump("Pendulum/Pendulum_s.htm")'>1. Péndulo</A> * 
+      <P><A href='javascript:jump("block/block_s.htm")'>2. Centro de 
+      gravedad</A> </P>
+      <P><A href='javascript:jump("Kepler/Kepler_s.htm")'>3. Kepler y el tipo de 
+      movimiento</A> * </P>
+      <P><A 
+      href='javascript:jump("projectileOrbit/projectileOrbit_s.htm")'>Proyectiles/Satélites 
+      en órbita</A> </P>
+      <P><A href='javascript:jump("wheelAxle/pulley_s.htm")'>4. Poleas</A> </P>
+      <P><A 
+      href="http://www.edu.aytolacoruna.es/aula/fisica/applets/Hwang/ntnujava/buoyantForce/buoyantForce_s.html">5. 
+      Fuerza de empuje en los fluidos</A> * </P>
+      <P><A href='javascript:jump("circularMotion/circular3D_e_s.htm")'>6. 
+      Movimiento circular y fuerza centrípeta</A> </P>
+      <P><A href='javascript:jump("collision1D/collision1D_s.htm")'>7. Colisión: 
+      en una dimensión</A> </P>
+      <P><A href='javascript:jump("collision2D/collision2D_s.htm")'>8. Colisión: 
+      en dos dimensiones</A> </P>
+      <P><A href='javascript:jump("friction/friction_s.htm")'>9. Fuerza de 
+      rozamiento y movimiento</A> </P>
+      <P><A 
+      href="http://www.edu.aytolacoruna.es/aula/fisica/applets/Hwang/ntnujava/wheelAxle/torque_e_s.htm">10. 
+      ¿En que sentido rodará?</A> </P>
+      <P><A href='javascript:jump("forceDiagram/forceDiagram_s.htm")'>11. 
+      Diagrama de fuerzas sobre un cuerpo.</A></P></TD></TR>
+  <TR>
+    <TD align=middle><FONT color=#0000ff>Ondas</FONT> 
+      <P><FONT color=#0000ff>&amp;</FONT> </P>
+      <P><FONT color=#0000ff>oscilaciones</FONT></P><FONT 
+      color=#ff0000>(español)</FONT> </TD>
+    <TD><A href='javascript:jump("springWave/springWave_s.htm")'>1. Oscilación 
+      y ondas (muelle)</A> * 
+      <P><A href='javascript:jump("Doppler/Doppler_s.htm")'>2. Sonido procedente 
+      de una fuente en movimiento.(Efecto Doppler/Onda de choque)</A> </P>
+      <P><A href='javascript:jump("airplane/airplane_s.htm")'>3. ¿Dónde está el 
+      avión que oigo?</A> </P>
+      <P><A href='javascript:jump("doubleSlit/doubleSlit_s.htm")'>4. 
+      Interferencia producida por una doble rendija</A><A 
+      href='javascript:jump("cd-labo/dblslit/f_exper.htm")'></A> </P>
+      <P><A 
+      href='javascript:jump("waveSuperposition/waveSuperposition_s.htm")'>5. 
+      Principio de superposición de ondas</A> *<A 
+      href='javascript:jump("cd-labo/waves/f_exper.htm")'></A> </P>
+      <P><A href='javascript:jump("sound/sound_s.htm")'>6. Síntesis de Fourier 
+      </A>* </P>
+      <P><A href='javascript:jump("propagation/propagation_s.htm")'>7. 
+      Transmisión de ondas. (Reflexión y Refracción)</A> * </P>
+      <P><A href='javascript:jump("waveInterference/waveInterference_s.htm")'>8. 
+      Interferencia entre dos ondas (puntos fuente)</A> </P>
+      <P><A href='javascript:jump("waveType/waveType_s.htm")'>9.-Ondas 
+      transversales y longitudinales</A></P></TD></TR>
+  <TR>
+    <TD align=middle><FONT color=#0000ff>Termodinámica</FONT><BR><FONT 
+      color=#ff0000>(español)</FONT></TD>
+    <TD><A 
+      href="http://www.edu.aytolacoruna.es/aula/fisica/applets/Hwang/ntnujava/term_molecular/idealGas_s.htm">1. 
+      Modelo molecular de un gas ideal (PV=NkT)</A> * 
+      <P><A 
+      href="http://www.edu.aytolacoruna.es/aula/fisica/applets/Hwang/ntnujava/term_browniano/gas2D_s.htm">2. 
+      Movimiento Browniano</A> </P>
+      <P><A 
+      href="http://www.edu.aytolacoruna.es/aula/fisica/applets/Hwang/ntnujava/term_carnot/carnot_s.htm">3.Ciclo 
+      Carnot-máquina térmica-</A></P></TD></TR>
+  <TR>
+    <TD align=middle><FONT color=#0000ff>Electromagnetismo</FONT><BR><FONT 
+      color=#ff0000>(español)</FONT> </TD>
+    <TD><A 
+      href="http://www.edu.aytolacoruna.es/aula/fisica/applets/Hwang/ntnujava/rc/rc_s.htm">1. 
+      Circuito RC</A> (DC) 
+      <P><A 
+      href="http://www.edu.aytolacoruna.es/aula/fisica/applets/Hwang/ntnujava/rlc/rlc_s.htm">2. 
+      Circuito RLC</A> (AC) </P>
+      <P><A 
+      href="http://www.edu.aytolacoruna.es/aula/fisica/applets/Hwang/ntnujava/emField/emField_s.htm">3. 
+      Movimiento de una partícula cargada en un campo E/M </A>* </P>
+      <P><A 
+      href="http://www.edu.aytolacoruna.es/aula/fisica/applets/Hwang/ntnujava/emWave/emWave_s.htm">4. 
+      Propagación de una onda electromagnética *</A> </P>
+      <P><A 
+      href="http://www.edu.aytolacoruna.es/aula/fisica/applets/Hwang/ntnujava/oscilloscope/oscilloscope_s.html">5. 
+      Osciloscopio</A> </P>
+      <P><A 
+      href="http://www.edu.aytolacoruna.es/aula/fisica/applets/Hwang/ntnujava/cyclotron/cyclotron_s.htm">6. 
+      Ciclotrón</A> </P>
+      <P><A 
+      href="http://www.edu.aytolacoruna.es/aula/fisica/applets/Hwang/ntnujava/BiotSavart/BiotSavart_s.htm">7. 
+      Ley de Biot-Savart </A></P>
+      <P><A 
+      href="http://www.edu.aytolacoruna.es/aula/fisica/applets/Hwang/ntnujava/electronics/multimeter_s.html">8. 
+      Polimetro- Multímetro VOM</A></P>
+      <P><A 
+      href="http://www.edu.aytolacoruna.es/aula/fisica/applets/Hwang/ntnujava/clipping/clip_e_s.html">9.- 
+      Circuito recortador</A></P></TD></TR>
+  <TR>
+    <TD align=middle><FONT color=#0000ff>Optics</FONT> 
+      <P><FONT color=#0000ff>and</FONT> </P>
+      <P><FONT color=#0000ff>Light</FONT></P></TD>
+    <TD><A href='javascript:jump("light/flashLight.html")'>1. 
+      reflection/refraction (water/air interface)</A> 
+      <P><A href='javascript:jump("Lens/lens_e.html")'>2. Thin Lens / mirror</A> 
+      * <A href='javascript:jump("thinLens/thinLens.html")'>thin lens 
+      combinations</A> </P>
+      <P><A href='javascript:jump("thickLens/thickLens.html")'>3. Thick Lens 
+      java applet</A> </P>
+      <P><A href='javascript:jump("refraction/refraction.html")'>4. Find the 
+      fastest Path</A> </P>
+      <P><A href='javascript:jump("Rainbow/rainbow.html")'>5. Physics of 
+      Rainbow</A> * (How/Why?) </P>
+      <P><A href='javascript:jump("fishEye/fishEye.html")'>6. "the world above 
+      the water surface"</A> (refraction) </P>
+      <P><A href='javascript:jump("shadow/shadow.html")'>7. shadow/image and 
+      mixing colored light</A> </P>
+      <P><A href='javascript:jump("billiards/billiards.html")'>8. Billiards and 
+      Physics</A> </P>
+      <P><A href='javascript:jump("Fermat/Fermat.html")'>9. Fermat principle</A> 
+      </P>
+      <P><A href='javascript:jump("image/rgbColor.html")'>10.mixing colored 
+      light beams / paint pigments.</A> <BR><A 
+      href="javescript:jump('color/color_e.html')">Color Magic show</A> 
+      (Director animation)</P></TD></TR>
+  <TR>
+    <TD align=middle><FONT color=#0000ff>modern physics</FONT></TD>
+    <TD><A href='javascript:jump("relativity/relativity.html")'>Space and Time 
+      in Special Relativity</A></TD></TR>
+  <TR>
+    <TD align=middle><FONT color=#0000ff>Otros temas</FONT><BR><FONT 
+      color=#ff0000>(español)</FONT></TD>
+    <TD><A 
+      href="http://www.edu.aytolacoruna.es/aula/fisica/applets/Hwang/ntnujava/misc_Vernier/vernier_s.htm">1. 
+      Nonio - Vernier*</A> 
+      <P><FONT color=#0000ff><A 
+      href="http://www.edu.aytolacoruna.es/aula/fisica/applets/Hwang/ntnujava/vector/vector_s.htm">2. 
+      Suma de Vectores </A></FONT></P>
+      <P><FONT color=#0000ff><A 
+      href="http://www.edu.aytolacoruna.es/aula/fisica/applets/Hwang/ntnujava/abc/Pythagoras_s.htm">3. 
+      Teorema de Pitágoras</A></FONT></P></TD></TR></TBODY></TABLE></CENTER>
+<CENTER>
+<P>Los applets marcados con * están registrados en <A 
+href='javascript:jump("http://www.tp.umu.se/TIPTOP/VLAB/")'>TIPTOP/VLAB</A>, 
+</P>
+<P>¿Tienes algún <A 
+href="http://www.edu.aytolacoruna.es/aula/fisica/applets/Hwang/ntnujava/comments.html">comentario/sugerencia</A> 
+acerca de mis applets? <A href="mailto:hwang@phy03.phy.ntnu.edu.tw">mándame un 
+e-mail</A></P></CENTER>
+<CENTER>
+<TABLE cellSpacing=5 cellPadding=5 bgColor=#ffff80 border=10>
+  <TBODY>
+  <TR>
+    <TD>
+      <CENTER><B><FONT color=#0000ff><FONT size=+2>Laboratorio Virtual de Física 
+      </FONT></FONT></B>de <A 
+      href="http://www.ntnu.edu.tw/english/Econtent.html">NTNU</A><A 
+      href='javascript:jump("http://www.phy.ntnu.edu.tw/english/index.html")'>Physics</A> 
+
+      <TABLE cellPadding=5 frame=border>
+        <TBODY>
+        <TR>
+          <TD rowSpan=2>Lugares de origen </TD>
+          <TD>English</TD>
+          <TD><A 
+            href='javascript:jump("http://www.phy.ntnu.edu.tw/java/index.html")'>http://www.phy.ntnu.edu.tw/java/index.html</A> 
+          </TD></TR>
+        <TR>
+          <TD>Chinese</TD>
+          <TD><A 
+            href='javascript:jump("http://www.phy.ntnu.edu.tw/demolab/index.html")'>http://www.phy.ntnu.edu.tw/demolab/index.html</A> 
+          </TD></TR></TBODY></TABLE></CENTER>
+      <CENTER>30<SUP>+</SUP> <A 
+      href="http://www.edu.aytolacoruna.es/aula/fisica/applets/Hwang/ntnujava/mirrorSites.html">Espejos 
+      reflejan este sitio</A> alrededor del mundo (actualizado cada dos meses). 
+      </CENTER></TD></TR></TBODY></TABLE></CENTER>
+<HR width="100%">
+
+<P><B><FONT size=+2><A name=autor>Fu-Kwun Hwang</A></FONT></B><IMG height=26 
+src="NTNU Virtual Pysics Laboratory mirror site_archivos/name.gif" width=83 
+align=ABSCENTER> </P>
+<UL>
+  <LI><FONT size=+1>No soy un programador, soy un físico.</FONT> 
+  <P>Amo la física y me divierto haciendo aplicaciones físicas y jugando con 
+  ella. </P>
+  <P>Mi dirección: <A 
+  href='javascript:jump("http://www.phy.ntnu.edu.tw/english/")'>Dept. de 
+  física</A>, <A href="http://www.ntnu.edu.tw/english/econtent.html">Universidad 
+  Nacional de Taiwan -Formosa-</A> </P>
+  <UL>
+    <LI>#88 Sec 4, Ting-Chou Rd., <A 
+    href="http://www.taipei.gov.tw/index_e.html">Taipei</A>, <A 
+    href="http://www.oop.gov.tw/english.htm">Taiwan</A> 11718 <BR>phone: 
+    (886-2)2934-6620 Ext 132 FAX: (886-2) 2932-6408 </LI></UL></LI></UL>
+<UL>
+  <LI>E-mail: <I><A 
+  href="mailto:hwang@phy03.phy.ntnu.edu.tw">hwang@phy03.phy.ntnu.edu.tw</A></I> 
+  </LI></UL>
+<HR width="100%">
+
+<CENTER>
+<TABLE cellPadding=5>
+  <TBODY>
+  <TR>
+    <TD>Enlaces a:</TD>
+    <TD><A href="http://physicsweb.org/TIPTOP/VLAB/">TIPTOP/VLAB</A></TD>
+    <TD><A 
+      href="http://www.developer.com/directories/pages/dir.java.html">Gamelan</A> 
+    </TD>
+    <TD><A 
+      href='javascript:jump("http://didaktik.physik.uni-wuerzburg.de/~pkrahmer/home/")'>Multimedia 
+      Physik</A></TD>
+    <TD><A 
+      href='javascript:jump("http://www.wco.com/~ejia/EDU/physic.htm")'>physics 
+      resource</A></TD></TR></TBODY></TABLE></CENTER></BODY></HTML>

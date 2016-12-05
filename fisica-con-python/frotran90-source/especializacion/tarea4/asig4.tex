@@ -1,0 +1,629 @@
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Created=Fri Nov 14 13:09:39 2003}
+%TCIDATA{LastRevised=Fri Nov 14 17:46:18 2003}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="General\Blank Document">}
+%TCIDATA{CSTFile=LaTeX article (bright).cst}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{tcilatex}
+
+\begin{document}
+
+
+\begin{center}
+ASIGNACION N$%
+%TCIMACRO{\UNICODE[m]{0xb0}}%
+%BeginExpansion
+{{}^\circ}%
+%EndExpansion
+4$ DE FISICA MATEMATICA \ Y
+
+COMPUTACIONAL.
+\end{center}
+
+\begin{enumerate}
+\item  Halle la aproximaci\'{o}n en diferencias hacia delante y hacia
+atr\'{a}s de orden $\left( \Delta x\right) $para $\frac{\partial ^{6}f}{%
+\left( \partial x\right) ^{6}}$.(sugerencia: utilice las ecuaciones 19,20 y
+21 de las notas)\newline
+SOLUCION
+
+\item[a.]  Hacia adelante\newline
+\begin{eqnarray*}
+\frac{\partial ^{6}f}{\left( \partial x\right) ^{6}} &=&\frac{\left( \Delta
+^{6}xf_{i}\right) }{\left( \Delta x\right) ^{6}} \\
+&=&\frac{\Delta x^{5}\left( \Delta xf_{i}\right) }{\left( \Delta x\right)
+^{6}} \\
+&=&\frac{\Delta x^{5}\left( f_{i+1}-f_{i}\right) }{\left( \Delta x\right)
+^{6}} \\
+&=&\frac{\Delta x^{4}\left( \Delta x\left( f_{i+1}-f_{i}\right) \right) }{%
+\left( \Delta x\right) ^{6}} \\
+&=&\frac{\Delta x^{4}\left( f_{i+2}-2f_{i+1}+f_{i}\right) }{\left( \Delta
+x\right) ^{6}} \\
+&=&\frac{\Delta x^{3}\left( \Delta x\left( f_{i+2}-2f_{i+1}+f_{i}\right)
+\right) }{\left( \Delta x\right) ^{6}} \\
+&=&\frac{\Delta x^{3}\left( f_{i+3}-3f_{i+2}+3f_{i+1}-f_{i}\right) }{\left(
+\Delta x\right) ^{6}} \\
+&=&\frac{\Delta x^{2}\left( \Delta x\left(
+f_{i+3}-3f_{i+2}+3f_{i+1}-f_{i}\right) \right) }{\left( \Delta x\right) ^{6}}
+\\
+&=&\frac{\Delta x^{2}\left( f_{i+4}-4f_{i+3}+6f_{i+2}-4f_{i+1}+f_{i}\right) 
+}{\left( \Delta x\right) ^{6}} \\
+&=&\frac{\Delta x\left( \Delta x\left(
+f_{i+4}-4f_{i+3}+6f_{i+2}-4f_{i+1}+f_{i}\right) \right) }{\left( \Delta
+x\right) ^{6}} \\
+&=&\frac{\Delta x\left(
+f_{i+5}-5f_{i+4}+10f_{i+3}-10f_{i+2}+5f_{i+1}-f_{i}\right) }{\left( \Delta
+x\right) ^{6}} \\
+\frac{\partial ^{6}f}{\partial x^{6}} &=&\frac{\left(
+f_{i+6-}6f_{i+5}+15f_{i+4}-20f_{i+3}+15f_{i+2}-6f_{i+1}+f_{i}\right) }{%
+\left( \Delta x\right) ^{6}}
+\end{eqnarray*}
+\end{enumerate}
+
+\bigskip 
+
+\bigskip 
+
+\bigskip 
+
+\begin{enumerate}
+\item[b.]  Hacia atr\'{a}s:\newline
+\begin{eqnarray*}
+\frac{\partial ^{6}f}{\left( \partial x\right) ^{6}} &=&\frac{\left( \nabla
+^{6}xf_{i}\right) }{\left( \Delta x\right) ^{6}} \\
+&=&\frac{\nabla ^{5}x\left( \Delta xf_{i}\right) }{\left( \Delta x\right)
+^{6}} \\
+&=&\frac{\nabla ^{5}x\left( f_{i}-f_{i-1}\right) }{\left( \Delta x\right)
+^{6}} \\
+&=&\frac{\nabla ^{4}x\left( \nabla x\left( f_{i}-f_{i-1}\right) \right) }{%
+\left( \Delta x\right) ^{6}} \\
+&=&\frac{\Delta x^{4}\left( f_{i}-2f_{i-1}+f_{i-2}\right) }{\left( \Delta
+x\right) ^{6}} \\
+&=&\frac{\nabla ^{3}x\left( \nabla x\left( f_{i}-2f_{i-1}+f_{i-2}\right)
+\right) }{\left( \Delta x\right) ^{6}} \\
+&=&\frac{\nabla ^{3}x\left( f_{i}-3f_{i-1}+3f_{i-2}-f_{i-3}\right) }{\left(
+\Delta x\right) ^{6}} \\
+&=&\frac{\nabla ^{2}x\left( \nabla x\left(
+f_{i}-3f_{i-1}+3f_{i-2}-f_{i-3}\right) \right) }{\left( \Delta x\right) ^{6}}
+\\
+&=&\frac{\nabla ^{2}x\left( f_{i}-4f_{i-1}+6f_{i-2}-4f_{i-3}+f_{i-4}\right) 
+}{\left( \Delta x\right) ^{6}} \\
+&=&\frac{\nabla x\left( \nabla x\left(
+f_{i}-4f_{i-1}+6f_{i-2}-4f_{i-3}+f_{i-4}\right) \right) }{\left( \Delta
+x\right) ^{6}} \\
+&=&\frac{\nabla x\left(
+f_{i}-5f_{i-1}+10f_{i-2}-10f_{i-3}+5f_{i-4}-f_{i-5}\right) }{\left( \Delta
+x\right) ^{6}} \\
+\frac{\partial ^{6}f}{\partial x^{6}} &=&\frac{\left(
+f_{i-}6f_{i-1}+15f_{i-2}-20f_{i-3}+15f_{i-4}-6f_{i-5}+f_{i-6}\right) }{%
+\left( \Delta x\right) ^{6}}
+\end{eqnarray*}
+
+\item[2.]  Dada la funci\'{o}n escriba un programa donde calcule las
+primeras dos derivadas en x = 1.5 en diferencias centradas de orden para los
+siguientes 'step sizes' 0.0005, 0.001, 0.01, 0.1, 0.2. Determine el error num%
+\'{e}rico para cada c\'{o}mputo\newline
+SOLUCION: \newline
+A continuaci\'{o}n \ mostraremos el c\'{o}digo del programa C
+Especializacion En Fisica General
+\end{enumerate}
+
+\begin{verbatim}
+C     Especializacion En Fisica General
+C NOMBRE: Derivada
+C AUTOR: Antalcides Olivo
+C DESCRIPCION: Este programa calcula las derivadas parciales usando
+C              diferncias finitas .
+C FECHA: 07/11/03 17.50
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C
+ 
+      program derivadas
+      integer i,j ,k
+ 
+      real difc(5), dif2(5),dx(5),x,A ,b
+      real errorc(5),error2(5)
+      Write(*,'(T5,A/)')
+     & '***************************************************************'
+C     Introducion:
+      Write(6,'(T5,A/)')
+     & '\UNICODE{0xc5}*******************\UNICODE{0xc5}********************\UNICODE{0xc5}********************\UNICODE{0xc5}'
+      write(6,'(T5,A/)')
+     & ' calcule la 1\UNICODE{0xa7} y 2\UNICODE{0xa6} derivada de f(x) = sin((pi/2)*x)',
+     & 'para los valores de dx 0.0005,0.001,0.01,0.1 y 0.2'
+      Write(6,'(T5,A/)')
+     & '\UNICODE{0xc5}****************\UNICODE{0xc5}*****************\UNICODE{0xc5}**************************\UNICODE{0xc5}'
+      Write(*,'(T5,A/)')
+     & '***************************************************************'
+      Write(*,*) '                                                     '
+      Write(*,*) '                                                     '
+ 
+C**********************************************************************
+      !definicion de las variables
+      ! dift indica que realizaremos la derivada hacia adelante
+      ! dift indica que realizaremos la derivada hacia atras
+      ! difc indica que realizaremos la derivada centrada
+      ! dx es el paso
+      ! errord,errort,errorc representan los errores de las derivadas
+      ! definidas anteriormente
+      ! X representa el valor numerico de la derivada
+      ! A representa el valor analitico de la derivada
+C***********************************************************************
+ 
+C     valor a evaluar:
+      Write(6,'(T5,A/)') 'Ingrese el valor x a evaluar'
+      read (5,*)  x
+C     tama\UNICODE{0xa4}o del paso
+      dx(1)=0.0005
+      dx(2)=0.001
+      dx(3)=0.01
+      dx(4)=0.1
+      dx(5)=0.2
+C      ** Valores analiticos de las derivadas
+      A=fun1(x)
+      b=fun2(x)
+      Write(*,*) '                                                     '
+      Write(*,*) '                                                     '
+      Write(*,*) '                                                     '
+ 
+       WRITE(*,'(3(T5,A/),3(T5,A/T5,(3(A,1PE13.6))/))')
+     &' 1\UNICODE{0xa7} Derivada  \UNICODE{0xb3} Valor         \UNICODE{0xb3}  2\UNICODE{0xa6} Derivada  \UNICODE{0xb3}              ',
+     &'  diferencia  \UNICODE{0xb3}  del          \UNICODE{0xb3}   diferencia  \UNICODE{0xb3}    N\UNICODE{0xa7} de paso',
+     &'    centrada  \UNICODE{0xb3}   paso        \UNICODE{0xb3}    centrada   \UNICODE{0xb3}              ',
+     &'              \UNICODE{0xb3}               \UNICODE{0xb3}               \UNICODE{0xb3}              ',
+     &'\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc5}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc5}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc5}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}'                                                    '
+C     calculamos la derivada:
+      do 10 i=1,5
+ 
+      difc(i)=(fun(x+dx(i))-fun(x-dx(i)))/(2*dx(i))
+      dif2(i)=(fun(x+dx(i)) -2*fun(x)+fun(x-dx(i)))/(dx(i)**2)
+      write(6,100) difc(i),dif2(i),dx(i),i
+100   format(t5,f8.5,10x,f8.5,10x,f8.5,10x,f8.5,f8.5,i4)
+      open(20,file='derivadatex.dat',status='unknown')
+      write(20,105)'La primera derivada es : ', difc(i),i
+      write(20,205)'La segunda derivada es :',dif2(i),i
+105   format(a25,2x,f8.5,2x,i2)
+205   format(a25,2x,f8.5,2x,i2)
+      Write(*,*) '                                                     '
+      Write(*,*) '                                                     '
+10    continue
+       WRITE(*,'(3(T5,A/),3(T5,A/T5,(3(A,1PE13.6))/))')
+     &'     Error    \UNICODE{0xb3}    Valor  del   \UNICODE{0xb3}  Error        \UNICODE{0xb3}              ',
+     &'     En %     \UNICODE{0xb3}     paso        \UNICODE{0xb3}  En %         \UNICODE{0xb3}    N\UNICODE{0xa7} de paso'
+ 
+      do 30 j=1,5
+ 
+      errorc(j)=abs(((A-difc(j))/A)*100)
+      error2(j)=abs(((B-dif2(j))/B)*100)
+      Write(*,*) '                                                     '
+      Write(*,*) '                                                     '
+ 
+        write(6,355) errorc(j),dx(j),error2(j),j
+355   format(t5,f8.5,10x,f8.5,10x,f8.5,10x,i4)
+ 
+405   format(a35,2x,f8.5,2x,i2)
+30      continue
+ 
+ 
+ 
+      close(20)
+      do 50 k=1,5
+ 
+      open(40,file='derivadac.dat',status='unknown')
+      open(60,file='derivada2.dat',status='unknown')
+      write(40,*) dx(k),errorc(k)
+      write(60,*) dx(k),error2(k)
+50    continue
+      close(40)
+      close(60)
+      end
+C***********************************************************************
+C           Definimos la funcion a evaluar:
+C***********************************************************************
+      function fun(X)
+      real X ,t
+      parameter (pi=3.1416)
+      t=pi/2.0
+      fun = sin(t*x)
+      end
+C***********************************************************************
+C     Primera derivada
+      function fun1(X)
+      real X ,t
+      parameter (pi=3.1416)
+      t=pi/2.0
+      fun1 = t*cos(t*x)
+      end
+C***********************************************************************
+C     Segunda derivada
+      function fun2(X)
+      real X ,t
+      parameter (pi=3.1416)
+      t=pi/2.0
+      fun2 = -(t**2)*sin(t*x)
+      end
+ 
+\end{verbatim}
+
+De este c\'{o}digo se obtiene la siguiente salida
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+\ \ \ \ \ \ \ \ \ \ \ \ derivada \ \ \ \ \ \ \ paso
+\begin{verbatim}
+La primera derivada es :   -1.11067   0.00050
+ La segunda derivada es :  -1.90735   0.00050
+La primera derivada es :   -1.11079   0.00100
+ La segunda derivada es :  -1.78814   0.00100
+La primera derivada es :   -1.11068   0.01000
+ La segunda derivada es :  -1.74463   0.01000
+La primera derivada es :   -1.10617   0.10000
+ La segunda derivada es :  -1.74114   0.10000
+La primera derivada es :   -1.09255   0.20000
+ La segunda derivada es :  -1.73041   0.20000
+ 
+                                       Error     Pasos
+ El error de la primera derivada es   0.00508   0.00050
+ El error de la segunda derivada es   9.32151   0.00050
+ El error de la primera derivada es   0.00566   0.00100
+ El error de la segunda derivada es   2.48892   0.00100
+ El error de la primera derivada es   0.00427   0.01000
+ El error de la segunda derivada es   0.00496   0.01000
+ El error de la primera derivada es   0.41071   0.10000
+ El error de la segunda derivada es   0.20516   0.10000
+ El error de la primera derivada es   1.63682   0.20000
+ El error de la segunda derivada es   0.81971   0.20000
+ 
+\end{verbatim}
+
+\begin{enumerate}
+\item[3.]  Dada la funci\'{o}n escriba un programa para calcular en x = 0.5
+y x = 1.5 por diferencias hacia delante y hacia atr\'{a}s de orden y
+diferencias centradas de orden . Use 'step sizes' de 0.00001, 0.0001, 0.001,
+0.1 y 0.5. Haga una gr\'{a}fica del error para cada una de los c\'{o}mputos.
+\end{enumerate}
+
+Soluci\'{o}n:
+
+A continuaci\'{o}n presentmos el c\'{o}digo del programa.
+\begin{verbatim}
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C     Curso de Fisica Matematica  Y Computacional
+C     Especializacion En Fisica General
+C NOMBRE: Derivada
+C AUTOR: Antalcides Olivo
+C DESCRIPCION: Este programa calcula las derivadas parciales usando
+C              diferncias finitas .
+C FECHA: 07/11/03 17.50
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C
+ 
+      program derivadas
+      integer i,j ,k
+ 
+      real dift(5),difd(5), dif2(5),dx(5),x,A ,b
+      real error2(5),errord(5),errort(5)
+      Write(*,'(T5,A/)')
+     & '***************************************************************'
+C     Introducion:
+      Write(6,'(T5,A/)')
+     & '\UNICODE{0xc5}*******************\UNICODE{0xc5}********************\UNICODE{0xc5}********************\UNICODE{0xc5}'
+      write(6,'(T5,A/)')
+     & ' calcule la 1\UNICODE{0xa7} y 2\UNICODE{0xa6} derivada de f(x) = (x**3)-5*x',
+     & 'para los valores de dx 0.0005,0.001,0.01,0.1 y 0.2'
+      Write(6,'(T5,A/)')
+     & '\UNICODE{0xc5}****************\UNICODE{0xc5}*****************\UNICODE{0xc5}**************************\UNICODE{0xc5}'
+      Write(*,'(T5,A/)')
+     & '***************************************************************'
+      Write(*,*) '                                                     '
+      Write(*,*) '                                                     '
+ 
+C**********************************************************************
+      !definicion de las variables
+      ! dift indica que realizaremos la derivada hacia adelante
+      ! dift indica que realizaremos la derivada hacia atras
+      ! difc indica que realizaremos la derivada centrada
+      ! dx es el paso
+      ! errord,errort,errorc representan los errores de las derivadas
+      ! definidas anteriormente
+      ! X representa el valor numerico de la derivada
+      ! A representa el valor analitico de la derivada
+C***********************************************************************
+ 
+C     valor a evaluar:
+      Write(6,'(T5,A/)') 'Ingrese el valor x a evaluar'
+      read (5,*)  x
+C     tama\UNICODE{0xa4}o del paso
+      dx(1)=0.00001
+      dx(2)=0.0001
+      dx(3)=0.001
+      dx(4)=0.1
+      dx(5)=0.5
+C      ** Valores analiticos de las derivadas
+      A=fun1(x)
+      b=fun2(x)
+      open(15,file='derivadatxt.dat',status='unknown')
+       Write(15,'(T5,A/)')
+     & '\UNICODE{0xc5}*******************\UNICODE{0xc5}********************\UNICODE{0xc5}********************\UNICODE{0xc5}'
+      write(15,'(T5,A/)')
+     & ' calcule la 1\UNICODE{0xa7} y 2\UNICODE{0xa6} derivada de f(x) = (x**3)-5*x',
+     & 'para los valores de dx 0.0005,0.001,0.01,0.1 y 0.2'
+      Write(15,'(T5,A/)')
+     & '\UNICODE{0xc5}****************\UNICODE{0xc5}*****************\UNICODE{0xc5}**************************\UNICODE{0xc5}'
+      Write(15,'(T5,A/)')
+     & '***************************************************************'
+      Write(15,*) '                                                    '
+      Write(15,*) '                                                    '
+      Write(15,*) '                                                   '
+ 
+       WRITE(15,'(3(T5,A/),3(T5,A/T5,(3(A,1PE13.6))/))')
+     &' 1\UNICODE{0xa7} Derivada  \UNICODE{0xb3} 1\UNICODE{0xa7} Derivada   \UNICODE{0xb3}  2\UNICODE{0xa6} Derivada  \UNICODE{0xb3}              ',
+     &'  diferencia  \UNICODE{0xb3}  diferencia   \UNICODE{0xb3}   diferencia  \UNICODE{0xb3}    N\UNICODE{0xa7} de paso',
+     &'    hacia     \UNICODE{0xb3}    hacia      \UNICODE{0xb3}    centrada   \UNICODE{0xb3}              ',
+     &'  adelante    \UNICODE{0xb3}    atras      \UNICODE{0xb3}               \UNICODE{0xb3}              ',
+     &'\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc5}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc5}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc5}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}'
+      Write(*,*) '                                                     '
+ 
+       WRITE(*,'(3(T5,A/),3(T5,A/T5,(3(A,1PE13.6))/))')
+     &' 1\UNICODE{0xa7} Derivada  \UNICODE{0xb3} 1\UNICODE{0xa7} Derivada   \UNICODE{0xb3}  2\UNICODE{0xa6} Derivada  \UNICODE{0xb3}              ',
+     &'  diferencia  \UNICODE{0xb3}  diferencia   \UNICODE{0xb3}   diferencia  \UNICODE{0xb3}    N\UNICODE{0xa7} de paso',
+     &'    hacia     \UNICODE{0xb3}    hacia      \UNICODE{0xb3}    centrada   \UNICODE{0xb3}              ',
+     &'  adelante    \UNICODE{0xb3}    atras      \UNICODE{0xb3}               \UNICODE{0xb3}              ',
+     &'\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc5}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc5}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc5}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}'
+C     calculamos la derivada:
+      do 10 i=1,5
+      difd(i)=(fun(x+dx(i))-fun(x))/dx(i)
+      dift(i)=(fun(x)-fun(x-dx(i)))/dx(i)
+ 
+      dif2(i)=(fun(x+dx(i)) -2*fun(x)+fun(x-dx(i)))/(dx(i)**2)
+      write(6,100) difd(i), dift(i),dif2(i),dx(i)
+ 
+100   format(t5,f8.5,10x,f8.5,10x,f8.5,10x,f8.5)
+      write(15,105) difd(i), dift(i),dif2(i),dx(i)
+ 
+105   format(t5,f8.5,10x,f8.5,10x,f8.5,10x,f8.5)
+ 
+ 
+10    continue
+      write(6,'(T5,A/)')'Resultado analitico'
+      write(6,'(T5,A/)')'                                              '
+      write(6,200) a, a,b
+      write(6,'(T5,A/)')'                                              '
+       WRITE(*,'(3(T5,A/),3(T5,A/T5,(3(A,1PE13.6))/))')
+     &'     Error    \UNICODE{0xb3}    Error      \UNICODE{0xb3}  Error        \UNICODE{0xb3}              ',
+     &'     En %     \UNICODE{0xb3}    En %       \UNICODE{0xb3}  En %         \UNICODE{0xb3}    N\UNICODE{0xa7} de paso'
+200   format(t5,f8.5,10x,f8.5,10x,f8.5)
+       write(15,'(T5,A/)')'Resultado analitico'
+      write(15,'(T5,A/)')'                                             '
+      write(15,205) a, a,b
+      write(15,'(T5,A/)')'                                             '
+       WRITE(15,'(3(T5,A/),3(T5,A/T5,(3(A,1PE13.6))/))')
+     &'     Error    \UNICODE{0xb3}    Error      \UNICODE{0xb3}  Error        \UNICODE{0xb3}              ',
+     &'     En %     \UNICODE{0xb3}    En %       \UNICODE{0xb3}  En %         \UNICODE{0xb3}    N\UNICODE{0xa7} de paso'
+205   format(t5,f8.5,10x,f8.5,10x,f8.5)
+ 
+      do 30 j=1,5
+      errord(j)=abs(((A-difd(j))/A)*100)
+      errort(j)=abs(((A-dift(j))/A)*100)
+ 
+      error2(j)=abs(((B-dif2(j))/B)*100)
+       write(6,300) errord(j),errort(j),error2(j),dx(j)
+300   format(t5,f8.5,10x,f8.5,10x,f8.5,10x,f8.5)
+      write(15,305) errord(j),errort(j),error2(j),dx(j)
+305   format(t5,f8.7,10x,f8.7,10x,f8.7,10x,f8.5)
+ 
+30      continue
+ 
+ 
+ 
+      close(15)
+      do 50 k=1,5
+ 
+      open(20,file='derivadad2.dat',status='unknown')
+      open(40,file='derivada2c2.dat',status='unknown')
+      open(60,file='derivadat2.dat',status='unknown')
+      write(20,*) dx(k),errord(k)
+      write(40,*) dx(k),error2(k)
+      write(60,*) dx(k),errort(k)
+50    continue
+      close(20)
+      close(40)
+      close(60)
+      end
+C***********************************************************************
+C           Definimos la funcion a evaluar:
+C***********************************************************************
+      function fun(X)
+      real X
+      fun = (x**3)-5*x
+      end
+C***********************************************************************
+C     Primera derivada
+      function fun1(X)
+      real X
+      fun1 = 3*(x**2)-5
+      end
+C***********************************************************************
+C     Segunda derivada
+      function fun2(X)
+      real X
+      fun2 = 6*x
+      end
+\end{verbatim}
+
+\bigskip
+
+El cual tiene la siguiente salida
+
+Para el valor de $x=0.5$
+\begin{verbatim}
+ \UNICODE{0xc5}*******************\UNICODE{0xc5}********************\UNICODE{0xc5}********************\UNICODE{0xc5}
+ 
+     calcule la 1\UNICODE{0xa7} y 2\UNICODE{0xa6} derivada de f(x) = (x**3)-5*x
+ 
+    para los valores de dx 0.0005,0.001,0.01,0.1 y 0.2
+ 
+    \UNICODE{0xc5}****************\UNICODE{0xc5}*****************\UNICODE{0xc5}**************************\UNICODE{0xc5}
+ 
+    ***************************************************************
+ 
+                                                    
+                                                    
+                                                   
+     1\UNICODE{0xa7} Derivada  \UNICODE{0xb3} 1\UNICODE{0xa7} Derivada   \UNICODE{0xb3}  2\UNICODE{0xa6} Derivada  \UNICODE{0xb3}             
+      diferencia  \UNICODE{0xb3}  diferencia   \UNICODE{0xb3}   diferencia  \UNICODE{0xb3}    N\UNICODE{0xa7} de paso
+        hacia     \UNICODE{0xb3}    hacia      \UNICODE{0xb3}    centrada   \UNICODE{0xb3}             
+      adelante    \UNICODE{0xb3}    atras      \UNICODE{0xb3}               \UNICODE{0xb3}             
+    \UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc5}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc5}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc5}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}
+    -4.24385          -4.26769          ********           0.00001
+    -4.25100          -4.24862          ********           0.00010
+    -4.24838          -4.25148           3.09944           0.00100
+    -4.09000          -4.39000           2.99999           0.10000
+    -3.25000          -4.75000           3.00000           0.50000
+    Resultado analitico
+ 
+                                                
+ 
+    -4.25000          -4.25000           3.00000
+                                                
+ 
+         Error    \UNICODE{0xb3}    Error      \UNICODE{0xb3}  Error        \UNICODE{0xb3}             
+         En %     \UNICODE{0xb3}    En %       \UNICODE{0xb3}  En %         \UNICODE{0xb3}    N\UNICODE{0xa7} de paso
+ 
+    .1446892          .4162957          ********           0.00001
+    .0236062          .0324922          ********           0.00010
+    .0381021          .0348259          ********           0.00100
+    ********          ********          .0004927           0.10000
+    ********          ********          .0000000           0.50000
+\end{verbatim}
+
+Para el valor de $x=1.5$
+\begin{verbatim}
+  \UNICODE{0xc5}*******************\UNICODE{0xc5}********************\UNICODE{0xc5}********************\UNICODE{0xc5}
+ 
+     calcule la 1\UNICODE{0xa7} y 2\UNICODE{0xa6} derivada de f(x) = (x**3)-5*x
+ 
+    para los valores de dx 0.0005,0.001,0.01,0.1 y 0.2
+ 
+    \UNICODE{0xc5}****************\UNICODE{0xc5}*****************\UNICODE{0xc5}**************************\UNICODE{0xc5}
+ 
+    ***************************************************************
+ 
+                                                    
+                                                    
+                                                   
+     1\UNICODE{0xa7} Derivada  \UNICODE{0xb3} 1\UNICODE{0xa7} Derivada   \UNICODE{0xb3}  2\UNICODE{0xa6} Derivada  \UNICODE{0xb3}             
+      diferencia  \UNICODE{0xb3}  diferencia   \UNICODE{0xb3}   diferencia  \UNICODE{0xb3}    N\UNICODE{0xa7} de paso
+        hacia     \UNICODE{0xb3}    hacia      \UNICODE{0xb3}    centrada   \UNICODE{0xb3}             
+      adelante    \UNICODE{0xb3}    atras      \UNICODE{0xb3}               \UNICODE{0xb3}             
+    \UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc5}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc5}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc5}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}\UNICODE{0xc4}
+     1.76430           1.76430           0.00000           0.00001
+     1.74999           1.74999           0.00000           0.00010
+     1.75476           1.74570           9.05991           0.00100
+     2.21000           1.31000           8.99999           0.10000
+     4.25000          -0.25000           9.00000           0.50000
+    Resultado analitico
+ 
+                                                
+ 
+     1.75000           1.75000           9.00000
+                                                
+ 
+         Error    \UNICODE{0xb3}    Error      \UNICODE{0xb3}  Error        \UNICODE{0xb3}             
+         En %     \UNICODE{0xb3}    En %       \UNICODE{0xb3}  En %         \UNICODE{0xb3}    N\UNICODE{0xa7} de paso
+ 
+    .8169991          .8169991          ********           0.00001
+    .0004360          .0004360          ********           0.00010
+    .2720356          .2456733          .6656117           0.00100
+    ********          ********          .0000954           0.10000
+    ********          ********          .0000000           0.50000
+\end{verbatim}
+
+Las gr\'{a}ficas obtenidas con los datos obtenidos son:
+
+Para  $X=0.5$
+
+Diferencia hacia adelante\FRAME{dhF}{3.8657in}{3.0303in}{0pt}{}{}{%
+derivadad.eps}{\special{language "Scientific Word";type
+"GRAPHIC";maintain-aspect-ratio TRUE;display "USEDEF";valid_file "F";width
+3.8657in;height 3.0303in;depth 0pt;original-width 4.0395in;original-height
+3.1609in;cropleft "0";croptop "1";cropright "1";cropbottom "0";filename
+'derivadad.EPS';file-properties "XNPEU";}}
+
+Derivada hacia atr\'{a}s\FRAME{fhF}{3.8545in}{3.2154in}{0pt}{}{}{%
+derivadat.eps}{\special{language "Scientific Word";type
+"GRAPHIC";maintain-aspect-ratio TRUE;display "USEDEF";valid_file "F";width
+3.8545in;height 3.2154in;depth 0pt;original-width 4.0274in;original-height
+3.3555in;cropleft "0";croptop "1";cropright "1";cropbottom "0";filename
+'derivadat.EPS';file-properties "XNPEU";}}
+
+Derivada centrada\FRAME{dtbpF}{3.9064in}{3.282in}{0pt}{}{}{derivada2.eps}{%
+\special{language "Scientific Word";type "GRAPHIC";maintain-aspect-ratio
+TRUE;display "USEDEF";valid_file "F";width 3.9064in;height 3.282in;depth
+0pt;original-width 4.0828in;original-height 3.4264in;cropleft "0";croptop
+"1";cropright "1";cropbottom "0";filename 'derivada2.EPS';file-properties
+"XNPEU";}}
+
+Para $x=1.5$
+
+\FRAME{dhF}{3.6642in}{3.1479in}{0pt}{}{}{derivadad2.eps}{\special{language
+"Scientific Word";type "GRAPHIC";maintain-aspect-ratio TRUE;display
+"USEDEF";valid_file "F";width 3.6642in;height 3.1479in;depth
+0pt;original-width 4.0395in;original-height 3.4662in;cropleft "0";croptop
+"1";cropright "1";cropbottom "0";filename 'derivadad2.EPS';file-properties
+"XNPEU";}}
+
+Segunda derivada hacia adelante
+
+\FRAME{dhF}{3.9989in}{3.1903in}{0pt}{}{}{derivada2c2.eps}{\special{language
+"Scientific Word";type "GRAPHIC";maintain-aspect-ratio TRUE;display
+"USEDEF";valid_file "F";width 3.9989in;height 3.1903in;depth
+0pt;original-width 4.1805in;original-height 3.3278in;cropleft "0";croptop
+"1";cropright "1";cropbottom "0";filename 'derivada2c2.eps';file-properties
+"XNPEU";}}
+
+derivada hacia atr\'{a}s
+
+\FRAME{dhF}{4.0897in}{3.4169in}{0pt}{}{}{derivadat2.eps}{\special{language
+"Scientific Word";type "GRAPHIC";maintain-aspect-ratio TRUE;display
+"USEDEF";valid_file "F";width 4.0897in;height 3.4169in;depth
+0pt;original-width 4.0395in;original-height 3.371in;cropleft "0";croptop
+"1";cropright "1";cropbottom "0";filename 'derivadat2.EPS';file-properties
+"XNPEU";}}
+
+\FRAME{dhF}{4.2307in}{3.3745in}{0pt}{}{}{derivada2c2.eps}{\special{language
+"Scientific Word";type "GRAPHIC";maintain-aspect-ratio TRUE;display
+"USEDEF";valid_file "F";width 4.2307in;height 3.3745in;depth
+0pt;original-width 4.1805in;original-height 3.3278in;cropleft "0";croptop
+"1";cropright "1";cropbottom "0";filename 'derivada2c2.eps';file-properties
+"XNPEU";}}
+
+\end{document}

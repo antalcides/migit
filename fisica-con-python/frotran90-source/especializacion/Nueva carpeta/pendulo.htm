@@ -1,0 +1,1779 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with jLaTeX2HTML 2002 (1.62) JA patch-1.4
+patched version by:  Kenshi Muto, Debian Project.
+LaTeX2HTML 2002 (1.62),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=us-ascii">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./pendulo_archivos/filelist.xml">
+<link rel=Edit-Time-Data href="./pendulo_archivos/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Resoluci&oacute;n de una Ecuaci&oacute;n Diferencial. Estudio del p&eacute;ndulo</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Estudiantemesa3</o:Author>
+  <o:LastAuthor>Estudiantemesa3</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>1</o:TotalTime>
+  <o:Created>2004-06-30T00:02:00Z</o:Created>
+  <o:LastSaved>2004-06-30T00:02:00Z</o:LastSaved>
+  <o:Pages>10</o:Pages>
+  <o:Words>4293</o:Words>
+  <o:Characters>24473</o:Characters>
+  <o:Company>UNIVERSIDAD DEL NORTE</o:Company>
+  <o:Lines>203</o:Lines>
+  <o:Paragraphs>48</o:Paragraphs>
+  <o:CharactersWithSpaces>30054</o:CharactersWithSpaces>
+  <o:Version>9.4402</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:HyphenationZone>21</w:HyphenationZone>
+ </w:WordDocument>
+</xml><![endif]-->
+<link rel=Stylesheet type="text/css" media=all
+href="http://fisica.urbenalia.com/trabajos/pendnumhtml/pendnumhtml.css">
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:"Century Schoolbook";
+	panose-1:2 4 6 4 5 5 5 2 3 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p
+	{font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+tt
+	{mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+p.math, li.math, div.math
+	{mso-style-name:math;
+	font-size:12.0pt;
+	font-family:"Century Schoolbook";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+p.boldmath, li.boldmath, div.boldmath
+	{mso-style-name:boldmath;
+	font-size:12.0pt;
+	font-family:"Century Schoolbook";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+p.tblinks, li.tblinks, div.tblinks
+	{mso-style-name:tblinks;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.drc, li.drc, div.drc
+	{mso-style-name:drc;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.izq, li.izq, div.izq
+	{mso-style-name:izq;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.link, li.link, div.link
+	{mso-style-name:link;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.licencia, li.licencia, div.licencia
+	{mso-style-name:licencia;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.explain, li.explain, div.explain
+	{mso-style-name:explain;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+span.math1
+	{mso-style-name:math1;
+	mso-ascii-font-family:"Century Schoolbook";
+	mso-hansi-font-family:"Century Schoolbook";}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:70.85pt 3.0cm 70.85pt 3.0cm;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:162743733;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-204700772 -2079569818 -70638374 338980222 -472586336 -1549895576 -1879915050 1436030266 -646812564 -943440252;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l1
+	{mso-list-id:934679313;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1401326966 1402651620 1956777402 372427984 -862964352 -1185746492 -1362576680 -1968565118 511577808 -1531308954;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+<meta name=description
+content="Resoluci&oacute;n de una Ecuaci&oacute;n Diferencial. Estudio del p&eacute;ndulo">
+<meta name=keywords content=pendnumhtml>
+<meta name=resource-type content=document>
+<meta name=distribution content=global>
+<meta http-equiv=Content-Style-Type content="text/css">
+</head>
+
+<body bgcolor=white lang=ES link=blue vlink=blue style='tab-interval:35.4pt'>
+
+<div class=Section1>
+
+<table border=0 cellspacing=5 cellpadding=0 width="100%" style='width:100.0%;
+ mso-cellspacing:3.7pt;mso-padding-alt:0cm 0cm 0cm 0cm'>
+ <tr style='height:48.75pt'>
+  <td colspan=2 style='background:#E6E6FF;padding:0cm 0cm 0cm 0cm;height:48.75pt'>
+  <p class=MsoNormal align=right style='text-align:right'><script language="JavaScript"  type="text/javascript" src="../../publi.js">
+  </script><a name=arriba></a></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=200 valign=top style='width:150.0pt;background:#E6E6FF;padding:
+  5.0pt 5.0pt 5.0pt 5.0pt'>
+  <p class=MsoNormal align=center style='text-align:center'><a
+  href="http://fisica.urbenalia.com/index.php"><img border=0 width=110
+  height=110 id="_x0000_i1026"
+  src="http://fisica.urbenalia.com/images/manzana.gif" alt="Canal#fisica"></a></p>
+  <p class=MsoNormal><br>
+  <br>
+  <b><a href="http://fisica.urbenalia.com/quees/?selact=quees">&iquest;Qu&eacute; es la
+  F&iacute;sica? </a></b><br>
+  <br>
+  <b><a href="http://fisica.urbenalia.com/problemas/">Colecci&oacute;n de problemas </a></b><br>
+  <br>
+  <b><a href="http://fisica.urbenalia.com/apuntsfis/?selact=3">Apuntes </a></b><br>
+  <br>
+  <b><a href="http://fisica.urbenalia.com/ecs/">Diccionario de ecuaciones </a></b><br>
+  <br>
+  <b><a href="http://fisica.urbenalia.com/biblio/?selact=biblio">Bibliografia </a></b><br>
+  <br>
+  <b><a href="http://fisica.urbenalia.com/urss/?selact=urss">Editorial URSS </a></b><br>
+  <br>
+  <b><a href="http://fisica.urbenalia.com/trabajos/?selact=6">Trabajos </a></b><br>
+  - <a href="http://fisica.urbenalia.com/trabajos/pendnumhtml/?selact=6"><span
+  style='font-size:10.0pt;color:#280AFF'>Resoluci&oacute;n de una Ecuaci&oacute;n
+  Diferencial. Estudio del p&eacute;ndulo </span></a><br>
+  - <a href="http://fisica.urbenalia.com/trabajos/tormentas/?selact=6"><span
+  style='font-size:10.0pt;color:#280AFF'>Electrificaci&oacute;n en tormentas </span></a><br>
+  <br>
+  <b><a href="http://fisica.urbenalia.com/arts/?selact=7">Art&iacute;culos </a></b><br>
+  <br>
+  <b><a href="http://fisica.urbenalia.com/ebooks/">Biblioteca digital </a></b><br>
+  <br>
+  <b><a href="http://fisica.urbenalia.com/bio/?selact=9">Biograf&iacute;as </a></b><br>
+  <br>
+  <b><a href="http://fisica.urbenalia.com/tecno/?selact=10">Fundamentos de
+  tecnolog&iacute;a </a></b><br>
+  <br>
+  <b><a href="http://fisica.urbenalia.com/faq/">Preguntas m&aacute;s frecuentes </a></b><br>
+  <br>
+  <b><a href="http://fisica.urbenalia.com/chuletas/">Chuletarios </a></b><br>
+  <br>
+  <b><a href="http://fisica.urbenalia.com/practicas/">Pr&aacute;cticas de laboratorio </a></b><br>
+  <br>
+  <b><a href="http://fisica.urbenalia.com/software/?selact=11">Software para la
+  f&iacute;sica </a></b><br>
+  <br>
+  <b><a href="http://fisica.urbenalia.com/quees/links.php?selact=links">Links </a></b><br>
+  <br>
+  <b><a href="http://fisica.urbenalia.com/humor/?selact=12">Humor </a></b><br>
+  <br>
+  <b><a href="http://fisica.urbenalia.com/irc/">Acerca de Canal#fisica </a></b><br>
+  <br style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]><a name="mathed:_pendulo"></a></p>
+<!--<hr>
+
+  <b>Buscar en Canal#fisica</b><br>
+  <form method="get" action="/cgi-bin/perlfect/search/search.pl">
+    <input type="hidden" name="p" value="1">
+    <input type="hidden" name="lang" value="en">
+    <input type="hidden" name="include" value="">
+    <input type="hidden" name="exclude" value="">
+    <input type="hidden" name="penalty" value="0">
+    <input type="text" name="q"><input type="submit" value=" Ir "> <br>
+    
+    <table>
+      <tr>
+        <td rowspan="2">Buscar</td>
+        <td><input type="radio" name="mode" value="all" checked> Todas las palabras</td>
+      </tr>
+      <tr>
+        <td><input type="radio" name="mode" value="any"> Algunas palabras</td>
+      </tr>
+    </table>
+  </form>
+--!>
+ <hr>
+        <center>
+        <a href="../../index.php"><img src="../../images/home.gif" alt="Volver" style="border: 0px solid ;"></a>
+        </center>
+
+    </td>
+    <td rowspan="1" colspan="1" class="drc" >
+      <div style="width: 100%; text-align: right; text-size: small;"> 
+     Bajatelo 
+     <a href="pendnum.tex.zip"><img src="../../images/flechatex.gif" border="0" alt="Formato LaTeX" align="middle">
+     <a href="pendnum.lyx.zip"><img src="../../images/flechalyx.gif" border="0" alt="Formato Lyx" align="middle">
+     <a href="pendnum.ps.zip"><img src="../../images/flechaps.gif" border="0" alt="Formato post-script" align="middle"></a></div>
+
+<P>
+
+<P>
+
+<P>
+<H1 ALIGN="CENTER">Resoluci&#243;n de una Ecuaci&#243;n Diferencial. Estudio del p&#233;ndulo</H1>
+<P ALIGN="CENTER"><STRONG>F&#233;lix Pedrera Garc&#237;a - Tx.</STRONG></P>
+Se ha escrito un programa en FORTRAN 90 que resuelve la ecuaci&#243;n de
+movimiento del p&#233;ndulo simple para &#225;ngulos peque&#241;os, descrita por
+la ecuaci&#243;n (<A HREF="#mathed:_pendulo">1</A>). 
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+
+<!-- MATH
+ \begin{equation}
+\frac{d^{2}\theta}{dt^{2}}+k\frac{d\theta}{dt}+\frac{g}{l}\theta=F_{0}\cos\omega_{0}t.
+\end{equation}
+ -->
+  <div align=center>
+  <table border=0 cellpadding=0 width="100%" style='width:100.0%;mso-cellspacing:
+   1.5pt'>
+   <tr>
+    <td nowrap valign=top style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center'><img border=0
+    width=222 height=45 id="_x0000_i1027"
+    src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img1.png"
+    alt="\begin{displaymath}&#10;\frac{d^{2}\theta}{dt^{2}}+k\frac{d\theta}{dt}+\frac{g}{l}\theta=F_{0}\cos\omega_{0}t.&#10;\end{displaymath}"></p>
+    </td>
+    <td width=10 valign=top style='width:7.5pt;padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=right style='text-align:right'>(1)</p>
+    </td>
+   </tr>
+  </table>
+  </div>
+  <p class=MsoNormal><br clear=all style='mso-special-character:line-break'>
+  </p>
+  <p>Para &aacute;ngulos peque&ntilde;os esta ecuaci&oacute;n se puede resolver anal&iacute;ticamente, por
+  lo que podemos comparar los resultados obtenidos num&eacute;ricamente con el
+  programa de FORTRAN 90 para ciertos valores de las condiciones iniciales y
+  los par&aacute;metros, con las soluciones que resultan de resolver anal&iacute;ticamente la
+  ecuaci&oacute;n diferencial (<a href="#mathed:_pendulo">1</a>). </p>
+  <h1><a name=SECTION00010000000000000000>1 Movimiento arm&oacute;nico simple</a> </h1>
+  <p>En este caso, no existe fuerza externa actuando sobre el p&eacute;ndulo, y adem&aacute;s
+  no est&aacute; sometido a ning&uacute;n tipo de amortiguamiento (como una fuerza de
+  rozamiento), por lo que la ecuaci&oacute;n (<a href="#mathed:_pendulo">1</a>) queda
+  simplificada a la siguiente forma </p>
+  <p><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+  <div align=center><!-- MATH
+ \begin{equation}
+\frac{d^{2}\theta}{dt^{2}}+\frac{g}{l}\theta=0.
+\end{equation}
+ -->
+  <table border=0 cellpadding=0 width="100%" style='width:100.0%;mso-cellspacing:
+   1.5pt'>
+   <tr>
+    <td nowrap valign=top style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center'><a
+    name="mathed:_pendulo_simple"></a><img border=0 width=106 height=45
+    id="_x0000_i1028"
+    src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img2.png"
+    alt="\begin{displaymath}&#10;\frac{d^{2}\theta}{dt^{2}}+\frac{g}{l}\theta=0.&#10;\end{displaymath}"></p>
+    </td>
+    <td width=10 valign=top style='width:7.5pt;padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=right style='text-align:right'>(2)</p>
+    </td>
+   </tr>
+  </table>
+  </div>
+  <p class=MsoNormal align=right style='text-align:right'><br clear=all
+  style='mso-special-character:line-break'>
+  </p>
+  <p>Resolviendo esta ecuaci&oacute;n diferencial homog&eacute;nea de segundo orden,
+  obtenemos la siguiente soluci&oacute;n </p>
+  <p><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+  <div align=center><!-- MATH
+ \begin{equation}
+\theta(t)=A\cos\omega t+B\sin\omega t,
+\end{equation}
+ -->
+  <table border=0 cellpadding=0 width="100%" style='width:100.0%;mso-cellspacing:
+   1.5pt'>
+   <tr>
+    <td nowrap valign=top style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center'><a
+    name="mathed:_solcion_pendulo_simple"></a><img border=0 width=196
+    height=31 id="_x0000_i1029"
+    src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img3.png"
+    alt="\begin{displaymath}&#10;\theta(t)=A\cos\omega t+B\sin\omega t,&#10;\end{displaymath}"></p>
+    </td>
+    <td width=10 valign=top style='width:7.5pt;padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=right style='text-align:right'>(3)</p>
+    </td>
+   </tr>
+  </table>
+  </div>
+  <p class=MsoNormal align=right style='text-align:right'><br clear=all
+  style='mso-special-character:line-break'>
+  </p>
+  <p>con <!-- MATH
+ $\omega=\sqrt{g/l}.$
+ --><span style='font-family:"Century Schoolbook"'><img border=0 width=83
+  height=38 id="_x0000_i1030"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img4.png"
+  alt="$\omega=\sqrt{g/l}.$" align=MIDDLE></span>Aplicando las condiciones de
+  contorno y los par&aacute;metros usados en la primera parte de la pr&aacute;ctica, a saber:
+  <span style='font-family:"Century Schoolbook"'><img border=0 width=59
+  height=30 id="_x0000_i1031"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img5.png" alt="$g=9.8$"
+  align=MIDDLE></span>m/s<span style='font-family:"Century Schoolbook"'><img
+  border=0 width=12 height=19 id="_x0000_i1032"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img6.png" alt="$^{2}$"
+  align=BOTTOM></span>, <span style='font-family:"Century Schoolbook"'><img
+  border=0 width=55 height=32 id="_x0000_i1033"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img7.png" alt="$l=0.5$"
+  align=MIDDLE></span>m, <!-- MATH
+ $\theta_{0}=\pi/4$
+ --><span style='font-family:"Century Schoolbook"'><img border=0 width=71
+  height=34 id="_x0000_i1034"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img8.png"
+  alt="$\theta_{0}=\pi/4$" align=MIDDLE></span>rad, <span style='font-family:
+  "Century Schoolbook"'><img border=0 width=52 height=34 id="_x0000_i1035"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img9.png"
+  alt="$\theta_{0}'=0$" align=MIDDLE></span>rad/s, obtenemos los valores de las
+  constantes <span style='font-family:"Century Schoolbook"'><img border=0
+  width=74 height=34 id="_x0000_i1036"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img10.png"
+  alt="$A=\pi/4,$" align=MIDDLE><img border=0 width=55 height=32
+  id="_x0000_i1037"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img11.png" alt="$B=0,$"
+  align=MIDDLE><img border=0 width=88 height=30 id="_x0000_i1038"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img12.png"
+  alt="$\omega=4.4271$" align=MIDDLE></span>rad/s. Lo cual se corresponde con
+  la amplitud, la frecuencia y el tipo de movimiento sinusoidal que obtenemos
+  al resolver num&eacute;ricamente la ecuaci&oacute;n (<a href="#mathed:_pendulo_simple">2</a>),
+  como se puede ver en la figura <a href="#pendulo">1</a>. </p>
+  <div align=center>
+  <table border=0 cellpadding=0 style='mso-cellspacing:1.5pt'>
+   <tr>
+    <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center'><a name=546></a><a
+    name=pendulo></a><img border=0 width=591 height=417 id="_x0000_i1039"
+    src="http://fisica.urbenalia.com/trabajos/pendnumhtml/pendulo.jpg"
+    alt="Image pendulo.jpg" align=BOTTOM></p>
+    </td>
+   </tr>
+   <tr>
+    <td style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center;vertical-align:
+    baseline'><strong>Figura 1:</strong> Movimiento arm&oacute;nico simple</p>
+    </td>
+   </tr>
+  </table>
+  </div>
+  <p>El espacio de fases obtenido num&eacute;ricamente, (figura <a href="#pendulofases">2</a>),
+  corresponde a un movimiento estable, con un punto cr&iacute;tico de tipo centro en
+  el punto <span style='font-family:"Century Schoolbook"'><img border=0
+  width=45 height=16 id="_x0000_i1040"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img13.png"
+  alt="$\theta=0$" align=BOTTOM></span>, de tal manera que el p&eacute;ndulo oscila en
+  torno a &eacute;sta posici&oacute;n de equilibrio. </p>
+  <div align=center>
+  <table border=0 cellpadding=0 style='mso-cellspacing:1.5pt'>
+   <tr>
+    <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center'><a name=547></a><a
+    name=pendulofases></a><img border=0 width=591 height=417 id="_x0000_i1041"
+    src="http://fisica.urbenalia.com/trabajos/pendnumhtml/pendulofase.jpg"
+    alt="Image pendulofase.jpg" align=BOTTOM></p>
+    </td>
+   </tr>
+   <tr>
+    <td style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center;vertical-align:
+    baseline'><strong>Figura 2:</strong> Movimiento arm&oacute;nico simple. Espacio de
+    fases. </p>
+    </td>
+   </tr>
+  </table>
+  </div>
+  <h1><a name=SECTION00020000000000000000>2 Movimiento forzado no amortiguado</a>
+  </h1>
+  <p>En este caso, el p&eacute;ndulo est&aacute; sometido a una fuerza externa sin ning&uacute;n
+  tipo de amortiguamiento. La fuerza externa puede ser de cualquier tipo
+  (exponencial, lineal, ...) aunque el movimiento resulta de mayor inter&eacute;s
+  cuando la propia fuerza externa es arm&oacute;nica, <!-- MATH
+ $F=F_{0}\cos\omega_{0}t$
+ --><span style='font-family:"Century Schoolbook"'><img border=0 width=114
+  height=32 id="_x0000_i1042"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img14.png"
+  alt="$F=F_{0}\cos\omega_{0}t$" align=MIDDLE></span>. La ecuaci&oacute;n diferencial
+  del p&eacute;ndulo se escribe entonces de la forma </p>
+  <p><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+  <div align=center><!-- MATH
+ \begin{equation}
+\frac{d^{2}\theta}{dt^{2}}+\frac{g}{l}\theta=F_{0}\cos\omega_{0}t,
+\end{equation}
+ -->
+  <table border=0 cellpadding=0 width="100%" style='width:100.0%;mso-cellspacing:
+   1.5pt'>
+   <tr>
+    <td nowrap valign=top style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center'><a
+    name="mathed:_pendulo_forzado"></a><img border=0 width=109 height=32
+    id="_x0000_i1043"
+    src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img15.png"
+    alt="\begin{displaymath}&#10;\frac{d^{2}\theta}{dt^{2}}+\frac{g}{l}\theta=F_{0}\cos\omega_{0}t,&#10;\end{displaymath}"></p>
+    </td>
+    <td width=10 valign=top style='width:7.5pt;padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=right style='text-align:right'>(4)</p>
+    </td>
+   </tr>
+  </table>
+  </div>
+  <p class=MsoNormal align=right style='text-align:right'><br clear=all
+  style='mso-special-character:line-break'>
+  </p>
+  <p>cuya soluci&oacute;n anal&iacute;tica, a&ntilde;adiendo a la soluci&oacute;n de la ecuaci&oacute;n homog&eacute;nea
+  una soluci&oacute;n particular de tipo arm&oacute;nico, es </p>
+  <p><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+  <div align=center><!-- MATH
+ \begin{equation}
+\theta(t)=c_{1}\cos\omega t+c_{2}\sin\omega t+\frac{F_{0}}{\omega_{0}^{2}-\omega^{2}}\cos\omega_{0}t,
+\end{equation}
+ -->
+  <table border=0 cellpadding=0 width="100%" style='width:100.0%;mso-cellspacing:
+   1.5pt'>
+   <tr>
+    <td nowrap valign=top style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center'><a
+    name="mathed:_solucion_pendulo_forzado"></a><img border=0 width=170
+    height=45 id="_x0000_i1044"
+    src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img16.png"
+    alt="\begin{displaymath}&#10;\theta(t)=c_{1}\cos\omega t+c_{2}\sin\omega t+\frac{F_{0}}{\omega_{0}^{2}-\omega^{2}}\cos\omega_{0}t,&#10;\end{displaymath}"></p>
+    </td>
+    <td width=10 valign=top style='width:7.5pt;padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=right style='text-align:right'>(5)</p>
+    </td>
+   </tr>
+  </table>
+  </div>
+  <p class=MsoNormal align=right style='text-align:right'><br clear=all
+  style='mso-special-character:line-break'>
+  </p>
+  <p class=MsoNormal>donde las constantes <span style='font-family:"Century Schoolbook"'><img
+  border=0 width=448 height=46 id="_x0000_i1045"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img17.png" alt="$c_{1}$"
+  align=MIDDLE></span>y <span style='font-family:"Century Schoolbook"'><img
+  border=0 width=20 height=30 id="_x0000_i1046"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img18.png" alt="$c_{2}$"
+  align=MIDDLE></span>vienen determinadas por las condiciones iniciales y <!-- MATH
+ $\omega=\sqrt{g/l}$
+ --><span style='font-family:"Century Schoolbook"'><img border=0 width=20
+  height=30 id="_x0000_i1047"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img19.png"
+  alt="$\omega=\sqrt{g/l}$" align=MIDDLE></span>es la frecuencia natural del
+  p&eacute;ndulo. </p>
+  <h2><a name=SECTION00021000000000000000>2.1 Pulsaciones</a> </h2>
+  <p>Para las condiciones iniciales <!-- MATH
+ $\theta_{0}=\theta'_{0}=0$
+ --><span style='font-family:"Century Schoolbook"'><img border=0 width=78
+  height=38 id="_x0000_i1048"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img20.png"
+  alt="$\theta_{0}=\theta'_{0}=0$" align=MIDDLE></span>, la soluci&oacute;n a la
+  ecuaci&oacute;n <a href="#mathed:_pendulo_forzado">4</a> se puede escribir de la
+  forma <o:p></o:p></p>
+  <div align=center><!-- MATH
+ \begin{equation}
+\theta(t)=A(t)\sin\frac{1}{2}(\omega_{0}+\omega)t,
+\end{equation}
+ -->
+  <table border=0 cellpadding=0 width="100%" style='width:100.0%;mso-cellspacing:
+   1.5pt'>
+   <tr>
+    <td nowrap valign=top style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center'><a
+    name="mathed:_pulso"></a><img border=0 width=86 height=34 id="_x0000_i1049"
+    src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img21.png"
+    alt="\begin{displaymath}&#10;\theta(t)=A(t)\sin\frac{1}{2}(\omega_{0}+\omega)t,&#10;\end{displaymath}"></p>
+    </td>
+    <td width=10 valign=top style='width:7.5pt;padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=right style='text-align:right'>(6)</p>
+    </td>
+   </tr>
+  </table>
+  </div>
+  <p class=MsoNormal align=right style='text-align:right'><br clear=all
+  style='mso-special-character:line-break'>
+  </p>
+  <p>donde <span style='font-family:"Century Schoolbook"'><img border=0
+  width=379 height=40 id="_x0000_i1050"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img22.png" alt="$A(t)$"
+  align=MIDDLE></span>es la amplitud del movimiento, que depende del tiempo y
+  vale </p>
+  <p><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+  <div align=center><!-- MATH
+ \begin{equation}
+A(t)=\frac{2F_{0}}{(\omega^{2}-\omega_{0}^{2})}\sin\frac{1}{2}(\omega-\omega_{0})t.
+\end{equation}
+ -->
+  <table border=0 cellpadding=0 width="100%" style='width:100.0%;mso-cellspacing:
+   1.5pt'>
+   <tr>
+    <td nowrap valign=top style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center'><a
+    name="mathed:_pendAmplit"></a><img border=0 width=31 height=34
+    id="_x0000_i1051"
+    src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img23.png"
+    alt="\begin{displaymath}&#10;A(t)=\frac{2F_{0}}{(\omega^{2}-\omega_{0}^{2})}\sin\frac{1}{2}(\omega-\omega_{0})t.&#10;\end{displaymath}"></p>
+    </td>
+    <td width=10 valign=top style='width:7.5pt;padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=right style='text-align:right'>(7)</p>
+    </td>
+   </tr>
+  </table>
+  </div>
+  <p class=MsoNormal align=right style='text-align:right'><br clear=all
+  style='mso-special-character:line-break'>
+  </p>
+  <p>Particularizando al caso en que <!-- MATH
+ $\omega\simeq\omega_{0}$
+ --><span style='font-family:"Century Schoolbook"'><img border=0 width=403
+  height=46 id="_x0000_i1052"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img24.png"
+  alt="$\omega\simeq\omega_{0}$" align=MIDDLE></span>, este movimiento se puede
+  interpretar como un movimiento oscilatorio de frecuencia <!-- MATH
+ $(\omega-\omega_{0})$
+ --><span style='font-family:"Century Schoolbook"'><img border=0 width=58
+  height=30 id="_x0000_i1053"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img25.png"
+  alt="$(\omega-\omega_{0})$" align=MIDDLE></span>, de amplitud arm&oacute;nica
+  variable con frecuencia <!-- MATH
+ $(\omega_{0}+\omega)$
+ --><span style='font-family:"Century Schoolbook"'><img border=0 width=69
+  height=34 id="_x0000_i1054"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img26.png"
+  alt="$(\omega_{0}+\omega)$" align=MIDDLE></span>. Como <!-- MATH
+ $\omega\simeq\omega_{0}$
+ --><span style='font-family:"Century Schoolbook"'><img border=0 width=403
+  height=46 id="_x0000_i1055"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img24.png"
+  alt="$\omega\simeq\omega_{0}$" align=MIDDLE></span>, <!-- MATH
+ $(\omega_{0}+\omega)$
+ --><span style='font-family:"Century Schoolbook"'><img border=0 width=69
+  height=34 id="_x0000_i1056"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img26.png"
+  alt="$(\omega_{0}+\omega)$" align=MIDDLE></span>es grande comparado con <!-- MATH
+ $(\omega-\omega_{0})$
+ --><span style='font-family:"Century Schoolbook"'><img border=0 width=58
+  height=30 id="_x0000_i1057"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img25.png"
+  alt="$(\omega-\omega_{0})$" align=MIDDLE></span>, por lo que el movimiento
+  consta de una oscilaci&oacute;n r&aacute;pida con una amplitud que var&iacute;a lentamente,
+  present&aacute;ndose el fen&oacute;meno de <span class=textit>pulsaciones</span>, las
+  cuales se obtienen tambi&eacute;n num&eacute;ricamente como se puede observar en la figura <a
+  href="#pulsaciones">3</a> para los par&aacute;metros que se muestran en dicha
+  gr&aacute;fica. </p>
+  <div align=center>
+  <table border=0 cellpadding=0 style='mso-cellspacing:1.5pt'>
+   <tr>
+    <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center'><a name=554></a><a
+    name=pulsaciones></a><img border=0 width=591 height=417 id="_x0000_i1058"
+    src="http://fisica.urbenalia.com/trabajos/pendnumhtml/pulsosgrpah.jpg"
+    alt="Image pulsosgrpah.jpg" align=BOTTOM></p>
+    </td>
+   </tr>
+   <tr>
+    <td style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center;vertical-align:
+    baseline'><strong>Figura 3:</strong> Soluci&oacute;n num&eacute;rica al p&eacute;ndulo forzado
+    no amortiguado. Pulsaciones.</p>
+    </td>
+   </tr>
+  </table>
+  </div>
+  <p>El espacio de fases para este tipo de movimiento se puede ver en la figura
+  <a href="#pulsosfases">4</a>, que no es m&aacute;s que una espiral que se va
+  abriendo a medida que aumenta la amplitud del p&eacute;ndulo, y se va cerrando a
+  medida que &eacute;sta disminuye. Puesto que se trata de un movimiento peri&oacute;dico
+  &eacute;sta espiral se va repitiendo para cada pulso, obteniendo la secuencia de
+  puntos de la figura. &Eacute;sta secuencia se simplific&oacute; algo respecto a la soluci&oacute;n
+  num&eacute;rica de <span style='font-family:"Century Schoolbook"'><img border=0
+  width=13 height=16 id="_x0000_i1059"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img27.png"
+  alt="$\theta$" align=BOTTOM></span>frente a <span style='font-family:"Century Schoolbook"'><img
+  border=0 width=11 height=16 id="_x0000_i1060"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img28.png" alt="$t$"
+  align=BOTTOM></span>para observar con mayor claridad el espacio de fases.
+  As&iacute;, el intervalo temporal para la simulaci&oacute;n de la figura <a
+  href="#pulsosfases">4</a> es <span style='font-family:"Century Schoolbook"'><img
+  border=0 width=13 height=16 id="_x0000_i1061"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img29.png"
+  alt="$0\leq t&lt;160$" align=MIDDLE></span>s, mientras que para el espacio de
+  fases es <span style='font-family:"Century Schoolbook"'><img border=0
+  width=11 height=16 id="_x0000_i1062"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img30.png"
+  alt="$0\leq t&lt;40$" align=MIDDLE></span>s, si bien el resultado obtenido
+  hubiera sido el mismo extendiendo el intervalo a <span style='font-family:
+  "Century Schoolbook"'><img border=0 width=92 height=30 id="_x0000_i1063"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img31.png" alt="$160$"
+  align=BOTTOM></span>s. El espacio de fases corresponde a un nodo en el punto <span
+  style='font-family:"Century Schoolbook"'><img border=0 width=45 height=16
+  id="_x0000_i1064"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img13.png"
+  alt="$\theta=0$" align=BOTTOM></span>, de ah&iacute; las espirales sucesivas, aunque
+  este nodo cambia de estable a inestable seg&uacute;n la amplitud est&eacute; creciendo o
+  decreciendo. Concretamente es un nodo inestable para tiempos entre <!-- MATH
+ $2n\pi/|\omega-\omega_{0}|<t<(2n+1)\pi/|\omega-\omega_{0}|$
+ --><span style='font-family:"Century Schoolbook"'><img border=0 width=83
+  height=30 id="_x0000_i1065"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img32.png"
+  alt="$2n\pi/\vert\omega-\omega_{0}\vert&lt;t&lt;(2n+1)\pi/\vert\omega-\omega_{0}\vert$"
+  align=MIDDLE></span>y estable para <!-- MATH
+ $(2n+1)\pi/|\omega-\omega_{0}|<t<2(n+1)\pi/|\omega-\omega_{0}|$
+ --><span style='font-family:"Century Schoolbook"'><img border=0 width=31
+  height=16 id="_x0000_i1066"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img33.png"
+  alt="$(2n+1)\pi/\vert\omega-\omega_{0}\vert&lt;t&lt;2(n+1)\pi/\vert\omega-\omega_{0}\vert$"
+  align=MIDDLE></span>, con <!-- MATH
+ $n=0,1,2,\ldots$
+ --><span style='font-family:"Century Schoolbook"'><img border=0 width=299
+  height=34 id="_x0000_i1067"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img34.png"
+  alt="$n=0,1,2,\ldots$" align=MIDDLE></span></p>
+  <div align=center>
+  <table border=0 cellpadding=0 style='mso-cellspacing:1.5pt'>
+   <tr>
+    <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center'><a name=555></a><a
+    name=pulsosfases></a><img border=0 width=591 height=417 id="_x0000_i1068"
+    src="http://fisica.urbenalia.com/trabajos/pendnumhtml/pulsefasgrpah.jpg"
+    alt="Image pulsefasgrpah.jpg" align=BOTTOM></p>
+    </td>
+   </tr>
+   <tr>
+    <td style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center;vertical-align:
+    baseline'><strong>Figura 4:</strong> Espacio de fases para el movimiento
+    forzado no amortiguado. Pulsaciones. </p>
+    </td>
+   </tr>
+  </table>
+  </div>
+  <h2><a name=SECTION00022000000000000000>2.2 Resonancia</a> </h2>
+  <p>Cuando la fuerza sinusoidal externa act&uacute;a <span class=textit>en fase</span>
+  con la oscilaci&oacute;n natural del p&eacute;ndulo, es decir, <!-- MATH
+ $\omega_{0}=\omega$
+ --><span style='font-family:"Century Schoolbook"'><img border=0 width=108
+  height=30 id="_x0000_i1069"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img35.png"
+  alt="$\omega_{0}=\omega$" align=MIDDLE></span>, se produce el fen&oacute;meno de <span
+  class=textit>resonancia</span>, tan familiar para los f&iacute;sicos y presente en
+  m&uacute;ltiples situaciones en la vida ``real'', como se hizo patente para los
+  habitantes de Tacoma-Narrows, cuando el punte colgante all&iacute; construido se
+  vino abajo debido a la acci&oacute;n de un viento racheado de frecuencia,
+  casualmente, coincidente con la frecuencia natural de oscilaci&oacute;n del puente.
+  En la figura <a href="#tacoma">5</a> se puede ver el puente en plena
+  oscilaci&oacute;n resonante. </p>
+  <div align=center>
+  <table border=0 cellpadding=0 style='mso-cellspacing:1.5pt'>
+   <tr>
+    <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center'><a name=556></a><a
+    name=tacoma></a><img border=0 width=591 height=413 id="_x0000_i1070"
+    src="http://fisica.urbenalia.com/trabajos/pendnumhtml/tac06.jpg"
+    alt="Image tac06.jpg" align=BOTTOM></p>
+    </td>
+   </tr>
+   <tr>
+    <td style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center;vertical-align:
+    baseline'><strong>Figura 5:</strong> Imagen del puente de Tacoma-Narrows
+    oscilando. </p>
+    </td>
+   </tr>
+  </table>
+  </div>
+  <p>En este caso la ecuaci&oacute;n diferencial (<a href="#mathed:_pendulo_forzado">4</a>)
+  se puede escribir como <o:p></o:p></p>
+  <div align=center><!-- MATH
+ \begin{equation}
+\frac{d^{2}\theta}{dt^{2}}+\omega^{2}\theta=F_{0}\cos\omega t,
+\end{equation}
+ -->
+  <table border=0 cellpadding=0 width="100%" style='width:100.0%;mso-cellspacing:
+   1.5pt'>
+   <tr>
+    <td nowrap valign=top style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center'><a
+    name="mathed:_resonancia"></a><img border=0 width=170 height=45
+    id="_x0000_i1071"
+    src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img36.png"
+    alt="\begin{displaymath}&#10;\frac{d^{2}\theta}{dt^{2}}+\omega^{2}\theta=F_{0}\cos\omega t,&#10;\end{displaymath}"></p>
+    </td>
+    <td width=10 valign=top style='width:7.5pt;padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=right style='text-align:right'>(8)</p>
+    </td>
+   </tr>
+  </table>
+  </div>
+  <p class=MsoNormal align=right style='text-align:right'><br clear=all
+  style='mso-special-character:line-break'>
+  </p>
+  <p>con <span style='font-family:"Century Schoolbook"'><img border=0 width=58
+  height=30 id="_x0000_i1072"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img37.png"
+  alt="$\omega=g/l$" align=MIDDLE></span>. Por ser la fuerza externa <!-- MATH
+ $F_{0}\cos\omega t$
+ --><span style='font-family:"Century Schoolbook"'><img border=0 width=64
+  height=29 id="_x0000_i1073"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img38.png"
+  alt="$F_{0}\cos\omega t$" align=MIDDLE></span>soluci&oacute;n de la ecuaci&oacute;n
+  homog&eacute;nea, la soluci&oacute;n particular de la ecuaci&oacute;n (<a
+  href="#mathed:_resonancia">8</a>) ser&aacute; </p>
+  <p><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+  <div align=center><!-- MATH
+ \begin{equation}
+\theta_{p}=\frac{F_{0}}{2\omega}t\sin\omega t,
+\end{equation}
+ -->
+  <table border=0 cellpadding=0 width="100%" style='width:100.0%;mso-cellspacing:
+   1.5pt'>
+   <tr>
+    <td nowrap valign=top style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center'><a
+    name="mathed:_solucion_particular_resonancia"></a><img border=0 width=170
+    height=45 id="_x0000_i1074"
+    src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img39.png"
+    alt="\begin{displaymath}&#10;\theta_{p}=\frac{F_{0}}{2\omega}t\sin\omega t,&#10;\end{displaymath}"></p>
+    </td>
+    <td width=10 valign=top style='width:7.5pt;padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=right style='text-align:right'>(9)</p>
+    </td>
+   </tr>
+  </table>
+  </div>
+  <p class=MsoNormal align=right style='text-align:right'><br clear=all
+  style='mso-special-character:line-break'>
+  </p>
+  <p>por lo que la soluci&oacute;n general de la ecuaci&oacute;n (<a
+  href="#mathed:_resonancia">8</a>) queda </p>
+  <p><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+  <div align=center><!-- MATH
+ \begin{equation}
+\theta(t)=c_{1}\cos\omega t+c_{2}\sin\omega t+\frac{F_{0}}{2\omega}t\sin\omega t,
+\end{equation}
+ -->
+  <table border=0 cellpadding=0 width="100%" style='width:100.0%;mso-cellspacing:
+   1.5pt'>
+   <tr>
+    <td nowrap valign=top style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center'><a
+    name="mathed:_solucion_general_resonancia"></a><img border=0 width=57
+    height=34 id="_x0000_i1075"
+    src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img40.png"
+    alt="\begin{displaymath}&#10;\theta(t)=c_{1}\cos\omega t+c_{2}\sin\omega t+\frac{F_{0}}{2\omega}t\sin\omega t,&#10;\end{displaymath}"></p>
+    </td>
+    <td width=10 valign=top style='width:7.5pt;padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=right style='text-align:right'>(10)</p>
+    </td>
+   </tr>
+  </table>
+  </div>
+  <p class=MsoNormal align=right style='text-align:right'><br clear=all
+  style='mso-special-character:line-break'>
+  </p>
+  <p class=MsoNormal>donde como es habitual, las constantes <span
+  style='font-family:"Century Schoolbook"'><img border=0 width=448 height=46
+  id="_x0000_i1076"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img17.png" alt="$c_{1}$"
+  align=MIDDLE></span>y <span style='font-family:"Century Schoolbook"'><img
+  border=0 width=20 height=30 id="_x0000_i1077"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img18.png" alt="$c_{2}$"
+  align=MIDDLE></span>quedan determinadas por las condiciones iniciales del
+  problema. De la ecuaci&oacute;n (<a href="#mathed:_solucion_general_resonancia">10</a>)
+  puede deducirse que la amplitud del tercer t&eacute;rmino crecer&aacute; linealmente con el
+  tiempo, por lo que el movimiento del p&eacute;ndulo tendr&aacute; cada vez mayor amplitud,
+  aumentando indefinidamente cuando se trata de oscilaciones no amortiguadas. </p>
+  <p>Introduciendo las condiciones y par&aacute;metros adecuados en nuestro programa
+  de FORTRAN 90, en concreto haciendo <!-- MATH
+ $\omega=\omega_{0}$
+ --><span style='font-family:"Century Schoolbook"'><img border=0 width=70
+  height=32 id="_x0000_i1078"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img41.png"
+  alt="$\omega=\omega_{0}$" align=MIDDLE></span>, observamos la oscilaci&oacute;n
+  resonante que se muestra en la figura <a href="#resonancia">6</a> </p>
+  <div align=center>
+  <table border=0 cellpadding=0 style='mso-cellspacing:1.5pt'>
+   <tr>
+    <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center'><a name=561></a><a
+    name=resonancia></a><img border=0 width=591 height=417 id="_x0000_i1079"
+    src="http://fisica.urbenalia.com/trabajos/pendnumhtml/resgraph.jpg"
+    alt="Image resgraph.jpg" align=BOTTOM></p>
+    </td>
+   </tr>
+   <tr>
+    <td style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center;vertical-align:
+    baseline'><strong>Figura 6:</strong> Movimiento del p&eacute;ndulo sometido a una
+    fuerza externa. Resonancia.</p>
+    </td>
+   </tr>
+  </table>
+  </div>
+  <p>El espacio de fases, en la figura <a href="#resonanciafases">7</a>,
+  muestra una espiral que se abre, dibujo caracter&iacute;stico de un nodo inestable
+  en <span style='font-family:"Century Schoolbook"'><img border=0 width=45
+  height=16 id="_x0000_i1080"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img13.png"
+  alt="$\theta=0$" align=BOTTOM></span>, de acuerdo con el hecho de que el
+  p&eacute;ndulo se aleja de &eacute;sta posici&oacute;n de equilibrio a medida que transcurre el
+  tiempo. </p>
+  <div align=center>
+  <table border=0 cellpadding=0 style='mso-cellspacing:1.5pt'>
+   <tr>
+    <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center'><a name=562></a><a
+    name=resonanciafases></a><img border=0 width=591 height=417
+    id="_x0000_i1081"
+    src="http://fisica.urbenalia.com/trabajos/pendnumhtml/RESFASGRAPH.jpg"
+    alt="Image RESFASGRAPH.jpg" align=BOTTOM></p>
+    </td>
+   </tr>
+   <tr>
+    <td style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center;vertical-align:
+    baseline'><strong>Figura 7:</strong> Espacio de fases para el movimiento
+    del p&eacute;ndulo forzado no amortiguado. Resonancia.</p>
+    </td>
+   </tr>
+  </table>
+  </div>
+  <h1><br>
+  3 Movimiento amortiguado no forzado <a
+  name="sec:_movimiento_amortiguado_no_forzado"></a><a
+  name=SECTION00030000000000000000></a></h1>
+  <p>En este caso, el p&eacute;ndulo no se ve sometido a ninguna fuerza externa, pero
+  s&iacute; experimenta cierta amortiguaci&oacute;n, debido a alguna fuerza de rozamiento o
+  alguna otra proporcional a la velocidad, lo cual se manifiesta a trav&eacute;s de la
+  constante de amortiguamiento <span style='font-family:"Century Schoolbook"'><img
+  border=0 width=58 height=30 id="_x0000_i1082"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img42.png" alt="$k$"
+  align=BOTTOM></span>. La ecuaci&oacute;n diferencial para este movimiento es <o:p></o:p></p>
+  <div align=center><!-- MATH
+ \begin{equation}
+\frac{d^{2}\theta}{dt^{2}}+k\frac{d\theta}{dt}+\frac{g}{l}\theta=0.
+\end{equation}
+ -->
+  <table border=0 cellpadding=0 width="100%" style='width:100.0%;mso-cellspacing:
+   1.5pt'>
+   <tr>
+    <td nowrap valign=top style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center'><a
+    name="mathed:_pendulo_amortiguado"></a><img border=0 width=158 height=45
+    id="_x0000_i1083"
+    src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img43.png"
+    alt="\begin{displaymath}&#10;\frac{d^{2}\theta}{dt^{2}}+k\frac{d\theta}{dt}+\frac{g}{l}\theta=0.&#10;\end{displaymath}"></p>
+    </td>
+    <td width=10 valign=top style='width:7.5pt;padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=right style='text-align:right'>(11)</p>
+    </td>
+   </tr>
+  </table>
+  </div>
+  <p class=MsoNormal align=right style='text-align:right'><br clear=all
+  style='mso-special-character:line-break'>
+  </p>
+  <p>La soluci&oacute;n general de la ecuaci&oacute;n diferencial anterior toma la forma </p>
+  <p><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+  <div align=center><!-- MATH
+ \begin{equation}
+\theta(t)=c_{1}e^{\lambda_{1}t}+c_{1}e^{\lambda_{2}t},
+\end{equation}
+ -->
+  <table border=0 cellpadding=0 width="100%" style='width:100.0%;mso-cellspacing:
+   1.5pt'>
+   <tr>
+    <td nowrap valign=top style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center'><a
+    name="mathed:_solucion_general_pendulo_amortiguado"></a><a
+    name="mathed:_solucion_general_pendulo_amortiguado"></a><img border=0
+    width=164 height=31 id="_x0000_i1084"
+    src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img44.png"
+    alt="\begin{displaymath}&#10;\theta(t)=c_{1}e^{\lambda_{1}t}+c_{1}e^{\lambda_{2}t},&#10;\end{displaymath}"></p>
+    </td>
+    <td width=10 valign=top style='width:7.5pt;padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=right style='text-align:right'>(12)</p>
+    </td>
+   </tr>
+  </table>
+  </div>
+  <p class=MsoNormal align=right style='text-align:right'><br clear=all
+  style='mso-special-character:line-break'>
+  </p>
+  <p>donde <span style='font-family:"Century Schoolbook"'><img border=0
+  width=22 height=32 id="_x0000_i1085"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img45.png"
+  alt="$\lambda_{1}$" align=MIDDLE></span>y <span style='font-family:"Century Schoolbook"'><img
+  border=0 width=22 height=32 id="_x0000_i1086"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img46.png"
+  alt="$\lambda_{2}$" align=MIDDLE></span>son las ra&iacute;ces de la ecuaci&oacute;n
+  caracter&iacute;stica <!-- MATH
+ $\lambda^{2}+\lambda r+\omega=0$
+ --><span style='font-family:"Century Schoolbook"'><img border=0 width=14
+  height=16 id="_x0000_i1087"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img47.png"
+  alt="$\lambda^{2}+\lambda r+\omega=0$" align=MIDDLE></span>. Resolvi&eacute;ndola
+  obtenemos que <!-- MATH
+ $\lambda_{1}=(-k+\sqrt{k^{4}-4\omega})/2$
+ --><span style='font-family:"Century Schoolbook"'><img border=0 width=359
+  height=44 id="_x0000_i1088"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img48.png"
+  alt="$\lambda_{1}=(-k+\sqrt{k^{4}-4\omega})/2$" align=MIDDLE></span>y <!-- MATH
+ $\lambda_{2}=(-k-\sqrt{k^{4}-4\omega})/2$
+ --><span style='font-family:"Century Schoolbook"'><img border=0 width=361
+  height=30 id="_x0000_i1089"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img49.png"
+  alt="$\lambda_{2}=(-k-\sqrt{k^{4}-4\omega})/2$" align=MIDDLE></span>.
+  Dependiendo del signo del radicando <span style='font-family:"Century Schoolbook"'><img
+  border=0 width=22 height=32 id="_x0000_i1090"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img50.png"
+  alt="$k^{4}-4\omega$" align=MIDDLE></span>, obtendremos diferentes casos para
+  la soluci&oacute;n (<a href="#mathed:_solucion_general_pendulo_amortiguado">12</a>).
+  </p>
+  <ol start=1 type=1>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l1 level1 lfo1;tab-stops:list 36.0pt'>Movimiento
+       sobreamortiguado. <!-- MATH
+ $k>\sqrt{2\omega}$
+ --><span style='font-family:"Century Schoolbook"'><img border=0 width=22
+       height=32 id="_x0000_i1091"
+       src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img51.png"
+       alt="$k&gt;\sqrt{2\omega}$" align=MIDDLE></span>. </li>
+  </ol>
+  <p style='margin-left:36.0pt'>En este caso la soluci&oacute;n es a la ecuaci&oacute;n (<a
+  href="#mathed:_pendulo_amortiguado">11</a>) toma la misma forma de la
+  soluci&oacute;n general (<a href="#mathed:_solucion_general_pendulo_amortiguado">12</a>),
+  siendo las ra&iacute;ces <span style='font-family:"Century Schoolbook"'><img
+  border=0 width=22 height=32 id="_x0000_i1092"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img45.png"
+  alt="$\lambda_{1}$" align=MIDDLE></span>y <span style='font-family:"Century Schoolbook"'><img
+  border=0 width=22 height=32 id="_x0000_i1093"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img46.png"
+  alt="$\lambda_{2}$" align=MIDDLE></span>son reales y distintas, por lo que el
+  movimiento no es ni tan siquiera arm&oacute;nico, y el p&eacute;ndulo tiende a su posici&oacute;n
+  de equilibrio de forma exponencial. </p>
+  <p style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l1 level1 lfo1;
+  tab-stops:list 36.0pt'><![if !supportLists]>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><![endif]>Movimiento cr&iacute;ticamente amortiguado. <!-- MATH
+ $k=\sqrt{2\omega}$
+ --><span style='font-family:"Century Schoolbook"'><img border=0 width=127
+  height=37 id="_x0000_i1094"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img52.png"
+  alt="$k=\sqrt{2\omega}$" align=MIDDLE></span>. </p>
+  <p style='margin-left:36.0pt'>Cuando esto ocurre, existen dos ra&iacute;ces reales e
+  iguales, por lo que la soluci&oacute;n a la ecuaci&oacute;n diferencial (<a
+  href="#mathed:_pendulo_amortiguado">11</a>) es <!-- MATH
+ $\theta(t)=e^{-kt/2}(c_{1}+c_{2}t)$
+ --><span style='font-family:"Century Schoolbook"'><img border=0 width=194
+  height=40 id="_x0000_i1095"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img53.png"
+  alt="$\theta(t)=e^{-kt/2}(c_{1}+c_{2}t)$" align=MIDDLE></span>. De nuevo el
+  p&eacute;ndulo tiende a la posici&oacute;n de equilibrio a medida que transcurre el tiempo,
+  aunque de forma m&aacute;s lenta que en el caso sobreamortiguado, pues el amortiguamiento
+  es menor. </p>
+  <p style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l1 level1 lfo1;
+  tab-stops:list 36.0pt'><![if !supportLists]>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><![endif]>Movimiento subamortiguado. <!-- MATH
+ $k<\sqrt{2\omega}$
+ --><span style='font-family:"Century Schoolbook"'><img border=0 width=194
+  height=40 id="_x0000_i1096"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img54.png"
+  alt="$k&lt;\sqrt{2\omega}$" align=MIDDLE></span>. </p>
+  <p style='margin-left:36.0pt'>En esta situaci&oacute;n las ra&iacute;ces de la ecuaci&oacute;n
+  caracter&iacute;stica son distintas y complejas, adem&aacute;s de conjugadas la una de la
+  otra, por lo que la soluci&oacute;n a la ecuaci&oacute;n diferencial del p&eacute;ndulo
+  amortiguado (<a href="#mathed:_pendulo_amortiguado">11</a>) es </p>
+  <p style='margin-left:36.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+  <div align=center><!-- MATH
+ \begin{equation}
+\theta(t)=e^{-\frac{k}{2}t}(c_{1}\cos\omega_{a}+c_{2}\sin\omega_{a}),
+\end{equation}
+ -->
+  <table border=0 cellpadding=0 width="100%" style='width:100.0%;mso-cellspacing:
+   1.5pt;margin-left:36.0pt'>
+   <tr>
+    <td nowrap valign=top style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center'><a
+    name="solucion_subamortiguado"></a><img border=0 width=58 height=37
+    id="_x0000_i1097"
+    src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img55.png"
+    alt="\begin{displaymath}&#10;\theta(t)=e^{-\frac{k}{2}t}(c_{1}\cos\omega_{a}+c_{2}\sin\omega_{a}),&#10;\end{displaymath}"></p>
+    </td>
+    <td width=10 valign=top style='width:7.5pt;padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=right style='text-align:right'>(13)</p>
+    </td>
+   </tr>
+  </table>
+  </div>
+  <p class=MsoNormal align=right style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;margin-left:36.0pt;text-align:right'><br clear=all style='mso-special-character:
+  line-break'>
+  </p>
+  <p style='margin-left:36.0pt'>con <!-- MATH
+ $\omega_{a}=(\sqrt{4\omega^{2}-k^{4}})/2$
+ --><span style='font-family:"Century Schoolbook"'><img border=0 width=72
+  height=39 id="_x0000_i1098"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img56.png"
+  alt="$\omega_{a}=(\sqrt{4\omega^{2}-k^{4}})/2$" align=MIDDLE></span>. El
+  movimiento es arm&oacute;nico, como indica presencia de funciones sinusoidales, pero
+  la amplitud (la <span class=textit>envolvente</span> del movimiento
+  oscilatorio) decrece exponencialmente, por lo que transcurrido un tiempo el
+  p&eacute;ndulo ha vuelto a su posici&oacute;n de equilibrio. </p>
+  <p>En el programa de FORTRAN 90, se introdujeron valores de los par&aacute;metros y
+  las condiciones iniciales de tal forma que el movimiento fuese
+  subamortiguado. As&iacute; se introdujeron como condiciones iniciales <!-- MATH
+ $\theta_{0}=1.57$
+ --><span style='font-family:"Century Schoolbook"'><img border=0 width=72
+  height=39 id="_x0000_i1099"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img57.png"
+  alt="$\theta_{0}=1.57$" align=MIDDLE></span>rad. y <!-- MATH
+ $\theta_{0}^{'}=0$
+ --><span style='font-family:"Century Schoolbook"'><img border=0 width=173
+  height=39 id="_x0000_i1100"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img58.png"
+  alt="$\theta_{0}^{'}=0$" align=MIDDLE></span>y como valores de la constante
+  de amortiguamiento <span style='font-family:"Century Schoolbook"'><img
+  border=0 width=72 height=39 id="_x0000_i1101"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img59.png" alt="$k=0.1$"
+  align=MIDDLE></span>s<span style='font-family:"Century Schoolbook"'><img
+  border=0 width=404 height=30 id="_x0000_i1102"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img60.png" alt="$^{-1}$"
+  align=BOTTOM></span>, y <!-- MATH
+ $\omega=\sqrt{g/l}=1$
+ --><span style='font-family:"Century Schoolbook"'><img border=0 width=158
+  height=40 id="_x0000_i1103"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img61.png"
+  alt="$\omega=\sqrt{g/l}=1$" align=MIDDLE></span>, de donde se puede ver que <!-- MATH
+ $k<\sqrt{2\omega}$
+ --><span style='font-family:"Century Schoolbook"'><img border=0 width=194
+  height=40 id="_x0000_i1104"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img54.png"
+  alt="$k&lt;\sqrt{2\omega}$" align=MIDDLE></span>. El movimiento se muestra en
+  la figura <a href="#pendulo_subamortiguado">8</a>, y se puede ver que
+  corresponde a un movimiento subamortiguado. </p>
+  <div align=center>
+  <table border=0 cellpadding=0 style='mso-cellspacing:1.5pt'>
+   <tr>
+    <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center'><a name=572></a><a
+    name="pendulo_subamortiguado"></a><img border=0 width=591 height=417
+    id="_x0000_i1105"
+    src="http://fisica.urbenalia.com/trabajos/pendnumhtml/amorgraph.jpg"
+    alt="Image amorgraph.jpg" align=BOTTOM></p>
+    </td>
+   </tr>
+   <tr>
+    <td style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center;vertical-align:
+    baseline'><strong>Figura 8:</strong> Movimiento de un p&eacute;ndulo
+    subamortiguado.</p>
+    </td>
+   </tr>
+  </table>
+  </div>
+  <p>El espacio de fases, en la figura <a href="#pendulo_subamortiguado_fases">9</a>,
+  se puede apreciar una espiral que se va cerrando, como corresponde a un nodo
+  estable en el punto <span style='font-family:"Century Schoolbook"'><img
+  border=0 width=52 height=40 id="_x0000_i1106"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img62.png"
+  alt="$\theta=0,$" align=MIDDLE></span>si bi                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ign:center'><a name=573></a><a
+    name="pendulo_subamortiguado_fases"></a><img border=0 width=591 height=417
+    id="_x0000_i1108"
+    src="http://fisica.urbenalia.com/trabajos/pendnumhtml/amorfasegr.jpg"
+    alt="Image amorfasegr.jpg" align=BOTTOM></p>
+    </td>
+   </tr>
+   <tr>
+    <td style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center;vertical-align:
+    baseline'><strong>Figura 9:</strong> Espacio de fases para el movimiento
+    del p&eacute;ndulo subamortiguado. </p>
+    </td>
+   </tr>
+  </table>
+  </div>
+  <h1><a name=SECTION00040000000000000000>4 Movimiento amortiguado y forzado</a>
+  </h1>
+  <p>Es el movimiento m&aacute;s general y m&aacute;s realista que puede tener el p&eacute;ndulo,
+  sometido tanto a una fuerza externa como a una fuerza de amortiguamiento. La
+  ecuaci&oacute;n diferencial que describe este movimiento es, cuando la fuerza
+  externa es arm&oacute;nica es </p>
+  <p><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+  <div align=center><!-- MATH
+ \begin{equation}
+\frac{d^{2}\theta}{dt^{2}}+k\frac{d\theta}{dt}+\frac{g}{l}\theta=F_{0}\cos\omega_{0}t.
+\end{equation}
+ -->
+  <table border=0 cellpadding=0 width="100%" style='width:100.0%;mso-cellspacing:
+   1.5pt'>
+   <tr>
+    <td nowrap valign=top style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center'><a
+    name="mathed:_pendulo_general"></a><img border=0 width=222 height=45
+    id="_x0000_i1109"
+    src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img1.png"
+    alt="\begin{displaymath}&#10;\frac{d^{2}\theta}{dt^{2}}+k\frac{d\theta}{dt}+\frac{g}{l}\theta=F_{0}\cos\omega_{0}t.&#10;\end{displaymath}"></p>
+    </td>
+    <td width=10 valign=top style='width:7.5pt;padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=right style='text-align:right'>(14)</p>
+    </td>
+   </tr>
+  </table>
+  </div>
+  <p class=MsoNormal align=right style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:right'><br clear=all style='mso-special-character:line-break'>
+  </p>
+  <p>Resolviendo en primer lugar la ecuaci&oacute;n homog&eacute;nea asociada a (<a
+  href="#mathed:_pendulo_general">14</a>), obtenemos las soluciones que se
+  describen en la secci&oacute;n <a href="#sec:_movimiento_amortiguado_no_forzado">3</a>,
+  con las distintas situaciones que en la misma se describen en funci&oacute;n de los
+  par&aacute;metros <span style='font-family:"Century Schoolbook"'><img border=0
+  width=110 height=38 id="_x0000_i1110"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img64.png" alt="$g$"
+  align=MIDDLE></span>, <span style='font-family:"Century Schoolbook"'><img
+  border=0 width=58 height=30 id="_x0000_i1111"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img42.png" alt="$k$"
+  align=BOTTOM></span>, y <span style='font-family:"Century Schoolbook"'><img
+  border=0 width=10 height=16 id="_x0000_i1112"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img65.png" alt="$l$"
+  align=BOTTOM></span>. Hay que a&ntilde;adir adem&aacute;s una soluci&oacute;n particular de tipo
+  arm&oacute;nico, como corresponde al car&aacute;cter de la fuerza externa, que toma la siguiente
+  forma </p>
+  <p><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+  <div align=center><!-- MATH
+ \begin{equation}
+\theta_{p}(t)=A\cos\omega_{0}t+B\sin\omega_{0}t,
+\end{equation}
+ -->
+  <table border=0 cellpadding=0 width="100%" style='width:100.0%;mso-cellspacing:
+   1.5pt'>
+   <tr>
+    <td nowrap valign=top style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center'><a
+    name="mathed:_solucion_particular_pendulo_general"></a><a
+    name="mathed:_solucion_particular_pendulo_general"></a><img border=0
+    width=217 height=32 id="_x0000_i1113"
+    src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img66.png"
+    alt="\begin{displaymath}&#10;\theta_{p}(t)=A\cos\omega_{0}t+B\sin\omega_{0}t,&#10;\end{displaymath}"></p>
+    </td>
+    <td width=10 valign=top style='width:7.5pt;padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=right style='text-align:right'>(15)</p>
+    </td>
+   </tr>
+  </table>
+  </div>
+  <p class=MsoNormal align=right style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:right'><br clear=all style='mso-special-character:line-break'>
+  </p>
+  <p>donde las constantes <span style='font-family:"Century Schoolbook"'><img
+  border=0 width=50 height=32 id="_x0000_i1114"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img67.png" alt="$A$"
+  align=BOTTOM></span>y <span style='font-family:"Century Schoolbook"'><img
+  border=0 width=55 height=16 id="_x0000_i1115"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img68.png" alt="$B$"
+  align=BOTTOM></span>se determinan sustituyendo la soluci&oacute;n particular en la
+  ecuaci&oacute;n diferencial, obteni&eacute;ndose </p>
+  <p><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+  <div align=center><!-- MATH
+ \begin{eqnarray}
+A & = & \frac{(\omega^{2}-\omega_{0}^{2})F_{0}}{(\omega^{2}-\omega_{0}^{2})^{2}+(k\omega_{0})^{2}},\\
+B & = & \frac{k\omega_{0}F_{0}}{(\omega^{2}-\omega_{0}^{2})^{2}+(k\omega_{0})^{2}}.
+\end{eqnarray}
+ -->
+  <table border=0 cellpadding=0 width="100%" style='width:100.0%;mso-cellspacing:
+   1.5pt;mso-padding-alt:0cm 0cm 0cm 0cm'>
+   <tr>
+    <td nowrap valign=top style='padding:0cm 0cm 0cm 0cm'>
+    <p class=MsoNormal align=right style='text-align:right'><a
+    name="mathed:_constantes_A_y_B"></a><img border=0 width=17 height=32
+    id="_x0000_i1116"
+    src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img69.png"
+    alt="$\displaystyle A$" align=MIDDLE></p>
+    </td>
+    <td nowrap valign=top style='padding:0cm 0cm 0cm 0cm'>
+    <p class=MsoNormal align=center style='text-align:center'><img border=0
+    width=18 height=30 id="_x0000_i1117"
+    src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img70.png"
+    alt="$\textstyle =$" align=MIDDLE></p>
+    </td>
+    <td nowrap valign=top style='padding:0cm 0cm 0cm 0cm'>
+    <p class=MsoNormal><img border=0 width=13 height=30 id="_x0000_i1118"
+    src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img71.png"
+    alt="$\displaystyle \frac{(\omega^{2}-\omega_{0}^{2})F_{0}}{(\omega^{2}-\omega_{0}^{2})^{2}+(k\omega_{0})^{2}},$"
+    align=MIDDLE></p>
+    </td>
+    <td width=10 valign=top style='width:7.5pt;padding:0cm 0cm 0cm 0cm'>
+    <p class=MsoNormal align=right style='text-align:right'>(16)</p>
+    </td>
+   </tr>
+   <tr>
+    <td nowrap valign=top style='padding:0cm 0cm 0cm 0cm'>
+    <p class=MsoNormal align=right style='text-align:right'><img border=0
+    width=10 height=16 id="_x0000_i1119"
+    src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img72.png"
+    alt="$\displaystyle B$" align=MIDDLE></p>
+    </td>
+    <td nowrap valign=top style='padding:0cm 0cm 0cm 0cm'>
+    <p class=MsoNormal align=center style='text-align:center'><img border=0
+    width=18 height=30 id="_x0000_i1120"
+    src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img70.png"
+    alt="$\textstyle =$" align=MIDDLE></p>
+    </td>
+    <td nowrap valign=top style='padding:0cm 0cm 0cm 0cm'>
+    <p class=MsoNormal><img border=0 width=388 height=31 id="_x0000_i1121"
+    src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img73.png"
+    alt="$\displaystyle \frac{k\omega_{0}F_{0}}{(\omega^{2}-\omega_{0}^{2})^{2}+(k\omega_{0})^{2}}.$"
+    align=MIDDLE></p>
+    </td>
+    <td width=10 valign=top style='width:7.5pt;padding:0cm 0cm 0cm 0cm'>
+    <p class=MsoNormal align=right style='text-align:right'>(17)</p>
+    </td>
+   </tr>
+  </table>
+  </div>
+  <p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><br
+  clear=all style='mso-special-character:line-break'>
+  </p>
+  <p>Por lo tanto, la soluci&oacute;n general a la ecuaci&oacute;n (<a
+  href="#mathed:_pendulo_general">14</a>) consta de una parte correspondiente a
+  la soluci&oacute;n homog&eacute;nea que decae exponencialmente con el tiempo, como se puede
+  ver en la secci&oacute;n <a href="#sec:_movimiento_amortiguado_no_forzado">3</a>, <!-- MATH
+ $\theta_{h}(t)\propto e^{-Ct}$
+ --><span style='font-family:"Century Schoolbook"'><img border=0 width=17
+  height=15 id="_x0000_i1122"
+  src="http://fisica.urbenalia.com/trabajos/pendnumhtml/img74.png"
+  alt="$\theta_{h}(t)\propto e^{-Ct}$" align=MIDDLE></span>; y una parte
+  arm&oacute;nica correspondiente a la soluci&oacute;n particular (ecuaci&oacute;n (<a
+  href="#mathed:_solucion_particular_pendulo_general">15</a>)). Transcurrido
+  cierto tiempo, la soluci&oacute;n homog&eacute;nea se habr&aacute; hecho despreciable frente a la
+  soluci&oacute;n particular, por lo que se las denomina <span class=textit>soluci&oacute;n
+  transitoria</span> y <span class=textit>soluci&oacute;n estacionaria</span>
+  respectivamente. Despu&eacute;s de cierto tiempo, &uacute;nicamente prevalece la parte arm&oacute;nica
+  de la soluci&oacute;n, la soluci&oacute;n estacionaria. </p>
+  <p>Introduciendo las condiciones adecuadas en nuestro programa de FORTRAN 90,
+  podemos apreciar este hecho. Observando la figura <a href="#afor">10</a>,
+  podemos ver como en los aproximadamente 20 primeros segundos del movimiento,
+  la parte exponencial de la soluci&oacute;n es apreciable, y c&oacute;mo se hace menos
+  patente a medida que transcurre el tiempo. </p>
+  <div align=center>
+  <table border=0 cellpadding=0 style='mso-cellspacing:1.5pt'>
+   <tr>
+    <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center'><a name=580></a><a
+    name=afor></a><img border=0 width=591 height=417 id="_x0000_i1123"
+    src="http://fisica.urbenalia.com/trabajos/pendnumhtml/Aforgraph.jpg"
+    alt="Image Aforgraph.jpg" align=BOTTOM></p>
+    </td>
+   </tr>
+   <tr>
+    <td style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center;vertical-align:
+    baseline'><strong>Figura 10:</strong> Movimiento amortiguado y forzado. (A)</p>
+    </td>
+   </tr>
+  </table>
+  </div>
+  <p>Si observamos el espacio de fases en la figura <a href="#aforfases">11</a>,
+  podemos ver c&oacute;mo mientras la parte transitoria de la soluci&oacute;n es relevante,
+  el movimiento es impredecible, y no sigue ning&uacute;n tipo de tendencia. A medida
+  que el tiempo se hace mayor, la velocidad angular tiende asint&oacute;ticamente a
+  una elipse, que corresponde a la soluci&oacute;n arm&oacute;nica estacionaria. </p>
+  <div align=center>
+  <table border=0 cellpadding=0 style='mso-cellspacing:1.5pt'>
+   <tr>
+    <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center'><a name=581></a><a
+    name=aforfases></a><img border=0 width=591 height=418 id="_x0000_i1124"
+    src="http://fisica.urbenalia.com/trabajos/pendnumhtml/Aforfases.jpg"
+    alt="Image Aforfases.jpg" align=BOTTOM></p>
+    </td>
+   </tr>
+   <tr>
+    <td style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center;vertical-align:
+    baseline'><strong>Figura 11:</strong> Espacio de fases para el movimiento
+    arm&oacute;nico amortiguado. (A)</p>
+    </td>
+   </tr>
+  </table>
+  </div>
+  <p>Este fen&oacute;meno se puede apreciar tambi&eacute;n en las figuras <a href="#aforB">12</a>
+  y <a href="#aforfasesB">13</a>, para otras condiciones iniciales y valores de
+  los par&aacute;metros. </p>
+  <div align=center>
+  <table border=0 cellpadding=0 style='mso-cellspacing:1.5pt'>
+   <tr>
+    <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center'><a name=582></a><a
+    name=aforB></a><img border=0 width=591 height=417 id="_x0000_i1125"
+    src="http://fisica.urbenalia.com/trabajos/pendnumhtml/generalgraph.jpg"
+    alt="Image generalgraph.jpg" align=BOTTOM></p>
+    </td>
+   </tr>
+   <tr>
+    <td style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center;vertical-align:
+    baseline'><strong>Figura 12:</strong> Movimiento amortiguado y forzado. (B)</p>
+    </td>
+   </tr>
+  </table>
+  </div>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='display:none;mso-hide:all'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+  <div align=center>
+  <table border=0 cellpadding=0 style='mso-cellspacing:1.5pt'>
+   <tr>
+    <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center'><a name=583></a><a
+    name=aforfasesB></a><img border=0 width=591 height=417 id="_x0000_i1126"
+    src="http://fisica.urbenalia.com/trabajos/pendnumhtml/GENERALfases.jpg"
+    alt="Image GENERALfases.jpg" align=BOTTOM></p>
+    </td>
+   </tr>
+   <tr>
+    <td style='padding:.75pt .75pt .75pt .75pt'>
+    <p class=MsoNormal align=center style='text-align:center;vertical-align:
+    baseline'><strong>Figura 13:</strong> Espacio de fases para el movimiento
+    amortiguado y forzado. (B)</p>
+    </td>
+   </tr>
+  </table>
+  </div>
+  <h1><a name=SECTION00050000000000000000>5 C&oacute;digo fuente</a> </h1>
+  <p>A continuaci&oacute;n se muestra el c&oacute;digo fuente del programa empleado para la
+  resoluci&oacute;n num&eacute;rica de la ecuaci&oacute;n del p&eacute;ndulo. </p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>program EDO</span></tt>
+  </p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>real,
+  parameter:: pi=3.1415926</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>real:: g0, l,
+  theta0, theta10, h</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>real::n, t,
+  theta, theta1, F0, omegaf, k !,Amp</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>real::a, b</span></tt>
+  </p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>integer::mov</span></tt>
+  </p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>character
+  (len=11), fichero</span></tt> </p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></tt>
+  </p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>g0=9.8</span></tt>&nbsp;
+  <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>l=0.5</span></tt>&nbsp;
+  <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>theta0=pi/4</span></tt>&nbsp;
+  <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>theta10=0</span></tt>&nbsp;
+  <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>h=0.02</span></tt>&nbsp;
+  <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>a=0</span></tt>&nbsp;
+  <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>b=4</span></tt>&nbsp;
+  <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>omegaf=2</span></tt>
+  </p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></tt>
+  </p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>print*,
+  'Programa para calcular resolver la ecuaci&oacute;n diferencial del p&eacute;ndulo'</span></tt>&nbsp;
+  <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>pause </span></tt>&nbsp;
+  <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>print*, ' '</span></tt>&nbsp;
+  <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>print*,
+  'Selecciona el tipo de movimiento:'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>print*, '&nbsp;
+  '</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>print*, '(1)
+  Armonico simple, k=0, F0=0'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>print*,
+  '&nbsp;&nbsp;&nbsp; Condiciones iniciales y parametros:'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>print*,
+  '&nbsp;&nbsp;&nbsp; * Aceleracion de la gravedad: g=9.8 m/s2.'</span></tt>&nbsp;
+  <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>print*,
+  '&nbsp;&nbsp;&nbsp; * Longitud del pendulo: 0.5 m.'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>print*,
+  '&nbsp;&nbsp;&nbsp; * Angulo inicial: pi/4 rad.'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>print*,
+  '&nbsp;&nbsp;&nbsp; * Velocidad angular inicial: 0 rad/s.'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>print*,
+  '&nbsp;&nbsp;&nbsp; * Intervalo de tiempo: 4 s.'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>print*,
+  '&nbsp;&nbsp;&nbsp; * Paso: 0.02 s.'&nbsp;&nbsp;&nbsp; </span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>print*, ' '</span></tt>
+  </p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>print*, '(2)
+  Amortiguado y Forzado'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>print*,
+  '&nbsp;&nbsp;&nbsp; Condiciones iniciales y parametros:'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>print*,
+  '&nbsp;&nbsp;&nbsp; * Aceleracion de la gravedad: g=9.8 m/s2.'</span></tt>&nbsp;
+  <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>print*,
+  '&nbsp;&nbsp;&nbsp; * Longitud del pendulo: l=9.8 m.'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Cou                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 s.'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>print*,
+  '&nbsp;&nbsp;&nbsp; * Constante de Amortiguamiento: k=0.2 N/m'</span></tt>&nbsp;
+  <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>print*,
+  '&nbsp;&nbsp;&nbsp; * Amplitud de la Fuerza externa: 1.25 N.'</span></tt>&nbsp;
+  <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>print*,
+  '&nbsp;&nbsp;&nbsp; * Frecuencia de la Fuerza externa: 0.3 rad/s.'</span></tt>&nbsp;
+  <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>print*, '
+  '&nbsp;&nbsp;&nbsp; </span></tt></p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>print*, '(3)
+  Movimiento personalizado'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>print*, ' '</span></tt>
+  </p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>read*, mov</span></tt>
+  </p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>if (mov==1)
+  then </span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k=0</span></tt>&nbsp;
+  <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;F0=0</span></tt>&nbsp;
+  <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  'Has seleccionado Movimiento Arm&oacute;nico Simple' </span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pause</span></tt>
+  </p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>end if</span></tt>
+  </p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>if (mov==2)
+  then </span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k=0.2</span></tt>&nbsp;
+  <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;F0=1.25</span></tt>&nbsp;
+  <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;omegaf=0.3</span></tt>&nbsp;
+  <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;l=9.8</span></tt>&nbsp;
+  <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;theta0=0.333</span></tt>&nbsp;
+  <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;theta10=0.1</span></tt>&nbsp;
+  <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a=0</span></tt>&nbsp;
+  <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b=400</span></tt>&nbsp;
+  <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;h=0.1</span></tt>&nbsp;
+  <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  'Has seleccionado Movimiento Amortiguado y Forzado'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pause</span></tt>
+  </p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>end if </span></tt></p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>if (mov==3)
+  then</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  'Has seleccionado Moviento Personalizado'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  ' ' </span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  'Introduce el valor de las siguientes condiciones iniciales y parametros'</span></tt>&nbsp;
+  <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  'Aceleracion de la gravedad, g0'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;read*,
+  g0</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  'Longitud del pendulo, l'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;read*,
+  l</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  'Angulo inicial, theta0'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;read*,
+  theta0</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  'Velocidad angular inicial, theta10'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;read*,
+  theta10</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  'Tiempo inicial, a'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;read*,
+  a</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  'Tiempo final, b'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;read*,
+  b</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  'Paso, h'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;read*,
+  h</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  'Constante de Amortiguamiento, k'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;read*,
+  k</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  'Amplitud de la Fuerza externa, F0'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;read*,
+  F0</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  'Frecuencia de la Fuerza externa, omegaf'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;read*,
+  omegaf</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>end if</span></tt>
+  </p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>n=(b-a)/h</span></tt>&nbsp;
+  <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>t=a</span></tt>&nbsp;
+  <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>theta=theta0</span></tt>&nbsp;
+  <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>theta1=theta10</span></tt>&nbsp;
+  <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>print*, 'Escribe
+  el nombre del fichero de resultados'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>read
+  &quot;(A)&quot;, fichero</span></tt> </p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>open (1,
+  file=fichero)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></tt>
+  </p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>do i=1, n </span></tt></p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d11=G(t,
+  theta, theta1)</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d12=F(t,
+  theta, theta1)</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d21=G(t+0.5*h,
+  theta+0.5*h*d11, theta1+0.5*h*d12)</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d22=F(t+0.5*h,
+  theta+0.5*h*d11, theta1+0.5*h*d12)</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d31=G(t+0.5*h,
+  theta+0.5*h*d21, theta1+0.5*h*d22)</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d32=F(t+0.5*h,
+  theta+0.5*h*d21, theta1+0.5*h*d22)</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d41=G(t+h,
+  theta+h*d31, theta1+h*d32)</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d42=F(t+h,
+  theta+h*d31, theta1+h*d32)</span></tt> </p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;theta=theta+((h/6)*(d11+2*d21+2*d31+d41))</span></tt>&nbsp;
+  <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;theta1=theta1+((h/6)*(d12+2*d22+2*d32+d42))</span></tt>
+  </p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;write
+  (1,*) t, theta, theta1</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  t, theta, theta1</span></tt> </p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t=a+i*h
+  </span></tt></p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>end do</span></tt>
+  </p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>close (1)</span></tt>
+  </p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  'Aceleracion de la gravedad, g0'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  g0</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  'Longitud del pendulo, l'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  l</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  'Angulo inicial, theta0'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  theta0</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  'Velocidad angular inicial, theta10'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  theta10</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  'Tiempo inicial, a'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  a</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  'Tiempo final, b'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  b</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  'Paso, h'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  h</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  'Constante de Amortiguamiento, k'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  k</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  'Amplitud de la Fuerza externa, F0'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  F0</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  'Frecuencia de la Fuerza externa, omegaf'</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print*,
+  omegaf</span></tt> </p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></tt></p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>contains</span></tt>
+  </p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></tt>
+  </p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>function F(t,
+  theta, theta1)</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;real::t,
+  theta, theta1, F</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;F=((F0*cos(omegaf*t))-(k*theta1)-((g0/l)*theta))
+  !Amp</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>end function</span></tt>
+  </p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></tt>
+  </p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>function G(t,
+  theta, theta1)</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;real::t,
+  theta, theta1, G</span></tt>&nbsp; <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;G=theta1</span></tt>&nbsp;
+  <br>
+  <tt><span style='font-size:10.0pt;font-family:"Courier New"'>end function </span></tt></p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;</span></tt>
+  </p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>end program</span></tt>
+  </p>
+  <p><tt><span style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp; </span></tt></p>
+  <h1><a name=SECTION00060000000000000000>6 Conclusiones</a> </h1>
+  <p>Mediante un programa escrito en FORTRAN 90, hemos resuelto num&eacute;ricamente
+  la ecuaci&oacute;n de un p&eacute;ndulo para peque&ntilde;as oscilaciones, lo cual nos ha
+  permitido interpretar los resultados obtenidos compar&aacute;ndolos con las
+  soluciones anal&iacute;ticas del problema. Mediante m&eacute;todos num&eacute;ricos ser&iacute;a posible
+  resolver el movimiento del p&eacute;ndulo sin la aproximaci&oacute;n de peque&ntilde;as
+  oscilaciones, no resoluble anal&iacute;ticamente, lo cual nos da una idea de la
+  importancia de los m&eacute;todos num&eacute;ricos en programaci&oacute;n para m&uacute;ltiples problemas
+  f&iacute;sicos, no solo por la facilidad y rapidez, sino porque nos permite obtener
+  soluciones suficientemente aceptables para problemas anal&iacute;ticamente
+  irresolubles. </p>
+  <h1><a name=SECTION00070000000000000000>Bibliograf&iacute;a</a> </h1>
+  <ul type=disc>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l0 level1 lfo2;tab-stops:list 36.0pt'>``Ecuaciones
+       Diferenciales Elementales y Problemas con Condiciones de Frontera''.
+       C.H. Edwards, Jr. David E. Penney. Prentice Hall. </li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l0 level1 lfo2;tab-stops:list 36.0pt'>``Mec&aacute;nica
+       Cl&aacute;sica''. H. Goldstein. Editorial Revert&eacute;. </li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l0 level1 lfo2;tab-stops:list 36.0pt'>``F&iacute;sica. Volumen
+       1''. Paul. A. Tipler. Editorial Revert&eacute;. </li>
+  </ul>
+  <p><![if !supp                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ght'><a href="#arriba"><img
+    border=0 width=24 height=24 id="_x0000_i1128"
+    src="http://fisica.urbenalia.com/images/up.gif" alt=Arriba></a></p>
+    </td>
+   </tr>
+  </table>
+  </div>
+  <p align=center style='text-align:center'><a
+  href="http://fisica.urbenalia.com/index.php"><img border=0 width=28
+  height=25 id="_x0000_i1129" src="http://fisica.urbenalia.com/images/home.gif"
+  alt=Volver></a></p>
+  </td>
+  <td style='padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:10.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=right style='text-align:right'><span style='font-size:
+10.0pt'>&copy; 2003, canal#fisica <br>
+<a href="mailto:cfisica@terra.es">cfisica@terra.es</a><br>
+<a href="http://fisica.urbenalia.com/quees/creditos.php?selact=6">cr&eacute;ditos</a> <o:p></o:p></span></p>
+
+<p><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+
+<div class=MsoNormal align=center style='text-align:center'>
+
+<hr size=2 width="100%" align=center>
+
+</div>
+
+
+<address>pod 2003-08-11 </address>
+
+</div>
+
+</body>
+
+</html>

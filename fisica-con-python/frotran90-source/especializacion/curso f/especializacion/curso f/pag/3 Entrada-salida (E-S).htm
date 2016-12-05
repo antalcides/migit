@@ -1,0 +1,329 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0078)http://nereida.deioc.ull.es/~pcgull/ihiu01/cdrom/fortran/contenido/node11.html -->
+<!--Converted with LaTeX2HTML 99.2beta6 (1.42)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others --><HTML><HEAD><TITLE>3 Entrada/salida (E/S)</TITLE>
+<META content="3 Entrada/salida (E/S)" name=description>
+<META content=fortran name=keywords>
+<META content=document name=resource-type>
+<META content=global name=distribution>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR>
+<META http-equiv=Content-Style-Type content=text/css><LINK 
+href="3 Entrada-salida (E-S)_archivos/fortran.css" rel=STYLESHEET><LINK 
+href="node12.html" rel=next><LINK href="node2.html" rel=previous><LINK 
+href="fortran.html" rel=up><LINK href="node12.html" rel=next></HEAD>
+<BODY text=#000000 bgColor=#ffffff><!--Navigation Panel--><A 
+href="http://nereida.deioc.ull.es/~pcgull/ihiu01/cdrom/fortran/contenido/node12.html" 
+name=tex2html222><IMG height=24 alt=next 
+src="3 Entrada-salida (E-S)_archivos/next.png" width=37 align=bottom 
+border=0></A> <A 
+href="http://nereida.deioc.ull.es/~pcgull/ihiu01/cdrom/fortran/contenido/fortran.html" 
+name=tex2html220><IMG height=24 alt=up 
+src="3 Entrada-salida (E-S)_archivos/up.png" width=26 align=bottom border=0></A> 
+<A 
+href="http://nereida.deioc.ull.es/~pcgull/ihiu01/cdrom/fortran/contenido/node10.html" 
+name=tex2html214><IMG height=24 alt=previous 
+src="3 Entrada-salida (E-S)_archivos/prev.png" width=63 align=bottom 
+border=0></A> <BR><B>Next:</B> <A 
+href="http://nereida.deioc.ull.es/~pcgull/ihiu01/cdrom/fortran/contenido/node12.html" 
+name=tex2html223>4 Procedimientos y Módulos</A> <B>Up:</B> <A 
+href="http://nereida.deioc.ull.es/~pcgull/ihiu01/cdrom/fortran/contenido/fortran.html" 
+name=tex2html221>Fortran 90</A> <B>Previous:</B> <A 
+href="http://nereida.deioc.ull.es/~pcgull/ihiu01/cdrom/fortran/contenido/node10.html" 
+name=tex2html215>2.5.3 La sentencia case</A> <BR><BR><!--End of Navigation Panel-->
+<H1><A name=SECTION00030000000000000000>3 Entrada/salida (E/S)</A> </H1>Las 
+sentencias de entrada y salida (E/S) en <I>Fortran90</I> son respectivamente 
+<TT>read</TT> y <TT>print</TT>. Cada una de las sentencias puede adoptar tres 
+formas diferentes: 
+<P>
+<OL>
+  <LI><TT>read</TT> <IMG height=28 alt="$ <$" 
+  src="3 Entrada-salida (E-S)_archivos/img5.png" width=16 align=middle 
+  border=0><I>ch_var</I><IMG height=28 alt="$ >$" 
+  src="3 Entrada-salida (E-S)_archivos/img6.png" width=16 align=middle 
+  border=0><TT>,</TT> <IMG height=28 alt="$ <$" 
+  src="3 Entrada-salida (E-S)_archivos/img5.png" width=16 align=middle 
+  border=0><I>lista de entrada</I> <IMG height=28 alt="$ >$" 
+  src="3 Entrada-salida (E-S)_archivos/img6.png" width=16 align=middle border=0> 
+
+  <LI><TT>read</TT> <IMG height=28 alt="$ <$" 
+  src="3 Entrada-salida (E-S)_archivos/img5.png" width=16 align=middle 
+  border=0><I>etiqueta</I><IMG height=28 alt="$ >$" 
+  src="3 Entrada-salida (E-S)_archivos/img6.png" width=16 align=middle 
+  border=0><TT>,</TT> <IMG height=28 alt="$ <$" 
+  src="3 Entrada-salida (E-S)_archivos/img5.png" width=16 align=middle 
+  border=0><I>lista de entrada</I> <IMG height=28 alt="$ >$" 
+  src="3 Entrada-salida (E-S)_archivos/img6.png" width=16 align=middle border=0> 
+
+  <LI><TT>read *,</TT> <IMG height=28 alt="$ <$" 
+  src="3 Entrada-salida (E-S)_archivos/img5.png" width=16 align=middle 
+  border=0><I>lista de entrada</I><IMG height=28 alt="$ >$" 
+  src="3 Entrada-salida (E-S)_archivos/img6.png" width=16 align=middle border=0> 
+  </LI></OL>para <TT>read</TT> y 
+<OL>
+  <LI><TT>print</TT> <IMG height=28 alt="$ <$" 
+  src="3 Entrada-salida (E-S)_archivos/img5.png" width=16 align=middle 
+  border=0><I>ch_var</I><IMG height=28 alt="$ >$" 
+  src="3 Entrada-salida (E-S)_archivos/img6.png" width=16 align=middle 
+  border=0><TT>,</TT> <IMG height=28 alt="$ <$" 
+  src="3 Entrada-salida (E-S)_archivos/img5.png" width=16 align=middle 
+  border=0><I>lista de entrada</I> <IMG height=28 alt="$ >$" 
+  src="3 Entrada-salida (E-S)_archivos/img6.png" width=16 align=middle border=0> 
+
+  <LI><TT>print</TT> <IMG height=28 alt="$ <$" 
+  src="3 Entrada-salida (E-S)_archivos/img5.png" width=16 align=middle 
+  border=0><I>etiqueta</I><IMG height=28 alt="$ >$" 
+  src="3 Entrada-salida (E-S)_archivos/img6.png" width=16 align=middle 
+  border=0><TT>,</TT> <IMG height=28 alt="$ <$" 
+  src="3 Entrada-salida (E-S)_archivos/img5.png" width=16 align=middle 
+  border=0><I>lista de salida</I> <IMG height=28 alt="$ >$" 
+  src="3 Entrada-salida (E-S)_archivos/img6.png" width=16 align=middle border=0> 
+
+  <LI><TT>print *,</TT> <IMG height=28 alt="$ <$" 
+  src="3 Entrada-salida (E-S)_archivos/img5.png" width=16 align=middle 
+  border=0><I>lista de salida</I> <IMG height=28 alt="$ >$" 
+  src="3 Entrada-salida (E-S)_archivos/img6.png" width=16 align=middle border=0> 
+  </LI></OL>para <TT>print</TT>. 
+<P>En todos los casos <IMG height=28 alt="$ <$" 
+src="3 Entrada-salida (E-S)_archivos/img5.png" width=16 align=middle 
+border=0><I>ch_var</I> <IMG height=28 alt="$ >$" 
+src="3 Entrada-salida (E-S)_archivos/img6.png" width=16 align=middle border=0> 
+es una constante de caracteres, una variable de tipo <TT>character</TT>, o un 
+vector de caracteres. <IMG height=28 alt="$ <$" 
+src="3 Entrada-salida (E-S)_archivos/img5.png" width=16 align=middle 
+border=0><I>etiqueta</I> <IMG height=28 alt="$ >$" 
+src="3 Entrada-salida (E-S)_archivos/img6.png" width=16 align=middle border=0> 
+es la etiqueta de una sentencia del código y las listas corresponden a las 
+variables que se desea leer o escribir. La lista de variables de una sentencia 
+<TT>read</TT> sólo puede contener identificadores de variables, mientras que en 
+un <TT>print</TT> también pueden contener constantes o expresiones. 
+<P>En las tres formas de las sentencias de E/S el primer elemento que sigue a la 
+palabra <TT>read</TT> o <TT>print</TT> es lo que se conoce como el 
+<I>especificador de formato</I>, que suministra la información necesaria para la 
+edición que ha de realizarse como parte del proceso de adquisición (emisión) de 
+datos. 
+<P>Esta información se denomina un <I>formato</I> y consiste en una lista de 
+<I>descriptores de edición</I> encerrados entre paréntesis: <PRE>(desc_ed1, desc_ed2, ...)
+</PRE>La primera de las formas de las sentencias de E/S se denomina <I>de 
+formato empotrado</I> porque el formato en sí mismo forma parte de la propia 
+sentencia de E/S: <BR><IMG height=16 
+alt="\begin{codigo2}&#13;&#10;print '($<$\textit{lista de descriptores de edición}$>$)', $<$\textit{lista de salida}$>$\end{codigo2}" 
+src="3 Entrada-salida (E-S)_archivos/img17.png" width=427 align=bottom border=0> 
+<BR>o bien <BR><IMG height=16 
+alt="\begin{codigo2}&#13;&#10;print ''($<$\textit{lista de descriptores de edición}$>$)'', $<$\textit{lista de salida}$>$\end{codigo2}" 
+src="3 Entrada-salida (E-S)_archivos/img18.png" width=435 align=bottom border=0> 
+<BR>(el compilador acepta cualquiera de las dos formas, aunque recomendamos la 
+primera). 
+<P>En la segunda variante de las sentencias <TT>print</TT> y <TT>read</TT> la 
+etiqueta corresponderá con una nueva sentencia: <TT>format</TT> que contiene el 
+formato apropiado para la operación de E/S. 
+<P>La tercera forma de las sentencias de E/S es la que se conoce como 
+entrada/salida dirigida por lista. Se trata de la forma más simple y es la que 
+más utilizaremos en los ejemplos de este capítulo. En esta forma el asterisco 
+indica que se desea un formato de salida (entrada) que se realiza teniendo en 
+cuenta el tipo de los valores a escribir (leer). 
+<P>Los descriptores de edición se dividen en dos categorías: 
+<UL>
+  <LI>Los que afectan a la edición de los datos 
+  <LI>Los que afectan al orden en que los caracteres se editan a la entrada o 
+  salida </LI></UL>Estudiaremos solamente los descriptores de edición de salida 
+(los de entrada son completamente análogos) y remitimos al lector interesado a 
+la bibliografía o bien al manual de usuario de su compilador de 
+<I>Fortran90</I>. 
+<P><BR>
+<P></P>
+<DIV align=center><A name=901></A>
+<TABLE>
+  <CAPTION><STRONG>Tabla 2:</STRONG> Descriptores de edición para 
+  salida</CAPTION>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE cellPadding=3>
+        <TBODY>
+        <TR>
+          <TD align=left><TT>I</TT><I>w</I></TD>
+          <TD align=left>Escribe un entero en los siguientes <I>w</I> 
+            caracteres</TD></TR>
+        <TR>
+          <TD align=left><TT>F</TT><I>w.d</I></TD>
+          <TD align=left>Imprime un número real en los siguientes <I>w</I> 
+            caracteres</TD></TR>
+        <TR>
+          <TD align=left>&nbsp;</TD>
+          <TD align=left>utilizando <I>d</I> posiciones decimales</TD></TR>
+        <TR>
+          <TD align=left><TT>E</TT><I>w.d</I></TD>
+          <TD align=left>Imprime un número real en los siguientes 
+        <I>w</I></TD></TR>
+        <TR>
+          <TD align=left>&nbsp;</TD>
+          <TD align=left>caracteres utilizando un formato de exponente con 
+            <I>d</I></TD></TR>
+        <TR>
+          <TD align=left>&nbsp;</TD>
+          <TD align=left>posiciones decimales y 4 dígitos para el 
+        exponente</TD></TR>
+        <TR>
+          <TD align=left><TT>A</TT><I>w</I></TD>
+          <TD align=left>Imprime una cadena de caracteres en los siguientes 
+            <I>w</I></TD></TR>
+        <TR>
+          <TD align=left>&nbsp;</TD>
+          <TD align=left>caracteres</TD></TR>
+        <TR>
+          <TD align=left>A</TD>
+          <TD align=left>Imprime una cadena de caracteres comenzando en 
+        la</TD></TR>
+        <TR>
+          <TD align=left>&nbsp;</TD>
+          <TD align=left>siguiente posición</TD></TR>
+        <TR>
+          <TD align=left>&nbsp;</TD>
+          <TD align=left>sin imprimir espacios en blanco sobrantes ni de 
+            relleno</TD></TR>
+        <TR>
+          <TD align=left><TT>L</TT><I>w</I></TD>
+          <TD align=left>Imprime L-1 espacios en blanco seguidos por 
+            <TT>T</TT> o <TT>F</TT> para</TD></TR>
+        <TR>
+          <TD align=left>&nbsp;</TD>
+          <TD align=left>indicar un valor lógico</TD></TR>
+        <TR>
+          <TH align=left><I>n</I><TT>X</TT></TH>
+          <TD align=left>Ignora las siguientes <I>n</I> posiciones</TD></TR>
+        <TR>
+          <TD align=left><TT>T</TT><I>c</I></TD>
+          <TD align=left>Imprime el siguiente elemento comenzando en el</TD></TR>
+        <TR>
+          <TD align=left>&nbsp;</TD>
+          <TD align=left>caracter <I>c</I></TD></TR>
+        <TR>
+          <TD align=left><TT>TL</TT><I>n</I></TD>
+          <TD align=left>Imprime el siguiente elemento comenzando 
+        <I>n</I></TD></TR>
+        <TR>
+          <TD align=left>&nbsp;</TD>
+          <TD align=left>posiciones antes (<TT>TL</TT>)</TD></TR>
+        <TR>
+          <TD align=left><TT>TR</TT><I>n</I></TD>
+          <TD align=left>o después (<TT>TR</TT>) de la posición actual</TD></TR>
+        <TR>
+          <TD align=left>"<!-- MATH
+ $c_1c_2 \ldots c_n$
+ --> <IMG height=28 alt="$ c_1c_2 \ldots c_n$" 
+            src="3 Entrada-salida (E-S)_archivos/img19.png" width=72 
+            align=middle border=0>"</TD>
+          <TD align=left>Imprime la cadena de caracteres <!-- MATH
+ $c_1c_2 \ldots c_n$
+ --><IMG height=28 alt="$ c_1c_2 \ldots c_n$" 
+            src="3 Entrada-salida (E-S)_archivos/img19.png" width=72 
+            align=middle border=0> comenzando</TD></TR>
+        <TR>
+          <TD align=left>&nbsp;</TD>
+          <TD align=left>en la siguiente posición</TD></TR>
+        <TR>
+          <TD align=left>'<!-- MATH
+ $c_1c_2 c_n$
+ --> <IMG height=28 alt="$ c_1c_2 c_n$" 
+            src="3 Entrada-salida (E-S)_archivos/img20.png" width=48 
+            align=middle border=0>'</TD>
+          <TD align=left>Imprime la cadena de caracteres <!-- MATH
+ $c_1c_2 c_n$
+ --><IMG height=28 alt="$ c_1c_2 c_n$" 
+            src="3 Entrada-salida (E-S)_archivos/img20.png" width=48 
+            align=middle border=0> comenzando</TD></TR>
+        <TR>
+          <TD align=left>&nbsp;</TD>
+          <TD align=left>en la siguiente posición</TD></TR></TBODY></TABLE><A 
+      name=tab:descriptores></A></TD></TR></TBODY></TABLE></DIV>
+<P></P><BR>En la tabla <A 
+href="http://nereida.deioc.ull.es/~pcgull/ihiu01/cdrom/fortran/contenido/node11.html#tab:descriptores">2</A> 
+aparecen los descriptores de edición de salida así como el significado de cada 
+uno de ellos. Los descriptores para la sentencia <TT>read</TT> son completamente 
+análogos. 
+<P></P>
+<DIV align=center><A name=code:tabular.f90></A><A name=911></A>
+<TABLE>
+  <CAPTION align=bottom><STRONG>Figura 11:</STRONG> Salida en forma de 
+  tabla</CAPTION>
+  <TBODY>
+  <TR>
+    <TD><IMG height=247 
+      alt="\begin{figure}\hrulefill&#13;&#10;\vspace{-2ex}&#13;&#10;\begin{alltt}&#13;&#10;\relax{} program salida_tab...&#13;&#10;...gram salida_tabular&#13;&#10;\\ \relax \end{alltt}&#13;&#10;\vspace{-2ex}&#13;&#10;\hrulefill&#13;&#10;\end{figure}" 
+      src="3 Entrada-salida (E-S)_archivos/img21.png" width=556 
+  border=0></TD></TR></TBODY></TABLE></DIV>
+<P></P>
+<P></P>
+<DIV align=center><A name=code:salida-tabular></A><A name=944></A>
+<TABLE>
+  <CAPTION align=bottom><STRONG>Figura 12:</STRONG> Salida del programa de la 
+  figura <A 
+  href="http://nereida.deioc.ull.es/~pcgull/ihiu01/cdrom/fortran/contenido/node11.html#code:tabular.f90">11</A></CAPTION>
+  <TBODY>
+  <TR>
+    <TD><IMG height=151 
+      alt="\begin{figure}\hrulefill&#13;&#10;\vspace{-2ex}&#13;&#10;\begin{alltt}&#13;&#10;\relax{} 123456789012345678...&#13;&#10;....0000 2.2361 1.7100&#13;&#10;\\ \relax \end{alltt}&#13;&#10;\vspace{-2ex}&#13;&#10;\hrulefill&#13;&#10;\end{figure}" 
+      src="3 Entrada-salida (E-S)_archivos/img22.png" width=556 
+  border=0></TD></TR></TBODY></TABLE></DIV>
+<P></P>El programa de la figura <A 
+href="http://nereida.deioc.ull.es/~pcgull/ihiu01/cdrom/fortran/contenido/node11.html#code:tabular.f90">11</A> 
+produce la salida que vemos en la figura <A 
+href="http://nereida.deioc.ull.es/~pcgull/ihiu01/cdrom/fortran/contenido/node11.html#code:salida-tabular">12</A> 
+(la primera linea no corresponde a la salida, sino que se ha incluido a efectos 
+ilustrativos). 
+<P></P>
+<DIV align=center><A name=code:ejemplo_format></A><A name=945></A>
+<TABLE>
+  <CAPTION align=bottom><STRONG>Figura 13:</STRONG> La sentencia 
+  <TT>format</TT></CAPTION>
+  <TBODY>
+  <TR>
+    <TD><IMG height=285 
+      alt="\begin{figure}\hrulefill&#13;&#10;\vspace{-2ex}&#13;&#10;\begin{alltt}&#13;&#10;\relax{} program ejemplo_fo...&#13;&#10;...gram ejemplo_format&#13;&#10;\\ \relax \end{alltt}&#13;&#10;\vspace{-2ex}&#13;&#10;\hrulefill&#13;&#10;\end{figure}" 
+      src="3 Entrada-salida (E-S)_archivos/img23.png" width=556 
+  border=0></TD></TR></TBODY></TABLE></DIV>
+<P></P>
+<P></P>
+<DIV align=center><A name=code:salida-format></A><A name=946></A>
+<TABLE>
+  <CAPTION align=bottom><STRONG>Figura 14:</STRONG> Salida del programa <A 
+  href="http://nereida.deioc.ull.es/~pcgull/ihiu01/cdrom/fortran/contenido/node11.html#code:ejemplo_format">13</A> 
+  para la entrada 123456789</CAPTION>
+  <TBODY>
+  <TR>
+    <TD><IMG height=94 
+      alt="\begin{figure}\hrulefill&#13;&#10;\vspace{-2ex}&#13;&#10;\begin{alltt}&#13;&#10;\relax{} a = 6789&#13;&#10;\\ b = 45...&#13;&#10;...os 12.34 es 222.160&#13;&#10;\\ \relax \end{alltt}&#13;&#10;\vspace{-2ex}&#13;&#10;\hrulefill&#13;&#10;\end{figure}" 
+      src="3 Entrada-salida (E-S)_archivos/img24.png" width=556 
+  border=0></TD></TR></TBODY></TABLE></DIV>
+<P></P>Si se ejecuta el programa de la figura <A 
+href="http://nereida.deioc.ull.es/~pcgull/ihiu01/cdrom/fortran/contenido/node11.html#code:ejemplo_format">13</A> 
+y se le da como entrada los nueve digitos <TT>123456789</TT>, el resultado es el 
+que se muestra en la figura <A 
+href="http://nereida.deioc.ull.es/~pcgull/ihiu01/cdrom/fortran/contenido/node11.html#code:salida-format">14</A>. 
+
+<P>
+<HR>
+<!--Navigation Panel--><A 
+href="http://nereida.deioc.ull.es/~pcgull/ihiu01/cdrom/fortran/contenido/node12.html" 
+name=tex2html222><IMG height=24 alt=next 
+src="3 Entrada-salida (E-S)_archivos/next.png" width=37 align=bottom 
+border=0></A> <A 
+href="http://nereida.deioc.ull.es/~pcgull/ihiu01/cdrom/fortran/contenido/fortran.html" 
+name=tex2html220><IMG height=24 alt=up 
+src="3 Entrada-salida (E-S)_archivos/up.png" width=26 align=bottom border=0></A> 
+<A 
+href="http://nereida.deioc.ull.es/~pcgull/ihiu01/cdrom/fortran/contenido/node10.html" 
+name=tex2html214><IMG height=24 alt=previous 
+src="3 Entrada-salida (E-S)_archivos/prev.png" width=63 align=bottom 
+border=0></A> <BR><B>Next:</B> <A 
+href="http://nereida.deioc.ull.es/~pcgull/ihiu01/cdrom/fortran/contenido/node12.html" 
+name=tex2html223>4 Procedimientos y Módulos</A> <B>Up:</B> <A 
+href="http://nereida.deioc.ull.es/~pcgull/ihiu01/cdrom/fortran/contenido/fortran.html" 
+name=tex2html221>Fortran 90</A> <B>Previous:</B> <A 
+href="http://nereida.deioc.ull.es/~pcgull/ihiu01/cdrom/fortran/contenido/node10.html" 
+name=tex2html215>2.5.3 La sentencia case</A> 
+<!--End of Navigation Panel--></BODY></HTML>

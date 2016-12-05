@@ -1,0 +1,224 @@
+\documentclass{article}%
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}%
+\setcounter{MaxMatrixCols}{30}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{Version=4.00.0.2312}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+%TCIDATA{Created=Friday, October 24, 2003 07:58:30}
+%TCIDATA{LastRevised=Sunday, October 26, 2003 19:45:52}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\begin{document}
+\section{METODOS DE INTEGRACI\'{O}N NUMERICA}
+
+\subsection{LA REGLA DEL TRAPECIO}
+
+El m\'{e}todo de Euler aproxima la derivada en $\left[  x_{n},x_{n+1}\right]
+$ por una constante, concretamente por su valor en $x_{n}$.
+\textquestiondown Por qu\'{e} privilegiar al punto $x_{n}?$
+\textquestiondown No ser\'{a} mejor tomar , por ejemplo, como aproximaci\'{o}n
+constante de la derivada el promedio de sus valores en los extremos del
+intervalo? En ese caso
+\[
+y(x_{n+1})=y\left(  x_{n}\right)  +h\frac{f\left(  x_{n},y\left(
+x_{n}\right)  \right)  f\left(  x_{n+1},y\left(  x_{n+1}\right)  \right)  }%
+{2}+R_{n}%
+\]
+donde $R_{n}$ es el error de truncaci\'{o}n, por lo que se aproxima de la forma.%
+
+\[
+y_{n+1}\approx y_{n}+h\frac{f\left(  x_{n},y\left(  x_{n}\right)  \right)
+f\left(  x_{n+1},y\left(  x_{n+1}\right)  \right)  }{2}%
+\]
+
+
+Esta aproximaci\'{o}n conduce a la llamada regla del trapecio
+
+la cual \ es convergente de grado dos, es decir%
+\[
+\left\Vert e_{n}\right\Vert \leq e^{\left(  b-a\right)  L/\left(  1-\frac
+{hL}{2}\right)  }\left\Vert e_{0}\right\Vert +\frac{Ch^{2}}{L}\left(
+e^{\left(  b-a\right)  L/\left(  1-\frac{hL}{2}\right)  }-1\right)  ,\text{ si
+}0\leq n\leq N
+\]%
+\[
+\text{donde }e_{n}=y\left(  x_{n}\right)  -y_{n},\ \frac{hL}{2}<1,\ C=\frac
+{5}{12}\max_{x\in\left[  a,b\right]  }\left\Vert y^{\prime\prime\prime}\left(
+x\right)  \right\Vert \
+\]
+
+
+a pesar de que la regla del trapecio tiene un orden de convergencia mayor que
+el m\'{e}todo de Euler. eso no significa que sea un m\'{e}todo mejor , pues
+hay otra diferencia importante entre ambos m\'{e}todos. el m\'{e}todo de Euler
+es \textit{expl\'{\i}cito,} el valor de $y_{n+1}$ viene dado
+expl\'{\i}citamente en t\'{e}rmino del valor anterior $y_{n}$ y se puede
+calcular f\'{a}cilmente mediante la evaluaci\'{o}n de $f$ y una pocas
+operaciones aritm\'{e}ticas. por el contrario, la regla del trapecio es un
+m\'{e}todo \textit{impl\'{\i}cito}, para calcular $y_{n+1}$ hay que resolver
+un sistema de ecuaciones no lineales, lo que en general es computacionalmente
+costoso. de lo que se deduce, el orden no lo es todo. Aunque en un m\'{e}todo
+de orden alto en principio hay que dar menos pasos, estos pueden ser muy
+costosos, por lo que puede ser mejor un m\'{e}todo de menos orden en el que a
+pesar de dar m\'{a}s pasos cada uno de ellos lleve menos trabajo computacional.
+
+\subsection{Aplicaciones}
+
+Para aplicar este m\'{e}todo resolveremos dos problemas de f\'{\i}sica
+m\'{e}canica anal\'{\i}ticamente y usando Fortran lo resolveremos
+computacionalmente y luego calculamos el error.
+
+\begin{enumerate}
+\item un objeto que pesa $48\ lb$ se suelta desde el reposo en la parte
+superior de un plano inclinado met\'{a}lico que tiene una inclinaci\'{o}n de
+$30%
+%TCIMACRO{\U{ba}}%
+%BeginExpansion
+{{}^o}%
+%EndExpansion
+$ respecto a la horizontal. la resistencia del aire es num\'{e}ricamente igual
+a un medio de la velocidad (en pies por segundo), el coeficiente de rozamiento
+es $\frac{1}{4}$
+
+\begin{enumerate}
+\item \textquestiondown Cu\'{a}l es la velocidad del objeto dos segundos
+despu\'{e}s de haberse soltado?
+
+\item Si el plano mide mide $24~ft$ de longitud, \textquestiondown C\'{u}al es
+la velocidad del cuerpo en el momento que llega al punto inferior?%
+%TCIMACRO{\FRAME{dhF}{2.7691in}{1.8273in}{0pt}{}{}{fortran.jpg}%
+%{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "USEDEF";  valid_file "F";
+%width 2.7691in;  height 1.8273in;  depth 0pt;  original-width 2.7268in;
+%original-height 1.7902in;  cropleft "0";  croptop "1";  cropright "1";
+%cropbottom "0";  filename 'fortran.jpg';file-properties "XNPEU";}}}%
+%BeginExpansion
+\begin{center}
+\includegraphics[
+natheight=1.790200in,
+natwidth=2.726800in,
+height=1.8273in,
+width=2.7691in
+]%
+{fortran.jpg}%
+\end{center}
+%EndExpansion
+
+\end{enumerate}
+\end{enumerate}
+
+\begin{solution}
+La l\'{\i}nea de movimiento es a lo largo del plano, si escogemos el origen
+del sistema de referencia en la parte superior y el sentido positivo de las
+$x$ hacia abajo del plano, entonces las%
+%TCIMACRO{\FRAME{dhF}{2.2053in}{1.6725in}{0pt}{}{}{plano.jpg}%
+%{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "USEDEF";  valid_file "F";
+%width 2.2053in;  height 1.6725in;  depth 0pt;  original-width 2.8098in;
+%original-height 2.1231in;  cropleft "0";  croptop "1";  cropright "1";
+%cropbottom "0";  filename 'plano.jpg';file-properties "XNPEU";}}}%
+%BeginExpansion
+\begin{center}
+\includegraphics[
+natheight=2.123100in,
+natwidth=2.809800in,
+height=1.6725in,
+width=2.2053in
+]%
+{plano.jpg}%
+\end{center}
+%EndExpansion
+fuerzas que act\'{u}na sobre el objeto A son:\newline Su peso de 48 lb que
+act\'{u}a verticalmente hacia abajo.\newline La fuerza normal, N que ejerce el
+plano sobre el objeto la cual act\'{u}a en la direcci\'{o}n positiva y
+perpendicular al plano.\newline La resitencia del aire $f_{a}$,que tiene un
+valor num\'{e}rico igual a $\frac{v}{2}$, puesto que $v>0$ esta fuerza tiene
+una direcci\'{o}n negativa en $x.$\newline La fuerza de rozamiento, que tiene
+un valor $\mu N$ y tiene una direcci\'{o}n negativa en $x.$\newline de la
+gr\'{a}fica 2 y aplicando la segunda ley de Newton obtenemos
+\begin{align*}
+\text{ en }x &  :\ \ ma\ =Wsen30%
+%TCIMACRO{\U{ba}}%
+%BeginExpansion
+{{}^o}%
+%EndExpansion
+-f_{s}-f_{r}\\
+f_{r} &  =\mu N\\
+\text{en }y &  :0=N-W\cos30%
+%TCIMACRO{\U{ba}}%
+%BeginExpansion
+{{}^o}%
+%EndExpansion
+\end{align*}
+reemplazando los valores y resolviendo el sistema de las tres ecuaciones
+anteriores se obtiene:%
+\[
+\frac{3}{2}\frac{dv}{dt}=24-6\sqrt{3}-\frac{1}{2}v
+\]
+al separar variables se obtiene%
+\[
+\frac{dv}{48-12\sqrt{3}-v}=\frac{dt}{3}%
+\]
+como cuando $t=0,\ v=0$ se tiene%
+\begin{align}
+\int_{0}^{v_{f}}\frac{dv}{48-12\sqrt{3}-v} &  =\int_{0}^{2}\frac{dt}%
+{3}\label{ec1}\\
+v &  =\left(  48-12\sqrt{3}\right)  \left(  1-e^{-\frac{t}{3}}\right)
+\nonumber
+\end{align}
+de modo que al resolver la integral nos da
+\[
+v\left(  2\right)  =10.2\left(  ft/s\right)
+\]
+Para la segunda parte se integra \ref{ec1} y como $x\left(  0\right)  =0$%
+\[
+x=\left(  48-12\sqrt{3}\right)  \left(  t+3e^{-\frac{t}{3}}-3\right)
+\]
+despejando $t$ y reemplazando en \ref{ec1} se obtiene
+\[
+v=12.3~ft/s
+\]
+
+\end{solution}
+
+\begin{solution}
+$\frac{d}{dv}\left(  \frac{3}{48-12\sqrt{3}-v}\right)  =\allowbreak$
+\end{solution}
+
+\begin{solution}
+$\frac{d}{dv}\left(  \frac{3}{\left(  48-12\sqrt{3}-v\right)  ^{2}}\right)
+=\allowbreak$
+\end{solution}
+
+\begin{solution}
+$\frac{d}{dv}\left(  \frac{6}{\left(  48-12\sqrt{3}-v\right)  ^{3}}\right)
+=\allowbreak\frac{18}{\left(  48-12\sqrt{3}-v\right)  ^{4}}$
+\end{solution}
+
+
+\end{document}

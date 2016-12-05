@@ -1,0 +1,64 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 0.8.3 ] */
+
+/* [wxMaxima: comment start ]
+(José Luis da Vila Alonso, 2009)
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: title   start ]
+Método del Punto Fijo
+   [wxMaxima: title   end   ] */
+
+/* [wxMaxima: comment start ]
+Método para resolver sistemas de ecuaciones no lineales (SNL).
+
+Para resolver el SNL,(3 ecuaciones) debes escribir las funcioes:
+    g1(x,y,z)    (siendo x = g1(x,y,z)),
+    g2(x,y,z)    (siendo y = g2(x,y,z)),
+    g3(x,y,z)    (siendo z = g3(x,y,z)),
+    [x0, y0, z0] el punto inicial,
+    niter        el número de iteraciones.
+
+<Pulsa las teclas "Ctrl-R" para evaluar todas las entradas>
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+f1(x,y,z):=3*x-cos(y*z)-1/2;
+f2(x,y,z):=x^2-81*(y+0.1)^2+sin(z)+1.06;
+f3(x,y,z):=exp(-x*y)+20*z+10*%pi/3-1;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+[x0,y0,z0]:[0.1,0.1,-0.1]; niter:5;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+float(%pi);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+g1(x,y,z):=cos(y*z)/3+1/6;
+g2(x,y,z):=sqrt(x^2+sin(z)+1.06)/9-0.1;
+g3(x,y,z):=(1-exp(-x*y))/20-%pi/6;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Buscamos la solución
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+n:0$ x1:x0$ y1:y0$  z1:z0$
+for i:1 thru niter do (
+    n:n+1,
+    x1:g1(x1,y1,z1),
+    y1:g2(x1,y1,z1),
+    z1:g3(x1,y1,z1),
+    print("  x",n,"=",float(x1),"  y",n,"=",float(y1),"  z",n,"=",float(z1))
+  );
+print("    f1(",box(float(x1)),",",box(float(y1)),",",box(float(z1)),")=",float(f1(x1,y1,z1)));
+print("    f2(",box(float(x1)),",",box(float(y1)),",",box(float(z1)),")=",float(f2(x1,y1,z1)));
+print("    f3(",box(float(x1)),",",box(float(y1)),",",box(float(z1)),")=",float(f3(x1,y1,z1)))$
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

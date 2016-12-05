@@ -1,0 +1,77 @@
+\documentclass{article}%
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{amsmath}%
+\setcounter{MaxMatrixCols}{30}%
+\usepackage{amssymb}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{Version=4.00.0.2312}
+%TCIDATA{CSTFile=articulo lateX (resaltado).cst}
+%TCIDATA{Created=Friday, October 03, 2003 05:45:44}
+%TCIDATA{LastRevised=Friday, October 03, 2003 05:47:58}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Estilos en Espannol\Documento en blanco">}
+\newtheorem{theorem}{Teorema}
+\newtheorem{acknowledgement}[theorem]{Agradecimientos}
+\newtheorem{algorithm}[theorem]{Algoritmo}
+\newtheorem{axiom}[theorem]{Axioma}
+\newtheorem{case}[theorem]{Caso}
+\newtheorem{claim}[theorem]{Afirmaci\'on}
+\newtheorem{conclusion}[theorem]{Conclusi\'on}
+\newtheorem{condition}[theorem]{Condici\'on}
+\newtheorem{conjecture}[theorem]{Conjetura}
+\newtheorem{corollary}[theorem]{Corolario}
+\newtheorem{criterion}[theorem]{Criterio}
+\newtheorem{definition}[theorem]{Definci\'on}
+\newtheorem{example}[theorem]{Ejemplo}
+\newtheorem{exercise}[theorem]{Ejercicio}
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{notation}[theorem]{Notaci\'on}
+\newtheorem{problem}[theorem]{Problema}
+\newtheorem{proposition}[theorem]{Proposici\'on}
+\newtheorem{remark}[theorem]{Nota}
+\newtheorem{solution}[theorem]{Soluci\'on}
+\newtheorem{summary}[theorem]{Sumario}
+\newenvironment{proof}[1][Prueba]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\begin{document}
+
+\title{Art\'{\i}culo LaTeX Estandar}
+\author{Margarita Toro\\Universidad Nacional}
+\date{La fecha}
+\maketitle
+
+\begin{abstract}
+Ideas acerca de un art\'{\i}culo en LaTex.
+
+\end{abstract}
+
+
+
+\begin{theorem}
+(Principio del m\'{a}ximo generalizado) Sea $L$ el operador dado en $(1),$
+cuyos coeficientes satisfacen $\left(  2\right)  ,\left(  3\right)  $ y
+$\left(  4\right)  $. Si $u\in W^{1,2}\left(  \Omega\right)  $ es una
+soluci\'{o}n d\'{e}bil de $Lu\geq0\left(  \leq0\right)  $ en $\Omega$,
+entonces
+\[
+\sup_{\Omega}u\leq\sup_{\partial\Omega}u^{+}\text{ \ }\left(  \inf_{\Omega
+}u\geq\inf_{\partial\Omega}u^{+}\right)  .
+\]
+
+\end{theorem}
+
+\begin{proof}
+Se define $l:=\sup\limits_{\partial\Omega}u^{+}$, y se toma $k\in\mathbb{R}$
+tal que $l\leq k<\sup\limits_{\Omega}u$. Entonces $v:=\left(  u-k\right)
+^{+}\in W_{0}^{1,2}\left(  \Omega\right)  $ y $m(\mathbf{supp\ }\nabla
+v)\neq0.$ Por otro lado existe un $C>0,$ independiente de $k,$ tal que
+$m(\mathbf{supp\ }\nabla v)>C^{-n},$ $n\geq2,$ esto es una contradicci\'{o}n.
+En consecuencia
+\[
+\sup_{\Omega}u\leq l\text{.}%
+\]
+
+\end{proof}
+
+
+\end{document}

@@ -1,0 +1,82 @@
+<title>template1.tex</title>
+<body bgcolor="#7fbf7f">
+<h2 align=center>template1.tex</h2>
+The following LaTeX source file represents the simplest kind of slide presentation;
+no overlays, no included graphics.  Substitute your favorite
+<a href="../styles/">style</a> for ``<tt>pascal</tt>''.
+To create the PDF file
+<a href="template1.pdf"><tt>template1.pdf</tt></a>,
+(<b>1</b>) be sure to use the <tt>prosper</tt> class, then
+(<b>2</b>) execute the command <tt>latex&nbsp;template1.tex</tt>, and
+(<b>3</b>) the command <tt>dvipdf&nbsp;template1.dvi</tt>.
+
+<hr><pre>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% <a href="template1.tex">template1.tex</a> %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[pascal,pdf,colorBG,slideColor]{prosper}
+\hypersetup{pdfpagemode=FullScreen}
+
+\title{ your title }			% for title page
+\subtitle{ your subtitle }		% (optional) for title page
+\author{ you }				% for title page
+\email{ your email address }		% (optional) for title page
+\institution{ your institution }	% (optional) for title page
+
+
+\begin{document}
+\maketitle				% OPTIONAL
+
+
+\begin{slide}{ caption 1 }
+	This is the stuff on slide 1.
+\end{slide}
+
+
+
+\begin{slide}{ caption 2 }
+	This is the stuff on slide 2.
+	Note that $C=2\pi r$.
+\end{slide}
+
+
+
+\begin{slide}{ caption 3 }
+	This is the stuff on slide 3.
+	\begin{eqnarray}
+		C & = & 2 \pi r \\
+		A & = & 4 \pi r^2 \\
+		V & = & \frac{4 \pi r^3}3
+	\end{eqnarray}
+\end{slide}
+
+
+
+\begin{slide}{ caption 4 }
+	This is the stuff on slide 4.
+	You get the idea.
+
+	This second paragraph is very long so that you can see what
+	happens when you try to put too much stuff on a single slide.
+	Note: different {\bf prosper} styles (e.g., {\tt alcatel},
+	{\tt autumn}, {\tt gyom}, {\tt pascal}) use different layouts
+	and font sizes, thus will fit differing amounts of material
+	into a single slide. Now, to end this paragraph, here is a
+	sentence which is very, very, very, very, very, very, very,
+	very, very, very, very, very, very, very, very, very, very,
+	very, very, very, very, very, very, very, very, very, very,
+	very, very, very, very, very, very, very, very, very, very,
+	very, very, very, very, very, very, very, very, very, very,
+	very, very, very, very, very, very, very, very, very, very,
+	very, very, very, very, very, very, very, very, very, very,
+	very, very, very, very, very, very, very, very, very, very,
+	very, very, very, very, very, very, very, very, very, very,
+	very, very, very, very, very, very, very, very, very, very,
+	very, very, very, very, very, very, very, very, very, very,
+	very, very, very, very, very, very, very, very, very, very,
+	very, very, very, very, very, very, very, very, very, very,
+	very, very, very, very, very, very, very, very, very long.
+\end{slide}
+
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%% end of <a href="template1.tex">template1.tex</a> %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+</pre>
+</body>

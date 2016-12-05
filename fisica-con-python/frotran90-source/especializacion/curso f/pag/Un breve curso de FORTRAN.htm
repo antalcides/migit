@@ -1,0 +1,588 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0104)http://www.uam.es/departamentos/ciencias/fisicateoricamateria/especifica/hojas/kike/FORTRAN/FORTRAN.html -->
+<HTML><HEAD><TITLE>Un breve curso de FORTRAN</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR>
+<STYLE type=text/css>A:link {
+	TEXT-DECORATION: none
+}
+A:visited {
+	TEXT-DECORATION: none
+}
+A:active {
+	TEXT-DECORATION: none
+}
+</STYLE>
+</HEAD>
+<BODY text=#ffffff vLink=#ff008b aLink=#ff0000 link=#00ffee 
+bgColor=#000000>&nbsp;<BR><B><FONT face="Verdana, Arial, Helvetica, sans-serif" 
+color=#ff0000 size=+2><IMG src="Un breve curso de FORTRAN_archivos/girl1a.gif" 
+align=left> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Un breve curso de FORTRAN (por 
+E. Velasco)</FONT>&nbsp;&nbsp;&nbsp;</B> <BR>
+<HR width="100%">
+<BR>&nbsp;&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp;&nbsp; <IMG 
+src="Un breve curso de FORTRAN_archivos/storm3.gif" align=right> <FONT 
+face="Verdana, Arial, Helvetica, sans-serif" size=-1><A 
+href="http://www.uam.es/departamentos/ciencias/fisicateoricamateria/especifica/hojas/kike/FORTRAN/FORTRAN.html#secc0"><B>Introducción</B></A> 
+</FONT><BR><FONT face="Verdana, Arial, Helvetica, sans-serif" 
+size=-1>&nbsp;&nbsp;&nbsp;&nbsp;<A 
+href="http://www.uam.es/departamentos/ciencias/fisicateoricamateria/especifica/hojas/kike/FORTRAN/FORTRAN.html#secc1"><B>Escritura 
+del programa</B></A> </FONT><BR><FONT 
+face="Verdana, Arial, Helvetica, sans-serif" size=-1>&nbsp;&nbsp;&nbsp;<A 
+href="http://www.uam.es/departamentos/ciencias/fisicateoricamateria/especifica/hojas/kike/FORTRAN/FORTRAN.html#secc2"> 
+<B>Conceptos básicos del lenguaje</B></A> </FONT>
+<UL>
+  <LI><B><FONT face="Verdana, Arial, Helvetica, sans-serif" size=-1><A 
+  href="http://www.uam.es/departamentos/ciencias/fisicateoricamateria/especifica/hojas/kike/FORTRAN/FORTRAN.html#secc2a">Variables</A></FONT></B> 
+
+  <LI><B><FONT face="Verdana, Arial, Helvetica, sans-serif" size=-1><A 
+  href="http://www.uam.es/departamentos/ciencias/fisicateoricamateria/especifica/hojas/kike/FORTRAN/FORTRAN.html#ENTRADAS Y SALIDAS">Entradas 
+  y salidas</A></FONT></B> 
+  <LI><B><FONT face="Verdana, Arial, Helvetica, sans-serif" size=-1><A 
+  href="http://www.uam.es/departamentos/ciencias/fisicateoricamateria/especifica/hojas/kike/FORTRAN/FORTRAN.html#secc2b">Operadores 
+  matemáticos y funciones intrínsecas</A></FONT></B> 
+  <LI><B><FONT face="Verdana, Arial, Helvetica, sans-serif" size=-1><A 
+  href="http://www.uam.es/departamentos/ciencias/fisicateoricamateria/especifica/hojas/kike/FORTRAN/FORTRAN.html#secc2c">Salto 
+  incondicional</A></FONT></B> 
+  <LI><B><FONT face="Verdana, Arial, Helvetica, sans-serif" size=-1><A 
+  href="http://www.uam.es/departamentos/ciencias/fisicateoricamateria/especifica/hojas/kike/FORTRAN/FORTRAN.html#secc2d">Bucles</A></FONT></B> 
+
+  <LI><B><FONT face="Verdana, Arial, Helvetica, sans-serif" size=-1><A 
+  href="http://www.uam.es/departamentos/ciencias/fisicateoricamateria/especifica/hojas/kike/FORTRAN/FORTRAN.html#secc2e">Estructuras 
+  condicionales</A></FONT></B> 
+  <LI><B><FONT face="Verdana, Arial, Helvetica, sans-serif" size=-1><A 
+  href="http://www.uam.es/departamentos/ciencias/fisicateoricamateria/especifica/hojas/kike/FORTRAN/FORTRAN.html#secc2f">Subrutinas 
+  y funciones extrínsecas</A></FONT></B> </LI></UL><FONT 
+face="Verdana, Arial, Helvetica, sans-serif" size=-1>&nbsp;&nbsp;&nbsp;<A 
+href="http://www.uam.es/departamentos/ciencias/fisicateoricamateria/especifica/hojas/kike/FORTRAN/FORTRAN.html#secc3"> 
+<B>Ejercicios y problemas</B></A> </FONT><BR>&nbsp;&nbsp; 
+<HR width="100%">
+
+<TABLE width="100%">
+  <TBODY>
+  <TR>
+    <TD width=18></TD>
+    <TD>
+      <P><A name=secc0></A><FONT color=#ff0000><FONT 
+      face="Arial, Helvetica, sans-serif" size=+1>Introducción</FONT></FONT> 
+      <P><B><FONT face="Verdana, Arial, Helvetica, sans-serif" size=-1>El 
+      FORTRAN (<I>FORmula TRANslator)</I> es un lenguaje de programación muy 
+      potente. Es el primer lenguaje científico, siendo desarrollado a últimos 
+      de la década de los 50, pero es aún ampliamente utilizado en aplicaciones 
+      científicas y de ingeniería. La última versión de FORTRAN actualmente es 
+      la version FORTRAN 90, que reemplazó a la versión FORTRAN 77 a comienzos 
+      de la década de los 90. El FORTRAN 90 incorporá nuevas estructuras y 
+      características en su sintáxis, si bien aún es compatible con la anterior 
+      versión. Por ello, en este breve curso se pasa revista a los elementos 
+      básicos del FORTRAN 77. Se trata de un curso muy introductorio; para una 
+      exposición más detallada habrá que consultar algún manual de FORTRAN. 
+      <P>En los primeros tiempos de la informática cualquier cálculo que 
+      implicara la evaluación de fórmulas matemáticas había de hacerse mediante 
+      complicados programas, que traducían esas fórmulas al lenguaje del 
+      ordenador, muy primitivo. EL FORTRAN es un lenguaje de alto nivel, 
+      orientado a facilitar las cosas al usuario, y que permite escribir el 
+      programa de manera casi idéntica a como se escriben las fórmulas en un 
+      papel. 
+      <P>En FORTRAN las instrucciones que el usuario transmite al ordenador se 
+      encuentran en un fichero de texto (en código ASCII), que es necesario 
+      escribir (utilizando un editor de textos cualquiera). El nombre del 
+      fichero sigue las convenciones del sistema operativo del ordenador. En DOS 
+      un programa FORTRAN suele tener la extensión '.FOR', por ejemplo, 
+      'CALCULO.FOR'; en Unix es tradicional que la extensión sea '.f', por 
+      ejemplo, 'calculo.f'. Los nombres de los programas son libres (salvo 
+      ciertas limitaciones de longitud y tipos especiales de caracteres que no 
+      pueden aparecer en el nombre del fichero). 
+      <P>Al contrario que el BASIC, que es un lenguaje i<I>nterpretado</I>, el 
+      FORTRAN es un lenguaje <I>compilado</I>. Ésto significa que, una vez 
+      escrito el programa, éste ha de ser traducido en bloque al <I>lenguaje 
+      máquina</I>, o sea, el lenguaje que entiende el procesador del ordenador, 
+      mediante un proceso llamado <I>compilación</I>; por contra, en un lenguaje 
+      interpretado las líneas de programa se van traduciendo según el flujo va 
+      pasando por ellas, con lo que el proceso de ejecución se 
+      enlentece.</FONT></B> 
+      <P><A name=secc1></A><FONT color=#ff0000><FONT 
+      face="Arial, Helvetica, sans-serif" size=+1>Escritura del 
+      programa</FONT></FONT> 
+      <P><B><FONT face="Verdana, Arial, Helvetica, sans-serif" size=-1>Las 
+      instrucciones del programa se escriben en el fichero dispuestas en líneas. 
+      En FORTRAN 77 las columnas de la 1 a la 5 se reservan para que se puedan 
+      incluir etiquetas, en forma de números, que hagan de señalización con 
+      vistas a la posibilidad de que el flujo del programa vuelva a esa línea 
+      desde otra parte del programa. La columna 6 se reserva para incluir un 
+      símbolo que le indique al compilador que esa línea es la continuación de 
+      la línea anterior. Por tanto, las instrucciones del programa en sí 
+      comienzan a partir de la columna 6 (es decir, de la 7 a la 80). Un ejemplo 
+      de programa sencillo es:</FONT></B> 
+      <P><FONT face="Verdana, Arial, Helvetica, sans-serif" color=#11ff00 
+      size=-1><B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PROGRAM EJEMPLO 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; REAL A, B, C 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A=1 <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      B=A+1 <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PRINT *, A,B 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; C=A+B+1 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PRINT *,'C es igual a=',C 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END</FONT> 
+      <P><B><FONT face="Verdana, Arial, Helvetica, sans-serif" color=#ffffff 
+      size=-1>En este programa se introduce un <FONT color=#11ff00>1</FONT> en 
+      la variable <FONT color=#11ff00>A</FONT> (ahora veremos qué son las 
+      variables); a continuación se define la variable <FONT 
+      color=#11ff00>B</FONT> como <FONT color=#11ff00>A</FONT> más <FONT 
+      color=#11ff00>1</FONT>, y se escriben las dos variables en la pantalla. 
+      Luego se define la variable <FONT color=#11ff00>C</FONT> como la suma de 
+      <FONT color=#11ff00>A</FONT>, <FONT color=#11ff00>B</FONT> y <FONT 
+      color=#11ff00>1</FONT> y, finalmente, se escribe un letrero y el valor de 
+      <FONT color=#11ff00>C</FONT> en la pantalla. Es imprescindible acabar los 
+      programas con la instrucción <FONT color=#11ff00>END</FONT>. Por contra, 
+      la instrucción que indica el comienzo del programa, <FONT 
+      color=#11ff00>PROGRAM</FONT>, no es imprescindible, aunque su presencia es 
+      recomendable para hacer más clara la estructura en caso de que existan 
+      subrutinas y funciones definidas en el programa (ver más 
+      abajo).</FONT></B> 
+      <P><A name=secc2></A><FONT color=#ff0000><FONT 
+      face="Arial, Helvetica, sans-serif" size=+1>Conceptos básicos del 
+      lenguaje</FONT></FONT> <FONT face="Verdana, Arial, Helvetica, sans-serif" 
+      size=-1>
+      <UL>
+        <LI><A name=secc2a></A><B><FONT color=#ff0000><FONT 
+        size=-1>VARIABLES</FONT></FONT></B> <BR><B><FONT color=#ffffff 
+        size=-1>El primer concepto importante es el de <FONT 
+        color=#ff0000>variable</FONT>. Una variable es una zona reservada en la 
+        memoria del ordenador, a la que se asigna un nombre. En esta zona 
+        podemos guardar un número, o bien una secuencia o cadena de caracteres. 
+        Las variables en las que se pueden almacenar números se llaman <FONT 
+        color=#ff0000>numéricas</FONT>, y pueden tener como nombres una 
+        combinación de caracteres, si bien el primero no puede ser un número; el 
+        número de caracteres varía según el compilador. En el programa-ejemplo 
+        anterior, <FONT color=#11ff00>A</FONT>, <FONT color=#11ff00>B</FONT> y 
+        <FONT color=#11ff00>C </FONT>son variables. Otros ejemplos pueden ser 
+        <FONT color=#11ff00>SUMA</FONT>,<FONT color=#11ff00>RESTO</FONT>, <FONT 
+        color=#11ff00>RESUL1</FONT>, etc. Las variables se definen al comienzo 
+        del programa (es conveniente de hecho, aunque no obligatorio en FORTRAN 
+        77, definir <I>todas</I> las variables de un programa al comienzo del 
+        mismo). 
+        <P>Las variables numéricas pueden ser enteras, reales o complejas. Nos 
+        referiremos aquí a las enteras y a las reales. Las variables enteras 
+        contienen números enteros (es decir, sin parte fraccionaria), p. ej., 
+        <FONT color=#11ff00>-5</FONT>, y se definen al comienzo del programa 
+        mediante la instrucción <FONT color=#11ff00>INTEGER</FONT>. Las 
+        variables reales contienen números reales, ya sea con notación decimal 
+        (p.ej. <FONT color=#11ff00>3.14159</FONT>) o exponencial (p.ej.<FONT 
+        color=#11ff00>1.457E5</FONT>, que quiere decir 1,457.10^5), y se definen 
+        al comienzo del programa mediante la instrucción <FONT 
+        color=#11ff00>REAL</FONT>. Dependiendo de la precisión con la que 
+        queramos representar los números que va a contener la variable, las 
+        variables enteras y reales pueden ser de <I>simple precisión </I>(cuatro 
+        bytes) o de <I>doble precisión</I> (ocho bytes).&nbsp; Este hecho se 
+        indica en la definición de la variable; p. ej., 
+        <P><FONT 
+        color=#11ff00>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        REAL*4 SUMA</FONT> <BR><FONT 
+        color=#11ff00>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        REAL*8 RESTO</FONT> 
+        <P>define <FONT color=#11ff00>SUMA </FONT>como una variable real de 
+        simple precisión, y <FONT color=#11ff00>RESTO</FONT> como una variable 
+        real de doble precisión. Si no se indica la precisión, el compilador 
+        entiende que se trata de variables reales en simple precisión, p. ej., 
+        <FONT color=#11ff00>REAL SUMA</FONT> es equivalente a <FONT 
+        color=#11ff00>REAL*4 SUMA</FONT>. Algunos compiladores permiten el uso 
+        de variables reales de cuádruple precisión, definidas con <FONT 
+        color=#11ff00>REAL*16</FONT>. En notación exponencial las variables 
+        reales de simple, doble y cuádruple precisión se definen con la letra E, 
+        D y Q, para el exponente; p. ej., <FONT color=#11ff00>-3.14159E0</FONT>, 
+        <FONT color=#11ff00>5.67899876478E4</FONT>, <FONT 
+        color=#11ff00>-1.276238978673524678Q-3</FONT>. Para las variables 
+        enteras, tenemos 
+        <P><FONT 
+        color=#11ff00>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        INTEGER*4 PRIMER</FONT> <BR><FONT 
+        color=#11ff00>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        INTEGER*8 SEGUN</FONT> 
+        <P>Si no se especifica la precisión, el compilador entiende que la 
+        variable entera es de simple precisión. Algunos compiladores permiten 
+        definir variables enteras de sólo dos bytes. Recuérdese que n bits 
+        permiten representar números enteros (negativos y positivos, incluyendo 
+        el cero) entre -2<SUP>n-1</SUP>+1 y 2<SUP>n-1</SUP>. Así, dos bytes (es 
+        decir, 2.8=16 bits) permiten representar números sólo entre -32767 y 
+        +32768. 
+        <P>Las variables en las que se pueden almacenar caracteres se llaman 
+        <FONT color=#ff0000>alfanuméricas</FONT>; su nombre sigue las mismas 
+        convenciones que el de las variables numéricas, pero se definen mediante 
+        la instrucción <FONT color=#11ff00>CHARACTER</FONT>, seguida de <FONT 
+        color=#11ff00>*n</FONT>, siendo <FONT color=#11ff00>n</FONT> el número 
+        de caracteres que puede almacenar la variable. Así, p. ej., 
+        <P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        <FONT color=#11ff00>CHARACTER*10 NOMBRE</FONT> 
+        <P>define una variable llamada <FONT color=#11ff00>NOMBRE</FONT> que 
+        puede contener hasta diez caracteres. Los caracteres almacenados en las 
+        variables alfanuméricas pueden ser cualesquiera y han de estar incluidos 
+        entre comillas simples, p. ej., <FONT color=#11ff00>'1'</FONT>, <FONT 
+        color=#11ff00>'El resultado es:'</FONT>, etc. 
+        <P>Se pueden definir conjuntos de variables, a modo de componentes de un 
+        <FONT color=#ff0000>vector</FONT> o <FONT color=#ff0000>matriz</FONT>. 
+        Estas variables tienen un nombre y un índice. Por ejemplo, <FONT 
+        color=#11ff00>A(I) </FONT>es una componente del vector <FONT 
+        color=#11ff00>A</FONT>; la variable <FONT color=#11ff00>I 
+        </FONT>contiene un número entero y es un índice. También podemos tener 
+        matrices, p. ej., <FONT color=#11ff00>B(I,J)</FONT>, con dos índices, 
+        <FONT color=#11ff00>I</FONT> y <FONT color=#11ff00>J</FONT>. Las 
+        variables vectores y matrices también han de declararse al principio del 
+        programa, con la instrucción <FONT color=#11ff00>DIMENSION</FONT>; Así, 
+        podemos escribir 
+        <P><FONT 
+        color=#11ff00>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        DIMENSION A(10)</FONT> 
+        <P>lo que indica que el vector <FONT color=#11ff00>A</FONT> tiene diez 
+        componentes, <FONT color=#11ff00>A(1)</FONT><FONT color=#0f6672>, 
+        </FONT><FONT color=#11ff00>A(2)</FONT><FONT color=#11ff00>, ..., 
+        </FONT><FONT color=#11ff00>A(10)</FONT>. 
+        <P>Para una más extensa exposición del tema de variables en FORTRAN, 
+        consúltese un manual. <BR>&nbsp; <BR>&nbsp; </P>
+        <LI><FONT color=#ff0000><FONT size=-1><A 
+        name="ENTRADAS Y SALIDAS"></A>ENTRADAS Y SALIDAS</FONT></FONT> <BR>Las 
+        entradas de datos a un programa y las salidas de datos producidos por 
+        éste se realizan en FORTRAN por medio de las instrucciones <FONT 
+        color=#11ff00>READ</FONT> y <FONT color=#11ff00>WRITE</FONT>. Para 
+        escribir también se utiliza la instrucción <FONT 
+        color=#11ff00>PRINT</FONT>. La sintáxis de las instrucciones <FONT 
+        color=#11ff00>READ</FONT> y <FONT color=#11ff00>WRITE</FONT> es: 
+        <P><FONT color=#11ff00>&nbsp;&nbsp;&nbsp;READ (<I>unidad</I>, 
+        <I>formato</I>) <I>lista de variables</I></FONT> <BR><B><FONT 
+        color=#11ff00>&nbsp;&nbsp;&nbsp;WRITE (<I>unidad,</I> <I>formato</I>) 
+        <I>lista de variables</I></FONT> 
+        <P>Para una explicación de las unidades de lectura y escritura y los 
+        formatos es FORTRAN se recomienda acudir a un manual de FORTRAN. La 
+        situación más sencilla es aquélla en la que los datos se introducen 
+        mediante el teclado, y los datos salen en la pantalla, con formato 
+        libre. En estos casos se utiliza la sintáxis</FONT> 
+        <P><FONT color=#11ff00>READ (*,*) <I>lista de variables</I></FONT> 
+        <BR><FONT color=#11ff00>WRITE (*,*) <I>lista de variables</I></FONT> 
+        <P>Para la escritura en la pantalla con formato libre existe también la 
+        instrucción <FONT color=#11ff00>PRINT *,</FONT>(la coma es parte de la 
+        instrucción). 
+        <P>Por ejemplo, el siguiente programa lee desde el teclado dos 
+        variables, <FONT color=#11ff00>A</FONT> y <FONT color=#11ff00>B</FONT>, 
+        las suma y envía el resultado a la pantalla: 
+        <P><FONT color=#11ff00>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PROGRAM SUMA 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp; REAL A, B, C <BR>&nbsp;&nbsp;&nbsp;&nbsp; 
+        READ (*,*) A, B <BR>&nbsp;&nbsp;&nbsp;&nbsp; C = A + B 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp; WRITE (*,*) 'La suma es: ', C 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp; END <BR>&nbsp;</FONT> </P>
+        <LI><A name=secc2b></A><FONT color=#ff0000>OPERADORES MATEMÁTICOS Y 
+        FUNCIONES INTRÍNSECAS</FONT> <BR>Los números y variables numéricas se 
+        pueden combinar utilizando operadores matemáticos, como <FONT 
+        color=#11ff00>+</FONT> (suma), <FONT color=#11ff00>- </FONT><FONT 
+        color=#11ff00>(resta), </FONT><FONT color=#11ff00>*</FONT> 
+        (multiplicación) y <FONT color=#11ff00>/ </FONT>(división; en el caso de 
+        división entre enteros la división es la división entera, p. ej., <FONT 
+        color=#11ff00>3/2 = 1</FONT>). Otra operación matemática de interés es 
+        la exponenciación, que se representa mediante <FONT color=#11ff00>** 
+        </FONT>; p. ej., <FONT color=#11ff00>2**3</FONT> es dos elevado al cubo. 
+
+        <P>Algunas funciones están incluidas en el FORTRAN. Son las <I>funciones 
+        intrínsecas</I>, cuyo argumentos (o argumentos) se incluyen entre 
+        paréntesis<I>.</I> Funciones intrínsecas son la raiz cuadrada, <FONT 
+        color=#11ff00>SQRT</FONT>, la funciones trigonométricas seno, <FONT 
+        color=#11ff00>SIN</FONT>, coseno, <FONT color=#11ff00>COS</FONT>, 
+        tangente, <FONT color=#11ff00>TAN</FONT>, arcoseno, <FONT 
+        color=#11ff00>ASIN</FONT>, arcocoseno <FONT color=#11ff00>ACOS</FONT>, 
+        arcotangente, <FONT color=#11ff00>ATAN</FONT>, la función exponencial, 
+        <FONT color=#11ff00>EXP</FONT> y algunas otras. La sintáxis de estas 
+        funciones es, p. ej., 
+        <P><FONT color=#11ff00>&nbsp;&nbsp;&nbsp;&nbsp; SQRT(3.0), SIN(2.3), 
+        EXP(-1.0).</FONT> 
+        <P>Obsérvese que los argumentos de estas funciones son números reales en 
+        simple precisión. Si los argumentos son en doble precisión hay que 
+        colocar la letra D delante del nombre de la función. Así, p. ej., 
+        tendríamos 
+        <P>&nbsp;&nbsp;&nbsp;&nbsp; <FONT color=#11ff00>DSQRT(3.0D0), 
+        DSIN(2.3D0), DEXP(-1D0).</FONT> <BR>&nbsp; </P>
+        <LI><A name=secc2c></A><FONT color=#ff0000>SALTO INCONDICIONAL</FONT> 
+        <BR>Un salto incondicional es un cambio del flujo de un programa a otra 
+        línea de éste. Esta línea de destino ha de estar identificada con un 
+        número de línea, que debe situarse en las columnas 1-5. El salto se 
+        produce cuando el control del flujo encuentra la instrucción <FONT 
+        color=#11ff00>GO TO</FONT>, seguida del número de la línea de destino. 
+        Un ejemplo de programa con salto incondicional sería 
+        <P><FONT color=#11ff00>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A = 
+        2.0<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B = 
+        SQRT(A)<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GO 
+        TO 
+        1<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<BR>1&nbsp;&nbsp;&nbsp;&nbsp;C 
+        = B**2<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<BR></FONT>
+        <P>donde ... indica un número indeterminado de líneas de programa. 
+        Obsérvese cómo el flujo del programa cambiaría a la línea identificada 
+        con el número <FONT color=#11ff00>1</FONT> cuando el flujo pase por la 
+        instrucción <FONT color=#11ff00>GO TO 1</FONT> y que, por tanto, las 
+        líneas de programa desde esa instrucción hasta la línea <FONT 
+        color=#11ff00>1</FONT> no se ejecutarían. Al identificar las líneas de 
+        programa mediante números,&nbsp; téngase en cuenta que los números son 
+        simples etiquetas, y que no tiene por qué mantenerse una numeración 
+        creciente. <BR>&nbsp; </P>
+        <LI><A name=secc2d></A><FONT color=#ff0000>BUCLES</FONT> <BR>El bucle es 
+        una estructura que permite efectuar repeticiones de un conjunto de 
+        instrucciones. Las instrucciones de control de un bucle son DO-END DO. 
+        Asociada al bucle existe una variable de control, normalmente entera, 
+        que hace de índice. La sintáxis general de la estructura en bucle es 
+        <P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <FONT color=#11ff00>DO índice = 
+        valor inicial, valor final, incremento 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ... 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END DO</FONT> 
+        <P>En cada iteración la variable índice va cambiando, desde valor 
+        inicial hasta su valor final, aumentando cada vez su valor en 
+        incremento. Éste último puede no aparecer, en cuyo caso se considera 
+        implícitamente que su valor es la unidad. El siguiente ejemplo resuelve 
+        la ecuación implícita&nbsp; x=cos x&nbsp; mediante el método de las 
+        iteraciones: 
+        <P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <FONT 
+        color=#11ff00>PROGRAM&nbsp; TRASCEND 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REAL X 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INTEGER N 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;READ (*,*) X, N 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DO I = 1, N 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X 
+        = COS(X) <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END DO 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WRITE(*,*) X 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END</FONT> 
+        <P>La instrucción <FONT color=#11ff00>READ</FONT> lee un valor inicial 
+        aproximado, <FONT color=#11ff00>X</FONT>, para la solución de la 
+        ecuación (que es 0,739085), y el número de iteraciones que se desea, 
+        <FONT color=#11ff00>N</FONT>. Una vez efectuadas las <FONT 
+        color=#11ff00>N</FONT> iteraciones, el bucle acaba y se escribe el 
+        resultado con <FONT color=#11ff00>WRITE</FONT>. El modo en que la 
+        estructura <FONT color=#11ff00>DO-END DO</FONT> funciona es el 
+        siguiente. En la primera iteración la variable de control, en este caso 
+        <FONT color=#11ff00>I</FONT>, asume el valor inicial, 1. Se ejecuta la 
+        instrucción del bucle, y cuando el control llega a la instrucción <FONT 
+        color=#11ff00>END DO</FONT> se vuelve a transferir el flujo al comienzo 
+        del bucle. El índice <FONT color=#11ff00>I</FONT> toma ahora el valor 2, 
+        y así se repite el bucle hasta que el valor de <FONT 
+        color=#11ff00>I</FONT> es <FONT color=#11ff00>N</FONT>, en cuyo caso se 
+        efectúa la iteración por última vez y el flujo continúa con las 
+        instrucciones que vienen después del <FONT color=#11ff00>END DO</FONT>. 
+        En el ejemplo, el total de iteraciones realizadas es <FONT 
+        color=#11ff00>N</FONT>. Como prueba de este programa, se pueden ensayar 
+        valores iniciales para <FONT color=#11ff00>X</FONT> de 1, y un número de 
+        iteraciones <FONT color=#11ff00>N </FONT>variable entre 10 y 40. 
+        <P>Una aplicación interesante de la estructura <FONT 
+        color=#11ff00>DO-END DO</FONT> es la suma de series infinitas de 
+        números. Consideremos la serie 
+        <P><FONT 
+        color=#11ff00>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        1/1² + 1/2² + 1/3² + 1/4² + ...</FONT> 
+        <UL></UL>cuya suma es pi²/6. Un simple programa permite calcular las 
+        sumas parciales de esta serie: 
+        <P><FONT color=#11ff00>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUM = 0.0 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;READ (*,*) N 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DO I = 1, N 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        SUM = SUM + 1.0/I**2 <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END DO 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRINT *, SUM 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END</FONT> 
+        <P>Este programa calcula la suma parcial con <FONT 
+        color=#11ff00>N</FONT> términos, <FONT color=#11ff00>S<SUB><FONT 
+        size=-2>N</FONT></SUB>. </FONT>Aumentando el valor <FONT 
+        color=#11ff00>N</FONT> se puede valorar si la serie converge o no, y en 
+        su caso la cantidad a la que converge. La siguiente tabla ha sido 
+        producida con el programa anterior. 
+        <CENTER>
+        <TABLE cols=2 width="20%" bgColor=#777777 border=5 NOSAVE>
+          <TBODY>
+          <TR NOSAVE>
+            <TD>
+              <CENTER><B>N</B></CENTER></TD>
+            <TD NOSAVE>
+              <CENTER><B>S<SUB>N</SUB></B></CENTER></TD></TR>
+          <TR>
+            <TD>
+              <CENTER>10</CENTER></TD>
+            <TD>
+              <CENTER>1.54976773</CENTER></TD></TR>
+          <TR>
+            <TD>
+              <CENTER>100</CENTER></TD>
+            <TD>
+              <CENTER>1.63498390</CENTER></TD></TR>
+          <TR>
+            <TD>
+              <CENTER>1000</CENTER></TD>
+            <TD>
+              <CENTER>1.64393457</CENTER></TD></TR>
+          <TR>
+            <TD>
+              <CENTER>10000</CENTER></TD>
+            <TD>
+              <CENTER>1.64483407</CENTER></TD></TR>
+          <TR NOSAVE>
+            <TD>
+              <CENTER>20000</CENTER></TD>
+            <TD NOSAVE>
+              <CENTER>1.64488407</CENTER></TD></TR>
+          <TR NOSAVE>
+            <TD>
+              <CENTER>30000</CENTER></TD>
+            <TD NOSAVE>
+              <CENTER>1.64490073</CENTER></TD></TR>
+          <TR>
+            <TD>
+              <CENTER>40000</CENTER></TD>
+            <TD>
+              <CENTER>1.64490907</CENTER></TD></TR></TBODY></TABLE></CENTER>
+        <P>Cambiando la línea interior del bucle, obviamente, se pueden sumar 
+        otras series. <BR>&nbsp; </P>
+        <LI><A name=secc2e></A><FONT color=#ff0000>ESTRUCTURAS 
+        CONDICIONALES</FONT> <BR>Una condición es una situación en la que dos 
+        variables se comparan y, dependiendo del resultado de esa comparación, 
+        se ejecuta una instrucción o conjunto de instrucciones. El tipo más 
+        sencillo de estructura que involucra una condición es, por ejemplo, 
+        <P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<FONT color=#11ff00>AMIN = A 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF (A .GT. B) AMIN = B 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...</FONT> 
+        <P>Esta estructura determina el mínimo de los valores de dos variables, 
+        <FONT color=#11ff00>A</FONT> y <FONT color=#11ff00>B, </FONT>y lo 
+        almacena en la variable <FONT color=#11ff00>AMIN</FONT>. La instrucción 
+        <FONT color=#11ff00>IF</FONT> efectúa la comparación entre <FONT 
+        color=#11ff00>A</FONT> y <FONT color=#11ff00>B</FONT>, utilizando el 
+        operador <FONT color=#11ff00>.GT.</FONT> (del inglés G<I>reater</I> 
+        T<I>han</I>). Si <FONT color=#11ff00>A</FONT>&gt;<FONT 
+        color=#11ff00>B,</FONT> se ejecuta la instrucción <FONT 
+        color=#11ff00>AMIN = B</FONT>. Si no se cumpliese esa condición, el 
+        control pasaría directamente a las líneas que siguen a la línea, 
+        representadas por <FONT color=#11ff00>...</FONT>, sin que la instrucción 
+        <FONT color=#11ff00>AMIN = B </FONT>se ejecutara. 
+        <P>Los operadores matemáticos condicionales son: 
+        <P><FONT color=#ff0000>.EQ.</FONT> : <FONT color=#11ff00>igual a 
+        (EQ<I>ual to</I>)</FONT> <BR><FONT color=#ff0000>.LT.</FONT> : <FONT 
+        color=#11ff00>menor que (L<I>ess </I>T<I>han</I>)</FONT> <BR><FONT 
+        color=#ff0000>.GT.</FONT> : <FONT color=#11ff00>mayor que (G<I>reater 
+        </I>T<I>han</I>)</FONT> <BR><FONT color=#ff0000>.LE.</FONT> : <FONT 
+        color=#11ff00>menor o igual que (L<I>ess to or </I>E<I>qual 
+        than</I>)</FONT> <BR><FONT color=#ff0000>.GE.</FONT> : <FONT 
+        color=#11ff00>mayor o igual que (G<I>reater</I> <I>to or </I>E<I>qual 
+        than</I>)</FONT> 
+        <P>Una estructura condicional más sofisticada es la estructura <FONT 
+        color=#11ff00>IF-THEN-ELSE-END IF</FONT>. Esta estructura permite 
+        ejecutar un bloque de instrucciones u otro dependiendo del resultado de 
+        la condición. La estructura se utiliza de la forma 
+        <P><FONT color=#11ff00>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IF 
+        (condición) THEN <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ... 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ELSE 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ... 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END IF</FONT> 
+        <P>Si el resultado de la condición es verdadero, se ejecutaría el primer 
+        bloque de instrucciones (antes del <FONT color=#11ff00>ELSE</FONT>), 
+        mientras que si es falso, se ejecutaría el segundo bloque de 
+        instrucciones (después del <FONT color=#11ff00>ELSE</FONT>). La segunda 
+        parte se puede también eliminar, quedando la estructura más simple 
+        <P><FONT color=#11ff00>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IF 
+        (condición) THEN <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ... 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END IF</FONT> 
+        <P>Sólo en el caso en que la condición sea verdadera se ejecutaría el 
+        bloque de instrucciones ... Si la condición resultara falsa, se 
+        continuaría con las instrucciones situadas a continuación del <FONT 
+        color=#11ff00>END IF</FONT> sin que se ejecuten las instrucciones 
+        situadas dentro de la estructura <FONT color=#11ff00>IF</FONT>-<FONT 
+        color=#11ff00>THEN</FONT>-<FONT color=#11ff00>END IF</FONT>. 
+        <P>La última estructura condicional interesante es el salto condicional. 
+        Un salto condicional es un cambio del flujo de un programa a otra línea 
+        de éste, pero siempre que se cumpla una determinada condición. Al igual 
+        que en los saltos incondicionales, la línea de destino ha de estar 
+        identificada con un número de línea, que debe situarse en las columnas 
+        1-5. El salto se puede producir cuando el control del flujo encuentra 
+        una instrucción <FONT color=#11ff00>IF:</FONT> 
+        <P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <FONT color=#11ff00>IF 
+        (<I>condición</I>) GO TO <I>número de línea</I></FONT> 
+        <P>Como ejemplo de las estructuras condicionales, vamos a efectuar la 
+        suma de la serie 
+        <P><FONT 
+        color=#11ff00>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        1/1²+1/2²+1/3²+1/4²+1/5²+...</FONT> 
+        <P>cuyo término general es 1/n². El programa, obviamente, no puede 
+        calcular la suma infinita, pero sí sumas parciales de la serie. 
+        Supongamos que queremos sumar los <FONT color=#11ff00>M</FONT> primeros 
+        términos de la serie, es decir, calcular la suma parcial S<SUB><FONT 
+        size=-2>M</FONT></SUB>). El siguiente programa resuelve este problema 
+        con ayuda de un salto condicional: 
+        <P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <FONT 
+        color=#11ff00>PROGRAM&nbsp; SERIE <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REAL 
+        SUM <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INTEGER M, N 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;M = 10 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUM = 0.0 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N = 0 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N = N + 1 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF (N .LE. M) THEN 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        SUM = SUM + 1/N**2 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        GO TO 1 <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END IF 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PRINT *, SUM 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END</FONT> <BR>&nbsp; </P>
+        <LI><A name=secc2f></A><FONT color=#ff0000>SUBRUTINAS Y FUNCIONES 
+        EXTRÍNSECAS</FONT> <BR>Muchas veces es necesario en un programa efectuar 
+        un conjunto de instrucciones de una manera reiterativa. Las subrutinas y 
+        funciones evitan tener que escribir el mismo trozo de código varias 
+        veces. Además, ayudan a hacer el programa más ordenado e inteligible. 
+        Las subrutinas y funciones extrínsecas son trozos de programa que se 
+        definen separadamente del programa principal, y sus variables necesitan 
+        ser definidas en la subrutina ya que son variables locales, no 
+        compartidas con el programa principal o con las de otras subrutinas. 
+        <P><FONT color=#ff0000>Subrutinas</FONT> 
+        <P>Se definen mediante la instrucción <FONT 
+        color=#11ff00>SUBROUTINE</FONT>. La subrutina ha de acabar con un <FONT 
+        color=#11ff00>END</FONT>. La sintáxis completa es 
+        <P><FONT color=#11ff00>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SUBROUTINE nombre 
+        (<I>lista de argumentos</I>) <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;... 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END</FONT> 
+        <P>La subrutina se invoca con la instrucción <FONT 
+        color=#11ff00>CALL</FONT>. Un ejemplo de utilización de subrutinas es la 
+        transformación entre coordenadas polares y cartesianas: 
+        <P><FONT color=#11ff00>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PROGRAM&nbsp; 
+        POLAR_CARTES <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; REAL X, Y, RHO, THETA 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; READ (*,*) RHO, THETA 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CALL POLARES (X, Y, RHO, THETA) 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PRINT *, X, Y 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END 
+        <P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SUBROUTINE POLARES (X, Y, RHO, THETA) 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; REAL X, Y, RHO, THETA 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; X = RHO * COS (THETA) 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Y = RHO * SIN (THETA) 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END</FONT> 
+        <P><FONT color=#ff0000>Funciones extrínsecas</FONT> 
+        <P>La sintáxis es muy parecida a la de las subrutinas pero, al contrario 
+        que en éstas, en las que puede haber cualquier número de argumentos de 
+        entrada y salida, en las funciones sólo hay una variable de salida, que 
+        es el propio nombre de la función. Se definen mediante la instrucción 
+        <FONT color=#11ff00>FUNCTION</FONT>, y acaba también con <FONT 
+        color=#11ff00>END</FONT>. La estructura general es 
+        <P><FONT color=#11ff00>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FUNCTION nombre 
+        (lista de argumentos) <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;... 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END</FONT> 
+        <P>Un ejemplo es el cálculo de la función factorial: 
+        <P><FONT color=#11ff00>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PROGRAM&nbsp; 
+        CALCULO_FACT <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INTEGER N 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; REAL FACT, FACTORIAL 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; READ (*,*) N 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FACT = FACTORIAL (N) 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PRINT *, FACT 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END 
+        <P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FUNCTION FACTORIAL (N) 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INTEGER I, N 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; REAL FACTORIAL,&nbsp; PROD 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PROD = 1.0 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DO I = 2, N 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        PROD = PROD * I <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END DO 
+        <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END</FONT> 
+        <P>Obsérvese que el nombre de la función ha de ser declarado como si 
+        fuera una variable más, tanto en el programa principal de llamada como 
+        en la propia función.</P></LI></UL>
+      <P><A name=secc3></A><FONT color=#ff0000 size=+1><FONT 
+      face="Arial, Helvetica, sans-serif">Ejercicios y problemas</FONT></FONT> 
+      <P>
+      <UL>
+        <LI>Rutina para sumar una serie 
+        <LI>Multiplicación de matrices 
+        <LI>Interpolación de Lagrange </LI></UL>
+      <P><BR>
+      <HR width="100%">
+
+      <ADDRESS><FONT size=-1>Actualizado el 7 de febrero de 2001 por E. 
+      Velasco</FONT></ADDRESS></B></B></FONT></B></TD></TR></TBODY></TABLE></BODY></HTML>

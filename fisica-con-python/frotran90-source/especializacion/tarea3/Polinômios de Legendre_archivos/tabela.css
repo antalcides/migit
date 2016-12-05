@@ -1,0 +1,36 @@
+TABLE {
+	FONT-SIZE: 16px; COLOR: #b7cf97; FONT-FAMILY: "Times New Roman", times, sans-serif, serif, Verdana, Geneva, 
+Arial, helvetica
+}
+TD {
+	FONT-SIZE: 16px; COLOR: #b7cf97; FONT-FAMILY: "Times 
+New Roman", times, sans-serif, serif, Verdana, Geneva, Arial, helvetica
+}
+.padrao {
+	FONT-SIZE: 12px; BORDER-LEFT-COLOR: #045888; BORDER-BOTTOM-COLOR: #045888; COLOR: #b7cf97; BORDER-TOP-STYLE: solid; BORDER-TOP-COLOR: #045888; FONT-FAMILY: "Times 
+New Roman", times, sans-serif, serif, Verdana, Geneva, Arial, helvetica; BORDER-RIGHT-STYLE: solid; BORDER-LEFT-STYLE: solid; BORDER-RIGHT-COLOR: #045888; BORDER-BOTTOM-STYLE: solid
+}
+TH {
+	FONT-SIZE: 12px; COLOR: #b7cf97; FONT-FAMILY: "Times New 
+Roman", times, sans-serif, serif, Verdana, Geneva, Arial, helvetica
+}
+.VerdeBold11 {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #b7cf97; FONT-FAMILY: "Times New Roman", times, sans-serif, 
+serif, Verdana, Geneva, Arial, helvetica; TEXT-DECORATION: none
+}
+.Texto {
+	FONT-SIZE: 16px; COLOR: #10291f; FONT-FAMILY: "Times New Roman", times, 
+sans-serif, serif, Verdana, Geneva, Arial, helvetica; TEXT-DECORATION: none
+}
+A.VerdeBold11:visited {
+	COLOR: #b7cf97; TEXT-DECORATION: none
+}
+A.VerdeBold11:link {
+	COLOR: #b7cf97; TEXT-DECORATION: none
+}
+A.VerdeBold11:hover {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.VerdeBold11:active {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}

@@ -1,0 +1,540 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0086)http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/estatico/fraccion/fraccion.htm -->
+<HTML><HEAD><TITLE>La clase Fracción</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY>
+<H1 align=center>La clase <EM>Fraccion</EM></H1>
+<TABLE width="100%">
+  <TBODY>
+  <TR>
+    <TD width="50%"><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/estatico/mates/mates.htm"><IMG 
+      height=40 alt="prev.gif (997 bytes)" 
+      src="La clase Fracción_archivos/prev.gif" width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/fundamentos.htm"><IMG 
+      height=40 alt="chapter.gif (1105 bytes)" 
+      src="La clase Fracción_archivos/chapter.gif" width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/curso.htm"><IMG height=40 
+      alt="home.gif (1054 bytes)" src="La clase Fracción_archivos/home.gif" 
+      width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/herencia/intro_herencia.htm"><IMG 
+      height=40 alt="next.gif (998 bytes)" 
+      src="La clase Fracción_archivos/next.gif" width=49></A></TD>
+    <TD width="50%">
+      <H3 align=right><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/intro_clases.htm">Clases 
+      y objetos</A></H3></TD></TR></TBODY></TABLE>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/estatico/fraccion/fraccion.htm#Los miembros dato">Los 
+miembros dato</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/estatico/fraccion/fraccion.htm#Las funciones miembro">Las 
+funciones miembro</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/estatico/fraccion/fraccion.htm#La clase Fraccion">La 
+clase <EM>Fraccion</EM></A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/estatico/fraccion/fraccion.htm#Uso de la clase Fraccion">Uso 
+de la clase <EM>Fraccion</EM></A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/estatico/fraccion/fraccion.htm#Controles de acceso">Modificadores 
+de acceso</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/estatico/fraccion/fraccion.htm#Mejora de la clase Lista">Mejora 
+de la clase <EM>Lista</EM></A></P>
+<HR>
+
+<P>En esta página vamos a definr una clase denominada <EM>Fraccion</EM> con dos 
+miembros dato: el numerador y el denominador, y varias funciones miembro que 
+realizan las operaciones entre fracciones. El lenguaje Java no tiene la 
+característica de la sobrecarga de operadores como el lenguaje C++. En este 
+lenguaje es posible sobrecargar los operadores aritméticos, como funciones 
+miembro o como funciones amigas (friend) para que se realicen las operaciones 
+entre entidades definidas por el usuario tal como las pensamos o las escribimos 
+en un papel. Por ejemplo, si <EM>a</EM> y <EM>b</EM> son dos fracciones (objetos 
+de la clase <EM>Fraccion</EM>) podemos escribir </P>
+<P><EM>c=a+b; </EM></P>
+<P>para obtener la fracción <EM>c</EM> resultado de la suma de <EM>a</EM> y 
+<EM>b</EM>.</P>
+<P>Definiremos las operaciones en Java de un modo similar al lenguaje C, pero 
+como en Java no existen funciones que no sean miembros de una clase, definiremos 
+las operaciones como funciones estáticas de una clase que denominamos 
+<EM>Fraccion</EM>.</P>
+<P><IMG height=32 alt="disco.gif (1035 bytes)" 
+src="La clase Fracción_archivos/disco.gif" width=32 
+align=middle><STRONG>fraccion1</STRONG>: <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/estatico/codigo/fraccion/Fraccion.java">Fraccion.java</A>, 
+<A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/estatico/codigo/fraccion/FraccionApp1.java">FraccionApp1.java</A></P>
+<P>&nbsp;</P>
+<H2><A name="Los miembros dato">Los miembros dato</A></H2>
+<P>Consideremos la clase que describe una fracción que denominaremos 
+<EM>Fraccion</EM>. Consta de dos miembros ambos enteros, el numerador 
+<I>num</I>, y del denominador <I>den</I>. </P><PRE>public class Fraccion {
+     int num;
+     int den;
+//...
+}</PRE>
+<P>&nbsp;</P>
+<H2><A name="Las funciones miembro">Las funciones miembro</A></H2>
+<P>Además de los constructores definiremos varias funciones miembro que 
+codifican las operaciones que se realizan con fracciones: suma de dos 
+fracciones, diferencia de dos fracciones, producto, cociente, fracción inversa 
+de una dada, y simplificar dos fracciones. Finalmente, redefiniremos la función 
+<EM>toString</EM> para obtener una representación en forma de texto de una 
+fracción.<BR></P>
+<H3>Los constructores</H3>
+<P>Definiremos dos constructores, el constructor por defecto, que da al numerdor 
+el valor cero, y al denominador el valor uno, y el constructor explícito.</P><PRE>  public Fraccion() {
+     num=0;
+     den=1;
+  }
+  public Fraccion(int x, int y) {
+     num=x;
+     den=y;
+  }
+
+</PRE>
+<H3>Suma de dos fracciones</H3>
+<P>Se tratará de definir una función denominada <I>sumar</I>, que realice las 
+operación de sumar dos fracciones. Por tanto, la función <I>sumar</I> tendrá dos 
+parámetros que son dos fracciones <I>a</I> y <I>b</I>, y devolverá una fracción, 
+su declaración será</P><PRE>  	Fraccion sumar(Fraccion a, Fraccion b){
+		//...
+	}</PRE>
+<P>Para codificar la función plantearemos el procedimiento de sumar dos 
+fracciones <I>a</I> y <I>b</I>, cuyos numeradores son <I>a.num</I> y 
+<I>b.num</I>, y cuyos denominadores son <I>a.den</I> y <I>b.den</I>, 
+respectivamente. El resultado se guarda en la fracción <I>c</I>. El numerador 
+<I>c.num</I> y el denominador <I>c.den</I> se obtienen del siguiente modo:</P>
+<P><IMG height=41 src="La clase Fracción_archivos/Image354.gif" width=260></P>
+<P>La suma de dos fracciones es otra fracción <I>c</I> que tiene por numerador 
+<I>c.num</I>.</P><PRE>     c.num=a.num*b.den+b.num*a.den;</PRE>
+<P>y por denominador <I>c.den</I></P><PRE>     c.den=a.den*b.den;</PRE>
+<P>Una vez efectuada la suma, la función <I>sumar</I> devuelve la fracción<I> 
+c</I></P><PRE>     return c;</PRE>
+<P>El código completo de la función <EM>sumar</EM> es</P><PRE> Fraccion sumar(Fraccion a, Fraccion b){
+     Fraccion c=new Fraccion();
+     c.num=a.num*b.den+b.num*a.den;
+     c.den=a.den*b.den;
+     return c;
+  }
+
+</PRE>
+<H3>Diferencia de dos fracciones</H3>
+<P>La función <I>restar</I> es semejante a la función <I>sumar</I> y no requiere 
+más explicación.</P><PRE>  Fraccion restar(Fraccion a, Fraccion b){
+     Fraccion c=new Fraccion();
+     c.num=a.num*b.den-b.num*a.den;
+     c.den=a.den*b.den;
+     return c;
+  }
+
+</PRE>
+<H3>Producto de dos fracciones</H3>
+<P>Cuando se multiplican dos fracciones <I>a</I> y <I>b,</I> se obtiene otra 
+fracción <I>c</I> cuyo numerador es el producto de los numeradores, y cuyo 
+denominador es el producto de sus denominadores respectivos.</P>
+<P><IMG height=41 src="La clase Fracción_archivos/Image355.gif" width=160></P><PRE>  Fraccion multiplicar(Fraccion a, Fraccion b){
+     Fraccion c=new Fraccion();
+     c.num=a.num*b.num;
+     c.den=a.den*b.den;
+     return c;
+  }</PRE>
+<P>Podemos ahorrarnos la fracción temporal <EM>c</EM>, y escribir </P><PRE>  Fraccion multiplicar(Fraccion a, Fraccion b){
+     return new Fraccion(a.num*b.num, a.den*b.den);
+  }
+
+</PRE>
+<H3>Inversa de una fracción</H3>
+<P>La función <I>inversa</I>, recibe una fracción en su único argumento y 
+devuelve una fracción cuyo numerador es el denominador de la fracción argumento, 
+y cuyo denominador es el numerador de dicha fracción.</P>
+<P><IMG height=50 src="La clase Fracción_archivos/Image356.gif" width=146></P><PRE>  public static Fraccion inversa(Fraccion a){
+     return new Fraccion(a.den, a.num);
+  }
+
+</PRE>
+<H3>Cociente de dos fracciones</H3>
+<P>Cuando se dividen dos fracciones <I>a</I> y <I>b</I>, se obtiene otra 
+fracción <I>c</I> cuyo numerador es el producto del numerador de la primera por 
+del denominador de la segunda, y cuyo denominador es el producto del denominador 
+de la primera por el numerador de la segunda.</P>
+<P><IMG height=41 src="La clase Fracción_archivos/Image357.gif" width=156></P><PRE>  Fraccion dividir(Fraccion a, Fraccion b){
+     return new Fraccion(a.num*b.den, a.den*b.num);
+  }</PRE>
+<P>La operación división de dos fracciones es equivalente a multiplicar la 
+fracción <I>a</I> por la inversa de <I>b</I>, de este modo aprovechamos el 
+código de la función <I>inversa</I>.</P><PRE> Fraccion dividir(Fraccion a, Fraccion b){
+     return multiplicar(a, inversa(b));
+  }
+
+</PRE>
+<H3>Simplificar una fracción</H3>
+<P>Para simplificar una fracción primero hay que hallar el máximo común divisor 
+del numerador y del denominador. la función <EM>mcd</EM> se encarga de esta 
+tarea. Para ello emplea el algoritmo de Euclides, cuyo funcionamiento se muestra 
+en el siguiente ejemplo. Sea <I>u=1260</I> y <I>v=231,</I> 
+<UL>
+  <LI>En la primera iteración, se halla el resto <EM>r</EM> de dividir el 
+  primero <EM>u</EM> entre el segundo <EM>v</EM>.&nbsp; Se asigna a <EM>u</EM> 
+  el divisor <EM>v</EM>, y se asigna a <EM>v</EM> el resto <EM>r</EM>. 
+  <LI>En la segunda iteracción, se halla el resto <EM>r</EM> de dividir 
+  <EM>u</EM> entre <EM>v</EM>. Se asigna a <EM>u</EM> el divisor <EM>v</EM>, y 
+  se asigna a <EM>v</EM> el resto <EM>r</EM>. 
+  <LI>Se repite el proceso hasta que el resto <EM>r</EM> sea cero. El máximo 
+  común divisor será el último valor de <EM>v</EM>. </LI></UL>
+<BLOCKQUOTE>
+  <P>1260=231*5+105 </P>
+  <P>231=105*2+21 </P>
+  <P>105=21*5+0 </P></BLOCKQUOTE>
+<P>el máximo común divisor es 21. </P>
+<P>Definimos en la clase <I>Fraccion</I> una función <I>mcd</I> que calcula y 
+devuelve el máximo común divisor del numerador y del denominador.</P><PRE>  int mcd(){
+     int u=Math.abs(num);
+     int v=Math.abs(den);
+     if(v==0){
+          return u;
+     }
+     int r;
+     while(v!=0){
+          r=u%v;
+          u=v;
+          v=r;
+     }
+     return u;
+  }</PRE>
+<P>A continuación definimos la función simplificar, de modo que al aplicarlo 
+sobre una fracción, dicha fracción se reduzca a la fracción equivalente más 
+simple. Para ello, se divide numerador y denominador por el máximo común divisor 
+de ambos números, y devuelve la fracción simplificada.</P><PRE>  Fraccion simplificar(){
+     int dividir=mcd();
+     num/=dividir;
+     den/=dividir;
+     return this;
+  }</PRE>
+<P>Aquí tenemos otro ejemplo del uso de la palabra reservada 
+<STRONG>this</STRONG>. Los miembros dato cambian al dividirlos entre el máximo 
+común divisor y la función devuelve el objeto actual, <STRONG>this</STRONG>.</P>
+<P>&nbsp;</P>
+<H3><A name="La función miembro toString">La función miembro 
+<EM>toString</EM></A></H3>
+<P>Para mostrar una fracción podemos definir una función miembro denominada 
+<EM>imprimir</EM></P><PRE>public void imprimir(){ 
+	System.out.println(num+" / "+den);
+} </PRE>
+<P>Un objeto de la clase <EM>Fraccion</EM> llama a la función miembro 
+<EM>imprimir</EM> para mostrar en la consola (una ventana DOS) los valores que 
+guardan sus miembros dato, <EM>num</EM> y <EM>den</EM>, el numerador y el 
+denominador. La función <EM>imprimir</EM> así definida no nos servirá cuando la 
+clase <EM>Fraccion</EM> se emplee en un contexto gráfico. Ahora bien, como vamos 
+a ver a continuación el lenguaje Java nos proporciona una solución a este 
+problema.</P>
+<P>Aunque no se define explícitamente, la clase <I>Fraccion</I> deriva de la <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/herencia/herencia.htm#La clase base Object">clase 
+base <I>Object</I></A> (la estudiaremos en el siguiente capítulo) y redefine la 
+función miembro pública <I>toString</I>, cuya tarea es la de dar una 
+representación en forma de texto de la fracción.</P><PRE>public String toString(){ 
+	String texto=num+" / "+den;
+	return texto; 
+} </PRE>
+<P>En la definición de <EM>toString</EM> vemos que el operador <B>+</B> se usa 
+para concatenar strings (el lenguaje Java convierte automáticamente un dato 
+primitivo en su representación textual cuando se concatena con un string). </P>
+<P>Para mostar en la consola el numerador y el denominador de una fracción 
+(objeto de la clase <EM>Fraccion</EM>) <EM>a</EM> basta escribir</P><PRE>	System.out.println(a);</PRE>
+<P>Lo que equivale a la llamada explícita</P><PRE>	System.out.println(a.toString());</PRE>
+<P>Si queremos mostrar la fracción <EM>a</EM> en un contexto gráfico <EM>g</EM> 
+de un applet o de un canvas escribimos</P><PRE>    	g.drawString("fracción: "+a, 20, 30);</PRE>
+<P>donde 20, 30 son las coordenadoas de la línea base del primer carácter. Esta 
+sentencia equivale a la llamada explícita</P><PRE>    	g.drawString("fracción: "+a.toString(), 20, 30);</PRE>
+<P>La redefinición de la función <EM>toString</EM> devuelve un string un objeto 
+de la clase <EM>String</EM> que guarda la representación en forma de texto de 
+los objetos de una determinada clase. De este modo, una clase que redefina 
+<EM>toString</EM> puede emplearse en cualquier ámbito.</P>
+<P>&nbsp;</P>
+<H2><A name="La clase Fraccion">La clase <EM>Fraccion</EM></A></H2>
+<P>Ahora ponemos las funciones miembro dentro de la clase <EM>Fraccion</EM>, 
+anteponiendo en las funciones que representan operaciones la palabra reservada 
+<STRONG>static</STRONG>.</P>
+<TABLE cellSpacing=0 width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="100%" bgColor=#f7f7f7><PRE>public class Fraccion {
+     private int num;
+     private int den;
+  public Fraccion() {
+     num=0;
+     den=1;
+  }
+  public Fraccion(int x, int y) {
+     num=x;
+     den=y;
+  }
+  public static Fraccion sumar(Fraccion a, Fraccion b){
+     Fraccion c=new Fraccion();
+     c.num=a.num*b.den+b.num*a.den;
+     c.den=a.den*b.den;
+     return c;
+  }
+  public static Fraccion restar(Fraccion a, Fraccion b){
+     Fraccion c=new Fraccion();
+     c.num=a.num*b.den-b.num*a.den;
+     c.den=a.den*b.den;
+     return c;
+  }
+  public static Fraccion multiplicar(Fraccion a, Fraccion b){
+     return new Fraccion(a.num*b.num, a.den*b.den);
+  }
+  public static Fraccion inversa(Fraccion a){
+     return new Fraccion(a.den, a.num);
+  }
+  public static Fraccion dividir(Fraccion a, Fraccion b){
+     return multiplicar(a, inversa(b));
+  }
+  private int mcd(){
+     int u=Math.abs(num);
+     int v=Math.abs(den);
+     if(v==0){
+          return u;
+     }
+     int r;
+     while(v!=0){
+          r=u%v;
+          u=v;
+          v=r;
+     }
+     return u;
+  }
+  public Fraccion simplificar(){
+     int dividir=mcd();
+     num/=dividir;
+     den/=dividir;
+     return this;
+  }
+  public String toString(){
+     String texto=num+" / "+den;
+     return texto;
+  }
+}</PRE></TD></TR></TBODY></TABLE>
+<P>&nbsp;</P>
+<H2><A name="Uso de la clase Fraccion">Uso de la clase 
+<EM>Fraccion</EM></A></H2>
+<P>Como vemos en la definición de la clase <EM>Fraccion</EM> tenemos funciones 
+estáticas y no estáticas. Vamos a ver la diferencia entre las llamadas a 
+funciones estáticas y no estáticas. 
+<UL>
+  <LI>Crear un objeto de la clase <EM>Fraccion</EM> o una fracción </LI></UL><PRE>     Fraccion x=new Fraccion(2,3);</PRE>
+<UL>
+  <LI>Mostrar una fracción </LI></UL><PRE>     System.out.println("x--&gt; "+x);</PRE>
+<BLOCKQUOTE>
+  <P>Cuando se pone una fracción <EM>x</EM> como argumento de la función 
+  <EM>println</EM> o se concatena con un string se llama automáticamente a la 
+  función miembro <EM>toString, </EM>lo que equivale<EM> </EM>a la siguiente 
+  llamada</P></BLOCKQUOTE><PRE>     System.out.println("x--&gt; "+x.toString());</PRE>
+<UL>
+  <LI>Suma de dos fracciones </LI></UL><PRE>     Fraccion x=new Fraccion(2,3);
+     Fraccion y=new Fraccion(4,3);
+     System.out.println("x+y= "+Fraccion.sumar(x, y));</PRE>
+<UL>
+  <LI>Producto de dos fracciones </LI></UL><PRE>     Fraccion x=new Fraccion(2,3);
+     Fraccion y=new Fraccion(4,3);
+     System.out.println("x*y= "+Fraccion.multiplicar(x, y));</PRE>
+<UL>
+  <LI>Operaciones combinadas </LI></UL>
+<BLOCKQUOTE>
+  <P>Primero suma las fracicones <EM>x</EM> e <EM>y</EM> y luego hace el 
+  producto con la fracción <EM>z</EM></P></BLOCKQUOTE><PRE>     Fraccion x=new Fraccion(2,3);
+     Fraccion y=new Fraccion(4,3);
+     Fraccion z=new Fraccion(1,2);
+     Fraccion resultado=Fraccion.multiplicar(Fraccion.sumar(x,y),z);
+     System.out.println("(x+y)*z= "+resultado);</PRE>
+<UL>
+  <LI>Simplificar una fracción </LI></UL><PRE>     System.out.println(resultado.simplificar());
+</PRE>
+<P>&nbsp;</P>
+<H2><A name="Controles de acceso">Modificadores de acceso</A></H2>
+<P>Este ejemplo ilustra una faceta importante de los lenguajes de Programación 
+Orientada a Objetos denominada encapsulación. El acceso a los miembros de una 
+clase está controlado. Para usar una clase, solamente necesitamos saber que 
+funciones miembro se pueden llamar y a qué datos podemos acceder, no necesitamos 
+saber como está hecha la clase, como son sus detalles internos. Una vez que la 
+clase está depurada y probada, la clase es como una caja negra. Los objetos de 
+dicha clase guardan unos datos, y están caracterizados por una determinada 
+conducta. Este ocultamiento de la información niega a la entidades exteriores el 
+acceso a los miembros privados de un objeto. De este modo, las entidades 
+exteriores acceden a los datos de una manera controlada a través de algunas 
+funciones miembro. Para acceder a un miembro público (dato o función) basta 
+escribir.</P><PRE>objeto_de_la_clase_Fraccion.miembro_público_no_estático
+clase_Fraccion.miembro_público_estático</PRE>
+<P>Delante de los miembros dato, como podemos ver en el listado hemos puesto las 
+plabras reservadas <STRONG>public</STRONG> y <STRONG>private</STRONG>. 
+<UL>
+  <LI>Miembros públicos </LI></UL>
+<P>Los miembros públicos son aquellos que tienen delante la palabra 
+<STRONG>public</STRONG>, y se puede acceder a ellos sin ninguna restricción. 
+<UL>
+  <LI>Miembros privados </LI></UL>
+<P>Los miembros privados son aquellos que tienen delante la palabra 
+<STRONG>private</STRONG>, y se puede acceder a ellos solamente dentro del ámbito 
+de la clase. </P>
+<P>Los miembros dato <EM>num</EM> y <EM>den</EM> son privados, y también la 
+función que calcula el máximo común divisor <EM>mcd</EM>, que es una función 
+auxiliar de la función miembro publica <EM>simplificar</EM>. El usuario 
+solamente precisa saber que dispone de una función pública que le permite 
+simplificar una fracción, pero no necesita saber cuál es el procedimiento 
+empleado para simplificar fracciones. Así declaramos la función <EM>mcd</EM> 
+como privada y <EM>simplificar</EM> como pública. 
+<UL>
+  <LI>Por defecto (a nivel de paquete) </LI></UL>
+<P>Cuando no se pone ningún modificador de acceso delante de los miembros, se 
+dice que son accesibles dentro del mismo <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/paquetes.htm">paquete 
+(<STRONG>package</STRONG>)</A>. Esto es lo que hemos hecho en los ejemplos 
+estudiados hasta esta sección.</P>
+<P><STRONG>package</STRONG> es la primera sentencia que se pone en un archivo 
+.java. El nombre del paquete es el mismo que el nombre del subdirectorio que 
+contiene los archivos .java. Cada archivo .java contiene habitualmente una 
+clase. Si tiene más de una solamente una de ellas es pública. El nombre de dicha 
+clase coincide con el nombre del archivo. </P>
+<P>Como el lector se habrá dado cuenta <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/introduccion/proyecto.htm#Resumen">hay 
+una correspondencia</A> entre archivos y clases, entre paquetes y 
+subdirectorios. El Entorno Integrado de Desarrollo (IDE) en el que creamos los 
+programas facilita esta tarea sin que el usuario se aperciba de ello.</P>
+<P>&nbsp;</P>
+<H2><A name="Mejora de la clase Lista"><STRONG>Mejora de la clase 
+<EM>Lista</EM></STRONG></A></H2>
+<P><IMG height=32 alt="disco.gif (1035 bytes)" 
+src="La clase Fracción_archivos/disco.gif" width=32 
+align=middle><STRONG>list1</STRONG>: <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/estatico/codigo/lista1/Lista.java">Lista.java</A>, 
+<A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/estatico/codigo/lista1/ListaApp1.java">ListaApp1.java</A></P>
+<P>Veamos un ejemplo más, <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/poo1.htm">la 
+clase <EM>Lista</EM></A>, y hagamos uso de la función miembro <EM>ordenar</EM> 
+para hallar el <EM>valorMenor</EM> y el <EM>valorMayor</EM>. Si tenemos una 
+lista ordenada en orden creciente, el valor menor es el primer elemento de la 
+lista <EM>x[0]</EM>, y el valor mayor es el último elemento de la lista 
+<EM>x[n-1]</EM>. Podemos escribir el siguiente código</P><PRE>    public int valorMayor(){
+	ordenar();
+        return x[n-1];
+    }
+    public int valorMenor(){
+	ordenar();
+        return x[0];
+    } </PRE>
+<P>Podemos llamar una sóla vez a la función miembro <EM>ordenar</EM> en el 
+constructor, después de haber creado el array, y evitar así la reiteración de 
+llamadas a dicha función en <EM>valorMayor</EM>, <EM>valorMenor</EM> e 
+<EM>imprimir</EM>. </P><PRE>    public Lista(int[] x) {
+        this.x=x;
+        n=x.length;
+	ordenar();
+    }
+    public int valorMayor(){
+        return x[n-1];
+    }
+    public int valorMenor(){
+        return x[0];
+    }</PRE>
+<P>La función miembro <EM>ordenar</EM>, es una función auxiliar de las otras 
+funciones miembro públicas, por tanto, podemos ponerle delante el modificador de 
+acceso <STRONG>private</STRONG>. El usuario solamente está interesado en el 
+valor medio, el valor mayor y menor de un conjunto de datos, pero no está 
+interesado en el procedimiento que permite <EM>ordenar</EM> el conjunto de 
+datos. Como ocurre en la vida moderna usamos muchos aparatos pero no tenemos por 
+que conocer sus detalles internos y cómo funcionan por dentro. Una clase es como 
+uno de estos aparatos modernos, el usuario solamente tiene que conocer qué hace 
+la clase, a qué miembros tiene acceso, pero no como está implementada en 
+software.</P>
+<P>&nbsp;</P>
+<H3>La función miembro <EM>toString</EM></H3>
+<P>Si los miembros dato de la clase <EM>Lista</EM> son privados 
+(<STRONG>private</STRONG>) hemos de definir una función que hemos denominado 
+<EM>imprimir</EM> para mostrar los valores que guardan los miembros dato de los 
+objetos de la clase <EM>Lista</EM>.</P><PRE>public class Lista {
+    private int[] x;     //array de datos
+    private int n;      //dimensión
+//...
+    public void imprimir(){
+        for(int i=0; i&lt;n; i++){
+            System.out.print("\t"+x[i]);
+        }
+        System.out.println("");
+    }</PRE>
+<P>La llamada a esta función miembro se efectúa desde un objeto de la clase 
+<EM>Lista</EM></P><PRE>        Lista lista=new Lista(new int[]{60, -4, 23, 12, -16});
+	System.out.println("Mostrar la lista");
+        lista.imprimir();</PRE>
+<P>Sustituímos la función miembro <EM>imprimir</EM> por la redefinición de 
+<EM>toString</EM>. Para <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/herencia/herencia.htm#La clase derivada">redefinir 
+una función</A>, tiene que tener el mismo nombre, los mismos modificadores, el 
+mismo tipo de retorno y los mismos parámetros y del mismo tipo en la clase base 
+y en la clase derivada. Para evitar errores, el mejor procedimiento es el de ir 
+al código de la clase base <EM>Object</EM>, copiar la línea de la declaración de 
+<EM>toString</EM>, pegarla en la definición de nuestra clase, y a continuación 
+definir dicha función.</P><PRE>public class Lista {
+    private int[] x;     //array de datos
+    private int n;      //dimensión
+//...
+    public String toString(){
+        String texto="";
+        for(int i=0; i&lt;n; i++){
+            texto+="\t"+x[i];
+        }
+        return texto;
+    }</PRE>
+<P>La llamada a la función <EM>toString</EM> se realiza implícitamente en el 
+argumento de la función <EM>System.out.println</EM>, o bien, al concatenar un 
+string y un objeto de la clase <EM>Lista</EM>.</P><PRE>    Lista lista=new Lista(new int[]{60, -4, 23, 12, -16});
+    System.out.println("Mostrar la lista");
+    System.out.println(lista);
+</PRE>
+<TABLE cellSpacing=0 width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="100%" bgColor=#f7f7f7><PRE>public class Lista {
+    private int[] x;     //array de datos
+    private int n;      //dimensión
+    public Lista(int[] x) {
+        this.x=x;
+        n=x.length;
+	ordenar();
+    }
+    public double valorMedio(){
+        int suma=0;
+        for(int i=0; i&lt;n; i++){
+            suma+=x[i];
+        }
+        return (double)suma/n;
+    }
+    public int valorMayor(){
+        return x[n-1];
+    }
+    public int valorMenor(){
+        return x[0];
+    }
+    private void ordenar(){
+        int aux;
+        for(int i=0; i&lt;n-1; i++){
+            for(int j=i+1; j&lt;n; j++){
+                if(x[i]&gt;x[j]){
+                    aux=x[j];
+                    x[j]=x[i];
+                    x[i]=aux;
+                }
+            }
+        }
+    }
+    public String toString(){
+        String texto="";
+        for(int i=0; i&lt;n; i++){
+            texto+="\t"+x[i];
+        }
+        return texto;
+    }
+}</PRE></TD></TR></TBODY></TABLE></BODY></HTML>

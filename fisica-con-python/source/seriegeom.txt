@@ -1,0 +1,18 @@
+# ICM00794-Fundamentos de Computación - FCNM-ESPOL
+# Parcial II Termino 2003. Tema 2
+# Sumar términos de progresión geométrica
+# Propuesta de solución. edelros@espol.edu.ec.
+n=int(input('¿Valor de n?: '))
+a=float(input('factor a: '))
+r=float(input('factor r: '))
+while (r==1):
+    r=int(input('factor r debe ser diferente de 1: '))
+s=0
+i=0
+while (i<=n):
+    t=a*(r**i)
+    s=s+t
+    i=i+1
+print(s)
+
+    

@@ -1,0 +1,219 @@
+\documentclass[letter]{article}
+\usepackage[pdftex]{graphicx}
+\usepackage[ansinew]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsbsy}
+\usepackage{amssymb}
+\usepackage[spanish]{babel}
+\usepackage{float}
+\usepackage{fixseminar}
+%\usepackage[display]{texpower}
+%\usepackage[ams]{pdfslide3}
+\usepackage[ams]{pdfslide3}
+\newtheorem{theorem}{Teorema}
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{corollary}[theorem]{Corolario}
+\newtheorem{definition}[theorem]{Definici\'{o}n}
+\newenvironment{proof}[1][Prueba]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+%\newcommand{\@url}{}
+
+\newcommand{\thankyouslide}[1][Thank You!]{\pagestyle{empty}
+\mbox{}\vfill{\hfill\LARGE\scshape #1\hfill\mbox{}}\vfill{\hfill
+\@bbarraza@uninorte.edu.co\hfill\mbox{}}\vfill}
+
+
+
+
+
+%\url{http://www.yourwebpage.com/slidepresentation}
+
+\pagestyle{title}
+
+\begin{document}
+%\convenio{Convenio}
+\orgname{\color{black}Universidad Nacional de Colombia}
+%\udea{Universidad del Norte}
+\orgurl{\protect\color{black}http://www.unalmed.edu.co}
+
+
+\title{\color{black}El Principio del M\'{a}ximo en Ecuaciones Diferenciales Parciales El\'{i}ticas y Aplicaciones}
+\author{\scalebox{1}[1.3]{\emph{\textbf{\color{black}Autor: BIENVENIDO ~BARRAZA ~MARTINEZ} } }}
+\director{\scalebox{1}[1.3]{\emph{\textbf{\color{black}Director:
+DR.  VOLKER STALLBOHM }} }}
+\address{\color{black}Trabajo presentado como requisito parcial\\para optar al título de Magister en Matemáticas\\
+%  {\realfootnotesize(para optar al título de )}\\
+                           email: {\tt bbarraza@uninorte.edu.co}}
+%\address{Universidad del Norte - Barranquilla, Colombia\\
+%  {\realfootnotesize(Departamento de Matemáticas y Física)}
+%              email: {\tt bbarraza@uninorte.edu.co}}
+
+\notes{\emph{Esta presentación fue desarrollada usando pdfslide class bajo Mik\TeX{}}.
+\newline
+{\tiny{Copyright\copyright 2001 Dario Castro Castro. All rights
+reserved. \today{}}}}
+
+
+\overlay{fondo1.png} \maketitle
+%%%%%%%%%%%%%%%%%%%%%ACETATO 1%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagedissolve{Wipe /D 3 /Dm /V /M /O}%%%%%%%%%%%%%%%Efecto de transición de página
+\overlay{fondo1.png} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fondo
+\sffamily %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Tipo de letra
+\Large %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Tamaño de la letra
+\color{black} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Color de las letras
+\headskip=20pt%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Longitud del borde superior al título
+\section{\textcolor[rgb]{0.40,0.20,0.40}{RESUMEN}}
+ \input{acet1.tex}
+
+
+%%%%%%%%%%%%%%%%%%%%%ACETATO 2%%%%%%%%%%%%%%%%%%%%%%%%
+\headskip=10pt \pagedissolve{Wipe /D 3 /Di /V /M /O}
+\overlay{fondo1.png} \large \color{black}
+\section{{Principio del  m\'{a}ximo generalizado}}
+\input{acet2.tex}
+
+%%%%%%%%%%%%%%%%%%%%%ACETATO 34%%%%%%%%%%%%%%%%%%%%%%%%
+\headskip=10pt
+\section{}
+\overlay{fondo1.png}\large \color{black} \pagedissolve{Wipe /D 1
+/Di /H /M /O}
+\input{acet3.tex}
+
+%%%%%%%%%%%%%%%%%%%%%ACETATO 5%%%%%%%%%%%%%%%%%%%%%%%%
+\headskip=10pt
+\section{}
+\pagedissolve{Wipe /D 1 /Di /H /M /O} \overlay{fondo1.png}
+\large\color{black}
+\input{acet4.tex}
+%%%%%%%%%%%%%%%%%%%%%ACETATO 6%%%%%%%%%%%%%%%%%%%%%%%%
+\headskip=10pt
+\section{{Problema de Dirichlet generalizado}}
+\pagedissolve{Wipe /D 1 /Di /H /M /O} \overlay{fondo1.png}
+\large\color{black}
+\input{acet5.tex}
+%%%%%%%%%%%%%%%%%%%%%ACETATO 7%%%%%%%%%%%%%%%%%%%%%%%%
+\headskip=10pt
+\input{acet6.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headskip=20pt
+\section{{}}
+\input{acet7.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headskip=20pt
+\input{acet8.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\headskip=20pt
+\section{{}}
+\input{acet9.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\headskip=20pt
+\section{{Principio del m\'{a}ximo (m\'{i}nimo) fuerte}}
+\pagedissolve{Wipe /D 1 /Di /H /M /O} \overlay{fondo1.png}
+\large\color{black}
+\input{acet10.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\headskip=40pt
+\section{{Aplicaci\'{o}n a la teor\'{i}a de valores propios}}
+\pagedissolve{Wipe /D 1 /Di /H /M /O} \overlay{fondo1.png}
+\large\color{black}
+\input{acet11.tex}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\headskip=20pt
+\section{{}}
+\pagedissolve{Wipe /D 1 /Di /H /M /O} \overlay{fondo1.png}
+\large\color{black}
+\input{acet12.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\headskip=20pt
+\section{{Un principio del m\'{a}ximo donde $c$ puede ser positivo}}
+\pagedissolve{Wipe /D 1 /Di /H /M /O} \overlay{fondo1.png}
+\large\color{black}
+\input{acet13.tex}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\headskip=20pt
+\section{{}}
+\pagedissolve{Wipe /D 1 /Di /H /M /O} \overlay{fondo1.png}
+\large\color{black}
+\input{acet14.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headskip=20pt
+\section{{Aplicaci\'{o}n: Extensi\'{o}n del principio del m\'{a}ximo}}
+\pagedissolve{Wipe /D 1 /Di /H /M /O} \overlay{fondo1.png}
+\large\color{black}
+\input{acet15.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\headskip=20pt
+\section{{Aplicaci\'{o}n: Estimaciones para la soluci\'{o}n de una
+ecuaci\'{o}n diferencial}} \pagedissolve{Wipe /D 1 /Di /H /M /O}
+\overlay{fondo1.png} \large\color{black}
+\input{acet16.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\headskip=20pt
+\section{{Simetr\'{i}a esf\'{e}rica y monoton\'{i}a radial de soluciones
+positivas para la ecuacion de Poisson no-lineal en
+$\mathbb{R}^{n}$}} \pagedissolve{Wipe /D 1 /Di /H /M /O}
+\overlay{fondo1.png} \large\color{black}
+\input{acet17.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\headskip=20pt
+\section{{}} \pagedissolve{Wipe /D 1 /Di /H /M /O}
+\overlay{fondo1.png} \large\color{black}
+\input{acet18.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\headskip=20pt
+\section{{}} \pagedissolve{Wipe /D 1 /Di /H /M /O}
+\overlay{fondo1.png} \large\color{black}
+\input{acet19.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\headskip=20pt
+\section{{}} \pagedissolve{Wipe /D 1 /Di /H /M /O}
+\overlay{fondo1.png} \large\color{black}
+\input{acet20.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\headskip=20pt
+\section{{}} \pagedissolve{Wipe /D 1 /Di /H /M /O}
+\overlay{fondo1.png} \large\color{black}
+\input{acet21.tex}
+
+\headskip=20pt
+\section{{}} \pagedissolve{Wipe /D 1 /Di /H /M /O}
+\overlay{fondo1.png} \large\color{black}
+\input{acet22.tex}
+
+\headskip=20pt
+\section{{}} \pagedissolve{Wipe /D 1 /Di /H /M /O}
+\overlay{fondo1.png} \large\color{black}
+\input{acet23.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\thankyouslide[!`Gracias!]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

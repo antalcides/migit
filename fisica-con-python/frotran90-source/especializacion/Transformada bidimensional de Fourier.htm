@@ -1,0 +1,250 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0058)http://mecfunnet.faii.etsii.upm.es/difraccion/fourier.html -->
+<HTML><HEAD><TITLE>Transformada bidimensional de Fourier</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1276" name=GENERATOR>
+<META content=FrontPage.Editor.Document name=ProgId></HEAD>
+<BODY><FONT face="Verdana, Arial, Helvetica" size=2>
+<H2><FONT color=#0000ff>Transformada bidimensional de Fourier</FONT></H2>
+<P>Dada una función </FONT><I>f</I><FONT face="Verdana, Arial, Helvetica" 
+size=2>(</FONT><I>x</I><FONT face="Verdana, Arial, Helvetica" 
+size=2>,</FONT><I>y</I><FONT face="Verdana, Arial, Helvetica" size=2>) definida 
+en un plano </FONT><I>x</I><FONT face="Verdana, Arial, Helvetica" 
+size=2>,</FONT><I>y</I><FONT face="Verdana, Arial, Helvetica" size=2>, la 
+transformada bidimensional de Fourier es la función compleja 
+</FONT><I>F</I><FONT face="Verdana, Arial, Helvetica" 
+size=2>(</FONT><I>u</I><FONT face="Verdana, Arial, Helvetica" 
+size=2>,</FONT><I>v</I><FONT face="Verdana, Arial, Helvetica" size=2>) 
+determinada por la fórmula 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></FONT><I>F</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2>(</FONT><I>u</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2>,</FONT><I>v</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2>) =</FONT> </TD>
+          <TD class=cl align=left><FONT face=symbol>ó<BR>õ </FONT></TD>
+          <TD noWrap align=middle><FONT face=symbol>¥</FONT><!--sup
+--><BR><BR><FONT size=-1><FONT 
+            face=symbol>-¥</FONT></FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle></TD>
+          <TD class=cl align=left><FONT face=symbol>ó<BR>õ </FONT></TD>
+          <TD noWrap align=middle><FONT face=symbol>¥</FONT><!--sup
+--><BR><BR><FONT size=-1><FONT 
+            face=symbol>-¥</FONT></FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle>exp&nbsp;(<FONT 
+            face=symbol>-</FONT><I></FONT>iux</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2> <FONT face=symbol>-</FONT> 
+            </FONT><I>ivy</I><FONT face="Verdana, Arial, Helvetica" 
+            size=2>)</FONT><I>f</I><FONT face="Verdana, Arial, Helvetica" 
+            size=2>(</FONT><I>x</I><FONT face="Verdana, Arial, Helvetica" 
+            size=2>,</FONT><I>y</I><FONT face="Verdana, Arial, Helvetica" 
+            size=2>)d</FONT><I>x</I><FONT face="Verdana, Arial, Helvetica" 
+            size=2>d</FONT><I>y</I></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>La 
+transformación inversa 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle><I>f</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2>(</FONT><I>x</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2>,</FONT><I>y</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2>) =</FONT> </TD>
+          <TD noWrap align=middle>1
+            <HR noShade>
+            4<FONT face=symbol>p</FONT><SUP>2</SUP><BR></TD>
+          <TD noWrap align=middle></TD>
+          <TD class=cl align=left><FONT face=symbol>ó<BR>õ </FONT></TD>
+          <TD noWrap align=middle><FONT face=symbol>¥</FONT><!--sup
+--><BR><BR><FONT size=-1><FONT 
+            face=symbol>-¥</FONT></FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle></TD>
+          <TD class=cl align=left><FONT face=symbol>ó<BR>õ </FONT></TD>
+          <TD noWrap align=middle><FONT face=symbol>¥</FONT><!--sup
+--><BR><BR><FONT size=-1><FONT 
+            face=symbol>-¥</FONT></FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle>exp&nbsp;(<I></FONT>iux</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2> </FONT><I>ivy</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2>)</FONT><I>F</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2>(</FONT><I>u</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2>,</FONT><I>v</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2>)d</FONT><I>u</I><FONT 
+            face="Verdana, Arial, Helvetica" 
+        size=2>d</FONT><I>v</I></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>reproduce 
+la original (con un error cuadrático integral nulo). 
+<P>Muchos sistemas ópticos (<A 
+href="http://mecfunnet.faii.etsii.upm.es/difraccion/fraunhoffer.html">difracción 
+de Fraunhoffer</A>, <A 
+href="http://mecfunnet.faii.etsii.upm.es/difraccion/lente.html">plano focal de 
+una lente convergente</A>, etc)se diseñan para reproducir la transformada 
+bidimensional de Fourier en algún plano, por lo que es interesante el estudio de 
+alguna de sus propiedades. 
+<P>Si se realiza un <EM>ensanche</EM> de una función <I>f</I><FONT 
+face="Verdana, Arial, Helvetica" size=2>(</FONT><I>x</I><FONT 
+face="Verdana, Arial, Helvetica" size=2>,</FONT><I>y</I><FONT 
+face="Verdana, Arial, Helvetica" size=2>), tal que se define la nueva función 
+</FONT><I>g</I><FONT face="Verdana, Arial, Helvetica" 
+size=2>(</FONT><I>x</I><FONT face="Verdana, Arial, Helvetica" 
+size=2>,</FONT><I>y</I><FONT face="Verdana, Arial, Helvetica" size=2>) = 
+</FONT><I>f</I><FONT face="Verdana, Arial, Helvetica" size=2>(<FONT 
+face=symbol>l</FONT></FONT><I>x</I><FONT face="Verdana, Arial, Helvetica" 
+size=2>,<FONT face=symbol>l</FONT></FONT><I>y</I><FONT 
+face="Verdana, Arial, Helvetica" size=2>) (ensanche para <FONT 
+face=symbol>l</FONT> &lt; 1, estrechamiento para <FONT face=symbol>l</FONT> &gt; 
+1), su transformada de Fourier es 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle></FONT><I>G</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2>(</FONT><I>u</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2>,</FONT><I>v</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2>) =</FONT> </TD>
+          <TD class=cl align=left><FONT face=symbol>ó<BR>õ </FONT></TD>
+          <TD noWrap align=middle><FONT face=symbol>¥</FONT><!--sup
+--><BR><BR><FONT size=-1><FONT 
+            face=symbol>-¥</FONT></FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle></TD>
+          <TD class=cl align=left><FONT face=symbol>ó<BR>õ </FONT></TD>
+          <TD noWrap align=middle><FONT face=symbol>¥</FONT><!--sup
+--><BR><BR><FONT size=-1><FONT 
+            face=symbol>-¥</FONT></FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle>exp&nbsp;(<FONT 
+            face=symbol>-</FONT><I></FONT>iux</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2> <FONT face=symbol>-</FONT> 
+            </FONT><I>ivy</I><FONT face="Verdana, Arial, Helvetica" 
+            size=2>)</FONT><I>f</I><FONT face="Verdana, Arial, Helvetica" 
+            size=2>(<FONT face=symbol>l</FONT></FONT><I>x</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2>,<FONT 
+            face=symbol>l</FONT></FONT><I>y</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2>)d</FONT><I>x</I><FONT 
+            face="Verdana, Arial, Helvetica" 
+        size=2>d</FONT><I>y</I></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>a 
+la que realizando el cambio 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle><I></FONT>x</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2><FONT face=symbol>¢</FONT> = 
+            <FONT face=symbol>l</FONT></FONT><I>x</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2>,</FONT><I>y</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2><FONT face=symbol>¢</FONT> = 
+            <FONT face=symbol>l</FONT></FONT><I>y</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2>, </FONT><I>u</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2><FONT face=symbol>¢</FONT> = 
+            </FONT><I>u</I><FONT face="Verdana, Arial, Helvetica" size=2>/<FONT 
+            face=symbol>l</FONT>, </FONT><I>v</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2><FONT face=symbol>¢</FONT> = 
+            </FONT><I>v</I><FONT face="Verdana, Arial, Helvetica" size=2>/<FONT 
+            face=symbol>l</FONT></FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>queda 
+
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle><I>G</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2>(<FONT 
+            face=symbol>l</FONT></FONT><I>u</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2><FONT face=symbol>¢</FONT>, 
+            <FONT face=symbol>l</FONT></FONT><I>v</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2><FONT face=symbol>¢</FONT>) 
+            = <FONT face=symbol>l</FONT><SUP><FONT face=symbol>-</FONT>2</SUP> 
+            </FONT></TD>
+          <TD class=cl align=left><FONT face=symbol>ó<BR>õ </FONT></TD>
+          <TD noWrap align=middle><FONT face=symbol>¥</FONT><!--sup
+--><BR><BR><FONT size=-1><FONT 
+            face=symbol>-¥</FONT></FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle></TD>
+          <TD class=cl align=left><FONT face=symbol>ó<BR>õ </FONT></TD>
+          <TD noWrap align=middle><FONT face=symbol>¥</FONT><!--sup
+--><BR><BR><FONT size=-1><FONT 
+            face=symbol>-¥</FONT></FONT>&nbsp;<BR></TD>
+          <TD noWrap align=middle>exp&nbsp;(<FONT 
+            face=symbol>-</FONT><I></FONT>iu</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2><FONT 
+            face=symbol>¢</FONT></FONT><I>x</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2><FONT face=symbol>¢-</FONT> 
+            </FONT><I>iv</I><FONT face="Verdana, Arial, Helvetica" size=2><FONT 
+            face=symbol>¢</FONT></FONT><I>y</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2><FONT 
+            face=symbol>¢</FONT>)</FONT><I>f</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2>(</FONT><I>x</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2><FONT face=symbol>¢</FONT>, 
+            </FONT><I>y</I><FONT face="Verdana, Arial, Helvetica" size=2><FONT 
+            face=symbol>¢</FONT>)d</FONT><I>x</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2><FONT 
+            face=symbol>¢</FONT>d</FONT><I>y</I><FONT 
+        face=symbol>¢</FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>lo 
+que determina 
+<CENTER>
+<TABLE align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE align=left>
+        <TBODY>
+        <TR>
+          <TD noWrap align=middle><I>G</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2>(<FONT 
+            face=symbol>l</FONT></FONT><I>u</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2><FONT face=symbol>¢</FONT>, 
+            <FONT face=symbol>l</FONT></FONT><I>v</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2><FONT face=symbol>¢</FONT>) 
+            = <FONT face=symbol>l</FONT><SUP><FONT face=symbol>-</FONT>2</SUP> 
+            </FONT><I>F</I><FONT face="Verdana, Arial, Helvetica" 
+            size=2>(</FONT><I>u</I><FONT face="Verdana, Arial, Helvetica" 
+            size=2><FONT face=symbol>¢</FONT>,</FONT><I>v</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2><FONT face=symbol>¢</FONT>) 
+            <FONT face=symbol>Þ</FONT> </FONT><I>G</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2>(</FONT><I>u</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2>,</FONT><I>v</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2>) = <FONT 
+            face=symbol>l</FONT><SUP><FONT face=symbol>-</FONT>2</SUP> 
+            </FONT><I>F</I><FONT face="Verdana, Arial, Helvetica" 
+            size=2>(</FONT><I>u</I><FONT face="Verdana, Arial, Helvetica" 
+            size=2>/<FONT face=symbol>l</FONT>,</FONT><I>v</I><FONT 
+            face="Verdana, Arial, Helvetica" size=2>/<FONT 
+            face=symbol>l</FONT>)</FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER>es 
+decir, un ensanchamiento de una función determina un estrechamiento similar de 
+su transformada de Fourier. Consiguientemente, funciones estrechas definen 
+transformadas anchas y funciones anchas definen transformadas estrechas. A 
+continuación se presentan algunos ejemplos de cierta importancia práctica <FONT 
+face="Verdana, Arial, Helvetica" size=2>
+<OL>
+  <LI><A href="http://mecfunnet.faii.etsii.upm.es/difraccion/gauss.html">Función 
+  gaussiana</A> 
+  <LI><A href="http://mecfunnet.faii.etsii.upm.es/difraccion/rect.html">Función 
+  rectangular</A> 
+  <LI><A href="http://mecfunnet.faii.etsii.upm.es/difraccion/circ.html">Función 
+  circular</A> 
+  <LI><A 
+  href="http://mecfunnet.faii.etsii.upm.es/difraccion/period.html">Estructura 
+  periódica</A> 
+  <LI><A 
+  href="http://mecfunnet.faii.etsii.upm.es/difraccion/planas.html">Descomposición 
+  en ondas planas</A> 
+  <LI><A 
+  href="http://mecfunnet.faii.etsii.upm.es/difraccion/filtrado.html">Filtrado 
+  espacial</A> </LI></OL></FONT></FONT></FONT></BODY></HTML>

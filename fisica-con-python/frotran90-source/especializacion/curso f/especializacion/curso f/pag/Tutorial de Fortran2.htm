@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0055)http://garota.fismat.umich.mx/mn1/tutor_fort/files.html -->
+<HTML><HEAD><TITLE>Tutorial de Fortran</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY background="Tutorial de Fortran2_archivos/default.gif">
+<HR>
+&nbsp;[13. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/format.html">Sentencia 
+<TT>format</TT></A> ] &nbsp;[<A 
+href="http://fismat.umich.mx/mn1/tutor_fort/index.html">Tutorial de Fortran</A>] 
+&nbsp;[15. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/arrays2.html">Arreglos en 
+subprogramas </A>] 
+<HR>
+
+<H2>14. E/S de Archivos</H2>Se han estado haciendo ejemplos donde la 
+salida/entrada se ha realizado a los dispositivos estándares de entrada/salida. 
+También es posible leer o escribir de <EM>archivos</EM> los cuales son guardados 
+en algún dispositivo externo de almacenamiento, por lo general un disco (disco 
+duro, floppy) o una cinta. En Fortran cada archivo esta asociado con un 
+<EM>número de unidad</EM>, un entero entre 1 y 99. Algunos números están 
+reservados: 5 es la entrada estándar, 6 es la salida estándar. 
+<P>
+<H3>Abriendo y cerrando un archivo</H3>Antes de que pueda usarse un archivo se 
+requiere que sea <EM>abierto (open)</EM>. El comando es <PRE>      open <EM>(lista_de_especificadores)</EM>
+</PRE>donde los especificadores más comunes son: <PRE>    [UNIT=]  <EM>u</EM>
+    IOSTAT=  <EM>ios</EM>
+    ERR=     <EM>err</EM>
+    FILE=    <EM>nomb_arch</EM>
+    STATUS=  <EM>sta</EM>
+    ACCESS=  <EM>acc</EM>
+    FORM=    <EM>frm</EM>
+    RECL=    <EM>rl</EM>
+</PRE>El número de unidad <EM>u</EM> es un número en el rango de 9-99 para algún 
+archivo, el programador lo escoge debiendo ser un número único. 
+<P><EM>ios</EM> es el identificador del estado de la E/S y debe ser una variable 
+entera. El valor que regresa <EM>ios</EM> es cero si la sentencia fue exitosa y 
+sino, regresa un valor diferente de cero. 
+<P><EM>err</EM> es una etiqueta a la cual el programa saltará si hay un error. 
+<P><EM>nomb_arch</EM> es una cadena de caracteres que contiene el nombre del 
+archivo. 
+<P><EM>sta</EM> es una cadena de caracteres que tiene que ser NEW, OLD o 
+SCRATCH. Esta muestra el estatus del archivo. Un archivo scratch es aquel que es 
+creado y borrado cuando el archivo es cerrado (o el programa termina). 
+<P><EM>acc</EM> deberá ser SEQUENTIAL o DIRECT. El valor predefinido es 
+SEQUENTIAL. 
+<P><EM>frm</EM> deberá ser FORMATTED o UNFORMATTED. El valor predefinido es 
+UNFORMATTED. 
+<P><EM>rl</EM> indica la longitud de cada registro en un archivo de acceso 
+directo. 
+<P>Para más detalles en los especificadores, se recomienda que se revise un buen 
+libro de Fortran 77. 
+<P>Una vez que un archivo ha sido abierto, se puede acceder con sentencias de 
+lectura y escritura. Cuando se manipula un archivo y se termina de usar, deberá 
+ser cerrado usando la sentencia. <PRE>      close ([UNIT=]<EM>u</EM>[,IOSTAT=<EM>ios</EM>,ERR=<EM>err</EM>,STATUS=<EM>sta</EM>])
+</PRE>donde, los parámetros en bracket <EM>[]</EM> son opcionales 
+<H3>Complemento de Read and write</H3>El único cambio necesario de los ejemplos 
+previos de las sentencias read/write, es que el número de unidad debe ser 
+indicado. Pero se pueden incluir especificadores adicionales. Se muestra como: <PRE>      read ([UNIT=]<EM>u</EM>, [FMT=]<EM>fmt</EM>, IOSTAT=<EM>ios</EM>, ERR=<EM>err</EM>, END=<EM>s</EM>)
+      write([UNIT=]<EM>u</EM>, [FMT=]<EM>fmt</EM>, IOSTAT=<EM>ios</EM>, ERR=<EM>err</EM>, END=<EM>s</EM>)
+</PRE>donde la mayoría de los especificadores han sido descritos anteriormente. 
+El especificador END=s define a que sentencia saltará el programa si se alcanza 
+el fin del archivo (eof). 
+<H3>Ejemplo</H3>Se da un archivo de datos con las coordenadas xyz de un montón 
+de puntos. El número de puntos es dado en la primera línea. El nombre del 
+archivo de datos es <EM>puntos.dat</EM>. El formato para cada coordenada es de 
+la forma F10.4 Se muestra un programa que lee los datos y los pone en tres 
+arreglos x, y, z. <PRE>      program entdat
+c
+c  Este programa lee n puntos desde un archivo de datos y los guarda en
+c  3 arreglos x, y, z.
+c
+      integer nmax, u
+      parameter (nmax=1000, u=20)
+      real x(nmax), y(nmax), z(nmax)
+
+c  Abrir el archivo de datos
+      open (u, FILE='puntos.dat', STATUS='OLD')
+
+c  Leer el número de puntos
+      read(u,*) n
+      if (n.GT.nmax) then
+         write(*,*) 'Error: n = ', n, 'es más largo que nmax =', nmax
+         goto 9999
+      endif
+
+c  Ciclo para recuperar los datos 
+      do 10 i= 1, n
+         read(u,100) x(i), y(i), z(i)
+   10 enddo
+  100 format (3(F10.4))
+
+c  Cerrar el archivo
+      close (u)
+
+c  Ahora se procesarán los datos
+c  ...
+
+ 9999 stop
+      end
+</PRE>
+<HR>
+
+<H3>Ejercicios</H3>
+<DL>
+  <DT>Ejercicio A 
+  <DD>Modificar el ejemplo anterior para que el programa escriba un mensaje de 
+  error descriptivo y se detenga, si hay un error en la entrada del archivo de 
+  datos. 
+  <P></P>
+  <DT>Ejercicio B 
+  <DD>Cambia el programa del Ejercicio A para que abra un nuevo archivo 
+  <EM>norms.dat</EM> para escribir y mandar la Norma-L1 y la Norma-L2 de cada 
+  punto (x,y,z), puedes consultar en <A 
+  href="http://mathworld.wolfram.com/L1-Norm.html">Mathworld </A>esas 
+  definiciones. La primera línea deberá tener el número de puntos <EM>n</EM>, y 
+  después cada línea contendrá dos numeros de punto flotante, cada uno impreso 
+  en un campo con 12 caracteres de ancho. 
+  <P></P></DD></DL>
+<HR>
+&nbsp;[13. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/format.html">Sentencia 
+<TT>format</TT></A> ] &nbsp;[<A 
+href="http://fismat.umich.mx/mn1/tutor_fort/index.html">Tutorial de Fortran</A>] 
+&nbsp;[15. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/arrays2.html">Arreglos en 
+subprogramas </A>] </BODY></HTML>

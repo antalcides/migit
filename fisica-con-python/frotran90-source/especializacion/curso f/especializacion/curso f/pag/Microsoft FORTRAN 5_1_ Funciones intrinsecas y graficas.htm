@@ -1,0 +1,960 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0056)http://personal.redestb.es/mgtalles/fortran/tema3_51.htm -->
+<HTML><HEAD><TITLE>Microsoft FORTRAN 5.1. Funciones intrinsecas y graficas</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff 
+background="Microsoft FORTRAN 5_1_ Funciones intrinsecas y graficas_archivos/formulas.jpg">
+<P>&nbsp;</P>
+<H1 align=center>TEMA 3: Microsoft FORTRAN 5.1</H1>
+<BLOCKQUOTE>
+  <H2>3.5 FUNCIONES INTRINSECAS DEL FORTRAN 5.1</H2></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>He aquí la lista completa de las funciones intrínsecas del FORTRAN 
+  Microsoft, con los parámetros que requieren y el tipo de resultado que 
+  devuelven, así como una breve descripción de su utilidad.</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>- FUNCIONES GENERALES (de propósito general)</P></BLOCKQUOTE>
+<P align=center><B>Valor absoluto y Transferencia de signo</B> </P>
+<DIV align=center>
+<CENTER>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TD width=144><FONT size=2><B>Nombre</B></FONT></TD>
+    <TD width=125><B>Definición</B> </TD>
+    <TD width=154><B>Tipo de argumento </B></TD>
+    <TD width=154><B>Tipo de Función</B> </TD></TR>
+  <TR>
+    <TD width=144><B>ABS</B> (gen) </TD>
+    <TD width=125>Valor absoluto</TD>
+    <TD width=154>int,real,cmp </TD>
+    <TD width=154>Igual que tipo arg. excepto si arg. es complex2 </TD></TR>
+  <TR>
+    <TD width=144><B>IABS</B> (int) </TD>
+    <TD width=125>Valor absoluto </TD>
+    <TD width=154>int </TD>
+    <TD width=154>int</TD></TR>
+  <TR>
+    <TD width=144><B>DABS</B> (dbl) </TD>
+    <TD width=125>Valor absoluto </TD>
+    <TD width=154>REAL*8 </TD>
+    <TD width=154>REAL*8</TD></TR>
+  <TR>
+    <TD width=144><B>CABS</B> (cmp) </TD>
+    <TD width=125>Valor absoluto </TD>
+    <TD width=154>cmp </TD>
+    <TD width=154>real2</TD></TR>
+  <TR>
+    <TD width=144><B>CDABS</B> (cmp16) </TD>
+    <TD width=125>Valor absoluto </TD>
+    <TD width=154>COMPLEX*16 </TD>
+    <TD width=154>REAL*8</TD></TR>
+  <TR>
+    <TD width=144><B>SIGN</B> (genA,genB) </TD>
+    <TD width=125>Transf de signo</TD>
+    <TD width=154>int o real </TD>
+    <TD width=154>Igual que argumento</TD></TR>
+  <TR>
+    <TD width=144><B>ISIGN</B> (intA,intB) </TD>
+    <TD width=125>Transf de signo</TD>
+    <TD width=154>int </TD>
+    <TD width=154>int</TD></TR>
+  <TR>
+    <TD width=144><B>DSIGN</B> (dblA,dblB) </TD>
+    <TD width=125>Transf de signo</TD>
+    <TD width=154>REAL*8 </TD>
+    <TD width=154>REAL*8</TD></TR></TBODY></TABLE></CENTER></DIV>
+<P align=center><B>Manipulación de Bits</B> </P>
+<DIV align=center>
+<CENTER>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TD width=144><B>Nombre </B></TD>
+    <TD width=144><B>Definición </B></TD>
+    <TD width=137><B>Tipo de argumento </B></TD>
+    <TD width=156><B>Tipo</B> <B>de Funcion</B> </TD></TR>
+  <TR>
+    <TD width=144><B>IOR</B> (intA,intB) </TD>
+    <TD width=144>OR inclusivo </TD>
+    <TD width=137>int </TD>
+    <TD width=156>Igual que Argumento </TD></TR>
+  <TR>
+    <TD width=144><B>ISHL</B> (intA,intB) </TD>
+    <TD width=144>Shift lógico </TD>
+    <TD width=137>int </TD>
+    <TD width=156>Igual que Argumento </TD></TR>
+  <TR>
+    <TD width=144><B>ISHFT</B> (intA,intB) </TD>
+    <TD width=144>Shift lógico</TD>
+    <TD width=137>int </TD>
+    <TD width=156>Igual que Argumento </TD></TR>
+  <TR>
+    <TD width=144><B>ISHA</B> (intA,intB) </TD>
+    <TD width=144>Shift aritmético </TD>
+    <TD width=137>int </TD>
+    <TD width=156>Igual que Argumento </TD></TR>
+  <TR>
+    <TD width=144><B>ISHC</B> (intA,intB) </TD>
+    <TD width=144>Rotar </TD>
+    <TD width=137>int </TD>
+    <TD width=156>Igual que Argumento</TD></TR>
+  <TR>
+    <TD width=144><B>IEOR</B> (intA,intB) </TD>
+    <TD width=144>Or Exclusivo</TD>
+    <TD width=137>int </TD>
+    <TD width=156>Igual que Argumento</TD></TR>
+  <TR>
+    <TD width=144><B>IAND</B> (intA,intB) </TD>
+    <TD width=144>Producto Lógico </TD>
+    <TD width=137>int </TD>
+    <TD width=156>Igual que Argumento </TD></TR>
+  <TR>
+    <TD width=144><B>NOT</B> (intA) </TD>
+    <TD width=144>Complemento Lógico </TD>
+    <TD width=137>int </TD>
+    <TD width=156>Igual que Argumento </TD></TR>
+  <TR>
+    <TD width=144><B>IBCLR</B> (intA,intB) </TD>
+    <TD width=144>limpieza de Bits </TD>
+    <TD width=137>int </TD>
+    <TD width=156>Igual que Argumento </TD></TR></TBODY></TABLE></CENTER></DIV>
+<P align=center><B>Manejo de Direcciones</B> </P>
+<DIV align=center>
+<CENTER>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TD width=144><B>Nombre </B></TD>
+    <TD width=144><B>Definición </B></TD>
+    <TD width=144><B>Tipo de Argumento </B></TD>
+    <TD width=144><B>Tipo de Función</B> </TD></TR>
+  <TR>
+    <TD width=144><B>LOCNEAR</B> (gen) </TD>
+    <TD width=144>Dirección relativa </TD>
+    <TD width=144>Any </TD>
+    <TD width=144>INTEGER*2 </TD></TR>
+  <TR>
+    <TD width=144><B>LOCFAR</B> (gen) </TD>
+    <TD width=144>Dirección de Segmento </TD>
+    <TD width=144>Any </TD>
+    <TD width=144>INTEGER*4 </TD></TR>
+  <TR>
+    <TD width=144><B>LOC</B> (gen) </TD>
+    <TD width=144>Dirección </TD>
+    <TD width=144>Any </TD>
+    <TD width=144>INTEGER*2.INTEGER*4 </TD></TR></TBODY></TABLE></CENTER></DIV>
+<P align=center><B>Funciones de caracteres</B> </P>
+<DIV align=center>
+<CENTER>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TD width=156><B>Nombre</B></TD>
+    <TD width=204><B>Definición</B> </TD>
+    <TD width=117><B>Tipo de Argumento</B> </TD>
+    <TD width=94><B>Tipo de Función</B> </TD></TR>
+  <TR>
+    <TD width=156><B>LGE</B> (charA, charB) </TD>
+    <TD width=204>charA &gt;= charB</TD>
+    <TD width=117>char</TD>
+    <TD width=94>log </TD></TR>
+  <TR>
+    <TD width=156><B>LGT</B> (charA, charB) </TD>
+    <TD width=204>charA &gt; charB</TD>
+    <TD width=117>char </TD>
+    <TD width=94>log</TD></TR>
+  <TR>
+    <TD width=156><B>LLE</B> (charA, charB) </TD>
+    <TD width=204>charA &lt;= charB</TD>
+    <TD width=117>char</TD>
+    <TD width=94>log </TD></TR>
+  <TR>
+    <TD width=156><B>LLT</B> (charA, charB) </TD>
+    <TD width=204>charA &lt; charB</TD>
+    <TD width=117>char </TD>
+    <TD width=94>log</TD></TR>
+  <TR>
+    <TD width=156><B>LEN</B> (char) </TD>
+    <TD width=204>Longitud de string</TD>
+    <TD width=117>char</TD>
+    <TD width=94>int </TD></TR>
+  <TR>
+    <TD width=156><B>INDEX</B> (charA, charB[,log]) </TD>
+    <TD width=204>Posición de substring charB en charA </TD>
+    <TD width=117>char, log</TD>
+    <TD width=94>int </TD></TR>
+  <TR>
+    <TD width=156><B>LEN_TRIM</B> (char) </TD>
+    <TD width=204>Longitud de string, sin blancos finales </TD>
+    <TD width=117>char</TD>
+    <TD width=94>int </TD></TR>
+  <TR>
+    <TD width=156><B>SCAN</B> (char, charset[,log]) </TD>
+    <TD width=204>Elemento de charset en char </TD>
+    <TD width=117>char,log</TD>
+    <TD width=94>int </TD></TR>
+  <TR>
+    <TD width=156><B>VERIFY</B> (char, charset[,log]) </TD>
+    <TD width=204>Elemento de charset no en char </TD>
+    <TD width=117>char,log</TD>
+    <TD width=94>log </TD></TR></TBODY></TABLE></CENTER></DIV>
+<P align=center><B>Operadores Complejos</B> </P>
+<DIV align=center>
+<CENTER>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TD width=144><B>Nombre</B></TD>
+    <TD width=144><B>Definición</B> </TD>
+    <TD width=144><B>Tipo de</B><FONT size=1><B><TT> 
+      </TT></B></FONT><B>Argumento</B> </TD>
+    <TD width=144><B>Tipo de Función</B></TD></TR>
+  <TR>
+    <TD width=144><B>AIMAG</B> (cmp8) </TD>
+    <TD width=144>Parte imaginaria de COMPLEX*8 </TD>
+    <TD width=144>COMPLEX*8</TD>
+    <TD width=144>REAL*4 </TD></TR>
+  <TR>
+    <TD width=144><B>IMAG</B> (cmp) </TD>
+    <TD width=144>Parte imaginaria de cmp </TD>
+    <TD width=144>cmp</TD>
+    <TD width=144>Si arg. es COMPLEX*8, función es REAL*4. Si arg. es 
+      COMPLEX*16, función es REAL*8 </TD></TR>
+  <TR>
+    <TD width=144><B>DIMAG</B> (cmp16) </TD>
+    <TD width=144>Parte imaginaria de COMPLEX*16 number </TD>
+    <TD width=144>COMPLEX*16</TD>
+    <TD width=144>REAL*8 </TD></TR>
+  <TR>
+    <TD width=144><B>CONJG</B> (cmp8) </TD>
+    <TD width=144>Conjugado de COMPLEX*8 </TD>
+    <TD width=144>COMPLEX*8</TD>
+    <TD width=144>COMPLEX*8 </TD></TR>
+  <TR>
+    <TD width=144><B>DCONJG </B>(cmp16) </TD>
+    <TD width=144>Conjugado de COMPLEX*16 </TD>
+    <TD width=144>COMPLEX*16</TD>
+    <TD width=144>COMPLEX*16 </TD></TR></TBODY></TABLE></CENTER></DIV>
+<P align=center><B>Conversión del tipo de dato</B> </P>
+<DIV align=center>
+<CENTER>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TD width=192><B>Nombre</B></TD>
+    <TD width=192><B>Tipo de argumento</B> </TD>
+    <TD width=192><B>Tipo de Función</B> </TD></TR>
+  <TR>
+    <TD width=192><B>INT</B> (gen) </TD>
+    <TD width=192>int, real, or cmp</TD>
+    <TD width=192>int</TD></TR>
+  <TR>
+    <TD width=192><B>INT1</B> (gen) </TD>
+    <TD width=192>int, real, or cmp</TD>
+    <TD width=192>INTEGER*1</TD></TR>
+  <TR>
+    <TD width=192><B>INT2</B> (gen) </TD>
+    <TD width=192>int, real, or cmp</TD>
+    <TD width=192>INTEGER*2</TD></TR>
+  <TR>
+    <TD width=192><B>INT4</B> (gen) </TD>
+    <TD width=192>int, real, or cmp</TD>
+    <TD width=192>INTEGER*4</TD></TR>
+  <TR>
+    <TD width=192><B>INTC</B> (gen) </TD>
+    <TD width=192>int, real, or cmp</TD>
+    <TD width=192>INTEGER[C]</TD></TR>
+  <TR>
+    <TD width=192><B>IFIX</B> (real4) </TD>
+    <TD width=192>REAL*4</TD>
+    <TD width=192>int </TD></TR>
+  <TR>
+    <TD width=192><B>HFIX</B> (gen) </TD>
+    <TD width=192>int, real, or cmp</TD>
+    <TD width=192>INTEGER*2</TD></TR>
+  <TR>
+    <TD width=192><B>JFIX</B> (gen) </TD>
+    <TD width=192>int, real, or cmp</TD>
+    <TD width=192>INTEGER*4</TD></TR>
+  <TR>
+    <TD width=192><B>IDINT</B> (dbl) </TD>
+    <TD width=192>DOUBLE PRECISION, REAL*8 </TD>
+    <TD width=192>int</TD></TR>
+  <TR>
+    <TD width=192><B>REAL</B> (gen) </TD>
+    <TD width=192>int, real, or cmp</TD>
+    <TD width=192>REAL*4</TD></TR>
+  <TR>
+    <TD width=192><B>DREAL</B> (cmp) </TD>
+    <TD width=192>COMPLEX*16</TD>
+    <TD width=192>REAL*8 </TD></TR>
+  <TR>
+    <TD width=192><B>FLOAT</B> (int) </TD>
+    <TD width=192>int</TD>
+    <TD width=192>REAL*4 </TD></TR>
+  <TR>
+    <TD width=192><B>SNGL</B> (dbl) </TD>
+    <TD width=192>REAL*8</TD>
+    <TD width=192>REAL*4 </TD></TR>
+  <TR>
+    <TD width=192><B>DBLE</B> (gen) </TD>
+    <TD width=192>int, real, or cmp</TD>
+    <TD width=192>DOUBLE PRECISION</TD></TR>
+  <TR>
+    <TD width=192><B>DFLOAT</B> (gen) </TD>
+    <TD width=192>int, real, or cmp</TD>
+    <TD width=192>DOUBLE PRECISION</TD></TR>
+  <TR>
+    <TD width=192><B>CMPLX</B> (genA [,genB]) </TD>
+    <TD width=192>int, real, or cmp</TD>
+    <TD width=192>COMPLEX*8</TD></TR>
+  <TR>
+    <TD width=192><B>DCMPLX</B> (genA [,genB]) </TD>
+    <TD width=192>int, real, or cmp</TD>
+    <TD width=192>COMPLEX*16</TD></TR>
+  <TR>
+    <TD width=192><B>ICHAR</B> (char) </TD>
+    <TD width=192>char</TD>
+    <TD width=192>int </TD></TR>
+  <TR>
+    <TD width=192><B>CHAR</B> (int) </TD>
+    <TD width=192>int</TD>
+    <TD width=192>char </TD></TR></TBODY></TABLE></CENTER></DIV>
+<P align=center><B>Producto en doble precisión</B> </P>
+<DIV align=center>
+<CENTER>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TD width=192><B>Nombre</B></TD>
+    <TD width=192><B>Tipo de Argumento</B> </TD>
+    <TD width=192><B>Tipo de Función</B> </TD></TR>
+  <TR>
+    <TD width=192><B>DPROD</B> (real4A, real4B) </TD>
+    <TD width=192>REAL*4</TD>
+    <TD width=192>REAL*8 </TD></TR></TBODY></TABLE></CENTER></DIV>
+<P align=center><B>Función Fin de fichero</B> </P>
+<DIV align=center>
+<CENTER>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TD width=144><B>Nombre</B></TD>
+    <TD width=144><B>Definición</B> </TD>
+    <TD width=144><B>Tipo de Argumento</B> </TD>
+    <TD width=144><B>Tipo de Función</B> </TD></TR>
+  <TR>
+    <TD width=144><B>EOF</B> (int) </TD>
+    <TD width=144>End-of-file</TD>
+    <TD width=144>int </TD>
+    <TD width=144>log</TD></TR></TBODY></TABLE></CENTER></DIV>
+<P align=center><B>Diferencia Positiva</B> </P>
+<DIV align=center>
+<CENTER>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TD width=192><B>Nombre</B></TD>
+    <TD width=192><B>Tipo de Argumento</B> </TD>
+    <TD width=192><B>Tipo de Función</B> </TD></TR>
+  <TR>
+    <TD width=192><B>DIM</B> (genA,genB) </TD>
+    <TD width=192>int o real</TD>
+    <TD width=192>Igual que Argumento </TD></TR>
+  <TR>
+    <TD width=192><B>IDIM</B> (intA,intB) </TD>
+    <TD width=192>int</TD>
+    <TD width=192>int </TD></TR>
+  <TR>
+    <TD width=192><B>DDIM</B> (dblA,dblB) </TD>
+    <TD width=192>REAL*8</TD>
+    <TD width=192>REAL*8 </TD></TR></TBODY></TABLE></CENTER></DIV>
+<P align=center><B>Exponentes y Logaritmos</B> </P>
+<DIV align=center>
+<CENTER>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TD width=144><B>Nombre</B></TD>
+    <TD width=144><B>Definición</B> </TD>
+    <TD width=144><B>Tipo de Argumento</B> </TD>
+    <TD width=144><B>Tipo de Función</B> </TD></TR>
+  <TR>
+    <TD width=144><B>EXP</B> (gen) </TD>
+    <TD width=144>Exponenciación</TD>
+    <TD width=144>real or cmp</TD>
+    <TD width=144>Igual que Argumento </TD></TR>
+  <TR>
+    <TD width=144><B>DEXP</B> (dbl) </TD>
+    <TD width=144>Exponenciación</TD>
+    <TD width=144>REAL*8</TD>
+    <TD width=144>REAL*8 </TD></TR>
+  <TR>
+    <TD width=144><B>CEXP</B> (cmp8) </TD>
+    <TD width=144>Exponenciación</TD>
+    <TD width=144>COMPLEX*8</TD>
+    <TD width=144>COMPLEX*8 </TD></TR>
+  <TR>
+    <TD width=144><B>CDEXP</B> (cmp16) </TD>
+    <TD width=144>Exponenciación</TD>
+    <TD width=144>COMPLEX*16</TD>
+    <TD width=144>COMPLEX*16 </TD></TR>
+  <TR>
+    <TD width=144><B>LOG</B> (gen) </TD>
+    <TD width=144>Logaritmo Natural</TD>
+    <TD width=144>real or cmp</TD>
+    <TD width=144>Igual que Argumento </TD></TR>
+  <TR>
+    <TD width=144><B>ALOG</B> (real4) </TD>
+    <TD width=144>Logaritmo Natural</TD>
+    <TD width=144>REAL*4</TD>
+    <TD width=144>REAL*4 </TD></TR>
+  <TR>
+    <TD width=144><B>DLOG</B> (dbl) </TD>
+    <TD width=144>Logaritmo Natural</TD>
+    <TD width=144>REAL*8</TD>
+    <TD width=144>REAL*8 </TD></TR>
+  <TR>
+    <TD width=144><B>CLOG</B> (cmp8) </TD>
+    <TD width=144>Logaritmo Natural</TD>
+    <TD width=144>COMPLEX*8</TD>
+    <TD width=144>COMPLEX*8 </TD></TR>
+  <TR>
+    <TD width=144><B>CDLOG</B> (cmp16) </TD>
+    <TD width=144>Logaritmo Natural</TD>
+    <TD width=144>COMPLEX*16</TD>
+    <TD width=144>COMPLEX*16 </TD></TR>
+  <TR>
+    <TD width=144><B>LOG10</B> (real) </TD>
+    <TD width=144>Logaritmo Decimal</TD>
+    <TD width=144>real</TD>
+    <TD width=144>Igual que Argumento </TD></TR>
+  <TR>
+    <TD width=144><B>ALOG10</B> (real4) </TD>
+    <TD width=144>Logaritmo Decimal</TD>
+    <TD width=144>REAL*4</TD>
+    <TD width=144>REAL*4 </TD></TR>
+  <TR>
+    <TD width=144><B>DLOG10</B> (dbl) </TD>
+    <TD width=144>Logaritmo Decimal</TD>
+    <TD width=144>REAL*8</TD>
+    <TD width=144>REAL*8 </TD></TR></TBODY></TABLE></CENTER></DIV>
+<P align=center><B>Funciones trigonométricas</B> </P>
+<DIV align=center>
+<CENTER>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TD width=153><B>Nombre</B></TD>
+    <TD width=153><B>Definición</B> </TD>
+    <TD width=153><B>Tipo Argumento</B></TD>
+    <TD width=153><B>Tipo Función</B> </TD></TR>
+  <TR>
+    <TD width=153><B>SIN</B> (gen) </TD>
+    <TD width=153>Seno</TD>
+    <TD width=153>real or cmp </TD>
+    <TD width=153>Igual que Argumento</TD></TR>
+  <TR>
+    <TD width=153><B>DSIN</B> (dbl) </TD>
+    <TD width=153>Seno</TD>
+    <TD width=153>REAL*8 </TD>
+    <TD width=153>REAL*8</TD></TR>
+  <TR>
+    <TD width=153><B>CSIN</B> (cmp8) </TD>
+    <TD width=153>Seno</TD>
+    <TD width=153>COMPLEX*8 </TD>
+    <TD width=153>COMPLEX*8</TD></TR>
+  <TR>
+    <TD width=153><B>CDSIN</B> (cmp16) </TD>
+    <TD width=153>Seno</TD>
+    <TD width=153>COMPLEX*16 </TD>
+    <TD width=153>COMPLEX*16</TD></TR>
+  <TR>
+    <TD width=153><B>COS</B> (gen) </TD>
+    <TD width=153>Coseno</TD>
+    <TD width=153>real or cmp </TD>
+    <TD width=153>Igual que Argumento</TD></TR>
+  <TR>
+    <TD width=153><B>DCOS</B> (dbl) </TD>
+    <TD width=153>Coseno</TD>
+    <TD width=153>REAL*8 </TD>
+    <TD width=153>REAL*8 </TD></TR>
+  <TR>
+    <TD width=153><B>CCOS</B> (cmp8) </TD>
+    <TD width=153>Coseno</TD>
+    <TD width=153>COMPLEX*8 </TD>
+    <TD width=153>COMPLEX*8</TD></TR>
+  <TR>
+    <TD width=153><B>CDCOS</B> (cmp16) </TD>
+    <TD width=153>Coseno</TD>
+    <TD width=153>COMPLEX*16 </TD>
+    <TD width=153>COMPLEX*16</TD></TR>
+  <TR>
+    <TD width=153><B>TAN</B> (real) </TD>
+    <TD width=153>Tangente</TD>
+    <TD width=153>real </TD>
+    <TD width=153>Igual que Argumento</TD></TR>
+  <TR>
+    <TD width=153><B>DTAN</B> (dbl) </TD>
+    <TD width=153>Tangente</TD>
+    <TD width=153>REAL*8 </TD>
+    <TD width=153>REAL*8</TD></TR>
+  <TR>
+    <TD width=153><B>ASIN</B> (real) </TD>
+    <TD width=153>Arco seno</TD>
+    <TD width=153>real </TD>
+    <TD width=153>Igual que Argumento</TD></TR>
+  <TR>
+    <TD width=153><B>DASIN</B> (dbl) </TD>
+    <TD width=153>Arco seno</TD>
+    <TD width=153>REAL*8 </TD>
+    <TD width=153>REAL*8</TD></TR>
+  <TR>
+    <TD width=153><B>DASIN</B> (dbl) </TD>
+    <TD width=153>Arco seno</TD>
+    <TD width=153>REAL*8 </TD>
+    <TD width=153>REAL*8</TD></TR>
+  <TR>
+    <TD width=153><B>ACOS</B> (real) </TD>
+    <TD width=153>Arco coseno</TD>
+    <TD width=153>real </TD>
+    <TD width=153>Igual que Argumento</TD></TR>
+  <TR>
+    <TD width=153><B>DACOS</B> (dbl) </TD>
+    <TD width=153>Arco coseno</TD>
+    <TD width=153>REAL*8 </TD>
+    <TD width=153>REAL*8</TD></TR>
+  <TR>
+    <TD width=153><B>ATAN</B> (real) </TD>
+    <TD width=153>Arco tangente</TD>
+    <TD width=153>real. </TD>
+    <TD width=153>Igual que Argumento</TD></TR>
+  <TR>
+    <TD width=153><B>DATAN</B> (dbl) </TD>
+    <TD width=153>Arco tangente</TD>
+    <TD width=153>REAL*8 </TD>
+    <TD width=153>REAL*8</TD></TR>
+  <TR>
+    <TD width=153><B>ATAN2</B> (realA,realB) </TD>
+    <TD width=153>Arco tangente</TD>
+    <TD width=153>real </TD>
+    <TD width=153>Igual que Argumento</TD></TR>
+  <TR>
+    <TD width=153><B>DATAN2</B> (dblA, dblB) </TD>
+    <TD width=153>Arco tangente</TD>
+    <TD width=153>REAL*8 </TD>
+    <TD width=153>REAL*8</TD></TR>
+  <TR>
+    <TD width=153><B>COTAN</B> (real) </TD>
+    <TD width=153>Cotangente</TD>
+    <TD width=153>real </TD>
+    <TD width=153>Igual que Argumento</TD></TR>
+  <TR>
+    <TD width=153><B>DCOTAN</B> (dbl) </TD>
+    <TD width=153>Cotangente</TD>
+    <TD width=153>REAL*8 </TD>
+    <TD width=153>REAL*8</TD></TR>
+  <TR>
+    <TD width=153><B>SINH</B> (real) </TD>
+    <TD width=153>Seno Hiperbólico </TD>
+    <TD width=153>real</TD>
+    <TD width=153>Igual que Argumento </TD></TR>
+  <TR>
+    <TD width=153><B>DSINH</B> (dbl) </TD>
+    <TD width=153>Seno Hiperbólico </TD>
+    <TD width=153>REAL*8</TD>
+    <TD width=153>REAL*8 </TD></TR>
+  <TR>
+    <TD width=153><B>COSH</B> (real) </TD>
+    <TD width=153>Coseno Hiperbólico </TD>
+    <TD width=153>real</TD>
+    <TD width=153>Igual que Argumento </TD></TR>
+  <TR>
+    <TD width=153><B>DCOSH</B> (dbl) </TD>
+    <TD width=153>Coseno Hiperbólico </TD>
+    <TD width=153>REAL*8</TD>
+    <TD width=153>REAL*8 </TD></TR>
+  <TR>
+    <TD width=153><B>TANH</B> (real) </TD>
+    <TD width=153>Tangente Hiperbólica </TD>
+    <TD width=153>real</TD>
+    <TD width=153>Igual que Argumento </TD></TR>
+  <TR>
+    <TD width=153><B>DTANH</B> (dbl) </TD>
+    <TD width=153>Tangente Hiperbólica </TD>
+    <TD width=153>REAL*8</TD>
+    <TD width=153>REAL*8 </TD></TR></TBODY></TABLE></CENTER></DIV>
+<P align=center><B>Remainders (restos de división)</B> </P>
+<DIV align=center>
+<CENTER>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TD width=167><B>Nombre</B></TD>
+    <TD width=123><B>Tipo de Argumento</B></TD>
+    <TD width=163><B>Tipo</B><FONT size=1><B><TT> </TT></B></FONT><B>de 
+      Función</B> </TD></TR>
+  <TR>
+    <TD width=167><B>MOD</B>(genA, genB) </TD>
+    <TD width=123>int or real</TD>
+    <TD width=163>Igual que Argumento </TD></TR>
+  <TR>
+    <TD width=167><B>AMOD</B>(real4A,real4B) </TD>
+    <TD width=123>REAL*4 </TD>
+    <TD width=163>REAL*4 </TD></TR>
+  <TR>
+    <TD width=167><B>DMOD</B>(dblA, dblB) </TD>
+    <TD width=123>REAL*8</TD>
+    <TD width=163>REAL*8 </TD></TR></TBODY></TABLE></CENTER></DIV>
+<P align=center><B>Raíz cuadrada</B> </P>
+<DIV align=center>
+<CENTER>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TD width=141><B>Nombre</B></TD>
+    <TD width=162><B>Tipo de Argumento</B> </TD>
+    <TD width=141><B>Tipo de Function</B> </TD></TR>
+  <TR>
+    <TD width=141><B>SQRT</B> (gen) </TD>
+    <TD width=162>real or cmp</TD>
+    <TD width=141>Igual que Argumento </TD></TR>
+  <TR>
+    <TD width=141><B>DSQRT</B> (dbl) </TD>
+    <TD width=162>REAL*8</TD>
+    <TD width=141>REAL*8 </TD></TR>
+  <TR>
+    <TD width=141><B>CSQRT</B> (cmp8) </TD>
+    <TD width=162>COMPLEX*8</TD>
+    <TD width=141>COMPLEX*8 </TD></TR>
+  <TR>
+    <TD width=141><B>CDSQRT</B> (cmp16) </TD>
+    <TD width=162>COMPLEX*16</TD>
+    <TD width=141>COMPLEX*16 </TD></TR></TBODY></TABLE></CENTER></DIV>
+<P align=center><B>Búsqueda de Máximos y Mínimos</B> </P>
+<DIV align=center>
+<CENTER>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TD width=194><B>Nombre</B></TD>
+    <TD width=111><B>Definición</B> </TD>
+    <TD width=136><B>Tipo de Argumento</B> </TD>
+    <TD width=136><B>Tipo de Function</B> </TD></TR>
+  <TR>
+    <TD width=194><B>MAX</B> (genA, genB[, genC]...) </TD>
+    <TD width=111>Máximo</TD>
+    <TD width=136>int o real </TD>
+    <TD width=136>Igual que Argumento</TD></TR>
+  <TR>
+    <TD width=194><B>MAX0</B> (intA, intB[,intC]...) </TD>
+    <TD width=111>Máximo</TD>
+    <TD width=136>int </TD>
+    <TD width=136>int</TD></TR>
+  <TR>
+    <TD width=194><B>AMAX1</B> (real4A, real4B[, real4C]...) </TD>
+    <TD width=111>Máximo</TD>
+    <TD width=136>REAL*4 </TD>
+    <TD width=136>REAL*4</TD></TR>
+  <TR>
+    <TD width=194><B>AMAX0</B> (intA, intB[, intC]...) </TD>
+    <TD width=111>Máximo</TD>
+    <TD width=136>int </TD>
+    <TD width=136>REAL*4</TD></TR>
+  <TR>
+    <TD width=194><B>MAX1</B> (real4A, real4B[, real4C]...) </TD>
+    <TD width=111>Máximo</TD>
+    <TD width=136>REAL*4 </TD>
+    <TD width=136>int</TD></TR>
+  <TR>
+    <TD width=194><B>DMAX1</B>(dblA, dblB[, dblC]...) </TD>
+    <TD width=111>Máximo</TD>
+    <TD width=136>REAL*8 </TD>
+    <TD width=136>REAL*8</TD></TR>
+  <TR>
+    <TD width=194><B>MIN</B> (genA, genB [, genC]...) </TD>
+    <TD width=111>Mínimo</TD>
+    <TD width=136>int o real </TD>
+    <TD width=136>Igual que Argumento</TD></TR>
+  <TR>
+    <TD width=194><B>MIN0</B> (intA, intB[, intC]...) </TD>
+    <TD width=111>Mínimo</TD>
+    <TD width=136>int </TD>
+    <TD width=136>int</TD></TR>
+  <TR>
+    <TD width=194><B>AMIN1</B> (real4A, real4B[, real4C]...) </TD>
+    <TD width=111>Mínimo</TD>
+    <TD width=136>REAL*4 </TD>
+    <TD width=136>REAL*4</TD></TR>
+  <TR>
+    <TD width=194><B>AMIN0</B> (intA, intB[, intC]...) </TD>
+    <TD width=111>Mínimo</TD>
+    <TD width=136>int </TD>
+    <TD width=136>REAL*4</TD></TR>
+  <TR>
+    <TD width=194><B>MIN1</B> (real4A, real4B[, real4C]...) </TD>
+    <TD width=111>Mínimo</TD>
+    <TD width=136>REAL*4 </TD>
+    <TD width=136>int</TD></TR>
+  <TR>
+    <TD width=194><B>DMIN1</B> (dblA, dblB [, dblC]...) </TD>
+    <TD width=111>Mínimo</TD>
+    <TD width=136>REAL*8 </TD>
+    <TD width=136>REAL*8</TD></TR></TBODY></TABLE></CENTER></DIV>
+<P align=center><B>Truncar y redondear</B> </P>
+<DIV align=center>
+<CENTER>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TD width=144><B>Function</B></TD>
+    <TD width=144><B>Truncate or Round </B></TD>
+    <TD width=144><B>Tipo de Argumento</B> </TD>
+    <TD width=144><B>Tipo de Function</B> </TD></TR>
+  <TR>
+    <TD width=144><B>AINT</B> (real) </TD>
+    <TD width=144>Trunca</TD>
+    <TD width=144>real </TD>
+    <TD width=144>Igual que Argumento</TD></TR>
+  <TR>
+    <TD width=144><B>DINT</B> (dbl) </TD>
+    <TD width=144>Trunca</TD>
+    <TD width=144>REAL*8 </TD>
+    <TD width=144>REAL*8</TD></TR>
+  <TR>
+    <TD width=144><B>ANINT</B> (real) </TD>
+    <TD width=144>Redondea</TD>
+    <TD width=144>real </TD>
+    <TD width=144>Igual que Argumento</TD></TR>
+  <TR>
+    <TD width=144><B>DNINT</B> (dbl) </TD>
+    <TD width=144>Redondea</TD>
+    <TD width=144>REAL*8 </TD>
+    <TD width=144>REAL*8</TD></TR>
+  <TR>
+    <TD width=144><B>NINT</B> (real) </TD>
+    <TD width=144>Redondea</TD>
+    <TD width=144>real </TD>
+    <TD width=144>int</TD></TR>
+  <TR>
+    <TD width=144><B>IDNINT</B> (dbl) </TD>
+    <TD width=144>Redondea</TD>
+    <TD width=144>REAL*8 </TD>
+    <TD width=144>int</TD></TR></TBODY></TABLE></CENTER></DIV>
+<P align=center><B>Abreviaturas usadas para describir las Funciones 
+Intrínsecas</B> </P>
+<DIV align=center>
+<CENTER>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TD width=146><B>Abreviatura </B></TD>
+    <TD width=430><B>Tipo de dato al que se refiere</B> </TD></TR>
+  <TR>
+    <TD width=146>char </TD>
+    <TD width=430>CHARACTER[*n]</TD></TR>
+  <TR>
+    <TD width=146>cmp </TD>
+    <TD width=430>COMPLEX, COMPLEX*8, DOUBLE COMPLEX, o COMPLEX*16 </TD></TR>
+  <TR>
+    <TD width=146>cmp8 </TD>
+    <TD width=430>COMPLEX*8</TD></TR>
+  <TR>
+    <TD width=146>cmp16 </TD>
+    <TD width=430>DOUBLE COMPLEX o COMPLEX*16 </TD></TR>
+  <TR>
+    <TD width=146>dbl </TD>
+    <TD width=430>DOUBLE PRECISION, REAL*8 </TD></TR>
+  <TR>
+    <TD width=146>gen </TD>
+    <TD width=430>Mas de un posible Tipo de argumento </TD></TR>
+  <TR>
+    <TD width=146>integer </TD>
+    <TD width=430>INTEGER*2, o INTEGER*4 </TD></TR>
+  <TR>
+    <TD width=146>int1 </TD>
+    <TD width=430>INTEGER*1</TD></TR>
+  <TR>
+    <TD width=146>int2 </TD>
+    <TD width=430>INTEGER*2</TD></TR>
+  <TR>
+    <TD width=146>int4 </TD>
+    <TD width=430>INTEGER*4</TD></TR>
+  <TR>
+    <TD width=146>log </TD>
+    <TD width=430>LOGICAL*2, o LOGICAL*4 </TD></TR>
+  <TR>
+    <TD width=146>log1 </TD>
+    <TD width=430>LOGICAL*1</TD></TR>
+  <TR>
+    <TD width=146>log2 </TD>
+    <TD width=430>LOGICAL*2</TD></TR>
+  <TR>
+    <TD width=146>log4 </TD>
+    <TD width=430>LOGICAL*4</TD></TR>
+  <TR>
+    <TD width=146>real </TD>
+    <TD width=430>DOUBLE PRECISION, o REAL*8 </TD></TR>
+  <TR>
+    <TD width=146>real4 </TD>
+    <TD width=430>REAL*4</TD></TR></TBODY></TABLE></CENTER></DIV>
+<BLOCKQUOTE>
+  <P>Estas son todas las funciones intrínsecas de propósito general del FORTRAN 
+  5.1. Para saber más sobre alguna de ellas consúltese el manual del compilador, 
+  <I>Microsoft FORTRAN Reference</I>. No obstante diremos algunas notas sobre 
+  ellas.</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>En 1<SUP>er</SUP> lugar se ve que muchas de las funciones están como 
+  repetidas, como la función para buscar un máximo. Esto se debe a que, 
+  dependiendo del tipo de datos que se envíen a la función, esta devolverá un 
+  resultado con una determinada precisión. Existen distintas funciones para dar 
+  mayor o menor precisión al resultado. Depende del programador la elección de 
+  una determinada función acorde con la precisión requerida. Personalmente 
+  siempre suelo usar las funciones genéricas (gen), que dan una buena precisión 
+  con los distintos tipos de datos. Si se desea más, habrá que elegir la que se 
+  adapte a los datos y requerimientos.<BR></P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>En 2º lugar, las funciones trigonométricas reciben y dan sus valores en 
+  radianes.<BR></P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>En 3<SUP>er</SUP> lugar debemos tener cuidado, si deseamos mantener la 
+  precisión, y las funciones forman parte de expresiones, de que la asignación 
+  se haga a una variable que pueda contener el resultado.</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>-FUNCIONES GRAFICAS:</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Las funciones gráficas se encuentran en el fichero de librería GRAPHICS.LIB 
+  del FORTRAN. Para acceder a ellas necesitamos "incluir" sus parámetros de 
+  definición. Esto se verá en el apartado PROGRAMACION AVANZADA. No obstante, 
+  las enumeraremos aquí:</P>
+  <TABLE>
+    <TBODY>
+    <TR>
+      <TD><TT>arc</TT></TD>
+      <TD><TT>getgtextextent</TT></TD>
+      <TD><TT>getwindowcoord</TT></TD>
+      <TD><TT>polygon_wxy</TT></TD>
+      <TD><TT>setgtextvector</TT></TD></TR>
+    <TR>
+      <TD><TT>arc_w</TT></TD>
+      <TD><TT>getimage</TT></TD>
+      <TD><TT>getwritemode</TT></TD>
+      <TD><TT>putimage</TT></TD>
+      <TD><TT>setlinestyle</TT></TD></TR>
+    <TR>
+      <TD><TT>clearscreen</TT></TD>
+      <TD><TT>getimage_w</TT></TD>
+      <TD><TT>grstatus</TT></TD>
+      <TD><TT>putimage_w</TT></TD>
+      <TD><TT>setpixel</TT></TD></TR>
+    <TR>
+      <TD><TT>displaycursor</TT></TD>
+      <TD><TT>getlinestyle</TT></TD>
+      <TD><TT>imagesize</TT></TD>
+      <TD><TT>rectangle</TT></TD>
+      <TD><TT>setpixel_w</TT></TD></TR>
+    <TR>
+      <TD><TT>ellipse</TT></TD>
+      <TD><TT>getphyscoord</TT></TD>
+      <TD><TT>imagesize_w</TT></TD>
+      <TD><TT>rectangle_w</TT></TD>
+      <TD><TT>settextcolor</TT></TD></TR>
+    <TR>
+      <TD><TT>ellipse_w</TT></TD>
+      <TD><TT>getpixel</TT></TD>
+      <TD><TT>imagesize_wxy</TT></TD>
+      <TD><TT>registerfonts</TT></TD>
+      <TD><TT>settextcursor</TT></TD></TR>
+    <TR>
+      <TD><TT>floodfill</TT></TD>
+      <TD><TT>getpixel_w</TT></TD>
+      <TD><TT>lineto</TT></TD>
+      <TD><TT>remapallpalette</TT></TD>
+      <TD><TT>settextposition</TT></TD></TR>
+    <TR>
+      <TD><TT>floodfill_w</TT> </TD>
+      <TD><TT>gettextcolor</TT></TD>
+      <TD><TT>lineto_w</TT></TD>
+      <TD><TT>remappalette</TT></TD>
+      <TD><TT>settextrows</TT></TD></TR>
+    <TR>
+      <TD><TT>getactivepage</TT></TD>
+      <TD><TT>gettextcursor</TT></TD>
+      <TD><TT>moveto</TT></TD>
+      <TD><TT>scrolltextwindow</TT></TD>
+      <TD><TT>settextwindow</TT></TD></TR>
+    <TR>
+      <TD><TT>getarcinfo</TT></TD>
+      <TD><TT>gettextposition</TT></TD>
+      <TD><TT>moveto_w</TT></TD>
+      <TD><TT>selectpalette</TT></TD>
+      <TD><TT>setvideomode</TT></TD></TR>
+    <TR>
+      <TD><TT>getbkcolor</TT></TD>
+      <TD><TT>gettextwindow</TT></TD>
+      <TD><TT>outgtext</TT></TD>
+      <TD><TT>setactivepage</TT></TD>
+      <TD><TT>setvideomoderows</TT></TD></TR>
+    <TR>
+      <TD><TT>getcolor</TT></TD>
+      <TD><TT>getvideoconfig</TT></TD>
+      <TD><TT>outtext</TT></TD>
+      <TD><TT>setbkcolor</TT></TD>
+      <TD><TT>setvieworg</TT></TD></TR>
+    <TR>
+      <TD><TT>getcurrentposition</TT></TD>
+      <TD><TT>getviewcoord</TT></TD>
+      <TD><TT>pie</TT></TD>
+      <TD><TT>setcliprgn</TT></TD>
+      <TD><TT>setviewport</TT></TD></TR>
+    <TR>
+      <TD><TT>getcurrentposition_w</TT></TD>
+      <TD><TT>getviewcoord_w</TT></TD>
+      <TD><TT>pie_w</TT></TD>
+      <TD><TT>setcolor</TT></TD>
+      <TD><TT>setvisualpage</TT></TD></TR>
+    <TR>
+      <TD><TT>getfillmask</TT></TD>
+      <TD><TT>getviewcoord_wxy</TT></TD>
+      <TD><TT>polygon</TT></TD>
+      <TD><TT>setfillmask</TT></TD>
+      <TD><TT>setwindow</TT></TD></TR>
+    <TR>
+      <TD><TT>getfontinfo</TT></TD>
+      <TD><TT>getvisualpage</TT></TD>
+      <TD><TT>polygon_w</TT></TD>
+      <TD><TT>setfont</TT></TD>
+      <TD><TT>setwritemode</TT></TD></TR>
+    <TR>
+      <TD></TD>
+      <TD><TT>unregisterfonts</TT></TD>
+      <TD><TT>wrapon</TT></TD>
+      <TD></TD>
+      <TD></TD></TR></TBODY></TABLE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>De estas, algunas son funciones y otras subrutinas. Deberán mirarse los 
+  ficheros FGRAPH.FI y FGRAPH.FD o el <I>Microsoft Fortran Reference</I> para 
+  determinar la forma de llamada como los datos a enviar y los resultados u 
+  objetivo del módulo. </P></BLOCKQUOTE>
+<HR width="75%">
+
+<DIV align=center>
+<CENTER>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD><A href="http://personal.redestb.es/mgtalles/fortran/tema3_5.htm"><IMG 
+      height=40 alt="Pasar al Tema 3.5" 
+      src="Microsoft FORTRAN 5_1_ Funciones intrinsecas y graficas_archivos/anterior.jpg" 
+      width=110 align=bottom border=0></A> </TD>
+    <TD><A href="http://personal.redestb.es/mgtalles/fortran/index.htm"><IMG 
+      height=40 alt="Ir al indice" 
+      src="Microsoft FORTRAN 5_1_ Funciones intrinsecas y graficas_archivos/indice.jpg" 
+      width=110 align=bottom border=0></A> </TD>
+    <TD><A href="http://personal.redestb.es/mgtalles/fortran/attribu.htm"><IMG 
+      height=40 alt="Pasar a la siguiente seccion" 
+      src="Microsoft FORTRAN 5_1_ Funciones intrinsecas y graficas_archivos/sgente.jpg" 
+      width=110 align=bottom border=0></A> 
+</TD></TR></TBODY></TABLE></CENTER></DIV></BODY></HTML>

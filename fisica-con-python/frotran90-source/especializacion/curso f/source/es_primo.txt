@@ -1,0 +1,15 @@
+C     PROGRAMA QUE IDENTIFICA SI UN NUMERO ES PRIMO
+      write (*,*) 'que numero deseas analizar: '
+      read(*,*) f
+      c=f-1
+   20 if (c.le.1.) then
+      write (*,*) f,' es primo'
+      else
+      z=f/c
+      if ((z-int(z)).eq.0) goto 10
+      c=c-1.
+      goto 20
+   10 write (*,*) f,' no es primo'
+      endif
+      stop
+      end

@@ -1,0 +1,375 @@
+%\documentclass[12pt]{article}%
+%\usepackage{graphicx}
+%\usepackage{amsmath}
+%\usepackage{zahlen}%
+%\setcounter{MaxMatrixCols}{30}%
+%\usepackage{amsfonts}%
+%\usepackage{amssymb}
+%%TCIDATA{OutputFilter=latex2.dll}
+%%TCIDATA{Version=4.00.0.2312}
+%%TCIDATA{CSTFile=LaTeX article (bright).cst}
+%%TCIDATA{Created=Thu Nov 01 09:02:45 2001}
+%%TCIDATA{LastRevised=Saturday, August 09, 2003 00:47:08}
+%%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%%TCIDATA{<META NAME="DocumentShell" CONTENT="Journal Articles\Standard LaTeX Article">}
+%\newtheorem{theorem}{Theorem}
+%\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+%\newtheorem{algorithm}[theorem]{Algorithm}
+%\newtheorem{axiom}[theorem]{Axiom}
+%\newtheorem{case}[theorem]{Case}
+%\newtheorem{claim}[theorem]{Claim}
+%\newtheorem{conclusion}[theorem]{Conclusion}
+%\newtheorem{condition}[theorem]{Condition}
+%\newtheorem{conjecture}[theorem]{Conjecture}
+%\newtheorem{corollary}[theorem]{Corollary}
+%\newtheorem{criterion}[theorem]{Criterion}
+%\newtheorem{definition}[theorem]{Definition}
+%\newtheorem{example}[theorem]{Example}
+%\newtheorem{exercise}[theorem]{Exercise}
+%\newtheorem{lemma}[theorem]{Lemma}
+%\newtheorem{notation}[theorem]{Notation}
+%\newtheorem{problem}[theorem]{Problem}
+%\newtheorem{proposition}[theorem]{Proposition}
+%\newtheorem{remark}[theorem]{Remark}
+%\newtheorem{solution}[theorem]{Solution}
+%\newtheorem{summary}[theorem]{Summary}
+%\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+%\begin{document}
+\section{AN\'{A}LISIS GR\'{A}FICO}
+
+El \ an\'{a}lisis gr\'{a}fico es un m\'{e}todo que nos sirve para determinar
+la relaci\'{o}n matem\'{a}tica entre dos o m\'{a}s variables, ( en nuestro
+caso cantidades f\'{\i}sicas) partiendo de una gr\'{a}fica realizada a partir
+de datos experimentales tomados al azar.
+
+Este estudio lo vamos presentar en tres partes :\newline Presentaci\'{o}n de
+la gr\'{a}fica, escogencia de un modelo matem\'{a}tico y establecimiento de la
+relaci\'{o}n emp\'{\i}rica entre las variables, pero antes explicaremos como
+se introducen los datos en el software llamado Data Studio, el cual
+utilizaremos en todo el semestre
+\begin{enumerate}
+\item[a.] Usando el sensor.\newline El sensor transforma su lectura en datos
+num\'{e}ricos usando la interface como puente entre el sensor y el software,
+lo que quiere decir que los datos son introducidos automaticamente, y si hace
+click en el icono table observara algo parecido a la\ref{Figura 1}
+%TCIMACRO{\FRAME{dhFU}{1.1381in}{1.8922in}{0pt}{\Qcb{Figura 1}}{\Qlb{figura1}%
+%}{table.jpg}{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "USEDEF";  valid_file "F";
+%width 1.1381in;  height 1.8922in;  depth 0pt;  original-width 1.1044in;
+%original-height 1.8542in;  cropleft "0";  croptop "1";  cropright "1";
+%cropbottom "0";  filename 'table.jpg';file-properties "XNPEU";}}}%
+%BeginExpansion
+\centering
+\includegraphics[
+height=1.8922in,
+width=1.1381in
+]%
+{table.eps}%
+\\
+Figura 1
+\label{figura1}%
+%EndExpansion
+\item[b.] Editando una tabla.\newline En la barra de men\'{u}
+est\'{a}ndar
+se\~{n}ale experiment y haga click en new empty data table(\ref{Figura 2}),%
+%TCIMACRO{\FRAME{dhFU}{1.4313in}{1.6613in}{0pt}{\Qcb{Nueva tabla}%
+%}{\Qlb{figura2}}{table2.jpg}{\special{ language "Scientific Word";
+%type "GRAPHIC";  maintain-aspect-ratio TRUE;  display "USEDEF";
+%valid_file "F";  width 1.4313in;  height 1.6613in;  depth 0pt;
+%original-width 1.3958in;  original-height 1.625in;  cropleft "0";
+%croptop "1";  cropright "1";  cropbottom "0";
+%filename 'table2.jpg';file-properties "XNPEU";}}}%
+%BeginExpansion
+\centering
+\includegraphics[
+height=1.6613in,
+width=1.4313in
+]%
+{table2.eps}%
+\\
+Nueva tabla
+\label{figura2}%
+%EndExpansion
+luego aparece una tabla como la de\ref{Figura 2}.
+%TCIMACRO{\FRAME{dhF}{2.7025in}{2.0332in}{0pt}{}{\Qlb{Figura2}}{datos1.jpg}%
+%{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "USEDEF";  valid_file "F";
+%width 2.7025in;  height 2.0332in;  depth 0pt;  original-width 8.3333in;
+%original-height 6.25in;  cropleft "0";  croptop "1";  cropright "1";
+%cropbottom "0";  filename 'datos1.jpg';file-properties "XNPEU";}}}%
+%BeginExpansion
+\centering
+\includegraphics[
+height=2.0332in,
+width=2.7025in
+]%
+{datos1.eps}%
+\label{Figura2}%
+%EndExpansion
+Usando tab puede cambiar de celda para introducir datos.
+\end{enumerate}
+En caso de que se equivoque se puede borrar, se\~{n}alando y
+haciendo click con el boton derecho en remove
+\subsection{Presentaci\'{o}n de la gr\'{a}fica}
+De acuerdo con el nivel de estas notas s\'{o}lo presentaremos una
+introducci\'{o}n del an\'{a}lisis gr\'{a}fico en dos variables.
+las cuales representaremos en un plano cartesiano de la siguiente
+forma:
+\begin{enumerate}
+\item Titulo: El titulo lo colocamos en la parte superior as\'{\i}
+.\newline(nombre de la variable en el eje $Y$) VS (nombre de la
+variable en el eje $X$). \item En los ejes las letras que
+representan a las variables y a sus unidades. Se indican las
+escalas las cuales deben ser m\'{u}ltiplos de 2, 5 o 10 \item
+Luego se grafican los puntos siguiendo algunos de los siguientes
+m\'{e}todos
+\begin{enumerate}
+\item Se grafican los puntos y luego se intercala la gr\'{a}fica entre los
+puntos, teniendo en cuenta que la gr\'{a}fica sea suave ( es decir que no
+tenga v\'{e}rtices) y que la misma cantidad de puntos quede a un lado que al
+otro de la gr\'{a}fica. por ejemplo%
+%TCIMACRO{\FRAME{dtbpFU}{8.8194cm}{3.5981cm}{0pt}{\Qcb{Figura 1}}{\Qlb{Figura
+%1}}{ajuste1.wmf}{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "PICT";  valid_file "F";
+%width 8.8194cm;  height 3.5981cm;  depth 0pt;  original-width 5.4864in;
+%original-height 2.028in;  cropleft "0";  croptop "1";  cropright "1";
+%cropbottom "0";  filename 'D:/Tacho/ajuste1.WMF';file-properties "XNPEU";}}}%
+%BeginExpansion
+\centering
+\includegraphics[
+height=3.5981cm,
+width=8.8194cm
+]%
+{ajuste1.eps}%
+\\
+Figura 1
+\label{Figura 1}%
+%EndExpansion
+No se deba trazar as\'{\i}:%
+%TCIMACRO{\FRAME{dtbpFU}{11.1237cm}{4.4372cm}{0pt}{\Qcb{Figura 2}}{\Qlb{Figura
+%2}}{ajuste2.wmf}{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "PICT";  valid_file "F";
+%width 11.1237cm;  height 4.4372cm;  depth 0pt;  original-width 5.4864in;
+%original-height 2.1664in;  cropleft "0";  croptop "1";  cropright "0.9998";
+%cropbottom "0";  filename 'D:/Tacho/ajuste2.WMF';file-properties "XNPEU";}}}%
+%BeginExpansion
+\centering
+\includegraphics[
+trim=0.000000in 0.000000in 0.001097in 0.000000in,
+height=4.4372cm,
+width=11.1237cm
+]%
+{ajuste2.eps}%
+\\
+Figura 2
+\label{Figura 2}%
+%EndExpansion
+En las figura 1 observamos que se pueden trazar infinitas
+gr\'{a}ficas que cumplen las condiciones establecidas. \newline Lo
+que nos indica que la gr\'{a}fica que trazamos no es la
+gr\'{a}fica real, \'{e}sta s\'{o}lo nos indica su forma.
+\item Si
+al tomar los datos podemos fijar cada medida de una variable Por
+ejemplo: fijamos cada medida $x_{i}$ de $X$ entonces realizamos
+varios ensayos para determinar cada valor $y_{i}$ de la variable
+$Y$, obteniendo la media $\bar{y}_{i}$ para cada medida, luego
+graficamos para cada medida los puntos $$\left(
+x_{i},\bar{y}_{i}\right)  ,\left(  x_{i},y_{M\acute{a}x}\right)$$
+y $$\left(  x_{i},y_{m\acute{\imath}n}\right)$$ como indica la
+figura
+%TCIMACRO{\FRAME{dtbpFU}{2.0245in}{2.0107in}{0pt}{\Qcb{Figura 3}}{}%
+%{ydes.wmf}{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "PICT";  valid_file "F";
+%width 2.0245in;  height 2.0107in;  depth 0pt;  original-width 1.9865in;
+%original-height 1.9726in;  cropleft "0";  croptop "1";  cropright "1";
+%cropbottom "0";  filename 'D:/Tacho/ydes.WMF';file-properties "XNPEU";}}}%
+%BeginExpansion
+\centering
+\includegraphics[
+height=2.0107in,
+width=2.0245in
+]%
+{ydes.eps}%
+%EndExpansion
+Luego con una serie de datos trazamos una gr\'{a}fica que pase por la
+mayor\'{\i}a de los puntos medios o que toque todos los segmentos, as\'{\i}:%
+%TCIMACRO{\FRAME{dtbpFU}{1.8922in}{1.8334in}{0pt}{\Qcb{Figura 4}}{}%
+%{gdes.wmf}{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "PICT";  valid_file "F";
+%width 1.8922in;  height 1.8334in;  depth 0pt;  original-width 2.6247in;
+%original-height 2.5417in;  cropleft "0";  croptop "1";  cropright "1";
+%cropbottom "0";  filename 'D:/Tacho/gdes.WMF';file-properties "XNPEU";}}}%
+%BeginExpansion
+\centering
+\includegraphics[
+height=1.8334in,
+width=1.8922in
+]%
+{gdes.eps}%
+%EndExpansion
+observemos que los segmentos indican la variabilidad de cada
+medida, es decir la medida real puede ser cualquier valor sobre el
+segmento, lo que nos indica que la curva real es una de las
+infinitas que podemos trazar entre las gr\'{a}ficas punteadas, lo
+que indica que este m\'{e}todo me determina la forma de la curva
+real. \item Si cada medida $\left(  x_{i},y_{i}\right)  $ la
+obtenemos al realizar varios ensayos, entonces graficamos cada
+punto $\left(  \bar{x}_{i},\bar {y}_{i}\right)  $ tal que este en
+la intersecci\'{o}n de las diagonales del rect\'{a}ngulo formado
+por los lados de longitudes $\Delta x_{i},\Delta y_{i}$
+como indica la figura 5%
+%TCIMACRO{\FRAME{dtbpFU}{2.0833in}{1.5696in}{0pt}{\Qcb{Figura 5}}{}%
+%{destg.wmf}{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "PICT";  valid_file "F";
+%width 2.0833in;  height 1.5696in;  depth 0pt;  original-width 2.0557in;
+%original-height 1.542in;  cropleft "0";  croptop "1";  cropright "1";
+%cropbottom "0";  filename 'D:/Tacho/destg.WMF';file-properties "XNPEU";}}}%
+%BeginExpansion
+\centering
+\includegraphics[
+height=1.5696in,
+width=2.0833in
+]%
+{destg.eps}%
+%EndExpansion
+Con una serie de datos la curva debe pasar por todos los rect\'{a}ngulos como
+indica la figura 6.%
+%TCIMACRO{\FRAME{dphFU}{6.6031cm}{6.379cm}{0pt}{\Qcb{Figura 6}}{}%
+%{gdes1.wmf}{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "PICT";  valid_file "F";
+%width 6.6031cm;  height 6.379cm;  depth 0pt;  original-width 6.4307in;
+%original-height 6.2085in;  cropleft "0";  croptop "1";  cropright "1";
+%cropbottom "0";  filename 'D:/Tacho/gdes1.WMF';file-properties "XNPEU";}}}%
+%BeginExpansion
+\centering
+\includegraphics[
+height=6.379cm,
+width=6.6031cm
+]%
+{gdes1.eps}%
+\\
+Figura 6
+%EndExpansion
+De la figura observamos lo mismo que en los dos m\'{e}todos anteriores, que la
+gr\'{a}fica que podemos trazar no es \'{u}nica
+%\end{enumerate}
+\item Si usamos Data Studio, se hace lo siguiente.
+%\begin{enumerate}
+\item Cuando digit\'{o} los datos observe que en la parte superior derecha de
+la ventana aparecieron los siguientes iconos(\ref{figura3}),,
+%TCIMACRO{\FRAME{dhF}{2.5728in}{1.8706in}{0pt}{}{\Qlb{figura3}}{datas.jpg}%
+%{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "USEDEF";  valid_file "F";
+%width 2.5728in;  height 1.8706in;  depth 0pt;  original-width 2.5313in;
+%original-height 1.8334in;  cropleft "0";  croptop "1";  cropright "1";
+%cropbottom "0";  filename 'datas.jpg';file-properties "XNPEU";}}}%
+%BeginExpansion
+\centering
+\includegraphics[
+height=1.8706in,
+width=2.5728in
+]%
+{datas.eps}%
+\label{figura3}%
+%EndExpansion
+haga clic sobre el l\'{a}piz, para que aparezca%
+%TCIMACRO{\FRAME{dhF}{2.7025in}{2.0332in}{0pt}{}{}{editable.jpg}%
+%{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "USEDEF";  valid_file "F";
+%width 2.7025in;  height 2.0332in;  depth 0pt;  original-width 8.3333in;
+%original-height 6.25in;  cropleft "0";  croptop "1";  cropright "1";
+%cropbottom "0";  filename 'editable.jpg';file-properties "XNPEU";}}}%
+%BeginExpansion
+\centering
+\includegraphics[
+height=2.0332in,
+width=2.7025in
+]%
+{editable.eps}
+\label{figura3}%
+%EndExpansion
+\begin{enumerate}
+\item Haciendo click en xlabel, ylabel puede colocar en label el
+nombre de las variables,(en \'{\i}ngles si trabaja con sensores y
+el programa no est\'{a} traducido), en units coloca las unidades
+corespondientes a la variable en el sistema internacional (SI)
+\item El t\'{\i}tulo se coloca en measurement, en accuracy se
+coloca la precisi\'{o}n y en display precision el n\'{u}mero de
+cifras decimales \item Haciendo click sobre el tri\'{a}ngulo o
+figura que aparece debajo del l\'{a}piz y se arrastra hasta graph
+como indica la \ref{figura4}
+%TCIMACRO{\FRAME{dhF}{0.7187in}{1.0862in}{0pt}{}{\Qlb{figura4}}{graph.jpg}%
+%{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "USEDEF";  valid_file "F";
+%width 0.7187in;  height 1.0862in;  depth 0pt;  original-width 0.6875in;
+%original-height 1.0525in;  cropleft "0";  croptop "1";  cropright "1";
+%cropbottom "0";  filename 'graph.jpg';file-properties "XNPEU";}}}%
+%BeginExpansion
+\centering
+\includegraphics[
+height=1.0862in,
+width=0.7187in
+]%
+{graph.eps}%
+\label{figura4}%
+%EndExpansion
+%\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+\subsection{Modelos matem\'{a}ticos}
+Conociendo la forma de la curva podemos suponer un modelo
+matem\'{a}tico, en esta secci\'{o}n presentaremos los cuatro
+m\'{a}s usados
+%\begin{enumerate}
+\item Si el modelo es %$$y=ax^{m}\;\;a\in\rz ,\;m,a\neq0,\;m\in\qz
+%^{+}$$
+\begin{enumerate}
+\item Se le llama Potencial si tiene la forma
+%TCIMACRO{\FRAME{dtbpFU}{3in}{2.0003in}{0pt}{\Qcb{$m\in\gz^{+}\;m\neq1$}}%
+%{}{Plot}{\special{ language "Scientific Word";  type "MAPLEPLOT";  width 3in;
+%height 2.0003in;  depth 0pt;  display "PICT";  plot_snapshots TRUE;
+%mustRecompute FALSE;  lastEngine "MuPAD";  xmin "-5";  xmax "5";
+%xviewmin "0.001";  xviewmax "5.000000";  yviewmin "-0.001";
+%yviewmax "10.100000";  viewset "XY";  plottype 4;  plottickdisable TRUE;
+%numpoints 49;  plotstyle "patch";  axesstyle "normal";  xis \TEXUX{x};
+%yis \TEXUX{y};  var1name \TEXUX{$x$};  var2name \TEXUX{$y$};
+%function \TEXUX{$x^{3}$};  linecolor "black";  linestyle 1;
+%pointstyle "point";  linethickness 1;  lineAttributes "Solid";
+%var1range "-5,5";  num-x-gridlines 49;  curveColor "[flat::RGB:0000000000]";
+%curveStyle "Line";  rangeset "X";  valid_file "T";
+%tempfilename 'HJC61301.wmf';tempfile-properties "XPR";}}}%
+%BeginExpansion
+\centering
+\includegraphics[
+height=2.0003in,
+width=3in
+]%
+{HJC61301.eps}%
+\\
+%$m\in\gz^{+}\;m\neq1$%
+%EndExpansion
+%\item Radical%
+%%TCIMACRO{\FRAME{dtbpFU}{3in}{2.0003in}{0pt}{\Qcb{$m\in\qz^{+}-\gz^{+}$}}%
+%%{}{Plot}{\special{ language "Scientific Word";  type "MAPLEPLOT";  width 3in;
+%%height 2.0003in;  depth 0pt;  display "PICT";  plot_snapshots TRUE;
+%%mustRecompute FALSE;  lastEngine "MuPAD";  xmin "-5";  xmax "5";
+%%xviewmin "0.001";  xviewmax "5.000000";  yviewmin "0.428825";
+%%yviewmax "2.272213";  viewset "XY";  plottype 4;  numpoints 49;
+%%plotstyle "patch";  axesstyle "normal";  xis \TEXUX{x};  yis \TEXUX{y};
+%%var1name \TEXUX{$x$};  var2name \TEXUX{$y$};  function \TEXUX{$\sqrt{x}$};
+%%linecolor "black";  linestyle 1;  pointstyle "point";  linethickness 1;
+%%lineAttributes "Solid";  var1range "-5,5";  num-x-gridlines 49;
+%%curveColor "[flat::RGB:0000000000]";  curveStyle "Line";  rangeset "X";
+%%valid_file "T";  tempfilename 'HJC6YV00.wmf';tempfile-properties "XPR";}}}%
+%%BeginExpansion
+%\centering
+%\includegraphics[
+%height=2.0003in,
+%width=3in
+%]%
+%{HJC6YV00.eps)
+%\\
+%%$m\in\qz^{+}-\gz^{+}$%
+%%EndExpansion
+\end{enumerate}
+\end{enumerate}

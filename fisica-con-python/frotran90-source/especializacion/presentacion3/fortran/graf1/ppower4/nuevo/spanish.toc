@@ -1,0 +1,21 @@
+\select@language {spanish}
+\contentsline {section}{\numberline {1}Descripci'on}{2}
+\contentsline {subsection}{\numberline {1.1}Traducciones}{2}
+\contentsline {subsection}{\numberline {1.2}Abreviaciones}{3}
+\contentsline {subsection}{\numberline {1.3}Coma decimal}{4}
+\contentsline {subsection}{\numberline {1.4}Divisi'on de palabras}{4}
+\contentsline {subsection}{\numberline {1.5}Ordinales}{5}
+\contentsline {subsection}{\numberline {1.6}Funciones matem'aticas}{6}
+\contentsline {subsection}{\numberline {1.7}Entrecomillados}{7}
+\contentsline {subsection}{\numberline {1.8}Selecci'on}{8}
+\contentsline {subsection}{\numberline {1.9}Espaciado}{9}
+\contentsline {subsection}{\numberline {1.10}Miscel'anea}{9}
+\contentsline {section}{\numberline {2}\textsf {spanish} como lengua principal}{10}
+\contentsline {section}{\numberline {3}Adaptaci'on}{11}
+\contentsline {subsection}{\numberline {3.1}Configuraci'on}{11}
+\contentsline {subsection}{\numberline {3.2}Otros cambios}{12}
+\contentsline {section}{\numberline {4}Formatos distintos a \LaTeXe }{13}
+\contentsline {section}{\numberline {5}Bibliograf'ias}{13}
+\contentsline {section}{\numberline {6}Otros paquetes}{13}
+\contentsline {section}{\numberline {7}Incompatibilidades con versiones anteriores}{14}
+\contentsline {section}{Referencias}{14}

@@ -1,0 +1,10 @@
+   Resultado para N=  15 :
+**************************************************
+   Resultado de la Integral numerica para t: 1.409236
+  Resultado de la Integral analitica para t: 1.408993
+  Diferencia = 0.017268 %
+   Resultado de la Integral numerica para L: 7.746278
+  Resultado de la Integral analitica para L: 7.748781
+  Diferencia = 0.032295 %
+  Error = .451E-06
+**************************************************

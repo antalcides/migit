@@ -1,0 +1,209 @@
+%% demoseminar.tex
+%%
+%% Copyright (c) 1999 David Wilson
+%% Utopia Precision Typesetting
+%%
+%% demo of Tex/Acrobat capabilities
+%% using seminar.cls with u-build and u-background
+%%
+%% * make sure minisketch.pro is where dvipsone (or dvips) can find it
+%% * you'll probably need to change "nu" to some locally-available font
+%%   in the definition of \Fancy below
+%% * in the \NewSound command below you will need to change
+%%   the pathname to provide your PostScript to PDF converter with
+%%   enough information to locate the whistle1.dat file
+%%
+%% if you are using Ghostscript
+%% * you may need to put \makeatletter\let\U@SoundInputFilter\empty\makeatother
+%%   in the document header to get the sound to work
+%% * depending on the version of Ghostscript, you may need to change the
+%%   \LinkBorderWidth units (instead of .5pt you could try 2sp)
+%% * the flyingbuttress background may cause problems if you don't
+%%   specify a screen-appropriate resolution
+%%
+%% Depending on your dvi previewer's colour support you may need to
+%%   comment out the \color and \pagecolor commands just after
+%%   the \begin{document} below
+%%
+\documentclass{seminar}
+%% comment out the following line if you are not using Y&Y TeX
+\usepackage[LY1]{fontenc}
+\usepackage{semhelv}
+\usepackage{graphicx}
+\usepackage[dvipsone]{u-background} %% remove the [dvipsone] option if you are not using Y&Y TeX
+\usepackage{u-build}
+%%
+%% Document Info for PDF
+%%
+\PDFDocInfo{title=Slideshow demo (LaTeX version),
+            subject=Demo of TeX/Acrobat capabilities,
+            author={DC Wilson, Utopia Precision Typesetting},
+            keywords=seminar u-build u-background}
+%%
+%% setting up for the demo*.eps graphics used below
+%%
+\AtBeginDocument{\special{header=minisketch.pro}
+  \special{! /TextColour {254 255 div 254 255 div 254 255 div } def}}
+%%
+%% set up the slides (seminar.cls)
+%%
+\slideframe{none}
+\newpagestyle{u}{\NoDim{\tiny\color{Uwhite}\MyHeadXtra\hfil0.\thepage}}{}
+\let\MyHeadXtra\empty
+\slidepagestyle{u}
+\slidesmag{7}
+%%
+%% from plain TeX, because I don't like LaTeX's equation alignments
+%%
+\def\eqalign#1{\null\,\vcenter{\openup1\jot\mathsurround=0pt%
+  \everycr={}\tabskip=0pt\halign
+  {\strut\hfil$\displaystyle{##}$&$\displaystyle{{}##}$\hfil\crcr#1\crcr}}\,}
+\def\hb{\hfil\break}
+%%
+%% A few non-default values
+%%
+\parindent=0pt
+\font\tenar=msam10 at8pt
+\BblobSymbol{\tenar\char"07}
+\BbblobSymbol{\tenar\char"46}
+\NavButtonBorderWidth{0pt}\NavButtonSep{-20pt}\NavButtonTextColor{Uwhite}
+\NavButtonSpace{0pt plus1fil}\PlaceNavButtons{bl}
+\LinkBorderWidth{0pt}
+%%
+\begin{document}
+\NewSound{whistle1}{c:/tex/utopiatype/products/bundle/sounds/whistle1.dat}
+\begin{slide}
+\color{Uwhite}\pagecolor{black} % so we can see the text in the dvi viewer
+ 
+\Heading{\advance\baselineskip-10pt\TeX\ and Acrobat:\\\hfill
+ better than PowerPoint?}
+
+% to put explanatory note at the bottom of the page
+% but before the first build
+\BackgroundOverlay{\rightline{\color{Uwhite}\tiny(use PgDn or Enter to move forward)}\medskip}
+
+\Build Microsoft's PowerPoint is the most commonly used
+application for computer-assisted presentations
+
+\Build However, PowerPoint works best with simple text-and-graphics
+presentations\Build, not with technical --- and especially
+mathematical --- material
+
+\newslide\DimmingOn\PageTransition{Dissolve}
+\BackgroundOverlay{} % turn off the first-page explanatory note
+Using \TeX\ to format the `slides' and Adobe Acrobat to display them
+(in full-screen mode) provides a viable --- and much more
+mathematics-friendly --- alternative
+
+\Blob[transition=Dissolve] builds are easily effected\hb
+{\scriptsize(with earlier stuff dimmed if you want)}
+
+\Bblob[transition=Dissolve] with the usual blobs at various levels
+
+\Bbblob[transition=Dissolve] Acrobat Reader provides transition effects
+{\scriptsize(if you like that kind of thing)}
+
+\newslide\PageTransition{BlindsVert}
+\Background{horizontal}{Ublue}
+\blob different backgrounds are possible
+
+\Blob Mathematics can be run inline: \Build you can
+discuss implicit differentiation of $\sqrt{x^3- y}$
+or the graph of $\cos(3\pi z_\alpha)$ without
+jumping through typographical hoops
+
+\vfil
+\Build[sound=whistle1]
+\Heading{Main Theorem}\Destination{MagnumOpus}
+If you wish you can announce your major points with a flourish
+{\scriptsize (on Windows and Macs anyway)}
+
+\DimmingOff
+\newslide\PageTransition{BoxOut}
+\Background{horizontal}{Ugreen}
+
+\blob In PowerPoint, mathematics has to be included as
+an embedded object or as a graphic\Build, leading to
+
+\blob difficulty getting consistent sizing
+
+\Bblob difficulty with alignment
+
+\Bblob difficulty with `building' the display of the mathematics
+
+\Bblob difficulty ensuring all needed fonts are installed on the displaying machine
+
+\newslide\PageTransition{Replace}
+\Background{diagonal}{Uviolet}
+
+\blob Builds can be inserted almost anywhere: \Build
+to work through a mathematical calculation---
+
+\Bblob {\scriptsize We have $\let\vcenter\vtop
+\eqalign{SE&=\sqrt{{s_A^2\over n_A}+{s_B^2\over n_B}}\cr\Build
+&=\sqrt{{(6.8)^2\over75}+{(7.5)^2\over100}}\cr\Build
+&=1.086\cr\Build
+\llap{compare {} }{s_A\over\sqrt{n_A}}&=0.785\cr
+{s_B\over\sqrt{n_B}}&=0.750\cr}$
+
+}
+\newslide
+\Background{Diagonalcurve}{Ublue}
+\blob between two graphics side by side:
+$$\includegraphics[width=2cm]{demo3.eps}
+  \Build\qquad\qquad
+  \includegraphics[width=2cm]{demo4.eps}$$
+\Build followed by more text
+
+\vfill
+{\tiny(getting PowerPoint to build an arbitrary sequence of what it considers
+to be different objects---text, graphics, equations, etc---requires significant effort)
+
+}
+
+\newslide
+\Background{Vertical}{Ublue}
+\blob\hbox{with a bit of effort, in the middle of a graphic:}
+$$\includegraphics[width=2.3cm]{demo1.eps}\Build
+  \llap{\includegraphics[width=2.3cm]{demo2.eps}}
+$$
+{\scriptsize for more dynamic illustrations}
+
+\newslide
+\Background{horizontal}{Ublue}
+\NavButton{\Goto{MagnumOpus}}{\reflectbox{\includegraphics[width=10pt,bb=6 44 198 162]{arrow.eps}}
+Back to Main Theorem}
+\NavButton{\GotoEnd}{Skip to End \includegraphics[width=10pt,bb=6 44 198 162]{arrow.eps}}
+
+\blob You can incorporate navigation buttons \Build\hb
+{\scriptsize(to relive past glories, or gracefully shorten your presentation)}
+
+\Blob\hbox{You can use hyperlinks to external documents}
+
+\Bblob Another pdf document: 
+\JumpToPDF{acrguide.pdf}{acrguide.pdf}
+{\scriptsize (assuming it's accessible)}
+
+\Bblob Launch another \Launch{inference.xls}{application}\hb
+{\scriptsize (assuming you own a file called
+inference.xls)}
+
+\Bblob A \Weblink{http://www.utopiatype.com.au/}{webpage}
+
+\newslide
+\def\MyHeadXtra{\LinkBorderWidth{.5pt}\LinkTextColour{Uwhite}\GeneralDocInfo{About}}
+\NavButton{\GoBack}{Click {\color{Uyellow}here} to go back.}
+\NavButton{\ClosePresentation}{Click {\color{Uyellow}here} to close,}
+\NavButton{\QuitAcrobat}{or {\color{Uyellow}here} to exit.}
+\Background{flyingbuttress}[rgb]{0,.0588,.75294}[rgb]{.184,.376,.941}[rgb]{0,0,.188235}
+And eventually we reach\dots\Build
+\vfill
+\font\Fancy=nu at50pt
+\HeadingTextColour{Ugold}
+\Heading[center]{\Fancy The End}
+\vfill
+\end{slide}
+\end{document}
+
+
+

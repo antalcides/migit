@@ -1,0 +1,89 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 0.8.3 ] */
+
+/* [wxMaxima: comment start ]
+José Luis da Vila Alonso, 2009)
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: title   start ]
+Método de Gauss
+   [wxMaxima: title   end   ] */
+
+/* [wxMaxima: comment start ]
+Método para resolver sistemas de ecuaciones lineales (SEL)
+
+    El método consiste en transformar el sistema en uno equivalente
+    que sea triangular superior. Después se resuelve por sustitución regresiva.
+
+Entrada:     A = matriz de coeficientes
+             b = términos independientes
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+A:matrix([1,2,1],[1,3,2],[2,1,3]); b:matrix([1, 0, -2]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+n:length(A); AM:addcol(A,b);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Transformamos la matriz ampliada en forma triangular superior
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+for j:1 thru n-1 do (
+  /*______________________Buscamos el pivote */
+  pivote:j,  
+  for i:j+1 thru n do (
+    if abs(AM[i,j])>abs(AM[pivote,j]) then (
+       pivote:i 
+    )
+  ), 
+  /*_______________________Intercambio de filas */
+  if (pivote#j) then (
+      for k:1 thru n+1 do(
+          swap:AM[j,k],
+          AM[j,k]:AM[pivote,k],
+          AM[pivote,k]:swap
+      ) 
+  ), 
+  /*_______________________Creamos ceros */
+  if AM[j,j]#0 then (
+    for i:j+1 thru n do(
+      constante:AM[i,j]/AM[j,j],
+      for k:j thru n+1 do(
+          AM[i,k]:AM[i,k]-constante*AM[j,k] 
+      )
+    )
+  )         
+);
+print("  AM=",AM)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Resolvemos el sistema triangular mediante sustitución regresiva
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+soluc:zeromatrix(n,1)$
+for i:n step -1 thru 1 do (
+    suma:0,
+    for k:i+1 thru n do (
+        suma:suma + soluc[k,1]*AM[i,k]
+    ),
+    soluc[i,1]:(AM[i,n+1]-suma)/AM[i,i]
+);
+print("Soluc = ",box(soluc))$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Comprobamos la solución
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+A . soluc;
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

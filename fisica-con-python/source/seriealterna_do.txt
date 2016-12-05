@@ -1,0 +1,14 @@
+% ICM00794-Fundamentos de Computación - FCNM-ESPOL
+% 1ra Evaluación I Término 2009. 
+% Tema 1.Suma de Serie con signo alternado
+% Propuesta de solución. edelros@espol.edu.ec
+n=input('¿Cuántos términos?: ');
+i=1;
+s=0;
+signo=1;
+do
+    s=s+signo*(1/i);
+    i=i+1;
+    signos=(-1)*signo;
+until(i>n)
+disp(s);

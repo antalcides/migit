@@ -1,0 +1,268 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0071)http://www.df.uba.ar/users/dmitnik/fisica4/computacional2/fortran2.html -->
+<HTML><HEAD><TITLE>Introduction to Fortran - Parte 2</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY>
+<H3 align=center>
+<H1 align=center>Problemas del Curso Física 4 </H1></H3>
+<H3>Instructor: <A href="mailto:dmitnik@df.uba.ar">Darío Mitnik</A></H3>
+<DIV>
+<HR align=center width="100%" SIZE=2>
+</HR></DIV>
+<H1 style="COLOR: red" align=center>Introducción Básica de Fortran - Parte 2 
+</H1><TR><TD>
+<HR noShade SIZE=1>
+<FONT color=#0000ff>
+<H1>Subrutinas</H1></FONT><BR><BR>Hemos visto como utilizar 
+<I><B>funciones</B></I> en un programa Fortran. Ahora veremos como utilizar 
+<I><B>subrutinas</B></I>. Una subrutina es algo asi como un programa dentro de 
+un programa. Separar un programa en subrutinas sería análogo a separar un libro 
+en capítulos. Si un programa está bien escrito, debería contar con unas pocas 
+líneas, en las cuales se llama a ejecutar subrutinas (las cuales a su vez, 
+llamarían a ejecutar otras subrutinas...). Veamos un ejemplo de un programa no 
+muy bien escrito. El programa se llama <A 
+href="http://www.df.uba.ar/users/dmitnik/fisica4/computacional2/sumatorynosub.f" 
+target=_blank>sumatorynosub.f</A> y es así: 
+<P>
+<TABLE cellSpacing=0 cellPadding=5 align=center bgColor=#ffcccc border=0>
+  <TBODY>
+  <TR>
+    <TD><PRE>	program sumatory
+
+c....... This program calculates the sumatory S=Sum(1/i)
+
+c	**** NO use of subroutines ****
+
+c....... variables declaration
+	implicit real*4(a-h,o-z)
+
+	parameter (mxpoints=10000)         !! npoints: points in x
+
+	dimension sumasc(0:mxpoints+1),sumdesc(0:mxpoints+1)
+
+	print*,'Sumatory of 1/i  from 1 to Npoints'
+50	print*,' '
+	print*,' give the number of points Npoints: (le.0 to exit)'
+	read*,npoints
+c......  test for quit
+	if (npoints.le.0) go to 500
+c......  test for dimensions
+	if (npoints.gt.mxpoints) then
+		print*,' the maximum number of points should be '//
+     +                 ' smaller than ',mxpoints
+     		go to 50
+	endif
+
+c....... initialization
+	do 100 i=0,npoints+1
+		sumasc(i)  = 0.0
+		sumdesc(i) = 0.0
+100	continue
+
+c.......  sumatory in ascendent order
+	  do 200 i=1,npoints
+	       sumasc(i) = sumasc(i-1) + 1.0/i
+200       continue
+
+c.......  sumatory in descendent order
+	  do 300 i=npoints,1,-1
+	       sumdesc(i) = sumdesc(i+1) + 1.0/i
+300       continue
+
+c.......  print results
+ 	  open(unit=10,file='sumatoryns.dat',status='unknown')
+	  do 400 i=1,npoints
+	    write(10,425) i,sumasc(i),sumdesc(npoints-i+1)
+400	  continue
+	  close(unit=10)
+425	  format(5x,i6,2(5x,f15.6))	
+	  print*,'Sum(1/i) for ',npoints,':   ascendent=:',
+     +            sumasc(npoints),'  descendent=:',sumdesc(1)	  
+
+	  go to 50
+	  
+500	stop
+	end
+
+</PRE></TD></TR></TBODY></TABLE></P>
+<H3 style="COLOR: red">Ejercicio: </H3>Qué hace este programa? Los resultados 
+"ascendentes" y "descendentes" son diferentes? Deberían ser iguales? Cómo se 
+puede mejorar los resultados? (Probar que mejoran!) 
+<P><BR><BR>El programa <I>sumatory</I> podría estar mejor escrito si usamos 
+subrutinas. En este caso, podriamos separar algunas etapas del mismo, como 
+hicimos en <A 
+href="http://www.df.uba.ar/users/dmitnik/fisica4/computacional2/sumatorysub.f" 
+target=_blank>sumatorysub.f</A>. Allí separamos los siguientes pasos: 
+<P>
+<TABLE cellSpacing=0 cellPadding=5 align=center bgColor=#ffcccc border=0>
+  <TBODY>
+  <TR>
+    <TD><PRE>	program sumatory
+
+c....... This program calculates the sumatory S=Sum(1/i)
+
+c	**** WITH subroutines ****
+
+c....... variables declaration
+	implicit real*4(a-h,o-z)
+
+	parameter (mxpoints=10000)         !! npoints: points in x
+	common/blocksum/sumasc(0:mxpoints+1),sumdesc(0:mxpoints+1),
+     +                  npoints
+
+        ......
+	......
+
+c.......  initialization
+	<B>call initialization</B>
+
+c.......  sumatory in ascendent order
+	<B>call sumascendent</B>
+
+c.......  sumatory in descendent order
+	<B>call sumdescendent</B>
+
+c.......  print results
+	<B>call printresults</B>
+
+c.......  print totals
+          print*,'Sum(1/i) for ',npoints,':   ascendent=:',
+     +            totasc,'  descendent=:',totdesc
+
+
+	  go to 50
+	  
+500	stop
+	end
+c
+c---------------------------------------------------------------------
+c
+	subroutine initialization
+	implicit real*4(a-h,o-z)
+
+c....... initialization of variables
+
+	parameter (mxpoints=10000)         
+	common/blocksum/sumasc(0:mxpoints+1),sumdesc(0:mxpoints+1),
+     +                  npoints
+
+	do 100 i=0,npoints+1
+		sumasc(i)  = 0.0
+		sumdesc(i) = 0.0
+100	continue
+
+	return
+	end
+	
+c
+c---------------------------------------------------------------------
+c	
+	subroutine sumascendent
+	implicit real*4(a-h,o-z)
+
+c.......  sumatory in ascendent order
+
+	parameter (mxpoints=10000)         
+	common/blocksum/sumasc(0:mxpoints+1),sumdesc(0:mxpoints+1),
+     +                  npoints
+     
+c.......  sumatory in ascendent order
+	do 200 i=1,npoints
+	       sumasc(i) = sumasc(i-1) + 1.0/i
+200     continue
+
+	return
+	end
+c
+c---------------------------------------------------------------------
+c
+	subroutine sumdescendent
+	implicit real*4(a-h,o-z)
+
+c.......  sumatory in descendent order
+
+	parameter (mxpoints=10000)         
+	common/blocksum/sumasc(0:mxpoints+1),sumdesc(0:mxpoints+1),
+     +                  npoints
+
+	do 300 i=npoints,1,-1
+	       sumdesc(i) = sumdesc(i+1) + 1.0/i
+300     continue
+
+	return
+	end
+c
+c---------------------------------------------------------------------
+c
+	subroutine printresults
+	implicit real*4(a-h,o-z)
+
+c.......  print results on 'sumatorys.dat'
+
+	parameter (mxpoints=10000)         
+	common/blocksum/sumasc(0:mxpoints+1),sumdesc(0:mxpoints+1),
+     +                  npoints
+
+	
+	open(unit=10,file='sumatorys.dat',status='unknown')
+	  
+	do 400 i=1,npoints
+	    write(10,425) i,sumasc(i),sumdesc(npoints-i+1)
+400	continue
+	close(unit=10)
+425	format(5x,i6,2(5x,f15.6))	
+c.......  print totals
+          totasc = sumasc(npoints)
+          totdesc = sumdesc(1)
+
+	
+	return
+	end
+c
+c---------------------------------------------------------------------
+c
+</PRE></TD></TR></TBODY></TABLE></P><BR>
+<H3 style="COLOR: red">Importante!</H3>Las variables en una subrutina son 
+<B>locales</B>. Esto implica que su valor sólo es conocido por la subrutina y no 
+por el resto del programa. Si se desea pasar una variable de una subrutina a 
+otra (o al programa principal), se la debe poner en <B>common blocks</B>, como 
+hicimos por ejemplo escribiendo: 
+<P>
+<TABLE cellSpacing=0 cellPadding=5 align=center bgColor=orange border=0>
+  <TBODY>
+  <TR>
+    <TD><PRE>
+        common/blocksum/sumasc(0:mxpoints+1),sumdesc(0:mxpoints+1),
+     +                  npoints
+
+</PRE></TD></TR></TBODY></TABLE></P>En este caso vemos como los arrays 
+<I>sumasc</I>, <I>sumdesc</I>, y el entero <I>npoints</I> son llevados de un 
+lugar del programa al otro. <BR><BR>
+<H3 style="COLOR: red">Ejercicio:</H3>Revisar los resultados del nuevo 
+programa!! (Esto es obvio, cuando se escribe un nuevo programa se debe chequear 
+que haga lo que le pedimos). Graficar los resultados del archivo de salida y 
+compararlos con los del programa anterior. Si hay algún problema, deberíamos ser 
+capaces de solucionarlo... 
+<P><BR>
+<H3 style="COLOR: red">Ejercicio: </H3>Una versión aún más mejorada del 
+programa, utilizaría un solo loop, en lugar de 4. Qué modificación sugiere para 
+que el programa corra mas rápido? Modifique y compruebe. (Solución: <A 
+href="http://www.df.uba.ar/users/dmitnik/fisica4/computacional2/sumatory.f" 
+target=_blank>sumatory.f</A>). 
+<P>
+<H3 style="COLOR: red">Ejercicio: </H3>Agregar al programa una subrutina que 
+reste 1/i del total hallado. Si el programa está bien escrito, el resultado 
+final tiene que ser 0. 
+<P>
+<H3 style="COLOR: red">Ejercicio: </H3>El programa que utilizamos, también sirve 
+como aproximación para el cálculo de la integral de la función <I>f(x)=1/x</I>. 
+Escribir un programa que genere un archivo <I>X</I>-<I>Y</I> de <I>f(x)</I>. 
+Utilizando el programa de gráfica <B>xmgrace</B>, graficar la función y su 
+integral. Graficar el resultado analítico y comparar. Graficar el resultado 
+obtenido por nuestro programa y comparar. Explicar el orígen de las diferencias. 
+
+<P><BR><BR>
+<DIV>
+<HR align=center width="100%" SIZE=2>
+</HR></DIV></BODY></HTML>

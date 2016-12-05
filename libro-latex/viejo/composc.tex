@@ -1,0 +1,850 @@
+
+
+
+
+\section{Salto de l'inea y de p'agina}
+
+\subsection{P'arrafos justificados}
+
+Normalmente los libros se suelen componer con todos los renglones del
+mismo tama~no. \LaTeX{} inserta los saltos de l'inea y los espacios
+entre las palabras optimizando el contenido de los p'arrafos enteros.
+Si es necesario, tambi'en introduce guiones, dividiendo las palabras
+que no encajen bien al final de los renglones. El modo de componer los
+p'arrafos depende de la clase de documento. Normalmente se introduce
+una sangr'ia horizontal en la primera l'inea de un p'arrafo y no se
+introduce espacio adicional entre cada dos p'arrafos. Para m'as
+informaci'on v'ease el apartado~\ref{parsp}.
+
+En casos especiales se podr'ia ordenar a \LaTeX{} que introduzca un
+salto de l'inea.
+
+\begin{command}
+\ci{\bs} o \ci{newline}
+\end{command}
+\noindent comienza una l'inea nueva sin comenzar un p'arrafo nuevo.
+
+\begin{command}
+\ci{\bs*}
+\end{command}
+\noindent adem'as proh'ibe que se produzca un salto de p'agina tras el
+salto de l'inea.
+
+\begin{command}
+\ci{newpage}
+\end{command}
+\noindent comienza una p'agina nueva.
+\pagebreak
+
+\begin{command}
+\ci{linebreak}\verb|[|\emph{n}\verb|]|,
+\ci{nolinebreak}\verb|[|\emph{n}\verb|]|,
+\ci{pagebreak}\verb|[|\emph{n}\verb|]| and
+\ci{nopagebreak}\verb|[|\emph{n}\verb|]|
+\end{command}
+\noindent hacen lo que indican sus nombres: salto de l'inea,
+ning'un salto de l'inea, salto de p'agina y ning'un salto de
+p'agina. Adem'as le permite al autor el influir sobre sus acciones
+a trav'es del argumento opcional \emph{n}. Se puede establecer a
+un valor entre cero y cuatro. Al poner \emph{n} menor de 4 se le
+deja a \LaTeX{} la posibilidad de ignorar la orden si el resultado
+resulta muy malo.
+
+\LaTeX{} siempre intenta realizar los saltos de l'inea lo mejor
+posible. Si no puede encontrar ninguna posibilidad satisfactoria para
+producir los bordes de los p'arrafos totalmente rectos, cumpliendo con
+las reglas impuestas, entonces dejar'a un rengl'on demasiado largo.
+En este caso \LaTeX{} producir'a el correspondiente mensaje de
+advertencia (``\wni{overfull box}'') mientras procesa el fichero de
+entrada. Esto sucede en especial si no se encuentra un lugar apropiado
+para introducir un gui'on entre las s'ilabas. Si se introduce la orden
+\ci{sloppy}, \LaTeX{} ser'a menos severo en sus exigencias y evita
+tales renglones con longitudes mayores, aumentando la separaci'on
+entre las palabras ---si bien el resultado final no es de lo mejor---.
+En este caso se dan mensajes de advertencia (``\wni{underfull
+  hbox}''). El resultado suele ser perfectamente aceptable la mayor'ia
+de las veces. La orden \ci{fussy} act'ua en sentido contrario. Esto
+podr'ia hacerlo en caso que desee ver a \LaTeX{} quejarse en todos los
+sitios.
+
+
+\subsection{Silabeo} \label{hyph}
+
+\LaTeX{} silabea las palabras cuando resulta necesario. Si el
+algoritmo de silabeo no produce los resultados correctos, entonces se
+puede remediar esta situaci'on con 'ordenes como las que presentamos a
+continuaci'on. Esto suele ser especialmente necesario en palabras
+compuestas o de idiomas extranjeros.
+
+La instrucci'on
+\begin{command}
+\ci{hyphenation}\verb|{|\emph{lista de palabras}\verb|}|
+\end{command}
+\noindent da lugar a que las palabras mencionadas en ella se puedan
+dividir en cualquier momento en, y s'olo en, los lugares indicados con
+``\verb|-|''\@. Esta orden deber'ia aparecer en el pre'ambulo del
+fichero de entrada y deber'ia contener solamente palabras construidas
+sin caracteres especiales.
+%%% Alguna idea de la definici'on de ``letras normales''???
+%%% Es lo que aparece en el documento en ingl'es...
+No se hacen distinciones entre las letras may'usculas y min'usculas
+de las palabras a las que se refiera esta orden. El ejemplo siguiente
+permitir'a localizar las s'ilabas de ``fichero'' y ``Fichero'' del
+mismo modo, e impedir'a que en las palabras ``FORTRAN'', ``Fortran'' y
+``fortran'' se introduzcan guiones. No se permiten caracteres con
+acentos o s'imbolos en el argumento.
+%%% Pues podr'ian plante'arselo por lo menos... :-)
+
+Ejemplo:
+\begin{code}
+\verb|\hyphenation{FORTRAN fi-che-ro}|
+\end{code}
+
+Dentro de una palabra, la instrucci'on \ci{-} establece un sitio donde
+colocar un gui'on si fuese necesario. Adem'as, 'estos se convierten en
+los 'unicos lugares donde se permite introducir los guiones en esta
+palabra. Esta instrucci'on es especialmente 'util para las palabras
+que contienten caracteres especiales (como, por ej., los caracteres
+con acento ortogr'afico), ya que \LaTeX{} no silabea de modo
+autom'atico las palabras que contienen estos caracteres.
+%\footnote{A no ser que est'e usando los nuevos
+%\wi{tipos DC}}.
+
+\begin{example}
+Me parece que esto es: su\-per\-%
+ca\-li\-fra\-gi\-lis\-ti\-co\-%
+ex\-pia\-li\-do\-so
+\end{example}
+
+Tambi'en se pueden se pueden mantener varias palabras en el mismo
+rengl'on con la orden
+\begin{command}
+\ci{mbox}\verb|{|\emph{texto}\verb|}|
+\end{command}
+\noindent Hace que su argumento se mantenga siempre unido bajo cualquier
+circunstancia, o sea, que no se puede dividir.
+
+\begin{example}
+Dentro de poco tendr'e otro tel'efono.
+Ser'a el \mbox{(0203) 3783-225}.
+
+El par'ametro \mbox{\emph{nombre
+de fichero}} debe contener el nombre
+del fichero.
+\end{example}
+
+
+\subsection{Guiones y rayas}
+
+\LaTeX{} reconoce cuatro tipos de \wi{guiones}. Para tener acceso a
+tres de 'estos se pone una cantidad diferente de guiones consecutivos.
+El cuarto tipo es el signo matem'atico `menos':
+\index{-}%
+\index{--}%
+\index{---}%
+\index{-@$-$}%
+\index{matem'atico!menos}%
+
+\begin{example}
+psico-terap'eutico \\
+10--18~horas \\
+Madrid -- Barcelona \\
+?`S'i? ---dijo ella--- \\
+0, 1 y $-1$
+\end{example}
+
+% En ingl'es, los nombres de estos guiones son:
+% \texttt{-} \wi{hyphen}, \texttt{--} \wi{en-dash},
+% \texttt{---} \wi{em-dash} y \verb|$-$| \wi{signo menos}.
+
+\subsection{Puntos suspensivos (`\ldots')}
+
+En una m'aquina de escribir, tanto para la \wi{coma} como para el
+\wi{punto} se les da el mismo espaciado que a cualquier otro
+car'acter. En la impresi'on de libros, estos caracteres s'olo ocupan
+un peque~no espacio y se colocan muy pr'oximos al car'acter que les
+precede. Por esto, los ``puntos suspensivos'' no se pueden introducir
+con tres puntos normales, ya que no tendr'ian el espaciado correcto.
+Para estos puntos existe una instrucci'on especial llamada
+\begin{command}
+\ci{ldots}
+\end{command}
+\index{...@\ldots}
+\begin{example}
+No as'i ... sino as'i:\\
+New York, Tokyo, Budapest\ldots
+\end{example}
+
+\subsection{Ligaduras}
+
+Algunas combinaciones de letras no se componen con las distintas
+letras que la forman, sino que, de hecho, se usan s'imbolos
+especiales.
+\begin{code}
+{\large ff fi fl ffi\ldots}\quad
+en lugar de\quad {\large f{}f f{}i f{}l f{}f{}i \ldots}
+\end{code}
+Estas \wi{ligaduras} se pueden evitar intercalando \ci{mbox}\verb|{}|
+entre el par letras en cuesti'on.
+
+
+
+
+
+\section{Distancias entre palabras}
+
+Para conseguir un margen derecho recto en la salida, \LaTeX{}
+introduce cantidades variables de espacios entre las palabras. Al
+final de una oraci'on, introduce unos espacios algo mayores que
+favorecen la legibilidad del texto. \LaTeX{} presupone que las frases
+acaban con puntos, signos de interrogaci'on y de admiraci'on. Si hay
+un punto tras una letra may'uscula, entonces esto no se considera el
+fin de una oraci'on ya que los puntos tras las letras may'usculas
+normalmente se utilizan para abreviaturas.
+
+El autor debe indicar cualquier excepci'on a estas reglas. Una
+\emph{barra invertida} \verb|\| antes de un espacio en blanco produce
+un espacio en blanco que no se ensanchar'a. Un car'acter de
+tilde~`\verb|~|'\ genera un espacio que no se puede ensanchar y en el
+que no se puede producir ning'un cambio de rengl'on. Si antes de un
+punto aparece la instrucci'on \verb|\@|, significa que este punto
+acaba una oraci'on, aunque se encuentre tras una letra may'uscula.
+\cih{"@} \index{~@\verb.~.} \index{tilde@tilde (\verb.~.)} \index{.!
+  espacio tras}
+
+\begin{example}
+En la fig.\ 1 del cap.\ 1\dots \\
+El Dr.~L'opez se encuentra \\
+con D~na.~P'erez. \\
+\dots\ 5~m de ancho. \\
+Necesito vitamina~C\@. ?`Y t'u?
+\end{example}
+
+Este tratamiento especial para los espacios al final de las oraciones
+se puede evitar con la instrucci'on
+\begin{command}
+\ci{frenchspacing}
+\end{command}
+\noindent que le indica a \LaTeX{} que \emph{no} introduzca m'as
+espacios tras un punto que tras cualquier otro car'acter. Esto es muy
+com'un en diversos idiomas, como es el caso del espa~nol. En este caso
+la instrucci'on \verb|\@| no es necesaria.
+
+
+
+
+\section{Referencias cruzadas}
+
+En los libros, informes y art'iculos existen, a menudo,
+\wi{referencias cruzadas} a figuras, tablas y segmentos especiales de
+texto que se hayan en otros lugares del documento. \LaTeX{}
+proporciona las siguientes instrucciones para producir referencias
+cruzadas:
+\begin{command}
+  \ci{label}\verb|{|\emph{marcador}\verb|}|,
+  \ci{ref}\verb|{|\emph{marcador}\verb|}| y
+  \ci{pageref}\verb|{|\emph{marcador}\verb|}|
+\end{command}
+\noindent donde \emph{marcador} es un identificador elegido por el
+usuario. \LaTeX{} reemplaza \verb|\ref| por el n'umero del apartado,
+subapartado, figura, tabla o teorema donde se introdujo la
+instrucci'on \verb|\label| correspondiente. La orden \verb|\pageref|
+imprime el n'umero de p'agina donde se produce la orden \verb|\label|
+con igual argumento. Aqu'i tambi'en se utilizan los n'umeros del
+procesamiento anterior.
+
+\begin{example}
+Una referencia a este subapartado
+\label{sec:este} aparecer'ia como:
+
+``vea el apartado~\ref{sec:este} en
+la p'agina~\pageref{sec:este}.''
+\end{example}
+
+\section{Notas a pie de p'agina}
+
+Con la instrucci'on
+\begin{command}
+\ci{footnote}\verb|{|\emph{texto de la nota al pie}\verb|}|
+\end{command}
+\noindent se imprimir'a una nota en el pie de la p'agina actual.
+
+\begin{example}
+Las notas a pie de p'agina%
+\footnote{Esta es una nota a pie
+de p'agina} son utilizadas con
+frecuencia por la gente que usa
+\LaTeX.
+\end{example}
+
+Tambi'en existe una variante de esta instrucci'on, que es
+\begin{command}
+\ci{footnote}\verb|[|\emph{n'umero}\verb|]{|\emph{texto de la nota al
+    pie}\verb|}|
+\end{command}
+De esta forma para la nota al pie correspondiente se emplear'a para el
+marcador el \emph{n'umero} que se ha indicado en vez del valor del
+contador de notas al pie. Esta variante \emph{s'olo} se puede emplear
+dentro de los p'arrafos.
+
+\section{Palabras resaltadas}
+
+En los escritos a m'aquina, para resaltar determinados segmentos de
+texto 'estos se $\underline{\mathrm{subrayan}}$. En los libros
+impresos estas palabras se \emph{resaltan} o se \emph{destacan}. La
+orden con la que se cambia a un tipo de letra \emph{resaltado} es
+\begin{command}
+\ci{emph}\verb|{|\emph{texto}\verb|}|
+\end{command}
+\noindent Su argumento es el texto que se debe \wi{resaltar}.
+
+\begin{example}
+\emph{Si est'a empleando
+\emph{resalte} en un texto
+ya resaltado, entonces \LaTeX{}
+utiliza \emph{redonda} para volver
+a resaltar texto.}
+\end{example}
+
+
+\section{Entornos} \label{env}
+
+Para componer textos con un prop'osito especial \LaTeX{} define muchos
+tipos de \wi{entornos} para toda clase de dise~nos:
+\begin{command}
+\ci{begin}\verb|{|\emph{nombre}\verb|}|\quad
+   \emph{texto}\quad
+\ci{end}\verb|{|\emph{nombre}\verb|}|
+\end{command}
+\noindent donde \emph{nombre} es el nombre del entorno. Los entornos
+son ``grupos'' o ``agrupaciones''. Tambi'en se puede cambiar a un
+nuevo entorno dentro de otro, en cuyo caso debe tenerse cuidado con la
+secuencia:
+\begin{code}
+\verb|\begin{aaa}...\begin{bbb}...\end{bbb}...\end{aaa}|
+\end{code}
+
+En los apartados siguientes se explican todos los entornos importantes.
+
+\subsection{Listas y descripciones (\texttt{itemize},
+  \texttt{enumerate}, \texttt{description})}
+
+El entorno \ei{itemize} es adecuado para las listas sencillas, el
+entorno \ei{enumerate} para relaciones numeradas y el entorno
+\ei{description} para descripciones.\cih{item}
+
+\begin{example}
+\begin{enumerate}
+\item Puede mezclar los entornos
+de listas a su gusto:
+\begin{itemize}
+\item Pero podr'ia comenzar a
+perecer inc'omodo.
+\item Si abusa de ellas.
+\end{itemize}
+\item Por lo tanto, recuerde:
+\begin{description}
+\item[Lo innecesario] no va a
+resultar adecuado porque
+lo coloque en una lista.
+\item[Lo adecuado,] sin embargo,
+se puede presentar agradablemente
+en una lista.
+\end{description}
+\end{enumerate}
+\end{example}
+
+\subsection{Justificaciones y centrado (\texttt{flushleft},
+            \texttt{flushright}, \texttt{center})}
+
+Los entornos \ei{flushleft} y \ei{flushright} producen p'arrafos
+justificados a la izquierda y a la derecha (sin nivelaci'on de
+bordes).%
+\index{justificado a la izquierda}\index{justificado a la derecha} El
+entorno \ei{center} genera texto centrado. Si no se introduce \ci{\bs}
+para dividir los renglones, entonces \LaTeX{} lo har'a
+autom'aticamente.
+
+\begin{example}
+\begin{flushleft}
+Este texto est'a\\ justificado a
+la izquierda. \LaTeX{} no intenta
+forzar que todas las l'ineas
+tengan longitud.
+\end{flushleft}
+\end{example}
+
+\begin{example}
+\begin{flushright}
+Este texto est'a\\ justificado a
+la derecha. \LaTeX{} no intenta
+forzar que todas las l'ineas
+tengan igual longitud.
+\end{flushright}
+\end{example}
+
+\begin{example}
+\begin{center}
+En el centro\\de la tierra
+\end{center}
+\end{example}
+
+\subsection{Citas (\texttt{quote}, \texttt{quotation}, \texttt{verse})}
+
+El entorno \ei{quote} sirve para citas peque~nas, ejemplos y para
+resaltar oraciones.
+\begin{example}
+Una regla de oro en tipograf'ia
+para el largo de los renglones
+dice:
+\begin{quote}
+Ning'un rengl'on debe contener
+m'as de 66~letras.
+\end{quote}
+Por esto se suelen utilizar varias
+columnas en los peri'odicos.
+\end{example}
+% Curioso lo que hace el ``66~letras'' en el primer rengl'on. Hay un
+% modo de indicar preferencias entre la divisi'on de ``debe'' y
+% ``66~letras''?
+
+
+Hay dos entornos muy parecidos: el entorno \ei{quotation} y el entorno
+\ei{verse}. El entorno \texttt{quotation} es adecuado para citas
+mayores que consten de varios p'arrafos. El entorno \texttt{verse} es
+apropiado para poemas en los que la separaci'on de los renglones es
+esencial. Los versos (los renglones) se dividen con \ci{\bs} y las
+estrofas con renglones en blanco.
+
+\begin{example}
+\begin{flushleft}
+\begin{verse}
+Soberano gofio en polvo,\\
+sustento de mi barriga,\\
+el d'ia que no te como\\
+para m'i no hay alegr'ia.
+\end{verse}
+\end{flushleft}
+\end{example}
+
+\subsection{Edici'on directa (\texttt{verbatim}, \texttt{verb})}
+
+El texto que se encuentre entre \verb|\begin{|\ei{verbatim}\verb|}| y
+  \verb|\end{verbatim}| aparecer'a tal como se ha introducido, como si
+se hubiese escrito con una m'aquina de escribir, con todos los espacios
+en blanco y cambios de l'inea y sin interpretaci'on de las
+instrucciones de \LaTeX.
+
+Dentro de un p'arrafo se puede lograr el mismo efecto con
+\begin{command}
+\ci{verb}\verb|+|\emph{text}\verb|+|
+\end{command}
+
+\noindent El \verb|+| s'olo es un ejemplo de car'acter delimitador. Se
+puede usar cualquier car'acter excepto las letras, \verb|*| o
+caracteres en blanco.
+
+\begin{example}
+La instrucci'on \verb|\ldots|%
+\ldots
+
+\begin{verbatim}
+10 PRINT "HELLO WORLD ";
+20 GOTO 10
+\end{verbatim}
+\end{example}
+
+\begin{example}
+\begin{verbatim*}
+La version con estrella del
+entorno          verbatim
+destaca los espacios     en
+el  texto
+\end{verbatim*}
+\end{example}
+
+La instrucci'on \ci{verb} se puede usar, del mismo modo, con un
+asterisco:
+\begin{example}
+\verb*|de esta   manera :-) |
+\end{example}
+
+El entorno \texttt{verbatim} y la instrucci'on \verb|\verb| no pueden
+utilizarse como par'ametros de otras instrucciones.
+
+
+\subsection{Estadillos (\texttt{tabular})}
+
+El entorno \ei{tabular} sirve para crear \wi{estadillos}, con l'ineas
+horizontales y verticales seg'un se desee. \LaTeX{} determina el ancho
+de las columnas de modo autom'atico.
+
+El argumento \emph{especificaciones del estadillo} de la instrucci'on
+\begin{command}
+\verb|\begin{tabular}{|\emph{especificaciones del estadillo}\verb|}|
+\end{command}
+\noindent define el dise~no del estadillo. Utilice \texttt{l} para una
+columna con texto justificado a la izquierda, \texttt{r} para
+justificar el texto a la derecha, \texttt{c} para texto centrado,
+\verb|p{|\emph{ancho}\verb|}| para una columna que contenga texto con
+saltos de l'inea, y \verb.|. para una l'inea vertical.
+
+
+Dentro de un entorno \texttt{tabular}, \verb|&| salta a la pr'oxima
+columna, \ci{\bs} separa los renglones y \ci{hline} introduce una
+l'inea horizontal.
+\index{"|@ \verb."|.}
+\begin{example}
+\begin{tabular}{|r|l|}
+\hline
+7C0 & hexadecimal \\
+3700 & octal \\
+11111000000 & binario \\
+\hline \hline
+1984 & decimal \\
+\hline
+\end{tabular}
+\end{example}
+
+\begin{example}
+\begin{tabular}{|p{4.7cm}|}
+\hline
+Bienvenido al p'arrafo del Sr.\
+Caj'on. Esperamos que disfrute
+del espect'aculo.\\
+\hline
+\end{tabular}
+
+\end{example}
+
+Con la construcci'on \verb|@{...}| se puede especificar el separador
+de columnas. Esta construcci'on elimina el espacio entre columnas y lo
+reemplaza con lo que se haya introducido entre los par'entesis. Un uso
+muy frecuente de esta construcci'on se explica m'as adelante con el
+problema de la alineaci'on de la coma decimal. Otro uso posible es
+para eliminar el espacio que antecede y precede a los renglones de una
+tabla con \verb|@{}|.
+
+\begin{example}
+\begin{tabular}{@{} l @{}}
+\hline
+ning'un espacio a la izquierda
+ni derecha\\\hline
+\end{tabular}
+\end{example}
+\begin{example}
+\begin{tabular}{l}
+\hline
+espacios a la izquierda
+y a la derecha\\
+\hline
+\end{tabular}
+\end{example}
+
+\index{alineaci'on decimal} Ya que no hay ning'un mecanismo
+incorporado para alinear columnas num'ericas sobre la coma decimal
+\footnote{Si se halla instalado el conjunto `tools'\ en su sistema,
+  eche un vistazo al paquete \pai{dcolumn}.}, podr'iamos ``imitarlo''
+usando dos columnas: un entero alineado a la derecha y luego los
+decimales a la izquierda. La instrucci'on \verb|@{,}| en el argumento
+de \verb|\begin{tabular}| reemplaza el espacio normal entre columnas
+  con una ``,'', dando la apariencia de una 'unica columna justificada
+  por la coma decimal. !`No se olvide de reemplazar la coma decimal en
+  sus n'umeros con un separador de columna (\verb|&|)! Se puede
+  colocar una etiqueta sobre nuestra ``columna'' num'erica empleando
+  la instrucci'on \ci{multicolumn}.
+
+\begin{example}
+\begin{tabular}{c r @{,} l}
+Expresi'on en pi       &
+\multicolumn{2}{c}{Valor} \\
+\hline
+$\pi$               & 3&1416  \\
+$\pi^{\pi}$         & 36&46   \\
+$(\pi^{\pi})^{\pi}$ & 80662&7 \\
+\end{tabular}
+\end{example}
+
+\section{Elementos flotantes}
+
+Hoy en d'ia, la mayor'ia de las publicaciones contienen muchas
+ilustraciones y tablas. Estos elementos necesitan un tratamiento
+especial porque no se pueden cortar entre p'aginas. Un m'etodo podr'ia
+ser comenzando una p'agina nueva cada vez que una ilustraci'on o una
+tabla sea demasiado larga para caber en la p'agina actual. Este
+enfoque deja p'aginas parcialmente vac'ias, lo que resulta poco
+est'etico.
+
+La soluci'on a este problema es hacer que cualquier ilustraci'on o
+tabla que no quepa en la p'agina actual `flote'\ hasta una p'agina
+posterior mientras se rellena la p'agina actual con el texto del
+documento.
+
+\LaTeX{} ofrece dos entornos para los \wi{elementos flotantes}. Uno
+ para las tablas y otro para las ilustraciones. Para aprovechar
+ completamente estos dos entornos es importante entender
+ aproximadamente c'omo maneja \LaTeX{} estos objetos flotantes
+ internamente. Si no, los objetos flotantes se pueden convertir en una
+ fuente de frustaciones porque \LaTeX{} nunca los pone donde Vd.\
+ quiere que vayan.
+
+\bigskip
+Primeramente, echemos un vistazo a las instrucciones que \LaTeX{}
+proporciona para objetos flotantes.
+
+Cualquier cosa que se incluya en un entorno \ei{figure} o \ei{table}
+ser'a tratado como materia flotante. Ambos entornos flotantes
+proporcionan un par'ametro opcional
+\begin{command}
+\verb|\begin{figure}[|\emph{designador de colocado}\verb|]| o\\
+\verb|\begin{table}[|\emph{designador de colocado}\verb|]|
+\end{command}
+\noindent llamado el \emph{designador de colocado}. Este par'ametro se
+emplea para indicarle a \LaTeX{} los lugares donde se permite que vaya
+colocado el objeto flotante. Un \emph{designador de colocado} se
+construye con una cadena de \emph{permisos de colocaci'on flotante}.
+V'ease la tabla~\ref{tab:permiss}.
+
+\begin{table}[!bp]
+\caption{Permisos de colocaci'on flotante}\label{tab:permiss}
+\noindent \begin{minipage}{\textwidth}
+\medskip
+\begin{center}
+\begin{tabular}{@{}cp{10cm}@{}}
+  Designador&Permiso para colocar el objeto flotante\ldots\\ \hline
+  \rule{0pt}{1.05em}
+\texttt{h} & aqu'i (\emph{here}), muy pr'oximo al
+  lugar en el texto donde se ha introducido. Es 'util, principalmente,
+  para objetos flotantes peque~nos.\\[0.3ex]
+\texttt{t} & en la parte superior de una p'agina (\emph{top}).\\[0.3ex]
+\texttt{b} & en la parte inferior de una p'agina
+  (\emph{bottom}).\\[0.3ex]
+\texttt{p} & en una \emph{p'agina} especial que s'olo contenga
+  elementos flotantes.\\[0.3ex]
+\texttt{!} & sin considerar la mayor'ia de los par'ametros
+  internos\footnote{Como el n'umero m'aximo de elementos flotantes un
+  una p'agina.} que impedir'ian a este objeto flotante que se colocase.
+\end{tabular}
+\end{center}
+\end{minipage}
+\end{table}
+
+\pagebreak[3]
+Una tabla se podr'ia comenzar con, por ejemplo, la siguiente l'inea:
+\begin{code}
+\verb|\begin{table}[!hbp]|
+\end{code}
+\noindent El \wi{designador de colocado} \verb|[!hbp]| le permite a
+\LaTeX{} colocar la tabla justamente aqu'i (\texttt{h}) o al final
+ (\texttt{b}) de alguna p'agina o en alguna p'agina especial para
+ elementos flotantes, y en cualquier parte si no queda tan bien
+ (\texttt{!}). Si no se da ning'un designador de colocado, entonces
+ las clases normalizadas sobreentienden \verb|[tbp]|.
+
+ \LaTeX{} colocar'a todos los objetos flotantes que encuentra seg'un
+ los de\-sig\-na\-do\-res de colocado que haya indicado el autor. Si
+ un objeto flotante no se puede colocar en la p'agina actual entonces
+ se aplaza su colocaci'on, para lo cual se introduce en una
+ cola\footnote{Son de tipo \emph{fifo}: lo que se introdujo primero es
+   lo primero en extraerse.} de \emph{tablas} o \emph{figuras}
+ (ilustraciones).  Cuando se comienza una nueva p'agina, lo primero
+ que hace \LaTeX{} es confirmar si se puede construir una p'agina
+ especial con los objetos flotantes que se hayan en las colas. Si no
+ es posible, entonces se trata el primer objeto que se encuentra en
+ las colas como si lo acab'asemos de introducir. Entonces \LaTeX{}
+ vuelve a intentar colocar el objeto seg'un sus designadores de
+ colocado (eso s'i, sin tener en cuenta la opci'on `\verb|h|',\ que ya
+ no es posible). Cualquier objeto flotante nuevo que aparezca en el
+ texto se introduce en la cola correspondiente. \LaTeX{} mantiene
+ estrictamente el orden original de apariciones de cada tipo de objeto
+ flotante.
+
+Esta es la raz'on por la que una ilustraci'on que no se puede colocar
+desplaza al resto de las figuras al final del documento. Por lo tanto:
+
+
+\begin{quote}
+  Si \LaTeX{} no coloca los objetos flotantes como esperaba, suele
+  deberse 'unicamente a un objeto flotante que est'a atascando una de
+  las dos colas de objetos flotantes.
+\end{quote}
+
+\bigskip
+\noindent Adem'as, existen algunas cosas m'as que se deben indicar
+sobre los entornos \ei{table} y \ei{figure}. Con la instrucci'on
+\begin{command}
+\ci{caption}\verb|{|\emph{texto de t'itulo}\verb|}|
+\end{command}
+\noindent se puede definir un t'itulo para el objeto flotante. \LaTeX{}
+le a~nadir'a la cadena ``Figura'' o ``Tabla'' y un n'umero de secuencia.
+
+
+Las dos instrucciones
+\begin{command}
+\ci{listoffigures} y \ci{listoftables}
+\end{command}
+\noindent funcionan de modo an'alogo a la orden
+\verb|\tableofcontents|, imprimiendo un 'indice de figuras o de tablas
+respectivamente. En estas listas se repetir'an los t'itulos
+completos. Si Vd.\ tiende a utilizar t'itulos largos, deber'ia tener
+una versi'on de estos t'itulos m'as cortos para introducirlos en estos
+'indices. Esto se consigue dando la versi'on corta entre corchetes
+tras la orden \verb|\caption|.
+\begin{code}
+\verb|\caption[Corto]{LLLLLaaaaaaaaarrrrrrrrgggggooooooo}|
+\end{code}
+
+Con \verb|\label| y \verb|\ref| se pueden crear referencias a un
+objeto flotante dentro del texto.
+
+El siguiente ejemplo dibuja un cuadrado y lo inserta en el
+documento. Podr'ia utilizar esto si desea reservar espacios para
+im'agenes que vaya a pegar en el documento acabado.
+
+\begin{code}
+\begin{verbatim}
+La ilustraci'on~\ref{blanco} es un ejemplo del Pop-Art.
+\begin{figure}[!hbp]
+\makebox[\textwidth]{\framebox[5cm]{\rule{0pt}{5cm}}}
+\caption{$5\times 5$ cent'imetros} \label{blanco}
+\end{figure}
+\end{verbatim}
+\end{code}
+
+\noindent En el ejemplo anterior\footnote{suponiendo que la cola de
+  figuras est'e vac'ia.} \LaTeX{} intentar'a \emph{por todos los
+  medios}~(\texttt{!}) colocar la ilustraci'on exactamente
+\emph{aqu'i}~(\texttt{h}). Si no puede, intentar'a colocarla en la
+\emph{parte inferior}~(\texttt{b}) de la p'agina. Si no consigue
+colocar esta figura en la p'agina actual, determina si es posible
+crear una p'agina (\verb|p|) con elementos flotantes exclusivamente
+que contenga esta ilustraci'on y algunas tablas que pudieran haber en
+la cola de tablas. Si no hay material suficiente para una p'agina
+especial de objetos flotante, entonces \LaTeX{} comienza una p'agina
+nueva y otra vez trata la figura como si acabase de aparecer en el
+texto.
+
+Bajo determinadas condiciones podr'ia ser necesario emplear la orden
+\begin{command}
+\ci{clearpage}
+\end{command}
+\noindent Le ordena a \LaTeX{} que coloque \emph{inmediatamente} todos
+los objetos flotantes que se hallen en las colas y despu'es comenzar
+una p'agina nueva.
+
+M'as adelante veremos c'omo incluir im'agenes en formato PostScript en
+sus documentos de \LaTeXe.
+
+
+\section{A~nadiendo instrucciones y entornos nuevos}
+
+En el primer cap'itulo se explic'o que \LaTeX{} necesita informaci'on
+sobre la estructura l'ogica del texto para elegir el formato
+adecuado. Este es un concepto muy bien cuidado. Pero en la pr'actica
+solemos chocar con las limitaciones que esto nos impone, ya que
+\LaTeX{} simplemente no tiene el entorno especializado o la orden que
+deseamos para un prop'osito espec'ifico.
+
+Una soluci'on es emplear varias 'ordenes de \LaTeX{} para producir el
+dise~no que se tiene en mente. Si tiene que hacer esto una vez, no hay
+ning'un problema. Pero si esto sucede repetidamente, entonces lleva
+mucho tiempo. Si alguna vez desease cambiar el formato tendr'ia que
+revisar el fichero de entrada entero y editar todos los elementos en
+cuesti'on.
+
+Para resolver este problema, \LaTeX{} le permite definir sus propias
+instrucciones y entornos.
+
+\subsection{Instrucciones nuevas}
+
+Para a~nadir sus propias instrucciones utilice la orden
+\begin{command}
+\ci{newcommand}\verb|{|%
+   \emph{nombre}\verb|}[|\emph{num}\verb|]{|\emph{definici'on}\verb|}|
+\end{command}
+\noindent B'asicamente, la instrucci'on necesita dos argumentos: el
+\emph{nombre} de la instrucci'on que quiere crear y la
+\emph{definici'on} de la instrucci'on. El argumento entre corchetes
+\emph{num} es opcional. Puede usarlo para crear 'ordenes nuevas que
+tomen hasta 9 argumentos.
+
+Los dos ejemplos siguientes deber'ian ayudarle a captar la idea. El
+primer ejemplo define una instrucci'on nueva llamada
+\verb|\udl|. Esta es una forma abreviada de introducir ``Una
+Descripci'on de \LaTeXe''. Una orden como 'esta ser'ia muy 'util si
+tuviese que escribir el t'itulo de este documento una y otra vez.
+
+\begin{example}
+\newcommand{\udl}
+    {Una Descripci'on de \LaTeXe}
+% en el cuerpo del documento :
+``\udl'' \ldots{} ``\udl''
+\end{example}
+
+El siguiente ejemplo ilustra c'omo usar el argumento \emph{num}. La
+secuencia \verb|#1| encuentra un sustituto en el argumento que
+especifique. Si quisiera m'as de un argumento, emplee \verb|#2| y as'i
+sucesivamente.
+
+\begin{example}
+\newcommand{\txsit}[1]
+    {Una Descripci'on \emph{#1}
+     Peque~na de \LaTeXe}
+% en el cuerpo del documento:
+\begin{itemize}
+\item \txsit{no tan}
+\item \txsit{muy}
+\end{itemize}
+\end{example}
+
+\LaTeX{} no le permitir'a crear una instrucci'on nueva con un nombre
+que ya existe. Si quiere ignorar de modo expl'icito una instrucci'on
+existente tiene que utilizar \ci{renewcommand}. Aparte de su nombre,
+utiliza la misma sintaxis que la instrucci'on \verb|\newcommand|. En
+determinados casos podr'ia querer utilizar la instrucci'on
+\ci{providecommand}. Funciona como \ci{newcommand}, pero si ya hay una
+instrucci'on definida con este nombre, entonces \LaTeXe{} simplemente
+ignora esta otra definici'on que acaba de indicar.
+
+
+\subsection{Entornos nuevos}
+De modo an'alogo a la instrucci'on \verb|\newcommand| existe una orden
+para crear sus propios entornos. Cuando est'abamos escribiendo esta
+introducci'on, hemos creado entornos especiales para estructuras que
+se empleaban repetidamente en toda la descripci'on: ``ejemplos'',
+``segmentos de c'odigo'' y ``cajas de definici'on de instrucciones''.
+La instrucci'on \ci{newenvironment} utiliza la siguiente sintaxis:
+
+\begin{command}
+\ci{newenvironment}\verb|{|%
+       \emph{nombre}\verb|}[|\emph{num}\verb|]{|%
+       \emph{antes}\verb|}{|\emph{despu'es}\verb|}|
+\end{command}
+
+Al igual que la instrucci'on \verb|\newcommand|, se puede usar
+\ci{newenvironment} con o sin argumento opcional. Lo que se
+especifique en el argumento \emph{antes} se procesa antes que el texto
+dentro del entorno. Lo que se indica en el argumento \emph{despu'es}
+se procesa cuando se encuentra la instrucci'on
+\verb|\end{|\emph{nombre}\verb|}|.
+
+El siguiente ejemplo ilustra el empleo de la instrucci'on
+\ci{newenvironment}.
+
+\begin{example}
+\newenvironment{king}
+    {\begin{quote}}{\end{quote}}
+% use esto en el cuerpo
+\begin{king}
+Mis humildes vasallos\ldots
+\end{king}
+\end{example}
+
+El argumento \emph{num} se utiliza igual que la instrucci'on
+\verb|\newcommand|. \LaTeX{} se asegura de que no defina un entorno
+que ya exist'ia. Si alguna vez desea cambiar una entorno existente,
+entonces puede utilizar la instrucci'on \ci{renewenvironment}. Tiene
+la misma sintaxis que la instrucci'on \ci{newenvironment}.
+
+
+\endinput

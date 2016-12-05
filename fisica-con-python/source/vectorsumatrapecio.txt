@@ -1,0 +1,55 @@
+# FCNM-ESPOL-2015
+# Graficar suma de vectores como trapecio
+# Propuesta: Edison Del Rosario/
+#            edelros@espol.edu.ec
+import numpy as np
+import matplotlib.pyplot as plt
+# INGRESO de datos
+n=int(input('Cuántos vectores:'))
+print('Componentes de los vectores:')
+A=np.zeros(n+1, dtype=float)
+alfa=np.zeros(n+1, dtype=float)
+i=0
+while (i<n):
+    A[i]=float(input('magnitud['+str(i)+']:'))
+    alfa[i]=float(input('angulo['+str(i)+']°:'))
+    i=i+1
+# PROCEDIMIENTO
+# cambia coordenadas a cartesianas
+Ax=np.zeros(n+1, dtype=float)
+Ay=np.zeros(n+1, dtype=float)
+i=0
+while (i<n):
+    Ax[i]=A[i]*np.cos(alfa[i]*2*np.pi/360)
+    Ay[i]=A[i]*np.sin(alfa[i]*2*np.pi/360)
+    i=i+1
+# Calcular Resultante
+i=0
+while (i<n):
+    Ax[n]=Ax[n]+Ax[i]
+    Ay[n]=Ay[n]+Ay[i]
+    i=i+1
+magnitud=np.linalg.norm([Ax[n],Ay[n]])
+grados=np.arctan(Ay[n]/Ax[n])*(180/np.pi)
+# Ubicar la posicion inicial de los vectores
+px=np.zeros(n+1, dtype=float)
+py=np.zeros(n+1, dtype=float)
+
+# SALIDA de resultados
+print('magnitud: '+str(magnitud))
+print('ángulo: '+str(grados)+' grados')
+# límites de los ejes
+limite=np.array([Ax.min(),Ax.max(),Ay.min(),Ay.max()])
+plt.axis(limite)
+# Colores de los vectores
+c=''
+for i in range(1,len(px),1):
+    c=c+'b'
+c=c+'r'
+# grafica de vectores
+plt.quiver(px,py,Ax,Ay,color=c,angles='xy', scale_units='xy', scale=1)
+plt.title('Suma de '+str(n)+' vectores')
+plt.show()
+
+
+

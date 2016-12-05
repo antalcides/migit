@@ -1,0 +1,146 @@
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Created=Fri Nov 14 16:01:25 2003}
+%TCIDATA{LastRevised=Fri Nov 14 16:46:10 2003}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="General\Blank Document">}
+%TCIDATA{CSTFile=LaTeX article (bright).cst}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{tcilatex}
+
+\begin{document}
+
+
+\begin{center}
+FISICA MATEMATICA Y COMPUTACIONAL\bigskip 
+
+ASIGNACION N$%
+%TCIMACRO{\UNICODE[m]{0xb0}}%
+%BeginExpansion
+{{}^\circ}%
+%EndExpansion
+3$
+
+\\[0pt]
+CONCLUSIONES
+\end{center}
+
+\newline
+Problema 1:
+
+Al elaborar las gr\'{a}ficas de X vs Y para cada $\theta ,$ se obtienen
+graficas sim\'{e}tricas,  se puede ver que para \'{a}ngulos complementarios,
+el alcance es el mismo;el alcance m\'{a}ximo se da para un \'{a}ngulo de 45$%
+%TCIMACRO{\UNICODE[m]{0xb0}}%
+%BeginExpansion
+{{}^\circ}%
+%EndExpansion
+.$ La altura m\'{a}xima se obtiene para un \'{a}ngulo de 60$%
+%TCIMACRO{\UNICODE[m]{0xb0}}%
+%BeginExpansion
+{{}^\circ}%
+%EndExpansion
+,$todo lo anterior esta de acuerdo con la teor\'{i}a.
+
+Los errores para los calculos num\'{e}ricos, del alcance, la altura m\'{a}%
+xima y el tiempo de vuelo para un \'{a}ngulo de 45$%
+%TCIMACRO{\UNICODE[m]{0xb0}}%
+%BeginExpansion
+{{}^\circ}%
+%EndExpansion
+$ son peque\~{n}os (menores del 5\%), lo cual indica que el m\'{e}todo usado
+funciona bien a un \ nivel de confianza menor del 5\%.
+
+Problema 2:
+
+Cuando se tiene en cuenta la fuerza de arrastre o fricci\'{o}n ( drag
+force), la gr\'{a}fica deja de ser sim\'{e}trica ,tiene su m\'{a}ximo
+corrido a la izquierda, aproximadamente a 2000m, luego se amortigua
+rapidamente. El m\'{a}ximo alcance se da para 35$%
+%TCIMACRO{\UNICODE[m]{0xb0}}%
+%BeginExpansion
+{{}^\circ}%
+%EndExpansion
+$ y el m\'{i}nimo para 60$%
+%TCIMACRO{\UNICODE[m]{0xb0}}%
+%BeginExpansion
+{{}^\circ}%
+%EndExpansion
+,$ de 35$%
+%TCIMACRO{\UNICODE[m]{0xb0}}%
+%BeginExpansion
+{{}^\circ}%
+%EndExpansion
+$ en adelante, el alcance empieza a disminuir. La altura m\'{a}xima se da
+para un \'{a}ngulode 60$%
+%TCIMACRO{\UNICODE[m]{0xb0}}%
+%BeginExpansion
+{{}^\circ}%
+%EndExpansion
+,$ que es el del m\'{i}nimo alcance.
+
+\newline
+Problema 3:
+
+Comparado con el problema 2, el incluir la variaci\'{o}n de la densidad con
+la altura no cambia mucho los resultados, las graficas coinciden en una gran
+cantidad de puntos.
+
+\newline
+Problema 4:
+
+Al comparar las gr\'{a}ficas de los tres ejercicios anteriores para $\theta
+=45%
+%TCIMACRO{\UNICODE[m]{0xb0}}%
+%BeginExpansion
+{{}^\circ}%
+%EndExpansion
+$ se puede concluir que \ la fuerza de arrastre afecta mucho el
+comportamiento del proyectil, su altura m\'{a}xima es casi seis veces menor,
+y su alcance disminuye a menos de la mitad. La diferencia \ entre la gr\'{a}%
+fica del problema 3 y la grafica del problema 2 es muy poca, sin embargo se
+nota que el proyectil tiene un mayor alcance cuando no se considera la
+variaci\'{o}n de la densidad con la altura, pero tiene una altura m\'{a}xima
+menor que cuando se considera.
+
+\newline
+Problema 5:
+
+Al tomar un paso grande (0.04) para el problema del p\'{e}ndulo simple, se
+obtiene una grafica que aumenta su amplitud al transcurrir el tiempo, lo que
+indica un mal funcionamiento del m\'{e}todo empleado en este caso. al
+disminuir el paso \ (0,0005), el resultado se ajusta a la teor\'{i}a . De
+este modo se puede concluir que el m\'{e}todo usado mejora \ para pasos peque%
+\~{n}os. El diagrama de fase esta de acuerdo con la teor\'{i}a, ya que es
+una curva cerrada simetrica(una elipse), con un punto de equilibrio estable.
+
+\bigskip 
+
+\end{document}

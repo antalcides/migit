@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0055)http://garota.fismat.umich.mx/mn1/tutor_fort/style.html -->
+<HTML><HEAD><TITLE>Tutorial de Fortran</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY background="Tutorial de Fortrana_archivos/default.gif">
+<HR>
+&nbsp;[17. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/data.html">Datos y bloques de 
+datos</A> ] &nbsp;[<A 
+href="http://fismat.umich.mx/mn1/tutor_fort/index.html">Tutorial de Fortran</A>] 
+&nbsp;[19. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/debug.html">Depuración </A>] 
+<HR>
+
+<H2>18. Estilo de programación con Fortran </H2>Hay muchos estilos diferentes de 
+programación, pero se intentará dar algunas guías generales que son de 
+aceptación general. 
+<H4>Portabilidad</H4>Para asegurar la portabilidad del código, se recomienda 
+usar sólo el estándar de Fortran 77. La única excepción que se ha hecho en este 
+manual es usar letras minúsculas. 
+<H4>Estructura del Programa </H4>La estructura total del programa deberá ser 
+modular. Cada subprograma deberá resolver una tarea bien definida. Mucha gente 
+prefiere escribir cada subprograma en un archivo por separado. 
+<H4>Comentarios</H4>Se repite lo que se había indicado previamente: <I>Escriba 
+código legible, pero también agregue comentarios al código fuente para explicar 
+lo que se esta haciendo</I>. Es especialmente importante tener una buena 
+cabezera para cada subprograma que explique cada argumento de entrada/salida y 
+que hace el subprograma. 
+<H4>Sangrado</H4>Se debe siempre usar el sangrado apropiado para bloques de 
+ciclos y sentencias <TT>if</TT> como se mostro en el tutorial. 
+<H4>Variables</H4>Declarar siempre todas las variables. No se recomienda la 
+declaración implícita. Intentar compactar a 6 caracteres como máximo para 
+nombres de variables, o asegurarse que los primeros 6 caracteres son únicos. 
+<H4>Subprogramas</H4>Nunca se debe permitir que las funciones tengan "efectos 
+laterales", por ejemplo no se deben cambiar los valores de los parámetros de 
+entrada. Usar subrutinas en tales casos. 
+<P>En las declaraciones separar los parámetros, bloques comunes y variables 
+locales. 
+<P>Minimizar el uso de bloques comunes. 
+<H4>Goto</H4>Minimizar el uso de la sentencia <EM>goto</EM>. Desafortunadamente 
+se requiere usar <EM>goto</EM> en algunos ciclos, ya que el ciclo <EM>while</EM> 
+no es estándar en Fortran. 
+<H4>Arreglos</H4>En muchos casos es mejor declarar todos los arreglos grandes en 
+el programa principal y entonces pasarlos como argumentos a las distintas 
+subrutinas. De esta forma toda la asignación de espacio es hecha en un sólo 
+lugar. Recordar que se deben pasar también las dimensiones principales. Evitar 
+el inecesario "redimensionamiento de matrices". 
+<H4>Asuntos de Eficiencia</H4>Cuando se tenga un ciclo doble que esta accediendo 
+a un arreglo bidimensional, es usualmente mejor tener el primer índice (renglón) 
+dentro del arreglo más interno. Lo anterior por el esquema de almacenamiento en 
+Fortran. When you have a double loop accessing a two-dimensional array, it is 
+usually best to have the first (row) index in the innermost loop. This is 
+because of the storage scheme in Fortran. 
+<P>Cuando se tengan sentencias <TT>if-then-elseif</TT> con condiciones 
+múltiples, intentar colocar primero aquellas condiciones que vayan a ser las más 
+frecuentes que ocurran. 
+<P>
+<HR>
+&nbsp;[17. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/data.html">Datos y bloques de 
+datos</A> ] &nbsp;[<A 
+href="http://fismat.umich.mx/mn1/tutor_fort/index.html">Tutorial de Fortran</A>] 
+&nbsp;[19. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/debug.html">Depuración </A>] 
+</BODY></HTML>

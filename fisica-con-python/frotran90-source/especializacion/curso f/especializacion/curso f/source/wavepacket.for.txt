@@ -1,0 +1,99 @@
+	program fourier
+	implicit real*8(a-h,o-z)
+	
+c.......create a  Gaussian wavepacket Yx
+c	wavepacket = Gaussian*Hankel
+
+c...... by Dario Mitnik
+
+	parameter (mxpts=5000)
+	complex*16 Yx(mxpts),wavepacket
+	complex*16 eye,zero
+	data rzero,one,two/0.0d0,1.0d0,2.0d0/
+	common /bckph/twopi,dx,apot,wpot,rk,npts
+	common/bckdat/eye,pi
+	
+c.......Initialization of variables
+	pi   = two*asin(one)
+	twopi = two*pi
+	evtoau = 2.0*13.605698
+	eye  = cmplx(rzero,one)
+	zero = cmplx(rzero,rzero)
+	
+c........input data
+c	 typical case: npts=500; dx=0.5; wpot=10; apot=125; ien=30eV
+	npts = mxpts
+10	print*,' give number of points :'
+	read*,npts
+	if (npts.gt.mxpts) then
+		print*,' the maximum value  allowed is ',mxpts
+		go to 10
+	endif
+	print*,' give the grid step interval :'
+	read*,dx
+	print*,' input function Yt(j+1)=Gauss(K0,wpot,apot)'
+	print*,' give the packet spatial width (wpot) in a.u. :'
+	read*,wpot
+	print*,' give the packet spatial localization (apot) in a.u.'
+	read*,apot
+	print*,' energy (1) or momentum (0) of the wavepacket?'
+	read*,ien
+	if (ien.eq.0) then
+	  print*,' give the momentum K0 of the wavepacket in a.u.'
+	  read*,rk
+	  ekin = ((rk**2)/two )* evtoau
+	  print*,' E (eV) = :',ekin
+	else
+	  print*,' give the energy of the wavepacket in eV'
+	  read*,ekin
+	  eau = ekin/evtoau
+	  rk = sqrt(two*eau)
+	  print*,' k (a.u.) =:',rk
+	endif
+	xmax = dx*npts
+
+c.......open files
+	open(unit=9,file='Wx.dat',status='unknown')
+	open(unit=10,file='Wx2.dat',status='unknown')
+	
+c.......calculate the function Y in space domine
+	do 20 i=1,npts	   
+	   Yx(i) = wavepacket(i,apot,wpot,rk,dx)
+20	continue
+
+c.........print results
+        do 100 k=0,npts-1
+	  ryx = dble(Yx(k+1))
+	  riyx=dimag(Yx(k+1))
+	  ryxm=cdabs(Yx(k+1))
+	  if (rykm.lt.1e-10) rykm=rzero
+	  if (ryxm.lt.1e-10) ryxm=rzero
+	  write(9,999) k*dx,ryxm,ryx,riyx
+	  write(10,999) k*dx,ryxm**2,ryx,riyx
+100	continue
+999	format(4(1pg12.4,2x))
+
+	stop
+	end
+
+c
+c******************************************************************
+c
+	complex*16 function wavepacket(i,apot,wpot,ek,dx)
+	implicit real*8(a-h,o-z)
+
+c.......construct a Gaussian wavepacket function
+
+	complex*16 hank,eye
+	common/bckdat/eye,pi
+	data rzero,one,two/0.0d0,1.0d0,2.0d0/
+		
+	x = i*dx
+	f1=one/dsqrt(wpot*dsqrt(pi))
+	gauss= f1*exp(-(x-apot)**2/(two*wpot**2))
+	hank = exp(-eye*ek*x)
+	wavepacket = gauss*hank
+
+	return
+	end
+	

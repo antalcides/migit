@@ -1,0 +1,264 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0063)http://www.df.uba.ar/users/dmitnik/teoricaII/fortran/intro.html -->
+<HTML><HEAD><TITLE>Introduction to Fortran</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY>
+<H3 align=center>
+<H1 align=center>Problemas del Curso Física 4 </H1></H3>
+<H3>Instructor: <A href="mailto:dmitnik@df.uba.ar">Darío Mitnik</A></H3>
+<DIV>
+<HR align=center width="100%" SIZE=2>
+</HR></DIV>
+<H1 style="COLOR: red" align=center>Introducción Básica de Fortran </H1><TR><TD>
+<HR noShade SIZE=1>
+<FONT color=#0000ff>
+<H1>Compilar y correr un programa</H1></FONT>El objetivo de esta guía es brindar 
+un conocimiento básico del idioma Fortran, en tan sólo unos pocos minutos. Para 
+ello, en lugar de seguir los métodos tradicionales vamos a <I>cortar camino</I>, 
+utilizando y modificando programas ya escritos. <BR>El primer ejemplo que vamos 
+a usar es un programa muy simple, llamado <A 
+href="http://www.df.uba.ar/users/dmitnik/teoricaII/fortran/hello.f" 
+target=_blank>hello.f</A>: 
+<P>
+<TABLE cellSpacing=0 cellPadding=5 align=center bgColor=#ffcccc border=0>
+  <TBODY>
+  <TR>
+    <TD><PRE>      	Program Hello
+
+c.....	First example
+c.....	Just say Hello and quit
+	
+	print*, 'Hello world !!'
+	
+	stop
+	end
+   
+</PRE></TD></TR></TBODY></TABLE></P>Este es un programa escrito en lenguaje 
+Fortran, y es entendible para (algunos) humanos, pero no por la computadora. Por 
+lo tanto, debemos traducirselo a un lenguaje que ella pueda comprender. Eso es 
+lo que se llama <I>compilación</I>. Cada vez que se modifica el programa Fortran 
+original (el <I>source code</I>), se debe recompilarlo.
+<P>Vamos a tratar de correr ese programa. Veamos primero en que consiste. La 
+línea mas interesante es: 
+<P>
+<TABLE cellSpacing=0 cellPadding=5 align=center bgColor=#ffcccc border=0>
+  <TBODY>
+  <TR>
+    <TD><PRE>      print*,'Hello world !!'                                   
+</PRE></TD></TR></TBODY></TABLE></P>que obviamente, le dice a la computadora que 
+escriba "Hello world !!" en la pantalla..
+<P>La forma de compilar este programa es: 
+<P>
+<TABLE cellSpacing=0 cellPadding=5 align=center bgColor=#ccccff border=0>
+  <TBODY>
+  <TR>
+    <TD><PRE>problemas&gt;<B> f77 hello.f -o hello.x</B>
+</PRE></TD></TR></TBODY></TABLE></P>Después de lo cual, el compiler debería 
+crearnos el programa <I>ejecutable</I> <B>hello.x</B>. Si éste no existe, 
+entonces hicimos algo mal.
+<P>Ahora, corremos el programa: 
+<P>
+<TABLE cellSpacing=0 cellPadding=5 align=center bgColor=#ccccff border=0>
+  <TBODY>
+  <TR>
+    <TD><PRE>problemas&gt;<B> ./hello.x</B><BR>
+problemas&gt;<H3 style="COLOR: red"> Hello world !!</H3>                                    
+</PRE></TD></TR></TBODY></TABLE></P><B>Nota:</B> Los programas de Fortran 77 
+empiezan a partir de la columna 7. Toda línea que empieza con una <B>c</B> es un 
+comentario.
+<P>Modifiquemos ahora el programa, y en lugar de imprimir el texto en la 
+pantalla, hagámoslo en un file llamado "<B>hello.txt</B>". 
+<P>
+<TABLE cellSpacing=0 cellPadding=5 align=center bgColor=#ffcccc border=0>
+  <TBODY>
+  <TR>
+    <TD><PRE>      	Program Hello
+
+c.....	Second example
+c.... 	Say Hello, but now in an output file
+
+c...... open output file
+  	open (unit=10,file='hello.txt',status='new')
+	
+	write(10,*) 'Hello world !!'
+	
+c...... close output file
+	close (unit=10)
+	
+	stop
+	end
+   
+</PRE></TD></TR></TBODY></TABLE></P>Si hicimos todo bien, deberá aparecer en 
+nuestro directorio el file <B>hello.txt</B>. Abrilo y fijate si está correcto.
+<P>Hagamos ahora algo un poquito mas útil. Vamos a compilar y ejecutar un 
+programa que calcula el seno de una función. El programa se llama <A 
+href="http://www.df.uba.ar/users/dmitnik/teoricaII/fortran/senocalc.f" 
+target=_blank>senocalc.f</A> y es asi: 
+<P>
+<TABLE cellSpacing=0 cellPadding=5 align=center bgColor=#ffcccc border=0>
+  <TBODY>
+  <TR>
+    <TD><PRE>       program sin_calc
+
+c.....  Calculation of sin(x) for a given x
+
+        print*,' Calculation of sin(x)'
+
+c....   reading input
+100     print*,' give the value of x (rad):'
+        read*,x
+
+c.....  calculation of sin(x)
+        y = sin(x)
+        print*,' x (rad) =:',x,'    sin(x)=:',y
+
+c.....  finish
+        print*,' continue? ("no=0"  "yes=1") '
+        read*,icont
+
+        if (icont.ne.0) go to 100
+
+        stop
+        end
+
+</PRE></TD></TR></TBODY></TABLE></P>
+<H3 style="COLOR: red">Ejercicio: </H3>Modificar el programa de manera que los 
+datos iniciales estén dados en grados, en lugar de radianes. (Si no sale, se 
+puede ver una forma de hacerlo en <A 
+href="http://www.df.uba.ar/users/dmitnik/teoricaII/fortran/senocalc2.f" 
+target=_blank>senocalc2.f</A>) 
+<P>
+<H3 style="COLOR: red">Ejercicio: </H3>Agregar en la segunda línea del programa 
+la siguiente expresión: 
+<P>
+<TABLE cellSpacing=0 cellPadding=5 align=center bgColor=#ffcccc border=0>
+  <TBODY>
+  <TR>
+    <TD><PRE>       
+real*8 x,y
+</PRE></TD></TR></TBODY></TABLE></P>Para que quede más claro el efecto que 
+produce esta modificación, se puede cambiar la línea 
+<P>
+<TABLE cellSpacing=0 cellPadding=5 align=center bgColor=#ffcccc border=0>
+  <TBODY>
+  <TR>
+    <TD><PRE>        print*,' x (rad) =:',x,'    sin(x)=:',y
+</PRE></TD></TR></TBODY></TABLE></P>por las dos líneas siguientes: 
+<P>
+<TABLE cellSpacing=0 cellPadding=5 align=center bgColor=#ffcccc border=0>
+  <TBODY>
+  <TR>
+    <TD><PRE>	print150,x,y
+150	format(2x,'x (rad) =:',f12.8,5x,'sin(x)=:',f12.8)
+</PRE></TD></TR></TBODY></TABLE></P><BR><BR>Ahora vamos a combinar todo lo que 
+hicimos en una aplicación más útil y general. Crearemos un documento que 
+constará de dos columnas: en la primera vamos a poner diversos ángulos, y en la 
+segunda el seno de estos ángulos. El programa se llama <A 
+href="http://www.df.uba.ar/users/dmitnik/teoricaII/fortran/seno.f" 
+target=_blank>seno.f</A> y es asi: 
+<P>
+<TABLE cellSpacing=0 cellPadding=5 align=center bgColor=#ffcccc border=0>
+  <TBODY>
+  <TR>
+    <TD><PRE>	program table_sin
+	
+c....... This program prints two columns in file "tablesin.dat"
+c	 X: "npoints" angles between 0 and 3*Pi
+c	 Y: sin(X)
+
+c....... variables declaration
+	implicit none 		!! this is another way to comment
+	integer i,npoints
+	real*8 x,y,Pi,dang
+	
+	data npoints/50/
+	
+c......	 output file
+	open (unit=15,file='tablesin.dat',status='unknown')
+	
+c......	 calculation of Pi
+	Pi = 2.0d0*dasin(1.0d0)
+	
+c......   calculation of angular step
+	dang = 3.0d0*Pi/npoints
+	
+c......	  table generation
+	x = -dang
+	do 100 i=1,npoints
+		x = x + dang
+		y = sin(x)
+		write(15,25) x,y
+100	continue
+25	format(5x,f10.3,3x,f14.4)
+
+c.....	 close file
+	close (unit=15)
+	
+	stop
+	end
+
+                                                
+</PRE></TD></TR></TBODY></TABLE></P>De haber hecho todo bien, deberemos 
+encontrar en nuestro directorio un documento llamado "<B>tablesin.dat</B>" que 
+consta de dos columnas. Podemos graficar estos resultados, haciendo por ejemplo: 
+
+<P>
+<TABLE cellSpacing=0 cellPadding=5 align=center bgColor=#ccccff border=0>
+  <TBODY>
+  <TR>
+    <TD><PRE>problemas&gt;<B> xmgrace tablesin.dat </B><BR>
+</PRE></TD></TR></TBODY></TABLE></P>Ahora estamos listos para graficar cualquier 
+otro tipo de función. Modifiquemos el programa usando una <B><I>función</I></B>, 
+tal como hicimos en el programa <A 
+href="http://www.df.uba.ar/users/dmitnik/teoricaII/fortran/seno2.f" 
+target=_blank>seno2.f</A>. Esto es, reemplacemos la línea 
+<P>
+<TABLE cellSpacing=0 cellPadding=5 align=center bgColor=#ffcccc border=0>
+  <TBODY>
+  <TR>
+    <TD><PRE>		y = sin(x)                                   
+</PRE></TD></TR></TBODY></TABLE></P>por la función 
+<P>
+<TABLE cellSpacing=0 cellPadding=5 align=center bgColor=#ffcccc border=0>
+  <TBODY>
+  <TR>
+    <TD><PRE>		y = func_sin(x)                                   
+</PRE></TD></TR></TBODY></TABLE></P>siendo <B>func_sin(x)</B> una función 
+externa: 
+<P>
+<TABLE cellSpacing=0 cellPadding=5 align=center bgColor=#ffcccc border=0>
+  <TBODY>
+  <TR>
+    <TD><PRE>		real*8 function func_sin(x)
+				
+		func_sin = sin(x)
+		
+		return
+		end                                
+</PRE></TD></TR></TBODY></TABLE></P>Graficá los resultados de este nuevo 
+programa.
+<P>Los resultados estarán en el documento "<B>tablesin2.dat</B>". Se pueden 
+comparar con los resultados anteriores haciendo: 
+<P>
+<TABLE cellSpacing=0 cellPadding=5 align=center bgColor=#ccccff border=0>
+  <TBODY>
+  <TR>
+    <TD><PRE>problemas&gt;<B> xmgrace tablesin.dat tablesin2.dat </B><BR>
+</PRE></TD></TR></TBODY></TABLE></P>Si hicimos todo bien, los resultados de 
+<B>seno2.f</B>: 
+<H3 style="COLOR: red">deberán estar mal !!</H3>
+<P>La solución a este problema se encuentra en el programa <A 
+href="http://www.df.uba.ar/users/dmitnik/teoricaII/fortran/seno3.f" 
+target=_blank>seno3.f</A>. Compará el nuevo programa y notá la modificación. 
+Graficá los resultados nuevos (<B>tablesin3.dat</B>). 
+<DIV>
+<HR align=center width="100%" SIZE=2>
+</HR></DIV>
+<H2>Lecturas Auxiliares Recomendadas:</H2><BR>
+<LI><A href="http://www.pa.msu.edu/~donev/FORTRAN/" 
+target=_blank><I>Introduction to Fortran - A Reference Manual - Aleksandar 
+Donev<A>.<BR>
+<LI><A href="http://amath.colorado.edu/student/chartier/Appm/Fortran/" 
+target=_blank><I>Introduction to programming in Fortran by Tim 
+Chartier</A>.<BR></I></LI></I></BODY></HTML>

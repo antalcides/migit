@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0069)http://www.dcc.uchile.cl/~lmateu/CC10A99/Apuntes/sintaxis2/index.html -->
+<HTML><HEAD><TITLE>Computación I</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY><RIGHT><EM>Miércoles 28 de Abril</EM> </RIGHT>
+<CENTER>
+<H3>La sintaxis de Java - 2da. parte</H3>
+<P></CENTER>Objetivos: Entregar las reglas gramaticales que describen otras 
+categorías sintácticas del lenguaje Java.
+<P>Temas:
+<P>
+<UL>
+  <LI>Reglas sintácticas para la invocación de métodos y funciones. 
+  <LI>Reglas sintácticas para la creación de objetos. 
+  <LI>Ejercicio sobre archivos. </LI></UL>
+<HR>
+
+<P>
+<H4>Invocación de métodos y funciones</H4>Los operadores de Java (+ - * etc.) 
+permiten escribir en forma cómoda las operaciones más frecuentes que uno pueda 
+necesitar en un programa. Para otras operaciones menos frecuentes (como 
+<TT>min</TT>, <TT>max</TT>, <TT>sqrt</TT>, etc.) existe una categoría sintáctica 
+que se denomina <EM>invocación de función o método</EM> (Obs.: más adelante 
+veremos que las funciones son también métodos).
+<P>Por ejemplo, en la siguiente instrucción, <TT>sqrt(...)</TT> es una 
+<EM>invocación de función</EM>:
+<P><CODE><PRE>    double raiz= sqrt(b*b-4*a*c);
+</PRE></CODE>Las reglas sintácticas que describen lo que puede ser una 
+<EM>invocación de función o método</EM> son las siguientes:
+<P>
+<CENTER>
+<TABLE cellPadding=4>
+  <TBODY>
+  <TR>
+    <TD><EM>exp</EM> 
+    <TD>-&gt; <EM>ident</EM> ( <EM>args</EM> ) 
+    <TD>La invocación de una función 
+  <TR>
+    <TD>
+    <TD>-&gt; <EM>exp</EM> . <EM>ident</EM> ( <EM>args</EM> ) 
+    <TD>La invocación de un método 
+  <TR>
+    <TD><EM>args</EM> 
+    <TD>-&gt; 
+    <TD>No hay argumentos 
+  <TR>
+    <TD>
+    <TD>-&gt; <EM>exp</EM> <EM>más-args</EM> 
+    <TD>Hay al menos un argumento 
+  <TR>
+    <TD><EM>más-args</EM> 
+    <TD>-&gt; 
+    <TD>No hay más argumentos 
+  <TR>
+    <TD>
+    <TD>-&gt; , <EM>exp</EM> <EM>más-args</EM> 
+    <TD>Queda al menos un argumento adicional </TR></TBODY></TABLE></CENTER>
+<P>El siguiente es el árbol sintáctico para <TT>max(a,1)</TT>:
+<P><SAMPLE><PRE>     max  (   a   ,   1           )
+      |   |   |   |   |           |
+    ident | ident | const         |
+      |   |   |   \   |           |
+      \   |  exp   \ exp más-args |
+       \  \   \     \  \  /       /
+        \  \   \    más-args     /
+         \  \   \    /          /
+          \  \   args          /
+           \  \   |           /
+            ------+-----------
+                 exp
+</PRE></SAMPLE>Observe que la aparición de la categoría <EM>más-args</EM> a 
+partir de nada se justifica con la regla que dice:
+<P>
+<CENTER>
+<TABLE cellPadding=4>
+  <TBODY>
+  <TR>
+    <TD><EM>más-args</EM> 
+    <TD>-&gt; </TR></TBODY></TABLE></CENTER>El árbol sintáctico para 
+<TT>lect.readLine()</TT> es:
+<P><SAMPLE><PRE>    lect  . readLine (      )
+      |   |   |      |      |
+    ident | ident    |      |
+      |   |   |      |      |
+     exp  |   |      | args |
+        \ \   |      / /    /
+         -----+-------------
+             exp
+</PRE></SAMPLE>
+<HR>
+
+<P>
+<H4>Creación de objetos</H4>La creación de un objeto mediante el operador new es 
+una expresión. La regla sintáctica que permite este tipo de expresiones es:
+<P>
+<CENTER>
+<TABLE cellPadding=4>
+  <TBODY>
+  <TR>
+    <TD><EM>exp</EM> 
+    <TD>-&gt; <B>new</B> <EM>tipo</EM> ( <EM>args</EM> ) 
+</TR></TBODY></TABLE></CENTER>En las reglas sintácticas colocamos en 
+<B>negritas</B> las palabras que deben aparecer textualmente en el programa y 
+colocamos en <EM>cursiva</EM> las categorías sintácticas y que por lo tanto 
+deben ser reemplazadas por ``algo'' que aparece en el programa.
+<P>Un <EM>tipo</EM> es una categoría sintáctica que representa todos los tipos 
+de Java: int, double, String, TextReader, etc.
+<P>Ejercicio: demuestre que <TT>new TextReader("datos.txt").close()</TT> es una 
+expresión (construya su árbol sintáctico). Explique en palabras qué hace la 
+expresión.
+<P>
+<HR>
+
+<P><EM>Ejercicio:</EM>
+<P>Escriba un programa que entregue la distancia entre Santiago y alguna ciudad 
+de Chile. El diálogo debe ser el siguiente:
+<P><SAMPLE><PRE>    Nombre de ciudad ? <B>arica</B>
+    La distancia entre Santiago y Arica es 2030 kilómetros
+</PRE></SAMPLE>Para obtener la distancia, Ud. dispone de un archivo "dist.txt" 
+que contiene las distancias entre Santiago y las ciudades más importantes de 
+Chile en el siguiente formato:
+<P><SAMPLE><PRE>Arica:2030
+Puerto Mont:1012
+Valparaiso:109
+...
+</PRE></SAMPLE>Observe que el usuario ingresa arica en minúsculas y que la misma 
+ciudad aparece en mayúsculas en el archivo. El programa debe ignorar este tipo 
+de diferencias.
+<P>Si la ciudad solicitada por el usuario no aparece en el archivo, el programa 
+debe desplegar el siguiente mensaje:
+<P><SAMPLE><PRE>    Nombre de ciudad ? <B>Mendoza</B>
+    La ciudad de Mendoza no se encuentra en mi base de datos
+</PRE></SAMPLE>Solución:
+<P><CODE><PRE>    print("Nombre de ciudad ? ");
+    String ciudadBusc= readLine();
+    TextReader lect= new TextReader("dist.txt");
+    <B>int existe= 0;</B>
+    String linea= lect.readLine();
+    while (!lect.eofReached() <B>&amp;&amp; existe==0</B>) {
+      FieldParser decod= new FieldParser(linea, ":");
+      String ciudad= decod.readString();
+      if (<B>compare(lower(ciudad), lower(ciudadBusc))</B>==0) {
+        int dist= decod.readInt();
+        println("La distancia entre Santiago y "+ciudad+" es "+dist+
+                "kilometros");
+        <B>existe= 1;</B>
+      }
+      linea= lect.readLine();
+    }
+    if (existe!=0)
+      println("La ciudad de "+ciudadBusc+
+              " no se encuentra en mi base de datos");
+    lect.close();
+</PRE></CODE>Observación: La comparación se debe hacer ignorando la diferencia 
+entre mayúsculas y minúscula. Por esta razón, se usó la función <TT>lower</TT> 
+que traduce todo a letras minúsculas.
+<P>Si se encuentra la ciudad, no tiene sentido seguir leyendo el archivo. Por 
+esta razón se agregó la variable <TT>existe</TT>. Esta variable permanece en 0 
+mientras no se haya encontrado la ciudad. Cuando se encuentra la ciudad se le 
+asigna un 1, lo que se traduce en que el ciclo termina, puesto que no satisface 
+la condición <TT>existe==0</TT>.
+<P>
+<HR>
+
+<P></P></BODY></HTML>

@@ -1,0 +1,579 @@
+%\pagestyle{fancy}
+%\thispagestyle{plain}
+%\pagestyle{fancyplain}
+%\lhead[\fancyplain{}{\slshape %\rightmark}]
+%\chead{}
+%\rhead[\fancyplain{}{\slshape %\leftmark}]
+%\lfoot[]{\thepage}
+%\cfoot[]{Estadistica I}
+%\rfoot{\thepage}
+%\setlength{\headrulewidth}{0.4pt}
+%\setlength{\footrulewidth}{0.4pt}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{Version=4.00.0.2312}
+%TCIDATA{LaTeXparent=0,0,Est12.tex}
+%TCIDATA{ChildDefaults=%
+%chapter:2,page:33
+%}
+
+
+%\chapter{Medidas descriptivas}
+
+\section{Medidas de tendencia central}
+
+\subsection{Medias}
+
+\subsubsection{Media aritm\'{e}tica}
+
+La media aritm\'{e}tica de una muestra \ es la suma de cada uno de los valores
+posibles multiplicado por su frecuencia, es decir.
+
+Si la siguiente tabla \ representa la tabla de frecuencia de la muestra%
+
+\[%
+\begin{tabular}
+[c]{|l|l|l|}\hline
+$M$ & $n_{i}$ & $f_{i}$\\\hline
+$x_{1}$ & $n_{1}$ & $f_{1}$\\\hline
+$\vdots$ & $\vdots$ & $\vdots$\\\hline
+$x_{k}$ & $n_{k}$ & $f_{k}$\\\hline
+\end{tabular}
+\]
+
+
+La media es el valor :
+\begin{equation}
+\overset{\_}{x}=\frac{\overset{k}{\sum_{i=1}}x_{i}n_{i}}{n} \label{2-1}%
+\end{equation}
+y si los datos no est\'{a}n ordenados entonces $\ $%
+\begin{equation}
+\overset{\_}{x}=\frac{\overset{k}{\sum_{i=1}}x_{i}}{n} \label{2-2}%
+\end{equation}
+
+
+\begin{remark}
+En la definici\'{o}n de media se consider\'{o} que la variable de inter\'{e}s
+$X$ es discreta, pero si la variable $X$ no es discreta sino continua. En la
+f\'{o}rmula se reemplaza cada valor $x_{i}$ por la marca de clase
+correspondiente es decir
+\begin{equation}
+\overset{\_}{x\,}=\frac{\overset{k}{\sum_{i=1}}m_{i}n_{i}}{n} \label{2-3}%
+\end{equation}
+
+\end{remark}
+
+Este proceso hace que la media aritm\'{e}tica difiera de la media obtenida
+seg\'{u}n (2.1), es decir habr\'{a} una perdida de precisi\'{o}n que ser\'{a}
+mayor en cuanto mayor sea la diferencia entre las marcas de clase y los
+valores reales, o sea entre mayor sea la longitud $a_{i}$ de los intervalos\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+
+\begin{example}
+\bigskip Determinar la media aritm\'{e}tica del ejemplo 1.10
+\end{example}
+
+%
+
+\[%
+\begin{tabular}
+[c]{||c||c||c||c||}\hline\hline
+$Intervalos$ & $m_{i}$ & $n_{i}$ & $N_{i}$\\\hline\hline
+$0-2$ & $1$ & $2$ & \\\hline\hline
+$2-4$ & $3$ & $1$ & \\\hline\hline
+$4-6$ & $5$ & $4$ & \\\hline\hline
+$6-8$ & $7$ & $3$ & \\\hline\hline
+$8-10$ & $9$ & $2$ & \\\hline\hline
+&  &  & \\\hline\hline
+\end{tabular}
+\begin{tabular}
+[c]{||c||}\hline\hline
+$m_{i}n_{i}$\\\hline\hline
+\\\hline\hline
+\\\hline\hline
+\\\hline\hline
+\\\hline\hline
+\\\hline\hline
+\\\hline\hline
+\end{tabular}
+\]
+
+
+\begin{proposition}
+Dados r grupos con $n_{1},n_{2},n_{3},\cdots,n_{r}$ observaciones, si
+$\overset{\_}{x}_{1},$ $\overset{\_}{x}_{2},\overset{\_}{x}_{3},\cdots
+,\overset{\_}{x}_{r}$ son las respectivas medias, entonces la media de las
+$n=n_{1}+n_{2}+n_{3}+\cdots+n_{r}$ observaciones es:
+\begin{equation}
+\overset{\_}{x}=\frac{\overset{k}{\sum_{i=1}}n_{i}\overset{\_}{x}_{i}}{n}%
+\end{equation}
+
+\end{proposition}
+
+\subparagraph{Desventajas de la media}
+
+La media es una medida muy usa\-da en estad\'{\i}stica, pero a pesar de eso
+posee ciertas desventajas
+
+\begin{itemize}
+\item La media aritm\'{e}tica es muy sensible a los valores extremos, es decir
+si una medida se aleja mucho de las otras har\'{a} que la media se aproxime
+mucho a ella
+
+\item No se recomienda usar cuando los datos se desplazan hacia los extremos
+
+\item En el caso de variables continuas depende de los intervalos de clase
+
+\item en le caso de variables discretas el valor puede no ser un valor de la muestra.
+\end{itemize}
+
+\subsubsection{}
+
+Otra media es la llamada media cuadr\'{a}tica $\overset{\_}{x}_{c}$la cual es
+la ra\'{\i}z cuadrada de la media aritm\'{e}tica de los cuadrados
+\[
+\overset{\_}{x}_{c}=\sqrt{\frac{\sum_{i=1}^{n}x_{i}^{2}}{n}}%
+\]
+
+
+\subsection{La mediana}
+
+Sea $X$ una variable discreta cuyas observaciones han sido ordenadas de mayor
+de mayor a menor, entonces se le llama mediana $\widetilde{x}$ al primer valor
+de la variable que deja por debajo de si el 50\% de las observaciones es decir
+si $n$ es el n\'{u}mero de observaciones, la mediana ser\'{a} la
+observaci\'{o}n $\left[  |\frac{n}{2}|\right]  +1$
+
+\begin{definition}
+Sea $x_{(1),}x_{(2)},x_{(3)},\cdots,x_{(n)}$ las observaciones de una muestra
+para una variable $X$ donde $x_{(1)}$ representa la observaci\'{o}n m\'{a}s
+peque\~{n}a, $x_{(2)}$ la observaci\'{o}n que le sigue en valor y as\'{\i}
+sucesivamente $x_{(n)}$ denota la observaci\'{o}n de mayor valor, entonces la
+mediana se define
+\[
+\widetilde{x}=\left\{
+\begin{tabular}
+[c]{ll}%
+$x_{([n+1]/2)}$ & si $n$ impar\\
+$\frac{x_{(n/2)}+x_{([n/2]+1)}}{2}$ & si $n$ par
+\end{tabular}
+\right.
+\]
+
+\end{definition}
+
+En el caso de variables continuas, las clases vienen dadas por intervalos como
+se indic\'{o} en el cap\'{\i}tulo anterior por tal raz\'{o}n para determinar
+la mediana se escoge el intervalo donde se encuentra el valor para el cual
+est\'{a}n debajo de \'{e}l la mitad de los datos. Entonces a partir de ese
+intervalo se observan las frecuencias absolutas acumuladas y se aplica la
+siguiente f\'{o}rmula
+\[
+\widetilde{x}=x_{i-1}+\frac{\frac{n}{2}-N_{i-1}}{n_{i}}a_{i}%
+\]
+de aqu\'{\i} se puede deducir que $\widetilde{x}$ el ``punto'' que divide al
+histograma en dos partes de \'{a}reas iguales
+
+\subsubsection{Propiedades y desventajas de la mediana}
+
+\begin{enumerate}
+\item Tiene la ventaja de no ser afectada por los valores extremos y por eso
+se aconseja para distribuciones para las cuales los datos no se concentran en
+el centro
+
+\item Es f\'{a}cil de calcular
+
+\item En el caso de variables discretas el valor de la mediana es un valor de
+la variable
+
+\item El mayor defecto es que las propiedades matem\'{a}ticas son muy
+complicadas y esto hace que muy poco se use para realizar inferencias
+
+\item Es funci\'{o}n de los intervalos escogidos en el caso de variables continuas
+\end{enumerate}
+
+\begin{example}
+Sea $X$ una variable discreta que ha presentado las siguientes observaciones
+\end{example}
+
+$X\leadsto2,5,7,9,12\Rightarrow\widetilde{x}=7$ y $\overline{x}=7$
+
+Ahora si cambiamos la ultima observaci\'{o}n, no se afectar\'{a} la mediana
+pero si la media
+
+$X\leadsto2,5,7,9,125\Longrightarrow\widetilde{x}=7$ y $\overline{x}=29,6$
+
+Adem\'{a}s la media no es valor de la variable
+
+\begin{example}
+Obtener la media y la mediana de la tabla frecuencias siguientes
+\end{example}
+
+%
+
+\begin{tabular}
+[c]{|c|c|c|c|c|c|}\hline
+$x_{i-1}-x_{i}$ & $m_{i}$ & $n_{i}$ & $a_{i}$ & $x_{i}n_{i}$ & $N_{i}$\\\hline
+0-10 &  & 80 &  &  & \\\hline
+10-20 &  & 60 &  &  & \\\hline
+20-30 &  & 30 &  &  & \\\hline
+30-100 &  & 5 &  &  & \\\hline
+100-500 &  & 5 &  &  & \\\hline
+&  &  &  &  & \\\hline
+\end{tabular}
+
+
+\begin{quote}
+$\overline{x}=\frac{\qquad}{\qquad}$ \ \ $\widetilde{x}=\qquad+\frac
+{\qquad\qquad}{\qquad}\qquad=\qquad$
+\end{quote}
+
+
+
+\begin{quote}
+
+\end{quote}
+
+\subsubsection{La moda}
+
+Llamaremos moda $\widehat{x}$ a cualquier m\'{a}ximo relativo de la
+distribuci\'{o}n de frecuencias, es decir, cualquier valor de la variable que
+posea una frecuencia mayor que su anterior y posterior valor.
+
+En el caso de variables continuas es m\'{a}s correcto hablar de intervalos
+modales. Luego de determinar el intervalo de clase o intervalo modal,que es
+aquel para el cual la distribuci\'{o}n de frecuencia posee un m\'{a}ximo
+relativo, se determina la moda utilizando la siguiente f\'{o}rmula
+\[
+\widehat{x}=x_{i-1}+\frac{n_{i}-n_{i-1}}{\left(  n_{i}-n_{i-1}\right)
++\left(  n_{i}-n_{i+1}\right)  }a_{i}%
+\]
+
+
+
+
+\paragraph{Propiedades de la moda\newline}
+
+La moda posee la siguientes propiedades
+
+\begin{itemize}
+\item Es muy f\'{a}cil de calcular
+
+\item Puede no ser \'{u}nica
+
+\item Es funci\'{o}n de los intervalos de su amplitud,n\'{u}mero y l\'{\i}mites
+\end{itemize}
+
+\subsubsection{Relaci\'{o}n entre la media, la moda y la mediana}
+
+En el caso de distribuciones unimodales, la mediana est\'{a} con frecuencia
+comprendida entre la media y la moda (incluso m\'{a}s cerca de la media).
+
+En distribuciones que presentan cierta inclinaci\'{o}n, es m\'{a}s aconsejable
+el uso de la mediana. Sin embargo en estudios relacionados con prop\'{o}sitos
+estad\'{\i}sticos y de inferencia suele ser m\'{a}s apta la media.
+
+Veamos un ejemplo de c\'{a}lculo de estas tres magnitudes.
+
+\begin{example}
+Consideramos una tabla estad\'{\i}stica relativa a una variable continua, de
+la que nos dan los intervalos, las marcas de clase $m_{i}$, y las frecuencias
+absolutas, $n_{i},$ para determinar las tres medidas de tendencia central b\'{a}sicas
+\end{example}
+
+%
+
+\begin{tabular}
+[c]{|c|c|c|c|c|}\hline
+Intervalos & $m_{i}$ & $n_{i}$ & $N_{i}$ & $m_{i}n_{i}$\\\hline
+0-2 & 1 & 2 &  & \\\hline
+2-4 & 3 & 1 &  & \\\hline
+4-6 & 5 & 4 &  & \\\hline
+6-8 & 7 & 3 &  & \\\hline
+8-10 & 9 & 2 &  & \\\hline
+&  &  &  & \\\hline
+\end{tabular}
+.
+
+La mediana es el valor que deja debajo de s\'{\i} el 50\% de los datos, en la
+tabla en la columna de las frecuencias absolutas acumuladas observamos que
+sexto dato se encuentra en la tercera clase, es decir
+
+$i=3$
+
+$(x_{i-1},x_{i}]=(4,6]$ intervalo donde se encuentra la mediana
+
+$\widetilde{x}=\widetilde{x}=x_{i-1}+\frac{\frac{n}{2}-N_{i-1}}{n_{i}}%
+a_{i}=4+\frac{\frac{12}{2}-3}{4}\cdot2=5,5$
+
+para calcular la moda,debemos encontrar el o los intervalos modales, buscando
+los m\'{a}ximos relativos en las columnas de las frecuencias absolutas
+$n_{i}.$
+
+Encontramos dos intervalos \ con un m\'{a}ximo relativo,
+
+para $i=1$ cuya frecuencia absoluta es $2$
+
+para $i=3$ cuya frecuencia absoluta es $4.$
+
+Por tanto la moda en cada caso se calcula
+
+cuando $i=1\Rightarrow$
+
+$\widehat{x}=x_{i-1}+\frac{n_{i}-n_{i-1}}{\left(  n_{i}-n_{i-1}\right)
++\left(  n_{i}-n_{i+1}\right)  }a_{i}=0+\frac{2-0}{\left(  2-0\right)
++\left(  2-1\right)  }\cdot2=1,\widehat{3}$
+
+cuando $i=3\Rightarrow$
+
+$\widehat{x}=x_{i-1}+\frac{n_{i}-n_{i-1}}{\left(  n_{i}-n_{i-1}\right)
++\left(  n_{i}-n_{i+1}\right)  }a_{i}=4+\frac{4-1}{\left(  4-1\right)
++\left(  4-3\right)  }\cdot5=5,5$
+
+La media es $\bar{x}=5.\hat{3}$
+
+\section{Medidas de posici\'{o}n}
+
+A veces es importante obtener los valores de la variable que divi\-den la
+poblaci\'{o}n en cuatro,diez o cien partes iguales,usualmente llamados
+cuartiles deciles y percentiles respectivamente.
+
+El procedimiento es similar al utilizado para determinar la mediana, como lo
+indicaremos ahora.
+
+\subsubsection{Percentil}
+
+
+
+Para una variable discreta, se define el percentil de orden $k,$ como la
+observaci\'{o}n que deja por debajo de si el $k\%$ de la poblaci\'{o}n es
+decir
+\begin{align*}
+N_{k} &  =n\frac{k}{100},\text{ si }n\text{ es impar}\\
+\text{es decir }p_{k} &  =x_{[|(n+1)\frac{k}{100}|]}%
+\end{align*}
+donde en sub \'{\i}ndice $[|(n+1)\frac{k}{100}|]$ indica que es la
+posici\'{o}n $k$ a la que le corresponde ese valor de la frecuencia absoluta
+acumulada. Si $n$ es par
+\[
+p_{k}=\frac{x_{[|n\frac{k}{100}|]}+x_{[|n\frac{k}{100}|]+1}}{2}%
+\]
+
+
+En el caso de variables continuas se busca el intervalo donde se encuentra
+\ $p_{k},$ es decir se busca el valor que deja por debajo de si el $k\%$ de
+las observaciones y se determina el intervalo $(x_{i-1,}x_{i}]$ donde se
+encuentra y se utiliza la relaci\'{o}n
+\[
+p_{k}=x_{i-1}+\frac{n\frac{k}{100}-N_{i-1}}{n_{i}}\cdot a_{i}%
+\]
+
+
+
+
+\subsubsection{Quartiles}
+
+Los cuartiles son tres y se definen:
+
+\begin{itemize}
+\item $Q_{1}=p_{25}$
+
+\item $Q_{2}=p_{50}$
+
+\item $Q_{3}=p_{75}$
+\end{itemize}
+
+\subsection{Deciles}
+
+
+
+De manera an\'{a}loga se definen los deciles
+
+los deciles son los valores que dividen las observaciones en 10 grupos de
+igual tama\~{n}o es decir son el conjunto
+
+$D_{1},D_{2},D_{3},\cdots,D_{10}$ y se definen
+
+$D_{i}=p_{10\cdot i}\qquad i=1,2,3,\cdots,10$
+
+\begin{example}
+\begin{enumerate}
+\item Dada la siguiente tabla de distribuci\'{o}n de frecuencia Determine los
+tres cuartiles
+\[%
+\begin{tabular}
+[c]{||l||l||l||}\hline\hline
+x$_{i}$ & n$_{i}$ & N$_{i}$\\\hline\hline
+0 & 14 & \\\hline\hline
+1 & 10 & \\\hline\hline
+2 &  & \\\hline\hline
+3 & 26 & \\\hline\hline
+4 & 20 & \\\hline\hline
+5 & 15 & 100\\\hline\hline
+& 100 & \\\hline\hline
+\end{tabular}
+\]
+\rule{0.01in}{0.17in}Soluci\'{o}n\linebreak Primer cuartil
+\[
+\frac{n}{4}=25\Rightarrow N_{i}>\frac{n}{4}=39\Rightarrow Q_{1}=2
+\]
+\linebreak Segundo cuartil
+\[
+\frac{2n}{4}=50\Rightarrow N_{i}>\frac{2n}{4}=65\Rightarrow Q_{2}=3
+\]
+\linebreak Tercer cuartil
+\[
+\frac{3n}{4}=75\Rightarrow N_{i}>\frac{3n}{4}=85\Rightarrow Q_{3}=4
+\]
+
+
+\item Calcular los cuartiles en las siguiente distribuci\'{o}n de una variable
+continua
+\[%
+\begin{tabular}
+[c]{|l|l|l|}\hline
+x$_{i-1}$ & n$_{i}$ & N$_{i}$\\\hline
+0-1 & 10 & \\\hline
+1-2 & 12 & \\\hline
+2-3 &  & \\\hline
+3-4 & 10 & \\\hline
+4-5 & 7 & 51\\\hline
+& 51 & \\\hline
+\end{tabular}
+\
+\]
+\linebreak primer cuartil
+\begin{align*}
+\frac{n}{4} &  =12,75\Rightarrow22=N_{i}>\frac{n}{4}\Rightarrow Q_{1}%
+\in(1,2]\\
+Q_{1} &  =x_{i-1}+\frac{n/4-N_{i-1}}{n_{i}}\cdot a_{i}=1+\frac{12,75-10}%
+{12}\cdot1=1,23
+\end{align*}
+\linebreak segundo cuartil
+\begin{align*}
+\frac{2n}{4} &  =25,5\Rightarrow34=N_{i}>\frac{2n}{4}\Rightarrow Q_{2}%
+\in(2,3]\\
+Q_{2} &  =x_{i-1}+\frac{2n/4-N_{i-1}}{n_{i}}\cdot a_{i}=2+\frac{25,5-22}%
+{12}\cdot1=2,29
+\end{align*}
+\linebreak Tercer cuartil
+\begin{align*}
+\frac{3n}{4} &  =38,5\Rightarrow44=N_{i}>\frac{3n}{4}\Rightarrow Q_{3}%
+\in(3,4]\\
+Q_{3} &  =x_{i-1}+\frac{3n/4-N_{i-1}}{n_{i}}\cdot a_{i}=3+\frac{38,25-34}%
+{10}\cdot1=3,45
+\end{align*}
+
+\end{enumerate}
+\end{example}
+
+
+
+\section{Medidas de variabilidad o dispersi\'{o}n}
+
+Las medias de posici\'{o}n o medidas de tendencia central nos indican donde se
+sit\'{u}a un grupo de medidas. Los de variabilidad o dispersi\'{o}n nos
+indican si esas medidas o valores est\'{a}n pr\'{o}ximas entre s\'{\i} o si
+por el contrario est\'{a}n dispersas.
+
+Una medida razonable da la variabilidad podr\'{\i}a ser la amplitud o rango,
+el cual se obtiene restando el valor o medida m\'{\i}nima de la medida
+m\'{a}xima de un conjunto de observaciones
+
+Esta forma de determinar la variabilidad es f\'{a}cil de calcular y tiene las
+mismas unidades de las medidas, pero tiene algunos inconvenientes
+
+$\circ$ No utiliza todas las observaciones si no dos de ellas
+
+$\circ$ Es afectada por las observaciones extremas
+
+$\circ$ El rango aumenta con el n\'{u}mero de medidas, o bien queda igual. En
+ning\'{u}n caso disminuye
+
+Por eso a continuaci\'{o}n determinaremos otras formas de medir la
+dispersi\'{o}n de una variable
+
+\subsection{}
+
+\subsection{Varianza y desviaci\'{o}n t\'{\i}pica}
+
+
+
+Como forma de medir la dispersi\'{o}n de los datos hemos descartado:
+
+\begin{itemize}
+\item
+\end{itemize}
+
+La varianza, $S_{n}^{2}$, se define como la media de las diferencias
+cuadr\'{a}ticas de $n$ puntuaciones con respecto a su media aritm\'{e}tica, es
+decir
+\[
+S_{n}^{2}=\frac{1}{n}\sum_{i=1}^{n}\left(  x_{i}-\overline{x}\right)  ^{2}%
+\]
+
+
+Para datos agrupados en tablas, usando las notaciones establecidas en el
+cap\'{\i}tulo anterior, la varianza se puede escribir como
+\[
+S_{n}^{2}=\frac{1}{n}\sum_{i=1}^{k}\left(  x_{i}-\overline{x}\right)
+^{2}\cdot n_{i}%
+\]
+
+
+Una f\'{o}rmula equivalente para el c\'{a}lculo de la varianza est\'{a} basada
+en lo siguiente:
+\begin{align*}
+S_{n}^{2}  &  =\frac{1}{n}\sum_{i=1}^{n}x_{i}^{2}n_{i}-\overline{x}^{2}\\
+&  =\frac{1}{n}\sum_{i=1}^{n}\left(  x_{i}^{2}-2x_{i}\overline{x}+\overline
+{x}^{2}\right) \\
+&  \frac{1}{n}\sum_{i=1}^{n}x_{i}^{2}-2\overline{x}\frac{\sum_{i=1}^{n}x_{i}%
+}{n}+\frac{1}{n}n\overline{x}^{2}%
+\end{align*}
+
+
+Con lo cual se tiene
+\[
+S_{n}^{2}=\frac{1}{n}\sum_{i=1}^{n}x_{i}^{2}-\overline{x}^{2}%
+\]
+
+
+Si los datos est\'{a}n agrupados en tablas, es evidente que
+\[
+S_{n}^{2}=\frac{1}{n}\sum_{i=1}^{n}x_{i}^{2}n_{i}-\overline{x}^{2}%
+\]
+
+
+La varianza no tiene la misma magnitud que las observaciones (ej. si las
+observaciones se miden en metros, la varianza lo hace en $metros^{2}$ ). Si
+queremos que la medida de dispersi\'{o}n sea de la misma dimensionalidad que
+las observaciones bastar\'{a} con tomar su ra\'{\i}z cuadrada. Por ello se
+define la desviaci\'{o}n t\'{\i}pica, $S_{n}$, como
+\[
+S_{n}=\sqrt{S_{n}^{2}}%
+\]
+
+
+\begin{example}
+Calcular la varianza y desviaci\'{o}n t\'{\i}pica de las sigui\-entes
+cantidades medidas en metros:
+\end{example}
+
+3,3,4,4,5
+
+\begin{solution}
+Para calcular dichas medidas de dispersi\'{o}n es necesario calcular
+previamente el valor con respecto al cual vamos a medir las diferencias.
+\'{E}ste es la media:
+\[
+\overline{x}=3,8\,metros
+\]
+La varianza es:
+\begin{align*}
+S_{n}^{2}  &  =\frac{1}{n}\sum_{i=1}^{n}x_{i}^{2}n_{i}-\overline{x}^{2}\\
+&  =\frac{1}{5}\left(  9+9+16+16+25\right)  -3,8^{2}=0,56m^{2}%
+\end{align*}
+siendo la desviaci\'{o}n t\'{\i}pica su ra\'{\i}z cuadrada:
+\[
+S_{n}=\sqrt{0,56m^{2}}=0,748m
+\]
+
+\end{solution}

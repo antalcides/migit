@@ -1,0 +1,177 @@
+    	program harmonic_oscillator
+
+c-------generate a complete set of harmonic oscillator orbitals
+
+c.......Parameters:
+c	mxpts: max number of rmesh points
+      	parameter (mxpts=500)
+   
+	common/bkmesh/rmin,rmax,hr,nrmesh
+
+	open(unit=10,file='oscillator.out',status='unknown')
+	write(10,5)
+	write(10,6)
+5	format(/10x,'Harmonic Oscillator energies and wavefunctions:')
+6	format(10x,38('-'))
+		
+c-------wavefunction parameters
+
+c-------r-space integration parameters
+c.......hr--rspace integration interval
+c.......nrmesh--number of total rmesh steps
+c.......rmesh--rmesh points
+c.......rmin=0.0, rmax=nrmesh*hr
+c.......rmesh(1)=rmin+hr, rmesh(nrmesh)=rmax
+
+	print*,'give the rspace integration interval (hr):'
+	read*,hr
+	print*,'give the number of total steps (nrmesh) (max=',mxpts,')'
+	read*,nrmesh
+      	write(10,20), hr,nrmesh
+20   	format(5x,'hr=:',f10.4,2x,'nrmesh=:',i5)
+	if(nrmesh.gt.mxpts) pause 'increase mxpts parameter' 
+
+      	rmin=0.0
+      	rmax=nrmesh*hr
+      	write(10,30) rmin,rmax
+30   	format(5x,'rmin=:',f10.4,5x,'rmax=:',f10.4)
+
+
+c-------building complete set of orbitals
+	write(10,50)
+50   	format(//5x,"Constructing complete set of orbitals")
+	write(10,*) ' '
+
+c...... construction of Hamiltonian
+	call constrH
+
+c....... diagonalization
+      	call diagH
+
+c....... output 
+	call printH
+
+	
+	stop
+	end
+
+c
+c**************************************************************************
+c
+	subroutine constrH
+	
+c-------Generates the Hamiltonian.
+
+	parameter (mxpts=500)
+	common/bkmesh/rmin,rmax,hr,nrmesh
+	common/bkhamilt/d(mxpts),e(mxpts)
+	
+	data half,one,two/0.5,1.0,2.0/
+ 	
+c-----------building hamiltonian on the grid
+	    x0 = (rmax + rmin)/two
+            do 40 i=1,nrmesh
+	    	r = i*hr
+c...............diagonal terms
+                d(i)= one/hr**2 + half*((r-x0)**2)
+c...............non-diagonal terms
+                e(i)=-half/hr**2
+40          continue
+
+	return
+	end
+c
+c**************************************************************************
+c
+	subroutine diagH
+
+c------- Matrix diagonalization.
+c------- Also stores the Eigenvalues and Eigenvectors.
+
+	parameter (mxpts=500)
+	common/bkmesh/rmin,rmax,hr,nrmesh
+	common/bkhamilt/d(mxpts),e(mxpts)
+c	d(mxpts)			! diagonal part of the Hamiltonian
+c	e(mxpts)			! non-diagonal part of H
+	dimension  v(mxpts,mxpts)	! eigenvectors
+	dimension  wksp(mxpts),iwksp(mxpts) ! working arrays for sorting
+	common/bkeigen/ener(mxpts),chi(mxpts,mxpts)
+c	chi(n,mxpts) 		! normalized eigenvectors
+	
+	data zero,one/0.0,1.0/
+
+
+c----------matrix diagonalization
+	   call tqli(d,e,nrmesh,mxpts,v)
+
+c----------sorting the eigenvectors/values into ascending energies  
+	   call sort2(nrmesh,d,v,mxpts,wksp,iwksp)
+
+
+c------ store all bound state wavefunctions
+	do 50 nq=1,nrmesh
+		sign = one
+      		ener(nq) = d(nq)
+        	print45, nq,ener(nq)
+45      	format(5x,'n =:',i3,10x,'energy =:',f15.4,' a.u.')
+
+c---------------normalization 
+		sum=zero
+      		do 10 irow=1,nrmesh
+10      	  sum=sum+v(irow,nq)**2
+		ptot=hr*sum
+		if(v(1,nq).lt.zero) sign=-one
+      		do 20 irow=1,nrmesh
+20      	  chi(nq,irow)=sign*v(irow,nq)/sqrt(ptot)
+50	continue
+	
+	return
+     	end
+c
+c**************************************************************************
+c
+	subroutine printH
+
+c-------Prints the energies and selected wavefunctions.
+
+	parameter (mxpts=500)
+	common/bkmesh/rmin,rmax,hr,nrmesh
+	common/bkeigen/ener(mxpts),chi(mxpts,mxpts)
+	character*30  outputfile
+	
+	write(10,5)
+5	format(/5x,'Results: ')
+
+	do 20 nq=1,nrmesh
+	   write(10,45) nq,ener(nq)
+20	continue		
+45	format(5x,'n =:',i5,10x,'energy =: ',f15.4,' a.u.')
+
+	inptfile = 11
+	outputfile(1:5) = 'hosc.'
+50	format(a25)
+100	print*,'give the name of the output file (extension only)'
+	read(*,50) outputfile(6:30)
+52	print*,' give the n quantum number:'
+	read*, nq
+
+	open(unit=inptfile,file=outputfile,status='unknown')
+c	write(inptfile,*) ' Wavefunction for n=:',nq
+c	write(inptfile,*) ' '
+	do 75 irow=1,nrmesh
+	    r= irow*hr
+75	    write(inptfile,*) r,' ',chi(nq,irow)
+
+
+	inptfile = inptfile+1
+	if (inptfile.gt.50) inptfile = 11
+	print*,' continue? (no=0) '
+	read*,icont
+	if (icont.ne.0) go to 100
+	
+	return
+     	end
+
+c
+c**************************************************************************
+c

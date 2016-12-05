@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0056)http://garota.fismat.umich.mx/mn1/tutor_fort/arrays.html -->
+<HTML><HEAD><TITLE>Tutorial de Fortran</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY background="Tutorial de Fortranar_archivos/default.gif">
+<HR>
+&nbsp;[9. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/loops.html">Ciclos (Loops) 
+</A>] &nbsp;[<A href="http://fismat.umich.mx/mn1/tutor_fort/index.html">Tutorial 
+de Fortran</A>] &nbsp;[11. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/subprograms.html">Subprogramas 
+</A>] 
+<HR>
+
+<H2>10. Arreglos</H2>Muchos cálculos científicos usan vectores y matrices. El 
+tipo de dato usado en Fortran para representar tales objetos es el 
+<EM>array</EM>. Un arreglo unidimensional corresponde a un vector, mientras que 
+un arreglo bidimensional corresponde a una matriz. Para entender como son usados 
+en Fortran 77, no solamente se requiere conocer la sintaxis para su uso, sino 
+también como son guardados estos objetos en la memoria. 
+<P>
+<H3>Arreglos Unidimensionales</H3>El arreglo más sencillo es el de una 
+dimensión, el cual es sólo un conjunto de elementos almacenados secuencialmente 
+en memoria. Por ejemplo, la declaración <PRE>      real d(20)
+</PRE>declara a <TT>d</TT> como un arreglo del tipo real con 20 elementos. Esto 
+es, <TT>d</TT> consiste de 20 números del tipo real almacenados en forma 
+contigua en memoria. Por convención, los arreglos en Fortran estan indexados a 
+partir del valor 1. Por lo tanto el primer elemento en el arreglo es 
+<TT>d(1)</TT> y el último es <TT>d(20)</TT>. Sin embargo, se puede definir un 
+rango de índice arbitrario para los arreglos como se observa en los siguientes 
+ejemplos: <PRE>      real b(0:19), c(-162:237)
+</PRE>En el caso de <TT>b</TT> es similar con el arreglo <TT>d</TT> del ejemplo 
+previo, excepto que el índice corre desde el 0 hasta el 19. El arreglo 
+<TT>c</TT> es un arreglo de longitud <I>237-(-162)+1 = 400</I>. 
+<P>El tipo de los elementos de un arreglo puede ser cualquiera de los <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/variables.html">tipos básicos 
+de datos</A> ya vistos. Ejemplos: <PRE>      integer i(10)
+      logical aa(0:1)
+      double precision x(100)
+</PRE>
+<P>Cada elemento de un arreglo puede ser visto como una variable separada. Se 
+referencia al <I>i-ésimo</I> elemento de un arreglo <TT>a</TT> por 
+<TT>a(i)</TT>. A continuación se muestra un segmento de código que guarda los 
+primeros 10 cuadrados en un arreglo <TT>cuad</TT> <PRE>      integer i, cuad(10)
+
+      do i=1, 10, 1
+         cuad(i) = i**2;
+         write(*,*) cuad(i)
+      enddo
+</PRE>
+<P>Un error común en Fortran es hacer que el programa intente accesar elementos 
+del arreglo que estan fuera de los límites. Lo anterior es responsabilidad del 
+programador, ya que tales errores no son detectados por el compilador. 
+<P>
+<H3>Arreglos Bidimensionales</H3>Las matrices son muy importantes en álgebra 
+lineal. Las matrices son usualmente representadas por arreglos bidimensionales. 
+Por ejemplo, la declaración <PRE>      real A(3,5)
+</PRE>define un arreglo bidimensional de <I>3 x 5 = 15</I> números del tipo 
+real. Es útil pensar que el primer índice es el índice del renglón, y el segundo 
+índice corresponde a la columna. Por lo tanto se vería como:
+<P>
+<TABLE width="60%" align=center border=1>
+  <TBODY>
+  <TR>
+    <TD width="10%">&nbsp;</TD>
+    <TD align=middle width="10%" bgColor=gray>1</TD>
+    <TD align=middle width="10%" bgColor=gray>2</TD>
+    <TD align=middle width="10%" bgColor=gray>3</TD>
+    <TD align=middle width="10%" bgColor=gray>4</TD>
+    <TD align=middle width="10%" bgColor=gray>5</TD></TR>
+  <TR>
+    <TD align=right bgColor=gray>1</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD align=right bgColor=gray>2</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD align=right bgColor=gray>3</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD></TR></TBODY></TABLE>
+<P>Un arreglo bidimensional podría también tener índices de rango arbitrario. La 
+sintaxis general para declarar el arreglo es: <PRE><EM>nombre (índice1_inf : indice1_sup, índice2_inf : indice2_sup)</EM>
+</PRE>El tamaño total del arreglo es de <PRE><EM>tamaño = (indice1_sup - indice1_inf + 1) x (indice2_sup - indice2_inf + 1)</EM>
+</PRE>
+<P>Es muy común en Fortran declarar arreglos que son más grandes que la matriz 
+que se va a guardar. Lo anterior es porque Fortran no tiene almacenamiento 
+dinámico de memoria como el lenguaje C. Por ejemplo: <PRE>      real A(3,5)
+      integer i,j
+c
+c     Solamente se usará una submatriz de 3 x 3 del arreglo
+c
+      do i=1, 3
+         do j=1, 3
+            a(i,j) = real(i)/real(j)
+         enddo
+      enddo
+</PRE>Los elementos en la submatriz A(1:3,4:5) no estan definidas. No se debe 
+considerar que estos elementos estan inicializados a cero por el compilador 
+(algunos compiladores lo hacen, pero otros no). 
+<H3>Forma de Almacenamiento para un arreglo bidimensional </H3>Fortran almacena 
+los arreglos de más de una dimensión como una secuencia contigua lineal de 
+elementos. Es importante saber que los arreglos bidimensionales son guardados 
+<EM>por columnas</EM>. Por lo tanto en el ejemplo anterior, el elemento del 
+arreglo (1,2) esta después del elemento (3,1), luego sigue el resto de la 
+segunda columna, la tercera columna y así sucesivamente. 
+<P>Considerando otra vez el ejemplo donde solamente se usa la submatriz de 3 x 3 
+del arreglo de 3 x 5. Los primeros 9 elementos que interesan se encuentran en 
+las primeras nueve localidades de memoria, mientras que las últimas seis celdas 
+no son usadas. Lo anterior funciona en forma transparente porque la 
+<EM>dimensión principal</EM> es la misma para ambos, el arreglo y la matriz que 
+se guarda en el arreglo. Sin embargo, frecuentemente la dimensión principal del 
+arreglo será más grande que la primera dimensión de la matriz. Entonces la 
+matriz <EM>no</EM>será guardada en forma contigua en memoria, aún si la arreglo 
+es contiguo. Por ejemplo, supongamos que la declaración hubiera sido 
+<TT>A(5,3)</TT> entonces hubiera habido dos celdas "sin usar" entre el fin de la 
+primera columna y el principio de la siguiente columna (suponiendo que asumimos 
+que la submatriz es de 3 x 3). 
+<P>Esto podría parecer complicado, pero actualmente es muy simple cuando se 
+empieza a usar. Si se tiene en duda, puede ser útil hallar la <EM>dirección</EM> 
+de un elemento del arreglo. Cada arreglo tendrá una dirección en la memoria 
+asignada a partir del arreglo, que es el elemento (1,1). La dirección del 
+elemento (i,j) esta dada por la siguiente expresión: <PRE><EM>dirección</EM>[A(i,j)] = <EM>dirección</EM>[A(1,1)] + (j-1)*princ + (i-1)
+</PRE>donde <TT>princ</TT> es la dimensión principal (la columna) de <TT>A</TT>. 
+Observar que <TT>princ</TT> es en general diferente de la dimensión actual de la 
+matriz. Muchos errores de lógica en Fortran son causados por lo anterior, por lo 
+tanto es importante entender la diferencia. 
+<P>
+<H3>Arreglos Multi-dimensionales</H3>Fortran 77 permite arreglos de hasta 7 
+dimensiones. La sintaxis y forma de almacenamiento es análoga al caso de dos 
+dimensiones. 
+<P>
+<H3>La sentencia <TT>dimension</TT></H3>Hay una forma alterna para declarar un 
+arreglo en Fortran 77. Las siguientes sentencias <PRE>real A, x
+dimension x(50)
+dimension A(10,20)
+</PRE>son equivalentes a <PRE>real A(10,20), x(50)
+</PRE>La sentencia <TT>dimensión</TT> es considerada actualmente como una forma 
+en desuso. 
+<P>
+<HR>
+
+<H3>Ejercicios</H3>
+<DL>
+  <DT>Ejercicio A 
+  <DD>Escribir una subrutina que haga el producto escalar <I>y = A*x</I>, v.g. 
+  el índice <EM>j</EM> deberá estar en el ciclo más interno. 
+  <P></P>
+  <DT>Ejercicio A 
+  <DD>Escribir un program que declare una matriz <TT>A</TT> de la siguiente 
+  forma <PRE>      integer nmax
+      parameter (nmax=40)
+      real A(nmax, nmax)
+</PRE>Declarar apropiadamente los vectores <I>x</I> e <I>y</I> e 
+  inicializar<BR>m=10, n=20,<BR>A(i,j) = i+j-2 para <I>1 &lt;= i &lt;= m</I> y 
+  <I>1&lt;= j &lt;= n</I><BR>x(j) = 1 para <I>1 &lt;=j &lt;= n</I>. Calcular y = 
+  A*x. Mostrar el resultado de y. 
+  <P></P></DD></DL>
+<HR>
+&nbsp;[9. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/loops.html">Ciclos (Loops) 
+</A>] &nbsp;[<A href="http://fismat.umich.mx/mn1/tutor_fort/index.html">Tutorial 
+de Fortran</A>] &nbsp;[11. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/subprograms.html">Subprogramas 
+</A>] </BODY></HTML>

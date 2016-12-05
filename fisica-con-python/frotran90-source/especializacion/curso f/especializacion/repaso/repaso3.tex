@@ -1,0 +1,225 @@
+%% This document created by Scientific Word (R) Version 3.5
+
+%TCIDATA{LaTeXparent=0,0,Est12.tex}
+%TCIDATA{ChildDefaults=%
+%chapter:2,page:75
+%}
+
+
+\section{Teor\'{\i}a de probabilidades}
+
+\section{Experimentos y sucesos aleatorios}%
+
+\begin{definition}
+Diremos que un experimento es aleatorio si se veri\-fican las siguientes
+condiciones,
+\begin{enumerate}
+\item Se puede repetir indefinidamente, siempre con las mismas condiciones.
+\item Antes de realizarlo no se puede predecir el resultado.  \item El
+resultado ''$e"$ que se obtiene pertenece a un conjunto de resultados posibles
+conocido previamente el cual llamaremos espacio muestral y lo denotaremos con
+la letra $\Omega\;o\;S$. Los elementos del espacio muestral se denominan
+sucesos elementales.
+\end{enumerate}
+\end{definition} 
+
+Es decir si $e_{1},e_{2}\in S\Longrightarrow e_{1},e_{2}$ son sucesos
+elementales o puntos muestrales.En otras palabras: Un suceso es elemental si
+su ocu\-rrencia o no ocurrencia no est\'{a} relacionada con ning\'{u}n otro suceso.
+
+Cualquier subconjunto $A$ de $S$ se denomina suceso o evento aleatorio.
+
+El espacio muestral puede ser de dos tipos:
+
+\begin{itemize}
+\item Discreto si est\'{a} formado por un conjunto finito o numerable de resultados.
+
+\item Continuo si est\'{a} compuesto por un conjunto no numerable de elementos.
+\end{itemize}%
+
+\begin{definition}
+[Suceso determinista]Se denomina experimento determinista a el experimento que
+al realizarlo varias veces con las mismas condiciones iniciales obtenemos
+siempre el mismo resultado
+\end{definition} 
+
+Cuando en un experimento no se puede predecir el resultado final, decimos que
+el experimento es aleatorio
+
+\section{Probabilidad}
+
+\subsection{Probabilidad de laplace}
+
+Si un experimento cualquiera se puede repetir obteniendo un n\'{u}mero finito
+de resultados posibles y no existe ninguna raz\'{o}n para pensar que un
+resultado tiene privilegios sobre otro, se calcula la probabi\-lidad del
+suceso $A$ seg\'{u}n la regla de Laplace
+\[
+P\left(  A\right)  =\frac{n\acute{u}mero\,de\,casos\,favorables\,para\,A}%
+{n\acute{u}mero\,de\,casos\,posibles}=\frac{n\left(  A\right)  }{n\left(
+S\right)  }%
+\]
+
+\subsection{Definici\'{o}n axiom\'{a}tica de la probabilidad}
+
+Como en toda rama de las matem\'{a}ticas debemos establecer una serie de
+axiomas y definiciones b\'{a}sicas%
+
+\begin{definition}
+\textbf{Definici\'{o}n axiom\'{a}tica de probabilidad}\\[D]ado un espacio
+muestral $S$, y una $\sigma-\acute{a}lgebra$ de sucesos $\mathcal{A}$ sobre
+\'{e}l, diremos que $P$ es una probabilidad sobre $\mathcal{A}$ si cumple las
+siguientes propiedades
+\begin{description}
+\item[A$_{1}$] La probabilidad es una funci\'{o}n definida sobre
+$\ \mathcal{A}$, que toma solo valores positivos comprendidos entre 0 y 1, es
+decir \[
+\begin{array}
+[c]{ccc}
+P:\mathcal{A} & \rightarrow& [0,1]\subset IR\\ A\in\mathcal{A} & \mapsto&
+1\geq P\left(   A\right)   \geq0
+\end{array}
+\]   \item[A$_{2}$] La probabilidad del suceso seguro es 1 \[ P\left(
+S\right)   =1 \]   \item[A$_{3}$] Para cualquier sucesi\'{o}n infinita
+$A_{1},A_{2},A_{3},\cdots$ de sucesos disjuntos de $\mathcal{A}$ se tiene que
+la probabilidad de el evento $\bigcup_{i=1}^{\infty}A_{i}$ es la serie
+infinita de las probabilidades, es decir
+\end{description}
+\end{definition} %
+
+\[
+P\left(  \bigcup_{i=1}^{\infty}A_{i}\right)  =\sum_{i=1}^{\infty}P\left(
+A_{i}\right)
+\]%
+
+\begin{theorem}
+$P\left(   \phi\right)   =0$
+\end{theorem} %
+
+\begin{theorem}
+Para cualquier sucesi\'{o}n finita de $n$ eventos disjuntos $A_{1},A_{2}
+,A_{3},\cdots A_{n}\in\mathcal{A}$ \[ P\left(   \bigcup_i=1^nA_i\right)
+=\sum_i=1^nP\left(   A_i\right)  \]
+\end{theorem} %
+
+\begin{theorem}
+para cualquier suceso $A\in\mathcal{A}$ se tiene que $P\left(   A^{\prime
+}\right)   =1-P\left(   A\right)   $
+\end{theorem} %
+
+\begin{theorem}
+Si $A,B\in\mathcal{A}$ y $A\subset B$, entonces $P\left(   B\right)   \geq
+P\left(   A\right)   $
+\end{theorem} 
+
+\begin{center}
+\end{center}%
+
+\begin{theorem}
+Para dos sucesos $A,B\subset\mathcal{A}$ cualesquiera \[ P\left(   A\cup
+B\right)   =P\left(   A\right)   +P\left(   B\right)   -P\left(  A\cap
+B\right)  \]
+\end{theorem} 
+
+\section{T\'{e}cnica para la enumeraci\'{o}n de puntos muestrales}%
+
+\begin{theorem}
+Consid\'{e}rese un experimento que tiene las dos cara\-cter\'{\i}sticas
+siguientes
+\end{theorem} 
+
+\begin{itemize}
+\item \textit{El experimento se realiza en dos partes }
+
+\item \textit{La primera parte del experimento tiene }$m$ \textit{resultados
+posibles }$x_{1},x_{2},x_{3},\cdots,x_{m}$ \textit{independientemente del
+resultado} $x_{i}$ \textit{obtenido la segunda parte del experimento tiene
+}$n$\textit{\ resultados posibles }$y_{1},y_{2},y_{3},\cdots,y_{n}%
+$\textit{.\newline Cada resultado del espacio muestral S del experimento
+ser\'{a} por tanto, un par de la forma }$\left(  x_{i},y_{j}\right)
+$\textit{\ es decir }
+\begin{align*}
+S &  =\left\{  \left(  x_{i},y_{j}\right)  |i=1,2,3,\cdots m;j=1,2,3\cdots
+n\right\}  \\
+n\left(  S\right)   &  =mn
+\end{align*}
+Permutaciones
+\end{itemize}%
+
+\begin{definition}
+Una permutaci\'{o}n es un arreglo de objetos distintos de tal manera que una
+permutaci\'{o}n difiere de otra si el orden del arreglo o su contenido
+difieren
+\end{definition} 
+
+Conviene observar que el orden es una caracter\'{\i}stica de especial
+importancia en una permutaci\'{o}n. Cuando cambiamos el orden de los elementos
+de este arreglo, se dice que permutamos dichos elementos
+
+\subsection{Muestreo sin reemplazo}
+
+Consideremos un experimento en el cual se selecciona un objeto de $n$ objetos
+distintos, y luego se selecciona un segundo objeto de los $n-1$ objetos
+restantes, y as\'{\i} sucesivamente hasta seleccionar el \'{u}ltimo objeto
+Este proceso \ se llama muestreo sin reemplazo\ de acuerdo con el teorema
+anterior los $n$ objetos se pueden seleccionar de $n\left(  n-1\right)
+\left(  n-2\right)  \cdots3\cdot2\cdot1$ $=n!$ formas diferentes\ 
+
+Ahora si no se escogen todos los objetos, si no $k$ objetos, los $k$ objetos
+se pueden seleccionar
+\begin{align*}
+p_{n,k}  &  =n\left(  n-1\right)  \left(  n-2\right)  \cdots\left(
+n-k+1\right)  =\frac{n!}{\left(  n-k\right)  !}\;\;r\leq n\\
+0!  &  =1\\
+1!  &  =1\\
+p_{n,n}  &  =n\left(  n-1\right)  \left(  n-2\right)  \cdots1=n!
+\end{align*}
+
+\subsection{Combinaci\'{o}n}
+
+Una combinaci\'{o}n es un arreglo de objetos distintos donde una
+combinaci\'{o}n difiere de otra si difiere el contenido del arreglo. Si nos
+interesa determinar el n\'{u}mero de combinaciones cuando en $n$ objetos
+distintos deben seleccionarse $r$ a la vez entonces
+\[
+C_{n,r}=\frac{p_{n,r}}{r!}=\left(
+\begin{array}
+[c]{c}%
+n\\
+r
+\end{array}
+\right)  \;\;r\leq n
+\]
+ya que el numerador es el n\'{u}mero de permutaciones al escoger $r$ objetos
+de $n$ posibles, pero hay que descontar los casos en que el orden determina
+para la combinaci\'{o}n el mismo elemento, que es exactamente $r!.$
+
+\subsubsection{}
+
+\section{Probabilidad condicionada e independencia de eventos}%
+
+\begin{definition}
+Sean $A,B\in\mathcal{A}$ y sea $B$ un evento de probabilidad no nula para el
+evento $A$, llamamos probabilidad condicionada de $A$ a $B$ a la cantidad que
+representamos $P\left(   A|B\right)   $ y que definimos \[ P\left(
+A|B\right)   =\frac{P\left(   AB\right)   }{P\left(   B\right)   }, \] la
+cantidad $P\left(   A|B\right)   $ se lee la probabilidad de $A$ dada la
+ocu\-rrencia de $B$
+\end{definition} %
+
+\begin{definition}
+Sean $A,B\in\mathcal{A}$ dos eventos de probabilidad no nula se dice que son
+independientes si y solo si \[ P\left(   AB\right)   =P\left(   A\right)
+P\left(   B\right)  \]
+\end{definition}%
+
+\begin{theorem}
+(Bayes) Sea $A_{1},A_{2},A_{3},\cdots A_{n}\in\mathcal{A}$ un sistema
+exhaustivo y excluyente de eventos. Sea $B\subset\mathcal{A}$ un suceso del
+que conocemos todas las cantidades \[ P\left(   B|A_i\right)   ,i=1,2,3,\cdots
+,n \] a las que denominamos verosimilitudes, entones se verifica \[ \forall
+j=1,2,3,\cdots,n,\qquad P\left(   A_j|B\right)   =\frac{P\left(
+B|A_j\right)   P\left(   A_j\right)   }{\sum_i=1^nP\left(   B|A_i
+\right)   P\left(   A_i\right)   }
+\]
+\end{theorem} 

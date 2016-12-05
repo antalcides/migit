@@ -1,0 +1,30 @@
+OX_4221582412({"ads":
+ {
+  "version": 1,
+  "count": 1,
+  "pixels":"http://us-ads.openx.net/w/1.0/pd?plm=3",
+  "ad": [
+        {
+         "adunitid":355525,
+         "adid":0,
+         "type":"html",
+         "html":"<div id='beacon_3350451' style='position: absolute; left: 0px; top: 0px; visibility: hidden;'><img src='http://us-ads.openx.net/w/1.0/ri?ts=1fHJhaWQ9ODkxY2RiM2EtYzcxYy00MGVmLWI3MDgtZWViNTBmY2JjZDc2fHNpZD03ODEzMnxhdW09RE1JRC5XRUJ8YXVpZD0zNTU1MjV8cmlkPTc2Y2QyZjlkLTBiYTgtNDdjNy1iOTMzLWJhM2JkOTY2NTk5NHxwYz1VU0R8dXI9eUFBdTdXMk4zbHxydD0xMzc2MDc2OTUxfHB1Yj03OTQ5NA'/></div><iframe id=\"4ec6d94f14679\" name=\"4ec6d94f14679\" src=\"http://psa-d.openx.com/w/1.0/afr?auid=34589&cb=45vo5I0kfO\" frameborder=\"0\" scrolling=\"no\" width=\"300\" height=\"250\"><a href=\"http://psa-d.openx.com/w/1.0/rc?cs=4ec6d94f14679&cb=IHGOTLf5Ud\" ><img src=\"http://psa-d.openx.com/w/1.0/ai?auid=34589&cs=4ec6d94f14679&amp;cb=fXC93pew5I\" border=\"0\" alt=\"\"></a></iframe>",
+         "is_fallback":1,
+         "creative":[
+           {
+             "width":"300",
+             "height":"250",
+             "target":"_blank",
+             "mime":"text/html",
+             "media": "<iframe id=\"4ec6d94f14679\" name=\"4ec6d94f14679\" src=\"http://psa-d.openx.com/w/1.0/afr?auid=34589&cb=45vo5I0kfO\" frameborder=\"0\" scrolling=\"no\" width=\"300\" height=\"250\"><a href=\"http://psa-d.openx.com/w/1.0/rc?cs=4ec6d94f14679&cb=IHGOTLf5Ud\" ><img src=\"http://psa-d.openx.com/w/1.0/ai?auid=34589&cs=4ec6d94f14679&amp;cb=fXC93pew5I\" border=\"0\" alt=\"\"></a></iframe>",
+             "tracking":{
+               "impression":"http://us-ads.openx.net/w/1.0/ri?ts=1fHJhaWQ9ODkxY2RiM2EtYzcxYy00MGVmLWI3MDgtZWViNTBmY2JjZDc2fHNpZD03ODEzMnxhdW09RE1JRC5XRUJ8YXVpZD0zNTU1MjV8cmlkPTc2Y2QyZjlkLTBiYTgtNDdjNy1iOTMzLWJhM2JkOTY2NTk5NHxwYz1VU0R8dXI9eUFBdTdXMk4zbHxydD0xMzc2MDc2OTUxfHB1Yj03OTQ5NA",
+               "inview":"http://us-ads.openx.net/w/1.0/rvi?ts=1fHJhaWQ9ODkxY2RiM2EtYzcxYy00MGVmLWI3MDgtZWViNTBmY2JjZDc2fHNpZD03ODEzMnxhdW09RE1JRC5XRUJ8YXVpZD0zNTU1MjV8cmlkPTc2Y2QyZjlkLTBiYTgtNDdjNy1iOTMzLWJhM2JkOTY2NTk5NHxwYz1VU0R8dXI9eUFBdTdXMk4zbHxydD0xMzc2MDc2OTUxfHB1Yj03OTQ5NA",
+               "click":"http://us-ads.openx.net/w/1.0/rc?ts=1fHJhaWQ9ODkxY2RiM2EtYzcxYy00MGVmLWI3MDgtZWViNTBmY2JjZDc2fHNpZD03ODEzMnxhdW09RE1JRC5XRUJ8YXVpZD0zNTU1MjV8cmlkPTc2Y2QyZjlkLTBiYTgtNDdjNy1iOTMzLWJhM2JkOTY2NTk5NHxwYz1VU0R8dXI9eUFBdTdXMk4zbHxydD0xMzc2MDc2OTUxfHB1Yj03OTQ5NA"
+             }
+           }
+         ]
+        }
+  ]
+ }
+});

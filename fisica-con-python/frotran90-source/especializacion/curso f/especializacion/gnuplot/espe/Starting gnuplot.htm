@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0038)http://www6.uniovi.es/gptug/node3.html -->
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds --><HTML><HEAD><TITLE>Starting gnuplot</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="Starting gnuplot" name=description>
+<META content=gptug name=keywords>
+<META content=document name=resource-type>
+<META content=global name=distribution>
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY lang=EN><A href="http://www6.uniovi.es/gptug/node4.html" 
+name=tex2html70><IMG height=24 alt=next 
+src="Starting gnuplot_archivos/next_motif.gif" width=37 align=bottom></A> <A 
+href="http://www6.uniovi.es/gptug/gptug.html" name=tex2html68><IMG height=24 
+alt=up src="Starting gnuplot_archivos/up_motif.gif" width=26 align=bottom></A> 
+<A href="http://www6.uniovi.es/gptug/node2.html" name=tex2html62><IMG height=24 
+alt=previous src="Starting gnuplot_archivos/previous_motif.gif" width=63 
+align=bottom></A> <A href="http://www6.uniovi.es/gptug/node1.html" 
+name=tex2html72><IMG height=24 alt=contents 
+src="Starting gnuplot_archivos/contents_motif.gif" width=65 align=bottom></A> 
+<BR><B>Next:</B> <A href="http://www6.uniovi.es/gptug/node4.html" 
+name=tex2html71>Basics</A> <B>Up:</B> <A 
+href="http://www6.uniovi.es/gptug/gptug.html" name=tex2html69>gnuplot 3.5 User's 
+Guide</A> <B>Previous:</B> <A href="http://www6.uniovi.es/gptug/node2.html" 
+name=tex2html63>Introduction</A> <BR>
+<P>
+<H1><A name=SECTION00030000000000000000>Starting <I>gnuplot</I></A></H1>
+<P><A name=secstart></A> 
+<P><I>gnuplot</I> is available for a large number of computers using a variety 
+of operating systems, including IBM-PCs and compatibles, many Unix workstations, 
+Vax/VMS, Atari ST, and Amiga. For the purposes of this document, it is assumed 
+that you are using either a PC (running MS-DOS, MS-Windows 3.1, or OS/2 2.x) or 
+a Unix workstation (running X Windows). It is also assumed that you have 
+<I>gnuplot</I> properly installed on your system. Please refer to the 
+<TT>README</TT> files included in the distribution for installation 
+instructions. 
+<P>To start <I>gnuplot</I> under MS-DOS or Unix, just type the command <PRE>  gnuplot</PRE>You will see the opening message and the 
+<TT>gnuplot&gt;</TT> prompt. If you get an error message like ``<TT>command not 
+found</TT>'', make sure that the directory where <I>gnuplot</I> resides is 
+listed in the <TT>PATH</TT> statement in the file <TT>autoexec.bat</TT> (for 
+DOS) or the initialization file (for Unix). 
+<P>To start <I>gnuplot</I> under MS Windows, double-click on the <I>gnuplot</I> 
+icon. The <I>gnuplot</I> window will pop up with menus and buttons along the 
+top, the opening message and the <TT>gnuplot&gt;</TT> prompt inside the window. 
+<P>To start <I>gnuplot</I> under OS/2, open the folder where <I>gnuplot</I> is 
+located, and double click on the <I>gnuplot</I> icon. The <I>gnuplot</I> window 
+will pop up with the opening message and the <TT>gnuplot&gt;</TT> prompt. 
+<P>The last line of the opening message tells you the ``terminal type'' 
+currently set. For Unix it should be <TT>X11</TT>, for MS-DOS <TT>vgalib</TT> 
+(if you have a VGA monitor), for MS Windows <TT>windows</TT>, and for OS/2 
+<TT>pm</TT>. <B>Note:</B> If you are on a PC running Kermit to connect to Unix 
+via a modem, you can type the command: <PRE> 
+  set terminal kc_tek40xx</PRE>if you have a color monitor, or <PRE> 
+  set terminal km_tek40xx</PRE>if you have a monochrome monitor. This will 
+enable you to see the high resolution plot on your PC screen. To restore the 
+screen to text mode, set the terminal type to <TT>dumb</TT>. 
+<P>To exit <I>gnuplot</I>, you can type either <TT>exit</TT>, <TT>quit</TT>, or 
+simply <TT>q</TT>. 
+<P>
+<HR>
+<A href="http://www6.uniovi.es/gptug/node4.html" name=tex2html70><IMG height=24 
+alt=next src="Starting gnuplot_archivos/next_motif.gif" width=37 
+align=bottom></A> <A href="http://www6.uniovi.es/gptug/gptug.html" 
+name=tex2html68><IMG height=24 alt=up 
+src="Starting gnuplot_archivos/up_motif.gif" width=26 align=bottom></A> <A 
+href="http://www6.uniovi.es/gptug/node2.html" name=tex2html62><IMG height=24 
+alt=previous src="Starting gnuplot_archivos/previous_motif.gif" width=63 
+align=bottom></A> <A href="http://www6.uniovi.es/gptug/node1.html" 
+name=tex2html72><IMG height=24 alt=contents 
+src="Starting gnuplot_archivos/contents_motif.gif" width=65 align=bottom></A> 
+<BR><B>Next:</B> <A href="http://www6.uniovi.es/gptug/node4.html" 
+name=tex2html71>Basics</A> <B>Up:</B> <A 
+href="http://www6.uniovi.es/gptug/gptug.html" name=tex2html69>gnuplot 3.5 User's 
+Guide</A> <B>Previous:</B> <A href="http://www6.uniovi.es/gptug/node2.html" 
+name=tex2html63>Introduction</A> 
+<P>
+<ADDRESS><I>Andy Liaw <BR>Tue Jul 16 23:20:34 CDT 1996</I> 
+</ADDRESS></BODY></HTML>

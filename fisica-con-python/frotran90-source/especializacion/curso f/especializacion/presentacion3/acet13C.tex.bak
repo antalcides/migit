@@ -1,0 +1,65 @@
+%% This document created by Scientific Word (R) Version 3.0
+
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{CSTFile=LaTeX article (bright).cst}
+%TCIDATA{Created=Fri Oct 03 10:11:52 2003}
+%TCIDATA{LastRevised=Fri Oct 03 10:15:11 2003}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="General\Blank Document">}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\begin{document}
+
+
+\section{Aplicaci\'{o}n: Estimaciones para la soluci\'{o}n de una ecuaci\'{o}n diferencial}
+
+\begin{theorem}
+Sea $\left|  \kappa\right|  \lneqq\lambda_{1}$ ($\lambda_{1}$ valor propio
+principal de $-\Delta$), y sup\'{o}ngase que \linebreak $u\in C^{2}\left(
+B\right)  \cap C(\overline{B})$ Lipschitz continua en $\overline{B}$
+satisface
+\[
+\left(  P.V.F.\right)  \left\{
+\begin{array}
+[c]{c}%
+\Delta u+\kappa u=C_{0}\text{ \ \ en }B,\\
+u=0\text{ \ \ sobre }\partial B,
+\end{array}
+\right.
+\]
+donde $B:=B_{R}\left(  0\right)  .$ Si $C_{0}\leq0,$ $-\lambda_{1}\leq
+\kappa\leq0$ y existe un $\gamma>0$ tal que $u(x)\geq$ $\gamma>0$ en $B_{\rho
+}\left(  0\right)  ,$ para un $0<\rho<R$, entonces existen $M>0$ y $\delta>0$
+tales que
+\[
+\delta\left(  R-\left|  x\right|  \right)  \leq u\left(  x\right)  \leq
+M\left(  M-x^{2}\right)  \text{ \ \ en }B\text{.}%
+\]
+\end{theorem}
+\end{document}

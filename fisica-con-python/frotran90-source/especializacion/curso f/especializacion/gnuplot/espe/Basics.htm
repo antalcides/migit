@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0038)http://www6.uniovi.es/gptug/node4.html -->
+<!--Converted with LaTeX2HTML 96.1 (Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds --><HTML><HEAD><TITLE>Basics</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content=Basics name=description>
+<META content=gptug name=keywords>
+<META content=document name=resource-type>
+<META content=global name=distribution>
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY lang=EN><A href="http://www6.uniovi.es/gptug/node5.html" 
+name=tex2html81><IMG height=24 alt=next src="Basics_archivos/next_motif.gif" 
+width=37 align=bottom></A> <A href="http://www6.uniovi.es/gptug/gptug.html" 
+name=tex2html79><IMG height=24 alt=up src="Basics_archivos/up_motif.gif" 
+width=26 align=bottom></A> <A href="http://www6.uniovi.es/gptug/node3.html" 
+name=tex2html73><IMG height=24 alt=previous 
+src="Basics_archivos/previous_motif.gif" width=63 align=bottom></A> <A 
+href="http://www6.uniovi.es/gptug/node1.html" name=tex2html83><IMG height=24 
+alt=contents src="Basics_archivos/contents_motif.gif" width=65 align=bottom></A> 
+<BR><B>Next:</B> <A href="http://www6.uniovi.es/gptug/node5.html" 
+name=tex2html82>Working in the gnuplot </A><B>Up:</B> <A 
+href="http://www6.uniovi.es/gptug/gptug.html" name=tex2html80>gnuplot 3.5 User's 
+Guide</A> <B>Previous:</B> <A href="http://www6.uniovi.es/gptug/node3.html" 
+name=tex2html74>Starting gnuplot</A> <BR>
+<P>
+<H1><A name=SECTION00040000000000000000>Basics</A></H1>
+<P><A name=secbasics></A> 
+<P>To start exploring <I>gnuplot</I>, try the following commands: <PRE>  plot cos(x)
+  plot [-pi:pi] sin(x**2),cos(exp(x))
+  splot [-3:3] [-3:3] x**2*y</PRE>The first <TT>plot</TT> command produces a 
+plot of <IMG height=8 alt=tex2html_wrap_inline5605 
+src="Basics_archivos/img2.gif" width=35 align=bottom> . The second <TT>plot</TT> 
+command produces a plot of the functions <IMG height=15 
+alt=tex2html_wrap_inline5607 src="Basics_archivos/img3.gif" width=39 
+align=bottom> and <IMG height=12 alt=tex2html_wrap_inline5609 
+src="Basics_archivos/img4.gif" width=40 align=bottom> on the same graph, with 
+<I>x</I> in the range <IMG height=29 alt=tex2html_wrap_inline5613 
+src="Basics_archivos/img5.gif" width=55 align=middle> . The third command 
+produces a three-dimensional surface plot of the function <IMG height=31 
+alt=tex2html_wrap_inline5615 src="Basics_archivos/img6.gif" width=102 
+align=middle> . Note that you have used <I>gnuplot</I>'s built-in functions 
+<TT>sin(), cos(),</TT> and <TT>exp()</TT>, as well as the built-in constant 
+<TT>pi</TT>. There are many more. Please refer to the <I>gnuplot</I> manual for 
+a complete list. 
+<P>Here are explanations of the above commands. The <TT>plot</TT> command tells 
+<I>gnuplot</I> that you want to create a two-dimensional plot. In the first 
+example, the range of <I>x</I> is not specified, so <I>gnuplot</I> use its 
+default range of (-10,10). In the second example, the phrase <TT>[-pi:pi]</TT> 
+following <TT>plot</TT> tells <I>gnuplot</I> to produce the plot with <I>x</I> 
+in the range <IMG height=29 alt=tex2html_wrap_inline5613 
+src="Basics_archivos/img5.gif" width=55 align=middle> . There are two functions 
+specified, separated by a comma. This tells <I>gnuplot</I> to plot both 
+functions on the same plot. Note that on a color screen, <I>gnuplot</I> uses 
+different colors for the functions. On a monochrome display, the functions are 
+plotted with different line styles. The third command tells <I>gnuplot</I> to 
+create a three-dimensional plot (well, actually a two-dimensional projection of 
+a three-dimensional plot, but you know that). The two pairs of brackets 
+following <TT>splot</TT> set the range of the <I>x</I>-axis (first set of 
+brackets) and the range of <I>y</I>-axis (second set of brackets). Note that the 
+ranges are optional in both <TT>plot</TT> and <TT>splot</TT>. If ranges are not 
+specified, <I>gnuplot</I> uses the ranges previously set. The ranges of 
+<I>y</I>-axis in <TT>plot</TT> and the <I>z</I>-axis in <TT>splot</TT> are 
+autoscaled by default, if not specified. 
+<P>If you want to specify the <I>y</I>-range but not the <I>x</I>-range, put in 
+both sets of brackets but leave the first set empty, like <PRE>  plot [] [0:2] 1/(1+x**2)</PRE>The same trick works with <TT>splot</TT>. 
+<P>The command <TT>set</TT> is used to control many options available in 
+<I>gnuplot</I> (you have already seen <TT>set terminal</TT>). Many of the 
+options control the appearance of the plot. In the previous examples, you saw 
+that the ranges of the axes can be specified in the plotting command. The ranges 
+can also be set before plotting, with the commands <TT>set xrange</TT>, <TT>set 
+yrange</TT>, and <TT>set zrange</TT>. For example: <PRE>  set xrange [-.3:3.5]
+  set yrange [:pi**2]
+  set zrange [exp(3.66)/sin(1.2*pi):]</PRE>Note that you can omit either the 
+upper or lower limits. The limits can be either numbers, pre-defined constants , 
+or expressions as complicated as in the third example. 
+<P>The difference between setting the ranges with <TT>plot</TT> (or 
+<TT>splot</TT>) and with <TT>set xrange</TT> (or <TT>yrange</TT> or 
+<TT>zrange</TT>) is that in the former case the ranges apply only to that single 
+plot, whereas in the latter case they apply to all subsequent plots - until the 
+ranges are reset, of course. (If the ranges are set both ways, the ones on the 
+<TT>plot</TT> command will be used.) This is the case for all <TT>set</TT> 
+commands. 
+<P>If you have set a range and want to return to <I>gnuplot</I>'s automatic 
+range selection, the command is <TT>set autoscale</TT> <IMG height=29 
+alt=tex2html_wrap_inline5637 src="Basics_archivos/img7.gif" width=4 
+align=middle> <EM>axis</EM> <IMG height=29 alt=tex2html_wrap_inline5639 
+src="Basics_archivos/img8.gif" width=4 align=middle> , where <IMG height=29 
+alt=tex2html_wrap_inline5637 src="Basics_archivos/img7.gif" width=4 
+align=middle> <EM>axis</EM> <IMG height=29 alt=tex2html_wrap_inline5639 
+src="Basics_archivos/img8.gif" width=4 align=middle> is some combination of 
+<I>x</I>, <I>y</I>, and <I>z</I> and, if you omit it, all axes will be 
+autoscaled. 
+<P>You can also add axis labels and a title to the plot by the commands <TT>set 
+xlabel</TT>, <TT>set ylabel</TT>, <TT>set zlabel</TT>, and <TT>set title</TT>. 
+For example: <PRE>  set xlabel 'x'
+  set ylabel "Power Function"
+  set zlabel 'Time (sec)'
+  set title 'Some Examples'
+  replot</PRE>Note that both single quote and double quote are acceptable (but 
+they must match). The <TT>replot</TT> command does what its name suggests; it 
+redraws the previous plot, incorporating whatever changes have been introduced 
+by intervening <TT>set</TT> commands. You'll be using <TT>replot</TT> a lot when 
+you are customizing a plot (which you'll learn how to do in Section&nbsp;<A 
+href="http://www6.uniovi.es/gptug/node6.html#secmoreplot"><IMG alt=gif 
+src="Basics_archivos/cross_ref_motif.gif" align=bottom></A>). 
+<P>You can also add another curve to the previous plot. Try <PRE>  plot [-2*p1:2*pi] sin(x)
+  replot tan(x)</PRE>Note that the <I>y</I>-range adjusts itself. You cannot 
+specify new ranges for the plot on the <TT>replot</TT> command (use the 
+<TT>set</TT> commands), but you can do everything else that you can do with 
+<TT>plot</TT>. 
+<P>
+<HR>
+<A href="http://www6.uniovi.es/gptug/node5.html" name=tex2html81><IMG height=24 
+alt=next src="Basics_archivos/next_motif.gif" width=37 align=bottom></A> <A 
+href="http://www6.uniovi.es/gptug/gptug.html" name=tex2html79><IMG height=24 
+alt=up src="Basics_archivos/up_motif.gif" width=26 align=bottom></A> <A 
+href="http://www6.uniovi.es/gptug/node3.html" name=tex2html73><IMG height=24 
+alt=previous src="Basics_archivos/previous_motif.gif" width=63 align=bottom></A> 
+<A href="http://www6.uniovi.es/gptug/node1.html" name=tex2html83><IMG height=24 
+alt=contents src="Basics_archivos/contents_motif.gif" width=65 align=bottom></A> 
+<BR><B>Next:</B> <A href="http://www6.uniovi.es/gptug/node5.html" 
+name=tex2html82>Working in the gnuplot </A><B>Up:</B> <A 
+href="http://www6.uniovi.es/gptug/gptug.html" name=tex2html80>gnuplot 3.5 User's 
+Guide</A> <B>Previous:</B> <A href="http://www6.uniovi.es/gptug/node3.html" 
+name=tex2html74>Starting gnuplot</A> 
+<P>
+<ADDRESS><I>Andy Liaw <BR>Tue Jul 16 23:20:34 CDT 1996</I> 
+</ADDRESS></BODY></HTML>

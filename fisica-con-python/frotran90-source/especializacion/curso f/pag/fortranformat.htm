@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0047)http://ariel.igeofcu.unam.mx/notas/fortran.html -->
+<HTML><HEAD><TITLE>fortran</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="Juan Americo Gonzalez Esparza" name=Author>
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY><B><FONT size=+2>Notas para correr fortran en nuestro sistema 
+Linux:</FONT></B> 
+<P>Un programa en fortran siempre tiene la terminación <B>.for</B> y como los 
+programas en <I>IDL</I> se puede editar desde cualquier editor de unix (p.e. vi 
+ó emacs). 
+<P>A continuación un programa "tonto" de fortran. El chiste es que lo copies, lo 
+compiles y lo corras para que veas como funciona. Nota que si una línea empieza 
+con "c" son comentarios y no se toman en cuenta como intrucciones de fortran. 
+Los comentarios sirven para hacer anotaciones dentro del programa. Escribe 
+siempre anotaciones en tu programa para que siempre te acuerdes cómo funciona y 
+para que otros puedan entenderlo. 
+<P><FONT 
+color=#cc0000>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</FONT> 
+<BR>c&nbsp; la primera instrucción en fortran es darle un título al programa 
+<BR>c&nbsp; además es recomendable anotar datos como el autor y la fecha 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PROGRAM tonto 
+<BR>c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Americo Gonzalez 
+<BR>c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; VERSION 
+I.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enero'99 <BR>c 
+--------------------------------------------------------------------------- 
+<BR>c&nbsp;&nbsp; La siguiente instrucción es la declaración de las variables 
+del programa 
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CHARACTER*30 nombre 
+<P>c -------------------------------------------------------------------------- 
+<BR>c&nbsp; después de declarar las variables comienza el programa. 
+<BR>c-------------------------------------------------------------------------- 
+<BR>10&nbsp;&nbsp;&nbsp; write(*,*)'&nbsp; Dime como te llamas? ' 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; read(5,40) nombre 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; write(*,*)'&nbsp; Hola '&nbsp; 
+nombre <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; write(*,*)'&nbsp; ' 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; goto 10 
+<BR>40&nbsp;&nbsp;&nbsp;&nbsp; FORMAT(A40) 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end <BR><FONT 
+color=#cc0000>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</FONT> 
+<BR>ya que el programa "tonto.for" está escrito y salvado, el siguiente paso es 
+compilarlo. <BR>para compilarlo escribes: 
+<P><FONT color=#ff99ff>ariel:&gt;</FONT>g77 -o tonto tonto.for 
+<P>esta instrucción te va a generar un archivo <B>tonto,</B> el cual es un 
+archivo ejecutable. Para correr el programa tonto, solamente escribe: 
+<P><FONT color=#ff99ff>ariel:&gt;</FONT>tonto <BR><FONT 
+color=#cc0000>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</FONT><FONT 
+color=#cc0000></FONT> 
+<P>A continuación otro ejemplo de un programa de fortran que abre un archivo de 
+datos y saca promedios para escribirlos en otro archivo. Sigue las anotaciones 
+para que entiendas cómo funciona este programa 
+<P><FONT 
+color=#cc0000>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</FONT> 
+<BR>c&nbsp; la primera instrucción en fortran es darle un título al programa 
+<BR>c&nbsp; además es recomendable anotar datos como el autor y la fecha <BR>c 
+--------------------------------------------------------------------------- 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PROGRAM Promedios 
+<BR>c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Americo Gonzalez 
+<BR>c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; VERSION 
+I.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enero'99 <BR>c 
+--------------------------------------------------------------------------- 
+<BR>c&nbsp;&nbsp; La siguiente instrucción es la declaración de las variables 
+del programa <BR>c&nbsp;&nbsp; nota que en este caso comienza con "implicit 
+none" lo cual <BR>c&nbsp;&nbsp; significa que todas las variables deben ser 
+declaradas <BR>c&nbsp; INTEGER: son variables de números enteros <BR>c&nbsp; 
+REAL: variables de números reales <BR>c&nbsp; CHARACTER: variables no numéricas 
+(palabras) 
+<BR>c-------------------------------------------------------------------------- 
+<BR>c VARIABLES 
+<BR>c-------------------------------------------------------------------------- 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; implicit none 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INTEGER i,contador 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; REAL 
+columna1,columna2,columna3,tot_column1,tot_column2,tot_column3 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp; 
++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+prom_columna1,prom_columna2,prom_columna3 <BR>c 
+-------------------------------------------------------------------------- 
+<BR>c&nbsp; después de declarar las variables comienza el programa. <BR>c&nbsp; 
+En este programa vamos a abrir dos archivos: el "datos.dat" de donde <BR>c&nbsp; 
+vamos a calcular los promedios y el "resultados.dat" en donde vamos a 
+<BR>c&nbsp; escribir los resultados 
+<BR>c--------------------------------------------------------------------------- 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Open 
+(unit=15,file='datos.dat',status='old',readonly) 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Open 
+(unit=18,file='resultados.dat',status='new') <BR>c <BR>c&nbsp; antes de comenzar 
+las sumas, igualamos a cero las variables adecuadas <BR>c 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tot_columna1 = 0 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tot_columna2 = 0 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tot_columna3 = 0 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; contador=0 <BR>c <BR>c&nbsp; 
+Supongamos que en este caso el archivo "datos.dat" tiene tres columnas 
+<BR>c&nbsp; de datos de 100 renglones cada una <BR>c&nbsp; Ahora vamos a leer el 
+archivo y sumar cada serie de datos <BR>c 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Do&nbsp;&nbsp;&nbsp; i=1,100 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Read(15,*) columna1, columna2, column3 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+tot_columna1 = tot_columna1 + columna1 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+tot_columna2 = tot_columna2 + columna2 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+tot_columna3 = tot_columna3 + columna3 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+contador = contador + 1 <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EndDo 
+<BR>c <BR>c Ahora vamos a sacar el promedio de cada columna <BR>c 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; prom_columna1 = tot_columna1 / 
+contador <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; prom_columna2 = 
+tot_columna2 / contador <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+prom_columna3 = tot_columna3 / contador <BR>c <BR>c&nbsp; Ahora vamos a escribir 
+los resultados en el archivo "resultados.dat" <BR>c&nbsp; usando el formato 50 
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; write (6,50) 'promedio 
+columna 1 = ',&nbsp; prom_columna1 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; write (6,50) 
+'promedio columna 2 = ',&nbsp; prom_columna2 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; write (6,50) 
+'promedio columna 3 = ',&nbsp; prom_columna3 
+<P>c&nbsp; explicación del formato: <BR>c&nbsp; 2x = 2 espacios <BR>c&nbsp; A21 
+= serie de 21 caracteres (palabras) <BR>c&nbsp; F7.3&nbsp; = real de siete 
+caracteres, tomando tres dígitos despúes del punto decimal <BR>c 
+<BR>50&nbsp;&nbsp;&nbsp; format (2x,A21,F7.3) 
+<P>c fin del programa 
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END <BR><FONT 
+color=#cc0000>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</FONT> 
+
+<P>ya que el programa "promedios.for" está escrito y salvado&nbsp; el siguiente 
+paso es compilarlo. <BR>para compilarlo escribes: 
+<P><FONT color=#ff99ff>ariel:&gt;</FONT>g77 -o promedios promedios.for 
+<P>esta instrucción te va a generar un archivo <B>promedios,</B> el cual es un 
+archivo ejecutable. Para correr el programa <B>promedios</B>, solamente escribe: 
+
+<P><FONT color=#ff99ff>ariel:&gt;</FONT>promedios </P></BODY></HTML>

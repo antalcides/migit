@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0082)http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_5.html -->
+<HTML><HEAD><TITLE>Going further:</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY background="Going further_archivos/summer_p.gif">
+<P>
+<HR>
+<A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_6.html" 
+name=tex2html99><IMG src="Going further_archivos/next_motif.gif" 
+align=middle></A> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/section3_2.html" 
+name=tex2html97><IMG src="Going further_archivos/up_motif.gif" align=middle></A> 
+<A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_4.html" 
+name=tex2html91><IMG src="Going further_archivos/previous_motif.gif" 
+align=middle></A> <BR><B>Next:</B> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_6.html" 
+name=tex2html100>Line and point </A><B>Up:</B> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/section3_2.html" 
+name=tex2html98>Using GNUPLOT for </A><B>Previous:</B> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_4.html" 
+name=tex2html92>Example 4:</A> 
+<HR>
+
+<P>
+<H4><A name=SECTION0002005000000000000>Going further:</A></H4>You should now be 
+able to make a variety of plots for your <IMG alt="" 
+src="Going further_archivos/_9659_tex2html_wrap11982.xbm" align=bottom> 
+document. We will present a final example without explanation that showcases 
+some of the capabilities of GNUPLOT. You may find documentation for the various 
+commands in the GNUPLOT manual, though hopefully this example is somewhat 
+self-explanatory. This is shown in Figure <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_5.html#eg6">6</A>. 
+
+<P><PRE><TT>
+    set terminal latex
+    set output "eg6.tex"
+    set size 3.5/5, 3/3.
+    set format y "$%g$"
+    set format x "$%5.1f\mu$"
+    set title "This is a title"
+    set xlabel "This is the $x$ axis"
+    set ylabel "This is\\ a longer\\ version\\  of\\ the $y$\\  axis"
+    set label "Data" at -5,-5 right
+    set arrow from -5,-5 to -3.3,-6.7
+    set key -4,8
+    set xtic -10,5,10
+    plot [-10:10] [-10:10] "eg3.dat" title "Data File"  with linespoints 1 7,\
+       3*exp(-x*x)+1  title "$3e^{-x^{2}}+1$" with lines 4</TT></PRE>
+<P><A name=10538><IMG src="Going further_archivos/invis_anchor.xbm" 
+align=middle></A>
+<P><A name=eg6><IMG src="Going further_archivos/invis_anchor.xbm" 
+align=middle></A><IMG alt="" src="Going further_archivos/_9659_figure10130.gif" 
+align=bottom>
+<P>
+<P>
+<HR>
+
+<P>
+<ADDRESS>David.Kotz@dartmouth.edu </ADDRESS></BODY></HTML>

@@ -1,0 +1,803 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0044)http://www.geocities.com/v.iniestra/fortran/ -->
+<HTML><HEAD><TITLE>Fortran</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY>
+<H4><A href="http://www.geocities.com/v.iniestra/glosario.html" 
+target=_new>Glosario</A> <A 
+href="http://www.geocities.com/v.iniestra/ti994a">TI-Basic</A> <A 
+href="http://www.geocities.com/v.iniestra/basic">Basic</A> <A 
+href="http://www.geocities.com/v.iniestra/apuntes/tall_prog">Pascal</A> <A 
+href="http://www.geocities.com/v.iniestra/apuntes/prog_est">C</A> <A 
+href="http://www.geocities.com/v.iniestra/apuntes/pro_log">Prolog</A> <A 
+href="http://www.geocities.com/v.iniestra/delphi">Delphi</A> <A 
+href="http://www.geocities.com/v.iniestra/vb">Visual Basic</A> <A 
+href="http://www.geocities.com/v.iniestra/java">Java</A> <A 
+href="http://www.geocities.com/v.iniestra/javascript">JavaScript</A></H4>
+<H1>Constantes y variables</H1>Fortran (Formula Translation) es uno de los 
+lenguajes de alto nivel más utilizados en la solución de problemas científicos y 
+de ingeniería.
+<P>Los elementos de programación FORTRAN y en general de cualquier otro lenguaje 
+son:
+<P>
+<H2>Constantes</H2>Las constantes son cantidades numéricas o alfanuméricas 
+(cadenas de caracteres) que no cambian su valor durante el proceso:
+<P><PRE>					|Enteras
+			|Numéricas	|		|Sin exponente
+	Constantes	|		|Reales		|
+			|Alfanuméricas			|Con exponente
+</PRE>Las constantes enteras son cantidades numéricas sin punto decimal. El 
+número máximo para una constante entera varía de computadora a computadora 
+(-32768, 32767 por ejemplo). En este tipo de constantes es válido omitir el 
+signo +.
+<P>Las constantes reales sin exponente son cantidades con punto decimal.
+<P>Las constantes reales con exponente tienen el significado de números 
+multiplicados por una potencia de 10. La forma general de estas últimas es aEx. 
+Donde a es una constante real sin exponente y x es una constante entera (con o 
+sin signo).
+<P>En este tipo de constantes no son válidas letras, comas o dobles signos a 
+excepción de un punto decimal y de la letra E (notación exponencial). El mayor 
+valor depende también de la computadora que se maneje.
+<P>Las constantes de tipo alfanumérico son aquellas cadenas de combinaciones de 
+números, letras y caracteres especiales encerrados entre comillas.
+<P>
+<H2>Variables</H2>Las variables son aquellos nombres alfanuméricos (formados por 
+una letra y varios caracteres alfabéticos o numéricos), que tomarán distintos 
+valores en el proceso.
+<P>La longitud de una variable (su tamaño máximo en caracteres), varía de 
+computadora a computadora, por lo que se recomienda limitarla a 5 caracteres.
+<P><PRE>					|Simples
+					|Doble precisión
+			|Enteras	|Complejas
+	Variables	|		|Alfanuméricas
+			|
+			|		|Simples
+			|Reales		|Doble precisión
+					|Complejas
+					|Alfanuméricas
+</PRE>
+<H3>Entera simple</H3>Sólo recibe valores enteros y debe empezar su nombre con 
+alguna de las letras: I, J, K, L, M, N.
+<P>
+<H3>Real simple</H3>Es aquélla que recibe valores reales o que se le asignarán 
+valores que deseamos tengan punto decimal. Su nombre puede empezar con 
+cualquiera de las letras de la A a la H y de la O a la Z.
+<P>En las variables no es válido incluir caracteres especiales como /, +, %, 
+etc.
+<P>
+<H3>De doble precisión</H3>Una variable entera o una real puede admitir valores 
+numéricos de doble precisión (se almacena en dos palabras de computadora), 
+siempre y cuando se incluya una declaración DOUBLE PRECISION al principio del 
+programa. La escritura para las constantes de doble precisión es la misma que se 
+explicó con anterioridad, con excepción de las constantes reales con exponente 
+en las cuales se sustituye la letra E por una letra D.
+<P>
+<H3>Complejas</H3>Una variable entera o real puede recibir valores numéricos 
+complejos (del tipo a+bi), siempre y cuando se incluya una declaración COMPLEX 
+al principio del programa.
+<P>
+<H3>Alfanuméricas</H3>Una variable entera o real puede adquirir valores 
+alfanuméricos (letras y símbolos) mediante lectura o asignación.
+<P>
+<H2>Operadores y sus prioridades</H2>Las operaciones básicas en FORTRAN son:
+<P><PRE>	**	Exponenciación
+	*	Multiplicación
+	/	División
+	+	Suma
+	-	Resta
+</PRE>La jerarquía de las operaciones es, primero la exponenciación, luego 
+multiplicaciones y/o divisiones y finalmente sumas y restas. En caso de existir 
+en una expresión varias operaciones de igual jerarquía, se ejecutarán en el 
+orden en el que aparecen en la expresión, de izquierda a derecha; excepto en el 
+caso de varias exponenciaciones que son ejecutadas de derecha a izquierda.
+<P>Es posible modificar dicha jerarquía con el uso de paréntesis, primero se 
+realizan las operaciones dentro del paréntesis más interno y así sucesivamente y 
+siempre de izquierda a derecha.
+<P>Estos símbolos nos permiten operar tanto con constantes como con variables. 
+3/5 e I/K producen resultados enteros. 3.0/5.0 y A/B producen resultados reales.
+<P>
+<H2>Expresiones</H2>Una expresión aritmética es una relación matemática entre 
+constantes y variables, constantes y funciones o únicamente constantes o 
+únicamente variables o únicamente funciones, por medio de los operadores 
+aritméticos y el uso de paréntesis.
+<P>El uso de paréntesis cambia notablemente el significado de las expresiones en 
+caso de que no sea empleado correctamente. En la escritura de expresiones en 
+FORTRAN no es válido emplear dos operadores juntos: A**(-2) es la forma 
+correcta.
+<P>En el caso de exponentes se recomienda que éstos sean enteros ya que una 
+expresión como X**2.0 se evalúa por series, mientras que X**2 se calcula como el 
+producto X*X.
+<P>
+<H2>Funciones</H2>Las funciones son subprogramas que forman parte del lenguaje, 
+de manera que basta únicamente hacer referencia a la función deseada dentro del 
+programa para que la computadora ejecute la serie de instrucciones 
+correspondientes a dicha función.
+<P>La parte que se encuentra encerrada dentro del paréntesis recibe el nombre de 
+argumento, el cual puede ser una constante o variable numérica, o bien una 
+expresión matemática.
+<P>El valor del argumento para las funciones trigonométricas tales como seno, 
+coseno, etc. se debe proporcionar en radianes.
+<P><PRE>	Función			Descripción
+	SIN(X)			Seno trigonométrico de X
+	COS(X)			Coseno trigonométrico de X
+	ATAN(X)			Ángulo cuya tangente es X
+	ABS(X)			Valor absoluto de X
+	EXP(X)			Exponencial de X
+	ALOG(X)			Logaritmo natural de X
+	SQRT(X)			Raíz cuadrada de X
+	TAN(X)			Tangente de X
+	COT(X)			Cotangente de X
+	ALOG10(X)		Logaritmo en base 10 de X
+	TANGH(X)		Tangente hiperbólico de X
+	IMIX(X)			Conversión de tipo real a entero
+	FLOAT(I)		Conversión de tipo entero a real
+	RANDOM(X)		Generador de números pseudo aleatorios
+</PRE>En todos los casos X es una variable real o una constante real o una 
+expresión aritmética real e I es una variable entera o una expresión entera.
+<P>
+<H2>Concepto de codificación</H2>Codificar significa traducir los pasos 
+indicados en un algoritmo o diagrama de flujo a un lenguaje de programación, 
+respetando las reglas de éste.
+<P>Una vez codificado en algún lenguaje, por ejemplo en FORTRAN, es necesario 
+administrárselo a la máquina por alguna unidad de entrada.
+<P>Explicaremos la codificación en tarjetas.
+<P>Descripción de una tarjeta:
+<P><PRE>	80 columnas
+ ------------------------------
+/			12	|	|
+|			11	|	| Zonas superiores
+|			0	|	|
+|			1	|
+|			2	|
+|			.	|	  Zonas inferiores
+|			.	|
+|			9	|
+ -------------------------------
+</PRE>Las instrucciones se perforan en dichas tarjetas de acuerdo a un código 
+(código Hollerith), los números se representan mediante una sola perforación: <PRE>	0	Se tiene una perforación en zona 0
+	1	Se tiene una perforación en zona 1
+	2	Se tiene una perforación en zona 2
+	...
+	9	Se tiene una perforación en zona 9
+</PRE>Las letras son las que representan dos perforaciones en la misma columna 
+(uno en zona superior y otro en zona inferior): <PRE>	A	perforaciones en 12 y 1
+	B	perforaciones en 12 y 2
+	C	perforaciones en 12 y 3
+	...
+	Z	perforaciones en 0 y 9
+</PRE>Existen además 10 caracteres especiales como +, -, *, (, ), -, etc., para 
+éstos el código marca una o dos o tres perforaciones por columna.
+<P><PRE>	-	perforación en zona 11
+	/	perforación en 0 y 1
+	*	perforación en 11, 4 y 8
+</PRE>En una tarjeta de un programa fuente se emplean las columnas como sigue:
+<P><PRE>	Columna 1	Cuando se perfora una letra C, indica
+			que esta tarjeta contiene un comentario
+
+	Columnas 1 a 5	Para perforar números de proposiciones o de formatos
+
+	Columna 6	Cuando la proposición o instrucción no se alcanzó a
+			perforar en una tarjeta, entonces se usa una tarjeta
+			adicional en la cual se perfora un carácter distinto
+			de cero, con lo que se indica que es continuación de
+			la instrucción anterior
+
+	Columnas 7 a 72	Para perforar la instrucción o proposición en FORTRAN
+</PRE>Las columnas 73 a 80 no son procesadas, por lo que su uso depende del 
+programador (seriar tarjetas, poner ciertos caracteres para visualizar 
+instrucciones, etc.).
+<P>Las tarjetas que corresponden a la parte de datos de un programa emplean las 
+80 columnas.
+<P>Generalmente todas las tarjetas son perforadas tomando las instrucciones 
+señaladas en una hoja de codificación. Una hoja de codificación reúne, por lo 
+general, un total de 25 tarjetas.
+<P>
+<H2>Instrucciones de entrada y salida</H2>
+<H3>Instrucciones READ y WRITE</H3><PRE>	Forma general de una lectura
+
+       7
+
+       READ(N,M)         lista &lt;----Conjunto de variables
+            | |                     separadas por comas
+            | |
+            | ---------Número del formato con el que va a
+            |          leer las variables de la lista
+            |
+            -----------Número de la unidad de lectura,
+                       es una constante entera que varía
+                       de computadora a computadora
+
+	Forma general de una salida por impresora
+
+       7
+
+       WRITE(N,M)         lista &lt;----variables separadas por comas
+             | |
+             | |
+             | ---------Número de formato
+             |
+             |
+             -----------Número asignado a la unidad de
+                        impresión
+</PRE>
+<H3>Instrucciones INPUT y PRINT</H3>Las instrucciones INPUT y PRINT son casos 
+particulares de READ y WRITE y se utilizan para transferir información desde o 
+hacia un teletipo.
+<P>Al estar siempre en relación con el uso de teletipos, las instrucciones INPUT 
+y PRINT no necesitan una lista de control como en el caso de READ y WRITE. 
+Asimismo, el formato puede ser el predeterminado por el compilador FORTRAN.
+<P><PRE>10 INPUT A,B
+80 PRINT A,B
+
+o
+
+10 INPUT X
+20 PRINT,'EL VALOR DE X ES',X
+</PRE>
+<H3>Declaración FORMAT</H3>Los formatos se identifican con un número arbitrario 
+positivo menor o igual a 99999. La información que contienen indicará a la 
+computadora la forma cómo va a leer o a imprimir los resultados. En el caso de 
+lectura indica mediante especificaciones de campo, las columnas en las cuales se 
+encuentran los valores de las variables a leer. 
+<H3>Especificaciones de campo</H3>Las especificaciones de campo le indican a la 
+computadora los campos (conjunto de columnas), en los que se deberán leer o 
+escribir los valores de las variables, (en el caso de lectura se cuenta con 80 
+columnas por tarjeta; en el caso de escritura se cuenta en general con 132 
+columnas, además del control del carro).
+<P>
+<H3>Especificaciones para lectura o escritura de valores de variables 
+enteras</H3>La forma general de lectura o escritura de valores de variables 
+enteras es "In". n indica el total de columnas del campo.
+<P><PRE>      READ(2,10)I,J,K
+
+   10 FORMAT(I2,I3,I1)
+</PRE>Indica que el valor de la variable I se encuentra en las primeras dos 
+columnas de la tarjeta, el valor de J en las columnas tres, cuatro y cinco, y el 
+valor K en la columna seis; nótese que la variable I no tiene relación en su 
+nombre, con la definición de la especificación "In".
+<P>Los valores enteros siempre deben indicarse hasta la extrema derecha del 
+campo.
+<P>
+<H3>Especificación para lectura o escritura de valores de variables 
+reales</H3>La forma general de lectura o escritura de valores de variables 
+reales es "Fw.d". w es el total de columnas del campo y d el número posible de 
+decimales dentro de ese campo.
+<P><PRE>      READ(2,20)A
+
+   20 FORMAT(F4.2)
+</PRE>Indica que el valor de A se encuentra en las primeras cuatro columnas de 
+la tarjeta y que es posible que tenga dos decimales.
+<P>Cuando se trata de escribir resultados, es conveniente separarlos entre sí; 
+esto se logra empleando la especificación nX, en la que n es un número entero 
+que indica el total de columnas de separación.
+<P>Para imprimir letreros es necesario indicarlos entre apóstrofes o mediante 
+especificaciones de campo Hollerith. <PRE>       WRITE (6,100) Z
+   100 FORMAT(10X, 'EL VALOR DE Z ES',
+      *2X,F10.4)
+ó
+       WRITE(6,200)Z
+   200 FORMAT(10X,16HEL VALOR DE Z ES,
+      *2X,F10.4)
+</PRE>Ambos formatos son equivalentes, el segundo de ellos incluye la 
+especificación de Hollerith que indica el total de espacios que deben escribirse 
+16 H, estos espacios se cuentan inmediatamente después de la H.
+<P>Al imprimir resultados es necesario incluir el control de carro como primera 
+instrucción de formato:
+<P><PRE>	1H1	ó	'1'	Para ubicar el carro de impresión en la
+				parte alta de la siguiente hoja.
+
+	1H0	ó	'0'	Salta una línea antes de escribir
+				(espacio doble).
+
+	1H+	ó	'+'	Evita el salto a la siguiente línea
+				(reimprime sobre la línea anterior).
+
+	1H	ó	'_'	Para imprimir a renglón seguido.
+</PRE>También es válido emplear nX al principio. Esto equivale a la última 
+instrucción para el control de carro (n debe ser un entero positivo).
+<P><PRE>      WRITE(6,200)A,B,Z
+  200 FORMAT(1H0,'A=',F10.4,2X,
+     *'B=',F8.2,3X,F12.4)
+</PRE>
+<H3>Especificación para lectura o escritura de valores de variables 
+alfanuméricas</H3>La forma general de lectura o escritura de valores 
+alfanuméricos es mAn. m número entero positivo que indica el total de campos de 
+tamaño n que se tiene en el formato.
+<P><PRE>      READ(5,500)A,B,C,D,E
+  500 FORMAT(5A4)
+      WRITE(6,800)A,B,C,D,E
+  800 FORMAT(1H0,5A4)
+</PRE>Veamos como ejemplo, la lectura y escritura de la siguiente tarjeta:
+<P><PRE> 1234567890123456789
+/-----------------------
+|DATOS ALFANUMÉRICOS
+|
+
+      READ (5,100)T1,T2,T3,T4,T5
+  100 FORMAT(4A4,A3)
+      WRITE(6,200)T1,T2,T3,T4,T5
+  200 FORMAT(1H0,4A4,A3)
+</PRE>El programa anterior para una computadora, emplea cuatro especificaciones 
+alfanuméricas de cuatro columnas de ancho y una de tres columnas. El mismo 
+programa para otra:
+<P><PRE>      READ(5,100)T1,T2,T3,T4
+  100 FORMAT(3A6,A1)
+      WRITE(6,200)T1,T2,T3,T4
+  200 FORMAT(1H0,3A6,A1)
+</PRE>Por supuesto que este último, el propósito es minimizar el uso de memoria, 
+ya que de antemano sabemos que el primer programa también funciona en otras 
+computadoras con las respectivas tarjetas de control.
+<P>
+<H1>Instrucciones de asignación y de fin de programa</H1>
+<H2>Instrucción de asignación</H2>En FORTRAN una instrucción se evalúa de 
+izquierda a derecha, ejecutándose primero las operaciones agrupadas por 
+paréntesis y observando rigurosamente las prioridades en los operadores.
+<P>El resultado de la expresión generalmente se almacena en alguna variable para 
+su uso posterior. La forma general de una instrucción de asignación es la 
+siguiente V=E. V es cualquier variable (entera o real), que recibe el valor 
+calculado en la expresión. = es la instrucción de sustitución o asignación. E es 
+la expresión aritmética en FORTRAN.
+<P>Por lo tanto V=E en una proposición de asignación aritmética, es decir 
+FORTRAN realiza primero la expresión a la derecha del signo igual y el valor 
+obtenido lo asigna a la variable que está a la izquierda de dicho signo.
+<P>
+<H2>Instrucción de fin de programa</H2>La instrucción de fin de programa en 
+FORTRAN es la instrucción END.
+<P>
+<H1>Instrucciones de transferencia de control</H1>
+<H2>GO TO simple</H2>La instrucción de transferencia de control GO TO n, donde n 
+es un número entero positivo, al ejecutarse altera la secuencia de ejecución del 
+programa desviándola a la instrucción numerada con n.
+<P><PRE>      GO TO 98
+</PRE>
+<H2>GO TO calculado</H2>El GO TO calculado transfiere el control a dos o más 
+instrucciones dependiendo del valor que tenga una variable entera.
+<P><PRE>      GO TO(n1,n2,..,np),I
+</PRE>Los números encerrados entre paréntesis y separados por comas, 
+corresponden a números de instrucciones ejecutables a las que se transferirá el 
+control dependiendo del valor de la variable I. Los números entre paréntesis no 
+requieren ir en orden ascendente e inclusive se pueden repetir.
+<P>La variable que sigue a la coma siempre debe ser de modo entero y su valor 
+transfiere el control a aquella instrucción que corresponda con la posición de 
+los números entre paréntesis.
+<P><PRE>      I=2
+      GO TO(15,12,13),I
+</PRE>En este caso transfiere el control a la instrucción número 12 ya que está 
+indicada como segundo argumento del GO TO calculado.
+<P>Generalmente I puede tener cuando menos los valores de 1 a 10. Evidentemente 
+no es válido darle valores mayores que el número de argumentos o valores 
+negativos, cuando esto se hace, la computadora ejecuta la instrucción que sigue 
+al GO TO calculado.
+<P>
+<H2>IF aritmético</H2>La proposición IF se utiliza para preguntar por el valor 
+numérico de una expresión (proposición condicional).
+<P><PRE>Cuando e es negativo se transfiere el control a n1.
+Cuando e es cero a n2 y
+cuando e es positivo a n3
+
+Forma general: IF(e) n1,n2,n3
+
+      X=1.0
+      B=2.0
+      IF(X-B**2)3,2,5
+</PRE>En este caso como 1-4=-3 el control se envía hacia la instrucción numérica 
+3.
+<P>
+<H2>IF lógico</H2>Se utiliza para preguntar por el valor de una expresión 
+condicional. Su forma general es:
+<P>IF (e1.operador relacional.e2)instrucción
+<P>e1 y e2 son las expresiones que se van a comparar. Los operadores 
+relacionales son los siguientes:
+<P><PRE>	.LT.	Menor que (&lt;)
+	.LE.	Menor o igual (&lt;=)
+	.EQ.	Igual (=)
+	.GE.	Mayor o igual (&gt;=)
+	.GT.	Mayor que (&gt;)
+</PRE>En las expresiones lógicas se utilizan, además de los operadores 
+relacionales, los operadores lógicos:
+<P><PRE>	.OR.	o
+	.AND.	y
+	.NOT.	no
+</PRE>Ejemplos: <PRE>      IF((A.EQ.B).AND.(B.EQ.C))WRITE(3,100)
+  100 FORMAT(2X,"A=B=C")
+      B=2.*A
+
+otro:
+
+      IF((A.EQ.B).OR.(A.EQ.D))C=A+B
+      E=C+d
+</PRE>En el primer caso se deben cumplir las dos condiciones para que se ejecute 
+el WRITE(3,100), en el caso contrario continúa a la siguiente instrucción 
+ejecutable (B=2.*A).
+<P>En el segundo caso basta que se cumpla alguna de las dos condiciones.
+<P>
+<H2>Instrucción iterativa DO</H2>La instrucción iterativa en FORTRAN es la 
+instrucción DO. La forma de esta instrucción es la siguiente:
+<P><PRE>      DO n I=n1,n2,n3
+          Instrucciones
+    n CONTINUE
+</PRE>n es un número positivo que corresponde con la última instrucción 
+ejecutable en el ámbito del DO. Instrucciones no ejecutables no son válidas como 
+límite del rango de un DO (ejemplo: FORMAT, DIMENSION, Comentarios).
+<P>I es una variable de tipo entero que variará de su valor inicial n a su valor 
+final n2, en incrementos de valor n3. Si el incremento es unitario se puede 
+omitir n3.
+<P>n1, n2, n3 son variables o constantes de tipo entero, sin embargo, algunas 
+computadoras permiten valores fraccionarios o variables reales.
+<P>El DO equivale en principio a los siguientes elementos:
+<P>
+<UL>un contador
+  <P>una pregunta
+  <P>una transferencia de control
+  <P></P></UL>
+<H3>Ciclos anidados</H3>Se llaman ciclos anidados aquellos ciclos iterativos que 
+dentro de su ámbito contienen a otro u otros ciclos iterativos.
+<P>El emplear varios ciclos iterativos en forma anidada (un DO dentro del ámbito 
+de otro DO), nos permite programar en forma más fácil, por ejemplo el manejo de 
+variables de 2 y 3 dimensiones, en lectura, etc.
+<P>Al utilizar ciclos anidados se deben observar las siguientes reglas:
+<P>
+<UL>1.- Todas las proposiciones de un DO interior deben estar contenidas 
+  dentro del DO exterior, el ámbito de los 2 o más DO's pueden terminar con la 
+  misma proposición.
+  <P>2.- La última proposición en el ámbito de un DO no debe ser un GO TO, un 
+  IF, un RETURN, un STOP, un PAUSE, u otro DO.
+  <P>3.- No es válido dentro del ámbito de un DO, utilizar proposiciones que 
+  alteren alguno de los parámetros de índice del DO (I, n1, n2, n3).
+  <P>4.- No es válido realizar una transferencia de control al interior del 
+  ámbito de un DO; sin embargo, sí es válida una transferencia de control de un 
+  DO interior hacia el ámbito de un DO exterior.
+  <P></P></UL>Lectura y escritura de un arreglo bidimensional por renglones:
+<P><PRE>      DIMENSION A(10,10)
+      READ(5,100)N,M
+      DO 2 I=1,N
+      DO 2 J=1,M
+      READ(5,200) A(I,J)
+    2 WRITE(6,300) A(I,J)
+  100 FORMAT (2I2)
+  200 FORMAT (F8.2)
+  300 FORMAT (2X,F8.2)
+      CALL EXIT
+      END
+</PRE>O también:
+<P><PRE>      DIMENSION A(10,10)
+      READ(5,100)N,M
+      DO 2 I=1,N
+      READ(5,200) (A(I,J),J=1,N)
+    2 WRITE(6,300) (A(I,J),J=1,M)
+  100 FORMAT (2I2)
+  200 FORMAT (10F8.0)
+  300 FORMAT (10(2X,F8.2))
+      CALL EXIT
+      END
+</PRE>En este último caso los DO's internos se encuentran de manera implícita en 
+las instrucciones READ y WRITE.
+<P>En los ciclos anidados, el ciclo más interno se repite por cada variación 
+exterior.
+<P><PRE>    I=1,4
+        J=1,7
+            K=1,2
+                L=1,5
+                    M=1,10
+                        N=1,2	
+</PRE>En este caso N tomará los valores de 1 y 2 un total de 2800 veces.
+<P>
+<H2>Variables con índice, declaración DIMENSION</H2>EN FORTRAN se puede manejar 
+arreglos de una, dos o tres dimensiones, el único requisito es declararlos al 
+inicio de un programa, esto es, indicarle a la computadora el máximo número de 
+cada arreglo. Esto se logra mediante la declaración DIMENSION.
+<P>En la declaración DIMENSION, los índices de las variables, deberán ser 
+constantes enteras, separadas por comas cuando haya más de una.
+<P>Para identificar algún elemento en especial se emplea la variable que define 
+el arreglo, pero como índice siempre se utiliza una variable de modo entero.
+<P><PRE>      DIMENSION A(7,7),Z(5,1,4),L(3,2)
+      A(3,5)=2.0
+      Z(1,1,1)=-35.7
+      l(2,2)=84
+</PRE>Esto es, podemos abarcar los valores de cada elemento del arreglo en el 
+plano cartesiano o en el arreglo tridimensional.
+<P>
+<H1>Declaraciones</H1>
+<H2>Declaración DATA</H2>Se utiliza para inicializar un grupo de variables. Su 
+forma general es:
+<P><PRE>      DATA A,B,C,...,Z/Valores de cualquier tipo (separadas por comas)/
+</PRE>La declaración DATA se indica al principio del programa (después de 
+DIMENSION, COMMON, INTEGER), y es válida sólo al inicio de la ejecución. Por 
+supuesto, las variables pueden cambiar sus valores con el proceso, pero no es 
+válido tratar de ejecutar una segunda vez esta declaración.
+<P><PRE>      DATA AB,C,D,I/'ALTA',-14.5,0.15E-12,7/
+ó
+      DIMENSION K(12)
+      DATA K/12*2/
+</PRE>En este último ejemplo se ha inicializado el vector K con sus 12 elementos 
+por efecto del * y el valor entero que le precede.
+<P><PRE>      DIMENSION N(8)
+      DATA N/8*' '/
+</PRE>En el que se han inicializado los elementos del vector N en el valor 
+alfanumérico ' '.
+<P><PRE>      DIMENSION Z(7),B(4),X(3)
+      DATA X(3),Z(4),B(3),B(1)/3.5,4.2,0.0,-1.0/
+</PRE>Nótese que la lista de variables se indica según se desee.
+<P>
+<H2>Declaraciones INTEGER y REAL</H2>En FORTRAN se identifica el modo de las 
+variables por la primera letra de sus nombres, sin embargo usando las 
+declaraciones INTEGER, o REAL, puede modificarse dicha identificación.
+<P><PRE>      INTEGER A,B,C,X
+      REAL I,J,K,L
+</PRE>Estas declaraciones pueden usarse junto con DIMENSION.
+<P><PRE>      DIMENSION K(10)
+      INTEGER K
+
+equivale a:
+
+      INTEGER K(10)
+
+Otro:
+
+      DIMENSION T(7),Y(4),I(3),L(8),MAS(12)
+      INTEGER T,Y,I
+      REAL L,MAS
+
+equivale a:
+
+      INTEGER Y(7),Y(4),I(3)
+      REAL L(8),MAS(12)      
+</PRE>Se observa que las declaraciones REAL, INTEGER también tienen la función 
+de reservar memoria para arreglos.
+<P>
+<H2>Declaración COMMON</H2>Permite un área común de memoria para el programa 
+principal y los subprogramas. Asimismo, nos permite no indicar argumentos en 
+subprogramas:
+<P><PRE>      COMMON A,B,C,D(10)
+      DATA D/10*10.0/
+      A=1.5
+      B=0.0
+      C=-3.5
+      CALL SUBA
+      WRITE (6,300)A,B,C,(D(I),I=1,10)
+  300 FORMAT (13(1X,F6.2))
+      CALL EXIT
+      END
+</PRE>La subrutina:
+<P><PRE>      SUBROUTINE SUBA
+      COMMON X,Y,Z,T(10)
+      X=X+Y+Z
+      Y=X-Y-Z
+      ...
+      DO 12 I=1,10
+   12 T(I)=X+Y
+      RETURN
+      END
+</PRE>Como se observa, la subrutina SUBA necesitaría un total de 13 argumentos 
+si no se usara COMMON. Las variables en COMMON ocupan la misma localización de 
+almacenamiento, de ahí que se les pueda dar un nombre en el programa principal y 
+otro en el subprograma. Esto es, la primera localidad de almacenamiento se llama 
+A en el programa principal y X en el subprograma, la segunda B y Y, la tercera C 
+y Z y de igual forma el vector D y T con una equivalencia elemento a elemento. 
+Realmente lo necesario es respetar el modo (entero o real) de las variables y la 
+posición de éstas.
+<P>
+<H2>Declaración COMPLEX</H2>Permite definir variables complejas (del tipo a+bi), 
+para tratarlas en esa forma durante el proceso de nuestro programa. La forma 
+general de la declaración COMPLEX es la siguiente:
+<P><PRE>      COMPLEX lista de variables
+</PRE>La lista de variables deberá ir separada por comas. La declaración COMPLEX 
+puede tener, agregada a ella, la función de reserva de memoria:
+<P><PRE>      COMPLEX A(20),T(5),&gt;(5,5)
+      COMPLEX H,W
+</PRE>Como se observa en la primera declaración se tienen arreglos de una y dos 
+dimensiones. En la segunda declaración, sólo variables sin índice (nótese que es 
+posible omitir la segunda declaración incluyendo toda la lista en la primera 
+declaración).
+<P>Ya en el proceso de nuestro programa, a fin de formar nuevos valores 
+complejos, podemos emplear la función CMPLX.
+<P><PRE>      COMPLEX T(2)
+      A=3.5
+      B=1.0
+      T(1)=CMPLX(A,B)
+      T(2)=CMPLX(A,-B)
+      WRITE(6,100)T(1),T(2)
+  100 FORMAT(5X,2G15.7,5X,2G15.7)
+</PRE>Evidentemente T(1) y T(2), están recibiendo valores complejos y por lo 
+tanto requieren cada uno de ellos de dos especificaciones de campo para su 
+escritura.
+<P>
+<H1>Subprogramas</H1>
+<H2>Concepto de subprograma</H2>Un subprograma es un conjunto de instrucciones 
+en secuencia que aparecen una sola vez fuera del programa principal y se utiliza 
+para evitar una repetición de ese mismo conjunto de instrucciones en diferentes 
+lugares de dicho programa principal.
+<P>En FORTRAN se emplean funciones y subrutinas, el subprograma para definir una 
+función se conoce como subprograma FUNCTION, el subprograma para definir una 
+subrutina es el subprograma SUBROUTINE.
+<P>
+<H2>Subprograma FUNCTION</H2>La utilidad del FUNCTION es evidente; nos permite 
+construir funciones especiales, según nuestras propias necesidades de 
+programación.
+<P>La llamada de un FUNCTION es igual a la llamada de funciones de biblioteca 
+como es el caso de SIN(X), ABS(X), esto es, dado un valor al argumento, el 
+subprograma FUNCTION nos calcula un valor que corresponde a la función en sí, 
+asignando dicho valor al nombre propio de la función.
+<P>Función que evalúa un polinomio de segundo orden:
+<P><PRE>C     PROGRAMA PRINCIPAL
+      X=3.0
+      Y=F(X,A,B,C)
+C     LA FUNCION ESTA DEFINIDA EN EL
+C     SUBPROGRAMA. SU NOMBRE ES F
+C     SUS ARGUMENTOS SON X,A,B,C
+      ...
+      END
+
+El subprograma FUNCTION:
+
+C     FUNCTION F(X,A,B,C)
+      F=A*X**2+B*X+C
+      RETURN
+      END
+</PRE>Un subprograma FUNCTION puede manejar varios argumentos que deben 
+corresponder en número y modo con los definidos en el programa que lo va a usar, 
+(en este caso 4 argumentos reales); la característica distintiva es que el 
+FUNCTION regresa sólo un valor como resultado y dicho valor se asocia con el 
+nombre del FUNCTION mismo (en este caso F con lo que se sabe que es una función 
+real).
+<P>El subprograma FUNCTION recibe los valores de los argumentos al mencionarse 
+la función en el programa principal, inmediatamente evalúa el proceso indicado 
+en el FUNCTION y regresa por efecto del RETURN a la instrucción misma que lo 
+llamó para de ahí continuar con el programa.
+<P>
+<H2>Subprograma SUBROUTINE</H2>Este subprograma involucra también un nombre y 
+argumentos pero a diferencia del anterior, no importa el modo (entero o real) 
+del nombre de la subrutina. Para llamar a una subrutina se emplea la instrucción 
+CALL.
+<P><PRE>      CALL AREA(A,B,C)
+</PRE>Los argumentos permiten enviar valores de variables a la subrutina y 
+también recibir resultados de ella para cada variable enviada.
+<P><PRE>      SUBROUTINE AREA(X,Y,Z)
+      X=0.5*Y*Z
+      RETURN
+      END
+</PRE>Evidentemente la variable X del subprograma corresponde con la variable A 
+del programa que llama, Y con B y X con la variable C, en esto es 
+definitivamente necesario respetar el modo de las variables; el nombre de éstas 
+pueden cambiarse al gusto.
+<P>
+<H1>Manejo de archivos</H1>Cuando se maneja gran cantidad de información, no es 
+conveniente la manipulación de ella en la memoria principal de la computadora.
+<P>En este caso conviene mandarla a una memoria secundaria, como pueden ser 
+discos o cintas, y de ahí recuperarla o grabarla, conservando en la memoria de 
+alta velocidad sólo lo indispensable.
+<P>Veremos como ejemplo el manejo de archivos en una computadora IBM 1130.
+<P>Cada disco contiene 200 cilindros, cada cilindro está formateado por 2 pistas 
+(una inferior y otra superior), cada pista se divide en 4 sectores; cada sector 
+permite 320 palabras para almacenamiento de información.
+<P>El disco cuenta con 1600 sectores numerados del 0 al 1599 en la primera 
+palabra de cada uno de ellos. Con esto se dispone de 512000 palabras de 
+computadora. La información se almacena a partir del principio de cada sector 
+ocupando siempre un número entero de palabras. El archivo está formado por un 
+conjunto de registros. Un registro contiene toda la información relativa a un 
+concepto (por ejemplo los registros de alumnos para préstamo de libros de una 
+biblioteca).
+<P>Esto es, un registro puede ser; una tarjeta perforada, una línea impresa, 
+etc.
+<P>Para la computadora es necesario indicar el tamaño del registro (en palabras 
+de computadora). La computadora del ejemplo asigna el siguiente tamaño a las 
+variables:
+<P><PRE>	Enteras		1 palabra
+	Reales		2 palabras
+</PRE>Si se emplea alguna instrucción para el compilador FORTRAN es posible 
+asignar dos palabras a variables enteras y tres a variables reales.
+<P>El tamaño de cada registro es importante dado que:
+<P>
+<UL>En un sector sólo se almacena un número entero de palabras
+  <P>Con el total de registros definiremos el tamaño de nuestro archivo
+  <P></P></UL>Para el manejo en disco del archivo cuyos registros contengan el 
+nombre, carrera, número de cuenta y edad de 1000 alumnos de la facultad haremos:
+<P><PRE>	NOM	arreglo de 7 elementos	14 palabras
+	CARR	arreglo de 6 elementos	12 palabras
+	NOCTA	arreglo de 2 elementos	4 palabras
+	N	variable entera (edad)	1 palabra
+
+       DIMENSION NOM(7),CARR(6),NOCTA(2)
+C      DECLARACION DEL ARCHIVO
+       DEFINE FILE 1(1000,31,U,KRO)
+C      LECTURA DE DATOS DE TARJETA
+       NREG=0
+     1 READ(2,10,END=7)NOM,CARR,NOCTA,N
+       NREG=NREG+1
+C      GRABADO A DISCO
+       WRITE(1'NREG)(NOM(K),K=1,7),CARR,NOCTA,N
+       GO TO 1
+C      RECUPERACIÓN DE DISCO E IMPRESION
+C      DE REGISTROS EN PAPEL
+     7 DO 2 MREG=1,NREG
+       READ(1'MREG)NOM,CARR,NOCTA,N
+     2 WRITE(3,11)NOM,(CARR(L),L=1,6)NOCTA,N
+       WRITE(3,12)
+    10 FORMAT(I2,7A4,2X,6A4,6X,2A4,2X,I2)
+    11 FORMAT(5X,7A4,3X,6A4,4X,2A4,3X,I2)
+    12 FORMAT(//////,5X,77(1H$),///)
+      *34X,15H FIN DE ARCHIVO,//)
+       CALL EXIT
+       END
+</PRE>Para almacenar permanentemente en disco el archivo, deberemos indicar las 
+siguientes tarjetas:
+<P><PRE>		// JOB
+		// FOR
+		*  SAVE
+		*  IOCS (DISK)
+		}  PROG. FUENTE
+		// XEQ
+		}  DATOS
+		// DUF
+		*  STORE WS UA EJEM 100
+</PRE>Como observamos cada registro tiene un tamaño de 31 palabras, y por tanto 
+320/31=10 registros por sector con un total de 10 palabras no empleadas. A su 
+vez esto implica que usaremos 1000/10=10 sectores.
+<P>El archivo está identificado por el número arbitrario 1 en la declaración de 
+archivo DEFINE FILE; en ésta la U (3er. elemento), no nos interesa mas que 
+indicarla y su significado es SIN FORMATO en disco.
+<P>El cuarto elemento es una variable entera arbitraria que lleva un control 
+automático de registros.
+<P>Por último es importante notar que las lecturas y escrituras a disco, en la 
+computadora que hemos tomado para el ejemplo, se caracterizan por indicar el 
+número de identificación del archivo y el número del registro ligados por un 
+apóstrofo, lo cual varía de computadora a computadora.
+<P>
+<H1></H1>
+<H1>Programas en Fortran</H1><A 
+href="http://www.geocities.com/v.iniestra/fortran/p1_1.txt">calcula suma y 
+producto</A><BR><A 
+href="http://www.geocities.com/v.iniestra/fortran/p1_2.txt">calcula suma y 
+producto con FORMAT</A><BR><A 
+href="http://www.geocities.com/v.iniestra/fortran/p1_3.txt">IMPRIMIR ENTEROS 
+IMPARES Y SUS CUADRADOS</A><BR><A 
+href="http://www.geocities.com/v.iniestra/fortran/bas_10.txt">TRANSFORMA NUMEROS 
+EN BASE B A BASE 10</A><BR><A 
+href="http://www.geocities.com/v.iniestra/fortran/cal_pol.txt">EVALUA UN 
+POLINOMIO EN UN PUNTO DADO</A><BR><A 
+href="http://www.geocities.com/v.iniestra/fortran/cuadros.txt">CUADRADO 
+MAGICO</A><BR><A 
+href="http://www.geocities.com/v.iniestra/fortran/der_fun.txt">OBTIENE LA 
+DERIVADA DE UNA FUNCION ALGEBRAICA</A><BR><A 
+href="http://www.geocities.com/v.iniestra/fortran/der_suc.txt">CALCULA LAS 
+DERIVADAS SUCESIVAS DE UNA FUNCION ALGEBRAICA</A><BR><A 
+href="http://www.geocities.com/v.iniestra/fortran/ec_cua.txt">RESUELVE 
+ECUACIONES CUADRATICAS</A><BR><A 
+href="http://www.geocities.com/v.iniestra/fortran/es_fibo.txt">ANALIZA SI UN 
+NUMERO PERTENECE A LA SERIE DE FIBONACCI</A><BR><A 
+href="http://www.geocities.com/v.iniestra/fortran/es_primo.txt">IDENTIFICA SI UN 
+NUMERO ES PRIMO</A><BR><A 
+href="http://www.geocities.com/v.iniestra/fortran/factoria.txt">CALCULA EL 
+FACTORIAL DE UN NUMERO</A><BR><A 
+href="http://www.geocities.com/v.iniestra/fortran/fibonacci.txt">CALCULA LA 
+SERIE DE FIBONACCI</A><BR><A 
+href="http://www.geocities.com/v.iniestra/fortran/max_min.txt">ROGRAMA QUE 
+INVESTIGA EL MAXIMO Y EL MINIMO ELEMENTOS DE UNA MATRIZ</A><BR><A 
+href="http://www.geocities.com/v.iniestra/fortran/ord_vec.txt">ORDENA LOS 
+ELEMENTOS DE UN VECTOR</A><BR><A 
+href="http://www.geocities.com/v.iniestra/fortran/pares.txt">CALCULA NUMEROS 
+PARES</A><BR><A 
+href="http://www.geocities.com/v.iniestra/fortran/pro_2vec.txt">CALCULA EL 
+PRODUCTO PUNTO ENTRE DOS VECTORES</A><BR><A 
+href="http://www.geocities.com/v.iniestra/fortran/pro_grup.txt">Promedio de un 
+grupo de m 
+alumnos</A><BR><!-- text below generated by server. PLEASE REMOVE --></OBJECT></LAYER>
+<DIV></DIV></SPAN></STYLE></NOSCRIPT></TABLE></SCRIPT></APPLET>
+<SCRIPT 
+language=JavaScript>var PUpage="76001067"; var PUprop="geocities"; </SCRIPT>
+
+<SCRIPT language=JavaScript src="Fortran_archivos/pu5geo.js"></SCRIPT>
+
+<SCRIPT language=JavaScript src="Fortran_archivos/ygIELib9.js"></SCRIPT>
+
+<SCRIPT language=JavaScript>yvSM=1;yvSMU='http://edit.my.yahoo.com/config/send_webmesg?.target=v.iniestra';yvVP=1;yvVPU='http://profiles.yahoo.com/v.iniestra';var yviContents='http://us.toto.geo.yahoo.com/toto?s=76001067&l=NE&b=1&t=1067445214';yviR='us';yfiEA(0);</SCRIPT>
+
+<SCRIPT language=JavaScript src="Fortran_archivos/mc.js"></SCRIPT>
+
+<SCRIPT language=JavaScript src="Fortran_archivos/geov2.js"></SCRIPT>
+
+<SCRIPT language=javascript>geovisit();</SCRIPT>
+<NOSCRIPT><IMG height=1 alt=setstats src="Fortran_archivos/visit.gif" width=1 
+border=0></NOSCRIPT> <IMG height=1 alt=1 src="Fortran_archivos/serv.gif" 
+width=1> </BODY></HTML>

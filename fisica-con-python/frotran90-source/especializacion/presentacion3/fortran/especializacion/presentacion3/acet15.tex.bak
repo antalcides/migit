@@ -1,0 +1,87 @@
+
+\documentclass{article}
+\usepackage{amssymb}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Created=Thu Oct 02 10:27:06 2003}
+%TCIDATA{LastRevised=Thu Oct 02 10:27:26 2003}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="General\Blank Document">}
+%TCIDATA{CSTFile=LaTeX article (bright).cst}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{tcilatex}
+
+\begin{document}
+
+
+\section{Aplicaci\'{o}n: Extensi\'{o}n del principio del m\'{a}ximo}
+
+Se considera el operador el\'{i}ptico sim\'{e}trico 
+\begin{equation}
+Lu=\sum_{i,j=1}^{n}\frac{\partial }{\partial x_{i}}\left( a_{ij}\left(
+x\right) \frac{\partial }{\partial x_{j}}u\right) ,  \tag{16}
+\end{equation}
+donde $a_{ij}\left( x\right) \in C^{\infty }\left( \overline{\Omega }\right) 
+$ y $\partial \Omega $ es suave.
+
+Del teorema $5$ se tiene que $\lambda _{1}$, valor propio principal de $-L$,
+es positivo y existe $w_{1}>0$ tal que 
+\begin{equation*}
+\left\{ 
+\begin{array}{c}
+Lw_{1}+\lambda _{1}w_{1}=0\text{ \ en }\Omega , \\ 
+w_{1}=0\text{ \ sobre }\partial \Omega .
+\end{array}
+\right.
+\end{equation*}
+Adem\'{a}s se sabe que 
+\begin{equation*}
+\left( PMF\right) \left\{ 
+\begin{array}{c}
+Lu+cu\leq 0\text{ \ en }\Omega \text{ y }u\geq 0\text{ sobre }\partial
+\Omega , \\ 
+\text{implica} \\ 
+u\equiv 0\text{ \ en }\Omega \text{ \ \'{o} \ }u>0\text{ \ en }\Omega \text{,%
+}
+\end{array}
+\right.
+\end{equation*}
+es verdadera si $c\leq 0$ y falsa si $c\equiv \lambda _{1}.$
+
+\begin{theorem}
+Dado $L$ en $\left( 16\right) $, los coeficientes de $L$, $\Omega $ y $u$
+satisfaciendo las mismas hip\'{o}tesis del teorema $6.$ Entonces $\left(
+PMF\right) $ es verdadero si $c(x)\lvertneqq \lambda _{1}$ en $\Omega .$
+\end{theorem}
+
+\begin{proof}
+Es consecuencia del teorema $6$ tomando $h:=w_{1}.$
+\end{proof}
+
+\end{document}

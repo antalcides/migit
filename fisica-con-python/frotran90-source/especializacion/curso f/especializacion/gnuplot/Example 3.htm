@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0082)http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_3.html -->
+<HTML><HEAD><TITLE>Example 3:</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY background="Example 3_archivos/summer_p.gif">
+<P>
+<HR>
+<A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_4.html" 
+name=tex2html79><IMG src="Example 3_archivos/next_motif.gif" align=middle></A> 
+<A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/section3_2.html" 
+name=tex2html77><IMG src="Example 3_archivos/up_motif.gif" align=middle></A> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_2.html" 
+name=tex2html71><IMG src="Example 3_archivos/previous_motif.gif" 
+align=middle></A> <BR><B>Next:</B> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_4.html" 
+name=tex2html80>Example 4:</A> <B>Up:</B> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/section3_2.html" 
+name=tex2html78>Using GNUPLOT for </A><B>Previous:</B> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_2.html" 
+name=tex2html72>Example 2:</A> 
+<HR>
+
+<P>
+<H4><A name=SECTION0002003000000000000>Example 3:</A></H4>To place more than one 
+curve on a plot, use one <TT>plot</TT> statement and separate the description of 
+each curve by a comma. In our next example, we will plot both a function and a 
+data file on the same plot. This plot is shown in Figure <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_3.html#eg3">3</A>. 
+
+<P><PRE><TT>
+    set terminal latex
+    set output "eg3.tex"
+    set format xy "$%g$"
+    set title "This is another plot"
+    set xlabel "$x$ axis"
+    set ylabel "$y$ axis"
+    set key 15,-10
+    plot x with lines, "eg3.dat" with linespoints</TT></PRE>
+<P><A name=7751><IMG src="Example 3_archivos/invis_anchor.xbm" align=middle></A>
+<P><A name=eg3><IMG src="Example 3_archivos/invis_anchor.xbm" 
+align=middle></A><IMG alt="" src="Example 3_archivos/_9659_figure6762.gif" 
+align=bottom>
+<P>
+<P>Here you will see that the <IMG alt="" 
+src="Example 3_archivos/_9659_tex2html_wrap11744.xbm" align=bottom> range was 
+not specified. The <IMG alt="" 
+src="Example 3_archivos/_9659_tex2html_wrap11744.xbm" align=bottom> range is 
+determined automatically, unless specified by the user. In this case, it is 
+defined by the range of the data file "eg3.dat". The function is plotted over 
+the same range. If no data files or <IMG alt="" 
+src="Example 3_archivos/_9659_tex2html_wrap11744.xbm" align=bottom> range are 
+supplied, the default range of <IMG alt="" 
+src="Example 3_archivos/_9659_tex2html_wrap11748.xbm" align=bottom> is used. We 
+have also moved the key to a different position. The function <IMG alt="" 
+src="Example 3_archivos/_9659_tex2html_wrap11750.xbm" align=bottom> is plotted 
+``with lines'', which is the default plot style for functions, and is shown here 
+to illustrate the plot style option. The data file <TT>eg3.dat</TT> is plotted 
+with style <TT>linespoints</TT>, a style like <TT>lines</TT> that also plots a 
+symbol at each data point. 
+<P>There is a style called <TT>points</TT> that only plots the symbols at data 
+points, and another called <TT>dots</TT> that plots a tiny dot for each data 
+point. The <TT>points</TT> and <TT>linespoints</TT> styles produce a different 
+point symbol for each curve on the plot (for up to twelve symbols, after which 
+they are re-used; see Figure <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_6.html#linepoint">7</A> 
+for a complete list). The <TT>lines</TT> and <TT>linespoints</TT> styles use a 
+different line style for each curve on the plot (in this example the dots have 
+different spacing). The style <TT>impulses</TT> draws a perpendicular from each 
+point to the <IMG alt="" src="Example 3_archivos/_9659_tex2html_wrap11744.xbm" 
+align=bottom>-axis. Finally, the <TT>errorbars</TT> style can draw error bars at 
+each data point (see the GNUPLOT manual). 
+<P>
+<HR>
+<A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_4.html" 
+name=tex2html79><IMG src="Example 3_archivos/next_motif.gif" align=middle></A> 
+<A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/section3_2.html" 
+name=tex2html77><IMG src="Example 3_archivos/up_motif.gif" align=middle></A> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_2.html" 
+name=tex2html71><IMG src="Example 3_archivos/previous_motif.gif" 
+align=middle></A> <BR><B>Next:</B> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_4.html" 
+name=tex2html80>Example 4:</A> <B>Up:</B> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/section3_2.html" 
+name=tex2html78>Using GNUPLOT for </A><B>Previous:</B> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_2.html" 
+name=tex2html72>Example 2:</A> 
+<HR>
+
+<P>
+<HR>
+
+<P>
+<ADDRESS>David.Kotz@dartmouth.edu </ADDRESS></BODY></HTML>

@@ -1,0 +1,999 @@
+\chapter[EDO II: M{\'e}todos Avanzados.]
+{Ecuaciones Diferenciales Ordinarias~II: M{\'e}todos Avanzados.}
+
+
+\vspace{-1cm} \hfill {\tiny versi{\'o}n preliminar 2.0-10 julio 2002\footnote{Este cap{\'\i}tulo
+    est{\'a} basado en el tercer cap{\'\i}tulo del libro: {\em Numerical
+      Methods for Physics, second edition} de Alejandro L. Garcia,
+    editorial {\sc Prentice Hall}.}}
+
+
+En el cap{\'\i}tulo anterior aprendimos c{\'o}mo resolver ecuaciones
+diferenciales ordinarias usando algunos m{\'e}todos simples. En este
+cap{\'\i}tulo haremos algo de mec{\'a}nica celeste b{\'a}sica comenzando con el
+problema de Kepler.  Al calcular la {\'o}rbita de un sat{\'e}lite peque{\~n}o
+alrededor de un cuerpo masivo ({\it e.g} un cometa orbitando el Sol),
+descubriremos que m{\'e}todos mucho m{\'a}s sofisticados son necesarios para
+manipular sistemas simples de dos cuerpos. 
+
+\section{{\'O}rbitas de cometas.}
+
+\subsection{Ecuaciones b{\'a}sicas.}
+
+Considere el problema de Kepler en el cual un peque{\~n}o sat{\'e}lite, tal
+como un cometa, orbita el Sol. Usamos un sistema de coordenadas
+Copernicano y fijamos el Sol en el origen. Por ahora, consideremos
+solamente la fuerza gravitacional entre el cometa y el Sol, y
+despreciemos todas las otras fuerzas (e.g., fuerzas debidas a los 
+planetas, viento solar). La fuerza sobre el cometa es
+\begin{equation}
+\label{c11-e3.1}
+\vec F= -\frac{GmM}{\modulo{\vec r}^3}\vec r\ ,
+\end{equation}
+donde $\vec r$ es la posici{\'o}n del cometa, $m$ es su masa,
+$M=1.99\times10^{30}$~[kg] es la masa del Sol, y $G=6.67\times
+10^{-11}$~[m$^3$/kg s$^2$] es la constante gravitacional.
+
+Las unidades naturales de longitud y tiempo para este problema no son
+metros ni segundos. Como unidad de distancia usaremos la unidad
+astron{\'o}mica [AU], 1 AU=$1.496\times10^{11}$~[m], la cual es igual a la
+distancia media de la Tierra al Sol. La unidad de tiempo ser{\'a} el [a{\~n}o]
+AU (el per{\'\i}odo de una {\'o}rbita circular de radio 1~[AU]). En estas
+unidades, el producto $GM=4\pi^2$~[AU$^3$/a{\~n}o$^2$]. Tomaremos la
+masa del cometa, $m$, como la unidad; en unidades MKS la masa t{\'\i}pica
+de un cometa es $10^{15\pm3}$~[kg].
+
+Ahora tenemos suficiente para ensamblar nuestro programa, pero antes
+hagamos una r{\'a}pida revisi{\'o}n de lo que sabemos de {\'o}rbitas. Para un
+tratamiento completo podemos recurrir a algunos textos de mec{\'a}nica
+estandard, tales como Symon\footnote{K. Symon, {\em Mechanics}
+  (Reading Mass.: Addison-Wesley, 1971).}o Landau y
+Lifshitz\footnote{L. Landau and E. Lifshitz, {\em Mechanics} (Oxford:
+  Pergamon, 1976).}.  La energ{\'\i}a total del sat{\'e}lite es
+\begin{equation}
+\label{c11-e3.2}
+E=\frac{1}{2}mv^2-\frac{GMm}{r}\ ,
+\end{equation}
+donde $r= \modulo{\vec r}$ y $v=\modulo{\vec v}$. Esta energ{\'\i}a total es
+conservada, tal como el momento angular,
+\begin{equation}
+\label{c11-e3.3}
+\vec L = \vec r \times (m\vec v)\ .
+\end{equation}
+Ya que este problema es bidimensional, consideraremos el movimiento en
+el plano $x$-$y$. El {\'u}nico componente distinto de cero del momento
+angular est{\'a} en la direcci{\'o}n $z$.  
+
+Cuando la {\'o}rbita es circular, la fuerza centr{\'\i}peta es compensada por
+la fuerza gravitacional,
+\begin{equation}
+\label{c11-e3.4}
+\frac{mv^2}{r}=\frac{GMm}{r^2}\ ,
+\end{equation}
+o
+\begin{equation}
+\label{c11-e3.5}
+v=\sqrt{\frac{GM}{r}}\ .
+\end{equation}
+Por colocar algunos valores, en una {\'o}rbita circular en $r$=1~[AU] la
+velocidad orbital es $v$= 2$\pi$ [AU/a{\~n}o] (cerca de 30.000~[km/h]).
+Reemplazando la ecuaci{\'o}n (\ref{c11-e3.5}) en (\ref{c11-e3.2}), la
+energ{\'\i}a total en una {\'o}rbita circular es
+\begin{equation}
+\label{c11-e3.6}
+E=-\frac{GMm}{2r}\ .
+\end{equation}
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=8.5cm]{c11-f1}
+\caption{{\'O}rbita el{\'\i}ptica alrededor del Sol.}\label{c11-f1}
+\end{center}
+\end{figure}
+En una {\'o}rbita el{\'\i}ptica, los semiejes mayores y menores, $a$ y $b$, son
+desiguales (Figura \ref{c11-f1}). La excentricidad, $e$, est{\'a}
+definida como
+\begin{equation}
+\label{c11-e3.7}
+e=\sqrt{1-\frac{b^2}{a^2}}\ .
+\end{equation}
+La excentricidad de la Tierra es $e=0.017$, por lo tanto esta {\'o}rbita
+est{\'a} muy cercana de ser circular. La distancia del Sol al perihelio
+(punto de mayor aproximaci{\'o}n) es $q=(1-e)a$; la distancia del Sol al
+afelio es $Q=(1+e)a$.
+
+La ecuaci{\'o}n (\ref{c11-e3.6}) tambi{\'e}n se mantiene para una {\'o}rbita
+el{\'\i}ptica si reemplazamos el radio con el semieje mayor; por lo tanto
+la energ{\'\i}a total es
+\begin{equation}
+\label{c11-e3.8}
+E=-\frac{GMm}{2a}\ .
+\end{equation}
+Note que $E\leq0$. De las ecuaciones (\ref{c11-e3.2}) y
+(\ref{c11-e3.8}), encontramos que la velocidad orbital como funci{\'o}n de
+la distancia radial es
+\begin{equation}
+\label{c11-e3.9}
+v=\sqrt{GM \left( \frac{2}{r}-\frac{1}{a}\right)}\ .
+\end{equation}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{lrccrr}
+\hline
+Nombre del Cometa & T [a{\~n}os] & $e$ & $q$~[AU] & $i\phantom{Aa}$ & Primera pasada\\
+\hline 
+Encke & 3.30 & 0.847&0.339 & 12.4$\grados$ & 1786 \\
+Biela & 6.62 & 0.756 & 0.861 & 12.6$\grados$ & 1772 \\
+Schwassmann-Wachmann 1 & 16.10 & 0.132 & 5.540 & 9.5$\grados$ & 1925\\
+Halley & 76.03 & 0.967 & 0.587 & 162.2$\grados$ & 239 {\sc a.c.}\\
+Grigg-Mellish & 164.3 & 0.969 & 0.923 & 109.8$\grados$ & 1742\\
+Hale-Bopp & 2508.0 & 0.995 & 0.913 & 89.4$\grados$ & 1995 \\ \hline
+\end{tabular}
+\caption{ Datos orbitales de algunos cometas.}\label{c11-t1}
+\end{center}
+\end{table}
+La velocidad es m{\'a}xima en el perihelio y m{\'\i}nima en el afelio, la raz{\'o}n
+entre las velocidades est{\'a} dada por $Q/q$. Finalmente, usando la
+conservaci{\'o}n de momento angular, podr{\'\i}amos derivar la tercera ley de
+Kepler,
+\begin{equation}
+\label{c11-e3.10}
+T^2=\frac{4\pi^2}{GM}a^3\ ,
+\end{equation}
+donde $T$ es el per{\'\i}odo de la {\'o}rbita.  
+
+Los datos orbitales para unos pocos cometas bien conocidos est{\'a}n dados
+en la tabla \ref{c11-t1}. La inclinaci{\'o}n, $i$, es el {\'a}ngulo entre el
+plano orbital del cometa y el plano ecl{\'\i}ptico (el plano de la {\'o}rbita
+de los planetas). Cuando la inclinaci{\'o}n es menor que los 90$\grados$,
+se dice que la {\'o}rbita es directa, cuando es mayor que 90$\grados$, se
+dice que la {\'o}rbita es retr{\'o}grada ({\it i.e.}, orbita el Sol en la
+direcci{\'o}n opuesta a la de los planetas).
+
+\subsection{Programa {\tt orbita}.}
+
+Un programa simple, llamado \verb|orbita|, que calcula las {\'o}rbitas
+para el problema de Kepler usando varios m{\'e}todos num{\'e}ricos es
+propuesto en la tabla \ref{c11-t2}. El m{\'e}todo de Euler, descrito en el
+cap{\'\i}tulo anterior, calcula la trayectoria del cometa como
+\begin{align}
+\label{c11-e3.11}
+\vec r_{n+1}&=\vec r_n+\tau \vec v_n \ ,\\
+\label{c11-e3.12}
+\vec v_{n+1}&=\vec v_n+\tau \vec a(\vec r_n) \ ,
+\end{align}
+donde $\vec a$ es la aceleraci{\'o}n gravitacional. De nuevo,
+discretizamos el tiempo y usamos la notaci{\'o}n $f_{n}\equiv f(t=(n-1)\tau)$,
+donde $\tau$ es el paso tiempo.
+\begin{table}
+\hrulefill
+\begin{itemize}
+\item Fijar la posici{\'o}n y velocidad inicial del cometa.
+\item Fijar los par{\'a}metros f{\'\i}sicos ( $m$, $G$, etc.).
+\item Iterar sobre el n{\'u}mero deseado de pasos usando el m{\'e}todo
+  num{\'e}rico especificado.
+  \begin{itemize}
+  \item Grabar posici{\'o}n y la energ{\'\i}a para graficar.
+    \item Calcular la nueva posici{\'o}n y velocidad usando:
+      \begin{itemize}
+        \item M{\'e}todo de Euler (\ref{c11-e3.11}), (\ref{c11-e3.12}) o;
+        \item M{\'e}todo de Euler-Cromer (\ref{c11-e3.13}),
+          (\ref{c11-e3.14}) o;
+          \item M{\'e}todo Runge-Kutta de cuarto orden (\ref{c11-e3.28}),
+            (\ref{c11-e3.29}) o;
+          \item M{\'e}todo de Runge-Kutta adaptativo.
+      \end{itemize}
+\end{itemize}
+\item Graficar la trayectoria del cometa.
+\item Graficar la energ{\'\i}a del cometa versus el tiempo.
+\end{itemize}
+\hrulefill
+\caption{Bosquejo del programa {\tt orbita}, el cual calcula la trayectoria
+  de un cometa usando varios m{\'e}todos num{\'e}ricos.}\label{c11-t2}
+\end{table}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[height=7cm]{c11-f2}
+\caption{Gr{\'a}fico de la trayectoria y la energ{\'\i}a desde el programa {\tt
+    orbita} usando el m{\'e}todo de Euler. La distancia radial inicial es
+  1~[AU] y la velocidad tangencial inicial es $2\pi$~[AU/a{\~n}o]. El paso
+  en el tiempo es $\tau=0.02$~[a{\~n}os]; y 200 pasos son calculados. Los
+  resultados est{\'a}n en desacuerdo con la predicci{\'o}n te{\'o}rica de una
+  {\'o}rbita circular con energ{\'\i}a total constante.}\label{c11-f2}
+\end{center}
+\end{figure}
+\begin{figure}[h]
+\begin{center}
+\includegraphics[height=7cm]{c11-f3}
+\caption{Gr{\'a}fico de la trayectoria y la energ{\'\i}a desde el programa {\tt
+    orbita} usando el m{\'e}todo de Euler-Cromer. Los par{\'a}metros son los
+  mismos que en la figura \ref{c11-f2}. Los resultados est{\'a}n en un
+  acuerdo cualitativo al menos con la predicci{\'o}n te{\'o}rica de una {\'o}rbita
+  circular con energ{\'\i}a total constante.}\label{c11-f3}
+\end{center}
+\end{figure}
+El caso de prueba m{\'a}s simple es una {\'o}rbita circular. Para un radio
+orbital de 1~[AU], la ecuaci{\'o}n (\ref{c11-e3.5}) da una velocidad
+tangencial de $2\pi$~[AU/a{\~n}o]. Unos 50 puntos por revoluci{\'o}n orbital nos
+dar{\'\i}a una suave curva, tal que $\tau=0.02$~[a{\~n}os] (o cercano a una
+semana) es un paso de tiempo razonable. Con esos valores, el programa
+{\'o}rbita usando el m{\'e}todo de Euler, da los resultados mostrados en la
+figura \ref{c11-f2}.  Inmediatamente vemos que la {\'o}rbita no es
+circular, pero una espiral hacia fuera. La raz{\'o}n es clara desde el
+gr{\'a}fico de energ{\'\i}a; en vez de ser constante, la energ{\'\i}a total aumenta
+cont{\'\i}nuamente. Este tipo de inestabilidad se observa, tambi{\'e}n, en el
+m{\'e}todo de Euler para el p{\'e}ndulo simple.  Afortunadamente hay una
+soluci{\'o}n simple a este problema: el m{\'e}todo Euler-Cromer para calcular
+la trayectoria
+\begin{align}
+\label{c11-e3.13}
+\vec v_{n+1}&=\vec v_n+\tau \vec a(\vec r_n) \ ,\\
+\label{c11-e3.14}
+\vec r_{n+1}&=\vec r_n+\tau \vec v_{n+1} \ .
+\end{align}
+Note que el s{\'o}lo cambio del m{\'e}todo de Euler en que primero calculamos
+la nueva velocidad, $\vec v_{n+1}$, y luego la usamos en el c{\'a}lculo de
+la nueva posici{\'o}n. Para las mismas condiciones iniciales y paso de
+tiempo, el m{\'e}todo de Euler-Cromer da resultados mucho mejores, como
+los mostrados en la figura \ref{c11-f3}. La {\'o}rbita es casi circular, y
+la energ{\'\i}a total se conserva. Las energ{\'\i}as potencial y cin{\'e}tica no son
+constantes, pero este problema podr{\'\i}a ser mejorado usando un paso de
+tiempo peque{\~n}o. El programa {\'o}rbita tambi{\'e}n da la opci{\'o}n de usar el
+m{\'e}todo de Runge-Kutta, los cuales son descritos en las pr{\'o}ximas dos
+secciones.
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[height=7cm]{c11-f4}
+\caption{Gr{\'a}fico de la trayectoria y la energ{\'\i}a desde el programa {\tt
+    orbita} usando el m{\'e}todo de Euler-Cromer. La distancia radial
+  inicial es 1~[AU] y la velocidad tangencial inicial es $\pi$~[AU/a{\~n}o].
+  El paso en el tiempo es $\tau=0.02$~[a{\~n}os]; y 200 pasos son calculados.
+  Debido al error num{\'e}rico el cometa alcanza la velocidad de escape,
+  la posici{\'o}n final es 35~[AU] y la energ{\'\i}a total es
+  positiva.}\label{c11-f4}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[height=7cm]{c11-f5}
+\caption{Gr{\'a}fico de la trayectoria y la energ{\'\i}a desde el programa {\tt
+    orbita} usando el m{\'e}todo de Euler-Cromer. Los par{\'a}metros son los
+  mismos que en la figura \ref{c11-f4} excepto que el tiempo es m{\'a}s
+  peque{\~n}o $\tau=0.005$~[a{\~n}os]. Los resultados son mejores, pero a{\'u}n presenta
+  una precesi{\'o}n esp{\'u}ria.}\label{c11-f5}
+\end{center}
+\end{figure}
+
+Aunque el m{\'e}todo de Euler-Cromer hace un buen trabajo para bajas
+excentricidades, tiene problemas con {\'o}rbitas m{\'a}s el{\'\i}pticas, como se
+muestra en la \ref{c11-f4}. Note que si la energ{\'\i}a llega a ser
+positiva; el sat{\'e}lite alcanza la velocidad de escape. Si bajamos el
+paso de tiempo desde $\tau=0.02$~[a{\~n}os] a $\tau=0.005$~[a{\~n}os] obtenemos
+mejores resultados, como los mostrados en la figura \ref{c11-f5}.
+Estos resultados no son del todo perfectos; la {\'o}rbita puede ser una
+elipse cerrada, pero todav{\'\i}a tiene una notable deriva esp{\'u}ria.
+
+En este punto usted se podr{\'\i}a estar preguntando, ``?`Por qu{\'e} estamos
+estudiando este problema? , si la soluci{\'o}n anal{\'\i}tica es bien
+conocida''.  Es verdad que hay problemas mec{\'a}nicos celestes m{\'a}s
+interesantes ({\it e.g.}, el efecto de perturbaciones sobre la {\'o}rbita,
+problema de tres cuerpos). Sin embargo, antes de hacer los casos
+complicados podr{\'\i}amos, siempre, chequear los algoritmos de problemas
+conocidos. Suponga que introducimos una peque{\~n}a fuerza de arrastre
+sobre el cometa. Podr{\'\i}amos pecar de inocentes creyendo que la
+precisi{\'o}n de la figura \ref{c11-f5} fue un fenomeno f{\'\i}sico m{\'a}s que un
+artefacto num{\'e}rico.
+
+Claramente, el m{\'e}todo de Euler-Cromer hace un trabajo inaceptable de
+rastreo de las {\'o}rbitas m{\'a}s el{\'\i}pticas. Los resultados mejoran si
+achicamos el paso de tiempo, pero entonces s{\'o}lo podemos rastrear unas
+pocas {\'o}rbitas. Suponga que deseamos rastrear cometas para posibles
+impactos con la Tierra. Un gran cometa impactando sobre la Tierra
+ser{\'\i}a m{\'a}s destructivo que una guerra nuclear. Muchos cometas tienen
+{\'o}rbitas extremadamente el{\'\i}pticas y per{\'\i}odos de cientos de a{\~n}os. Esta
+amenaza desde el espacio exterior motiva nuestro estudio de m{\'e}todos
+m{\'a}s avanzados para resolver ecuaciones diferenciales ordinarias.
+
+
+
+\section{M{\'e}todos de Runge-Kutta.}
+
+\subsection{Runge-Kutta de segundo orden.}
+
+Ahora miremos uno de los m{\'e}todos m{\'a}s populares para resolver
+num{\'e}ricamente las ecuaciones diferenciales ordinarias: Runge-Kutta.
+Primero trabajaremos las f{\'o}rmulas generales de Runge-Kutta y luego las
+aplicaremos espec{\'\i}ficamente a nuestro problema del cometa. De esta
+manera ser{\'a} f{\'a}cil usar el m{\'e}todo Runge-Kutta para otros sistemas
+f{\'\i}sicos.  Nuestra ecuaci{\'o}n diferencial ordinaria gerneral toma la forma
+\begin{equation}
+\label{c11-e3.15}
+\frac{d\vec x}{dt}=\vec f(\vec x(t),t)\ ,
+\end{equation}
+donde el vector de estado $x(t)= [x_1(t),x_2(t),\ldots x_N(t)]$ es la
+soluci{\'o}n deseada. En el problema de Kepler tenemos
+\begin{equation}
+\label{c11-e3.16}
+\vec x(t)=[r_x(t)\; r_y(t) \; v_x(t)\; v_y(t)]\ ,
+\end{equation}
+y
+\begin{equation}
+\label{c11-e3.17}
+\begin{split}
+\vec f(\vec x(t),t)&= \left [ \frac{dr_x}{dt}\; \frac{dr_y}{dt}\; 
+\frac{dv_x}{dt} \; \frac{v_y}{dt}\right ]\ ,\\
+&=[  v_x(t)\; v_y(t)\; F_x(t)/m\; F_y(t)/m ]\ ,
+\end{split}
+\end{equation}
+donde $r_x$, $v_x$, y $F_x$ son las componentes $x$ de la posici{\'o}n, la
+velocidad y la fuerza respectivamente (y lo mismo para la componente
+$y$). Note que en el problema de Kepler, la funci{\'o}n $f$ no depende
+expl{\'\i}citamente del tiempo sino que s{\'o}lo depende de $\vec x(t)$.
+
+Nuestro punto de partida es el m{\'e}todo simple de Euler; en forma
+vectorial podr{\'\i}a ser escrito como
+\begin{equation}
+\label{c11-e3.18}
+\vec x(t+\tau)=\vec x(t)+\tau \vec f(\vec x,t)\ .
+\end{equation}
+Consideremos que la primera f{\'o}rmula de Runge-Kutta es
+\begin{equation}
+\label{c11-e3.19}
+\vec x(t+\tau)=\vec x(t)+\tau \vec f\left (\vec x\,^*\left (t+\frac
+    12\tau\right ),  t+\frac 12\tau\right )\ ,
+\end{equation}
+donde
+\begin{equation}
+\label{c11-e3.20}
+\vec x\,^*\left (t+\frac 12\tau\right )\equiv \vec x(t)+\frac 12\tau \vec f(\vec x, t)\ .
+\end{equation}
+
+Para ver de d{\'o}nde viene esta f{\'o}rmula, consideremos por el momento el
+caso de una variable. Sabemos que la expansi{\'o}n de Taylor
+\begin{equation}
+\label{c11-e3.21}
+\begin{split}
+x(t+\tau) &= x(t)+\tau \frac{dx(\zeta)}{dt}\ ,\\
+&= x(t)+\tau f(x(\zeta),\zeta)\ ,
+\end{split}
+\end{equation}
+es exacta para alg{\'u}n valor de $\varsigma$ entre $t$ y $t+\tau$, como se vio en la
+ecuaci{\'o}n (\ref{c10-e2.10}). La f{\'o}rmula de Euler toma $\varsigma=t$;
+Euler-Cromer usa $\varsigma=t$ en la ecuaci{\'o}n de velocidad y $\varsigma=t+\tau$ en la
+ecuaci{\'o}n de posici{\'o}n. Runge-Kutta usa $\varsigma=t+\frac 12 \tau$, lo cual
+pareciera una mejor estimaci{\'o}n. Sin embargo, $x\left (t+\frac 12
+  \tau\right)$ no es conocida, podemos aproximarla de la manera simple:
+usando un paso de Euler calculamos $x^*\left(t+\frac 12 \tau\right)$ y
+usando esta como nuestra estimaci{\'o}n de $x\left(t+\frac 12 \tau\right)$.
+
+\vspace{.2cm}
+
+Avancemos a un ejemplo simple usando la f{\'o}rmula Runge-Kutta. Consideremos
+la ecuaci{\'o}n
+\begin{equation}
+\label{c11-e3.22}
+\frac{dx}{dt}=-x\ ,\quad    x(t=0)=1\ .
+\end{equation}
+La soluci{\'o}n de la ecuaci{\'o}n (\ref{c11-e3.22}) es $x(t)=e^{-t}$. Usando el
+m{\'e}todo de Euler con un paso de tiempo de $\tau=0.1$, tenemos
+\begin{align*}
+x(0.1) &=1+0.1(-1)=0.9\ ,\\
+x(0.2) &=0.9+(0.1)(-0.9)=0.81\ , \\
+x(0.3) &=0.81+0.1(-0.81)=0.729\ ,\\
+x(0.4) &=0.729+0.1(-0.729)=0.6561\ .
+\end{align*}
+Ahora tratemos con Runge-Kutta. Para hacer una correcta comparaci{\'o}n
+usaremos un paso de tiempo mayor para Runge-Kutta $\tau=0.2$ porque hace
+el doble de evaluaciones de $f(x)$. Por la f{\'o}rmula de Runge-Kutta
+presentada arriba,
+\begin{align*}
+x^*(0.1) &=1+0.1(-1)=0.9\ ,\\
+x(0.2) &=1+0.2(-0.9)=0.82\ ,\\
+x^*(0.3)&=0.82+0.1(-0.82)=0.738\, \\
+x(0.4)&=0.82+0.2(-0.738)=0.6724\ .
+\end{align*}  
+Podemos comparar esto con la soluci{\'o}n exacta
+$x(0.4)=\exp(-0.4)\approx0.6703$.  Claramente, Runge-Kutta lo hace mucho
+mejor que Euler; los errores porcentuales absolutos son 0.3\% y 2.1\%
+respectivamente.
+
+\subsection{F{\'o}rmulas generales de Runge-Kutta.}
+
+La f{\'o}rmula discutida arriba no es la {\'u}nica formula posible para un
+Runge-Kutta de segundo orden. Aqu{\'\i} hay una alternativa:
+\begin{equation}
+\label{c11-e3.23}
+\vec x(t+\tau)=\vec x(t)  \frac 12 \tau [\vec f(\vec x(t), t)+\vec f(\vec
+x\,^*(t+\tau), t+\tau)]\ ,
+\end{equation} 
+donde
+\begin{equation}
+\label{c11-e3.24}
+\vec x\,^*(t+\tau)\equiv\vec x(t)+\tau\vec f(\vec x(t), t)\ .
+\end{equation}
+Para entender este esquema, consideremos nuevamante el caso en  una
+variable. En nuestra f{\'o}rmula original, estimamos que $f(x(\varsigma),\varsigma)$ como
+$\frac 12[f(x,t)+f(x\,^*(t+\tau), t+\tau)]$.
+
+Estas f{\'o}rmulas no son ``sacada de la manga''; se las puede deducir usando
+la expansi{\'o}n de Taylor con dos variables,
+\begin{equation}
+\label{c11-e3.25}
+f(x+h, t+\tau)=\sum_{n=0}^\infty \frac 1{n!}\left ( h\frac
+  {\partial}{\partial x}+\tau\frac{\partial}{\partial t}\right )^n f(x,t)\ ,
+\end{equation}
+donde todas las derivadas son evaluadas en ($x$, $t$). Para una
+f{\'o}rmula general de Runge-Kutta de segundo orden queremos obtener una
+expresi{\'o}n de la siguiente forma
+\begin{equation}
+\label{c11-e3.26}
+x(t+\tau)=x(t)+w_1\tau f(x(t), t)+w_2\tau f(x^*, t+\alpha\tau)\ ,
+\end{equation}
+donde
+\begin{equation}
+\label{c11-e3.27}
+x^*\equiv x(t)+\beta\tau f(x(t),t)\ .
+\end{equation}
+Hay cuatro coeficientes no especificados: $a$, $b$, $w_1$ y $w_2$.
+Note que cubrimos las ecuaciones (\ref{c11-e3.19}) y (\ref{c11-e3.20})
+eligiendo los valores 
+\begin{equation}
+w_1=0\ ,\quad  w_2=1\, \quad  \alpha=\frac 12\ , \quad \beta=\frac 12\ ,
+\end{equation}
+y las ecuaciones (\ref{c11-e3.23}) y (\ref{c11-e3.24}) eligiendo
+\begin{equation}
+w_1=\frac 12\ ,\quad  w_2=\frac 12\ ,\quad \alpha=1\ ,\quad  \beta=1\ .
+\end{equation}
+Deseamos seleccionar cuatro coeficientes tal que tengamos una
+precisi{\'o}n de segundo orden; esto es deseamos calzar la serie de Taylor
+a trav{\'e}s de los t{\'e}rminos de la segunda derivada.  Los detalles del
+c{\'a}lculo se proponen como un ejercicio, pero cualquier grupo de
+coeficientes satisfacen las relaciones siguientes $w_1+w_2=1$, $\alpha
+w_2=1/2$ y $\alpha=\beta$ dar{\'a}n un esquema Runge-Kutta de segundo orden.  El
+error de truncamiento local es $\DelOrdenD(\tau^3)$, pero la expresi{\'o}n
+expl{\'\i}cita no tiene una forma simple. No est{\'a} claro que un esquema sea
+superior al otro ya que el error de truncamiento, siendo una funci{\'o}n
+complicada de $f(x,t)$, variar{\'a} de problema a problema.
+
+\subsection{Runge-Kutta de cuarto orden.}
+
+Presentamos las f{\'o}rmulas de Runge-Kutta de segundo orden porque es
+f{\'a}cil de comprender su construcci{\'o}n. En la pr{\'a}ctica, sin embargo, el
+m{\'e}todo m{\'a}s com{\'u}nmente usado es la siguiente f{\'o}rmula de cuarto orden:
+\begin{equation}
+\label{c11-e3.28}
+\vec x(t+\tau)=\vec x(t)+\frac 16 \tau \left [\vec F_1+2\vec F_2 + 2\vec F_3+\vec
+F_4\right ]\ ,
+\end{equation}
+donde
+\begin{equation}
+\begin{split}
+\label{c11-e3.29}
+\vec F_1 &=\vec f(\vec x, t)\ ,\\
+\vec F_2 &=\vec f\left (\vec x +\frac 12\tau \vec F_1, t+\frac 12 \tau \right)\ , \\
+\vec F_3 &=\vec f\left (\vec x +\frac 12\tau \vec F_2, t+\frac 12 \tau \right)\ , \\
+\vec F_4 &=\vec f(\vec x +\tau \vec F_3, t+\tau )\ .
+\end{split}
+\end{equation}
+El siguiente extracto del {\em Numerical Recipes}\footnote{W. Press,
+  B. Flannery, S. Tukolsky and W. Vetterling, {\em Numerical Recipes
+    in {\sc fortran}}, 2nd ed. (Cambridge: Cambridge University Press
+  1992).} resume mejor el estado que las f{\'o}rmulas de arriba tienen en
+el mundo del an{\'a}lisis num{\'e}rico:
+\begin{quote}
+  Para muchos usuarios cient{\'\i}ficos, el m{\'e}todo de Runge-Kutta de cuarto
+  orden no es s{\'o}lo la primera palabra en esquemas de integraci{\'o}n para
+  ecuaciones diferenciales ordinarias, si no que es la {\'u}ltima tambi{\'e}n.
+  De hecho, usted puede ir bastante lejos con este viejo caballito de
+  batalla, especialmente si los combina con un algor{\'\i}tmo de paso
+  adaptativo\ldots Bulirsch-Stoer o los m{\'e}todos predictor-corrector pueden
+  ser mucho m{\'a}s eficientes para problemas donde se require una alta
+  precisi{\'o}n.  Estos m{\'e}todos son los finos caballos de carrera mientras
+  que Runge-Kutta es el fiel caballo de tiro.
+\end{quote}
+
+Usted se preguntar{\'a}, ?`por qu{\'e} f{\'o}rmulas de cuarto orden y no de orden
+superior? Bien, los m{\'e}todos de orden superior tienen un error de
+truncamiento mejor, pero tambi{\'e}n requieren m{\'a}s c{\'a}lculo, esto es, m{\'a}s
+evaluaciones de $f(x,t)$. Hay dos opciones, hacer m{\'a}s pasos con un
+$\tau$ peque{\~n}o usando un m{\'e}todo de orden inferior o hacer pocos pasos
+con un $\tau$ m{\'a}s grande usando un m{\'e}todo de orden superior.  Ya que los
+m{\'e}todos de Runge-Kutta de {\'o}rdenes superiores son muy complicados, el
+esquema de cuarto orden dado anteriormente es muy conveniente. Entre
+par{\'e}ntesis, el error de truncamiento local para Runge-Kutta de cuarto
+orden es $\DelOrdenD(\tau^5)$.
+
+\begin{table}[h!]
+\hrulefill
+\begin{itemize}
+\item {\em Entradas:} $\vec x(t)$, $t$, $\tau$, $\vec f(\vec x, t;\lambda)$,
+  y $\lambda$.
+\item {\em Salidas:} $\vec x(t+\tau)$.
+\item Evaluaci{\'o}n $\vec F_1$, $\vec F_2$, $\vec F_3$ y $\vec F_4$
+  usando ecuaci{\'o}n (\ref{c11-e3.29}).  
+\item C{\'a}lculo de $\vec x(t+\tau)$ usando Runge-Kutta de cuarto orden,
+  usando ecuaci{\'o}n (\ref{c11-e3.28}).
+\end{itemize}
+\hrulefill
+\caption{Bosquejo de la funci{\'o}n {\tt rk4}, la cual eval{\'u}a un paso
+  simple usando el m{\'e}todo Runge-Kutta de cuarto orden.}\label{c11-t3}
+\end{table}
+
+\begin{table}[h!]
+\hrulefill
+\begin{itemize}
+\item {\em Entradas:} $\vec x(t)$, $t$ (no se usa), $GM$.
+\item {\em Salidas:} $d\vec x(t)/dt$.
+\item Eval{\'u}a la aceleraci{\'o}n  $\vec a= -(GM \vec r/\modulo{\vec r}^3)$.
+\item {\em Retorno: } $d\vec x(t)/dt= [v_x, v_y, a_x, a_y]$.
+\end{itemize}
+\hrulefill
+\caption{Bosquejo de la funci{\'o}n {\tt gravrk}, la cual es usada por la
+  funci{\'o}n Runge-Kutta para evaluar las ecuaciones de movimiento para
+  el problema de Kepler.}\label{c11-t4}
+\end{table}
+
+Para implementar m{\'e}todos de cuarto orden para nuestro problema de la
+{\'o}rbita, usaremos la funci{\'o}n \verb|rk4| (tabla \ref{c11-t3}). Esta
+funci{\'o}n toma como datos: el estado actual del sistema, $\vec x(t)$; el
+paso de tiempo para ser usado, $\tau$; el tiempo actual, $t$; la funci{\'o}n
+$\vec f(\vec x(t),t;\lambda)$; donde $\lambda$ es una lista de par{\'a}metros usados
+por $\vec f$. La salida es el nuevo estado del sistema, $\vec x(t+\tau)$,
+calculado por el m{\'e}todo de Runge-Kutta.  Usando Runge-Kutta de cuarto
+orden da los resultados mostrados en la figura \ref{c11-f6}, la cual
+es mucho mejor que las obtenidas usando el m{\'e}todo de Euler-Cromer
+(figura \ref{c11-f5}).
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[height=7cm]{c11-f6}
+\caption{Gr{\'a}fico de la trayectoria y la energ{\'\i}a desde el programa {\tt
+    orbita} usando el m{\'e}todo de Runge-Kutta.  La distancia radial
+  inicial es 1~[AU] y la velocidad tangencial inicial es $\pi$~[AU/a{\~n}o].
+  El paso en el tiempo es $\tau=0.005$~[a{\~n}os]; y 200 pasos son calculados.
+  Comparemos con la figura \ref{c11-f5}.}\label{c11-f6}
+\end{center}
+\end{figure}
+
+\subsection{Pasando funciones a funciones.}
+
+La funci{\'o}n de Runge-Kutta \verb|rk4| es muy simple, pero introduce un
+elemento de programaci{\'o}n que no hemos usado antes. La funci{\'o}n $\vec
+f(\vec x,t;\lambda)$ est{\'a} introducida como un par{\'a}metro de entrada a
+\verb|rk4|.  Esto nos permite usar \verb|rk4| para resolver diferentes
+problemas cambiando simplemente la definici{\'o}n de $\vec f$ (como lo
+haremos en la {\'u}ltima secci{\'o}n). Para el problema de Kepler, la funci{\'o}n
+\verb|gravrk| (tabla \ref{c11-t4}) define la ecuaci{\'o}n de movimiento
+volviendo $dx$/$dt$, ecuaci{\'o}n (\ref{c11-e3.17}).
+
+En C++ el puntero a la funci{\'o}n $\vec f(\vec x,t;\lambda)$ es pasado como
+par{\'a}metro a \verb|rk4|. El programa \verb|orbita| llama a \verb|rk4|
+como
+\begin{verbatim}
+rk4( state, nState, time, tau, gravrk, param) ;
+\end{verbatim}
+donde el vector de estado es $\vec x=[r_x, r_y, v_x, v_y]$. En el inicio
+del archivo, la funci{\'o}n \verb|gravrk| es declarada con el prototipo
+\begin{verbatim}
+void gravrk( double * x, double t, double param, double * deriv );
+\end{verbatim}
+La primera l{\'\i}nea de \verb|rk4| es
+\begin{verbatim}
+void rk4(double * x, int nX, double t, double tau,
+    void (*derivsRK) (double *, double, double, double *) , double param) 
+\end{verbatim}
+Cuando es llamado por \verb|orbita|, esta funci{\'o}n recibe un puntero a
+\verb|gravrk| en la variable \verb|derivsRK|. Dentro de \verb|rk4|, la
+sentencia 
+\begin{verbatim}
+(*derivsRK)( x, t, param, F1 ) ; 
+\end{verbatim}
+es equivalente a
+\begin{verbatim}
+gravrk( x, t, param, F1 ) ;
+\end{verbatim}
+ya que \verb|dervsRK| apunta a \verb|gravrk|.
+
+\section{M{\'e}todos adaptativos}
+
+\subsection{Programas con paso de tiempo adaptativo.}
+
+Ya que el m{\'e}todo de Runge-Kutta de cuarto orden es m{\'a}s preciso
+(errores de truncamiento peque{\~n}os), hace un mejor trabajo dentro de
+una {\'o}rbita altamemente el{\'\i}ptica. A{\'u}n para una distancia inicial al
+afelio de 1~[AU] y una velocidad inicial en el afelio de
+$\pi/2$~[AU/a{\~n}o] usando un paso tiempo tan peque{\~n}o como
+$\tau=0.0005$~[a{\~n}os] ($\approx4 \frac 12$~[hrs]), la energ{\'\i}a total var{\'\i}a sobre
+el 7\% por {\'o}rbita. Si pensamos la f{\'\i}sica, llegamos a que realizar una
+integraci{\'o}n con un paso peque{\~n}o es s{\'o}lo necesaria cuando el cometa
+haga su acercamiento m{\'a}s pr{\'o}ximo, punto en el cual su velocidad es
+m{\'a}xima. Cualquier error peque{\~n}o en la trayectoria cuando rodea al Sol
+causa una gran desviaci{\'o}n en la energ{\'\i}a potencial.
+
+La idea ahora es dise{\~n}ar un programa que use un paso de tiempo peque{\~n}o
+cuando el cometa est{\'a} cerca del Sol y pasos de tiempo grande cuando
+est{\'a} lejos. Tal como est{\'a}, normalmente tenemos s{\'o}lo una idea
+apr{\'o}ximada de lo que $\tau$ pudiera ser; ahora tenemos que seleccionar un
+$\tau_{\text{m{\'\i}n}}$ y un $\tau_{\text{m{\'a}x}}$ y una manera de intercambiar
+entre ellos.  Si tenemos que hacer esto por prueba y error manual,
+podr{\'\i}a ser peor que haci{\'e}ndolo por la fuerza bruta calculando con un
+paso de tiempo peque{\~n}o toda la trayectoria.  Idealmente, deseamos
+estar completamente liberados de tener que especificar un paso de
+tiempo.  Deseamos tener una trayectoria calculada de la misma posici{\'o}n
+inicial hasta alg{\'u}n tiempo final con la seguridad de que la soluci{\'o}n
+es correcta a una precisi{\'o}n especificada
+ 
+Los programas adaptativos continuamente monitorean la soluci{\'o}n y
+modifican el paso de tiempo para asegurar que se mantenga la precisi{\'o}n
+especificada por el usuario. Esos programas pueden hacer algunos
+c{\'a}lculos extras para optimizar la elecci{\'o}n de $\tau$, en muchos casos
+este trabajo extra vale la pena. Aqu{\'\i} est{\'a} una manera para implementar
+esta idea: dado el estado actual $\vec x(t)$, el programa calcula
+$\vec x(t+\tau)$ como siempre, y luego repite el c{\'a}lculo haciendolo en
+dos pasos, cada uno con paso de tiempo $\frac{\tau}{2}$. Visualmente,
+esto es
+
+\begin{center}
+\includegraphics[width=15cm]{c11-f7}
+\end{center}
+
+La diferencia entre las dos respuestas, $\vec x_b(t+\tau)$ y $\vec
+x_s(t+\tau)$, estima el error de truncamiento local. Si el error es
+tolerable, el valor calculado es aceptado y un valor mayor de $\tau$ es
+usado en la pr{\'o}xima iteraci{\'o}n. Por otra parte, si el error es muy
+grande, la respuesta es rebotada, el paso de tiempo es reducido y el
+procedimiento es repetido hasta que se obtenga una respuesta
+aceptable. El error de truncamiento estimado para el actual paso de
+tiempo puede guiarnos en seleccionar en nuevo paso de tiempo para la
+pr{\'o}xima iteraci{\'o}n.
+
+
+\subsection{Funci{\'o}n adaptativa de  Runge-Kutta.}
+
+Aqu{\'\i} mostramos c{\'o}mo una iteraci{\'o}n adaptativa puede ser implementada
+para un esquema de Runge-Kutta de cuarto orden: llamemos $\Delta$ al error
+de truncamiento; sabemos que $\Delta \propto \tau^5$ para un esquema Runge-Kutta
+de cuarto orden. Supongamos que el paso de tiempo actual
+$\tau_{\text{ant}}$ da un error de $\Delta_c= \modulo{\vec x_b-\vec x_s}$;
+esta es nuestra estimaci{\'o}n para el error de truncamiento. Dado que
+deseamos que el error sea menor o igual que el error ideal
+especificado por el usuario, le llamamos $\Delta_i$; luego, el nuevo paso
+de tiempo estimado es
+\begin{equation}
+\label{c11-e3.30}
+\tau_{\text{est}}=\tau\modulo{\frac{\Delta_i}{\Delta_c}}^{1/5}\ .
+\end{equation}
+Ya que esto es s{\'o}lo una estimaci{\'o}n, el nuevo paso de tiempo es
+$\tau_{\text{nuevo}}=S_1 \tau_{\text{est}}$, donde $S_1<1$.  Esto nos hace
+sobreestimar el cambio cuando disminuimos $\tau$ y subestimar el cambio
+cuando lo aumentamos.  Malogramos los esfuerzos computacionales cada
+vez que rebotamos una respuesta y necesitamos reducir el paso de
+tiempo, por lo tanto es mejor ajustar $\tau_{\text{nuevo}}<\tau_{\text{est}}$.
+
+Podr{\'\i}amos poner un segundo factor de seguridad, $S_2<1$, para
+asegurarse que el programa no sea demasiado entusiasta en aumentar o
+disminuir precipitadamente el paso de tiempo. Con ambas precauciones,
+el nuevo paso de tiempo es
+\begin{equation}
+\label{c11-e3.31}
+\tau_{\text{nuevo}}=
+\begin{cases}
+S_2\tau_{\text{ant}} \quad &\text{si }S_1\tau_{\text{est}}>S_2\tau_{\text{ant}}\\
+\tau/S_2\quad &\text{si }S_1\tau_{\text{est}}<\tau_{\text{ant}}/S_2\\
+S_1\tau_{\text{est}} &\text{en otro caso}
+\end{cases}\ .
+\end{equation}
+
+\begin{table}[h!]
+\hrulefill
+\begin{itemize}
+\item {\em Entradas:} $\vec x(t)$, $t$, $\tau$, $\Delta_i$, $\vec f(\vec x,
+  t;\lambda)$, y $\lambda$.
+\item {\em Salidas:} $x(t')$, $t'$, $\tau_{\text{nuevo}}$.
+\item Fijar las variables iniciales
+\item Iterar sobre el n{\'u}mero deseado de intentos para satisfacer el
+  error l{\'\i}mite.
+  \begin{itemize}
+  \item Tomar dos peque{\~n}os pasos de tiempo.
+  \item Tomar un {\'u}nico paso grande de tiempo.
+  \item Calcule el error de truncamiento estimado.
+  \item Estime el nuevo valor de $\tau$ (incluyendo factores de
+    seguridad).
+  \item Si el error es aceptable, regresar los valores calculados.
+  \end{itemize}
+  Mostrar un mensaje de error si el error l{\'\i}mite nunca es satisfecho.
+\end{itemize}
+\hrulefill
+\caption{Bosquejo de la funci{\'o}n {\tt rka}, la cual eval{\'u}a un {\'u}nico
+  paso usando un m{\'e}todo adaptativo de Runge-Kutta de cuarto
+  orden.}\label{c11-t5}
+\end{table}
+
+Esto obliga a asegurar que nuestro nueva estimaci{\'o}n para $\tau$ nunca
+aumente o decrezca por m{\'a}s que un factor $S_2$. Por supuesto, este
+nuevo $\tau$ podr{\'\i}a ser insuficientemente peque{\~n}o, y tendr{\'\i}amos que
+continuar reduciendo el paso de tiempo; pero al menos sabr{\'\i}amos que no
+ocurrir{\'a} de un modo incontrolado.
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[height=7cm]{c11-f8}
+\caption{Gr{\'a}fico de la trayectoria y la energ{\'\i}a desde el programa {\tt
+    orbita} usando el m{\'e}todo de Runge-Kutta adaptativo.  La distancia
+  radial inicial es 1~[AU] y la velocidad tangencial inicial es
+  $\pi/2$~[AU/a{\~n}o].  El paso inicial en el tiempo es $\tau=0.1$~[a{\~n}os]; y
+  40 pasos son calculados.}\label{c11-f8}
+\end{center}
+\end{figure}
+
+
+Este procedimiento no es a prueba de bala los errores de redondeo
+llegan a ser significativos en pasos de tiempos muy peque{\~n}os. Por esta
+raz{\'o}n la iteraci{\'o}n adaptativa podr{\'\i}a fallar para encontrar un paso de
+tiempo que de la precisi{\'o}n deseada. Debemos mantener esta limitaci{\'o}n
+en mente cuando especifiquemos el error aceptable.  Una funci{\'o}n de
+Runge-Kutta adaptativa, llamada \verb|rka|, es esbozada en la tabla
+\ref{c11-t5}.  Note que los datos de entrada en la secuencia de
+llamada son los mismos que para \verb|rk4|, excepto por la suma de
+$\Delta_i$, el error ideal especificado. Las salidas del \verb|rka| son el
+nuevo estado del sistema, $\vec x(t')$; el tiempo nuevo, $t'$ y el
+nuevo paso de tiempo, $\tau$ nuevo, el cual podr{\'\i}a ser usado la pr{\'o}xima
+vez que sea llamada la \verb|rka|.
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[angle= -90, width=10cm]{c11-f9}
+\caption{Paso de tiempo como funci{\'o}n de la distancia radial desde el
+  programa {\tt orbita} usando el m{\'e}todo de Runge-Kutta adaptativo.
+  Los param{\'e}tros son los mismos de la figura
+  \ref{c11-f8}.}\label{c11-f9}
+\end{center}
+\end{figure}
+
+
+Usando el m{\'e}todo de Runge-Kutta adaptativo, el programa \verb|orbita|
+da los resultados en la figura \ref{c11-f8} para una {\'o}rbita altamente
+el{\'\i}ptica.  Notemos que el programa toma muchos m{\'a}s pasos en el
+perihelio que en el afelio. Podemos comparar con los resultados usando
+el m{\'e}todo de Runge-Kutta no adaptativo (figura \ref{c11-f6}) en el
+cual los pasos en el perihelio son ampliamente espaciados. Una gr{\'a}fica
+de los pasos de tiempo versus la distancia radial (figura
+\ref{c11-f9}) muestra que $\tau$ var{\'\i}a casi tres {\'o}rdenes de magnitud.
+Interesantemente esta gr{\'a}fica revela una relaci{\'o}n exponencial
+aproximada de la forma $\tau \propto \sqrt{r^3}$.  Por supuesto esta
+dependencia nos recuerda la tercera ley de Kepler, ecuaci{\'o}n
+(\ref{c11-e3.10}). Esperamos alguna dispersi{\'o}n en los puntos, ya que
+nuestra rutina adaptada solamente estima el paso de tiempo {\'o}ptimo.
+
+\section{Listados del programa.}
+
+\subsection{\tt orbita.cc}
+\begin{verbatim}
+#include "NumMeth.h"
+
+const double GM=4.0e0*M_PI*M_PI ;
+const double masaCometa = 1.0e0 ;
+const double adaptErr = 1.0e-3;
+
+void rk4(double * x, int nX, double t, double tau,
+         void(*derivsRK)(double *, double, double, double *),
+         double param)
+{
+  double * F1=new double [nX] ;
+  double * F2=new double [nX] ;
+  double * F3=new double [nX] ;
+  double * F4=new double [nX] ;
+  double * xtemp=new double [nX] ;
+
+  // Evaluemos F1=f(x,t)
+  (*derivsRK) (x, t, param, F1) ;
+
+  double half_tau = tau/2.0e0;
+  double t_half = t+half_tau ;
+  double t_full = t+tau ;
+
+  // Evaluamos F2=f(x+tau*F1/2, t+tau/2)
+  for(int i=0; i<nX; i++) xtemp[i]=x[i]+half_tau*F1[i] ;
+  (*derivsRK) (xtemp, t_half, param, F2) ;
+ 
+  // Evaluamos F3=f(x+tau*F2/2, t+tau/2)
+  for(int i=0; i<nX; i++) xtemp[i]=x[i]+half_tau*F2[i] ;
+  (*derivsRK) (xtemp, t_half, param, F3) ;
+ 
+  // Evaluamos F4=f(x+tau*F3, t+tau)
+  for(int i=0; i<nX; i++) xtemp[i]=x[i]+tau*F3[i] ;
+  (*derivsRK) (xtemp, t_full, param, F4) ;
+ 
+  // Retornamos x(t+tau)
+
+  for(int i=0; i<nX; i++) x[i] += tau*(F1[i]+F4[i]+2.0e0*(F2[i]+F3[i]))/6.0e0 ;
+ 
+  delete [] F1, F2, F3, F4, xtemp ;
+}
+
+void rka ( double * x, int nX, double  & t, double & tau, double erro, 
+           void(*derivsRK)(double *, double, double, double *),
+           double param)
+{
+  double tSave = t ;
+  double safe1 = 0.9, safe2 = 4.0 ; //factores de seguridad
+
+  double * xSmall = new double[nX] ;
+  double * xBig = new double[nX] ;
+  int maxTray=100 ;
+  for (int iTray=0; iTray<maxTray; iTray++) {
+    // Tomemos dos peque{\~n}os pasos en el tiempo
+    double half_tau = 0.5*tau ;
+    for (int i =0; i < nX; i++) xSmall[i]=x[i] ;
+    rk4( xSmall, nX, tSave, half_tau, derivsRK, param) ;
+    t= tSave + half_tau ;
+    rk4( xSmall, nX, t, half_tau, derivsRK, param) ;
+   // Tomemos un solo tiempo grande
+    for (int i =0; i < nX; i++) xBig[i]=x[i] ;
+    rk4( xBig, nX, tSave, tau, derivsRK, param) ;
+
+    // Calculemos el error de truncamiento estimado
+    double erroRatio = 0.0e0  ;
+    double eps = 1.0e-16 ;
+    for (int i = 0 ; i < nX; i++) {
+      double scale = erro * (fabs(xSmall[i]) + fabs(xBig[i]))/2.0e0 ;
+      double xDiff = xSmall[i] - xBig[i] ;
+      double ratio = fabs(xDiff)/(scale+eps) ;
+      erroRatio = (erroRatio > ratio ) ? erroRatio:ratio ;
+    }
+    // Estimamos el nuevo valor de tau (incluyendo factores de seguridad)
+    double tau_old= tau ;
+    tau = safe1*tau_old*pow(erroRatio, -0.20) ;
+    tau = (tau > tau_old/safe2) ? tau:tau_old/safe2 ;
+    tau = (tau < safe2*tau_old) ? tau:safe2*tau_old ;
+
+    // Si el error es aceptable regrese los valores computados
+    if ( erroRatio < 1 ) {
+      for (int i =0 ; i < nX; i++) x[i]=xSmall[i] ;
+      return ;
+    }
+  }
+  cout << "Error: Runge-Kutta adaptativo fallo" << endl ;
+  exit(-1) ;
+}
+
+
+void gravrk( double * x, double t, double param, double * deriv)
+{
+  double gm=param ;
+  double rX=x[0], rY=x[1];
+  double vX=x[2], vY=x[3] ;
+  double mod_r= sqrt(rX*rX+rY*rY) ;
+  double aX= -gm*rX/(mod_r*mod_r*mod_r) ;
+  double aY= -gm*rY/(mod_r*mod_r*mod_r) ;
+  
+  // Retorna la derivada
+
+  deriv[0] = vX;
+  deriv[1] = vY;
+  deriv[2] = aX;
+  deriv[3] = aY;
+}
+
+main()
+{
+  ofstream salidaO ("Orbita.txt") ;
+  ofstream salidaE ("Energia.txt") ;
+  ofstream salidaT ("Tau.txt") ;
+
+  double r0 ;
+  cout << "Ingrese la distancia radial inicial [AU]: " ;
+  cin >> r0 ;
+  double vT ;
+  cout << "Ingrese la velocidad tangencial inicial [AU/a{\~n}os]: " ;
+  cin >> vT ;
+  double x0=r0 ;
+  double y0=0.0e0;
+  double vx0=0.0e0 ;
+  double vy0=vT;
+  //
+  // Suponemos angulo inicial nulo 
+  //
+  int metodo = 0 ;
+  while( metodo < 1|| metodo > 4 ) {
+    cout << "Ingrese el m{\'e}todo num{\'e}rico a usar :" << endl ;
+    cout << "\t M{\'e}todo de Euler \t\t\t[1]" << endl;
+    cout << "\t M{\'e}todo de Euler-Cromer \t\t[2]" << endl;
+    cout << "\t M{\'e}todo de Runge-Kutta 4 orden \t\t[3]" << endl;
+    cout << "\t M{\'e}todo de Runge-Kutta adaptativo \t[4]" << endl;
+    cout << "elija: " ;
+    cin >> metodo ;
+  }
+  double tau ;
+  cout << "Ingrese paso en el tiempo: " ;
+  cin >> tau ;
+  int numPasos ;
+  cout << "Ingrese el n{\'u}mero de pasos: " ;
+  cin >> numPasos ;
+
+  double param=GM ;
+  const int dimX= 4;
+  double * x = new double[dimX] ;
+
+  double xN= x0;
+  double yN= y0;
+  double vxN=vx0;
+  double vyN=vy0;
+  double vxNp1, vyNp1, xNp1, yNp1;
+  double tiempo = 0.0e0 ;
+
+  for(int pasos=0; pasos < numPasos; pasos++) {
+    double r =sqrt(xN*xN+yN*yN) ;
+    double v2 =vxN*vxN+vyN*vyN ;
+    double theta= atan2(yN, xN) ;
+    salidaO << theta << " " << r << endl ;
+
+    double Ep = -GM*masaCometa/r ;
+    double Ek = masaCometa*v2/2.0e0 ;
+    double ET= Ep+Ek ;
+
+    salidaE<< tiempo << " " << Ek<< " " << Ep<<" " << ET << endl ;
+
+    double modr3=pow(xN*xN+yN*yN, 3.0e0/2.0e0) ;
+    double axN= -GM*xN/modr3 ;
+    double ayN= -GM*yN/modr3 ;
+    switch( metodo ) {
+    case 1: {                   // Euler
+      vxNp1=vxN+tau*axN ;
+      vyNp1=vyN+tau*ayN ;
+      xNp1= xN+tau* vxN ;
+      yNp1= yN+tau* vyN ;
+      tiempo += tau ;
+    }
+    break ;
+    case 2: {                   // Euler-Cromer
+      vxNp1=vxN+tau*axN ;
+      vyNp1=vyN+tau*ayN ;
+      xNp1= xN+tau* vxNp1 ;
+      yNp1= yN+tau* vyNp1 ;
+      tiempo += tau ;
+    }
+    break ;
+    case 3: {                   // Runge-Kutta 4to Orden 
+      x[0] = xN;
+      x[1] = yN;
+      x[2] = vxN;
+      x[3] = vyN;
+      rk4( x, dimX, tiempo, tau, gravrk, param); 
+      xNp1=x[0] ;
+      yNp1=x[1];
+      vxNp1=x[2];
+      vyNp1=x[3];
+      tiempo += tau ;
+    }
+    break ;
+    case 4: {
+      x[0] = xN;
+      x[1] = yN;
+      x[2] = vxN;
+      x[3] = vyN;
+      rka( x, dimX, tiempo, tau, adaptErr, gravrk, param); 
+      double distancia = sqrt( x[0]*x[0]+x[1]*x[1]) ;
+      salidaT<< distancia << " " <<tau << endl ;
+      xNp1=x[0] ;
+      yNp1=x[1];
+      vxNp1=x[2];
+      vyNp1=x[3];
+    } 
+    }
+    xN=xNp1 ;
+    yN=yNp1 ;
+    vxN=vxNp1 ;
+    vyN=vyNp1 ;
+  }
+  salidaO.close() ;
+  salidaE.close() ;
+  salidaT.close() ;
+  delete [] x;
+}
+
+\end{verbatim}

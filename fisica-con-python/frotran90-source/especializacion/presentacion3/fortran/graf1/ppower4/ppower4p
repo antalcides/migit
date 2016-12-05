@@ -1,0 +1,4 @@
+#!/bin/sh
+# NOTE: this requires Java 1.2.x!
+basedir=/common/Java/lib/ppower4
+java -jar ${basedir}/pp4p.jar "$@"

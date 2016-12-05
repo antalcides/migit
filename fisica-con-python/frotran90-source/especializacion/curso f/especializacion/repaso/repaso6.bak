@@ -1,0 +1,100 @@
+%% This document created by Scientific Word (R) Version 3.5
+
+%TCIDATA{LaTeXparent=0,0,Est12.tex}
+%TCIDATA{ChildDefaults=%
+%chapter:6,page:168
+%}
+
+
+\clearpage
+
+\section{DISTRIBUCIONES MUESTRALES}
+
+\subsection{Aproximaci\'{o}n a una distribuci\'{o}n normal est\'{a}ndar}%
+
+\begin{theorem}
+[Demoivre-Laplace.]Sup\'{o}ngase que Y tiene una distribuci\'{o}n binomial con
+n pruebas y con probabilidad de tener \\[\']{e}xito en cualquier prueba
+denotada por p. Por lo que podemos con\-siderar a Y, como el n\'{u}mero de
+\'{e}xitos en n pruebas, como una suma de una muestra formada por ceros y
+unos. Entonces \[ \bar{X}=\frac{Y}{n}
+\] tendr\'{a} aproximadamente una distribuci\'{o}n normal con
+\begin{align*}
+E\left(   X_i\right)    &  =p\\ V\left(   X_i\right)    &  =\frac{p\left(
+1-p\right)   }{n}
+\end{align*}
+\end{theorem} 
+
+Ahora indicaremos como obtener una buena aproximaci\'{o}n.
+
+\begin{itemize}
+\item Si \textit{p} se acerca a 0.5 y $n>10$ la aproximaci\'{o}n es muy buena.\newline 
+
+\item En general si $n\mathit{p}>5$ para0.5$\geq$ $\mathit{p}$ o cuando
+$n\mathit{q}>5$ si $\mathit{p}>0.5$\newline 
+
+\item Si \textit{p } se acerca al 0 o al 1 la aproximaci\'{o}n no es buena
+\end{itemize}
+
+\subsection{Distribuci\'{o}n ji- cuadrado}%
+
+\begin{theorem}
+Sean $Z_{1},Z_{2},Z_{3},\cdots,Z_{k}$ variables aleatorias \\distribui\-das
+normalmente e independientes con media cero y varianza uno, entonces la
+variable aleatoria \[ X^2=\sum_i=1^kZ_i^2
+\] tiene una dsitribuci\'{o}n e probabilidad llamada \\ JI-CUADRADO con k
+grados de libertad.\\[D]onde $\mu=k$ y $\sigma^{2}=2k,$ si \[ k\longrightarrow
+\infty\Longrightarrow\chi^2\thicksim N\left(   \mu,\sigma^2\right)  \] Y su
+funci\'{o}n de densidad es : \[ f_\chi_\alpha,k\left\{
+\begin{array}
+[c]{ccc}
+0 & si & x\in(-\infty,0]\\ \frac{1}{2^\frac{k}{2}}\Gamma\left(   \frac{k}%
+{2}\right)   x^\frac{k}{2}
+-1e^-\frac{x}{2} & si & x\in\left(   0,\infty\right)
+\end{array}
+\right.  \]
+\end{theorem} 
+
+Si $k\rightarrow\infty\Rightarrow\mathcal{X}^{2}\sim N(\mu,\sigma^{2})$
+
+\subsection{Distribuci\'{o}n t o Student}%
+
+\begin{theorem}
+Sea $Z\sim N(0.1)$ y V una variable ji-cuadrada con k grados de libertad ,si Z
+y V son independientes, entonces la variable aleatoria . \[ T=\frac{Z}%
+{\sqrt{\frac{V}{k}}}
+\] Se dice que tiene una distribuci\'{o}n t con k grados de libertad y se
+abrevia $t_{k}$
+\end{theorem} 
+
+La media y la varianza de la distribuci\'{o}n t son $\mu=0$ $\sigma^{2}%
+=\frac{k}{k-2}$ para $k>2$. \newline 
+
+\subsection{Distribuci\'{o}n F}%
+
+\begin{theorem}
+Sean W y Y variables aleatorias JI-cuadrado independientes con u y v grados de
+libertad respectivamente . EL cociente \[ F=\frac{W}{u}\left/   \frac{V}%
+{v}\right.  \] se dice que tiene una distribuci\'{o}n f co u grados de
+libertad en el numerador y v grados de libertad en el denominador y se denota:
+\[ F_u,v \]
+\end{theorem} 
+
+La media y la varianza son:La variable aleatoria F es no negativa y la
+distribuci\'{o}n es asim\'{e}trica a la derecha, como podemos observar F se
+asemeja a la ji-cuadrado, pero F est\'{a} centrada alrededor de 1 y los
+param\'{e}tros \textit{u } y \textit{v} lo cual le proporcionan mayor
+flexibilidad en cuanto a la forma de su gr\'{a}fica .
+
+Los puntos porcentuales de la cola inferior F$_{1-\alpha,u,v}=\frac
+{1}{F_{\alpha,v,u}}$
+
+\chapter{Intervalos de confianza}
+
+En las secciones anteriores se trat\'{o} los m\'{e}todos para estimar un
+par\'{a}metro puntual, usando una estad\'{\i}stica adecuada $\widehat{\theta
+}(x)$ cuyo valor $\widehat{\theta}$ se toma como el va\-lor estimado del valor
+desconocido $\theta$, pero en muchas situaciones \'{e}ste m\'{e}todo no nos
+proporciona suficiente informaci\'{o}n acerca del par\'{a}metro de
+inter\'{e}s, ya que s\'{o}lo el n\'{u}mero puede no tener mucho significado,
+entonces hay que hacer lo si\-guiente:

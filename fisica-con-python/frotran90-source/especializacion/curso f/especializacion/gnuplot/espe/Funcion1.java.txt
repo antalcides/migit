@@ -1,0 +1,9 @@
+
+package ecuacion1;
+
+public class Funcion1 extends Ecuacion{
+
+    public double f(double x){
+        return Math.cos(x);
+    }
+}

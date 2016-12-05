@@ -1,0 +1,808 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0062)http://proton.ucting.udg.mx/posgrado/cursos/metodos/kungeruta/ -->
+<HTML><HEAD><TITLE>METODOS DE RUNGE – KUTTA</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR>
+<META content="Mozilla/4.7 [en] (Win95; I) [Netscape]" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff background="METODOS DE RUNGE – KUTTA_archivos/Quad.gif">
+<CENTER><A name="METODOS DE RUNGE –"></A><FONT color=#000000><B><FONT 
+face="Times New Roman,Times">MÉTODOS DE RUNGE – KUTTA</FONT></B></FONT> <BR><IMG 
+height=19 src="METODOS DE RUNGE – KUTTA_archivos/Barr_lapiz.gif" width=397> 
+<HR width="100%">
+</CENTER><B><FONT face="Times New Roman,Times"><FONT 
+color=#000000>Introducción:</FONT></FONT></B> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>La computadora, es la 
+herramienta mas poderosa hasta ahora conocida, para la solución de problemas en 
+el campo de las ciencias exactas, en este caso los métodos numéricos, como punto 
+principal por sus aplicaciones en la ingeniería.</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Los métodos numéricos 
+son técnicas, donde es posible resolver los problemas por medio de operaciones 
+aritméticas, estos métodos implementan un buen numero de cálculos que son por 
+demás demasiado lentos si se hacen manualmente, gastando mucha energía en la 
+técnica misma de solución en vez de aplicarla sobre la definición del problema y 
+su interpretación.</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>El trabajo monótono 
+que se hacia anteriormente al uso de la computadora, hace de importancia, el 
+dominio de los métodos numéricos, los cuales se deben llevar a cabo en 
+combinación con las capacidades y potencialidades de la programación de 
+computadoras para de esa forma resolver los problemas de ingeniería mucho mas 
+fácilmente y eficientemente.</FONT></FONT> 
+<P>
+<HR width="100%">
+<B><FONT face="Times New Roman,Times"><FONT color=#000000>Objetivo de los 
+métodos de Runge-Kutta:</FONT></FONT></B> <BR><IMG height=19 
+src="METODOS DE RUNGE – KUTTA_archivos/Barr_lapiz.gif" width=397> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>El objetivo de los métodos 
+numéricos de runge-kutta, es el análisis y solución de los problemas de valor 
+inicial de ecuaciones diferenciales ordinarias (EDO), estos son una extensión 
+del método de euler para resolver las (EDO’S), pero con un orden de exactitud 
+mas alto que este.</FONT></FONT> 
+<P>
+<HR width="100%">
+<B><FONT face="Times New Roman,Times"><FONT color=#000000>Modelos 
+matemáticos:</FONT></FONT></B> <BR><IMG height=19 
+src="METODOS DE RUNGE – KUTTA_archivos/Barr_lapiz.gif" width=397> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>Los conocimientos científicos 
+se usan rutinariamente por los ingenieros en el diseño de elementos tales como 
+maquinas, circuitos eléctricos, estructuras etc.</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Estos conocimientos 
+son muy útiles cuando se expresan en forma de un modelo matemático, el cual se 
+puede definir como una ecuación que expresa las características fundamentales de 
+un sistema o proceso físico en términos matemáticos, siendo clasificados estos 
+modelos, desde simples relaciones algebraicas hasta grandes y complicados 
+sistemas de ecuaciones diferenciales.</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Análisis de un modelo 
+matemático:</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Un modelo matemático: 
+es una expresión matemática como veremos en el siguiente ejemplo:</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Formula de la segunda 
+ley de newton:</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>F= ma donde : F es la 
+fuerza neta que actúa sobre el cuerpo.</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>m es la masa del 
+objeto.</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Utilizando esta ley, 
+vamos a determinar la velocidad de un paracaidista en caída libre.</FONT></FONT> 
+
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Para este caso puede 
+crearse un nuevo modelo, expresando la aceleración como la razón de cambio de la 
+velocidad con respecto al tiempo (<I>dv/dt)</I> .</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Y sustituir en la 
+ecuación de nueva forma:</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT 
+color=#000000>F=m(dv/dt)</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Así la masa, 
+multiplicada por la razón de cambio de la velocidad es igual a la suma de 
+fuerzas que actúan sobre el cuerpo.</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Si la fuerza total 
+cuando el objeto cae es positiva el objeto acelera, pero si es negativa 
+desacelera, pero si la fuerza neta es cero la velocidad permanecerá a un nivel 
+constante.</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Para un cuerpo que cae 
+la fuerza , la fuerza total esta compuesta por dos fuerzas contrarias, la 
+atracción debida a la gravedad Fd, y la fuerza hacia arriba debida a la 
+resistencia del aire Fu.</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Por lo tanto: F= Fd + 
+Fu</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>La fuerza debida a la 
+gravedad Fd se puede reescribir:</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Fd=mg donde g es la 
+constante de gravitación que equivale a 980 cm por segundo 
+cuadrado.</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>La resistencia del 
+aire se puede formular como una aproximación sencilla linealmente proporcional a 
+la velocidad:</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Fv = -cv donde c es 
+una constante de proporcionalidad llamada coeficiente de arrastre.</FONT></FONT> 
+
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Entonces la fuerza 
+total es la diferencia de las fuerzas hacia abajo y hacia arriba, así que 
+combinando las ecuaciones anteriores:</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>M(<I>dv/dt</I>)= mg – 
+cv o dividiendo cada lado entre m:</FONT></FONT> 
+<CENTER><IMG height=28 src="METODOS DE RUNGE – KUTTA_archivos/Image55.gif" 
+width=180></CENTER><FONT face="Times New Roman,Times"><FONT color=#000000>esta 
+es la ecuación de un cuerpo que cae a las fuerzas que actúan sobre el y es una 
+ecuación diferencial porque esta escrita en términos de la razón diferencial 
+dv/dt.</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Usando el calculo y 
+resolviendo esta ecuación diferencial se puede llegar a la siguiente formula que 
+expresa la velocidad del paracaidista en función del tiempo.</FONT></FONT> 
+<CENTER><IMG height=51 src="METODOS DE RUNGE – KUTTA_archivos/Image56.gif" 
+width=198 align=ABSCENTER> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>&nbsp;Ec(principal).</FONT></FONT></CENTER>
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>A continuación se 
+observara la diferencia existente entre tres tipos de soluciones para el 
+problema del paracaidista analizando las ventajas de cada uno de ellos con 
+respecto a los demás:</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Enunciado del problema 
+de un paracaidista que cae:</FONT></FONT> 
+<P>
+<HR width="100%">
+<A name="MÉTODO ANALÍTICO:"></A><B><FONT face="Times New Roman,Times"><FONT 
+color=#000000>MÉTODO ANALÍTICO:</FONT></FONT></B> <BR><IMG height=19 
+src="METODOS DE RUNGE – KUTTA_archivos/Barr_lapiz.gif" width=397> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>Un paracaidista con una masa de 
+55500 g salta de un aeroplano apliquese la ecuación principal para calcular la 
+velocidad antes de abrir el paracaídas. El cociente de arrastre c es 
+aproximadamente igual a 10500 g/s.</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Solución 
+:</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Al sustituir los 
+valores de los parámetros en la ecuación principal se obtiene</FONT></FONT><FONT 
+face="Times New Roman,Times"><FONT color=#000000></FONT></FONT> 
+<CENTER>
+<P><IMG height=51 src="METODOS DE RUNGE – KUTTA_archivos/Image57.gif" width=285> 
+
+<P><IMG height=30 src="METODOS DE RUNGE – KUTTA_archivos/Image58.gif" 
+width=208></CENTER>
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Al dar varios valores 
+de t se obtienen las velocidades se obtienen las velocidades para el tiempo, los 
+resultados se presentan a continuación:</FONT></FONT> 
+<CENTER>
+<P><B><FONT face="Times New Roman,Times"><FONT color=#000000>TABLA DE 
+RESULTADOS</FONT></FONT></B></CENTER>
+<CENTER>
+<TABLE cellPadding=5 width=200 bgColor=#ffffff border=1>
+  <TBODY>
+  <TR>
+    <TD vAlign=top width="47%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>Tiempo en segundos</FONT></FONT></TD>
+    <TD vAlign=top width="53%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>Velocidad en cm/s.</FONT></FONT></TD></TR>
+  <TR>
+    <TD vAlign=top width="47%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>0</FONT></FONT></TD>
+    <TD vAlign=top width="53%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>0</FONT></FONT></TD></TR>
+  <TR>
+    <TD vAlign=top width="47%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>2</FONT></FONT></TD>
+    <TD vAlign=top width="53%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>1631.7</FONT></FONT></TD></TR>
+  <TR>
+    <TD vAlign=top width="47%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>4</FONT></FONT></TD>
+    <TD vAlign=top width="53%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>2749.5</FONT></FONT></TD></TR>
+  <TR>
+    <TD vAlign=top width="47%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>6</FONT></FONT></TD>
+    <TD vAlign=top width="53%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>3515.1</FONT></FONT></TD></TR>
+  <TR>
+    <TD vAlign=top width="47%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>8</FONT></FONT></TD>
+    <TD vAlign=top width="53%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>4039.6</FONT></FONT></TD></TR>
+  <TR>
+    <TD vAlign=top width="47%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>10</FONT></FONT></TD>
+    <TD vAlign=top width="53%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>4398.8</FONT></FONT></TD></TR>
+  <TR>
+    <TD vAlign=top width="47%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>12</FONT></FONT></TD>
+    <TD vAlign=top width="53%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>4644.9</FONT></FONT></TD></TR>
+  <TR>
+    <TD vAlign=top width="47%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>Al infinito</FONT></FONT></TD>
+    <TD vAlign=top width="53%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>5180.0</FONT></FONT></TD></TR></TBODY></TABLE></CENTER>
+<CENTER>
+<P><IMG height=192 src="METODOS DE RUNGE – KUTTA_archivos/Image59.gif" 
+width=263></CENTER>
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Nota: La escala de la 
+velocidad en la gráfica es de 1=1000.</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Si lo has notado para 
+sacar el resultado de tus cálculos de la tabla y gráfica anteriores necesitas 
+estar sustituyendo en la formula de v(t) esto hace el método analítico cansado y 
+repetitivo, pero es una solución analítica exacta porque satisface la ecuación 
+diferencial original.</FONT></FONT> 
+<P>
+<HR width="100%">
+<A name="SOLUCIÓN NUMÉRICA:"></A><FONT face="Times New Roman,Times"><FONT 
+color=#000000><B>SOLUCIÓN NUMÉRICA</B>:</FONT></FONT> <BR><IMG height=19 
+src="METODOS DE RUNGE – KUTTA_archivos/Barr_lapiz.gif" width=397> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>La aproximación de la razón de 
+cambio de la velocidad con respecto al tiempo puede representarse de la 
+siguiente forma</FONT></FONT> 
+<CENTER>
+<P><IMG height=56 src="METODOS DE RUNGE – KUTTA_archivos/Image60.gif" 
+width=203></CENTER>
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Y llegamos a ordenar 
+esta ecuación de la siguiente manera</FONT></FONT> 
+<CENTER>
+<P><IMG height=56 src="METODOS DE RUNGE – KUTTA_archivos/Image61.gif" 
+width=294></CENTER>
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>la cual puede 
+emplearse para extender el calculo , así que aplicandola directamente se 
+dirá</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Nuevo valor = valor 
+anterior + valor estimulado x incremento del tiempo.</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>de v. de v de la 
+pendiente</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Así pues efectuando el 
+mismo calculo para el problema se procede como sigue:</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>Sustituyendo en la ecuación, 
+nuevamente vemos que necesitamos aplicar las matemáticas sin el auxilio de una 
+computadora, y nos vamos a tardar un buen rato .</FONT></FONT> 
+<CENTER><IMG height=56 src="METODOS DE RUNGE – KUTTA_archivos/Image62.gif" 
+width=256> 
+<P><IMG height=51 src="METODOS DE RUNGE – KUTTA_archivos/Image63.gif" width=139> 
+
+<P><IMG height=56 src="METODOS DE RUNGE – KUTTA_archivos/Image64.gif" 
+width=313></CENTER>
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>v(4)= 2330.8 
+cm/s.</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Y así sucesivamente se 
+continua con el calculo para obtener los valores en la siguiente 
+tabla</FONT></FONT> <BR>&nbsp; 
+<CENTER>
+<TABLE cellPadding=5 width=236 bgColor=#ffffff border=1>
+  <TBODY>
+  <TR>
+    <TD vAlign=top width="50%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>Tiempo en seg.</FONT></FONT></TD>
+    <TD vAlign=top width="50%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>Vel. En cm/s.</FONT></FONT></TD></TR>
+  <TR>
+    <TD vAlign=top width="50%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>0</FONT></FONT></TD>
+    <TD vAlign=top width="50%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>&nbsp;</FONT></FONT></TD></TR>
+  <TR>
+    <TD vAlign=top width="50%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>2</FONT></FONT></TD>
+    <TD vAlign=top width="50%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>&nbsp;</FONT></FONT></TD></TR>
+  <TR>
+    <TD vAlign=top width="50%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>4</FONT></FONT></TD>
+    <TD vAlign=top width="50%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>&nbsp;</FONT></FONT></TD></TR>
+  <TR>
+    <TD vAlign=top width="50%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>6</FONT></FONT></TD>
+    <TD vAlign=top width="50%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>&nbsp;</FONT></FONT></TD></TR>
+  <TR>
+    <TD vAlign=top width="50%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>8</FONT></FONT></TD>
+    <TD vAlign=top width="50%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>&nbsp;</FONT></FONT></TD></TR>
+  <TR>
+    <TD vAlign=top width="50%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>10</FONT></FONT></TD>
+    <TD vAlign=top width="50%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>&nbsp;</FONT></FONT></TD></TR>
+  <TR>
+    <TD vAlign=top width="50%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>12</FONT></FONT></TD>
+    <TD vAlign=top width="50%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>&nbsp;</FONT></FONT></TD></TR>
+  <TR>
+    <TD vAlign=top width="50%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>al infinito.&nbsp;</FONT></FONT></TD>
+    <TD vAlign=top width="50%"><FONT face="Times New Roman,Times"><FONT 
+      color=#000000>&nbsp;</FONT></FONT></TD></TR></TBODY></TABLE></CENTER>
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Puede verse por el 
+resultado en la tabla anterior que la solución por un método numérico se 
+aproxima bastante bien a la solución exacta, pero debido al empleo de rectas 
+para aproximar la función que es continuamente curva, existe discrepancia entre 
+los resultados de la tabla del método analítico y la de este método , una manera 
+de minimizar el error es utilizando intervalos menores de tiempo en el muestreo 
+de la ecuación, y así los segmentos de recta seguirán mas de cerca a la solución 
+verdadera.</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Calculando manualmente 
+el esfuerzo al usar incrementos cada vez mas pequeños hará poco practicas las 
+soluciones numéricas, es por eso que a continuación se presentara un método con 
+el cual se hará uso de un programa de computadora para la solución del 
+problema.</FONT></FONT> <BR><FONT color=#000000>&nbsp;</FONT> 
+<P>
+<HR width="100%">
+<B><FONT face="Times New Roman,Times"><FONT color=#000000>SOLUCIÓN POR EL MÉTODO 
+DE EULER DEL PROBLEMA DEL PARACAIDISTA.</FONT></FONT></B> <BR><IMG height=19 
+src="METODOS DE RUNGE – KUTTA_archivos/Barr_lapiz.gif" width=397> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>Los métodos de euler son 
+procedimientos para resolver EDO’S de primer orden y se pueden programar en una 
+computadora para no hacer los cálculos manualmente.</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Una desventaja 
+importante de los métodos de euler es que el orden de exactitud es bajo 
+comparado con los de RUNGE- KUTTA .Y aunque para uno y otro existen versiones 
+diferentes nosotros solamente nos basaremos en su potencialidad de aplicación 
+dentro de la programación por computadora para la solución del 
+problemas.</FONT></FONT> 
+<P>
+<HR width="100%">
+<B><FONT face="Times New Roman,Times"><FONT color=#000000>PROGRAMA PARA LA 
+SOLUCIÓN DEL PROBLEMA DEL PARACAIDISTA.</FONT></FONT></B> <BR><IMG height=19 
+src="METODOS DE RUNGE – KUTTA_archivos/Barr_lapiz.gif" width=397> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>clear, clf, hold 
+off</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>t=0; n=0; v=0;</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>C=10.5; M=55.5; g=9.8; 
+h=.1;</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>t_rec(1)=t; v_rec(1)=v;</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>while t&lt;=12</FONT></FONT> 
+<BR><FONT face="Times New Roman,Times"><FONT color=#000000>n=n+1;</FONT></FONT> 
+<BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>v=v+h*(-C/M*v*v+g);</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>t=t+h;</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>v_rec(n+1)=v;</FONT></FONT> 
+<BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>t_rec(n+1)=t;</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>end</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>plot(t_rec,v_rec)</FONT></FONT> 
+
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Este programa anterior 
+fue realizado en matlab (Laboratorio de matrices) el cual puede considerarse 
+como un lenguaje de programación como fortran o C, pero mas sencillo que estos 
+puesto que cualquier variable puede contener números de cualquier tipo sin una 
+declaración especial durante la programación .</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Por lo que resulta una 
+poderosa herramienta para el análisis numérico y matemático en la aplicación de 
+los métodos numéricos a la solución de los problemas de 
+ingeniería.</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>La siguiente gráfica muestra el resultado del programa anterior 
+(también realizada por matlab).</FONT></FONT> 
+<CENTER><IMG height=193 src="METODOS DE RUNGE – KUTTA_archivos/Image65.gif" 
+width=252></CENTER>
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Velocidad 
+cm/s.</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>Tiempo en seg.</FONT></FONT><FONT 
+face="Times New Roman,Times"><FONT color=#000000></FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Podemos observar, con 
+los resultados anteriores , que la solución por medio de la programación por 
+computadora se puede hacer que se aproxime a la solución exacta de la ecuación 
+diferencial tanto como se quiera, dependiendo del método que se 
+utilice.</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>En los métodos de 
+RUNGE-KUTTA, el método de exactitud se incrementa mediante el empleo de un 
+método de integración numérica de mas alto orden, la mayor exactitud implica que 
+el resultado calculado es mas exacto y que los errores se reducen con mayor 
+rapidez al reducirse h, donde h es un intervalo de tiempo fijo que se utiliza 
+repetidamente.</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Si consideramos la 
+ecuación diferencial ordinaria siguiente</FONT></FONT><FONT 
+face="Times New Roman,Times"><FONT color=#000000></FONT></FONT> 
+<CENTER>
+<P><IMG height=28 src="METODOS DE RUNGE – KUTTA_archivos/Image66.gif" 
+width=98><IMG height=30 src="METODOS DE RUNGE – KUTTA_archivos/Image67.gif" 
+width=79></CENTER>
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Si queremos 
+calcular</FONT></FONT> 
+<CENTER><IMG height=46 src="METODOS DE RUNGE – KUTTA_archivos/Image68.gif" 
+width=195></CENTER>
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Aplicamos una regla 
+trapezoidal al miembro derecho , la cual resulta de dividir el área de una curva 
+en n intervalos iguales de longitud h evaluando el área de cada una de las 
+fajas, aproximando el arco y=f(x) con la cuerda correspondiente a cada fajita, 
+si h es lo suficientemente pequeña, entonces se puede aproximar como el área de 
+un trapecio bajo la curva, es decir:</FONT></FONT><FONT 
+face="Times New Roman,Times"><FONT color=#000000></FONT></FONT> 
+<CENTER>
+<P><IMG height=51 src="METODOS DE RUNGE – KUTTA_archivos/Image69.gif" 
+width=148></CENTER><FONT face="Times New Roman,Times"><FONT color=#000000>El 
+área total es la suma de las áreas parciales</FONT></FONT> 
+<CENTER><IMG height=56 src="METODOS DE RUNGE – KUTTA_archivos/Image70.gif" 
+width=101><IMG height=21 src="METODOS DE RUNGE – KUTTA_archivos/Image71.gif" 
+width=42><IMG height=30 src="METODOS DE RUNGE – KUTTA_archivos/Image72.gif" 
+width=63></CENTER>
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Entonces la forma 
+trapezoidal en donde el área se aproxima mediante una suma de n trapecios 
+es</FONT></FONT><FONT face="Times New Roman,Times"><FONT 
+color=#000000></FONT></FONT> 
+<CENTER>
+<P><IMG height=51 src="METODOS DE RUNGE – KUTTA_archivos/Image73.gif" 
+width=343></CENTER>
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Esta formula es muy 
+importante ya que se aplica directamente a las diferentes versiones de los 
+métodos de RUNGE-KUTTA , para poder aplicar las ecuaciones a problemas 
+concretos.</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>A continuación veremos 
+algunos ejemplos de los métodos de runge a problemas de circuitos eléctricos, y 
+su solución mas rápida y eficiente por medio de un programa realizado en 
+computadora por MATLAB que como ya vimos anteriormente , ahorra la fatiga de 
+calcular manualmente.</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>El comportamiento de 
+un circuito eléctrico cambia significativamente dependiendo de los valores de 
+los componentes empleados , así, en el circuito que se muestra a continuación , 
+la inductancia L=50mH, una resistencia R=20ohms y una fuente de voltaje de 
+E=10v. entonces, si se cierra el interruptor en un t=0 la corriente I(t) 
+satisface la ecuación diferencial</FONT></FONT> 
+<CENTER><IMG height=51 src="METODOS DE RUNGE – KUTTA_archivos/Image74.gif" 
+width=166><FONT face="Times New Roman,Times"><FONT color=#000000> I(0) = 
+0</FONT></FONT></CENTER>
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Se necesita encontrar 
+el valor de la corriente para 0&lt; t &lt; 0.02 s. mediante un método de 
+RUNGE-KUTTA de segundo orden con h=.0001.</FONT></FONT> 
+<CENTER><IMG height=183 src="METODOS DE RUNGE – KUTTA_archivos/Image75.gif" 
+width=227> <BR><IMG height=51 
+src="METODOS DE RUNGE – KUTTA_archivos/Image76.gif" width=100></CENTER><FONT 
+face="Times New Roman,Times"><FONT color=#000000>donde</FONT></FONT> 
+<CENTER><IMG height=51 src="METODOS DE RUNGE – KUTTA_archivos/Image77.gif" 
+width=156> 
+<P><IMG height=56 src="METODOS DE RUNGE – KUTTA_archivos/Image78.gif" width=166> 
+
+<P><IMG height=56 src="METODOS DE RUNGE – KUTTA_archivos/Image79.gif" width=225> 
+
+<P><IMG height=51 src="METODOS DE RUNGE – KUTTA_archivos/Image80.gif" 
+width=178></CENTER>
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Mostramos entonces los 
+cálculos para los dos primeros pasos:</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>t = 0</FONT></FONT> 
+<CENTER><IMG height=21 src="METODOS DE RUNGE – KUTTA_archivos/Image81.gif" 
+width=55></CENTER><FONT face="Times New Roman,Times"><FONT color=#000000>t= 
+0.0001</FONT></FONT> 
+<CENTER><IMG height=28 src="METODOS DE RUNGE – KUTTA_archivos/Image82.gif" 
+width=275> 
+<P><IMG height=28 src="METODOS DE RUNGE – KUTTA_archivos/Image83.gif" width=335> 
+
+<P><IMG height=51 src="METODOS DE RUNGE – KUTTA_archivos/Image84.gif" 
+width=433></CENTER>
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>en el segundo paso se 
+procede de la misma manera, obteniendo para la corriente dos un resultado de 
+.038431, pero como podemos darnos cuenta , seria muy tardado resolverlo 
+manualmente de ahí que lo que falta para calcular se hará en el programa de 
+matlab.</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>NOTA: Los programas 
+pueden estar sujetos a errores al escribirse, así que es recomendable estudiar 
+matlab con mayor detenimiento para poder detectarlos mas 
+fácilmente.</FONT></FONT> 
+<CENTER><IMG height=19 src="METODOS DE RUNGE – KUTTA_archivos/Barr_lapiz.gif" 
+width=397></CENTER>
+<HR width="100%">
+<B><FONT face="Times New Roman,Times"><FONT color=#000000>PROGRAMA PARA RESOLVER 
+EL CIRCUITO ANTERIOR:</FONT></FONT></B> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>clear, clf, hold 
+off</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>R=20; %ohm</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>L=50e-3; %H</FONT></FONT> 
+<BR><FONT face="Times New Roman,Times"><FONT color=#000000>E=10; 
+%V</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>y(1)=0; t(1)=0;</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>h=.1e-3;</FONT></FONT> 
+<BR><FONT face="Times New Roman,Times"><FONT color=#000000>n=1;</FONT></FONT> 
+<BR><FONT face="Times New Roman,Times"><FONT color=#000000>y_rec(1)=y; 
+t_rec(1)=0; t=0;</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>RL=R/L; EL=E/L;</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>while t(n)&lt;.02</FONT></FONT> 
+<BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>K1=h*fn10_9(y(n),RL,EL);</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT 
+color=#000000>K2=h*fn10_9(y(n)+K1,RL,EL);</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT 
+color=#000000>y(n+1)=y(n)+.5*(K1+K2);</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>t(n+1)=n+h;</FONT></FONT> 
+<BR><FONT face="Times New Roman,Times"><FONT color=#000000>n=n+1;</FONT></FONT> 
+<BR><FONT face="Times New Roman,Times"><FONT color=#000000>end</FONT></FONT> 
+<BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>plot(t,y)</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>xlabel('t = seg. ' 
+)</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>ylabel('I(A)')</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>fn10_9</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>function 
+f=fn10_9(I,RL,EL)</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>f=-RL*I+EL</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Ahora vamos a un 
+segundo ejemplo de aplicación a circuitos y veamos la siguiente 
+figura</FONT></FONT> 
+<CENTER><IMG height=179 src="METODOS DE RUNGE – KUTTA_archivos/Image85.gif" 
+width=293></CENTER><FONT face="Times New Roman,Times"><FONT color=#000000>Los 
+valores de los elementos que se encuentran en la figura anterior son hipotéticos 
+es solo para representar el circuito, el cual puede definirse por medio de las 
+siguientes ecuaciones diferenciales con su consiguiente solución por medio de un 
+listado de programa.</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>Para la primera inductancia, resistencia y capacitor</FONT></FONT> 
+
+<CENTER><IMG height=51 src="METODOS DE RUNGE – KUTTA_archivos/Image86.gif" 
+width=259> <BR><IMG height=51 
+src="METODOS DE RUNGE – KUTTA_archivos/Image87.gif" width=308></CENTER><FONT 
+face="Times New Roman,Times"><FONT color=#000000>con</FONT></FONT> 
+<CENTER><IMG height=63 src="METODOS DE RUNGE – KUTTA_archivos/Image88.gif" 
+width=250></CENTER><FONT face="Times New Roman,Times"><FONT color=#000000>donde 
+e(t) = 0 excepto e(t)=1 cuando 0&lt;t&lt;0.01s, q(t) es la carga del 
+condensador, i1(t) e i2(t) son corrientes; Las condiciones iniciales son i1(0) = 
+i2(0) = q(0) = 0 en todos los casos.</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Resolviendo las 
+ecuaciones:</FONT></FONT> 
+<CENTER><FONT color=#000000>&nbsp;<FONT 
+face="Times New Roman,Times">a)&nbsp;</FONT></FONT><IMG height=30 
+src="METODOS DE RUNGE – KUTTA_archivos/Image89.gif" width=75><IMG height=30 
+src="METODOS DE RUNGE – KUTTA_archivos/Image90.gif" width=65><IMG height=30 
+src="METODOS DE RUNGE – KUTTA_archivos/Image91.gif" width=83><IMG height=30 
+src="METODOS DE RUNGE – KUTTA_archivos/Image92.gif" width=73><IMG height=23 
+src="METODOS DE RUNGE – KUTTA_archivos/Image93.gif" width=76></CENTER><FONT 
+face="Times New Roman,Times"><FONT color=#000000>b)igual que (a) excepto 
+que</FONT></FONT> 
+<CENTER><IMG height=30 src="METODOS DE RUNGE – KUTTA_archivos/Image94.gif" 
+width=71></CENTER><FONT color=#000000>&nbsp;<FONT 
+face="Times New Roman,Times">c)igual que (a) excepto que</FONT></FONT> 
+<CENTER><IMG height=30 src="METODOS DE RUNGE – KUTTA_archivos/Image95.gif" 
+width=70></CENTER><FONT color=#000000>&nbsp;<FONT 
+face="Times New Roman,Times">d)igual que (a) excepto que</FONT></FONT> 
+<CENTER><IMG height=30 src="METODOS DE RUNGE – KUTTA_archivos/Image96.gif" 
+width=68></CENTER><FONT face="Times New Roman,Times"><FONT color=#000000>La 
+solución se determina en el siguiente programa realizado en matlab</FONT></FONT> 
+
+<P><FONT face="Times New Roman,Times"><FONT 
+color=#000000>clear;clg</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>subplot(221)</FONT></FONT> 
+<BR><FONT face="Times New Roman,Times"><FONT color=#000000>for 
+k=1:4</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>e=1;</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>if k=1; subplot (221);</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>La=.01; Lb=.5; Ra=200; Rb=20; 
+C=.002; end</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>if k=2 subplot(222);</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>La=.1; Lb=.5; Ra=200; 
+Rb=20;C=.002; end</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>if k=3; subplot(223);</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>La=.01; Lb=.25; Ra=200; Rb=20; 
+C=.002; end</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>if k=4; subplot(224)</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>La=.01; Lb=.5; Ra=20; Rb=20; 
+C=.002; end</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>M=[-Ra/La, Ra/La, -1/(La*C);...</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>Ra/Lb,-(Ra+Rb)/Lb, 
+1/(Lb*C);...</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>1/C,-1/C,0]</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>S=[0;0;0]; 
+X=[0;0;0];</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>h=.00005;</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>for n=1:101</FONT></FONT> 
+<BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>t=(n-1)*h;</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT 
+color=#000000>%S=[sin(t*600)*exp(-t*600)/La;0;0]</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT 
+color=#000000>%S=[cos(t*600)/La;0;0];</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>S=[1/La;0;0];</FONT></FONT> 
+<BR><FONT face="Times New Roman,Times"><FONT color=#000000>if t&gt;.001, 
+S=[0;0;0];end</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>k1=h*(M*X+S);</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT 
+color=#000000>k2=h*(M*(X+k1/2)+S);</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT 
+color=#000000>k3=h*(M*(X+k2/2)+S);</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT 
+color=#000000>k4=h*(M*(X+k3)+S);</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT 
+color=#000000>X=X+(K1+K2*2+k3*2+k4)/6;</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>X_r(:,n)=X;</FONT></FONT> 
+<BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>t_r(n)=t;</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>end</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT 
+color=#000000>plot(t_r,X_r(1:2,:),t_r,X_r(3,:))</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT 
+color=#000000>xlabel('t'),ylabel('i1,i2,q')</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>L=length(t_r)</FONT></FONT> 
+<BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>text(t_r(L/10),X_r(1,L/10),'i1')</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT 
+color=#000000>text(t_r(L/2),X_r(2,L/2),'i2')</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT 
+color=#000000>text(t_r(L*.8),X_r(3,L*.8),'q')</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>if 
+k==1;title('(A)'),end</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>if k==2;title('(B)');end</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>if 
+k==3;title('(C)');end</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>if k==4;title('(D)'),end</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>end</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Hay que tener en 
+cuenta que de alguna u otra manera los métodos numéricos estan sujetos a ciertos 
+errores al hacer los cálculos en muchos pasos (iteraciones), pero que estos se 
+pueden llegar a despreciar por la actual eficiencia de las maquinas 
+computadoras, las cuales pueden llegar a tomar los intervalos de tiempo 
+infinitesimalmente pequeños para la aplicación de las ecuaciones y obtener los 
+resultados mas rápido y de manera mas exacta.</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>No hay limite para las 
+aplicaciones que se pueden realizar en programación de computadoras para 
+resolver los problemas de métodos numéricos así que ya para terminar a 
+continuación se darán algunos otros ejemplos en matlab para algunos métodos 
+mencionados como clásicos en algunos libros .</FONT></FONT> 
+<P>
+<HR width="100%">
+<FONT face="Times New Roman,Times"><FONT color=#000000>Programa uno: 
+function.</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>function y = f1_(x)</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>y = 
+0.2+25*x-200*x.^2+675*x.^3-900*x.^4+400*x.^5;</FONT></FONT> 
+<P>
+<HR width="100%">
+<FONT face="Times New Roman,Times"><FONT color=#000000>Programa dos: Que toma al 
+programa 1 como archivo para funcionar (una de las características mas 
+importantes de matlab.).</FONT></FONT> 
+<P><FONT face="Times New Roman,Times"><FONT color=#000000>Método de 
+Newton:</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>function newton_(x0)</FONT></FONT> 
+<P>
+<HR width="100%">
+<B><FONT face="Times New Roman,Times"><FONT color=#000000>%SOLUCION DE 
+ECUACIONES NO LINEALES</FONT></FONT></B> <BR><IMG height=19 
+src="METODOS DE RUNGE – KUTTA_archivos/Barr_lapiz.gif" width=397> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>%27 DE NOVIEMBRE DE 
+1997</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>%"METODO DE ITERACION DE NEWTON"</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>% LA FUNCION ESTA EN 
+"f1_.m"</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>% "x0" estimación incial</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>x=x0; xb=x-999;</FONT></FONT> 
+<BR><FONT face="Times New Roman,Times"><FONT color=#000000>n=0; 
+dx=0.01;</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>while abs(x-xb)&gt;0.000001</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>n=n+1; xb=x;</FONT></FONT> 
+<BR><FONT face="Times New Roman,Times"><FONT color=#000000>if n&gt;300 break; 
+end</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>y=f1_(x);</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT 
+color=#000000>ydr=(f1_(x+dx)-y)/dx;</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>x=xb-y/ydr;</FONT></FONT> 
+<BR><FONT face="Times New Roman,Times"><FONT color=#000000>fprintf('n=%3.0f, 
+x=%12.5e, y=%12.5e, ', n,x,y)</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>fprintf('yd = %12.5e \n', 
+ydr)</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>end</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>fprintf('\n Respuesta final = %12.6e\n',x);</FONT></FONT> 
+<P>
+<HR width="100%">
+<B><FONT face="Times New Roman,Times"><FONT color=#000000>Programa tres: Metodo 
+de la regla falsa.</FONT></FONT></B> <BR><IMG height=19 
+src="METODOS DE RUNGE – KUTTA_archivos/Barr_lapiz.gif" width=397> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>function 
+rfalsa_(a,c)</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>SOLUCIÓN DE ECUACIONES NO LINEALES</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>%23 DE NOVIEMBRE DE 
+1997</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>%"METODO DE REGLA FALSA"</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>% LA FUNCION ESTA EN 
+"f1_.m"</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>% "a" y "c" intervalo donde se cree esta la raiz</FONT></FONT> 
+<BR><FONT face="Times New Roman,Times"><FONT color=#000000>tolerancia=0.000001; 
+iteraciones=30;</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>fprintf('\n it a b c f(a) f(b) f(c) \n');</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>it=0;</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>ya=f1_(a); 
+yc=f1_(c);</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>if (ya*yc &gt; 0)</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>fprintf('\n\n no hay raiz en 
+este intervalo \n');</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>else</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>while 1</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>it=it+1;</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>b=(a+c)/2; 
+yb=f1_(b);</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>fprintf('%3.0f %6.5f, %6.5f %10.5f %10.5f %10.5f 
+\n',it,a,b,c,ya,yb,yc);</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>if (abs(c-a)/2 &lt;= 
+tolerancia)</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>fprintf('se cumplio la tolerancia. \n'); break</FONT></FONT> 
+<BR><FONT face="Times New Roman,Times"><FONT color=#000000>fprintf('\n Cambie de 
+intervalo y ejecute de nuevo. \n');</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>end</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>if 
+(it&gt;iteraciones)</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>fprintf('se exede el numero de 
+iteraciones.\n');break</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>end</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>if (ya*yb&lt;=0) c=b; 
+yc=yb;</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>else a=b; ya=yb;</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>end</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>end</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>fprintf('\n 
+Raíz=%12.6f\n',b);</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>end</FONT></FONT> 
+<P>
+<HR width="100%">
+<B><FONT face="Times New Roman,Times"><FONT color=#000000>Programa cuatro: 
+Metodo de simpson. 1/3.</FONT></FONT></B> <BR><IMG height=19 
+src="METODOS DE RUNGE – KUTTA_archivos/Barr_lapiz.gif" width=397> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>%METODOS DE 
+INTEGRACION</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>%18 DE NOVIEMBRE DE 1997</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>%"METODO DE SIMPSON 
+1/3"</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT color=#000000>% 
+LA FUNCION A INTEGAR ESTA EN "f1_.m"</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT 
+color=#000000>Iexacta=1.64053334;</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>a=0; b=0.8; n=20;</FONT></FONT> 
+<BR><FONT face="Times New Roman,Times"><FONT color=#000000>h=(b-a)/n; 
+c=1:n+1;</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>x=a+(c-1)*h;</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT 
+color=#000000>Is=(h/3)*(f1_(x(1))+4*sum(f1_(x(2:2:n)))+f1_(x(n+1)));</FONT></FONT> 
+<BR><FONT face="Times New Roman,Times"><FONT color=#000000>if n&gt;2 
+Is=Is+(h/3)*2*sum(f1_(x(3:2:n))); end</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT 
+color=#000000>error=(Is/Iexacta)*100;</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>fprintf('\n método de simpson 
+1/3 \n');</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>fprintf('\n n Is Iexacta exactitud\n');</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>fprintf('%3.0f %10.5f %10.5f 
+%10.5f\n', n, Is, Iexacta, error);</FONT></FONT> 
+<P>
+<HR width="100%">
+<B><FONT face="Times New Roman,Times"><FONT color=#000000>Programa cinco: Metodo 
+de simpson 3/8.</FONT></FONT></B> <BR><IMG height=19 
+src="METODOS DE RUNGE – KUTTA_archivos/Barr_lapiz.gif" width=397> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>%METODOS DE 
+INTEGRACION</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>%18 DE NOVIEMBRE DE 1997</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>%"METODO DE SIMPSON 
+3/8"</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT color=#000000>% 
+LA FUNCION A INTEGAR ESTA EN "f1_.m"</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT 
+color=#000000>Iexacta=1.64053334;</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>a=0; b=0.8; n=3;</FONT></FONT> 
+<BR><FONT face="Times New Roman,Times"><FONT color=#000000>h=(b-a)/n; 
+c=1:n+1;</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>x=a+(c-1)*h;</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT 
+color=#000000>Is=(3/8)*h*(f1_(x(n-2))+3*(f1_(x(n-1)))+3*(f1_(x(n)))+f1_(x(n+1)));</FONT></FONT> 
+<BR><FONT face="Times New Roman,Times"><FONT color=#000000>if n&gt;3 
+Is=Is+(h/3)*2*sum(f1_(x(3:2:n))); end</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT 
+color=#000000>error=(Is/Iexacta)*100;</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>fprintf('\n método de simpson 
+1/3 \n');</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>fprintf('\n n Is Iexacta exactitud\n');</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>fprintf('%3.0f %10.5f %10.5f 
+%10.5f\n', n, Is, Iexacta, error);</FONT></FONT> <BR><FONT 
+color=#000000>&nbsp;</FONT> 
+<P>
+<HR width="100%">
+<B><FONT face="Times New Roman,Times"><FONT color=#000000>Programa seis: Metodo 
+de la regla trapezoidal .</FONT></FONT></B> <BR><IMG height=19 
+src="METODOS DE RUNGE – KUTTA_archivos/Barr_lapiz.gif" width=397> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>%METODOS DE 
+INTEGRACION</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>%18 DE NOVIEMBRE DE 1997</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>%"METODO 
+TRAPEZOIDAL"</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>% LA FUNCION A INTEGAR ESTA EN "f1_.m"</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT 
+color=#000000>Iexacta=1.64053334;</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>a=0; b=0.8; n=20;</FONT></FONT> 
+<BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>h=(b-a)/n;</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>x=a:h:b;</FONT></FONT> 
+<BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>It=(h/2)*(2*sum(f1_(x(2:n)))+f1_(x(1))+f1_(x(n+1)));</FONT></FONT> 
+<BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>exactitud=(It/Iexacta)*100;</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>fprintf('\n método trapezoidal 
+\n');</FONT></FONT> <BR><FONT face="Times New Roman,Times"><FONT 
+color=#000000>fprintf('\n n It Iexacta exactitud\n');</FONT></FONT> <BR><FONT 
+face="Times New Roman,Times"><FONT color=#000000>fprintf('%3.0f %10.5f %10.5f 
+%10.5f\n', n, It, Iexacta, exactitud);</FONT></FONT> 
+<CENTER>
+<HR width="32%">
+<BR><B><FONT face="Times New Roman,Times"><FONT 
+color=#000000>BIBLIOGRAFIA:</FONT></FONT></B> <BR>
+<HR width="32%">
+</CENTER><I><FONT face="Times New Roman,Times"><FONT color=#000000><FONT 
+size=-1>-Apuntes de la maestría en ciencias de ingenieria electronica, 
+UdeG..</FONT></FONT></FONT></I> <BR><I><FONT face="Times New Roman,Times"><FONT 
+color=#000000><FONT size=-1>-Calculo diferencial e integral. William Anthony 
+Granville. Ed. LIMUSA.</FONT></FONT></FONT></I> <BR><I><FONT 
+face="Times New Roman,Times"><FONT color=#000000><FONT size=-1>-Calculo con 
+Geometria Analitica. Earl W. Swokowsky. Grupo Editorial 
+Iberoamerica.</FONT></FONT></FONT></I> <BR><I><FONT 
+face="Times New Roman,Times"><FONT color=#000000><FONT size=-1>-Instrumentacion 
+electronica. a. j. Diefenderfer. Interamericana.</FONT></FONT></FONT></I> 
+<BR><I><FONT face="Times New Roman,Times"><FONT color=#000000><FONT size=-1>-El 
+lenguaje de programación C. Brian W. Kernighan. Prentice 
+Hall.</FONT></FONT></FONT></I> <BR><I><FONT face="Times New Roman,Times"><FONT 
+color=#000000><FONT size=-1>-Análisis numérico y visualizacion gráfica con 
+matlab.. Soichiro Nakamura. Prentice Hall.</FONT></FONT></FONT></I> <BR><I><FONT 
+face="Times New Roman,Times"><FONT color=#000000><FONT size=-1>-Metodos 
+Numericos para Ingenieros con aplicaciones a computadoras 
+personales.</FONT></FONT></FONT></I> <BR><I><FONT 
+face="Times New Roman,Times"><FONT color=#000000><FONT size=-1>Steven C Chapra. 
+Prentice Hall.</FONT></FONT></FONT></I> <BR>&nbsp; </BODY></HTML>

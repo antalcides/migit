@@ -1,0 +1,567 @@
+#LyX file created by tex2lyx 2.0.4
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass tipo de documento
+\begin_preamble
+
+\input{preamble2}
+\input{composicion-codigo}
+\usepackage{fancyvrb}
+ \newsavebox{\LstBox}
+ %\graphicspath{ {./img/} }
+ 
+\def\input@path{{./}{./build/}}
+
+ \graphicspath{{./}{./img/}{./build/}}
+ \renewcommand{\baselinestretch}{1.5}
+  \chapter{Edici\'{o}n B\'{a}sica}
+\chaptertoc 
+\begin{objetivos}
+\begin{lista}
+\item Comprender el esquema bÃ¡sico de funcionamiento de \TeX\, y \LaTeX .
+\item Conocer las diferentes salidas que produce \LaTeX.
+\item Conocer las diferentes herramientas que intecactuan con \LaTeX.
+\item Aprender a instalar \LaTeX\, en diferentes sistemas.
+\end{lista}
+\end{objetivos}
+\section{Ordenes en  \TeX\, y  \LaTeX:}
+
+\begin{description}
+\item[$\blacksquare$] Comienzan por una barra invertida: 
+(( $\backslash$))
+
+\item[$\blacksquare$] Distinguen may\'{u}sculas y min\'{u}sculas
+
+\item[$\blacksquare$] $\ $Dos tipos:
+\end{description}
+
+1. con letras s\'{o}lo (pueden ser varias)
+
+2. con car\'{a}cter especial (uno s\'{o}lo)
+
+\begin{description}
+\item[$\blacksquare$]  \TeX \, ignora los espacios en blanco justo despu\'{e}s de
+un mandato: para tenerlos en cuenta, escribir \lstinline+\,+
+
+\item[$\blacksquare$] Par\'{a}metros: [opcionales] y \{obligatorios\}
+\end{description}
+
+\subsection{Ejemplos de comandos}
+
+\begin{description}
+\item[$\spadesuit$] Comentarios: a partir de signo \%, son ignorados
+\end{description}
+
+Veamos algunas ordenes:
+\lstinline+\TeX \LaTeX      %  \\es una orden de tipo 2+\par
+Como podemos observar los dos logos aparecen juntos \\
+\TeX \LaTeX  \par    %  \\es una orden de tipo 2
+para que se separen debemos colocar un comando de indique el espacio, por ejemplo un espacio normal\\
+\lstinline+\TeX \,\LaTeX    \\[2ex] \today\\[4ex]+\par
+\TeX \,\LaTeX     \\[2ex]
+\today\\[4ex]
+
+\lstinline+\textbf{texto resaltado}+\par
+
+\textbf{texto resaltado}
+
+
+\subsection{Caracteres especiales}
+
+Los caracteres con un significado especial, si se desean transcribir hay que
+indicarlo de alguna manera:
+\begin{verbatim}
+$ & % # _ { } ~^\
+\$ \& \% \# \_ \{ \}
+\\  \verb+ ~ ^ \+
+\end{verbatim}
+
+
+
+
+\section{Mi primer documento}
+\subsection{Estructura de un fichero de entrada}
+
+Cuando \LaTeXe{} procesa un fichero de entrada, espera de \'el que
+siga una determinada \wi{estructura}. Todo fichero de entrada debe
+comenzar con la orden
+\begin{code}
+\lstinline++
+\end{code}
+Esto indica qu\'e tipo de documento es el que se pretende crear.
+Tras esto, se pueden incluir \'ordenes que influir\'an sobre el
+estilo del documento entero, o puede cargar \wi{paquete}s que
+a~nadir\'an nuevas propiedades al sistema de \LaTeX. Para cargar
+uno de estos paquetes se usar\'a la instrucci\'on
+\begin{code}
+\lstinline+\usepackage{...}+
+\end{code}
+
+Cuando todo el trabajo de configuraci\'on est\\'e
+realizado\footnote{El
+  \'area entre \texttt{\bs documentclass} y \texttt{\bs
+    begin$\mathtt{\{}$document$\mathtt{\}}$} se llama
+  \emph{\wi{pre\'ambulo}}.} entonces comienza el cuerpo del texto con
+la instrucci\'on
+\begin{code}
+\lstinline|\chapter{tercer}
+\chaptertoc 
+\begin{objetivos}
+\begin{lista}
+\item Comprender el esquema bÃ¡sico de funcionamiento de \TeX\, y \LaTeX .
+\item Conocer las diferentes salidas que produce \LaTeX.
+\item Conocer las diferentes herramientas que intecactuan con \LaTeX.
+\item Aprender a instalar \LaTeX\, en diferentes sistemas.
+\end{lista}
+\end{objetivos}
+\section{Reglas generales}
+
+\begin{description}
+\item[$\clubsuit$] Usar espacios para separar palabras.
+
+\item Un espacio vale igual que mil.
+
+\begin{description}
+\item[$\clubsuit$] Los fines de linea sencillos no valen.
+
+\item[$\clubsuit$] Usar lÃ­neas vac\'{\i}as para separar p\'{a}rrafos.
+\end{description}
+\end{description}
+
+Una linea vac\'{\i}a vale igual que mil.
+
+\begin{description}
+\item
+\begin{description}
+\item[$\clubsuit$] El espaciado y las sangr\'{\i}as son trabajo de
+\end{description}
+
+\item LATEX, y lo sabe hacer muy bien.
+
+\begin{description}
+\item[$\clubsuit$] No forzar espacios ni cortes de l\'{\i}nea.
+\end{description}
+\end{description}
+
+\subsection{Ejemplo 1}
+\begin{verbatim}
+\chapter{Uso de los paquetes m\'as comunes}
+\chaptertoc
+\begin{objetivos}
+\begin{lista}
+\item Comprender el esquema bÃ¡sico de funcionamiento de \TeX\, y \LaTeX .
+\item Conocer las diferentes salidas que produce \LaTeX.
+\item Conocer las diferentes herramientas que intecactuan con \LaTeX.
+\item Aprender a instalar \LaTeX\, en diferentes sistemas.
+\end{lista}
+\end{objetivos} 
+\section{Paquetes m\'{a}s usados}
+\begin{verbatim}
+\usepackage[opciones]{paquete}\end{verbatim}
+
+\begin{description}
+\item[$\square$] [spanish]\{babel\}: Espa\~{n}olizaci\'{o}n
+
+\item[$\square$] [latin1]\{inputenc\}: Letras con acentos, e\~{n}es,
+
+\item[$\square$] \{graphicx\}: Gr\'{a}ficos
+
+\item[$\square$] \{amsmath\}: Macros de AMS
+
+\item[$\square$] \{color\}: Su nombre lo indica : : :
+
+\item[$\square$] \{hyperref\}: Hiperv\'{\i}nculos
+\end{description}
+\section{Fancyhdr}
+
+\subsection{IntroducciÃ³n}
+El paquete fancyhdr se utiliza para colocar los tÃ­tulos , numero pÃ¡ginas y cualquier otra informaciÃ³n en la cabecera y pie de pagina de un documento.\\
+Por ejemplo queremos colocar centrado en la cabecera \LaTeX , en el pie izquierdo Antalcides Olivo y en el derecho el nÃºmero de la pÃ¡gina.\\
+Para logralo debemos colocar en el preÃ¡mbulo
+\begin{source}[PreÃ¡mbulo]{c1}
+
+\usepackage{fancyhdr}% Cabeceras/Pies
+ % Cabeceras/Pies
+\fancyhf{} % borra todos los ajustes anteriores
+\fancyhead[C]{\LaTeX}
+\fancyhead[LR]{}
+\fancyfoot[L]{Antalcides Olivo}
+ \fancyfoot[R]{\thepage}
+ \fancyfoot[C]{}
+ 
+\end_preamble
+\options opcionesseparadasporcoma
+\use_default_options false
+\language english
+\language_package none
+\inputencoding auto
+\fontencoding default
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref 1
+\pdf_bookmarks 1
+\pdf_bookmarksnumbered 1
+\pdf_bookmarksopen 1
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks 0
+\pdf_pdfborder 1
+\pdf_colorlinks 0
+\pdf_backref false
+\pdf_pdfusetitle 1
+\pdf_quoted_options "pdfpagelayout=OneColumn,pdfnewwindow=true,pdfstartview=XYZ,plainpages=false"
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 0
+\use_mathdots 0
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+frontmatter
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+pagestyle
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{
+\end_layout
+
+\end_inset
+
+empty
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+pagecolor{ptcbackground}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+let
+\backslash
+myclearpage
+\backslash
+clearpage
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+let
+\backslash
+myclearpage
+\backslash
+relax
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Newpage newpage
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+pagecolor{white}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+mainmatter
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+pagestyle
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{
+\end_layout
+
+\end_inset
+
+headings
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset include
+LatexCommand input
+preview false
+filename "primero.lyx"
+
+\end_inset
+
+ 
+\begin_inset CommandInset include
+LatexCommand input
+preview false
+filename "segundo.lyx"
+
+\end_inset
+
+ 
+\begin_inset CommandInset include
+LatexCommand input
+preview false
+filename "tercer.lyx"
+
+\end_inset
+
+ 
+\begin_inset CommandInset include
+LatexCommand input
+preview false
+filename "cuarto.lyx"
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+%
+\backslash
+input{quinto.tex}
+\end_layout
+
+\begin_layout Standard
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+%
+\backslash
+input{sesto1.tex}
+\end_layout
+
+\begin_layout Standard
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+%
+\backslash
+input{maestro.tex}
+\end_layout
+
+\begin_layout Standard
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+%
+\backslash
+input{ejemplo.tex}
+\end_layout
+
+\begin_layout Standard
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand input
+preview false
+filename "paquetes.lyx"
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+backmatter
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+%
+\backslash
+input{biblio}
+\end_layout
+
+\begin_layout Standard
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

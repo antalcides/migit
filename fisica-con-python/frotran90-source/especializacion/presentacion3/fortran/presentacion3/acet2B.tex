@@ -1,0 +1,72 @@
+
+
+
+%\section{Principio del M\'{a}ximo para Soluciones D\'{e}biles}
+
+En lo siguiente $\Omega$ es un dominio acotado en $\mathbb{R}^{n}$ con
+$\partial\Omega$ de clase $C^{1}$, y se considera el operador diferencial $L $
+en forma de divergencia
+\begin{equation}
+L=\sum_{i,j=1}^{n}D_{i}\left(  a^{ij}\left(  x\right)  D_{j}+b^{i}\left(
+x\right)  \right)  +\sum_{i=1}^{n}c^{i}\left(  x\right)  D_{i}+d\left(
+x\right)  ,\tag{1}%
+\end{equation}
+donde
+
+\begin{description}
+\item[a)] $L$ es estrictamente el\'{\i}ptico, es decir, existe $\lambda_{0}>0$
+tal que
+\begin{equation}
+\sum_{i,j=1}^{n}a^{ij}\left(  x\right)  \xi_{i}\xi_{j}\geq\lambda
+_{0}\left\vert \xi\right\vert ^{2}\text{ para todo }x\in\Omega\text{ y }\xi
+\in\mathbb{R}^{n}.\tag{2}%
+\end{equation}
+
+
+\item[b)] Los coeficientes $a^{ij},b^{i},c^{i}$ y $d$ $\left(
+i,j=1,...,n\right)  $ son funciones medibles sobre $\Omega$. Adem\'{a}s son
+\textbf{acotadas}, esto es existen constantes positivas $\Lambda$ y $\rho$
+tales que para todo $x\in\Omega$ y $\lambda_{0}$ en $\left(  2\right)  $ se
+cumple
+\begin{equation}
+\sum_{i,j=1}^{n}\left\vert a^{ij}\left(  x\right)  \right\vert ^{2}\leq
+\Lambda,\text{ \ }\lambda_{0}^{-2}\sum_{i=1}^{n}\left(  \left\vert
+b^{i}\left(  x\right)  \right\vert ^{2}+\left\vert c^{i}\left(  x\right)
+\right\vert ^{2}\right)  +\lambda^{-1}\left\vert d\left(  x\right)
+\right\vert \leq\rho^{2}\tag{3}%
+\end{equation}
+
+
+\item[c)]
+\begin{equation}
+\int_{\Omega}\left(  dv-\sum_{i=1}^{n}b^{i}D_{i}v\right)  dx\leq0\text{
+\ }\forall v\geq0,v\in C_{0}^{1}\left(  \Omega\right)  .\tag{4}%
+\end{equation}
+
+\end{description}
+
+\begin{definition}
+Si $u\in W^{1,2}(\Omega)$ y $f\in L^{2}\left(  \Omega\right)  $, $u$ es una
+soluci\'{o}n d\'{e}bil (subsoluci\'{o}n d\'{e}bil, supersoluci\'{o}n
+d\'{e}bil), de
+\[
+Lu=f\text{ \ \ en }\Omega,
+\]
+si para cada $v\in C_{0}^{1}\left(  \Omega\right)  $ con $v\geq0$ se cumple
+\begin{equation}
+\mathcal{L}\left(  u,v\right)  =F\left(  v\right)  \text{ \ }\left(  \leq
+F\left(  v\right)  ,\geq F\left(  v\right)  \right)  ,\tag{5}%
+\end{equation}
+donde
+\begin{equation}
+\mathcal{L}\left(  u,v\right)  :=\int_{\Omega}\left\{  \sum_{i,j=1}^{n}\left(
+a^{ij}D_{j}u+b^{i}u\right)  D_{i}v-\left(  \sum_{i=1}^{n}c^{i}D_{i}%
+u+du\right)  v\right\}  dx.\tag{6}%
+\end{equation}
+$\mathcal{L}$ se denomina la \textbf{forma bilineal asociada} a $L$, y
+\begin{equation}
+F\left(  v\right)  :=-\int_{\Omega}fvdx\text{ \ }\forall v\in C_{0}^{1}\left(
+\Omega\right)  .\tag{7}%
+\end{equation}
+
+\end{definition}

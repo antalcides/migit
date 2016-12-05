@@ -1,0 +1,417 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0077)http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/herencia/herencia.htm -->
+<HTML><HEAD><TITLE>La clase base y la clase derivada</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY>
+<H1 align=center>La clase base y la clase derivada</H1>
+<TABLE width="100%">
+  <TBODY>
+  <TR>
+    <TD width="50%"><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/fundamentos.htm"><IMG 
+      height=40 alt="chapter.gif (1105 bytes)" 
+      src="La clase base y la clase derivada_archivos/chapter.gif" 
+      width=49></A><A href="http://www.sc.ehu.es/sbweb/fisica/curso.htm"><IMG 
+      height=40 alt="home.gif (1054 bytes)" 
+      src="La clase base y la clase derivada_archivos/home.gif" width=49></A><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/herencia/herencia1.htm"><IMG 
+      height=40 alt="next.gif (998 bytes)" 
+      src="La clase base y la clase derivada_archivos/next.gif" width=49></A></TD>
+    <TD width="50%">
+      <H3 align=right><A 
+      href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/herencia/intro_herencia.htm">La 
+      herencia y el polimorfismo</A></H3></TD></TR></TBODY></TABLE>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/herencia/herencia.htm#Introducción">Introducción</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/herencia/herencia.htm#La clase base">La 
+clase base</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/herencia/herencia.htm#La clase derivada">La 
+clase derivada</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/herencia/herencia.htm#Controles de acceso">Modificadores 
+de acceso</A></P>
+<P><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/herencia/herencia.htm#La clase base Object">La 
+clase base <EM>Object</EM></A></P>
+<HR>
+
+<H2><A name=Introducción>Introducción</A></H2>
+<P>La herencia es una propiedad esencial de la Programación Orientada a Objetos 
+que consiste en la creación de nuevas clases a partir de otras ya existentes. 
+Este término ha sido prestado de la Biología donde afirmamos que un niño tiene 
+la cara de su padre, que ha heredado ciertas facetas físicas o del 
+comportamiento de sus progenitores.</P>
+<P>La herencia es la característica fundamental que distingue un lenguaje 
+orientado a objetos, como el C++ o Java, de otro convencional como C, BASIC, 
+etc. Java permite heredar a las clases características y conductas de una o 
+varias clases denominadas base. Las clases que heredan de clases base se 
+denominan derivadas, estas a su vez pueden ser clases bases para otras clases 
+derivadas. Se establece así una clasificación jerárquica, similar a la existente 
+en Biología con los animales y las plantas.</P>
+<P>La herencia ofrece una ventaja importante, permite la reutilización del 
+código. Una vez que una clase ha sido depurada y probada, el código fuente de 
+dicha clase no necesita modificarse. Su funcionalidad se puede cambiar derivando 
+una nueva clase que herede la funcionalidad de la clase base y le añada otros 
+comportamientos. Reutilizando el código existente, el programador ahorra tiempo 
+y dinero, ya que solamente tiene que verificar la nueva conducta que proporciona 
+la clase derivada. </P>
+<P>La programación en los entornos gráficos, en particular Windows, con el 
+lenguaje C++, es un ejemplo ilustrativo. Los compiladores como los de Borland y 
+Microsoft proporcionan librerías cuyas clases describen el aspecto y la conducta 
+de las ventanas, controles, menús, etc. Una de estas clases denominada 
+<I>TWindow</I> describe el aspecto y la conducta de una ventana, tiene una 
+función miembro denominada <I>Paint</I>, que no dibuja nada en el área de 
+trabajo de la misma. Definiendo una clase derivada de <I>TWindow</I>, podemos 
+redefinir en ella la función <I>Paint</I> para que dibuje una figura. 
+Aprovechamos de este modo la ingente cantidad y complejidad del código necesario 
+para crear una ventana en un entorno gráfico. Solamente, tendremos que añadir en 
+la clase derivada el código necesario para dibujar un rectángulo, una elipse, 
+etc.</P>
+<P>En el lenguaje Java, todas las clases derivan implícitamente de la clase base 
+<EM>Object</EM>, por lo que heredan las funciones miembro definidas en dicha 
+clase. Las clases derivadas pueden redefinir algunas de estas funciones miembro 
+como <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/estatico/fraccion/fraccion.htm#La función miembro toString"><EM>toString</EM></A> 
+y definir otras nuevas.</P>
+<P>Para crear un applet, solamente tenemos que definir una clase derivada de la 
+clase base <EM>Applet</EM>, redefinir ciertas funciones como <EM>init</EM> o 
+<EM>paint</EM>, o definir otras como las respuestas a las acciones sobre los 
+controles.</P>
+<P>Los programadores crean clases base: 
+<OL>
+  <LI>Cuando se dan cuenta que diversos tipos tienen algo en común, por ejemplo 
+  en el juego del ajedrez peones, alfiles, rey, reina, caballos y torres, son 
+  piezas del juego. Creamos, por tanto, una clase base y derivamos cada pieza 
+  individual a partir de dicha clase base.<BR>
+  <LI>Cuando se precisa ampliar la funcionalidad de un programa sin tener que 
+  modificar el código existente. </LI></OL>
+<P>&nbsp;</P>
+<H2><A name="La clase base">La clase base</A></H2>
+<P><IMG height=32 alt="disco.gif (1035 bytes)" 
+src="La clase base y la clase derivada_archivos/disco.gif" width=32 
+align=middle><STRONG>ventana</STRONG>: <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/herencia/ventana/Ventana.java">Ventana.java</A>, 
+<A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/herencia/ventana/VentanaTitulo.java">VentanaTitulo.java</A>, 
+<A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/herencia/ventana/VentanaApp.java">VentanaApp.java</A></P>
+<P>Vamos a poner un ejemplo del segundo tipo, que simule la utilización de 
+liberías de clases para crear un interfaz gráfico de usuario como Windows 3.1 o 
+Windows 95.</P>
+<P>Supongamos que tenemos una clase que describe la conducta de una ventana muy 
+simple, aquella que no dispone de título en la parte superior, por tanto no 
+puede desplazarse, pero si cambiar de tamaño actuando con el ratón en los bordes 
+derecho e inferior.</P>
+<P>La clase <EM>Ventana</EM> tendrá los siguientes miembros dato: la posición 
+<EM>x</EM> e <EM>y</EM> de la ventana, de su esquina superior izquierda y las 
+dimensiones de la ventana: <EM>ancho</EM> y <EM>alto</EM>. </P><PRE>public class Ventana {
+    protected int x;
+    protected int y;
+    protected int ancho;
+    protected int alto;
+    public Ventana(int x, int y, int ancho, int alto) {
+        this.x=x;
+        this.y=y;
+        this.ancho=ancho;
+        this.alto=alto;
+    }
+//...
+} </PRE>
+<P>Las funciones miembros, además del constructor serán las siguientes: la 
+función <EM>mostrar</EM> que simula una ventana en un entorno gráfico, aquí 
+solamente nos muestra la posición y las dimensiones de la ventana.</P><PRE>    public void mostrar(){
+        System.out.println("posición    : x="+x+", y="+y);
+        System.out.println("dimensiones : w="+ancho+", h="+alto);
+    }</PRE>
+<P>La función <EM>cambiarDimension</EM>es que simula el cambio en la anchura y 
+altura de la ventana.</P><PRE>    public void cambiarDimensiones(int dw, int dh){
+        ancho+=dw;
+        alto+=dh;
+    }</PRE>
+<P>El código completo de la clase base <EM>Ventana</EM>, es el siguiente</P>
+<TABLE cellSpacing=0 width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="100%" bgColor=#f7f7f7><PRE>package ventana;
+
+public class Ventana {
+    protected int x;
+    protected int y;
+    protected int ancho;
+    protected int alto;
+    public Ventana(int x, int y, int ancho, int alto) {
+        this.x=x;
+        this.y=y;
+        this.ancho=ancho;
+        this.alto=alto;
+    }
+    public void mostrar(){
+        System.out.println("posición    : x="+x+", y="+y);
+        System.out.println("dimensiones : w="+ancho+", h="+alto);
+    }
+    public void cambiarDimensiones(int dw, int dh){
+        ancho+=dw;
+        alto+=dh;
+    }
+}</PRE></TD></TR></TBODY></TABLE>
+<P>&nbsp;</P>
+<H3>Objetos de la clase base</H3>
+<P>Como vemos en el código, el constructor de la clase base inicializa los 
+cuatro miembros dato. Llamamos al constructor creando un objeto de la clase 
+<EM>Ventana</EM></P><PRE>	Ventana ventana=new Ventana(0, 0, 20, 30);</PRE>
+<P>Desde el objeto <EM>ventana</EM> podemos llamar a las funciones miembro 
+públicas</P><PRE>	ventana.mostrar();
+	ventana.cambiarDimensiones(10, 10);
+	ventana.mostrar();</PRE>
+<P>&nbsp;</P>
+<H2><A name="La clase derivada">La clase derivada</A></H2>
+<TABLE width="100%">
+  <TBODY>
+  <TR>
+    <TD width="22%"><IMG height=142 alt="jerarquia.gif (954 bytes)" 
+      src="La clase base y la clase derivada_archivos/jerarquia.gif" 
+    width=165></TD>
+    <TD width="78%">Incrementamos la funcionalidad de la clase 
+      <EM>Ventana</EM> definiendo una clase derivada denominada 
+      <EM>VentanaTitulo</EM>. Los objetos de dicha clase tendrán todas las 
+      características de los objetos de la clase base, pero además tendrán un 
+      título, y se podran desplazar (se simula el desplazamiento de una ventana 
+      con el ratón). 
+      <P>&nbsp;</P></TD></TR></TBODY></TABLE>
+<P>La clase derivada heredará los miembros dato de la clase base y las funciones 
+miembro, y tendrá un miembro dato más, el título de la ventana.</P><PRE>public class VentanaTitulo <STRONG>extends</STRONG> Ventana{
+    protected String titulo;
+    public VentanaTitulo(int x, int y, int w, int h, String nombre) {
+        super(x, y, w, h);
+        titulo=nombre;
+    }</PRE>
+<P><STRONG>extends</STRONG> es la palabra reservada que indica que la clase 
+<EM>VentanaTitulo</EM> deriva, o es una subclase, de la clase 
+<EM>Ventana</EM>.</P>
+<P>La primera sentencia del constructor de la clase derivada es una llamada al 
+constructor de la clase base mediante la palabra reservada 
+<STRONG>super</STRONG>. La llamada </P><PRE>       super(x, y, w, h); </PRE>
+<P>inicializa los cuatro miembros dato de la clase base <EM>Ventana</EM>: 
+<EM>x</EM>, <EM>y</EM>, <EM>ancho</EM>, <EM>alto</EM>. A continuación, se 
+inicializa los miembros dato de la clase derivada, y se realizan las tareas de 
+inicialización que sean necesarias. Si no se llama explícitamente al constructor 
+de la clase base Java lo realiza por nosotros, llamando al constructor por 
+defecto si existe. </P>
+<P>La función miembro denominada <EM>desplazar</EM> cambia la posición de la 
+ventana, añadiéndoles el desplazamiento.</P><PRE>    public void desplazar(int dx, int dy){
+        x+=dx;
+        y+=dy;
+    }</PRE>
+<P>Redefine la función miembro <EM>mostrar</EM> para mostrar una ventana con un 
+título.</P><PRE>   public void mostrar(){
+        super.mostrar();
+        System.out.println("titulo     : "+titulo);
+    }</PRE>
+<P>En la clase derivada se define una función que tiene el mismo nombre y los 
+mismos parámetros que la de la clase base. Se dice que redefinimos la función 
+<EM>mostrar</EM> en la clase derivada. La función miembro <EM>mostrar</EM> de la 
+clase derivada <EM>VentanaTitulo</EM> hace una llamada a la función 
+<EM>mostrar</EM> de la clase base <EM>Ventana</EM>, mediante</P><PRE>       super.mostrar(); </PRE>
+<P>De este modo aprovechamos el código ya escrito, y le añadimos el código que 
+describe la nueva funcionalidad de la ventana por ejemplo, que muestre el 
+título.</P>
+<P>Si nos olvidamos de poner la palabra reservada <STRONG>super</STRONG> 
+llamando a la función <EM>mostrar</EM>, tendríamos una función recursiva. La 
+función <EM>mostrar</EM> llamaría a <EM>mostrar</EM> indefinidamente.</P><PRE>    public void mostrar(){ //¡ojo!, función recursiva
+        System.out.println("titulo     : "+titulo);
+        mostrar();
+    }</PRE>
+<P>La definición de la clase derivada <EM>VentanaTitulo</EM>, será la 
+siguiente.</P>
+<TABLE cellSpacing=0 width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="100%" bgColor=#f7f7f7><PRE>package ventana;
+
+public class VentanaTitulo extends Ventana{
+    protected String titulo;
+    public VentanaTitulo(int x, int y, int w, int h, String nombre) {
+        super(x, y, w, h);
+        titulo=nombre;
+    }
+    public void mostrar(){
+        super.mostrar();
+        System.out.println("titulo     : "+titulo);
+    }
+    public void desplazar(int dx, int dy){
+        x+=dx;
+        y+=dy;
+    }
+}</PRE></TD></TR></TBODY></TABLE>
+<P>&nbsp;</P>
+<H3>Objetos de la clase derivada</H3>
+<P>Creamos un objeto <EM>ventana</EM> de la clase derivada 
+<EM>VentanaTitulo</EM></P><PRE>       	VentanaTitulo ventana=new VentanaTitulo(0, 0, 20, 30, "Principal");</PRE>
+<P>Mostramos la ventana con su título, llamando a la función <EM>mostrar</EM>, 
+redefinida en la clase derivada</P><PRE>        ventana.mostrar();</PRE>
+<P>Desde el objeto <EM>ventana</EM>&nbsp; de la clase derivada llamamos a las 
+funciones miembro definidas en dicha clase</P><PRE>  	ventana.desplazar(4, 3);</PRE>
+<P>Desde el objeto <EM>ventana</EM> de la clase derivada podemos llamar a las 
+funciones miembro definidas en la clase base.</P><PRE>        ventana.cambiarDimensiones(10, -5);</PRE>
+<P>Para mostrar la nueva ventana desplazada y cambiada de tamaño escribimos</P><PRE>        ventana.mostrar();
+</PRE>
+<P>&nbsp;</P>
+<H2><A name="Controles de acceso">Modificadores de acceso</A></H2>
+<P>Ya hemos visto el significado de los <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/estatico/fraccion/fraccion.htm#Controles de acceso">modificadores 
+de acceso</A> <STRONG>public</STRONG> y <STRONG>private</STRONG>, así como el 
+control de acceso por defecto a nivel de paquete, cuando no se especifica nada. 
+En la herencia, surge un nuevo control de acceso denominado 
+<STRONG>protected</STRONG>. </P>
+<P>Hemos puesto <STRONG>protected</STRONG> delante de los miebros dato 
+<EM>x</EM> e <EM>y</EM> de la clase base <EM>Ventana</EM></P><PRE>public class Ventana {
+    protected int x;
+    protected int y;
+//...
+}</PRE>
+<P>En la clase derivada la función miembro <EM>desplazar</EM> accede a dichos 
+miembros dato</P><PRE>public class VentanaTitulo extends Ventana{
+//...
+    public void desplazar(int dx, int dy){
+        x+=dx;
+        y+=dy;
+    }
+}</PRE>
+<P>Si cambiamos el modificador de acceso de los miembros <EM>x</EM> e <EM>y</EM> 
+de la clase base <EM>Ventana</EM> de <STRONG>protected</STRONG> a 
+<STRONG>private</STRONG>,<EM> </EM>veremos que el compilador se queja diciendo 
+que los miembro <EM>x</EM> e y no son accesibles.</P>
+<P>Los miembros <EM>ancho</EM> y <EM>alto</EM> se pueden poner con acceso 
+<STRONG>private</STRONG> sin embargo, es mejor dejarlos como 
+<STRONG>protected</STRONG> ya que podrían ser utilizados por alguna función 
+miembro de otra clase derivada de <EM>VentanaTitulo</EM>. Dentro de una 
+jerarquía pondremos un miembro con acceso <STRONG>private</STRONG>, si estamos 
+seguros de que dicho miembro solamente va a ser usado por dicha clase. </P>
+<P>Como vemos hay cuatro modificadores de acceso a los miembros dato y a los 
+métodos: <STRONG>private</STRONG>, <STRONG>protected</STRONG>, 
+<STRONG>public</STRONG> y <STRONG>default</STRONG> (por defecto, o en ausencia 
+de cualquier modificador). La herencia complica aún más el problema de acceso, 
+ya que las clases dentro del mismo paquete tienen diferentes accesos que las 
+clases de distinto paquete</P>
+<P>Los siguientes cuadros tratan de aclarar este problema</P>
+<TABLE cellSpacing=0 width="51%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="100%" colSpan=3>
+      <H4>Clases dentro del mismo paquete</H4></TD></TR>
+  <TR>
+    <TD width="60%"><STRONG>Modificador de acceso</STRONG></TD>
+    <TD width="26%">
+      <P align=center><STRONG>Heredado</STRONG></P></TD>
+    <TD width="30%">
+      <P align=center><STRONG>Accesible</STRONG></P></TD></TR>
+  <TR>
+    <TD width="60%">Por defecto (sin modificador)</TD>
+    <TD align=middle width="26%">Si</TD>
+    <TD align=middle width="30%">Si</TD></TR>
+  <TR>
+    <TD width="60%">private</TD>
+    <TD align=middle width="26%">No</TD>
+    <TD align=middle width="30%">No</TD></TR>
+  <TR>
+    <TD width="60%">protected</TD>
+    <TD align=middle width="26%">Si</TD>
+    <TD align=middle width="30%">Si</TD></TR>
+  <TR>
+    <TD width="60%">public</TD>
+    <TD align=middle width="26%">Si</TD>
+    <TD align=middle width="30%">Si</TD></TR></TBODY></TABLE>
+<P>&nbsp;</P>
+<TABLE cellSpacing=0 width="51%" border=1>
+  <TBODY>
+  <TR>
+    <TD width="100%" colSpan=3>
+      <H4>Clases en distintos paquetes</H4></TD></TR>
+  <TR>
+    <TD width="60%"><STRONG>Modificador de acceso</STRONG></TD>
+    <TD width="26%">
+      <P align=center><STRONG>Heredado</STRONG></P></TD>
+    <TD width="30%">
+      <P align=center><STRONG>Accesible</STRONG></P></TD></TR>
+  <TR>
+    <TD width="60%">Por defecto (sin modificador)</TD>
+    <TD align=middle width="26%">No</TD>
+    <TD align=middle width="30%">No</TD></TR>
+  <TR>
+    <TD width="60%">private</TD>
+    <TD align=middle width="26%">No</TD>
+    <TD align=middle width="30%">No</TD></TR>
+  <TR>
+    <TD width="60%">protected</TD>
+    <TD align=middle width="26%">Si</TD>
+    <TD align=middle width="30%">No</TD></TR>
+  <TR>
+    <TD width="60%">public</TD>
+    <TD align=middle width="26%">Si</TD>
+    <TD align=middle width="30%">Si</TD></TR></TBODY></TABLE>
+<P>Desde el punto de vista práctico, cabe reseñar que no se heredan los miembros 
+privados, ni aquellos miembros (dato o función) cuyo nombre sea el mismo en la 
+clase base y en la clase derivada.</P>
+<P>&nbsp;</P>
+<H2><A name="La clase base Object">La clase base <EM>Object</EM></A></H2>
+<P>La clase <EM>Object</EM> es la clase raíz de la cual derivan todas las 
+clases. Esta derivación es implícita. </P>
+<P>La clase <EM>Object</EM> define una serie de funciones miembro que heredan 
+todas las clases. Las más importantes son las siguientes</P><PRE>public class Object {
+    public boolean equals(Object obj) {
+	return (this == obj);
+    }
+    protected native Object clone() throws CloneNotSupportedException;
+    public String toString() {
+	return getClass().getName() + "@" + Integer.toHexString(hashCode());
+    }
+   protected void finalize() throws Throwable { }
+//otras funciones miembro...
+}
+</PRE>
+<P><STRONG>Igualdad de dos objetos:</STRONG></P>
+<P>Hemos visto que el método <EM><A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/string.htm#Comparación de strings">equals</A></EM> 
+de la clase <EM>String</EM> cuando compara un string y cualquier otro objeto. El 
+método <EM>equals</EM> de la clase <EM>Object</EM> compara dos objetos uno que 
+llama a la función y otro es el argumento de dicha función.<BR></P>
+<P><STRONG>Representación en forma de texto de un objeto</STRONG></P>
+<P>El método <EM>toString</EM> imprime por defecto el nombre de la clase a la 
+que pertenece el objeto y su código (hash). Esta función miembro se redefine en 
+la clase derivada para mostrar la información que nos interese acerca del 
+objeto. La <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/estatico/fraccion/fraccion.htm#La función miembro toString">clase 
+<EM>Fraccion</EM></A> redefine <EM>toString</EM> para mostrar el numerador y el 
+denominador separados por la barra de dividir. En la misma página, hemos <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/estatico/fraccion/fraccion.htm#Mejora de la clase Lista">mejorado 
+la clase <EM>Lista</EM> </A>para mostrar los datos que se guardan en los objetos 
+de dicha clase, redefiniendo <EM>toString</EM>.</P>
+<P>La función <EM>toString</EM> se llama automáticamente siempre que pongamos un 
+objeto como argumento de la función <EM>System.out.println</EM> o concatenado 
+con otro string.</P>
+<P><STRONG>Duplicación de objetos</STRONG></P>
+<P>El <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clonico/clonico1.htm#Duplicación de un objeto simple">método 
+<EM>clone</EM> crea un objeto duplicado</A> (clónico) de otro objeto. Más 
+adelante estudiremos en detalle la redefinición de esta función miembro y 
+pondremos ejemplos que nos muestren su utilidad.<BR></P>
+<P><STRONG>Finalización</STRONG></P>
+<P>El método <EM>finalize</EM> se llama cuando va a ser <A 
+href="http://www.sc.ehu.es/sbweb/fisica/cursoJava/fundamentos/clases1/clases.htm#La vida de un objeto">liberada 
+la memoria que ocupa el objeto</A> por el recolector de basura (garbage 
+collector). Normalmente, no es necesario redefinir este método en las clases, 
+solamente en contados casos especiales. La forma en la que se redefine este 
+método es el siguiente.</P><PRE>class CualquierClase{
+	//..</PRE><PRE>	protected void finalize() trows Throwable{
+		super.finalize(); 
+		//código que libera recursos externos
+	}
+}</PRE>
+<P>La primera sentencia que contenga la redefinición de <EM>finalize</EM> ha de 
+ser una llamada a la función del mismo nombre de la clase base, y a continuación 
+le añadimos cierta funcionalidad, habitualmente, la liberación de recursos, 
+cerrar un archivo, etc.</P>
+<P>&nbsp;</P></BODY></HTML>

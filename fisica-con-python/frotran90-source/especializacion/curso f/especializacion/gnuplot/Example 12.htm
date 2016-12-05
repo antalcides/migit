@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0082)http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_2.html -->
+<HTML><HEAD><TITLE>Example 2:</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY background="Example 12_archivos/summer_p.gif">
+<P>
+<HR>
+<A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_3.html" 
+name=tex2html69><IMG src="Example 12_archivos/next_motif.gif" align=middle></A> 
+<A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/section3_2.html" 
+name=tex2html67><IMG src="Example 12_archivos/up_motif.gif" align=middle></A> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_1.html" 
+name=tex2html61><IMG src="Example 12_archivos/previous_motif.gif" 
+align=middle></A> <BR><B>Next:</B> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_3.html" 
+name=tex2html70>Example 3:</A> <B>Up:</B> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/section3_2.html" 
+name=tex2html68>Using GNUPLOT for </A><B>Previous:</B> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_1.html" 
+name=tex2html62>Example 1:</A> 
+<HR>
+
+<P>
+<H4><A name=SECTION0002002000000000000>Example 2:</A></H4>Now we will embellish 
+the plot a little with some labels. This input file produces Figure <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_2.html#eg2">2</A>. 
+
+<P><PRE><TT>
+    set terminal latex
+    set output "eg2.tex"
+    set size 5/5., 4/3.
+    set format xy "$%g$"
+    set title "This is a plot of $y=sin(x)$"
+    set xlabel "This is the $x$ axis"
+    set ylabel "This is\\ the\\ $y$ axis"
+    plot [0:6.28] [0:1] sin(x)</TT></PRE>
+<P><A name=6601><IMG src="Example 12_archivos/invis_anchor.xbm" 
+align=middle></A>
+<P><A name=eg2><IMG src="Example 12_archivos/invis_anchor.xbm" 
+align=middle></A><IMG alt="" src="Example 12_archivos/_9659_figure6199.gif" 
+align=bottom>
+<P>
+<P>We have specified the plot to be 5 inches wide and 4 inches tall with the 
+<TT>set size</TT> command. This is the size of the area used by the plot, 
+<EM>including</EM> space for the labels. In the first example, this size was the 
+default 5 inches by 3 inches. By specifying the scaling factors of 1 (or 5/5) 
+and 1.3333 (or 4/3), we obtain the desired plot size. 
+<P>We have requested that the format used by the <IMG alt="" 
+src="Example 12_archivos/_9659_tex2html_wrap11744.xbm" align=bottom>- and <IMG 
+alt="" src="Example 12_archivos/_9659_tex2html_wrap11596.xbm" align=bottom>-axis 
+tic mark labels be in <IMG alt="" 
+src="Example 12_archivos/_9659_tex2html_wrap11982.xbm" align=bottom> math mode. 
+This makes the labels look a little better. The default is set format xy "%g". 
+The %g represents the general-purpose floating point formatting specification 
+for the <TT>printf</TT> function in C. Any valid floating-point formatting 
+specification, or <IMG alt="" 
+src="Example 12_archivos/_9659_tex2html_wrap11982.xbm" align=bottom> command, is 
+allowed in the format. 
+<P>A title for the plot and labels for the axes were set up in the next three 
+commands. Note that they are processed by <IMG alt="" 
+src="Example 12_archivos/_9659_tex2html_wrap11982.xbm" align=bottom> and so may 
+have math mode and other symbols in them. The ylabel may have multiple lines, 
+delineated with \\ . The ylabel can be moved around with optional offset 
+parameters (see <TT>set ylabel</TT> in the GNUPLOT manual). Typically, the 
+ylabel needs to be moved to the left to avoid interfering with the left-hand 
+side of the plot. Once these labels are set up, they will be used for all 
+subsequent plot commands until they are changed. These labels are also supported 
+by the other terminal types, but (of course) any <IMG alt="" 
+src="Example 12_archivos/_9659_tex2html_wrap11982.xbm" align=bottom> code in the 
+string will not be interpreted. We have also defined the range of both <IMG 
+alt="" src="Example 12_archivos/_9659_tex2html_wrap11744.xbm" align=bottom> (now 
+<IMG alt="" src="Example 12_archivos/_9659_tex2html_wrap11600.xbm" 
+align=bottom>) and <IMG alt="" 
+src="Example 12_archivos/_9659_tex2html_wrap11596.xbm" align=bottom> (here <IMG 
+alt="" src="Example 12_archivos/_9659_tex2html_wrap11604.xbm" align=bottom>). 
+<P>So far we have plotted one curve, <IMG alt="" 
+src="Example 12_archivos/_9659_tex2html_wrap11544.xbm" align=bottom>, on one 
+plot. In GNUPLOT, each <TT>plot</TT> command generates a new plot. If the output 
+is to a screen, the screen is cleared. If to a printer, a new page is produced. 
+In the <TT>latex</TT> case, a new picture is started. It is not likely that <IMG 
+alt="" src="Example 12_archivos/_9659_tex2html_wrap11982.xbm" align=bottom> 
+users will want this to happen, so generally each plot has its own input file 
+and is kept in a separate output (<TT>.tex</TT>) file for inclusion at different 
+places in the document. 
+<P>
+<HR>
+<A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_3.html" 
+name=tex2html69><IMG src="Example 12_archivos/next_motif.gif" align=middle></A> 
+<A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/section3_2.html" 
+name=tex2html67><IMG src="Example 12_archivos/up_motif.gif" align=middle></A> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_1.html" 
+name=tex2html61><IMG src="Example 12_archivos/previous_motif.gif" 
+align=middle></A> <BR><B>Next:</B> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_3.html" 
+name=tex2html70>Example 3:</A> <B>Up:</B> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/section3_2.html" 
+name=tex2html68>Using GNUPLOT for </A><B>Previous:</B> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_1.html" 
+name=tex2html62>Example 1:</A> 
+<HR>
+
+<P>
+<HR>
+
+<P>
+<ADDRESS>David.Kotz@dartmouth.edu </ADDRESS></BODY></HTML>

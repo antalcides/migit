@@ -1,0 +1,20 @@
+package ecuacion1;
+
+public class EcuacionApp1 {
+    public static void main(String[] args) {
+
+//primera función
+        Ecuacion e=new Funcion1();
+        System.out.println("solución1 "+e.raiz(0.5));
+        System.out.println("solución1 "+e.raiz(0.9));
+//segunda función
+        e=new Funcion2();
+        System.out.println("solución2 "+e.raiz(2.1));
+
+        try  {
+//espera la pulsación de una tecla y luego RETORNO
+            System.in.read();
+        }catch (Exception ex) {  }
+    }
+}
+

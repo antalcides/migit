@@ -1,0 +1,111 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 0.8.3 ] */
+
+/* [wxMaxima: comment start ]
+José Luis da Vila Alonso, 2009)
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: title   start ]
+Interpolación: Diferencias Divididas de Newton
+   [wxMaxima: title   end   ] */
+
+/* [wxMaxima: comment start ]
+Entrada:     Introduce los datos en la matriz "datos". 
+             x0: punto donde estimar el valor de la función
+
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+datos:matrix([1,2],[2,1],[5,3],[-1,1],[3,2]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+x0:0;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Hallamos la tabla de diferencias divididas
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+n:length(datos);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+tabla:copymatrix(datos);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+for i:1 thru n-1 do (
+    tabla:addcol(tabla,zeromatrix(n,1)),
+    for j:1 thru n-i do (
+         tabla[j,i+2]:(tabla[j+1,i+1]-tabla[j,i+1])/(tabla[j+i,1]-tabla[j,1])
+    )
+);
+tabla;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Hallamos el polinomio interpolador
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+sum:0;
+for i:1 thru n do (
+    suma2:1,
+    for j:1 thru i-1 do(
+        suma2:suma2*(x-tabla[j,1])
+    ),
+    sum:sum+tabla[1,i+1]*suma2
+);
+poli(x):=''sum;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+expand(poli(x));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Gráfica
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+xmin:lmin(create_list(datos[i,1],i,1,length(datos)));
+xmax:lmax(create_list(datos[i,1],i,1,length(datos)));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+load(draw);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+draw2d(
+        title  = "Diferencias Divididas de Newton",
+        grid   = true,
+        color      = blue,
+        key        = "Polinomio interpolador",
+        explicit(poli(x),x,min(xmin,x0)-1,max(xmax,x0)+1),
+        yrange = [-2,10],
+        point_size = 1,
+        point_type = 7,
+        color      = red,
+        key        = "Puntos de muestra",
+        points(datos),
+        point_size = 2,
+        point_type = 7,
+        color      = green,
+        key        = "Estimación",
+        points([[x0,poli(x0)]])
+)$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Estimación para x = x0
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+box(float(poli(x0)));
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

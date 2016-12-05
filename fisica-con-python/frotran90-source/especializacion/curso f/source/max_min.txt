@@ -1,0 +1,28 @@
+C     PROGRAMA QUE INVESTIGA EL MAXIMO Y EL MINIMO ELEMENTOS DE UNA MATRIZ
+      integer*2 c,d
+      real*4 a(100,100),max,min
+      write(*,*) 'Dame las dimensiones de la matriz m,n:'
+      read(*,*) m,n
+      do 10 c=1,m
+      do 20 d=1,n
+      write(*,*) 'Dame el valor de a(',c,',',d,')'
+      read(*,*) a(c,d)
+   20 continue
+   10 continue
+      max=a(1,1)
+      min=max
+      do 30 i=1,m
+      do 40 j=1,n
+      if (a(i,j).ge.max) then
+      max=a(i,j)
+      else
+      if (a(i,j).lt.min) then
+      min=a(i,j)
+      endif
+      endif
+   40 continue
+   30 continue
+      write(*,*) 'el maximo elemento es ',max
+      write(*,*) 'el minimo elemento es ',min
+      stop
+      end

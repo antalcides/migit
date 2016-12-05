@@ -1,0 +1,961 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\begin_preamble
+% Vista preliminar del cÃ³digo fuente
+
+\input{preamble2}
+\input{composicion-codigo}
+\usepackage{subfloat}\usepackage{morewrites}\usepackage{fancyvrb}
+ \newsavebox{\LstBox}
+ %\graphicspath{ {./img/} }
+ 
+\def\input@path{{./}{./build/}}
+
+ \graphicspath{{./}{./img/}{./build/}}
+ \renewcommand{\baselinestretch}{1.5}
+
+
+\usepackage{babel}
+\addto\shorthandsspanish{\spanishdeactivate{~<>}}
+\end_preamble
+\options svgnames,x11names,x11names,HTML
+\use_default_options false
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding utf8x
+\fontencoding default
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\pdf_quoted_options "pdfpagelayout=OneColumn,pdfnewwindow=true,pdfstartview=XYZ,plainpages=false"
+\papersize default
+\use_geometry false
+\use_amsmath 2
+\use_esint 1
+\use_mhchem 0
+\use_mathdots 0
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language french
+\papercolumns 1
+\papersides 2
+\paperpagestyle headings
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagecolor{white}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+mainmatter
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagestyle
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+headings
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Chapter
+Edición Básica
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+chaptertoc
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{objetivos}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lista}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+item 
+\end_layout
+
+\end_inset
+
+Comprender el esquema básico de funcionamiento de TeX
+\begin_inset space \thinspace{}
+\end_inset
+
+ y LaTeX.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+item 
+\end_layout
+
+\end_inset
+
+Conocer las diferentes salidas que produce LaTeX.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+item 
+\end_layout
+
+\end_inset
+
+Conocer las diferentes herramientas que interactúan con LaTeX.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+item 
+\end_layout
+
+\end_inset
+
+Aprender a instalar LaTeX
+\begin_inset space \thinspace{}
+\end_inset
+
+ en diferentes sistemas.
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lista}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{objetivos}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introducción
+\end_layout
+
+\begin_layout Standard
+A diferencia de un procesador de textos como Writer, con LaTeX tenemos un
+ control más adecuado sobre cualquier aspecto tipográfico del documento.
+\end_layout
+
+\begin_layout Standard
+LaTeX formatea las páginas de acuerdo a la clase de documento especificado
+ por el comando 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinline
+\end_layout
+
+\end_inset
+
++
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+documentclass{}
+\end_layout
+
+\end_inset
+
++, por ejemplo, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinline
+\end_layout
+
+\end_inset
+
++
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+documentclass{report}
+\end_layout
+
+\end_inset
+
++ formatea el documento de tal forma que el producto es un documento con
+ formato de artículo.
+\end_layout
+
+\begin_layout Standard
+Un documento LaTeX puede tener texto ordinario junto con texto en modo matemátic
+o.
+ Los comandos vienen precedidos por el símbolo “
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinline
+\end_layout
+
+\end_inset
+
++
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
++
+\end_layout
+
+\end_inset
+
+ ” (barra invertida).
+\end_layout
+
+\begin_layout Standard
+Hay comandos que funcionan en modo texto y hay comandos que solo funcionan
+ en modo matemático, pero para escribir en modo matemático hay varios entornos
+ el más común es el entorno delimitado por dos signos de dólar (
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinline
+\end_layout
+
+\end_inset
+
++
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$...$
+\end_layout
+
+\end_inset
+
++) .
+\end_layout
+
+\begin_layout Section
+Ordenes en TeX
+\begin_inset space \thinspace{}
+\end_inset
+
+ y LaTeX:
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\blacklozenge$
+\end_inset
+
+ Comienzan por una barra invertida: (( 
+\begin_inset Formula $\backslash$
+\end_inset
+
+)) 
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\blacklozenge$
+\end_inset
+
+ Distinguen mayúsculas y minúsculas 
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\blacklozenge$
+\end_inset
+
+ Dos tipos:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+1.
+ sólo con letras (pueden ser varias)
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+2.
+ con carácter especial (uno sólo) 
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\blacklozenge$
+\end_inset
+
+ TeX
+\begin_inset space \thinspace{}
+\end_inset
+
+ ignora los espacios en blanco justo después de un mandato: para tenerlos
+ en cuenta, escribir 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinline
+\end_layout
+
+\end_inset
+
++
+\begin_inset space \thinspace{}
+\end_inset
+
++ 
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\blacklozenge$
+\end_inset
+
+ Parámetros: [opcionales] y {obligatorios} , es decir 
+\end_layout
+
+\begin_layout Subsection
+Ejemplos de comandos
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\spadesuit$
+\end_inset
+
+ Comentarios: a partir de signo %, son ignorados 
+\end_layout
+
+\begin_layout Standard
+Veamos algunas ordenes: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinline
+\end_layout
+
+\end_inset
+
++TeXLaTeX+ Como podemos observar los dos logos aparecen juntos 
+\begin_inset Newline newline
+\end_inset
+
+ TeXLaTeX
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%  
+\backslash
+
+\backslash
+es una orden de tipo 2
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+para que se separen debemos colocar un comando de indique el espacio, por
+ ejemplo un espacio normal
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinline
+\end_layout
+
+\end_inset
+
++TeX
+\begin_inset space \thinspace{}
+\end_inset
+
+LaTeX
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+[2ex]
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+today
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+[4ex]
+\end_layout
+
+\end_inset
+
++
+\end_layout
+
+\begin_layout Standard
+TeX
+\begin_inset space \thinspace{}
+\end_inset
+
+LaTeX
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+[2ex]
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+today
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+[4ex]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinline
+\end_layout
+
+\end_inset
+
++
+\series bold
+texto resaltado
+\series default
++
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+texto resaltado
+\end_layout
+
+\begin_layout Subsection
+Caracteres especiales
+\end_layout
+
+\begin_layout Standard
+Los caracteres con un significado especial, si se desean transcribir hay
+ que indicarlo de alguna manera: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\$\&\%\#\_\{\}\verb+~^{\+}\end{verbatim}\section{Miprimerdocumento}\subsection{Estructuradeunficherodeentrada}Cuando\LaTeXe{}procesaunficherodeentrada,esperade\'elquesigaunadeterminada\wi{estructura}.Todoficherodeentradadebecomenzarconlaorden\begin{code}\lstinline+\documentclass{...}+\end{code}Estoindicaqu\'etipodedocumentoeselquesepretendecrear.Trasesto,sepuedenincluir\'ordenesqueinfluir\'ansobreelestilodeldocumentoentero,opuedecargar\wi{paquete}squea~nadir\'annuevaspropiedadesalsistemade\LaTeX.Paracargarunodeestospaquetesseusar\'alainstrucci\'on\begin{code}\lstinline+\usepackage{...}+\end{code}Cuandotodoeltrabajodeconfiguraci\'onest'erealizado\footnote{El\'areaentre\texttt{\bs documentclass}y\texttt{\bs begin\ensuremath{\mathtt{\{}}document\ensuremath{\mathtt{\}}}}sellama\emph{\wi{preámbulo}}.}entoncescomienzaelcuerpodeltextoconlainstrucci\'on\begin{code}\lstinline|\begin{document}|\end{document}Apartirdeentoncesseintroducir\'aeltextomezcladoconalgunasinstrucciones\'utilesde\LaTeX.Alfinalizareldocumentodebeponerselaorden\begin{code}\lstinline|\end{code}|\end{code}LaTeX{}ingorar\'acualquiercosaquesepongatrasestainstrucci\'on.Lafigura~\ref{mini}muestraelcontenidom\'inimodeunficherode\LaTeXe.Enlafigura~\ref{document}seexponeun\wi{ficherodeentrada}algom\'ascomplejo.Ejemploparaunart\'iculocient\'ificoenespañol\begin{problema}\documentclass[a4paper,11pt]{article}\usepackage{latexsym}\usepackage[activeacute,spanish]{babel}\author{H.~Partl}\title{Minimizando}\frenchspacing\begin{document}\maketitle\tableofcontents\section{Inicio}Bien\ ldots{}yaqu\'icomienzamiart\'iculotanestupendo.\section{Fin}\ldots{}yaqu\'iacaba.\end{document}\end{problema}\section{Elformatodeldocumento}\subsection{Clasesdedocumentos}Cuandoprocesaunficherodeentrada,loprimeroquenecesitasaber\LaTeX{}eseltipodedocumentoqueelautorquierecrear.Estoseindicaconlainstrucci\'on\ci{documentclass}.\begin{command}\ci{documentclass}\ \lstinline+{opciones}{clase}+\end{command}\noindent Enestecaso,la\emph{clase}indicaeltipodedocumentoquecrear\'a.Enlatabla~\ref{documentclasses}semuestranlasclasesdedocumentoqueseexplicanenestaintroducci\'on.Ladistribuci\'onde\LaTeXe{}roporcionam\'asclasesparaotrosdocumentos,comocartasytransparencias.Elpar\'ametrode\emph{\wi{opciones}}personalizaelcomportamientodelaclasededocumentoelegida.Lasopcionessedebensepararconcomas.Enlatabla~\ref{options}seindicanlasopcionesm\'ascomunesdelasclasesdedocumentoest\'andares.\begin{table}[!bp]\caption{Clasesdedocumentos}\label{documentclasses}\begin{description}\item[\normalfont\texttt{article}]paraart\'iculosderevistasespecializadas,ponencias,trabajosdepr\'acticasdeformaci\'on,trabajosdeseminarios,informespeque'nos,solicitudes,dict\'amenes,descripcionesdeprogramas,invitacionesymuchosotros.\index{articulo@art\'iculo}\index{clase\texttt{article}@clasearticle}\item[\normalfont\texttt{report}]parainformesmayoresqueconstandem\'asdeuncap\'itulo,proyectosfindecarrera,tesisdoctorales,librospeque'nos,disertaciones,guionesysimilares.\index{informe}\index{clase\texttt{report}@clasereport}\item[\normalfont\texttt{book}]paralibrosdeverdad\index{libro}\index{clase\texttt{book}@clasebook}\item[\normalfont\texttt{slide}]paratransparencias.Estaclaseempleatiposgrandes\textsf{sans serif}.\index{transparencias}\index{clase\texttt{slide}@claseslide}\end{description}\end{table}\begin{table}[!bp]\caption{Opcionesdeclasesdedocumento}\label{options}\begin{flushleft}\begin{description}\item[\normalfont\texttt{10pt},\texttt{11pt},\texttt{12pt}]\quad Estableceneltama~no(cuerpo)paralostipos.Sinoseespecificaningunaopci\'on,setoma\texttt{10pt}.\index{tama~nodelostipos!deldocumento}\item[\normalfont\texttt{a4paper},\texttt{letterpaper},\ldots]\quad Defineeltama~nodelpapel.Sinoseindicanada,setoma\texttt{letterpaper}.Apartede\end{description}\end{flushleft}\end{table}Porejemplo:unficherodeentradaparaundocumentode\LaTeX{}podr\'iacomenzarcon\begin{code}\ci{documentclass}\verb|[11pt,twoside,a4paper]{article}|\end{code}Estoleindicaa\LaTeX{}quecompongaeldocumentocomoun\emph{art\'iculo}utilizandotiposdelcuerpo11,yqueproduzcaunformatoparaimpresi\'ona\emph{doble cara}en\emph{papel DIN-A4}.\pagebreak[2]\subsection{Paquetes}\index{paquete}Mientrasescribesudocumento,probablementeseencontrar\'aensituacionesdondeel\LaTeX{}b\'asiconobastaparasolucionarsuproblema.Sideseaincluir\wi{gr\'aficos}\wi{textoencolor}oelc\'odigofuentedeunfichero,necesitamejorarlascapacidadesde\LaTeX.Talesmejorasserealizanconayudadelosllamados\emph{paquetes.}Lospaquetesseactivanconlaorden\begin{command}\ci{usepackage}\verb|[|\emph{opciones}\verb|]{|\emph{paquete}\verb|}|\end{command}\noindent donde\emph{paquete}eselnombredelpaquetey\emph{opciones}esunalistapalabrasclavequeactivanfuncionesespecialesdelpaquete,alasque\LaTeX{}lesa~nadelasopcionesquepreviamentesehayanindicadoenlaorden\verb|\documentclass|.Algunospaquetesvienenconladistribuci\'onb\'asicade\LaTeXe{}(v'easelatabla~\ref{packages}).Otrosseproporcionanporseparado.Enla\guia{}puedeencontrarm\'asinformaci\'onsobrelospaquetesdisponiblesensuinstalaci\'onlocal.Lafuenteprincipaldeinformaci\'onsobre\LaTeX{}es\companion.Contienedescripcionesdecientosdepaquetes,as\'icomoinformaci\'onsobrec\'omoescribirsuspropiasextensionesa\LaTeXe.\begin{table}[!hbp]\caption{AlgunospaquetesdistribuidosconLaTeX}\label{packages}\begin{description}\item[\normalfont\pai{doc}]Permiteladocumentaci\'ondepaquetesyotrosficherosde\LaTeX.\end{description}\end{table}\clearpage\subsection{Estilodep\'agina}Con\LaTeX{}existentrescombinacionespredefinidasde\wi{cabeceras}y\wi{piesdep\'agina},alasquesellamanestilosdep\'agina.\index{estilodepagina@estilodep\'agina}Elpar\'ametro\emph{estilo}delainstrucci\'on\index{estilodepagina@estilodep\'agina!plain@\texttt{plain}}\index{plain@\texttt{plain}}\index{estilodepagina@estilodep\'agina!headings@\texttt{headings}}\index{headings@\texttt{headings}}\index{estilodepagina@estilodep\'agina!empty@\texttt{empty}}\index{empty@\texttt{empty}}\begin{command}\ci{pagestyle}\verb|{|\emph{estilo}\verb|}|\end{command}\noindent definecu\'alemplearse.Latabla~\ref{pagestyle}muestralosestilosdep\'aginapredefinidos.\begin{table}[!hbp]\caption{Estilosdep\'aginapredefinidosen\LaTeX}\label{pagestyle}\begin{description}\item[\normalfont\texttt{plain}]imprimelosn\'umerosdep\'aginaenelcentrodelpiedelasp\'aginas.Esteeselestilodep\'aginaquesetomasinoseindicaning\'unotro.\item[\normalfont\texttt{headings}]enlacabeceradecadap\'aginaimprimeelcap\'ituloqueseest\'aprocesandoyeln\'umerodep\'agina,mientrasqueelpieest\'avac\'io.(Esteestiloessimilaralempleadoenestedocumento).\item[\normalfont\texttt{empty}]dejatantolacabeceracomoelpiedelasp\'aginasvac\'ios.\end{description}\end{table}Esposiblecambiarelestilodep\'aginadelap\'aginaactualconlainstrucci\'on\begin{command}\ci{thispagestyle}\verb|{|\emph{estilo}\verb|}|\end{command}En\companion{}hayunadescripci\'ondec\'omocrearsuspropiascabecerasypiesdep\'agina.\section{Proyectosgrandes}Cuandotrabajecondocumentosgrandes,podr\'ia,silodesea,dividirelficherodeentradaenvariaspartes.\LaTeX{}tienedosinstruccionesqueleayudanarealizaresto.\begin{command}\ci{include}\verb|{|\emph{fichero}\verb|}|\end{command}\noindent sepuedeutilizarenelcuerpodeldocumentoparaintroducirelcontenidodeotrofichero.Enestecaso,\LaTeX{}comenzar\'aunap\'aginanuevaantesdeprocesareltextodel\emph{fichero}.Lasegundainstrucci\'ons\'olopuedeserempleadaenelpre\'ambulo.Permiteindicarlea\LaTeX{}ques\'olotomelaentradadealgunosficherosdelosindicadoscon\verb|\include|.\begin{command}\ci{includeonly}\verb|{|\emph{fichero}\verb|,|\emph{fichero}\verb|,|\ldots\verb|}|\end{command}Unavezqueestainstrucci\'onseejecuteenelpre\'ambulodeldocumento,s\'oloseprocesar\'anlasinstrucciones\ci{include}conlosficherosindicadosenelrgumentodelaorden\ci{includeonly}.Observequenohayespaciosentrelosnombresdelosficherosylascomas.\section{resumen}Tododocumentoen\LaTeX est\'{a}compuestodedospartes\begin{description}\item[\end{description}\Diamond$
+\end_inset
+
+] El preambulo :
+\begin_inset Newline newline
+\end_inset
+
+ En esta parte de colocan las ordenes global es para el documento, además
+ de los paquetes de LaTeXque se usarán
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+item 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $Diamond$
+\end_inset
+
+ El Body, este está dividido a su vez entres parte el Front matter, main
+ matter y el back matter Para empezar explicaremos como se diseña un artículo
+ 
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $blacksquare$
+\end_inset
+
+ Se escribe el código 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+documentclass[a4paper]{article}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+usepackage[spanish,activeacute]{babel}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Author
+Pon tu nombre aquí
+\end_layout
+
+\begin_layout Title
+Mi Primer Documento
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{document}
+\end_layout
+
+\end_inset
+
+ Hola .
+ Este es mi primer documento .
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{document}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $blacksquare$
+\end_inset
+
+ Se realiza el proceso de compilación
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+\begin_inset Formula $clubsuit$
+\end_inset
+
+ Compilar: 
+\end_layout
+
+\end_deeper
+\begin_layout Description
+>latex archivo.tex
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+\begin_inset Formula $clubsuit$
+\end_inset
+
+ Pre-visualizar: 
+\end_layout
+
+\end_deeper
+\begin_layout Description
+>xdvi archivo.dvi 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\clubsuit$
+\end_inset
+
+
+\series bold
+Generar Post-Script:
+\series default
+ 
+\end_layout
+
+\begin_layout Description
+>dvips archivo.dvi -o archivo.ps
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+\begin_inset Formula $clubsuit$
+\end_inset
+
+ Imprimir: 
+\end_layout
+
+\end_deeper
+\begin_layout Description
+>lpr -Plaser1sala4 archivo.ps 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename diagrama.png
+	scale 30
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_body
+\end_document

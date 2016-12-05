@@ -1,0 +1,211 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0061)http://garota.fismat.umich.mx/mn1/tutor_fort/subprograms.html -->
+<HTML><HEAD><TITLE>Tutorial de Fortran</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY background="Tutorial de Fortransub_archivos/default.gif">
+<HR>
+&nbsp;[10. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/arrays.html">Arreglos </A>] 
+&nbsp;[<A href="http://fismat.umich.mx/mn1/tutor_fort/index.html">Tutorial de 
+Fortran</A>] &nbsp;[12. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/readwrite.html">Entrada/salida 
+Básica </A>] 
+<HR>
+
+<H2>11. Subprogramas</H2>Cuando un programa tiene más de cien líneas, es difícil 
+de seguir. Los códigos de Fortran que resuelven problemas reales de ingeniería 
+por lo general tienen decenas de miles de líneas. La única forma para manejar 
+códigos tan grandes, es usar una aproximación <EM>modular</EM> y dividir el 
+programa en muchas unidades independientes pequeñas llamadas 
+<EM>subprogramas</EM>. 
+<P>Un subprograma es una pequeña pieza de código que resuelve un subproblema 
+bien definido. En un programa grande, se tiene con frecuencia que resolver el 
+mismo subproblema con diferentes tipos de datos. En vez de replicar el código, 
+estas tareas pueden resolverse con subprogramas. El mismo subprograma puede ser 
+llamado varias veces con distintas entradas de datos. 
+<P>En Fortran se tienen dos tipos diferentes de subprogramas, conocidas como 
+<EM>funciones</EM> y <EM>subrutinas</EM>. 
+<P>
+<H3>Funciones</H3>Las funciones en Fortran son bastante similares a las 
+funciones matemáticas: ambas toman un conjunto de variables de entrada 
+(parámetros) y regresan un valor de algún tipo. Al inicio de la sección se 
+comento de los subprogramas <EM>definidas por el usuario</EM>, pero Fortran 77 
+tiene también funciones <EM>incorporadas</EM>. 
+<P>Un ejemplo simple muestra como usar una función: <PRE>      x = cos(pi/3.0)
+</PRE>En este caso la función coseno <TT>cos</TT> de 60º, asignará a la variable 
+<TT>x</TT> el valor de 0.5 (si <TT>pi</TT> ha sido definido correctamente; 
+Fortran 77 no tiene constantes incorporadas). Hay varias funciones incorporadas 
+en Fortran 77. Algunas de las más comunes son: <PRE>      abs     <EM>valor absoluto</EM>
+      min     <EM>valor mínimo</EM>
+      max     <EM>valor máximo</EM>
+      sqrt    <EM>raíz cuadrada</EM>
+      sin     <EM>seno</EM>
+      cos     <EM>coseno</EM>
+      tan     <EM>tangente</EM>
+      atan    <EM>arco tangente</EM>
+      exp     <EM>exponencial (natural)</EM>
+      log     <EM>logaritmo (natural)</EM>
+</PRE>En general, una función siempre tiene un <EM>tipo</EM>. Varias de las 
+funciones incorporadas mencionadas anteriormente son sin embargo 
+<EM>genéricas</EM>. Por lo tanto en el ejemplo anterior <TT>pi</TT> y <TT>x</TT> 
+podrían ser del tipo <TT>real</TT> o del tipo <TT>double precision</TT>. El 
+compilador revisará los tipos y usará la versión correcto de la función 
+<TT>cos</TT> (real o double precision). Desafortunadamente, Fortran no es un 
+lenguaje <EM>polimórfico</EM>, por lo que en general, el programador debe hacer 
+coincidir los tipos de las variables y las funciones. 
+<P>Se revisa a continuación como implementar las funciones escritas por el 
+usuario. Supongamos el siguiente problema: un meteorólogo ha estudiado los 
+niveles de precipitación en el área de una bahía y ha obtenido un modelo 
+(función) <EM>ll(m,t)</EM> donde <EM>ll</EM> es la cantidad de lluvia, 
+<EM>m</EM> es el mes, y <EM>t</EM> es un parámetro escalar que depende de la 
+localidad. Dada la fórmula para <EM>ll</EM> y el valor de <EM>t</EM>, calcular 
+la precipitación anual 
+<P>La forma obvia de resolver el problema es escribir un ciclo que corra sobre 
+todos los meses y sume los valores de <EM>ll</EM>. Como el cálculo del valor de 
+<EM>ll</EM> es un subproblema independiente, es conveniente implementarlo como 
+una función. El siguiente programa principal puede ser usado: <PRE>      program lluvia
+      real r, t, suma
+      integer m
+ 
+      read (*,*) t
+      suma = 0.0
+      do m = 1, 12
+         suma = suma + ll(m, t)
+      end do
+      write (*,*) 'La precipitación Anual es ', suma, 'pulgadas'
+
+      stop
+      end
+</PRE>Además, la función <EM>ll</EM> tiene que ser definida como una función de 
+Fortran. La fórmula del meteorólogo es: <PRE>      ll(m,t) = t/10 * (m**2 + 14*m + 46) <EM>si la expresión es positiva</EM>
+      ll(m,t) = 0                         <EM>otro caso               </EM>
+</PRE>La correspondiente función en Fortran es <PRE>      real function ll(m,t)
+         integer m
+         real t
+
+         ll = 0.1*t * (m**2 + 14*m + 46)
+         if (ll .LT. 0) ll = 0.0
+
+         return
+      end
+</PRE>Se puede observar que la estructura de una función es parecida a la del 
+programa principal. Las diferencias son: 
+<UL>
+  <LI>Las funciones tienen un tipo. El tipo debe coincidir con el tipo de la 
+  variable que recibirá el valor. 
+  <LI>El valor que devolverá la función, deberá ser asignado en una variable que 
+  tenga el mismo nombre que la función. 
+  <LI>Las funciones son terminadas con la sentencia <EM>return</EM> en vez de la 
+  sentencia <EM>stop</EM>. </LI></UL>
+<P>Para resumir, la sintaxis general de una función en Fortran 77 es: <PRE>      <EM>tipo</EM> function <EM>nombre (lista_de parámetros)</EM>
+         <EM>declaraciones</EM>
+         <EM>sentencias</EM>
+         return
+      end
+</PRE>
+<P>La función es llamada simplemente usando el nombre de la función y haciendo 
+una lista de argumentos entre paréntesis. 
+<P>
+<H3>Subrutinas</H3>Una función de Fortran puede devolver únicamente un valor. En 
+ocasiones se desean regresar dos o más valores y en ocasiones ninguno. Para este 
+propósito se usa la construcción <TT>subrutina</TT>. La sintaxis es la 
+siguiente: <PRE>      subroutine <EM>nombre (lista_de_parámetros)</EM>
+         <EM>declaraciones</EM>
+         <EM>sentencias</EM>
+         return
+      end
+</PRE>Observar que las subrutinas no tienen tipo y por consecuencia no pueden 
+hacerse asignación al momento de llamar al procedimiento. 
+<P>Se da un ejemplo de una subrutina muy sencilla. El propósito de la subrutina 
+es intercambiar dos valores enteros. <PRE>      subroutine iswap (a, b)
+         integer a, b
+c Variables Locales
+         integer tmp
+
+         tmp = a
+         a = b
+         b = tmp
+
+         return
+      end
+</PRE>Se debe observar que hay dos bloques de declaración de variables en el 
+código. Primero, se declaran los parámetros de entrada/salida, es decir, las 
+variables que son comunes al que llama y al que recibe la llamada. Después, se 
+declaran las <EM>variables locales</EM>, esto es, las variables que serán sólo 
+conocidas dentro del subprograma. Se pueden usar los mismos nombres de variables 
+en diferentes subprogramas. 
+<H3>Llamada por referencia</H3>Fortran 77 usa el paradigma de <EM>llamada por 
+referencia</EM>. Esto significa que en vez de pasar los valores de los 
+argumentos a la función o la subrutina (<EM>llamada por valor</EM>), se pasa la 
+dirección (apuntadores) de los argumentos. <PRE>      program llamaint
+         integer m, n
+c
+         m = 1
+         n = 2 
+
+         call iswap(m, n)
+         write(*,*) m, n
+
+         stop
+      end
+</PRE>La salida de este programa es "<TT>2 1</TT>", justo como se habría 
+esperado. Sin embargo, si Fortran 77 hubiera hecho una llamada por valor 
+entonces la salida hubiera sido "<TT>1 2</TT>", es decir, las variables <I>m</I> 
+y <I>n</I> hubieran permanecido sin cambio. La razón de esto último, es que 
+solamente los valores de <I>m</I> y <I>n</I> habrían sido copiados a la 
+subrutina <I>iswap</I>, a pesar de que <I>a</I> y <I>b</I> hubieran sido 
+cambiados dentro de la subrutina, por lo que los nuevos valores no sería 
+regresados al programa que hizo la llamada. 
+<P>En el ejemplo anterior, la llamada por referencia era lo que se quería hacer. 
+Se debe tener cuidado al escribir código en Fortran, porque es fácil introducir 
+<EM>efectos laterales</EM> no deseados. Por ejemplo, en ocasiones es tentador 
+usar un parámetro de entrada en un subprograma como una variable local y cambiar 
+su valor. No se deberá hacer <EM>nunca</EM>, ya que el nuevo valor se propagará 
+con un valor no esperado. 
+<P>Se revisará más conceptos cuando se vea la sección de <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/arrays2.html">Arreglos en 
+subprogramas</A> para pasar arreglos como argumentos. 
+<P>
+<HR>
+
+<H3>Ejercicios</H3>
+<DL>
+  <DT>Ejercicios A 
+  <DD>Escribir una función llamada <EM>fac</EM> que tome un entero <EM>n</EM> 
+  como entrada y regrese <EM>n!</EM> (factorial de n). Probar la función usando 
+  el siguiente programa main <PRE>      program prbfac
+c
+c Ejercicio A, seccion 11.
+c Programa Main para probar la función factorial.
+c
+      integer n, fac
+
+  10  continue
+         write(*,*) 'Dame n: '
+         read (*,*) n
+         if (n.gt.0) then
+            write(*,*) ' El factorial de', n, ' es', fac(n)
+            goto 10
+         endif
+c     End of loop
+
+      stop
+      end
+</PRE>(Tip: Se tiene que usar un ciclo para implementar la función ya que 
+  Fortran 77 no soporta llamadas recursivas.) 
+  <P></P>
+  <DT>Ejercicio B 
+  <DD>Escribir una subrutina <EM>cuad</EM> que tome tres números reales 
+  <EM>a,b,c</EM> como entrada y encuentre las raíces de la ecuación <EM>ax**2 + 
+  bx + c = 0</EM>. Si las raíces son complejas, se deberá mostrar un mensaje de 
+  error como el siguiente: <PRE>      write(*,*) 'Advertencia: Raices Complejas.'
+</PRE>También se deberá escribir un programa main que pruebe la subrutina. 
+  <P></P></DD></DL>
+<HR>
+&nbsp;[10. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/arrays.html">Arreglos </A>] 
+&nbsp;[<A href="http://fismat.umich.mx/mn1/tutor_fort/index.html">Tutorial de 
+Fortran</A>] &nbsp;[12. <A 
+href="http://garota.fismat.umich.mx/mn1/tutor_fort/readwrite.html">Entrada/salida 
+Básica </A>] </BODY></HTML>

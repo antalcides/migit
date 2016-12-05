@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0068)http://www.um.es/mataplic/ampliacioncalculonumerico/Integracion.html -->
+<HTML><HEAD><TITLE>/home/guerrero/Numerico/Mathematica/Integracion.html</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff><!-- "This html document was created by converting a 3.0 \
+Mathematica notebook using the Convert`HTMLConvert` \
+package" -->
+<H1>EJEMPLO DE INTEGRACION NUMERICA</H1>
+<P><IMG alt=[Graphics:Integraciongr2.gif] 
+src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr2.gif"><IMG 
+alt=[Graphics:Integraciongr1.gif] 
+src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr1.gif"></P>
+<P><BR>Para ello definimos la funcion f(x)=<IMG 
+alt=[Graphics:Integraciongr3.gif] 
+src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr3.gif"></P>
+<P><PRE><B>f[x_]:=Log[1-0.99 Cos[x Pi/2]^2]</B></PRE>
+<P><BR>y calculamos su integral por algun metodo numerico. Vamos a utilizar dos 
+metodos numericos, el metodo del Trapecio compuesto y el metodo de Simpson 
+compuesto. Los algoritmos para su calculo son:</P>
+<P><PRE><B>trapecio[a_,b_,N_,f_]:=Module[{trap=f[a]/2,h=(b-a)/N,xi=a},<BR>		Do[xi=xi+h;trap=trap+ f[xi],{i,2,N}];<BR>		trap=trap+f[b]/2;<BR>		Return[trap*h]]</B></PRE>
+<P><PRE><B>simpson[a_,b_,N_,f_]:=Module[{simp=f[a],h=(b-a)/N,xi=a},<BR>		Do[xi=xi+h;If[EvenQ[i],simp=simp+4 f[xi],simp=simp+2f[xi]],{i,2,N}];<BR>		simp=simp+f[b];<BR>		Return[simp*h/3]]</B></PRE>
+<P>El valor que obtenemos para la integral con el metodo del Trapecio, para N=5 
+(con lo cual h=0.1) es:</P>
+<P><PRE><B><IMG alt=[Graphics:Integraciongr2.gif] src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr2.gif"><IMG alt=[Graphics:Integraciongr4.gif] src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr4.gif"></B></PRE><PRE><IMG alt=[Graphics:Integraciongr2.gif] src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr2.gif"><IMG alt=[Graphics:Integraciongr5.gif] src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr5.gif"></PRE>
+<P><BR>El valor que obtenemos para la integral con el metodo de Simpson, para 
+N=10 (con lo cual h=0.05) es:</P>
+<P><PRE><B><IMG alt=[Graphics:Integraciongr2.gif] src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr2.gif"><IMG alt=[Graphics:Integraciongr6.gif] src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr6.gif"></B></PRE><PRE><IMG alt=[Graphics:Integraciongr2.gif] src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr2.gif"><IMG alt=[Graphics:Integraciongr7.gif] src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr7.gif"></PRE>
+<P>El valor exacto para la integral, expresado con 16 digitos, es:</P>
+<P><PRE><B><IMG alt=[Graphics:Integraciongr2.gif] src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr2.gif"><IMG alt=[Graphics:Integraciongr8.gif] src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr8.gif"></B></PRE><PRE><IMG alt=[Graphics:Integraciongr2.gif] src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr2.gif"><IMG alt=[Graphics:Integraciongr9.gif] src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr9.gif"></PRE>
+<P><PRE><B><IMG alt=[Graphics:Integraciongr2.gif] src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr2.gif"><IMG alt=[Graphics:Integraciongr10.gif] src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr10.gif"></B></PRE><PRE><IMG alt=[Graphics:Integraciongr2.gif] src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr2.gif"><IMG alt=[Graphics:Integraciongr11.gif] src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr11.gif"></PRE>
+<P><PRE><B><IMG alt=[Graphics:Integraciongr2.gif] src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr2.gif"><IMG alt=[Graphics:Integraciongr12.gif] src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr12.gif"></B></PRE><PRE><IMG alt=[Graphics:Integraciongr2.gif] src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr2.gif"><IMG alt=[Graphics:Integraciongr13.gif] src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr13.gif"></PRE>
+<P>Por regla general, el metodo de Simpson proporciona mejores resultados que el 
+del Trapecio, para el mismo numero de nodos. En este caso, incluso duplicando 
+los nodos, el resultado no mejora apreciablemente. El mal resultado del metodo 
+de Simpson lo podemos comprender mejor si hacemos un estudio comparativo de los 
+errores teoricos en cada caso. Para ello necesitamos conocer la derivada segunda 
+y la derivada cuarta de la funcion.<BR><BR>La derivada segunda es:<BR></P>
+<P><PRE><B><IMG alt=[Graphics:Integraciongr2.gif] src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr2.gif"><IMG alt=[Graphics:Integraciongr14.gif] src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr14.gif"></B></PRE>
+<P><PRE><B><IMG alt=[Graphics:Integraciongr2.gif] src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr2.gif"><IMG alt=[Graphics:Integraciongr15.gif] src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr15.gif"></B></PRE><IMG 
+alt=[Graphics:Integraciongr2.gif] 
+src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr2.gif"><IMG 
+alt=[Graphics:Integraciongr16.gif] 
+src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr16.gif"> 
+
+<P>Mientras que la derivada cuarta es:<BR></P>
+<P><PRE><B><IMG alt=[Graphics:Integraciongr2.gif] src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr2.gif"><IMG alt=[Graphics:Integraciongr17.gif] src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr17.gif"></B></PRE>
+<P><PRE><B><IMG alt=[Graphics:Integraciongr2.gif] src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr2.gif"><IMG alt=[Graphics:Integraciongr18.gif] src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr18.gif"></B></PRE><IMG 
+alt=[Graphics:Integraciongr2.gif] 
+src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr2.gif"><IMG 
+alt=[Graphics:Integraciongr19.gif] 
+src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr19.gif"> 
+
+<P>Como podemos observar, la derivada segunda no es demasiado grande en el 
+intervalo [0, 0.5], esta acotada por 500, pero la derivada cuarta se hace muy 
+grande en este mismo intervalo, siendo una cota superior 750000. <BR><BR>En 
+concreto, las cotas teoricas del error en cada caso son:<BR><BR>Para el metodo 
+del Trapecio la cota para el error es:<BR><BR><IMG 
+alt=[Graphics:Integraciongr20.gif] 
+src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr20.gif"><BR><BR>donde 
+<IMG alt=[Graphics:Integraciongr21.gif] 
+src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr21.gif"> 
+es una cota para el valor absoluto de la derivada segunda. El error real en este 
+caso es mucho menor que es teorico porque el metodo del trapecio proporciona muy 
+buenos resultados para funciones periodicas, como es este el caso.<BR><BR>Para 
+el metodo de Simpson la cota para el error es:<BR><BR><IMG 
+alt=[Graphics:Integraciongr22.gif] 
+src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr22.gif"><BR><BR>donde 
+<IMG alt=[Graphics:Integraciongr23.gif] 
+src="-home-guerrero-Numerico-Mathematica-Integracion_archivos/Integraciongr23.gif"> 
+es una cota para el valor absoluto de la derivada segunda.<BR><BR>Esto explica 
+el hecho de que el metodo de Simpson, para este caso, proporcione un resultado 
+tan malo. <BR><BR></P></BODY></HTML>

@@ -1,0 +1,41 @@
+This is pdfTeX, Version 3.141592-1.10a (MiKTeX 2.2) (preloaded format=latex 2000.11.28)  16 JUL 2003 13:46
+**C:/Documents*and*Settings/aolivo/Escritorio/miktex/laboratorio/ppower/graf1/p
+power4/nuevo/latexpre.tex
+
+(C:/Documents and Settings/aolivo/Escritorio/miktex/laboratorio/ppower/graf1/pp
+ower4/nuevo/latexpre.tex{pdftex.cfg}
+LaTeX2e <2001/06/01>
+Babel <v3.7h> and hyphenation patterns for english, french, german, ngerman, du
+mylang, nohyphenation, loaded.
+(C:\texmf\tex\latex\prosper\prosper.cls
+Document Class: prosper 2000/11/02, v. 1.0h
+(c) 2000 Frederic Goualard, CWI, The Netherlands
+CVSId: $Id: prosper.cls,v 1.1.1.1 2000/11/28 11:15:12 exupery Exp $
+ 
+
+! LaTeX Error: File `seminar.cls' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+<read *> 
+         
+l.72 \RequirePackage
+                    {graphicx}
+*** (cannot \read from terminal in nonstop modes)
+
+ 
+Here is how much of TeX's memory you used:
+ 55 strings out of 95647
+ 866 string characters out of 1191564
+ 44674 words of memory out of 1048875
+ 3144 multiletter control sequences out of 35000
+ 3640 words of font info for 14 fonts, out of 500000 for 1000
+ 14 hyphenation exceptions out of 607
+ 17i,0n,19p,211b,7s stack positions out of 1500i,500n,5000p,200000b,32768s
+ 0 PDF objects out of 65536
+ 0 named destinations out of 20000
+ 0 words of extra memory for PDF output out of 65536
+No pages of output.

@@ -1,0 +1,1495 @@
+<title>source code for nonmonotonicTalk</title>
+<body bgcolor=aqua>
+<h2 align=center>source code for nonmonotonicTalk</h2>
+<a href="nonmonotonicTalk.pdf">nonmonotonicTalk.pdf</a>,
+authored by xxx.
+<p>LaTeX source
+(<a href="nonmonotonicTalk.tex"><tt>nonmonotonicTalk.tex</tt></a>):
+
+<p><hr><pre>
+<b>\documentclass</b>[<font color=red>slideColor,colorBG,semrot,semlayer,semcolor,portrait,pdf,talk</font>]{<font color=blue>prosper</font>}</b>
+\usepackage{<font color=red>german</font>}
+\usepackage{<font color=red>url</font>}
+\input{seminar.bug}
+\slidesmag{3}
+\usepackage{<font color=red>moreverb</font>}
+\usepackage{<font color=red>latexsym,pstricks,pst-node,pst-coil,epsf,dbicons</font>}
+
+\psset{linewidth=1pt}
+
+\usepackage{<font color=red>version</font>}
+\includeversion{comments}
+\renewcommand{\familydefault}{phv}
+
+\newif\ifblackwhite 
+\blackwhitefalse
+\ifblackwhite
+  \newhsbcolor{lightred}{0 0 0}
+\else
+  \newrgbcolor{lightred}{1.00 0.4 0.4}
+\fi
+
+\def\headertext{\sl Nichtmonotone Vererbung und Default Logic\hfill}
+\def\footertext{\theslide}
+
+\newgray{normalgray}{0.45}
+\newgray{lightgray}{0.55}
+\newgray{verylightgray}{0.65}
+\newgray{superlightgray}{0.85}
+
+\renewcommand{\nodeconnections}[1]{\hbox to 0cm{\vbox to 0cm {#1}}}
+
+\newcommand{\fd}{\mbox{$\rightarrow$}}                      % scalar
+\newcommand{\Fd}{\mbox{$\Rightarrow$}}                      % scalar
+\newcommand{\bfd}{\mbox{$\bullet\!\!\!\fd$}}                % " + inheritable
+\newcommand{\mvd}{\mbox{$\rightarrow\!\!\!\!\rightarrow$}}  % multivalued
+\newcommand{\Mvd}{\mbox{$\Rightarrow\!\!\!\!\Rightarrow$}}  % multivalued
+\newcommand{\bmvd}{\mbox{$\bullet\!\!\!\mvd$}}              % " + inheritable
+\newcommand{\isa}{\ensuremath{\;\mbox{isa}\;}}
+\newcommand{\subcl}{\ensuremath{\;\mbox{subcl}\;}}
+\newcommand{\la}{\ensuremath{\gets}}
+\newcommand{\sem}[1]{\ensuremath{[\![#1]\!]}}         % eckige Doppelklammer
+\newcommand{\pl}[1]{\ensuremath{\mathcal{#1}}}
+\newcommand{\closure}{\ensuremath{\mathcal{C\!\ell}}}
+\newcommand{\join}{\bowtie}
+\newcommand{\smallvdots}{:}
+\newcommand{\TX}{T\!\!X}
+\newcommand{\Th}{\mbox{Th}}
+\newcommand{\st}{\ensuremath{\ |\ }} % Trennzeichen f"ur Mengen 'such that'
+\newcommand{\snake}{\mathrel{{\scriptstyle\mid\!\!\sim}}}
+\newcommand{\flrule}[1]{\mbox{#1}}
+\newcommand{\rem}[1]{\hfill \quad\textrm{\textit{\% #1}}\ignorespaces}
+
+\newcommand{\Var}{\mbox{Var}}
+\newcommand{\DefIff}{~:\Leftrightarrow~}
+\newcommand{\Iff}{~\Leftrightarrow~}
+\newcommand{\Imp}{~\Rightarrow~}
+\newcommand{\imp}{\rightarrow}
+\renewcommand{\iff}{\leftrightarrow}
+
+\newenvironment{expl}%
+  {\begin{quote}
+   \begin{tabular}[b]{l@{}l@{}l}}%
+  {\end{tabular} \end{quote}}
+
+
+\makeatletter
+\def\save@sf@q#1{{\ifhmode
+  \edef\@SF{\spacefactor\the\spacefactor}\else
+  \let\@SF\empty \fi \leavevmode #1\@SF}}
+\def\@flq{\relax\ifmmode <\else \save@sf@q{\penalty\@M
+    \raise .27ex\hbox{$\m@th\scriptscriptstyle <$}}\fi}
+\def\flq{\protect\@flq}
+\def\@frq{\relax\ifmmode >\else \save@sf@q{\penalty\@M
+    \raise .27ex\hbox{$\m@th\scriptscriptstyle >$}}\fi}
+\def\frq{\protect\@frq}
+
+
+\makeatother
+\begin{document}
+
+\switchToEmptyFrame
+
+\begin{slide}{}
+\vspace*{2cm}
+
+\Large
+\begin{center}
+  {\bf Nichtmonotone Vererbung \\
+         und \\
+       Default Logic} 
+
+\vspace*{1cm}
+
+\large
+Wolfgang May\\
+Freiburg, 6.12.2001
+\end{center}
+\end{slide}
+
+\switchToMainFrame
+\begin{slide}{Nonmonotonic Reasoning}
+
+\begin{itemize}
+\item seit sp"ate 70er:  Konzepte und Theoretische Untersuchungen \\
+\item 80er: Wissensrepr"asentation 
+\item 90er: Objektorientiertes Datenmodell
+\item heute: XML: Default-Attribute
+\end{itemize}
+\end{slide}
+
+\overlays{3}{%
+\begin{slide}{Nichtmonotone Vererbung}
+
+\begin{tabular}{l@{\hspace*{2cm}}l}
+
+\begin{tabular}{@{}rl}
+~~$\bullet$ & V"ogel fliegen. \\
+$\bullet$ & Tweety ist ein Vogel. \\\hline
+          & Tweety fliegt
+\end{tabular}
+
+&  \fromSlide{2}{$\pl D \vdash \alpha$}
+\\[2cm]
+
+\begin{tabular}{@{}rl}
+\fromSlide{2}{$\bullet$} & \fromSlide{2}{V"ogel fliegen.} \\
+\fromSlide{2}{\rnode{left0}{\strut}~~$\bullet$} & 
+   \fromSlide{2}{Pinguine fliegen nicht.\rnode{right0}{\strut}} \\
+\fromSlide{2}{$\bullet$} & \fromSlide{2}{Tweety ist ein Vogel.} \\
+\fromSlide{3}{$\bullet$} & \fromSlide{3}{\lightred Tweety ist ein Pinguin!} 
+\\
+      & \fromSlide{2}{Tweety fliegt} \fromSlide{3}{\lightred nicht!}
+\end{tabular}
+
+&  \fromSlide{3}{$\pl D {\lightred {} \cup \pl D^+} \not\vdash \alpha$}
+\end{tabular}
+\fromSlide{2}{\ncline[linecolor=white,offset=-3.7em]{left0}{right0}}\end{slide}
+}%overlays
+
+\overlays{5}{%
+\begin{slide}{Problematik}
+
+  {\begin{tabular}[t]{l}
+    \fromSlide{3}{\rnode{left1}{\strut}}bird(X) $\to$ flies(X)\fromSlide{3}{\rnode{right1}{\strut}} \\
+    penguin(X) $\to$ not\_flies(X) \\
+    bird(tweety) \\
+    bird(lora) \\
+    \fromSlide{2}{\yellow penguin(tweety)} \\
+\hline
+    \fromSlide{3}{\rnode{left2}{\strut}}%
+        flies(tweety)%
+           \fromSlide{3}{\rnode{right2}{\strut}} \\
+    \fromSlide{3}{\rnode{left3}{\strut}}%
+        flies(lora)%
+           \fromSlide{3}{\rnode{right3}{\strut}} \\
+    \fromSlide{2}{\yellow not\_flies(tweety)} \\
+    \onlySlide{2}{{\lightred inkonsistent}}
+    \end{tabular}
+    \hspace*{0em}
+    \begin{tabular}[t]{l}
+    \fromSlide{4}{\rnode{left0}{\strut}bird(X) 
+          {\lightred $\land$ $\neg$ penguin} $\to$ flies(X)\rnode{right0}{\strut}} \\
+    \fromSlide{4}{penguin(X) $\to$ not\_flies(X)} \\
+    \fromSlide{4}{bird(tweety)} \\
+    \fromSlide{4}{penguin(tweety)} \\
+    \fromSlide{4}{bird(lora)} \\
+    \fromSlide{4}{flies(lora)} \qquad \fromSlide{5}{\lightred(?)} \\
+    \fromSlide{4}{not\_flies(tweety).} \\
+    ~\\
+    \fromSlide{5}{\lightred wissen wir, ob Lora kein Pinguin ist?} \\
+    \fromSlide{5}{\lightred CWA}
+    \end{tabular}\hspace*{-1cm}
+    \fromSlide{3}{\ncline[linecolor=red]{left1}{right1}}
+    \fromSlide{3}{\ncline[linecolor=red]{left2}{right2}}
+    \fromSlide{3}{\ncline[linecolor=red]{left3}{right3}}
+    \fromSlide{4}{\ncline[linecolor=white,offset=-6.7em]{left0}{right0}}
+  }
+\end{slide}
+}%overlays
+
+\begin{slide}{Inheritance Nets}
+
+\begin{itemize}
+  \item ``Direkter'', grafischer Formalismus
+\end{itemize}
+\vskip0.5cm
+  
+  ~\hfill
+  \rnode{tweety}{tweety} \hfill
+  \begin{tabular}[t]{c}
+    \rnode{penguin}{penguin} \\[0.2cm]
+    \rnode{lora}{lora}
+  \end{tabular}\hfill
+  \rnode{bird}{\vphantom{g}bird} \hfill
+  \rnode{fly}{fly} \hfill
+  ~
+
+  \nodeconnections{\psset{nodesep=3pt}
+  \ncline[doubleline=true]{->}{tweety}{penguin}
+  \ncline[doubleline=true]{->}{penguin}{bird}
+  \ncline[doubleline=true]{->}{lora}{bird}
+  \ncline{->}{bird}{fly}
+  \ncarc[arcangleA=20,arcangleB=20]{->}{penguin}{fly}\ncput{\black /}
+  }
+\def\notpath{\ensuremath{-\!\!\!\!-\hspace*{-0.8em}%
+        \raisebox{0.25ex}{$\scriptscriptstyle/$}\hspace*{0.5em}}}
+
+  Pfad: ~~ tweety -- penguin -- bird -- fly \\
+  ist ``preempted'' durch ~ tweety -- penguin \notpath\ fly \\
+  Pfad: ~~ lora -- bird -- fly
+\medskip
+  
+\begin{itemize}
+\item \emph{Extension} als theoretisches Modell-Konzept
+\end{itemize}
+\end{slide}
+
+\begin{slide}{Beispiel}
+
+\hypertarget{NixonDiamond}{}%
+  Konflikt:
+
+  \begin{center}
+  \begin{tabular}{ccc}
+      &\rnode{nixon}{nixon} \\[1cm]
+  \rnode{quaker}{quaker} && \rnode{republican}{republican} \\[1cm]
+      &\rnode{pacifist}{pacifist}
+  \end{tabular}
+  \end{center}
+
+  \nodeconnections{
+  \ncline[doubleline=true]{->}{nixon}{quaker}
+  \ncline[doubleline=true]{->}{nixon}{republican}
+  \ncline{->}{quaker}{pacifist}
+  \ncline{->}{republican}{pacifist}\ncput{\black/}}
+
+\begin{itemize}
+\item zwei m"ogliche \emph{Extensionen}
+\end{itemize}
+\invisiblehyperlink{NixonDiamondII}%
+ {\vbox to 2cm{\hbox to\textwidth{}}}
+\end{slide}
+
+\begin{slide}{Default Logic}
+  
+Erweitert First-Order Logic um zus"atzliche ``weiche''
+Schlussregeln \
+[R.Reiter, AI 1980]
+
+\[d ~= ~\frac{\alpha(\bar x) : \beta(\bar x)}{w(\bar x)}
+    \hspace*{2cm}
+       \frac{bird(x) : fly(x)}{fly(x)} \]
+
+\begin{itemize}
+\item \emph{precondition} $p(d)=\alpha(\bar x)$
+\item \emph{justification} 
+       $J(d)=\beta(\bar x) = \{\beta_1(\bar x),\ldots,\beta_k(\bar x)\}$
+\item \emph{consequence} $c(d)=w(\bar x)$
+\item $\alpha,\beta,w$ beliebige First-Order Formeln
+\item Ist $\alpha(\bar c)$ beweisbar und die Annahme $\beta(\bar c)$
+  konsistent, kann $w(\bar c)$ daraus geschlossen werden.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{CWA: Implizites Negatives Wissen}
+
+\begin{itemize}
+\item Datenbanken: nur positive Fakten gespeichert
+  \begin{itemize}
+  \item CWA [Reiter 1978] ist ein negativer Default ohne Vorbedingung:
+    \[  \frac{: \neg p(x_1,\ldots,x_n)}{\neg p(x_1,\ldots,x_n)} \] 
+  \item negatives Wissen muss nicht explizit repr"asentiert werden.
+  \end{itemize}
+\item Logic Programming: Negation as failure
+\end{itemize}
+\end{slide}
+
+\begin{slide}{Default Proofs}
+
+\hypertarget{DefaultProof}{}Eingabe: 
+eine Menge $D$ von Defaults und eine Menge $S$
+von Formeln (``Situation'').
+
+Ein Default Proof einer Formel $\gamma$ bzgl.\ $D$ und $S$ ist
+eine Folge $d_1,\ldots,d_n$ von Defaults wenn
+\begin{itemize}
+\item f"ur $i=1...n$:
+  \begin{itemize}
+  \item $p(d_i) \in \Th(S \cup c(\{d_1,\ldots,d_{i - 1}\}))$
+  \item $\Th(S \cup \{J(d_i)\})$ ist konsistent
+  \end{itemize}
+\item $\gamma \in \Th(S \cup c(\{d_1,\ldots,d_n\}))$
+\end{itemize}
+
+\begin{itemize}
+\item Aber:
+  \begin{itemize}
+  \item $S \cup \{c(d_1),\ldots,c(d_n)\}$ kann inkonsistent sein
+  \item $J(d_i)$ kann mit vorhergehenden oder nachfolgenden 
+        $c(d_i)$ und $J(d_i)$ inkonsistent sein
+  \end{itemize}
+\end{itemize}
+\end{slide}
+
+\begin{slide}{Extensionen}
+
+\begin{itemize}
+\item Gegeben:  $\Delta=(D,F)$ wobei $D$ eine Menge von Defaults und
+ $F$ eine Menge von geschlossenen Formeln.
+\end{itemize}
+
+\begin{itemize}
+  \item \hypertarget{GammaIntro}{}Sei $S$ eine Menge geschlossener Formeln.
+  \item $\Gamma(S)$ minimal so dass
+    \begin{itemize}
+    \item $F \subseteq \Gamma(S)$
+    \item $\Th(\Gamma(S)) = \Gamma(S)$ \ (deduktiv abgeschlossen)
+    \item f"ur alle $\gamma$, f"ur die es einen Default Proof
+          bzgl.\ $\Delta$ und $S$ gibt, ist $\gamma \in \Gamma(S)$
+          \ \ (Abschluss gg.\ $D$).
+    \item {\red $\Gamma(S)$ kann inkonsistent sein}
+    \end{itemize}
+ \item eine Menge $E$ geschlossener Formeln ist eine \emph{Extension}
+  von $\Delta$, falls $\Gamma(E)=E$. 
+\end{itemize}
+
+\invisiblehyperlink{StrengereGamma}{Kriterium ist nicht konstruktiv.}
+\end{slide}
+
+\begin{slide}{Alternative Charakterisierung}
+
+[Reiter AI 1980] \ $\Delta = (D,F)$.
+
+\hypertarget{QuasiInductive}{}%
+$S_0=F,S_1,S_2,\ldots$ eine Folge von Mengen von Formeln
+so dass ${\lightred S}=(\bigcup_{i=0}^\infty S_i)$ und 
+\[ S_{i+1} = S_i \cup c(GD(S_i,{\lightred S},D))~,\]
+\[GD(S_i,{\lightred S},D) := \{d \st 
+    \begin{array}[t]{@{}l}
+      d \mbox{ ist eine Instanz eines Defaults in $D$,~} \\
+        \Th(S_i) \models p(d) 
+        \mbox{ und } {\lightred \Th(S \cup J(d)) \mbox{ ist konsistent}}\}
+        \end{array}\]
+
+Dann ist $\Th(S)$ eine \emph{Extension} von $\Delta$.
+
+\begin{itemize}
+\item ``{\lightred quasi}-induktive'' Charakterisierung
+\end{itemize}
+\invisiblehyperlink{BottomUpApproximation}%
+ {\vbox to 2cm{\hbox to\textwidth{}}}
+\end{slide}
+
+\begin{slide}{Eigenschaften}
+
+  \begin{itemize}
+  \item Im allgemeinen besitzt $\Delta$ mehrere Extensionen
+  \item f"ur jedes $\gamma$ gibt  $S_0,S_1,\ldots$ eine ``Herleitung''   
+     (\invisiblehyperlink{DefaultProof}{``Default Proof''})
+  \item Fragestellungen:
+    \begin{itemize}
+    \item credulous: ist eine Formel/ein Faktum in irgendeiner Extension zu
+      $\Delta$ enthalten?
+  \item sceptical: ist eine Formel/ein Faktum in jeder Extension zu
+      $\Delta$ enthalten?
+    \item safe: besitzt eine Formel/ein Faktum in jeder Extension dieselbe
+      Herleitung?
+    \end{itemize}
+  \end{itemize}
+\end{slide}
+
+\begin{slide}{Eigenschaften (Cont'd)}
+\begin{itemize}
+\item Alle wesentlichen Fragen sind $\Sigma_2^P$- oder 
+  $\Pi_2^P$-vollst"andig. \\
+  Genauer: NP, wenn man ein SAT-Orakel verwendet
+      %% Marek-Truszczynski-Book 1993
+\item Gibt es eine Extension von $\Delta$, die $\gamma$ enth"alt?
+  \begin{itemize}
+  \item nicht semi-entscheidbar, d.h., die Menge aller Formeln die in
+    irgendeiner Extension gelten ist nicht rekursiv aufz"ahlbar.
+  \end{itemize}
+\item Aussagenlog.\ Default-Theorien ohne Disjunktion:  NP \\\relax
+  [Kautz, Selman AI 91] 
+\item Sceptical semantics: ist keine Extension, \\
+  erf"ullt \invisiblehyperlink{Cumulativity}{\emph{cumulative
+      monotony}}\ nicht.
+\end{itemize}
+\end{slide}
+
+
+\begin{slide}{Approximation durch Bottom-up-Iteration}
+
+\hypertarget{BottomUpApproximation}{}%
+$S_0=F,S_1,S_2,\ldots$ eine Folge von Mengen von Formeln
+so dass $S=(\bigcup_{i=0}^\infty S_i)$ und 
+\[ S_{i+1} = S_i \cup C_i \mbox{~~wobei } 
+      C_i {\lightred {}\subseteq{}}
+           c(GD({\lightred S_i},D))~,\]
+
+\[GD({\yellow S_i},D) := \{d \st 
+    \begin{array}[t]{@{}l}
+      d \mbox{ ist eine Instanz eines Defaults in $D$,~} \\
+        \Th({\yellow{S_i}}) \models p(d) 
+        \mbox{ und } {\lightred \Th({\yellow S_i} \cup J(d)) 
+               \mbox{ ist konsistent}}\}
+        \end{array}\]
+
+Betrachte dann $\Th(S)$.
+\invisiblehyperlink{QuasiInductive}%
+ {\vbox to 3cm{\hbox to\textwidth{}}}
+\end{slide}
+
+\overlays{2}{
+\begin{slide}{Bottom-Up}
+  
+Risiko: Justification wird in einem sp"ateren Schritt ung"ultig
+
+Abhilfe:
+
+\begin{itemize}
+\item  Mitf"uhren der verwendeten Justifications 
+       [Brewka AI 1991]
+\item  geeignete Struktur der Defaults
+       \hypertarget{NormaleDefaultsIntro}{}
+\end{itemize}
+
+\fromSlide{2}{%
+\redheadline{Normale Defaults}
+
+Form: \quad
+      $\displaystyle\frac{\alpha:w}{w}$ \qquad
+      $\displaystyle\frac{bird(x) : fly(x)}{fly(x)}$
+
+\medskip
+\begin{itemize}
+\item Jede normale Default-Theorie hat (mindestens) eine Extension.
+   %% einsichtig: immer einen d \in GD anwenden bis GD=leer
+\item \invisiblehyperlink{SemiMonotony}%
+ {Jede Extension l"a"st sich bottom-up berechnen}
+\end{itemize}}
+\end{slide}
+}
+
+\begin{slide}{Vererbung und Datenbanken}
+  \begin{itemize}
+  \item Default Logic: Mengen von Formeln
+  \item Deduktive, objektorientierte Datenbanken
+    \begin{itemize}
+    \item Menge von (nur positiven) Fakten
+    \item Regeln  \ \ \textit{head $\gets$ body}
+    \item Vererbung innerhalb der Klassenhierarchie
+    \end{itemize}
+  \item bottom-up Auswertung, $T_P$-Operator ersetzt Theoriebildung
+  \item {\yellow dazu passen nur spezielle ``Horn-style'' Defaults}
+    \begin{itemize}
+    \item {\yellow $\alpha,\beta$ vorzugsweise Literale (oder einfache
+        Formeln)}
+    \item {\yellow $w$ Atome}
+    \item Horn Default-Theorien sind polynomial [Kautz, Selman AI 91] 
+    \end{itemize}
+  \end{itemize}
+\invisiblehyperlink{Kritik}%
+ {\vbox to 2cm{\hbox to\textwidth{}}}
+\end{slide}
+
+\begin{slide}{Beispiel}
+  
+ \[\begin{array}{ll}
+   penguin\subcl bird  \\
+   tweety \isa penguin \\[0.2cm]
+   \displaystyle d_1: \
+         \frac{X\isa penguin : X[flies\fd false]}{X[flies\fd false]} \quad&
+   \displaystyle d_2: \ 
+         \frac{X\isa bird : X[flies\fd true]}{X[flies\fd true]}
+ \end{array}
+ \]
+
+ \begin{itemize}
+ \item Zwei m"ogliche Extensionen
+   \begin{itemize}
+   \item Anwendung von $d_1$: $tweety[flies\fd false]$ \\
+   \item Anwendung von $d_2$: $tweety[flies\fd true]$ \\
+         intuitiv nicht beabsichtigt \\
+         Preemption wird nicht ber"ucksichtigt!
+   \end{itemize}
+ \end{itemize}
+\end{slide}
+
+\begin{slide}{Pr"aferenzen}
+
+\begin{itemize}
+\item ``Ranked'' Defaults
+\item Spezifischere Defaults automatisch bevorzugen \\\relax
+      [Poole IJCAI 85]
+\item hier: Klassenhierarchie \\
+    ``Wenn es keine dazwischenliegende Klasse gibt''
+\end{itemize}
+\end{slide}
+
+\overlays{2}{%
+\begin{slide}{Defaults f"ur Vererbung}
+
+Default Schemata:
+ \[\begin{array}{c}
+    X\isa C, C[M\bfd V]: 
+       X[M\fd V] {\yellow \land \neg \exists SC: (X\isa SC \land SC\subcl C)}
+    \\\hline 
+    X[M\fd V]
+    \\
+    \fromSlide{2}{\yellow\neg (\exists SC: 
+                   (X\isa SC \land SC\subcl C \land \neg SC[M\bfd V]))}
+   \end{array}
+\]
+
+Analog f"ur Vererbung zu Subklassen.
+
+\begin{itemize}
+\item Bottom-up-Approximation \\
+  \untilSlide*{1}{%
+    \begin{itemize}
+      \item Risiko: Zwischenklassen, die erst in einem sp"ateren Schritt
+        abgeleitet werden und dem Default nicht entsprechen
+    \end{itemize}}
+  \fromSlide*{2}{%
+    \begin{itemize}
+      \item Risiko: Zwischenklassen, die erst in einem sp"ateren Schritt
+        abgeleitet werden und dem Default nicht entsprechen
+      \item {\yellow kein Problem bei statischer Klassenhierarchie}
+    \end{itemize}}
+\end{itemize}
+\end{slide}}
+
+\overlays{2}{%
+\begin{slide}{Konflikte}
+
+\hypertarget{NixonDiamondII}{}%
+Konflikt: \emph{konsistente Teilmenge} anwenden.
+\smallskip
+
+\fromSlide{2}{%
+Nixon Diamond:
+
+  $P=$\{\begin{tabular}[t]{l}
+        \flrule{quaker[policy\bfd pacifist]}, 
+         \flrule{republican[policy\bfd hawk]}, \\
+        \flrule{nixon\isa quaker}, \flrule{nixon\isa republican}\}.
+      \end{tabular}
+\medskip
+
+$S_0 = T_P^\omega(P) = P$
+
+\[\begin{array}{@{}l@{}l}
+  GD(S_0,D) = & 
+     \left\{
+       \frac{\flrule{\small nixon\isa quaker, quaker[policy\bfd pacifist]:
+                           nixon[policy\fd pacifist]}}
+                   {\flrule{\small nixon[policy\fd pacifist]}},
+     \right.\\[0.3cm]
+   &\left.~~
+      \frac{\flrule{\small nixon\isa republican, quaker[policy\bfd hawk]:
+                           nixon[policy\fd hawk]}}
+                   {\small \flrule{nixon[policy\fd hawk]}}
+    \right\}
+  \end{array}\]
+}
+
+\invisiblehyperlink{NixonDiamond}%
+ {\vbox to 2cm{\hbox to\textwidth{}}}
+\end{slide}
+}
+
+\begin{slide}{Komplexit"at}
+
+\begin{itemize}
+\item es gen"ugt, in jedem Schritt einen anwendbaren
+  Default anzuwenden
+\item ohne Objektgenerierung: eine Extension wird in {\yellow
+    polynomialer} Zeit berechnet
+\item credulous/sceptical/safe: alle Extensionen m"ussen berechnet werden
+\end{itemize}
+
+Fazit:
+
+\begin{itemize}
+\item Anwendung von Defaults auf Vererbung in objektorientierten
+  Datenbanken sinnvoll
+\item auch f"ur XML vielversprechend
+\end{itemize}
+\end{slide}
+
+\begin{slide}{Kritik}
+
+\hypertarget{Kritik}{}%
+\begin{itemize}
+\item ``sceptical'' Semantik zu restriktiv: \\
+  bereits ein einziger Default (z.B.\
+  $\displaystyle\frac{:\neg a}{a}$) kann dazu f"uhren, dass keine 
+  Extension existiert
+\item ``sceptical'' Semantik ist \emph{keine} Extension
+\item ``sceptical'' Semantik ist nicht
+       \invisiblehyperlink{Cumulativity}{kumulativ}, 
+       erf"ullt \invisiblehyperlink{Distribution}{``Or/Distribution''}\
+       nicht.
+\end{itemize}
+\invisiblehyperlink{SucheSemantiken}%
+ {\vbox to 2cm{\hbox to\textwidth{}}}
+\end{slide}
+
+\begin{slide}{Weitere Aspekte}
+\hypertarget{WeitereAspekteI}{}%
+\begin{itemize}
+\item Suche nach ``besseren'' Semantiken
+\item \invisiblehyperlink{LPDefaultLogic}{Logic Programming mit 
+           Negation und Default Logic}
+  \begin{itemize}
+  \item "Ubersetzung
+  \end{itemize}
+\item \invisiblehyperlink{MetaProperties}{Metatheoretische 
+     Eigenschaften nichtmonotoner Systeme}
+  \begin{itemize}
+  \item Default-Logic verh"alt sich ziemlich ``unerw"unscht'' \\
+    (\invisiblehyperlink{Cumulativity}{nicht kumulativ}, 
+     erf"ullt \invisiblehyperlink{Distribution}{``Or''}\ nicht)
+  \item Default-Logic ist nicht \invisiblehyperlink{Rationality}{``Rational''}
+  \item Anwendung f"ur Vererbung in Bottom-up Evaluierung f"ur
+    Grundinstanzen ist problemlos
+  \end{itemize}
+\end{itemize}
+
+\invisiblehyperlink{Questions}%
+ {\vbox to 2cm{\hbox to\textwidth{}}}
+\end{slide}
+
+\begin{slide}{Die Suche nach ``besseren'' Semantiken}
+
+\hypertarget{SucheSemantiken}{}%
+\begin{itemize}
+\item gesucht: \invisiblehyperlink{Cumulativity}{kumulative Semantik}
+\end{itemize}
+
+Betrachte \invisiblehyperlink{GammaIntro}{$\Gamma(S)$}\relax\ im 
+Nixon-Diamond
+
+\begin{itemize}
+\item $\Gamma(\emptyset) = P\cup\{\flrule{nixon\isa pacifist},\
+                            \flrule{nixon\isa hawk}\} = E_{cred}$
+\item $\Gamma(\Gamma(\emptyset)) = P = E_{scept}$
+\item alternierend
+\end{itemize}
+
+Interpretationsm"oglichkeiten:
+\begin{itemize}
+\item Dreiwertige Semantik wie f"ur LP: 
+  dreiwertige Extensionen [Przymusinski AI 1991] \\
+  (LP: 3-wertige Default-Semantik+CWA "aquivalent zu WFS)
+\end{itemize}
+
+\end{slide}
+
+\begin{slide}{Stationary Default Extensions}
+
+Andere Interpretationsm"oglichkeit:
+
+``Stationary Default Extensions''
+[Przymusinska/-ski FI 94]
+
+\begin{itemize}
+\item $\Gamma$ ist antimonoton, \
+   $\Gamma\circ\Gamma$ ist monoton
+\item Bedingung: $\Gamma(\Gamma(E)) = E$
+\item Extensionen $\subsetneq$ station"are Extensionen
+\item kleinste station"are Extension iterativ berechenbar:
+  $\emptyset, \Gamma^2(\emptyset), 
+   \Gamma^4(\emptyset), \ldots, \Gamma^{2n}(\emptyset), \ldots$ \\
+\item endlich falls $\Delta$ endlich und keine Funktionssymbole
+\item $n$ Defaults, $m$ Justifications $\to$ $O(n^2\cdot m)$ 
+  Erf"ullbarkeitstests/$\Gamma$-Schritt, \\
+  sinnvoll f"ur Sprachen wo Erf"ullbarkeit polynomiell
+\item ``sceptical'' erf"ullt \invisiblehyperlink{Cumulativity}{Kumulativit"at}
+\end{itemize}
+\end{slide}
+
+
+\overlays{2}{%
+\begin{slide}{St"arkere zweiwertige Semantiken}
+  
+  In vielen F"allen ist station"are Semantik zu streng: \\
+  ``Ungerade'' \invisiblehyperlink{GammaIntro}{$\Gamma$-Anwendung}\relax\
+  akzeptiert zu viel. \\
+  ($\Gamma$ ist noch gro"sz"ugiger als die bottom-up Approximation)
+
+\fromSlide{2}{\begin{itemize}
+\item $\Gamma$ basiert auf \invisiblehyperlink{DefaultProof}{Default Proofs}
+\item Default Proof kann inkonsistent sein 
+\item Default Proof kann inkonsistente Justifications benutzt haben
+  \begin{itemize}
+  \item einzeln inkonsistent zum Ergebnis
+  \item es gibt keine Extension, in der die verwendeten Justifications
+     \emph{gleichzeitig} zutreffen
+  \end{itemize}
+\end{itemize}}
+\invisiblehyperlink{WeitereAspekteII}%
+ {\vbox to 2cm{\hbox to\textwidth{}}}
+\end{slide}
+}
+
+\begin{slide}{St"arkere zweiwertige Semantiken}
+
+\hypertarget{StrengereGamma}{}%
+Strengere $\Gamma_i$-Operatoren [Brewka, Gottlob FI 1997]
+\begin{itemize}
+\item Bedingung: $\Gamma(\Gamma_i(E)) = E$
+\item $\invisiblehyperlink{GammaIntro}{$\Gamma_1(S)$} = \{p\st
+   \mbox{es gibt einen 
+    \invisiblehyperlink{DefaultProof}{Default Proof}\ f"ur \ $p$}\}$
+\item $\Gamma_2$: Default Proof ist konsistent
+\item $\Gamma_3$: Justifications sind konsistent
+\item $\Gamma_4$: Default Proof muss mit einer Extension konsistent,
+       d.h., nachvollziehbar sein
+\end{itemize}
+
+\begin{itemize}
+\item Betrachte Fixpunkte von $\Gamma\Gamma_i$.
+\item $\begin{array}[t]{lcl}
+      WFS & = & (\Gamma\Gamma_1)^\omega(\emptyset) \ \subseteq \
+                  (\Gamma\Gamma_2)^\omega(\emptyset) \\
+          & \subseteq & (\Gamma\Gamma_3)^\omega(\emptyset) \ \subseteq \
+             (\Gamma\Gamma_4)^\omega(\emptyset) \ = \ safe 
+          \end{array}$
+\end{itemize}
+\end{slide}
+
+\begin{slide}{Gammas-Hierarchie}
+
+\[\begin{array}{cc}
+   \bigcup(\mbox{Extensionen}) = \Gamma_4 \le 
+                \Gamma_3 \le \Gamma_2 \le \Gamma_1 = \Gamma \\
+   \Gamma_4 \le \bigcup(\mbox{bottom-up}^\omega) \le \Gamma_2 \\[0.5cm]
+
+   WFS_{\Gamma_1}(\Delta) \subseteq
+     WFS_{\Gamma_2}(\Delta) \subseteq
+     WFS_{\Gamma_3}(\Delta) \subseteq
+     WFS_{\Gamma_4}(\Delta) = Safe(\Delta)
+ \end{array} \]
+\bigskip
+
+F"ur normale Default-Theorien:
+
+  $\Gamma_2 = \Gamma_3 = \Gamma_4 = \bigcup(\mbox{bottom-up})^\omega
+      = \bigcup(\mbox{Extensionen})$
+\end{slide}
+
+\begin{slide}{Gammas-Hierarchie}
+
+\begin{itemize}
+\item $\Gamma = \Gamma_1$: alles was irgendwie begr"undet werden kann.
+\item $\Gamma_2$: abgeleitete Formeln m"ussen konsistent sein.
+\item $\Gamma_3$: Justifications m"ussen mit abgeleiteten Formeln
+  konsistent sein.
+\item bottom-up Iteration: Default-Proof muss in einer Extension
+  nachvollziehbar sein -- allerdings k"onnen Justifications sp"ater
+  verloren gehen.
+\item $\Gamma_4$: Default-Proof muss in einer Extension
+  nachvollziehbar sein.
+\item $\bigcup(\mbox{Extensionen}) = \Gamma_4$
+\item f"ur normale Defaults: $\bigcup(\mbox{bottom-up})$,
+  $\Gamma_2$, $\Gamma_3$, $\Gamma_4$ und $\bigcup(\mbox{Extensionen})$
+  "aquivalent.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{Weitere Aspekte}
+
+\hypertarget{WeitereAspekteII}{}%
+\begin{itemize}
+\item \invisiblehyperlink{LPDefaultLogic}{Logic Programming mit 
+           Negation und Default Logic}
+  \begin{itemize}
+  \item "Ubersetzung
+  \end{itemize}
+\item \invisiblehyperlink{MetaProperties}{Metatheoretische 
+     Eigenschaften nichtmonotoner Systeme}
+  \begin{itemize}
+  \item Default-Logik verh"alt sich ziemlich ``unerw"unscht''
+    \invisiblehyperlink{Cumulativity}{(nicht kumulativ, erf"ullt ``Or'' nicht)}
+  \item Default-Logic ist nicht \invisiblehyperlink{Rationality}{``Rational''}
+  \item Anwendung f"ur Vererbung in Bottom-up Evaluierung f"ur
+    Grundinstanzen ist problemlos
+  \end{itemize}
+\end{itemize}
+
+\invisiblehyperlink{StrengereGamma}%
+ {\vbox to 2cm{\hbox to\textwidth{}}}
+\end{slide}
+
+\switchToEmptyFrame
+
+\begin{slide}{Questions}
+\vspace*{3cm}
+
+\Huge\bf \hypertarget{Questions}{Questions ??}
+
+\invisiblehyperlink{WeitereAspekteI}%
+ {\vbox to 6cm{\hbox to\textwidth{}}}
+\end{slide}
+
+\switchToMainFrame
+
+\begin{slide}{LP mit Negation und Default Logic}
+
+\hypertarget{LPDefaultLogic}{}%
+Formulierung von LP in Default-Logic $P \mapsto \Delta(P)$ \\\relax
+  [Przymusinski 1988, Bidoit, Froidevaux I\&C 1991] \\
+  \[ p(\bar x) \ :- \ a_1(\bar x)\land\ldots\land a_n(\bar x),
+                  \neg b_1(\bar x)\land\ldots\land \neg b_m(\bar x). \]
+  \[\frac{a_1(\bar x)\land\ldots\land a_n(\bar x):
+                  \neg b_1(\bar x)\land\ldots\land \neg b_m(\bar x)}
+         {p(\bar x)} \]
+Beispiel:
+\[ \frac{move(X,Y):\neg win(Y)}{win(X)} \]
+
+\begin{itemize}
+\item stabile Modelle entsprechen Extensionen
+\item kleinstes station"ares Modell entspricht der WFS \\
+      polynomiell
+\end{itemize}
+\end{slide}
+
+\begin{slide}{Default-Theorien als Logic Programs}
+
+umgekehrte Richtung ...
+
+\begin{itemize}
+\item "Ubersetzung von Default-Theorien in LPs [Li, You JCI 1991]
+\end{itemize}  
+
+\end{slide}
+
+\begin{slide}{Defaults vs. Implikation}
+
+\begin{itemize}
+\item Implikation: $(X \isa bird) \imp fly(X)$ \\
+
+  Konsequenz: $\neg fly(tweety) \imp \neg(tweety \isa bird)$
+\bigskip
+
+\item Default:
+      $\displaystyle \frac{bird(x) : fly(x)}{fly(x)}$
+\medskip
+
+  Konsequenz: $\neg fly(tweety)$ bedeutet nur, dass der Default 
+     auf Tweety nicht anwendbar ist \\\relax
+  [vgl.\ Poole AI 1988 (Theorist)]
+\end{itemize}
+\end{slide}
+
+\begin{slide}{Generating Defaults}
+
+\begin{itemize}
+\item $S$ eine Menge geschlossener Formeln.
+  \[GD(S,D) := \{d \st 
+    \begin{array}[t]{@{}l}
+      d \mbox{ ist eine Instanz eines Defaults in $D$,~} \\
+        {\lightred \Th(S) \models p(d)}
+        \mbox{ und } {\lightred \Th(S \cup J(d)) \mbox{ ist konsistent}}\}
+        \end{array}\]
+  \begin{itemize}
+  \item $GD(S,D)$ kann Konflikte enthalten.
+  \end{itemize}
+\end{itemize}
+\end{slide}
+
+\overlays{2}{%
+\begin{slide}{Gammas-Hierarchie}
+
+\begin{itemize}
+\item Skeptical reasoning in Reiter's Default Logik: 
+   $\Pi_2^P$-vollst"andig.
+\item $\Gamma = \Gamma_1$, $\Gamma_2$, $\Gamma_3$, $\Gamma_4$: 
+   WFS $\Pi_2^P$-hart.
+\item $\Gamma_4$: WFS $\Sigma_3^P$-vollst"andig.
+\end{itemize}
+\bigskip
+
+\fromSlide{2}{%
+wobei
+
+\begin{itemize}
+\item $\Pi_2^P$: polynomiell nichtdeterministisch l"osbar, wenn man
+    ein NP-Orakel hat
+\item $\Sigma_2^P$: Probleme, deren Komplement in $\Pi_2^P$ ist.
+\end{itemize}
+}
+\end{slide}
+}
+
+\begin{slide}{Beispiel f"ur station"are Extension}
+
+[Przymusinska, Przymusinski FI 1994]
+
+\[\begin{array}{l@{\hspace*{1cm}}c}
+  sleep \gets \neg work. & \displaystyle \frac{:\neg work}{sleep} \\[0.4cm]
+  work \gets \neg tired. & \displaystyle \frac{:\neg tired}{work} \\[0.4cm]
+  tired \gets \neg sleep. & \displaystyle \frac{:\neg sleep}{tired} \\[0.4cm]
+  paid.                    \\[0.4cm]
+  angry \gets work, \neg paid & \displaystyle \frac{work:\neg paid}{angry} 
+\end{array}\]
+analog: Nixon Diamond
+\end{slide}  
+
+\begin{slide}{Beispiel f"ur station"are Extension (Cont'd)}
+
+\begin{itemize}
+\item mehrere Extensionen $\{paid, \neg angry, sleep\}$,
+      $\{paid, \neg angry, work\}$, $\{paid, \neg angry, tired\}$
+\item Sceptical Semantics: $E_{scept} = \{paid, \neg angry\}$
+\item ist keine Extension
+\item $\Gamma(\emptyset) = \{paid, \neg angry, sleep, work, tired\}$
+\item $\Gamma(\{paid, \neg angry, sleep, work, tired\}) = E_{scept}$
+\item $\Gamma^2(E_{scept}) = E_{scept}$
+\end{itemize}
+\end{slide}
+
+\overlays{2}{%
+\begin{slide}{Beispiel zu WFS-2}
+
+\[ D = \left\{ \frac{:b}{b}~,~\frac{:a}{a}~,~\frac{:\neg a}{\neg a}\right\} \]
+
+\fromSlide*{2}{%
+  $\Gamma(\emptyset) = \Th(\{b,a,\neg a\}) = Lang$ \\
+  $\Gamma_2(\emptyset) = \Th(\{b,a\}) \cup \Th(\{b,\neg a\})$ \\
+  enth"alt $\neg b$ nicht. \\
+  Damit ist die Annahme von $b$ konsistent:\\
+  $\Gamma(\Gamma_2(\emptyset)) = \Th(\{b\})$ \\
+  Fixpunkt.
+}
+\end{slide}
+}
+
+\overlays{2}{%
+\begin{slide}{Beispiel zu Gamma-Hierarchie}
+
+\[ D = \left\{ \frac{:a}{a}~,~\frac{:\neg a}{\neg a}~,~
+               \frac{:b}{c}~,~\frac{:a}{d}~,~\frac{\neg a:b}{\neg b}
+             \right\} \]
+\fromSlide*{2}{%
+\[ \begin{array}{c||c|c|c|c}
+    & i=1 & i=2 & i=3 & i=4 \\\hline\hline
+   \Gamma_i(\emptyset) 
+     & Lang
+     & \begin{array}{l} \Th(\{a,c,d\})\cup{} \\
+                        \Th(\{\neg a,c,d,\neg b\})
+       \end{array}
+     & \begin{array}{l} \Th(\{a,c,d\})\cup{} \\
+                        \Th(\{\neg a,c\})
+       \end{array}
+     & \Th(\{a,c,d\}) 
+   \\\hline
+   \Gamma\Gamma_i(\emptyset) 
+     & \Th(\emptyset)
+     & \Th(\emptyset)
+     & \Th(\{c\})
+     & \Th(\{a,c,d\})
+  \end{array} \]
+}
+\end{slide}
+}
+
+\overlays{2}{%
+\begin{slide}{WFS$_i$ f"ur Logic Programming}
+
+\[ P = \{ \begin{array}[t]{l@{\hspace*{1cm}}l@{\hspace*{1cm}}l}
+            a \gets \neg d & c \gets \neg b & b \gets \neg b,d \\
+            d \gets \neg a & f \gets \neg d \}
+          \end{array} \]
+
+\begin{itemize}
+ \item Stabiles Modell: $\{a,c,f\}$ 
+ \item $WFS(P) = WFS_2(P) = \Th(\emptyset)$ 
+ \item $WFS_3(P) = \Th(\{c\})$  \ \ \ 
+   \fromSlide{2}{($b$-Regel ist self-defeating)}  
+ \item $WFS_4(P) = \Th(\{a,c,f\})$  \ \ \ 
+\end{itemize}
+\end{slide}
+}
+
+\begin{slide}{Metatheoretische Eigenschaften}
+
+[Kraus,Lehmann,Magidor AI 1990]
+
+\hypertarget{MetaProperties}{}%
+Eigenschaften von Konsequenzrelationen:\\
+Was soll man aus einer Menge von ``$\alpha \snake \beta$'' 
+schlie"sen?
+
+Ganz notwendig:
+\medskip
+
+\begin{itemize}
+\item Reflexivity: ~ $\alpha \snake \alpha$
+\item Left Logical Equivalence: ~ 
+      $\displaystyle\frac{\models \alpha\iff\beta~,~\alpha\snake\gamma}
+                         {\beta\snake\gamma}$
+\item Right Weakening: ~
+      $\displaystyle\frac{\models \alpha\imp\beta~,~\gamma\snake\alpha}
+                         {\gamma\snake\beta}$
+\end{itemize}
+\end{slide}
+
+\overlays{2}{%
+\begin{slide}{Kumulativit"at}
+
+\hypertarget{Cumulativity}{}%
+System $\mathbf C$ (Cumulative): Eigenschaften aus [Gabbay 1985]
+\begin{itemize}
+\item Cut: ~
+      $\displaystyle\frac{\alpha\land\beta\snake\gamma~,~\alpha\snake\beta}
+                         {\alpha\snake\gamma}$\\
+  \fromSlide{2}{Um $\alpha\snake\gamma$ zu zeigen, kann man
+            tempor"ar $\beta$ dazunehmen, wenn ...}
+\item Weak Monotonicity/Cautious Monotonicity/Cumulative Monotonicity: ~
+      $\displaystyle\frac{\alpha\snake\beta~,~\alpha\snake\gamma}
+                         {\alpha\land\beta\snake\gamma}$ \\
+  \fromSlide{2}{Wenn man $\beta$ erf"ahrt und es vorher schon 
+         geglaubt hat, bleiben alle Schl"usse g"ultig}
+\end{itemize}
+
+\fromSlide{2}{Beide zusammen:\\
+  Wenn $\alpha\snake\beta$, dann stimmen die Schl"usse aus $\alpha$ 
+  und $\alpha\land\beta$ "uberein.}
+\end{slide}
+}
+
+\begin{slide}{Metatheoretische Eigenschaften (Cont'd)}
+
+\begin{itemize}
+\item ``Sceptical'' Default Semantik:
+  \begin{itemize}
+  \item erf"ullt Cut [Makinson NMR 89]
+  \item nicht kumulativ [Makinson NMR 89]; auch nicht f"ur normale Defaults
+  \item erf"ullt ``Or'' nicht
+  \end{itemize}
+\item $WFS$ ist kumulativ, $WFS_2$, $WFS_3$ und $WFS_4$ sind nicht
+  kumulativ.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{System C (Cont'd)}
+
+Abgeleitete Regeln f"ur System $\mathbf C$:
+
+\begin{itemize}
+\item Equivalence: ~
+      $\displaystyle\frac{\alpha\snake\beta~,~
+                          \beta\snake\alpha~,~
+                          \alpha\snake\gamma}
+                         {\beta\snake\gamma}$
+\item And: ~
+      $\displaystyle\frac{\alpha\snake\beta~,~
+                          \alpha\snake\gamma}
+                         {\alpha\snake\beta\land\gamma}$
+\item Modus Ponens Cumulative: ~
+      $\displaystyle\frac{\alpha\snake\beta\imp\gamma~,~
+                          \alpha\snake\beta}
+                         {\alpha\snake\gamma}$
+\medskip
+\item schwache Transitivit"at: ~
+      $\displaystyle\frac{\alpha\lor\beta\snake\alpha~,~
+                          \alpha\snake\gamma}
+                         {\alpha\lor\beta\snake\gamma}$
+\end{itemize}
+\end{slide}                       
+
+\overlays{2}{%
+\begin{slide}{System CM}
+
+System $\mathbf{CM}$ (Schw"acher als Classical Monotonic Logic):\\
+(abgelehnt f"ur nichtmonotone Systeme)
+
+\begin{itemize}
+\item Monotonicity: ~
+      $\displaystyle\frac{\models\alpha\imp\beta~,~
+                          \beta\snake\gamma}
+                         {\alpha\snake\gamma}$ \\
+   \fromSlide{2}{$penguin\imp bird~,~bird\snake flies$}
+\item Easy Half of Deduction Theorem: ~
+      $\displaystyle\frac{\alpha\snake\beta\imp\gamma}
+                         {\alpha\land\beta\snake\gamma}$
+\item Transitivit"at: ~
+      $\displaystyle\frac{\alpha\snake\beta~,~
+                          \beta\snake\gamma}
+                         {\alpha\snake\gamma}$
+\end{itemize}
+
+
+\begin{itemize}
+\item Contraposition: ~
+      $\displaystyle\frac{\alpha\snake\beta}
+                         {\neg\beta\snake\neg\alpha}$
+\end{itemize}
+\end{slide}                       
+}
+
+\begin{slide}{Pr"aferentielle Systeme}
+
+\hypertarget{Distribution}{}%
+System $\mathbf P$ (Preferential): $\mathbf C$ und
+
+\begin{itemize}
+\item Or: ~
+      $\displaystyle\frac{\alpha\snake\gamma~,~\beta\snake\gamma}
+                         {\alpha\lor\beta\snake\gamma}$
+\end{itemize}
+
+Ableitbar:
+\begin{itemize}
+\item Hard Half of Deduction Theorem: ~
+      $\displaystyle\frac{\alpha\land\beta\snake\gamma}
+                         {\alpha\snake\beta\imp\gamma}$
+\item Proof by Cases/Distribution: ~
+      $\displaystyle\frac{\alpha\land\beta\snake\gamma~,~
+                          \alpha\land\neg\beta\snake\gamma}
+                         {\alpha\snake\gamma}$
+\end{itemize}
+
+\end{slide}
+
+\begin{slide}{Pr"aferentielle Modelle und H"ulle}
+  
+[Shoham LICS 87; Kraus, Lehmann, Magidor AI 90] \\
+Partiell geordnete Menge von Strukturen/Theorien (``Welten''), die
+angibt, welche ``mehr normal'' als andere sind.
+  
+\begin{itemize}
+\item $\alpha \snake \beta$ gilt, wenn alle Welten, die $\alpha$
+  erf"ullen und ``am normalsten'' (minimal) sind, auch $\beta$ erf"ullen.
+\item Def: $\alpha \snake \beta \in {\mathbf K}^p$ wenn 
+  es in allen pr"aferentielle Modellen zu $\mathbf K$ gilt.
+\item Die pr"aferentielle Folgerungsrelation ist co-NP [Lehmann,
+  Magidor AI 1992]
+\end{itemize}  
+
+\end{slide}
+
+\begin{slide}{Rationalit"at}
+  
+\hypertarget{Rationality}{}Zus"atzlich Aussagen, was \emph{nicht}
+    geschlossen werden soll:
+
+\begin{itemize}
+\item Negation Rationality: ~
+      $\displaystyle\frac{\alpha\land\gamma\not\snake\beta,~
+                          \alpha\land\neg\gamma\not\snake\beta}
+                         {\alpha\not\snake\beta}$ \\
+\item Disjunctive Rationality: ~
+      $\displaystyle\frac{\alpha\not\snake\gamma,~
+                          \beta\not\snake\gamma}
+                         {\alpha\lor\beta\not\snake\gamma}$ \\
+\item Rational Monotonicity:\
+      $\displaystyle\frac{\alpha\land\beta\not\snake\gamma,~
+                          \alpha\not\snake\neg\beta}
+                         {\alpha\not\snake\gamma}$ 
+      ~ "aq. ~
+      $\displaystyle\frac{\alpha\snake\gamma,~
+                          \alpha\not\snake\neg\beta}
+                         {\alpha\land\beta\snake\gamma}$ \\
+
+
+\item R.M. impliziert mit System $\mathbf C$ D.R., und das wiederum N.R.
+   %% KLM90, p198
+\item ``Rational'': Systeme, die Rational Monotonicity erf"ullen.
+\item wenn ein Faktum, dessen Negation vorher nicht abgeleitet werden
+  konnte, dazugelernt wird, wird kein vorheriger Schluss widerrufen
+\end{itemize}
+\end{slide}
+
+\begin{slide}{Rationalit"at (Cont'd)}
+
+f"ur rationale Systeme gelten schw"achere Formen der bei 
+$\mathbf CM$ genannten Regeln:
+
+\begin{itemize}
+\item Weak Transitivity: ~
+      $\displaystyle\frac{\alpha\snake\beta~,~
+                          \beta\snake\gamma~,~
+                          \beta\not\snake\neg\alpha}
+                         {\alpha\snake\gamma}$
+\item Weak Contraposition: ~
+      $\displaystyle\frac{\alpha\land\gamma\snake\beta~,~
+                          \gamma\not\snake\beta}
+                         {\gamma\land\neg\beta\snake\neg\alpha}$
+\end{itemize}
+\end{slide}
+
+\begin{slide}{Rationale Konsequenzrelationen}
+  
+[Lehmann, Magidor AI 1992]
+
+\begin{itemize}
+\item Ranking von Formeln: beschreibt, wie sehr ``Ausnahme'' eine
+  Formel ist.
+\item  Rationale Konsequenzrelationen k"onnen durch ``Ranked Models''
+  repr"asentiert werden:
+\item ``Ranked Models'' sind pr"aferentielle Modelle, deren Ordnung
+  bestimmte Bedingungen erf"ullt \\
+  (kleinerer Rank $\to$ weniger unnormal).
+\item trotzdem ist \emph{Ranked Entailment} nur \emph{Preferential
+  entailment}: \\
+  Schnitt aller rationalen Extensionen ist nur ${\mathbf  K}^p$.
+\end{itemize}
+\end{slide}
+
+\begin{slide}{Rationale H"ulle}
+  
+[Lehmann, Magidor AI 1992]
+
+\begin{itemize}
+\item Ordnung auf rationalen Extensionen (nach Normalit"at)
+\item falls minimale rationale Extension $\bar{\mathbf K}$
+  existiert, ist das die rationale H"ulle \\
+  (existiert wenn ein sinnvolles Ranking der Formeln m"oglich ist, z.B.
+  f"ur alle endlichen $\mathbf K$)
+\item $\alpha \snake\beta \in \bar{\mathbf K}$ falls
+  \begin{itemize}
+  \item $rank(\alpha) < rank(\alpha\land\neg\beta)$, oder
+  \item $rank(\alpha)$ existiert nicht (dann ist $\alpha$ inkonsistent
+    zu $\mathbf K$)
+  \end{itemize}
+\end{itemize}
+\end{slide}
+
+\begin{slide}{Rationale H"ulle: Komplexit"at}
+  
+[Lehmann, Magidor AI 1992]
+
+\begin{itemize}
+\item $\bar{\mathbf K}$ iterativ berechenbar aus $\mathbf K$, indem
+  man solange $E(C)$ (Menge aller Ausnahmeformeln) bildet, bis man bei
+  $\alpha$ ankommt. Dann wird gepr"uft ob $\beta$ noch mehr Ausnahme ist.
+\item Test, ob eine Formel eine Ausnahme beschreibt: reduzierbar auf
+   SAT in der zugrundeliegenden Logik.
+\item Man braucht $O(n^2)$ Iterationen.
+\item Horn-Fall: polynomial.
+\end{itemize}
+\end{slide}
+
+
+\begin{slide}{Default-Logic und Kumulativit"at}
+  
+Default-Logic erf"ult Kumulativit"at nicht\\\relax
+[Makinson LPNMR 89]  %% aus Brewka-Uebersicht
+
+\[\frac{:p}{p} \qquad,\qquad \frac{p\lor q:\neg p}{\neg p} \]
+
+\begin{itemize}
+\item hat genau eine Extension: $\Th\{p\}$, enth"alt also auch 
+  $p\lor q$
+\item nimmt man $p\lor q$ als Pr"amisse an, bekommt man eine zweite
+  Extension $\Th(\{\neg p,q\})$ enth"alt.
+\end{itemize}
+
+Anderes, normales Beispiel [Makinson Handbook 1994]:
+
+\[\frac{:a}{a}\quad,\quad
+  \frac{a:b}{b}\quad,\quad
+  \frac{b:\neg a}{\neg a} \]
+\end{slide}
+
+\begin{slide}{Default-Logic und Kumulativit"at}
+Beispiel mit normalen Defaults [Brewka AI 91]
+
+\[\begin{array}{l}
+    F= \{dog \lor bird \imp pet~,~dog \imp \neg bird~,~ sings\} \\
+    \displaystyle 
+    D= \left\{ \frac{pet:dog}{dog} ~,~
+                 \frac{sings:bird}{bird} \right\}
+  \end{array}\]
+
+Extension: $\Th(F\cup\{bird\})$ contains $pet$.
+  
+Nimmt man $pet$ zu den Fakten dazu, erh"alt man eine
+zus"atzliche Extension $\Th(F\cup\{dog\})$
+\end{slide}
+
+\begin{slide}{Default-Logic und OR}
+
+aus [Poole KR89]  %% aus Brewka-Uebersicht
+
+\[\frac{:usable(X) \land \neg broken(X)}{usable(X)} \]
+
+Pr"amisse: $broken(left\_arm)\lor broken(right\_arm)$
+\smallskip
+
+Die einzige Extension enth"alt 
+
+\[usable(left\_arm)\land usable(right\_arm) \]
+
+(jedes $usable(X)$ kann einzeln abgeleitet werden)
+\smallskip
+
+\begin{itemize}
+\item 
+  L"osung: Buchf"uhrung "uber verwendete Justifications
+  [Lukaszewicz CI 1988, Brewka AI 1991, Delgrande 1994]
+\item womit man auch das Problem des bottom-up Verfahrens l"ost
+\end{itemize}
+\end{slide}
+
+\begin{slide}{Default-Logic und OR}
+
+[Poole Handbook 1994]
+
+\[ \frac{employed(X):get\_paid(X)\land works(X)}{get\_paid(X)} \]
+
+Fakten: $employed(david)$, $employed(john)$,
+        $\neg works(david) \lor \neg works(john)$
+
+\smallskip
+
+Hier ist es sinnvoll, dass die Extension
+
+\[ get\_paid(david) \land get\_paid(john) \]
+
+ableitet.
+\end{slide}
+
+\begin{slide}{Default-Logic und Proof-by-cases}
+
+aus [Makinson Handbook 94] 
+
+\[\frac{a:c}{c} \quad,\quad \frac{\neg a:c}{c}\]
+
+Es gilt $a \snake c$ und $\neg a\snake c$ aber nicht 
+$true\snake c$.
+\end{slide}
+
+\begin{slide}{Cumulative Default Logic}
+
+Buchf"uhrung "uber verwendete Justifications [Brewka AI 1991]:
+
+Formel $\phi$ kann unter Verwendung der Justifications 
+$\gamma_1,\ldots,\gamma_n$ begr"undet werden:
+\[ \langle \phi, \{r_1,\ldots,r_n\}\rangle \]
+
+$S_0=F,S_1,S_2,\ldots$ eine Folge von Mengen von ({\red annotierten}) 
+Formeln so dass ${\lightred S}=(\bigcup_{i=0}^\infty S_i)$ und
+\[ \begin{array}{l}
+   S_{i+1} = S_i \cup 
+     \{\begin{array}[t]{l}
+       \langle C, R\cup \beta \cup \{c(d)\}\rangle \st
+        d \in D,
+       \Th(S_i) \models p(d) \mbox{ und } \\
+       \Th(S \cup Supp(S) \cup J(d) {\red\cup \beta \cup \{c(d)\}}) 
+         \mbox{ ist konsistent}\}
+       \end{array}
+     \end{array}\]
+
+Dann ist $\Th(S)$ eine \emph{CDL-Extension} von $\Delta$.
+
+Kumulativ, und es existiert immer eine CDL-Extension.  
+\end{slide}
+
+\begin{slide}{Lokalit"at normaler Defaults}
+
+\hypertarget{SemiMonotony}{}%
+Form: \ $\displaystyle\frac{\alpha:w}{w}$
+
+\begin{itemize}
+\item Jede Extension l"a"st sich bottom-up berechnen
+\item Semi-Monotonie: $D\subseteq D'$, $E$ eine Extension von
+   $(D,F)$. Dann hat $(D',F)$ eine Extension $E'$ so dass
+   \begin{itemize}
+   \item $E \subseteq E'$
+   \item $GD(E,D) \subseteq GD(E',D')$
+   \end{itemize}
+   \begin{itemize}
+     \item[$\Rightarrow$] ``Lokalit"at''
+   \end{itemize}
+\item Vollst"andigkeit von Top-Down Default Proofs \\\relax
+      [Reiter AI 1980].
+\end{itemize}
+\invisiblehyperlink{NormaleDefaultsIntro}%
+ {\vbox to 2cm{\hbox to\textwidth{}}}
+\end{slide}
+
+\begin{slide}{Seminormale Defaults}
+
+Es gibt Dinge, die nicht als normale Defaults ausdr"uckbar sind:
+
+\[\frac{has\_motive(X):suspect(X)\land guilty(X)}
+         {suspect(X)} \]
+
+\end{slide}
+
+\begin{slide}{Komplexit"at: Basic Notions}
+
+\begin{itemize}
+\item SAT f"ur propositional Logic ist NP-vollst"andig
+\item SAT f"ur first-order ist nicht rekursiv aufz"ahlbar
+\item $QBF(2,\exists) = SAT(\exists\ldots\exists\forall\ldots\forall\phi)$ 
+  ist $\Sigma_2^P$-vollst"andig \\
+  (d.h., NP-vollst., wenn man auf ein $\Sigma_1^P$- oder NP-Orakel
+  zur"uckgreifen kann).
+\item $\Sigma_{k+1}^P = NP^{\Sigma_k^P}$, $\Sigma_0^P = P$
+\item $\Sigma_1^P=NP$
+\end{itemize}
+\end{slide}
+
+\begin{slide}{Komplexit"at von Default Reasoning}
+  $\Sigma_P^2$ oder $\Pi_P^2$-vollst"andig sind f"ur endliche
+  aussagenlogische Default-Theorien:
+\begin{itemize}
+\item Existenz einer [konsistenten] Extension.
+\item gilt $\gamma$ in [einer$|$allen] [konsistenten] Extensionen
+  [nicht]?
+\item dasselbe bereits f"ur normale Defaults ohne Prerequisites.
+\item ``Sceptical'' f"ur normale Defaults ist $P^{NP[\log n]}$-vollst"andig \\
+  (LFP-Berechnung der station"aren Semantik muss nur bis $\Gamma^2$
+   ausgef"uhrt werden) [Gottlob IC 1995] 
+\end{itemize}
+
+Default-Theorien ohne Disjunktion:  NP \\\relax
+[Kautz, Selman AI 91] 
+
+Horn Default Theorien: linear time [Kautz, Selman AI 91] 
+\end{slide}
+
+\begin{slide}{Beweistheorie}
+
+Gibt es eine Extension von $\Delta$, die $\gamma$ enth"alt?
+
+\begin{enumerate}
+\item zeige $\gamma$ mit $F\cup c(D)$ \\
+  ($R$ Grundinstanzen der verwendeten Defaults)
+\item zeige alle Preconditions der verwendeten Defaults
+  (rekursiv, $R^+$ alle verwendeten Grundinstanzen)
+\item teste Konsistenz von $F \cup J(R^+)$
+  {\red (SAT, nicht r.a.)}
+\end{enumerate}
+
+Es gibt keine Prozedur, um das im allgemeinen Fall zu berechnen.
+\end{slide}
+
+\begin{slide}{Beweistheorie}
+
+F"ur normale Defaults existiert eine vollst"andige Beweistheorie  
+[Reiter AI 1980]:
+
+\begin{itemize}
+\item $F,\gamma$ in Horn-Form
+\item jedes $c(D)$ in Horn-Form: \\
+   Menge $(C,\{\delta\})$ von Paaren von annotierten Klauseln \\
+  ($\delta=\emptyset$ f"ur $C\in F$)
+\item Resolution: ~
+  $(C_1,D_1)$ $(C_2,D_2)$ zu $(R,D_1\cup D_2)$
+\end{itemize}
+\end{slide}
+
+\begin{slide}{Beweistheorie}
+
+Lineare Resolution 
+
+\begin{itemize}
+\item Startklausel: $R_0 = {}$ eine negierte Klausel in $\gamma$
+\item $R_{i-1}$ mit einem $C_i$ zu $R_i$, wobei $C_i$
+  \begin{itemize}
+  \item ein $(C,\{d\})$ vom Input
+  \item eine negierte Klausel in $\gamma$
+  \item ein vorhergehendes $R_j$.
+  \end{itemize}
+\item $R_n =(\Box,D)$ f"ur eine Menge $D_0$ von Defaults
+\end{itemize}
+
+\begin{itemize}
+\item Gezeigt: Aus $c(D_0)$ l"asst sich $\gamma$ ableiten.
+\item rekursiv: Herleitungen f"ur die Preconditions in $D_k$ suchen,
+  ergibt $D_{k+1}$.
+\item Zuletzt bleibt zu zeigen: $F \cup \bigcup_k c(D_k)$ ist
+  erf"ullbar (SAT(Horn) ist polynomial)
+\end{itemize}
+\end{slide}
+\end{document}
+</pre>
+</body>

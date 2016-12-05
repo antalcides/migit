@@ -1,0 +1,48 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 0.8.3 ] */
+
+/* [wxMaxima: comment start ]
+(José Luis da Vila Alonso, 2009)
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: title   start ]
+Método de Regula-Falsi
+   [wxMaxima: title   end   ] */
+
+/* [wxMaxima: comment start ]
+Método para resolver ecuaciones no lineales.
+
+Para calcular una raíz de una función, debes escribir la función f(x),
+el intervalo donde buscar la raíz y el número de iteraciones.
+
+<Pulsa las teclas "Ctrl-R" para evaluar todas las entradas>
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+f(x):=x^3+2*x+1; a:-1; b:0; niter:15;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+float(f(a)* f(b));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Búsqueda de la solución
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+n:0$ x1:a$ x2:b$
+for i:1 thru niter do (
+    n:n+1,
+    xm:x1-((x2-x1)*f(x1))/(f(x2)-f(x1)),
+    if f(xm)*f(x1)<0 then 
+          x2:xm
+    else
+          x1:xm,
+    print("   n=",n,", xm=",float(xm))
+);
+print("    f(",box(float(xm)),")=",float(f(xm)))$
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

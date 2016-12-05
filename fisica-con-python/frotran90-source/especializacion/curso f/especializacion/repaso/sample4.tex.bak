@@ -1,0 +1,874 @@
+\documentclass[usenames,a4,portrait,semhelv]{seminar}
+
+\usepackage{pst-all}
+\usepackage{pst-blur}
+\usepackage{amsmath}
+\usepackage[dvips,pdftex]{graphicx}
+\usepackage[activeacute,spanish]{babel}
+\usepackage{amsbsy}
+%\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage[latin1]{inputenc}
+\usepackage[nocfg]{pdfslide}
+\usepackage{pause}
+\usepackage{url}
+\usepackage{fvrb-ex}
+\usepackage{zahlen}
+\usepackage{semcolor}
+\usepackage{semlayer}
+\input{seminar.bug}
+\input{seminar.bg2}
+
+%\usepackage{pifont}
+\usepackage{marvosym}
+
+%\usepackage[dvips]{graphicx}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% directory from where eps-files are included
+%%% list of directories like {{dir1}{dir2}...}
+
+\graphicspath{{./}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% set some parameters
+
+\def\initials{AO}
+\def\name{Antalcides Olivo}
+\def\place{Repaso de Estadística} % `place' or 'conference, place'
+\def\month{07/2003} % format 'MM/YYYY'
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% page-style
+
+\renewcommand{\slidetopmargin}{.4in}
+\addtolength{\slidewidth}{1in}
+\extraslideheight{10mm}
+
+\newcommand{\footcolor}{\Black}
+\newcommand{\headtext}{}
+
+\newsavebox{\myLoewe}
+\sbox{\myLoewe}{\includegraphics[scale=0.14]{logofoto.eps}}
+
+\newpagestyle{mystyle}
+{%
+\rput[l]{0}(0,0)%
+   {\psframebox[fillstyle=gradient,
+                linecolor=White,
+                gradmidpoint=0.45,
+                gradlines=100,
+                gradangle=90]
+                {\begin{minipage}{0.98\textwidth}
+                 {\large\bf \initials}
+                 \quad
+                 \rput{0}(0.2,0.11){\usebox{\myLoewe}}
+                 \qquad\qquad
+                 {\bf \place - \month}
+                 \hfill\hfill\Red{\large\bf \headtext}
+                 \end{minipage}}}
+}% end header box
+{%
+\begin{minipage}{\textwidth}
+\vspace*{-4truemm}
+\hrulefill\\
+\phantom{.}\hfill \footcolor{\name, \month}\hfill --\thepage--
+\end{minipage}
+}% end footer box
+
+\slideframe{none}
+\pagestyle{mystyle}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% color-stuff
+
+\definecolor{LightGray}{rgb}{0.94,0.94,0.94}
+\definecolor{VeryLightBlue}{rgb}{0.9,0.9,1}
+\definecolor{LightBlue}{rgb}{0.8,0.8,1}
+\definecolor{DarkBlue}{rgb}{0,0,0.6}
+\definecolor{LightGreen}{rgb}{0.88,1,0.88}
+\definecolor{MidGreen}{rgb}{0.6,1,0.6}
+\definecolor{DarkGreen}{rgb}{0,0.6,0}
+\definecolor{VeryLightYellow}{rgb}{1,1,0.9}
+\definecolor{LightYellow}{rgb}{1,1,0.6}
+\definecolor{MidYellow}{rgb}{1,1,0.5}
+\definecolor{VeryLightRed}{rgb}{1,0.9,0.9}
+\definecolor{LightRed}{rgb}{1,0.8,0.8}
+
+\newcommand{\VeryLightBlue}[1]{{\color{VeryLightBlue}{#1}}}
+\newcommand{\LightBlue}[1]{{\color{LightBlue}{#1}}}
+\newcommand{\Blue}[1]{{\color{Blue}{#1}}}
+\newcommand{\DarkBlue}[1]{{\color{DarkBlue}{#1}}}
+\newcommand{\DarkGreen}[1]{{\color{DarkGreen}{#1}}}
+\newcommand{\VeryLightRed}[1]{{\color{VeryLightRed}{#1}}}
+\newcommand{\LightRed}[1]{{\color{LightRed}{#1}}}
+\newcommand{\Red}[1]{{\color{Red}{#1}}}
+\newcommand{\Gray}[1]{{\color{Gray}{#1}}}
+\newcommand{\Black}[1]{{\color{Black}{#1}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% newcommands
+
+\newcommand{\fnz}{\footnotesize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+% switch-on cumulative overlays
+\makeatletter
+\def\pst@initoverlay#1{%
+\pst@Verb{%
+/BeginOL {dup (all) eq exch TheOL le or {IfVisible not {Visible
+/IfVisible true def} if} {IfVisible {Invisible /IfVisible false def} if}
+ifelse} def
+\tx@InitOL /TheOL (#1) def}}
+\makeatother
+
+% set some style parameters
+\renewcommand{\headtext}{title}
+\psset{gradbegin=MidYellow,gradend=MidGreen}
+\renewcommand{\footcolor}{\DarkGreen}
+
+%%%%%%%%%%%%% slide 1 %%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+
+\psblurbox[fillstyle=solid,fillcolor=yellow,linecolor=red]
+{\Blue{\huge\bf ¿Qué es la estadística?}}
+\include{repaso12}
+\overlay{2}{%
+\DarkGreen{\item
+\Black{
+\include{repaso2}}}
+\overlay{3}{%
+\Red{\item\Black{
+Probabilidad
+}}% end color
+}% end overlay
+\end{dinglist}
+
+\end{center}
+
+\vspace*{20mm}
+\rule{50mm}{1pt}\\[-1.6ex]
+{\fnz
+\DarkGreen{\tt $\backslash$usepackage\{pst-blur\}}}
+\include{repaso3}
+\end{slide}
+%%%%%%%%%%%
+
+\renewcommand{\headtext}{overlays}
+
+%%%%%%%%%% slide 2 %%% ??? %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+
+\begin{dinglist}{253}
+\item
+\overlay{0}{%
+\include{repaso4}}% end fnz
+}%
+\item
+\overlay{1}{%
+compare to the result of the same slide with non-cumulative overlays
+using:\newline
+\Blue{\tt\fnz
+\% switch-off cumulative overlays \newline
+$\backslash$makeatletter
+$\backslash$def$\backslash$pst@initoverlay\#1\{\%\newline
+$\backslash$pst@Verb\{\%
+$\backslash$tx@InitOL /TheOL (\#1) def\}\}\newline
+$\backslash$makeatother
+}\\%
+\Red{
+which doesn't really make sense here, but is needed in various situations
+whenever you want to {\em replace objects} instead of {\em adding objects}}
+}%
+\end{dinglist}
+
+
+\vspace*{-3mm}
+\overlay{0}{%
+\rule{50mm}{1pt}\\[-1ex]
+{\fnz
+$^\Red{*}$following the recipe outlined by Denis Girou in the seminar FAQ
+(idea first suggested by Tomer KOL)\\[-1.6ex]
+http://www.tug.org/applications/Seminar/Seminar-FAQ.html}
+}%
+
+\end{center}
+\end{slide}
+%%%%%%%%%%%
+
+% switch-off cumulative overlays
+\makeatletter
+\def\pst@initoverlay#1{%
+\pst@Verb{%
+\tx@InitOL /TheOL (#1) def}}
+\makeatother
+
+%%%%%%%%%%%%% slide 3 %%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+
+\psblurbox[fillstyle=solid,fillcolor=yellow,linecolor=red]
+{\Blue{\huge\bf Title of this talk}}
+
+\vspace{6mm}
+
+we demonstrate different techniques for overlays:
+\begin{dinglist}{253}
+\overlay{1}{%
+\Blue{\item\Black{
+using the \DarkGreen{\tt $\backslash$overlay\{\#\}\{<stuff>\}} command for
+cumulative overlays
+}}% end color
+}% end overlay
+\overlay{2}{%
+\DarkGreen{\item
+\Black{
+using the \DarkGreen{\tt $\backslash$overlay\{\#\}\{<stuff>\}} command
+for non-cumulative overlays
+}}% end color
+}% end overlay
+\overlay{3}{%
+\Red{\item\Black{
+repeating (almost) identical slides
+}}% end color
+}% end overlay
+\end{dinglist}
+
+\end{center}
+
+\vspace*{20mm}
+\rule{50mm}{1pt}\\[-1.6ex]
+{\fnz
+note: for the blurred shadow to the title box the file ``pst-blur.tex''
+has to be included by \\[-1.6ex]
+\DarkGreen{\tt $\backslash$usepackage\{pst-blur\}}}
+
+\end{slide}
+%%%%%%%%%%%
+
+% switch-on cumulative overlays
+\makeatletter
+\def\pst@initoverlay#1{%
+\pst@Verb{%
+/BeginOL {dup (all) eq exch TheOL le or {IfVisible not {Visible
+/IfVisible true def} if} {IfVisible {Invisible /IfVisible false def} if}
+ifelse} def
+\tx@InitOL /TheOL (#1) def}}
+\makeatother
+
+%%%%%%%%%%%%% slide 4 %%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+\rput{0}(-2,3.4){%
+one more example about cumulative overlays}
+\rput{0}(0,0){%
+\includegraphics[width=.5\textwidth]{heisenberg.eps}}%
+\overlay{1}{
+\rput(2.59,2){
+  \psframebox[fillstyle=solid,fillcolor=LightGray,linecolor=LightGray]
+             {\DarkBlue{\LARGE$\geq \hbar/2$}}} }%
+\rput{0}(2,-3.4){%
+\ldots and the usefulness of patches \Red{\huge\Smiley}}
+
+\end{center}
+\end{slide}
+%%%%%%%%%%%
+
+% switch-off cumulative overlays
+\makeatletter
+\def\pst@initoverlay#1{%
+\pst@Verb{%
+\tx@InitOL /TheOL (#1) def}}
+\makeatother
+
+%%%%%%%%%% slide 5 %%% ??? %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+
+now we will display three examples\\
+demonstrating nice ``overlay'' effects\\
+by merely copying (almost) identical slides
+
+\end{center}
+\end{slide}
+%%%%%%%%%%%
+
+%%%%%%%%%%%%% slide 6 %%%%%%%%%%%%%
+\begin{slide}
+
+\Blue{\tt\fnz
+$\backslash$begin\{slide\}
+\newline
+$\backslash$begin\{center\}
+\newline
+\qquad
+$\backslash$rput(0,0)\{$\backslash$includegraphics[width=$\backslash$textwidth]\{transdist-Xi0.1.eps\}\}
+\newline
+$\backslash$end\{center\}$\backslash$end\{slide\}
+\newline
+
+\ldots\\
+\ldots\\
+\ldots\\
+\ldots\\
+
+$\backslash$begin\{slide\}
+\newline
+$\backslash$begin\{center\}
+\newline
+\qquad
+$\backslash$rput(0,0)\{$\backslash$includegraphics[width=$\backslash$textwidth]\{transdist-Xi0.6.eps\}\}
+\newline
+$\backslash$end\{center\}
+\newline
+$\backslash$end\{slide\}
+\newline
+}% end \fnz
+
+
+\end{slide}
+%%%%%%%%%%%
+
+\renewcommand{\headtext}{geometrical interpretation of GPDs}
+
+%%%%%%%%%%%%% slide 7 %%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+\rput{0}(0,0){%
+\includegraphics[width=\textwidth]{transdist-Xi0.0.eps}}%
+\end{center}
+\end{slide}
+%%%%%%%%%%%
+
+%%%%%%%%%%%%% slide 8 %%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+\rput{0}(0,0){%
+\includegraphics[width=\textwidth]{transdist-Xi0.1.eps}}%
+\end{center}
+\end{slide}
+%%%%%%%%%%%
+
+%%%%%%%%%%%%% slide 9 %%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+\rput{0}(0,0){%
+\includegraphics[width=\textwidth]{transdist-Xi0.2.eps}}%
+\end{center}
+\end{slide}
+%%%%%%%%%%%
+
+%%%%%%%%%%%%% slide 10 %%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+\rput{0}(0,0){%
+\includegraphics[width=\textwidth]{transdist-Xi0.3.eps}}%
+\end{center}
+\end{slide}
+%%%%%%%%%%%
+
+%%%%%%%%%%%%% slide 11 %%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+\rput{0}(0,0){%
+\includegraphics[width=\textwidth]{transdist-Xi0.4.eps}}%
+\end{center}
+\end{slide}
+%%%%%%%%%%%
+
+%%%%%%%%%%%%% slide 12 %%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+\rput{0}(0,0){%
+\includegraphics[width=\textwidth]{transdist-Xi0.5.eps}}%
+\end{center}
+\end{slide}
+%%%%%%%%%%%
+
+%%%%%%%%%%%%% slide 13 %%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+\rput{0}(0,0){%
+\includegraphics[width=\textwidth]{transdist-Xi0.6.eps}}%
+\end{center}
+\end{slide}
+%%%%%%%%%%%
+
+\renewcommand{\headtext}{exclusive reactions}
+
+%%%%%%%%%% slide 14%%% ??? %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+
+\font\bighelv=phvb at .7cm
+\rput{0}(0,0){%
+\psshadow{\bighelv \LightBlue{advantages of being exclusive \ldots}}
+}%
+\rput{0}(0,0){%
+         {\bighelv \Blue{advantages of being exclusive \ldots}}
+}%
+
+\font\midhelv=phvb at .4cm
+\rput{0}(2,-1){%
+\psshadow{\midhelv \LightRed{sensitivity to reaction mechanisms}}
+}%
+\rput{0}(2,-1){%
+         {\midhelv \Red{sensitivity to reaction mechanisms}}
+}%
+
+\font\bighelv=phvb at .6cm
+\rput{0}(2,-2){%
+\psshadow{\bighelv \LightRed{generalised parton distributions}}
+}%
+\rput{0}(2,-2){%
+         {\bighelv \Red{generalised parton distributions}}
+}%
+
+\end{center}
+\end{slide}
+%%%%%%%%%%%%
+
+%%%%%%%%%% slide 15 %% ??? %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+
+\font\bighelv=phvb at .7cm
+\rput{0}(0,0){%
+\psshadow{\bighelv \VeryLightBlue{advantages of being exclusive \ldots}}
+}%
+\rput{0}(0,0){%
+         {\bighelv \LightBlue{advantages of being exclusive \ldots}}
+}%
+
+\font\midhelv=phvb at .4cm
+\rput{0}(2,-1){%
+\psshadow{\midhelv \LightRed{sensitivity to reaction mechanisms}}
+}%
+\rput{0}(2,-1){%
+         {\midhelv \Red{sensitivity to reaction mechanisms}}
+}%
+
+\font\bighelv=phvb at .6cm
+\rput{0}(2,-2){%
+\psshadow{\bighelv \VeryLightRed{generalised parton distributions}}
+}%
+\rput{0}(2,-2){%
+         {\bighelv \LightRed{generalised parton distributions}}
+}%
+
+\end{center}
+\end{slide}
+%%%%%%%%%%%%
+
+%%%%%%%%%% slide ? %%% ??? %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+
+\font\bighelv=phvb at .7cm
+\rput{0}(0,0){%
+\psshadow{\bighelv \VeryLightBlue{advantages of being exclusive \ldots}}
+}%
+\rput{0}(0,0){%
+         {\bighelv \LightBlue{advantages of being exclusive \ldots}}
+}%
+
+\font\midhelv=phvb at .4cm
+\rput{0}(2,-1){%
+\psshadow{\midhelv \VeryLightRed{sensitivity to reaction mechanisms}}
+}%
+\rput{0}(2,-1){%
+         {\midhelv \LightRed{sensitivity to reaction mechanisms}}
+}%
+
+\font\bighelv=phvb at .6cm
+\rput{0}(2,-2){%
+\psshadow{\bighelv \LightRed{generalised parton distributions}}
+}%
+\rput{0}(2,-2){%
+         {\bighelv \Red{generalised parton distributions}}
+}%
+
+\end{center}
+\end{slide}
+%%%%%%%%%%%%
+
+%%%%%%%%%% slide ?a %%% GPD table %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+
+\rput{0}(4.4,-0.5){\psblurbox[fillstyle=solid,fillcolor=LightBlue]
+{\Red{`GPDs link many different quantities'}}}
+
+\psset{unit=1.4truemm}
+\psset{arrowinset=0,linewidth=1pt}
+
+%\sffamily
+\renewcommand{\baselinestretch}{0.7}
+
+\begin{pspicture}(165,120)
+%
+% SPDs
+\rput{0}(85,60){\rnode{spd}{\psovalbox[linecolor=Blue,linewidth=2pt,
+fillstyle=solid,fillcolor=LightBlue,shadow=true,blur=true,framesep=5truemm]
+{\large\Blue{\bf GPDs}}}}
+%
+% orbital angular momentum
+\rput{0}(150,60){\rnode{ang}{\psframebox[linecolor=Yellow,fillstyle=solid,
+fillcolor=LightBlue,framesep=3truemm,framearc=.3]
+%{\Large $J_q$, $J_G$}}}
+{\small \begin{tabular}{c} orbital angular\\ momentum\\[2mm]
+transverse localisation\end{tabular}}}}
+\ncline[nodesep=2truemm,linewidth=2pt,linecolor=Blue,
+linestyle=dashed,dash=1.5pt 1.5pt]
+{->}{spd}{ang}
+%
+% FF
+\rput{0}(115,100){\rnode{ff}{\psframebox[linecolor=Red,
+fillstyle=solid,fillcolor=LightYellow,
+shadow=true,blur=true,
+shadowcolor=Red,shadowsize=2pt,blurradius=1pt,
+framesep=2truemm,framearc=.3]
+{\fnz \begin{tabular}{c} form\\ factors \end{tabular}}}}
+\ncline[nodesep=2truemm,linewidth=2pt,linestyle=dashed,dash=1.5pt 1.5pt]
+{<->}{spd}{ff}
+%\ncarc[nodesep=3truemm]{->}{spd}{ff}
+%\ncarc[nodesep=3truemm]{->}{ff}{spd}
+%
+% WACS
+\rput{0}(75,100){\rnode{wacs}{\psframebox[linecolor=Red,
+fillstyle=solid,fillcolor=LightYellow,
+shadow=true,blur=true,
+shadowcolor=Red,shadowsize=2pt,blurradius=1pt,
+framesep=2truemm,framearc=.3]
+{\fnz \begin{tabular}{c} wide angle\\ Compton\\ scattering\end{tabular}}}}
+\ncline[nodesep=2truemm,linewidth=2pt,linestyle=dashed,dash=1.5pt 1.5pt]
+{<->}{spd}{wacs}
+%
+% DIS
+\rput{0}(115,20){\rnode{dis}{\psframebox[linecolor=Red,
+fillstyle=solid,fillcolor=LightYellow,
+shadow=true,blur=true,
+shadowcolor=Red,shadowsize=2pt,blurradius=1pt,
+framesep=2truemm,framearc=.3]
+{\fnz {
+\begin{tabular}{c} deep inelastic\\ scattering\\PDFs \end{tabular}}}}}
+\ncline[nodesep=2truemm,linewidth=2pt,linestyle=dashed,dash=1.5pt 1.5pt]
+{<->}{spd}{dis}
+%
+% Meson production
+\rput{0}(70,20){\rnode{mes}{\psframebox[linecolor=Red,
+fillstyle=solid,fillcolor=LightYellow,
+shadow=true,blur=true,
+shadowcolor=Red,shadowsize=2pt,blurradius=1pt,
+framesep=2truemm,framearc=.3]
+{\fnz \begin{tabular}{c} exclusive\\ meson production\\
+{deep virtual/}large $t$ \end{tabular}}}}
+\ncline[nodesep=2truemm,linewidth=2pt,linestyle=dashed,dash=1.5pt 1.5pt]
+{<->}{spd}{mes}
+%
+% DVCS
+\rput{0}(25,95){\rnode{dvcs}{\psframebox[linecolor=Red,
+fillstyle=solid,fillcolor=LightYellow,
+shadow=true,blur=true,
+shadowcolor=Red,shadowsize=2pt,blurradius=1pt,
+framesep=2truemm,framearc=.3]
+{\fnz {
+\begin{tabular}{c} deeply virtual\\ Compton\\
+scattering \end{tabular}}}}}
+\ncline[nodesep=2truemm,linewidth=2pt,linestyle=dashed,dash=1.5pt 1.5pt]
+{<->}{spd}{dvcs}
+%
+% TCS
+\rput{0}(15,65){\rnode{tcs}{\psframebox[linecolor=Red,
+fillstyle=solid,fillcolor=LightYellow,
+shadow=true,blur=true,
+shadowcolor=Red,shadowsize=2pt,blurradius=1pt,
+framesep=2truemm,framearc=.3]
+{\fnz {
+\begin{tabular}{c} timelike\\ Compton\\
+scattering \end{tabular}}}}}
+\ncline[nodesep=2truemm,linewidth=2pt,linestyle=dashed,dash=1.5pt 1.5pt]
+{<->}{spd}{tcs}
+%
+% pp/pipi
+\rput{0}(15,35){\rnode{ppbar}{\psframebox[linecolor=Red,
+fillstyle=solid,fillcolor=LightYellow,
+shadow=true,blur=true,
+shadowcolor=Red,shadowsize=2pt,blurradius=1pt,
+framesep=2truemm,framearc=.3]
+{\fnz {
+\begin{tabular}{c}
+$p\bar p$ annihilation\\[1mm]
+\hline\\
+$\gamma\gamma\to\pi\pi$, $\gamma\gamma\to KK$
+\end{tabular}}}}}
+\ncline[nodesep=2truemm,linewidth=2pt,linestyle=dashed,dash=1.5pt 1.5pt,
+linecolor=gray]
+{<->}{spd}{ppbar}
+%
+\end{pspicture}
+
+\end{center}
+\end{slide}
+%%%%%%%%%%%%
+
+%%%%%%%%%% slide ?b %%% GPD table %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+
+\rput{0}(4.4,-0.5){\psblurbox[fillstyle=solid,fillcolor=LightBlue]
+{\Red{`GPDs link many different quantities'}}}
+
+\psset{unit=1.4truemm}
+\psset{arrowinset=0,linewidth=1pt}
+
+%\sffamily
+\renewcommand{\baselinestretch}{0.7}
+
+\begin{pspicture}(165,120)
+%
+% SPDs
+\rput{0}(85,60){\rnode{spd}{\psovalbox[linecolor=Blue,linewidth=2pt,
+fillstyle=solid,fillcolor=LightBlue,shadow=true,blur=true,framesep=5truemm]
+{\large\Blue{\bf GPDs}}}}
+%
+% orbital angular momentum
+\rput{0}(150,60){\rnode{ang}{\psframebox[linecolor=Yellow,fillstyle=solid,
+fillcolor=LightBlue,framesep=3truemm,framearc=.3]
+%{\Large $J_q$, $J_G$}}}
+{\small \begin{tabular}{c} orbital angular\\ momentum\\[2mm]
+transverse localisation\end{tabular}}}}
+\ncline[nodesep=2truemm,linewidth=2pt,linecolor=Blue,
+linestyle=dashed,dash=1.5pt 1.5pt]
+{->}{spd}{ang}
+%
+% FF
+\rput{0}(115,100){\rnode{ff}{\psframebox[linecolor=Red,
+fillstyle=solid,fillcolor=LightYellow,
+shadow=true,blur=true,
+shadowcolor=Red,shadowsize=12pt,blurradius=6pt,
+framesep=2truemm,framearc=.3]
+{\fnz \begin{tabular}{c} form\\ factors \end{tabular}}}}
+\ncline[nodesep=2truemm,linewidth=2pt,linestyle=dashed,dash=1.5pt 1.5pt]
+{<->}{spd}{ff}
+%\ncarc[nodesep=3truemm]{->}{spd}{ff}
+%\ncarc[nodesep=3truemm]{->}{ff}{spd}
+%
+% WACS
+\rput{0}(75,100){\rnode{wacs}{\psframebox[linecolor=Red,
+fillstyle=solid,fillcolor=LightYellow,
+shadow=true,blur=true,
+shadowcolor=Red,shadowsize=12pt,blurradius=6pt,
+framesep=2truemm,framearc=.3]
+{\fnz \begin{tabular}{c} wide angle\\ Compton\\ scattering\end{tabular}}}}
+\ncline[nodesep=2truemm,linewidth=2pt,linestyle=dashed,dash=1.5pt 1.5pt]
+{<->}{spd}{wacs}
+%
+% DIS
+\rput{0}(115,20){\rnode{dis}{\psframebox[linecolor=LightRed,
+fillstyle=solid,fillcolor=VeryLightYellow,
+shadow=true,blur=true,
+shadowcolor=Red,shadowsize=2pt,blurradius=1pt,
+framesep=2truemm,framearc=.3]
+{\fnz \Gray{
+\begin{tabular}{c} deep inelastic\\ scattering\\PDFs \end{tabular}}}}}
+\ncline[nodesep=2truemm,linewidth=2pt,linestyle=dashed,dash=1.5pt 1.5pt]
+{<->}{spd}{dis}
+%
+% Meson production
+\rput{0}(70,20){\rnode{mes}{\psframebox[linecolor=Red,
+fillstyle=solid,fillcolor=LightYellow,
+shadow=true,blur=true,
+shadowcolor=Red,shadowsize=12pt,blurradius=6pt,
+framesep=2truemm,framearc=.3]
+{\fnz \begin{tabular}{c} exclusive\\ meson production\\
+\Gray{deep virtual/}large $t$ \end{tabular}}}}
+\ncline[nodesep=2truemm,linewidth=2pt,linestyle=dashed,dash=1.5pt 1.5pt]
+{<->}{spd}{mes}
+%
+% DVCS
+\rput{0}(25,95){\rnode{dvcs}{\psframebox[linecolor=LightRed,
+fillstyle=solid,fillcolor=VeryLightYellow,
+shadow=true,blur=true,
+shadowcolor=Red,shadowsize=2pt,blurradius=1pt,
+framesep=2truemm,framearc=.3]
+{\fnz \Gray{
+\begin{tabular}{c} deeply virtual\\ Compton\\
+scattering \end{tabular}}}}}
+\ncline[nodesep=2truemm,linewidth=2pt,linestyle=dashed,dash=1.5pt 1.5pt]
+{<->}{spd}{dvcs}
+%
+% TCS
+\rput{0}(15,65){\rnode{tcs}{\psframebox[linecolor=LightRed,
+fillstyle=solid,fillcolor=VeryLightYellow,
+shadow=true,blur=true,
+shadowcolor=Red,shadowsize=2pt,blurradius=1pt,
+framesep=2truemm,framearc=.3]
+{\fnz \Gray{
+\begin{tabular}{c} timelike\\ Compton\\
+scattering \end{tabular}}}}}
+\ncline[nodesep=2truemm,linewidth=2pt,linestyle=dashed,dash=1.5pt 1.5pt]
+{<->}{spd}{tcs}
+%
+% pp/pipi
+\rput{0}(15,35){\rnode{ppbar}{\psframebox[linecolor=Red,
+fillstyle=solid,fillcolor=LightYellow,
+shadow=true,blur=true,
+shadowcolor=Red,shadowsize=12pt,blurradius=6pt,
+framesep=2truemm,framearc=.3]
+{\fnz {
+\begin{tabular}{c}
+$p\bar p$ annihilation\\[1mm]
+\hline\\
+$\gamma\gamma\to\pi\pi$, $\gamma\gamma\to KK$
+\end{tabular}}}}}
+\ncline[nodesep=2truemm,linewidth=2pt,linestyle=dashed,dash=1.5pt 1.5pt,
+linecolor=gray]
+{<->}{spd}{ppbar}
+%
+\end{pspicture}
+
+\end{center}
+\end{slide}
+%%%%%%%%%%%%
+
+%%%%%%%%%% slide ?c %%% GPD table %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+
+\rput{0}(4.4,-0.5){\psblurbox[fillstyle=solid,fillcolor=LightBlue]
+{\Red{`GPDs link many different quantities'}}}
+
+\psset{unit=1.4truemm}
+\psset{arrowinset=0,linewidth=1pt}
+
+%\sffamily
+\renewcommand{\baselinestretch}{0.7}
+
+\begin{pspicture}(165,120)
+%
+% SPDs
+\rput{0}(85,60){\rnode{spd}{\psovalbox[linecolor=Blue,linewidth=2pt,
+fillstyle=solid,fillcolor=LightBlue,shadow=true,blur=true,framesep=5truemm]
+{\large\Blue{\bf GPDs}}}}
+%
+% orbital angular momentum
+\rput{0}(150,60){\rnode{ang}{\psframebox[linecolor=Yellow,fillstyle=solid,
+fillcolor=LightBlue,framesep=3truemm,framearc=.3]
+%{\Large $J_q$, $J_G$}}}
+{\small \begin{tabular}{c} orbital angular\\ momentum\\[2mm]
+transverse localisation\end{tabular}}}}
+\ncline[nodesep=2truemm,linewidth=2pt,linecolor=Blue,
+linestyle=dashed,dash=1.5pt 1.5pt]
+{->}{spd}{ang}
+%
+% FF
+\rput{0}(115,100){\rnode{ff}{\psframebox[linecolor=Red,
+fillstyle=solid,fillcolor=LightYellow,
+shadow=true,blur=true,
+shadowcolor=Red,shadowsize=12pt,blurradius=6pt,
+framesep=2truemm,framearc=.3]
+{\fnz \begin{tabular}{c} form\\ factors \end{tabular}}}}
+\ncline[nodesep=2truemm,linewidth=2pt,linestyle=dashed,dash=1.5pt 1.5pt]
+{<->}{spd}{ff}
+%\ncarc[nodesep=3truemm]{->}{spd}{ff}
+%\ncarc[nodesep=3truemm]{->}{ff}{spd}
+%
+% WACS
+\rput{0}(75,100){\rnode{wacs}{\psframebox[linecolor=LightRed,
+fillstyle=solid,fillcolor=VeryLightYellow,
+shadow=true,blur=true,
+shadowcolor=Red,shadowsize=2pt,blurradius=1pt,
+framesep=2truemm,framearc=.3]
+{\fnz \Gray{
+\begin{tabular}{c} wide angle\\ Compton\\ scattering\end{tabular}}}}}
+\ncline[nodesep=2truemm,linewidth=2pt,linestyle=dashed,dash=1.5pt 1.5pt]
+{<->}{spd}{wacs}
+%
+% DIS
+\rput{0}(115,20){\rnode{dis}{\psframebox[linecolor=Red,
+fillstyle=solid,fillcolor=LightYellow,
+shadow=true,blur=true,
+shadowcolor=Red,shadowsize=12pt,blurradius=6pt,
+framesep=2truemm,framearc=.3]
+{\fnz {
+\begin{tabular}{c} deep inelastic\\ scattering\\PDFs \end{tabular}}}}}
+\ncline[nodesep=2truemm,linewidth=2pt,linestyle=dashed,dash=1.5pt 1.5pt]
+{<->}{spd}{dis}
+%
+% Meson production
+\rput{0}(70,20){\rnode{mes}{\psframebox[linecolor=Red,
+fillstyle=solid,fillcolor=LightYellow,
+shadow=true,blur=true,
+shadowcolor=Red,shadowsize=12pt,blurradius=6pt,
+framesep=2truemm,framearc=.3]
+{\fnz \begin{tabular}{c} exclusive\\ meson production\\
+{deep virtual}\Gray{/large $t$} \end{tabular}}}}
+\ncline[nodesep=2truemm,linewidth=2pt,linestyle=dashed,dash=1.5pt 1.5pt]
+{<->}{spd}{mes}
+%
+% DVCS
+\rput{0}(25,95){\rnode{dvcs}{\psframebox[linecolor=Red,
+fillstyle=solid,fillcolor=LightYellow,
+shadow=true,blur=true,
+shadowcolor=Red,shadowsize=12pt,blurradius=6pt,
+framesep=2truemm,framearc=.3]
+{\fnz {
+\begin{tabular}{c} deeply virtual\\ Compton\\
+scattering \end{tabular}}}}}
+\ncline[nodesep=2truemm,linewidth=2pt,linestyle=dashed,dash=1.5pt 1.5pt]
+{<->}{spd}{dvcs}
+%
+% TCS
+\rput{0}(15,65){\rnode{tcs}{\psframebox[linecolor=Red,
+fillstyle=solid,fillcolor=LightYellow,
+shadow=true,blur=true,
+shadowcolor=Red,shadowsize=12pt,blurradius=6pt,
+framesep=2truemm,framearc=.3]
+{\fnz {
+\begin{tabular}{c} timelike\\ Compton\\
+scattering \end{tabular}}}}}
+\ncline[nodesep=2truemm,linewidth=2pt,linestyle=dashed,dash=1.5pt 1.5pt]
+{<->}{spd}{tcs}
+%
+% pp/pipi
+\rput{0}(15,35){\rnode{ppbar}{\psframebox[linecolor=LightRed,
+fillstyle=solid,fillcolor=VeryLightYellow,
+shadow=true,blur=true,
+shadowcolor=Red,shadowsize=2pt,blurradius=1pt,
+framesep=2truemm,framearc=.3]
+{\fnz \Gray{
+\begin{tabular}{c}
+$p\bar p$ annihilation\\[1mm]
+\hline\\
+$\gamma\gamma\to\pi\pi$, $\gamma\gamma\to KK$
+\end{tabular}}}}}
+\ncline[nodesep=2truemm,linewidth=2pt,linestyle=dashed,dash=1.5pt 1.5pt,
+linecolor=gray]
+{<->}{spd}{ppbar}
+%
+\end{pspicture}
+
+\end{center}
+\end{slide}
+%%%%%%%%%%%%
+
+\renewcommand{\headtext}{the end}
+
+%%%%%%%%%%%%% slide ? %%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+
+{\huge\bf the end}
+
+and this is the last slide
+
+\end{center}
+\end{slide}
+
+\end{document}

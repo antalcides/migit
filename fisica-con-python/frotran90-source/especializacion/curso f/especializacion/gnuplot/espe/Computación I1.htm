@@ -1,0 +1,221 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0069)http://www.dcc.uchile.cl/~lmateu/CC10A99/Apuntes/conceptos/index.html -->
+<HTML><HEAD><TITLE>Computación I</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252"><RIGHT>
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY><EM>Lunes 15 de Marzo</EM> </RIGHT>
+<CENTER>
+<H3>Conceptos básicos</H3>
+<P></CENTER>Objetivos: Que los alumnos sean capaces de escribir expresiones 
+aritméticas enteras o reales y que puedan declarar variables.
+<P>Temas:
+<P>
+<UL>
+  <LI>Expresiones aritméticas. 
+  <LI>Tipo de una expresión. 
+  <LI>Cálculo de porcentajes en un plebiscito. 
+  <LI>Declaración de variables. 
+  <LI>El operador %. </LI></UL>
+<UL></UL>
+<HR>
+
+<H4>Expresiones aritméticas</H4>
+<P>Una expresión aritmética se escribe realizando operaciones aritméticas entre 
+variables y constantes numéricas. Por ejemplo:
+<P><CODE><PRE>    2*PI*radio
+    (dist1+dist2)/difTiempo
+    5
+    3.14159
+</PRE></CODE>(Obs. a los profesores: PI es una constante de la clase Program).
+<P>Los operadores más usados son:
+<P>
+<UL>
+  <LI>+ 
+  <LI>- 
+  <LI>* para la multiplicación 
+  <LI>/ para la división </LI></UL>Obs. 1: Las expresiones se escriben en una sola 
+línea.
+<P>Obs. 2: Existe una parentización implícita como en el álgebra matemática:
+<P>
+<UL>
+  <LI>a+b*c es lo mismo que a+(b*c)
+  <P>Los operadores * y / tienen prioridad sobre + y -.
+  <P></P>
+  <LI>a-b-c es lo mismo que (a-b)-c 
+  <P>Entre operadores de la misma prioridad (como + - o * /) las expresiones se 
+  asocian de izquierda a derecha.
+  <P></P></LI></UL>Parentice explícitamente cuando la parentización implícita no 
+es la adecuada o cuando tenga dudas:
+<P><CODE><PRE>    a-(b-c);
+</PRE></CODE>
+<HR>
+
+<H4>Tipo de una expresión</H4>
+<P>Una expresión puede ser entera (int en Java) o real (double). Por ejemplo, 
+las siguientes son expresiones enteras:
+<P><CODE><PRE>   5
+   5 + 2 * 20   // expresión compuesta
+   5/2
+   -2
+</PRE></CODE>Estas otras son reales:
+<P><CODE><PRE>   3.14
+   3.14 * 8.5 / 2.0
+   5.                 // 5.0
+   1. + 1             // 2.0
+</PRE></CODE>Esto se puede resumir en:
+<P>
+<UL>
+  <LI>Cualquier constante numérica que contenga un . es real. Si no tiene el . 
+  es entera.
+  <P></P>
+  <LI>Cuando a ambos lados de un operador hay subexpresiones enteras, el 
+  resultado de esa operación es entero.
+  <P></P>
+  <LI>Si una de las subexpresiones es real, el resultado es real.
+  <P></P></LI></UL><CODE><PRE>Ejemplo:
+
+    (4 - 1) * 5. / (5 / 2)
+     |   |    |     |   |
+    int int double int int
+      \ /    /      \  /
+      int   /        int
+       \   /          /
+       double        /
+           \        /
+            \      /
+             \    /
+             double
+</TT></CODE>
+
+Propuesto: ¿Cuanto valen 1/2*2.0 y 2.0*1/2?
+
+<HR>
+
+<H4>Ejercicio: Cálculo de porcentajes en un plebiscito</H4><P>
+
+Se requiere un programa que establezca el siguiente diálogo:<P>
+
+<SAMPLE><PRE>    Votos SI ? <U>80</U>
+    Votos NO ? <U>120</U>
+    Total de votos= 200
+    SI= 40.0 %
+    NO= 60.0 %
+</PRE></SAMPLE>
+
+(8 minutos para que los alumnos traten de hacerlo.)
+
+Programa:<P>
+
+<CODE><PRE>    println("Calculo de porcentajes de un plebiscito");
+    print("Votos SI ? ");
+    int si= readInt();
+    print("Votos NO ? ");
+    int no= readInt();
+    print("Total de votos= "); println(si+no);
+    print("SI= "); print(100.0*si/(si+no)); println(" %");
+    print("NO= "); print(100.0*no/(si+no)); println(" %");
+</PRE></CODE>
+
+Observaciones:<P>
+
+<UL>
+
+<LI>Hay que agregar:
+
+<CODE><PRE>    class Plebiscito extends Program {
+      void run() {
+        <EM>El programa</EM>
+      }
+    }
+</PRE></CODE>
+
+En los ejercicios futuros nos ahorraremos esta parte que
+es siempre igual.<P>
+
+</P><LI>println escribe en la consola y luego cambia de línea. print
+no cambia de línea.<P>
+
+</P><LI>Se puede colocar más de una instrucción en una línea.<P>
+
+</P><LI>También se puede escribir:
+
+<CODE><PRE>    println("Total de votos= "+ (si+no));
+</PRE></CODE>
+
+</LI></UL>
+
+<HR>
+
+<H4>Declaración de variables</H4><P>
+
+Cuando una expresión se repite una y otra vez, su valor se
+puede almacenar en una variable.  Por ejemplo:<P>
+
+<CODE><PRE>    int total= si+no;
+    println(100.0*si/total);
+    println(100.0*no/total);
+</PRE></CODE>
+
+La primera instrucción es una <EM>declaración</EM>.  Introduce la variable
+total.  Una declaración tiene la sintaxis:<P>
+
+<CENTER>`tipo' `identificador' = `expresión' ;</CENTER><P>
+
+En donde `identificador' es el nombre de la variable y `expresión'
+es el valor inicial que se le da a esa variable.<P>
+
+El `tipo' puede ser int o double.  Si es int, la variable sólo puede
+almacenar un valor entero.  Si es double, solo puede almacenar un real
+(Ej. 2.5, -1.2, 1.0).  Ejemplo:<P>
+
+<CODE><PRE>  double perimetro= 2*PI*radio;
+</PRE></CODE>
+
+(Obs. a los profesores: por simplicidad no introduzcan el tipo float.
+Hace que en muchos caso se necesite los horrendos casts.  En todo
+caso, con double se puede hacer todo y mejor.)<P>
+
+<HR>
+
+<H4>El operador %</H4><P>
+
+Calcula el residuo de la división entre enteros.  Por ejemplo:<P>
+
+<UL>
+
+<LI>7/3 es 2
+<LI>7%3 es 1
+<LI>8%3 es 2
+
+</LI></UL>
+
+En general se tiene la siguiente igualdad:<P>
+
+<CENTER>i % j &lt;=&gt; i - i/j*j &lt;=&gt; i - (i/j)*j</CENTER><P>
+
+Tarea:<P>
+
+<UL>
+
+<LI>Haga un programa (con diálogo) que calcule el porcentaje de votos
+de 3 candidatos a una elección.<P>
+
+</P><LI>Haga un programa que sume dos instantes de tiempo (en horas y
+minutos).  El diálogo debe ser:<P>
+
+<SAMPLE><PRE>   Hora ? <U>8</U>
+   Minutos ? <U>35</U>
+   Hora ? <U>1</U>
+   Minutos ? <U>30</U>
+   Suma= 10 hrs. 5 min.
+</PRE></SAMPLE>
+
+</LI></UL>
+
+<HR><P>
+
+
+
+
+
+</P></PRE></BODY></HTML>

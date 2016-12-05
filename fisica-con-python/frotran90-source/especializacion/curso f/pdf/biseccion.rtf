@@ -1,0 +1,109 @@
+{\rtf1\ansi\deff0\deftab720{\fonttbl{\f0\fmodern Courier New;}}
+{\colortbl\red0\green0\blue255;\red0\green0\blue0;\red255\green0\blue0;}
+{\info{\comment Creado por Force 2.0 - www.forceproject.hpg.com.br}
+{\title biseccion.rtf}}
+\deflang1033\pard\plain\f0\fs20 
+\par 
+\par c     **Este programa halla las raices de una ecuaci¢n cuadr tica por el
+\par c     m‚todo de la secante**
+\par       \cf0\b program \b0\cf1 biseccion
+\par       
+\par c     **Declaraci¢n de variables**
+\par 
+\par       \cf0\b real \b0\cf1 G,H,I,D,R,u,v,w,a,b,c,e,dis
+\par       \cf0\b integer \b0\cf1 n,j,resp,k
+\par       D=\cf2 0.00001
+\par       \cf1 R=\cf2 0.00001
+\par       \cf1 n=\cf2 300
+\par       \cf1 resp=\cf2 1
+\par       \cf0\b do while\b0\cf1 (resp\cf0\b .EQ.\b0\cf2 1\cf1 )
+\par         \cf0\b print\b0\cf1 *, \cf2 'Este programa resuelve una ecuaci¢n cuadr tica:'
+\par         \cf0\b print\b0\cf1 *, \cf2 'ax**2 + bx  +c '
+\par         \cf0\b Print\b0\cf1 *, \cf2 'Digite el coeficiente a'
+\par         \cf0\b read\b0\cf1 *, G
+\par         \cf0\b Print\b0\cf1 *, \cf2 'Digite el coeficiente b'
+\par         \cf0\b read\b0\cf1 *, H
+\par         \cf0\b Print\b0\cf1 *, \cf2 'Digite  c'
+\par         \cf0\b read\b0\cf1 *, I
+\par         dis=(H**\cf2 2\cf1 )-(\cf2 4\cf1 *G*I)
+\par         \cf0\b if\b0\cf1 (dis\cf0\b .GT.\b0\cf2 0\cf1 )\cf0\b then
+\par          Print\b0\cf1 *, \cf2 'Digite el l¡mite inferior del intervalo'
+\par          \cf0\b read\b0\cf1 *, a
+\par          \cf0\b Print\b0\cf1 *, \cf2 'Digite el l¡mite superior del intervalo'
+\par          \cf0\b read\b0\cf1 *, b
+\par          \cf0\b write\b0\cf1 (*,*)\cf2 'La funcion es : '\cf1 ,G,\cf2 'x**2 '\cf1 ,H,\cf2 'x '\cf1 , I
+\par 
+\par          u= (G*(a**\cf2 2\cf1 ))+(H*a)+I
+\par          v= (G*(b**\cf2 2\cf1 ))+(H*b)+I
+\par          \cf0\b if\b0\cf1 (u\cf0\b .EQ.\b0\cf2 0\cf1 )\cf0\b then
+\par           print\b0\cf1 *,\cf2 'La raiz es'\cf1 ,a
+\par          \cf0\b else
+\par           if\b0\cf1 (v\cf0\b .EQ.\b0\cf2 0\cf1 )\cf0\b then
+\par            print\b0\cf1 *,\cf2 'La raiz es'\cf1 ,b
+\par           \cf0\b else
+\par             \b0\cf1 k=\cf2 1
+\par             \cf0\b do while\b0\cf1 ((v*u\cf0\b .GE.\b0\cf2 0\cf1 )\cf0\b .and.\b0\cf1 (k\cf0\b .LT.\b0\cf2 30\cf1 ))
+\par              k=k+\cf2 1
+\par              \cf1 a=a+\cf2 0.1
+\par              \cf1 u= (G*(a**\cf2 2\cf1 ))+(H*a)+I
+\par              v= (G*(b**\cf2 2\cf1 ))+(H*b)+I
+\par             \cf0\b enddo
+\par             \b0\cf1 e=b-a
+\par             j=\cf2 1
+\par             \cf0\b if\b0\cf1 ((u*v)\cf0\b .LT.\b0\cf2 0\cf1 )\cf0\b then
+\par                do while\b0\cf1 (j\cf0\b .LT.\b0\cf1 n)
+\par                  j=j+\cf2 1
+\par                  \cf1 e=e/\cf2 2
+\par                  \cf1 c=a+e
+\par                  w=(G*(c**\cf2 2\cf1 ))+(H*c)+I
+\par 
+\par                  \cf0\b if\b0\cf1 (abs(e)\cf0\b .GE.\b0\cf1 D)\cf0\b then
+\par                    if\b0\cf1 (abs(w)\cf0\b .GE.\b0\cf1 R)\cf0\b then
+\par                      if\b0\cf1 ((u*w)\cf0\b .LT.\b0\cf2 0\cf1 )\cf0\b then
+\par                       \b0\cf1 b=c
+\par                       v=w
+\par                      \cf0\b else
+\par                       \b0\cf1 a=c
+\par                       u=w
+\par                      \cf0\b endif
+\par                    else
+\par                      \b0\cf1 j=n
+\par                    \cf0\b endif
+\par                  else
+\par                  \b0\cf1 j=n
+\par                  \cf0\b endif
+\par                enddo
+\par                write\b0\cf1 (*,*)\cf2 '*********************************************'
+\par                \cf0\b print\b0\cf1 *, \cf2 'El numero de iteraciones es'\cf1 ,j
+\par                \cf0\b print\b0\cf1 *, \cf2 'La raiz es'\cf1 ,c
+\par                \cf0\b print\b0\cf1 *, \cf2 'El error es'\cf1 ,e
+\par                \cf0\b write\b0\cf1 (*,*)\cf2 '*********************************************'
+\par             \cf0\b else
+\par                print\b0\cf1 *, \cf2 'No existen raices en el intervalo dado,'
+\par                \cf0\b print\b0\cf1 *,\cf2 'o el la longitud del intervalo es muy grande'
+\par             \cf0\b endif
+\par            endif
+\par           endif
+\par         else
+\par          print\b0\cf1 *,\cf2 'Esta ecuaci¢n no tiene raices reales'
+\par         \cf0\b endif
+\par       open\b0\cf1 (\cf2 10\cf1 ,file=\cf2 'biseccion.txt'\cf1 ,status=\cf2 'unknown'\cf1 )
+\par       \cf0\b write\b0\cf1 (\cf2 10\cf1 ,\cf2 201\cf1 )\cf2 '***************************************************'
+\par       \cf0\b write\b0\cf1 (\cf2 10\cf1 ,\cf2 200\cf1 )\cf2 'La funcion es : '\cf1 ,G,\cf2 'x**2 '\cf1 ,H,\cf2 'x  '\cf1 , I
+\par       \cf0\b write\b0\cf1 (\cf2 10\cf1 ,\cf2 202\cf1 ) \cf2 ' El numero de iteraciones es : '\cf1 ,j
+\par       \cf0\b write\b0\cf1 (\cf2 10\cf1 ,\cf2 203\cf1 ) \cf2 ' La raiz es: '\cf1 ,c
+\par       \cf0\b write\b0\cf1 (\cf2 10\cf1 ,\cf2 204\cf1 ) \cf2 ' El error es '\cf1 ,e
+\par       \cf0\b write\b0\cf1 (\cf2 10\cf1 ,\cf2 205\cf1 )\cf2 '***************************************************'
+\par 201   \cf0\b format\b0\cf1 (a50)
+\par \cf2 200   \cf0\b format\b0\cf1 (a15,f8\cf2 .6\cf1 ,a5,f8\cf2 .3\cf1 ,a2,\cf2 2f8.3\cf1 )
+\par \cf2 202   \cf0\b format\b0\cf1 (a25,i4)
+\par \cf2 203   \cf0\b format\b0\cf1 (a15,f8\cf2 .6\cf1 )
+\par \cf2 204   \cf0\b format\b0\cf1 (a15,f8\cf2 .6\cf1 ,a2)
+\par \cf2 205   \cf0\b format\b0\cf1 (a50)
+\par         \cf0\b print\b0\cf1 *,\cf2 'Si desea continuar digite 1, sino digite 0'
+\par         \cf0\b read\b0\cf1 *,resp
+\par       \cf0\b enddo
+\par 
+\par 
+\par       end
+\par }

@@ -1,0 +1,2779 @@
+\chapter{Una breve introducci{\'o}n a C++.}
+
+\vspace{-1cm}
+\hfill {\tiny versi{\'o}n  preliminar 3.4-10 de junio de 2002}
+
+En este cap{\'\i}tulo se intentar{\'a} dar los elementos b{\'a}sicos del lenguaje
+de programaci{\'o}n C++.  No se pretende m{\'a}s que satisfacer las m{\'\i}nimas
+necesidades del curso, sirviendo como un ayuda de memoria de los
+t{\'o}picos abordados, para futura referencia. Se debe consignar que no se
+consideran todas las posibilidades del lenguaje y las explicaciones
+est{\'a}n reducidas al m{\'\i}nimo.
+
+\section{Estructura b{\'a}sica de un programa en C++.}
+
+\subsection{El programa m{\'a}s simple.}
+
+El primer ejemplo de todo manual es el que permite escribir ``Hola''
+en la pantalla.
+
+\begin{verbatim}
+//
+// Los comentarios comienzan con //
+//
+#include <iostream.h>
+main()
+{
+    cout << "Hola." << endl;
+}
+\end{verbatim}
+
+Las tres primeras l{\'\i}neas corresponden a comentarios, todo lo que est{\'a}
+a la derecha de los caracteres \verb+//+ son comentarios y no ser{\'a}n
+considerados en la compilaci{\'o}n. En la l{\'\i}nea siguiente se incluye un
+archivo de cabecera, o {\it header}, con la instrucci{\'o}n de
+preprocesador \verb+#include+. El nombre del archivo se puede escribir
+como \verb+<nombre.h>+ o bien \verb+"nombre.h"+. En el primer caso
+el archivo \verb+nombre.h+ ser{\'a} buscado en el {\it path} por defecto
+para los \verb+include+, t{\'\i}picamente \verb+/usr/include+ o
+\verb|/usr/include/g++-3/| en el caso de {\it headers} propios de C++;
+en el segundo caso la b{\'u}squeda se hace en el directorio local. Tambi{\'e}n
+podr{\'\i}amos incluir un {\it path} completo cuando se ocupan las comillas. En
+nuestro ejemplo se incluye el archivo \verb+iostream.h+, en el cual se
+hacen las definiciones adecuadas para el manejo de la entrada y salida
+en C++.  Este archivo es necesario para enviar luego un mensaje a
+pantalla. 
+
+La funci{\'o}n \verb+main+ es donde comienza a ejecutarse el programa;
+siempre debe haber una funci{\'o}n \verb+main+ en nuestro programa.  Los
+par{\'e}ntesis vac{\'\i}os \verb+()+ indican que el \verb+main+ no tiene
+argumentos de entrada (m{\'a}s adelante se ver{\'a} que puede tenerlos).  Lo
+que est{\'a} encerrado entre llaves \verb+{}+ corresponde al cuerpo de la
+funci{\'o}n \verb|main|. Cada una de las l{\'\i}neas termina con el car\'acter
+\verb+;+. El identificador predefinido \verb+cout+ representa la
+salida a pantalla.  El operador \verb+<<+ permite que lo que est{\'a} a su
+derecha se le d{\'e} salida por el dispositivo que est{\'a} a su izquierda, en
+este caso \verb+cout+. Si se quiere enviar m{\'a}s de un objeto al
+dispositivo que est{\'a} al inicio de la l{\'\i}nea agregamos otro operador
+\verb+<<+ y en este caso lo que est{\'a} a la derecha del operador se
+agregar{\'a} a lo que est{\'a} a la izquierda y todo junto ser{\'a} enviado al
+dispositivo. En nuestro caso se ha enviado \verb+endl+, un objeto
+predefinido en el archivo \verb+iostream.h+ que corresponde a un
+cambio de l{\'\i}nea, el cual ser{\'a} agregado al final del mensaje.
+
+Si escribimos nuestro primer programa en el editor \verb+xemacs+ con
+el nombre de \verb|primero.cc| las instruciones para editarlo, compilarlo y correrlo
+ser{\'a}n:
+\begin{verbatim}
+jrogan@pucon:~/tmp$ xemacs primero.cc 
+jrogan@pucon:~/tmp$ g++ -o primero primero.cc 
+jrogan@pucon:~/tmp$ ./primero
+Hola.
+jrogan@pucon:~/tmp$ 
+\end{verbatim}
+
+
+Luego de la compilaci\'on, un archivo ejecutable llamado
+\verb+primero+ es creado en el directorio actual. Si el directorio
+actual no est\'a en el \verb+PATH+, nuestro programa debe ser
+ejecutado anteponiendo \verb+./+. Si est\'a en el \verb+PATH+, para
+ejecutarlo basta escribir \verb+primero+. (Para agregar el
+directorio local al \verb+PATH+
+ basta editar el archivo \verb+~/.bashrc+
+agregarle una l\'{\i}nea como
+\verb+PATH="${PATH}:."+  y ejecutar en la l\'{\i}nea de comando 
+\verb+source ~/.bashrc+ para que los cambios tengan efecto.)
+
+
+\subsection{Definici{\'o}n de funciones.}
+\label{funciones}
+
+Las funciones en C++ son muy importantes, pues
+permiten aislar parte del c\'odigo en una entidad separada. Esto es un
+primer paso a la {\em modularizaci\'on\/} de nuestro programa, es
+decir, a la posibilidad de escribirlo en partes que puedan ser
+editadas de modo lo m\'as independiente posible. Ello facilita
+enormemente la creaci\'on de c\'odigo complicado, pues simplifica su
+modificaci\'on y la localizaci\'on de errores. Nos encontraremos
+frecuentemente con este concepto.
+
+Aprovecharemos de
+introducir las funciones
+ modificando el primer programa de manera que se delegue
+la impresi{\'o}n del mensaje anterior a una funci{\'o}n independiente:
+
+\begin{verbatim}
+//
+// Segunda version incluye funcion adicional
+//
+#include <iostream.h>
+
+void PrintHola()
+{
+    cout << "Hola." << endl;
+}       
+
+main()
+{
+    PrintHola();   
+}
+\end{verbatim}
+
+La funci{\'o}n debe estar definida antes de que sea ocupada, por eso va
+primero en el c{\'o}digo fuente. Como ya se dijo antes la ejecuci{\'o}n del
+programa comienza en la funci{\'o}n \verb+main+ a pesar de que no est{\'a}
+primera en el c{\'o}digo fuente. Los par{\'e}ntesis vac{\'\i}os indican que la
+funci{\'o}n \verb+PrintHola+ no tiene argumentos y la palabra delante del nombre de la
+funci{\'o}n indica el tipo de dato que devuelve. En nuestro caso la
+palabra \verb+void+ indica que no devuelve nada a la funci{\'o}n
+\verb+main+. 
+
+Una alternativa al c\'odigo anterior es la siguiente:
+\begin{verbatim}
+#include <iostream.h>
+
+void PrintHola();
+
+main()
+{
+    PrintHola();   
+}
+
+void PrintHola()
+{
+    cout << "Hola." << endl;
+}       
+\end{verbatim}
+
+En esta versi\'on se ha separado la {\em declaraci\'on\/} de la
+funci\'on de su {\em implementaci\'on}. En la declaraci\'on se
+establece el nombre de la funci\'on, los argumentos que recibe, y el
+tipo de variable que entrega como resultado. En la implementaci\'on se
+da expl\'{\i}citamente el c\'odigo que corresponde a la
+funci\'on. Hab\'{\i}amos dicho que una funci\'on debe estar definida
+antes que sea ocupada. En verdad, basta conque la funci\'on est\'e
+declarada. La implementaci\'on puede ir despu\'es (como en el ejemplo
+anterior), o incluso en un archivo distinto, como veremos m\'as
+adelante. La separaci\'on de declaraci\'on e implementaci\'on es otro
+paso hacia la modularizaci\'on de nuestro programa.
+
+
+
+\subsection{Nombres de variables.}
+
+Nuestros datos en los programas ser{\'a}n almacenados en objetos llamados
+variables. Para referirnos a ellas usamos un nombre que debe estar de
+acuerdo a las siguientes reglas:
+\begin{itemize}
+\item[--] Deben comenzar con una letra (may{\'u}sculas y min{\'u}sculas
+son distintas).
+\item[--] Pueden contener n{\'u}meros.
+\item[--] Pueden contener el s\'{\i}mbolo \verb+_+ (underscore).
+\item[--] Longitud arbitraria.
+\item[--] No pueden corresponder a una de las palabras reservadas
+de C++\footnote{A esta tabla hay que agregar algunas palabras
+  adicionales, presentes en versiones m\'as recientes de C++, como
+  {\tt namespace} y {\tt using}}:
+
+{\tt 
+\begin{tabular}{lllll}
+asm & delete & if & return & try \\
+auto & do & inline & short & typedef \\
+break & double & int & signed & union \\
+case & else & long & sizeof & unsigned \\
+catch & enum & new & static & virtual \\
+char & extern & operator & struct & void \\
+class & float & private & switch & volatile \\
+const & for & protected & template & while \\
+continue & friend & public & this \\
+default & goto & register & throw
+\end{tabular}}
+\end{itemize}
+
+\subsection{Tipos de variables.}
+
+Todas las variables a usar deben ser {\em declaradas\/} de acuerdo a
+su tipo. Por ejemplo, si usamos una variable \verb+i+ que sea un
+n{\'u}mero entero, debemos, antes de usarla, declararla, y s{\'o}lo
+entonces podemos asignarle un valor:
+\begin{verbatim}
+int i;
+i=10;
+\end{verbatim}
+Esta necesidad de declarar cada variable a usar se relaciona con la
+caracter\'{\i}stica de C++ de ser fuertemente ``tipeado''\footnote{Una
+  traducci\'on libre del t\'ermino ingl\'es {\em strongly
+    typed}.}. Algunos de los errores m\'as habituales en programaci\'on
+se deben al intento de asignar a variables valores que no
+corresponden a sus tipos originales. Si bien esto puede no ser muy
+grave en ciertos contextos, a medida que los programas se vuelven
+m\'as complejos puede convertirse en un verdadero problema. El
+compilador de C++ es capaz de detectar los usos indebidos de las
+variables pues conoce sus tipos, y de este modo nuestro c\'odigo se
+vuelve m\'as seguro. 
+
+
+Es posible reunir las acciones de declaraci{\'o}n e inicializaci{\'o}n en
+una misma l{\'\i}nea:
+\begin{verbatim}
+int i=10;
+\end{verbatim}
+o declarar m\'as de una variable del mismo tipo
+simult{\'a}neamente, e inicializar algunas en la misma l\'{\i}nea:
+\begin{verbatim}
+int r1, r2, r3 = 10;
+\end{verbatim}
+
+A veces se requiere que una variable 
+no var{\'\i}e una vez que se le asigna un valor. Por ejemplo,
+podr\'{\i}amos necesitar definir el valor de $\pi=3.14159...$, 
+y naturalmente no
+nos gustar\'{\i}a que, por un descuido, a esa variable se le asignara
+otro valor en alguna parte del programa. Para asegurarnos de que ello
+no ocurra, basta agregar el modificador \verb+const+ a la variable:
+\begin{verbatim}
+const float pi = 3.14159;
+\end{verbatim}
+
+Para n\'umeros reales se puede usar la notaci\'on exponencial. Por
+ejemplo, \verb+1.5e-3+ representa el n\'umero $1.5\cdot 10^{-3}$.
+
+Una variable puede ser declarada s\'olo una vez, pero naturalmente se
+le pueden asignar valores en un n\'umero arbitrario de ocasiones. 
+
+Los tipos de variables disponibles son\footnote{Los valores de los
+rangos indicados son simplemente representativos y dependen de la
+m{\'a}quina utilizada. Adem\'as, estos valores no corresponden
+exactamente a las versiones m\'as recientes de C++.}:
+
+\vspace{.3cm}
+\begin{tabular}{ll}
+\verb+int+& Enteros entre $-2^{15} = -32768$ y $2^{15} -1 = 32767$ \\
+&o entre $-2^{31} = -2147483648$ y $2^{31} -1 = 2147483647$\\
+\verb+short int+&\\
+\verb+short+& Enteros entre $-2^{15}$ y $2^{15}
+-1$. \\
+\verb+long int+ &\\
+\verb+long+& Enteros entre $-2^{31}$ y $2^{31} -1$.
+\\
+\verb+unsigned int+& Enteros entre $0$ y $2^{16} -1$ o entre $0$ y $2^{32} -1$.\\
+\verb+unsigned short+& Enteros entre $0$ y $2^{16} -1$.\\
+\verb+unsigned long+& Enteros entre $0$ y $2^{32} -1$.\\
+\verb+char+&Caracteres.\\
+\verb+float+& Reales en los intervalos $[ -1.7\cdot 10^{38},
+-0.29\cdot 10^{-38}]$,\\
+& $[0.29 \cdot 10^{-38},1.7\cdot 10^{38}]$\\
+& (Precisi{\'o}n de unos 7 d{\'\i}gitos decimales.)\\
+\verb+double+& Reales en los mismos intervalos que \verb+float+, \\
+&pero con precisi{\'o}n de 16 decimales, \\
+& o en los intervalos $[-0.9\cdot 10^{308}, -0.86 \cdot 10^{-308}]$\\
+& y
+$[0.86\cdot 10^{-308}, 0.9 \cdot 10^{308}]$, con precisi{\'o}n de 15 decimales. 
+\end{tabular}
+
+
+\vspace{.3cm}
+Las variables tipo \verb+char+ alojan caracteres, debiendo
+inicializarse en la forma:
+\begin{verbatim}
+char c = 'a';
+\end{verbatim}
+
+Adem{\'a}s de las letras may{\'u}sculas y min{\'u}sculas, y s{\'\i}mbolos como
+\verb+&+, \verb+(+, \verb+:+, etc., hay una serie de caracteres
+especiales ({\em escape codes\/}) que es posible asignar a una variable
+\verb+char+. Ellos son:
+
+\vspace{.3cm}
+\begin{tabular}{ll}
+newline& \verb+\n+ \\
+horizontal tab& \verb+\t+ \\
+vertical tab& \verb+\v+ \\
+backspace& \verb+\b+ \\
+carriage return& \verb+\r+ \\
+form feed& \verb+\f+ \\
+alert (bell)& \verb+\a+ \\
+backslash& \verb+\\+ \\
+single quote& \verb+\'+ \\
+double quote& \verb+\"+  
+\end{tabular}
+
+\vspace{.3cm}
+Por ejemplo, la l{\'\i}nea:
+
+\begin{verbatim}
+cout << "Primera columna\t Segunda columna\n 
+          Segunda linea" << endl;
+\end{verbatim}
+corresponde al output
+
+\begin{verbatim}
+Primera columna         Segunda columna
+Segunda linea
+\end{verbatim}
+
+
+
+\subsection{Ingreso de datos desde el teclado.}
+
+El {\it header} \verb+iostream.h+ define un objeto especial llamado
+\verb+cin+ que est\'a asociado al teclado o \verb+stdin+. Con el
+operador \verb+>>+ asignamos la entrada en el dispositivo de la
+izquierda a la variable de la derecha; una segunda entrada requiere de otro
+operador \verb+>>+ y de otra variable. En el siguiente ejemplo veremos
+una declaraci{\'o}n simult{\'a}nea de dos variables del mismo tipo \verb+i+ y
+\verb+j+, un mensaje a pantalla con las instrucciones a seguir, el
+ingreso de dos variables desde el teclado y luego su escritura en la pantalla.
+\begin{verbatim}
+#include <iostream.h>
+main()
+{
+    int i, j ;
+    cout << "Ingrese dos numeros enteros: " ;
+    cin >> i >> j ;
+    cout << "Los dos numeros ingresados fueron: " << i <<" "<< j << endl ;
+}
+\end{verbatim}
+
+\subsection{Operadores aritm{\'e}ticos.}
+
+Existen operadores binarios (i.e., que act\'uan sobre dos variables,
+una a cada lado del operador) para la suma, la resta, la multiplicaci{\'o}n
+y la
+divisi{\'o}n:
+
+\begin{verbatim}
++   -   *   /  
+\end{verbatim}
+
+\subsection{Operadores relacionales.}
+
+Los s{\'\i}mbolos para los operadores relacionales de igualdad, desigualdad,
+menor, menor o igual, mayor y mayor o igual son:
+
+\begin{verbatim}
+==    !=     <     <=     >     >=
+\end{verbatim}
+Para las relaciones l{\'o}gicas \verb+AND+, \verb+OR+ y \verb+NOT+:
+
+\begin{verbatim}
+&&    ||    !     
+\end{verbatim}
+
+\subsection{Asignaciones.}
+
+\begin{enumerate}
+\item[a)] Asignaci{\'o}n simple.
+Podemos asignar a una variable un valor expl\'{\i}cito, o el valor de
+otra variable:
+\begin{verbatim}
+i = 1;
+j = k;
+\end{verbatim}
+
+Una pr\'actica habitual en programaci\'on es iterar porciones del
+c\'odigo. La iteraci\'on puede estar determinada por una variable cuyo
+valor aumenta (disminuye) cada vez, hasta alcanzar cierto valor
+m\'aximo (m\'{\i}nimo), momento en el cual la iteraci\'on se
+detiene. Para que una variable \verb+x+ aumente su valor en \verb+2+,
+por ejemplo, basta escribir:
+\begin{verbatim}
+x = x + 2;
+\end{verbatim}
+Si \verb+x+ fuera una variable matem\'atica normal, esta expresi\'on
+no tendr\'{\i}a sentido. Esta expresi\'on es posible porque el
+compilador interpreta a \verb+x+ de modo distinto a cada lado del
+signo igual: a la derecha del signo igual se usa el valor contenido en
+la variable \verb+x+ (por ejemplo, 10); a la izquierda del signo igual
+se usa la direcci\'on de memoria en la cual est\'a alojada la variable
+\verb+x+. De este modo, la asignaci\'on anterior tiene el efecto de
+colocar en la direcci\'on de memoria que contiene a \verb+x+, el valor
+que tiene \verb+x+ m\'as \verb+2+. En general, todas las variables
+tienen un {\em rvalue\/} y un {\em lvalue\/}: el primero es el valor
+usado a la derecha ({\em right\/}) del signo igual en una
+asignaci\'on, y el segundo es el valor usado a la izquierda ({\em
+  left\/}) ---es decir, su direcci\'on de memoria. 
+
+\item[b)] Asignaci{\'o}n compuesta.
+
+La expresi{\'o}n \quad \verb!x = x + 2!\quad se puede reemplazar por \quad
+\verb!x += 2!.
+
+Existen los operadores \quad \verb|+=    -=    *=    /=|
+
+\item[c)] Operadores de incremento y decremento.
+
+La expresi{\'o}n \quad \verb|x = x + 1|\quad se puede reescribir \quad
+\verb|x += 1| \quad o bien \quad \verb|x++|.
+
+An{\'a}logamente, existe el operador \verb+--+. Ambos operadores unarios,
+\verb|++| y \verb|--| pueden ocuparse como prefijos o sufijos sobre
+una variable y su acci{\'o}n difiere en ambos casos. Como prefijo la
+operaci{\'o}n de incremento o decremento se aplica antes de que el valor
+de la variable sea usado en la evaluaci{\'o}n de la expresi{\'o}n. Como sufijo
+el valor de la variable es usado en la evaluaci{\'o}n de la expresi{\'o}n
+antes que la operaci{\'o}n de incremento o decremento. 
+Por ejemplo, supongamos que inicialmente
+$x=3$. Entonces la instrucci\'on \verb-y=x++- hace que $ y=3$, $x
+=4$; por su parte, \verb-y=++x- hace que $y=4$, $x=4$.
+
+Con estas consideraciones, deber\'{\i}amos poder convencernos de que
+la salida del siguiente programa es \verb+3 2 2-1 1 1 +:
+\begin{verbatim}
+// Ejemplo de operadores unarios ++ y --.
+#include <iostream.h>
+void main()
+{
+  int y ; int x = (y = 1) ;
+  int w = ++x + y++;
+  cout << w <<" " << x << " " << y << "-" ; 
+  w = x-- - --y;
+  cout <<  w << " " << x << " " << y << endl ; 
+}
+\end{verbatim}
+
+\end{enumerate}
+
+Los operadores para asignaci\'on compuesta, y los de incremento y
+decremento, no son s\'olo abreviaciones. En realidad hay que
+preferirlas porque implican optimizaciones en el ejecutable resultante. 
+
+\subsection{Conversi{\'o}n de tipos.}
+\label{cast}
+
+Una consecuencia de que C++ sea fuertemente ``tipeado'' es que no se
+pueden hacer operaciones binarias con objetos de tipos distintos.
+En la siguiente expresi\'on,
+\begin{verbatim}
+int i = 3;
+float x = 43.8;
+cout << "Suma = " << x + i << endl;
+\end{verbatim}
+el computador debe sumar dos variables de tipos distintos, y en
+principio la operaci\'on es imposible. La estrategia para resolver
+este problema es convertir ambas variables 
+a un tipo com{\'u}n antes de efectuar la
+suma (en ingl\'es, decimos que hacemos un {\em cast\/} de un tipo a
+otro. 
+Existen dos modos de proceder:
+
+\begin{enumerate}
+\item[a)] Conversi{\'o}n expl{\'\i}cita.
+
+Si \verb+i+ es un  \verb+int+, por ejemplo, 
+entonces \verb+float(i)+ la convierte en \verb+float+. As\'{\i}, el
+programa anterior se puede reescribir:
+\begin{verbatim}
+int i = 3;
+float x = 43.8;
+cout << "Suma = " << x + float(i) << endl;
+\end{verbatim}
+Ahora la suma es claramente entre dos variables \verb+float+, y se
+puede realizar. Sin embargo, 
+esto es bastante tedioso, por cuanto el programador debe realizar el
+trabajo de conversi{\'o}n personalmente cada vez que en su c\'odigo se
+desee sumar un real con un n\'umero entero.
+
+\item[b)] Conversi{\'o}n impl{\'\i}cita.
+  
+En este caso, el compilador realiza las conversiones de modo
+autom{\'a}tico, prefiriendo siempre la conversi{\'o}n desde un tipo
+de variable de menor precisi{\'o}n a uno de mayor precisi{\'o}n (de
+\verb+int+ a \verb+double+, de \verb+short+ a \verb+int+, etc.).
+As\'{\i}, a pesar de lo que dijimos, el c\'odigo anterior
+habr\'{\i}a funcionado en su forma original. Evidentemente esto es muy
+c\'omodo, porque no necesitamos hacer una conversi\'on expl\'{\i}cita
+cada vez que sumamos un entero con un real. Sin embargo, debemos estar
+conscientes de que esta comodidad s\'olo es posible porque ocurren
+varias cosas: primero, el compilador detecta el intento de operar
+sobre dos variables que no son del mismo tipo; segundo, el compilador
+detecta, en sus reglas internas, la posibilidad de cambiar uno de los
+tipos ({\tt int} en este caso) al otro ({\tt float}); tercero, el
+compilador realiza la conversi\'on, y finalmente la operaci\'on se
+puede llevar a cabo. Entender este proceso nos permitir\'a aprovechar
+las posibilidades de la convesi\'on impl\'{\i}cita de tipos cuando
+nuestro c\'odigo involucre tipos de variables m\'as complicados, y
+entender varios mensajes de error del compilador.
+
+
+Es interesante notar c{\'o}mo las conversiones impl{\'\i}citas de tipos pueden
+tener consecuencias insospechadas. Consideremos las tres expresiones:
+\begin{enumerate}
+\item[i)] \verb-x = (1/2) * (x + a/x) ;-
+\item[ii)] \verb-x = (0.5) * (x + a/x) ;-
+\item[iii)] \verb-x = (x + a/x)/2 ;-
+\end{enumerate}
+Si inicialmente \verb+x=0.5+ y \verb+a=0.5+, por ejemplo, i) entrega el
+valor \verb+x=0+, mientras  ii) y iii) entregan el valor
+\verb+x=1.5+. Lo que ocurre es que \verb+1+ y \verb+2+ son enteros,
+de modo que \verb+1/2 = 0+. De acuerdo a lo que dijimos, uno
+esperar{\'\i}a que en i), como conviven n{\'u}meros reales con enteros,
+los n{\'u}meros enteros fueran convertidos a reales y, por tanto, la
+expresi{\'o}n tuviera el resultado esperado, 1.5. El problema es  la
+{\em prioridad\/} de las operaciones. No todas las operaciones tienen
+igual prioridad (las multiplicaciones y divisiones se realizan antes
+que las sumas y restas, por ejemplo), y esto permite al compilador
+decidir cu{\'a}l operaci{\'o}n efectuar primero. Cuando se encuentra con
+operaciones de igual prioridad (dos multiplicaciones, por ejemplo),
+se procede a efectuarlas de izquierda a derecha.
+
+Pues bien, en i), la primera operaci{\'o}n es \verb+1/2+, una
+divisi{\'o}n entre enteros, i.e. cero. En ii) no hay problema, porque
+todas son operaciones entre reales. Y en iii) la primera operaci{\'o}n
+es el par{\'e}ntesis, que es una operaci{\'o}n entre reales. Al dividir
+por 2 {\'e}ste es convertido a real antes de calcular el resultado. 
+
+i) a{\'u}n podr{\'\i}a utilizarse, cambiando el prefactor del
+par{\'e}ntesis a \verb+1.0/2.0+, una pr{\'a}ctica que ser{\'\i}a
+conveniente adoptar como standard cuando queremos utilizar enteros
+dentro de expresiones reales, para evitar errores que pueden
+llegar a ser muy dif{\'\i}ciles de detectar. 
+\end{enumerate}
+
+
+\section{Control de flujo.}
+
+\subsection{{\tt if}, {\tt if... else}, {\tt if... else if}.}
+
+Las construcciones siguientes permiten controlar el flujo del programa
+en base a si una expresi{\'o}n l{\'o}gica es verdadera o falsa. 
+\begin{enumerate}
+\item[a)] En el caso de la sentencia \verb|if| se evaluar{\'a} la expresi{\'o}n
+  \verb|(a==b)|, si ella es cierta ejecutar{\'a} la o las l{\'\i}neas entre los par{\'e}ntesis de
+  llave y si la expresi{\'o}n es falsa el  programa se salta esa parte del c{\'o}digo.
+\begin{verbatim}
+if (a==b) {
+    cout << "a es igual a b" << endl;
+}
+\end{verbatim}
+  
+
+En este y en muchos de los ejemplos que siguen, los par\'entesis
+cursivos son opcionales. Ellos indican simplemente un grupo de
+instrucciones que debe ser tratado como una sola instrucci\'on. En el
+ejemplo anterior, los par\'entesis cursivos despu\'es del \verb+if+ (o
+despu\'es de un \verb+while+, \verb+for+, etc. m\'as adelante) indican
+el conjunto de instrucciones que deben o no ejecutarse dependiendo de
+si cierta proposici\'on es verdadera o falsa. Si ese conjunto de
+instrucciones es una sola, se pueden omitir los par\'entesis:
+\begin{verbatim}
+if (a==b) cout << "a es igual a b" << endl;
+\end{verbatim}
+
+
+
+\item[b)] En el caso \verb|if... else| hay dos acciones mutuamente
+  excluyentes. La sentencia\linebreak\verb|if (c!=b)| evaluar{\'a} la expresi{\'o}n
+  \verb|(c!=b)|. Si ella es cierta ejecutar{\'a} la o las l{\'\i}neas entre los
+  par{\'e}ntesis de llave que le siguen, salt{\'a}ndose la o las l{\'\i}neas entre
+  los par{\'e}ntesis de llave que siguen a la palabra clave \verb|else|. 
+  Si la expresi{\'o}n es falsa el programa se salta la primera parte del
+  c{\'o}digo y s{\'o}lo ejecuta la o las l{\'\i}neas entre los par{\'e}ntesis de llave
+  que siguen a \verb|else|.
+\begin{verbatim}
+if (c!=d) {
+    cout << "c es distinto de d" << endl;
+} 
+else {
+    cout << "c es igual a d" << endl;
+}
+\end{verbatim}
+  
+\item[c)] En el {\'u}ltimo caso se evaluar{\'a} la expresi{\'o}n que acompa{\~n}a al
+  \verb|if| y si ella es cierta se ejecutar{\'a} la o las l{\'\i}neas entre los
+  par{\'e}ntesis de llave que le siguen, salt{\'a}ndose todo el resto de las
+  l{\'\i}neas entre los par{\'e}ntesis de llave que siguen a las palabras claves
+  \verb|else if | y \verb|else|. Si la primera expresi{\'o}n es falsa el
+  programa se salta la primera parte del c{\'o}digo y eval{\'u}a la expresi{\'o}n
+  que acompa{\~n}a al primer \verb|else if| y si ella es cierta  ejecutar{\'a} la o
+  las l{\'\i}neas entre los par{\'e}ntesis de llave que le siguen, salt{\'a}ndose
+  todo el resto de las l{\'\i}neas entre los par{\'e}ntesis que siguen a
+  otros eventuales \verb|else if | o al \verb|else|. Si ninguna de las
+  expresiones l{\'o}gicas resulta cierta se ejecutar{\'a} la o las l{\'\i}neas
+  entre los par{\'e}ntesis que siguen al \verb|else|.
+\begin{verbatim}
+if (e > f) {
+    cout << "e es mayor que f" << endl;
+} 
+else if (e == f) {
+    cout << "e es igual a f" << endl;
+} 
+else {
+    cout << "e es menor que f" << endl;
+}
+\end{verbatim}
+\end{enumerate}
+
+Para C++, una expresi\'on verdadera es igual a \verb+1+, y una falsa
+es igual a \verb+0+. Esto es, cuando escribimos \verb+if(e>f)+, y
+\verb+e>f+ es falsa, en realidad estamos diciendo \verb+if(0)+. 
+A la inversa, \verb+0+ es considerada una
+expresi\'on falsa, y cualquier valor no nulo es considerado una
+expresi\'on verdadera. As\'{\i}, podr\'{\i}amos hacer que una
+porci\'on del c\'odigo siempre se ejecute (o nunca) poniendo
+directamente \verb+if(1)+ o \verb+if(0)+,
+respectivamente. 
+
+Naturalmente, lo anterior  no tiene mucho sentido, pero un error 
+habitual  (y particularmente dif\'{\i}cil de
+detectar) es escribir
+\verb+a = b+ en vez de \verb+a == b+ en
+una expresi\'on l\'ogica. Esto normalmente trae consecuencias
+indeseadas, pues la asignaci\'on \verb+a = b+ es una funci\'on que se
+eval\'ua siempre al nuevo valor de \verb+a+. En efecto, una
+expresi\'on como \verb+a=3+ siempre equivale a verdadero, y \verb+a=0+
+siempre equivale a falso. Por ejemplo, en el siguiente programa:
+\begin{verbatim}
+#include <iostream.h>
+void main(){
+  int k=3;
+  if (k==3){
+    cout << "k es igual a 3" << endl;
+  }
+  k=4;
+  if (k=3){
+    cout << "k es igual a 3" << endl;
+  }
+}
+\end{verbatim}
+la salida siempre es:
+\begin{verbatim}
+k es igual a 3
+k es igual a 3
+\end{verbatim}
+aunque entre los dos \verb+if+ el valor de \verb+k+ cambia.
+
+\subsection{Expresi{\'o}n condicional.}
+
+Una construcci{\'o}n \verb|if else| simple, que s{\'o}lo asigna un valor
+distinto a una misma variable seg{\'u}n si una proposici{\'o}n es verdadera o
+falsa, es muy com{\'u}n en programaci{\'o}n. Por ejemplo:
+\begin{verbatim}
+if (a==b) {
+    c = 1;
+} else {
+    c = 0;
+}
+\end{verbatim}
+Existen dos maneras de compactar este c{\'o}digo. {\'E}ste se puede
+reemplazar por
+\begin{verbatim}
+if (a==b) c = 1;
+else c = 0;
+\end{verbatim}
+Sin embargo,  esto no es  recomendable por razones de claridad al leer
+el c{\'o}digo. Una expresi{\'o}n m{\'a}s compacta y clara, se consigue usando el operador ternario
+\verb| ? |:
+\begin{verbatim}
+c = (a==b) ? 1 : 0;
+\end{verbatim}
+
+Como en el caso de los operadores de incremento y decremento, el uso
+del operador \verb+?+ es preferible para optimizar el ejecutable
+resultante. 
+
+\subsection{\tt switch.}
+
+La instrucci{\'o}n \verb|switch|  permite elegir m{\'u}ltiples opciones a
+partir del valor de una variable entera. En el ejemplo siguiente
+tenemos que si \verb|i==1| la ejecuci{\'o}n continuar{\'a} a partir del caso
+\verb|case 1:|, si \verb|i==2|  la ejecuci{\'o}n continuar{\'a} a partir del
+caso \verb|case 2:| y as{\'\i} sucesivamente. Si \verb|i| toma un valor que
+no est{\'a} enumerado en ning{\'u}n \verb|case| y existe la etiqueta
+\verb|default|, la ejecuci{\'o}n continuar{\'a} a partir de
+ah{\'\i}. Si no existe \verb+default+, la ejecuci\'on contin\'ua luego
+del \'ultimo par\'entesis cursivo.
+
+\begin{verbatim}
+switch (i)
+{
+case 1:
+     {
+         cout << "Caso 1." << endl;
+     }
+     break;
+case 2:
+     {
+         cout << "Caso 2." << endl;
+     }
+     break;
+default:
+     {
+         cout << "Otro caso." << endl;
+     }
+     break;
+}     
+\end{verbatim}
+La instrucci{\'o}n \verb+break+ permite que la ejecuci{\'o}n del programa
+salte a la l{\'\i}nea siguiente despu{\'e}s de la serie de instrucciones
+asociadas a \verb+switch+. De esta manera s{\'o}lo se ejecutar{\'a}n  las l{\'\i}neas
+correspondiente al \verb|case| elegido y no el resto.  Por ejemplo, si
+\verb|i==1| ver{\'\i}amos en pantalla solo la l{\'\i}nea \verb+Caso 1.+
+En el otro caso, si no existieran los \verb+break+, y tambi{\'e}n
+\verb|i==1|, entonces ver{\'\i}amos en pantalla las l{\'\i}neas \verb+Caso 1.+,
+\verb+Caso 2.+ y \verb+Otro caso.+ La instrucci{\'o}n \verb+default+ es
+opcional.
+
+\subsection{\tt for.}
+
+Una instrucci{\'o}n que permite repetir un bloque de instrucciones un
+n{\'u}mero definido de veces es el \verb|for|. Su sintaxis comienza con
+una o varias inicializaciones, luego una condici{\'o}n l{\'o}gica de
+continuaci{\'o}n mientras sea verdadera, y finalmente una o m{\'a}s
+expresiones que se eval{\'u}an vuelta por vuelta no incluyendo la primera vez.
+Siguiendo al \verb|for(...)| viene una instrucci{\'o}n o un bloque de
+ellas encerradas entre par{\'e}ntesis de llave. En el ejemplo siguiente la
+variable entera \verb|i| es inicializada al valor 1, luego se verifica
+que la condici{\'o}n l{\'o}gica sea cierta y se ejecuta el bloque de
+instrucciones. A la vuelta siguiente se eval{\'u}a la expresi{\'o}n a la
+extrema derecha (suele ser uno o m{\'a}s incrementadores), se verifica que
+la condici{\'o}n l{\'o}gica se mantenga cierta y se ejecuta nuevamente el
+bloque de instrucciones.  Cuando la condici{\'o}n l{\'o}gica es falsa se
+termina el {\it loop}, saltando la ejecuci{\'o}n a la l{\'\i}nea siguiente al
+parent{\'e}sis que indica el fin del bloque de instrucciones del
+\verb|for|. En este ejemplo, cuando \verb|i=4| la condici{\'o}n de
+continuaci{\'o}n ser{\'a} falsa y terminar{\'a} la ejecuci{\'o}n del
+\verb|for|. 
+\begin{verbatim}
+for (int i = 1; i < 4; i++) {
+    cout << "Valor del indice: " << i << endl;
+}
+\end{verbatim}
+El output correspondiente es:
+\begin{verbatim}
+Valor del indice: 1
+Valor del indice: 2
+Valor del indice: 3
+\end{verbatim}
+
+Cualquier variable declarada en el primer argumento del \verb+for+ es
+local al {\it loop}. En este caso, la variable \verb+i+ es local, y no
+interfiere con otras posibles variables \verb+i+ que existan en
+nuestro c\'odigo.
+
+\verb+for+ es una instrucci\'on particularmente flexible. En el primer
+y tercer argumento del \verb+for+ se puede colocar m\'as de una
+instrucci\'on, separadas por comas. Esto permite, por ejemplo, 
+ involucrar m{\'a}s de una
+variable en el 
+ciclo. El c\'odigo:
+\begin{verbatim}
+for (int i=0, k=20; (i<10) && (k<50); i++, k+=6) {
+    cout << "i + k = " << i + k << endl;
+}
+\end{verbatim}
+resulta en el output:
+\begin{verbatim}
+i + k = 20
+i + k = 27
+i + k = 34
+i + k = 41
+i + k = 48
+\end{verbatim}
+
+Adem\'as, la condici\'on de continuaci\'on (segundo argumento del
+\verb+for+), no tiene por qu\'e depender de las variables
+inicializadas en el primer argumento. Y el tercer argumento no tiene
+por qu\'e ser un incremento o decremento de las variables del \textit{loop};
+puede ser cualquier expresi\'on que queramos ejecutar cada vez que un
+ciclo termina. En el siguiente ejemplo, adem\'as de incrementar los
+contadores en cada ciclo, se env\'{\i}a un mensaje a pantalla:
+\begin{verbatim}
+for (int i=1, k=2;k<20 && i<20;k++, i+=2, cout << "Fin iteracion" << endl){
+   cout << " i = " << i << endl;
+   cout << " k = " << k << endl;
+}
+\end{verbatim}
+El resultado: 
+\begin{verbatim}
+ i = 1, k = 2
+Fin iteracion
+ i = 3, k = 3
+Fin iteracion
+ i = 5, k = 4
+\end{verbatim}
+
+
+Todos los argumentos del \verb+for+ son opcionales (no los \verb+;+),
+por lo cual se puede tener un \verb|for| que carezca de inicializaci{\'o}n
+y/o de condici{\'o}n de continuaci{\'o}n y/o de una expresi{\'o}n que
+se eval{\'u}e en 
+cada iteraci{\'o}n. 
+
+Un caso t\'{\i}pico en que se aprovecha la opcionalidad de los
+argumentos del \verb+for+ es para tener un {\it loop\/} infinito, que
+puede servir para dejar el programa en pausa indefinida. Para salir
+del {\it loop\/} (y en general, para detener cualquier programa en
+C++), hay que presionar \verb+^C+:
+\begin{verbatim}
+for (; ; ) cout << "Este es un loop infinito, ^C para detenerlo"<< endl;
+\end{verbatim}
+
+Se puede adem{\'a}s, salir abruptamente del {\it loop\/} con
+\verb+break+. El c\'odigo:
+\begin{verbatim}
+  for(int indice=0; indice<10; indice++) {
+    int cuadrado = indice*indice ;
+    cout << indice << " " ;
+    if(cuadrado > 10 ) break ;
+  }
+  cout << endl;
+\end{verbatim}
+da la salida a pantalla:
+\begin{verbatim}
+0 1 2 3 4
+\end{verbatim}
+aun cuando la condici\'on de continuaci\'on permite que \verb+indice+
+llegue hasta \verb+9+.
+
+Finalmente, las variables involucradas en el \verb+for+ pueden ser
+modificadas dentro del ciclo. Por ejemplo, modifiquemos uno de los
+ejemplos anteriores, cambiando la variable \verb+k+ en medio del ciclo:
+\begin{verbatim}
+for (int i=1, k=2;k<5 && i<8;k++, i+=2, cout << "Fin iteracion" << endl){
+  cout << " i = " << i  << ", k = " << k << endl;
+  k = k+5;
+}
+\end{verbatim}
+El resultado es:
+\begin{verbatim}
+ i = 1, k = 2
+Fin iteracion
+\end{verbatim}
+En vez de pasar por el ciclo tres veces como ocurr\'{\i}a
+originalmente, ahora, al cabo del primer ciclo,  $k=2+5=7>5$, y el
+programa sale del {\it loop}. 
+
+En general no es una buena pr\'actica modificar las variables internas
+del ciclo en medio de \'el, porque no es muy ordenado, y el desorden
+normalmente conduce a los errores en programaci\'on, pero
+ocasionalmente puede ser \'util hacer uso de esta libertad que
+proporciona el lenguaje.
+
+\subsection{\tt while.}
+La instrucci{\'o}n \verb|while| permite repetir un bloque de instrucciones
+encerradas entre par{\'e}ntesis de llave mientras la condici{\'o}n l{\'o}gica que
+acompa{\~n}a al \verb|while| se mantenga cierta. La condici{\'o}n es evaluada
+antes de que comience la primera iteraci{\'o}n; si es falsa en {\'e}sta o en
+una posterior evaluaci{\'o}n no se ejecuta el bloque de instrucciones que
+le siguen y se contin{\'u}a la ejecuci{\'o}n en la l{\'\i}nea siguiente al
+parent{\'e}sis que indica el fin del bloque asociado al \verb|while|. Hay
+que notar que la instrucci{\'o}n \verb|while| podr{\'\i}a no ejecutarse ni una
+sola vez si la condici{\'o}n no se cumple inicialmente. Un ejemplo
+simple:
+\begin{verbatim}
+int i=1;
+while (i < 3) {
+    cout << i++ << " ";
+}
+\end{verbatim}
+que da por resultado: \verb+1 2 3+.
+
+En el siguiente {\it loop}, la salida ser{\'a}: \verb| 5 4 3 2 1| (?`Por qu{\'e}?)
+\begin{verbatim}
+int k=5 ;
+while(k) {
+    cout << k-- <<" ";
+}
+\end{verbatim}
+
+\subsection{\tt do... while.}
+La instrucci{\'o}n \verb|do... while| es an\'aloga a \verb+while+,
+salvo que la condici\'on l\'ogica es evaluada despu\'es de la primera
+iteraci\'on. Por tanto, el bloque se ejecuta al
+ menos una vez, siempre. Un ejemplo simple:
+\begin{verbatim}
+do {
+    cout << i++ << endl;
+} while (i<=20);
+\end{verbatim}
+
+Podemos construir de otra manera un {\it loop} infinito usando
+\verb|do while|
+\begin{verbatim}
+do {
+    cout << "Este es un segundo loop infinito, ^C para detenerlo"<< endl;
+} while (1);
+\end{verbatim}
+
+\subsection{\tt goto.}
+
+Existe tambi{\'e}n en C++ una instrucci{\'o}n \verb+goto+ que
+permite saltar de un punto a otro del programa (\verb+goto salto;+
+permite saltar a la l{\'\i}nea que contiene la instrucci{\'o}n
+\verb+salto:+). Sin embargo, se considera una mala t{\'e}cnica de
+programaci{\'o}n usar \verb+goto+, y siempre se puede dise{\~n}ar un
+programa evit{\'a}ndolo. Es altamente no recomendable, pero si su
+utilizaci{\'o}n simplifica el c{\'o}digo se puede usar.
+
+
+\section{Funciones.}
+
+Las funciones nos permiten programar partes del procedimiento por
+separado. Un ejemplo simple de ellas lo vimos en la subsecci{\'o}n
+\ref{funciones}. 
+
+\subsection{Funciones tipo {\tt void}.}
+
+Un caso especial de funciones es aqu{\'e}l en que el programa que
+llama la funci{\'o}n no espera que {\'e}sta le entregue ning{\'u}n valor al
+terminar. Por ejemplo, en la subsecci{\'o}n \ref{funciones}, la
+funci{\'o}n \verb+PrintHola+ simplemente imprime un mensaje en pantalla.
+El resto del programa no necesita de ning{\'u}n resultado parcial
+proveniente de la ejecuci{\'o}n de dicha funci{\'o}n. La definici{\'o}n de
+estas funciones debe ir precedida de la palabra \verb+void+, como en
+el ejemplo citado. 
+
+\subsection{\tt return.}
+
+Si deseamos definir una funci{\'o}n que calcule una ra{\'\i}z cuadrada,
+evidentemente esperamos que la funci{\'o}n nos entregue un resultado:
+el valor de la ra{\'\i}z cuadrada. En este caso hay que traspasar el
+valor de una variable desde la funci{\'o}n al programa que la llam{\'o}.
+Esto se consigue con \verb+return+. Veamos un ejemplo muy simple:
+
+\begin{verbatim}
+int numero(){
+    int i = 3;
+    return i;
+}
+
+main(){
+    cout << "Llamamos a la funcion" << endl;
+    cout << "El numero es: " << numero() << endl;
+    int i = 5;
+    i = i + numero();
+    cout << "El numero mas 5 es: " << i << endl;
+}
+\end{verbatim}
+
+En este caso, la funci{\'o}n simplemente entrega el valor de la
+variable interna \verb+i+, es decir 3, el cual puede ser usado para
+salida en pantalla o dentro de operaciones matem{\'a}ticas corrientes.
+
+Separando declaraci\'on e implementaci\'on de la funci\'on, el ejemplo
+anterior se escribe:
+\begin{verbatim}
+int numero();
+
+main(){ ... }
+
+int numero(){
+   int i = 3;
+   return i;
+}
+\end{verbatim}
+
+
+Dos observaciones {\'u}tiles:
+\begin{enumerate}
+\item[a)] La declaraci{\'o}n de la funci{\'o}n lleva antepuesto el tipo
+de variable que la funci{\'o}n entrega. En el ejemplo, la variable
+entregada es un entero, \verb+i+, y la declaraci{\'o}n debe ser por
+tanto: \verb+int numero()+. Podemos tener funciones tipo
+\verb+double+, \verb+char+, \verb+long+, etc., de acuerdo al tipo de
+variable que corresponde a \verb+return+. 
+\item[b)] La variable \verb+i+ que se usa dentro de \verb+main()+ y
+la que se usa dentro de \verb+numero()+ son distintas. A pesar de que
+tienen el mismo nombre, se pueden usar independientemente como si se
+llamaran distinto. Se dice que \verb+i+ es una variable {\em local}. 
+\end{enumerate}
+
+Despu\'es de \verb+return+ debe haber una expresi\'on que se eval\'ue
+a una variable del tipo correspondiente, ya sea expl\'{\i}citamente o
+a trav\'es de un {\it cast\/} impl\'{\i}cito. Las siguientes funciones
+devuelven un \verb+double+ al programa:
+\begin{verbatim}
+double f1(){
+  double l = 3.0;
+  return l;
+}
+
+double f2(){
+  double l = 3.0, m = 8e10;
+  return l*m;
+}
+
+double f3(){
+  int l = 3;
+  return l;
+}
+\end{verbatim}
+
+Sin embargo, la siguiente funci\'on har\'a que el compilador emita una
+advertencia, pues se est\'a tratando de devolver un \verb+double+
+donde deber\'{\i}a ser un \verb+int+, y la conversi\'on implica una
+p\'erdida de precisi\'on:
+\begin{verbatim}
+int f4(){
+  double l=3.0;
+  return l;
+}
+\end{verbatim}
+Naturalmente, podemos modificar la funci\'on anterior haciendo una
+conversi\'on expl\'{\i}cita antes de devolver el valor: 
+\verb+return int(l)+. 
+
+\subsection{Funciones con par{\'a}metros.}
+\label{parametros}
+
+Volviendo al ejemplo de la ra{\'\i}z cuadrada, nos gustar{\'\i}a
+llamar a esta funci{\'o}n con un par{\'a}metro (el n{\'u}mero al cual se le
+va a calcular la ra{\'\i}z cuadrada). Consideremos por ejemplo una
+funci\'on que necesita un solo par\'ametro, de tipo \verb+int+, y cuyo
+resultado es otro \verb+int+\label{int_funcion_int}:
+\begin{verbatim}
+int funcion(int i){
+    i+=4;
+    return i;
+}
+
+main(){
+    int i = 3;
+    cout << "El valor de la funcion es " << funcion(i) 
+         << endl;
+    cout << "El valor del parametro es " << i << endl;
+}
+\end{verbatim}
+
+El resultado en pantalla es:
+\begin{verbatim}
+El valor de la funcion es 7
+El valor del parametro es 3
+\end{verbatim}
+La funci{\'o}n \verb+funcion+ entrega el valor del par{\'a}metro m{\'a}s 4.
+Usamos el mismo nombre (\verb+i+) para las variables en \verb+main+ y
+\verb+funcion+, pero son variables locales, as{\'\i} que no interfieren. Lo
+importante es notar que cuando se llama la funci{\'o}n, la reasignaci{\'o}n
+del valor de \verb+i+ (\verb-i+=4-) ocurre s{\'o}lo para la variable local
+en \verb+funcion+; el par{\'a}metro externo mantiene su valor. 
+
+Separando declaraci\'on e implementaci\'on el ejemplo anterior se
+escribe:
+\begin{verbatim}
+int funcion(int);
+
+main(){...}
+
+int funcion(int i){
+   i+=4;
+   return i;
+}
+\end{verbatim}
+
+Si nuestra funci\'on necesita m\'as par\'ametros, basta separarlos con
+comas, indicando para cada uno su tipo:
+\begin{verbatim}
+int funcion2(int,double);
+void funcion3(double,int,float);
+double funcion4(float);
+\end{verbatim}
+El compilador verifica cuidadosamente que cada funci\'on sea llamada
+con el n\'umero de par\'ametros adecuados, y que cada par\'ametro
+corresponda al tipo especificado. En los ejemplos anteriores,
+\verb+funcion2+ debe ser llamada siempre con dos argumentos, el
+primero de los cuales es \verb+int+ y el segundo \verb+double+. Como
+siempre, puede ser necesario un {\em cast\/} impl\'{\i}cito (si se
+llama \verb+funcion2+ con el segundo argumento \verb+int+, por
+ejemplo), pero si no existe una regla de conversi\'on autom\'atica
+(llamando a \verb+funcion2+ con el primer argumento \verb+double+, por
+ejemplo), el compilador enviar\'a una advertencia. Adem\'as, el
+compilador verifica que el valor de retorno de la funci\'on sea usado
+como corresponde. Por ejemplo, en las dos l\'{\i}neas:
+\begin{verbatim}
+double m = funcion2(2,1e-3);
+int k = funcion4(0.4);
+\end{verbatim}
+la primera compilar\'a exitosamente (pero hay un {\em cast\/}
+impl\'{\i}cito), y la segunda dar\'a una advertencia. 
+
+
+
+Existen dos modos de transferir
+par{\'a}metros a una funci{\'o}n:
+
+\begin{enumerate}
+\item[a)] Por valor. Se le pasan los par{\'a}metros para que la funci{\'o}n
+  que es llamada copie sus valores en sus propias variables locales,
+  las cuales desaparecer{\'a}n cuando la funci{\'o}n termine y no tienen nada
+  que ver con las variables originales.
+
+Hasta ahora, en todos los ejemplos de esta subsecci\'on el traspaso de
+par\'ametros ha sido por valor. En la funcion \verb+int funcion(int)+,
+en el c\'odigo de la p\'agina \pageref{int_funcion_int}, 
+lo que ha
+ocurrido es que la funci{\'o}n copia el {\em valor\/} de la variable
+externa \verb+i+ en una nueva variable (que tambi{\'e}n se llama \verb+i+,
+pero est{\'a} en otra direcci{\'o}n de memoria).  El valor con el que trabaja
+la funci{\'o}n es la copia, manteniendo inalterada la variable original.
+
+
+
+\item[b)] Por referencia. Se le pasa la direcci{\'o}n de memoria de los
+  par{\'a}metros. La funci{\'o}n llamada puede modificar el valor de tales
+  variables.
+\label{referencia}
+
+La misma funci\'on de la p\'agina \pageref{int_funcion_int} puede ser
+modificada para que el paso de par\'ametros sea por referencia,
+modificando la declaraci\'on:
+\begin{verbatim}
+int funcion(int &);
+
+main()
+{
+    int i = 3;
+    cout << "El valor de la funcion es " << funcion(i) 
+         << endl;
+    cout << "El valor del parametro es " << i << endl;
+}
+int funcion(int & i)
+{
+    i+=4;
+    return i;
+}
+\end{verbatim}
+
+En vez de traspasarle
+a \verb+funcion+ el valor del par{\'a}metro, se le entrega la
+{\em direcci{\'o}n\/} de memoria de dicha variable. Debido a ello,
+\verb+funcion+ puede modificar el valor de la variable. 
+El resultado en pantalla del {\'u}ltimo programa ser{\'a}:
+\begin{verbatim}
+El valor de la funcion es 7
+El valor del parametro es 7
+\end{verbatim}
+
+Debido a que las variables dejan de ser locales, el paso de
+par\'ametros por reerencia debe ser usado con sabidur\'{\i}a. De hecho
+el ejemplo presentado es poco recomendable. Peor a\'un, el problema es
+no s\'olo que las variables dejan de ser locales, sino que {\em es
+  imposible saber que no lo son\/} desde el \verb+main+. En efecto, el
+\verb+main+ en ambas versiones de \verb+funcion+ es el mismo. Lo
+\'unico que cambi\'o es la declaraci\'on de la funci\'on. Puesto que
+un usuario normal usualmente no conoce la declaraci\'on e
+implementaci\'on de cada funci\'on que desea usar (pues pueden haber
+sido hechas por otros programadores), dejamos al usuario en la
+indefensi\'on. 
+
+Por otro lado, hay al menos dos situaciones en que el
+paso de referencia es la \'unica opci\'on viable para entregar los
+par\'ametros. Un caso es cuando hay que cuidar el uso de la
+memoria. Supongamos que una funci\'on necesita un par\'ametros que es
+una matriz de 10 millones de filas por 10 millones de
+columnas. Seguramente estaremos llevando al l\'{\i}mite los recursos
+de nuestra m\'aquina, y ser\'{\i}a una torpeza pasarle la matriz por
+valor: ello involucrar\'{\i}a, primero, duplicar la memoria utilizada,
+con el consiguiente riesgo de que nuestro programa se interrumpa; y
+segundo, har\'{\i}a el programa m\'as lento, porque la funci\'on
+necesitar\'{\i}a llenar su versi\'on local de la matriz elemento por
+elemento. Es decir, nada de eficiente. En esta situaci\'on, el paso
+por referencia es lo adecuado.
+
+Un segundo caso en que el paso por referencia es recomendable es
+cuando efectivamente nuestra intenci\'on es cambiar el valor de las
+variables. El ejemplo t\'{\i}pico es el intercambio de dos variables
+entre s\'{\i}, digamos \verb+a1=1+ y \verb+a2=3+. 
+Luego de ejecutar la funci{\'o}n queremos que \verb+a1=3+ y \verb+a1=1+.
+El siguiente c\'odigo muestra la definici\'on y el uso de una
+funci\'on  para esta tarea, y por cierto requiere el paso
+de par\'ametros por referencia:
+\begin{verbatim}
+#include <iostream.h>
+void  swap(int &,int &);
+
+void main(){
+
+  int i = 3, k=10; 
+  swap(i,k);
+  cout <<  "Primer argumento: " << i << endl;
+  cout <<  "Segundo argumento: " << k << endl;
+}
+
+void swap(int & j,int & p){
+  int temp = j;
+  j = p;
+  p = temp;
+}
+\end{verbatim}
+El output es:
+\begin{verbatim}
+Primer argumento: 10
+Segundo argumento: 3
+\end{verbatim}
+\end{enumerate}
+
+En el ejemplo de la matriz anterior, ser\'{\i}a interesante poder
+pasar el par\'ametro por referencia, para ahorrar memoria y tiempo de
+ejecuci\'on, pero sin correr el riesgo de que nuestra matriz
+gigantesca sea modificada por accidente. Afortunadamente existe el
+modo de hacerlo, usando una palabra que ya hemos visto antes:
+\verb+const+. En el siguiente c\'odigo:
+\begin{verbatim}
+int f5(const int &);
+main(){...}
+int f5(const int & i){...};
+\end{verbatim}
+\verb+f5+ recibir\'a su \'unico argumento por referencia, pero, debido
+a la presencia del modificador \verb+const+, el compilador  
+avisar\'a si se intenta modificar el argumento en
+medio del c\'odigo de la funci\'on.
+
+\subsection{Par{\'a}metros por defecto.}
+
+C++ permite que omitamos algunos par{\'a}metros de la funci{\'o}n
+llamada, la cual reemplaza los valores omitidos por otros
+predeterminados.  Tomemos por ejemplo la funci{\'o}n 
+\verb+int funcion(int);+ de la
+subsecci{\'o}n \ref{parametros}, y modifiqu{\'e}mosla de modo que si
+no le entregamos par{\'a}metros, asuma que el n{\'u}mero entregado fue
+5:
+\begin{verbatim}
+int funcion(int i = 5){
+    i+=4;
+    return i;
+}
+
+main(){
+    cout << "El resultado default es " << funcion() << endl;
+    int i = 3;
+    cout << "Cuando el parametro vale " << i << 
+            " el resultado es " << funcion(i) << endl;
+}
+\end{verbatim}
+
+El output correspondiente es:
+
+\begin{verbatim}
+El resultado default es 9
+Cuando el parametro vale 3 el resultado es 7
+\end{verbatim}
+Separando declaraci\'on e implementaci\'on:
+\begin{verbatim}
+int funcion(int = 5);
+main(){...}
+int funcion(int i){
+    i+=4;
+    return i;
+}
+\end{verbatim}
+
+
+Si una funci\'on tiene $n$ argumentos, puede tener $m\leq n$
+argumentos opcionales. La \'unica restricci\'on es que, en la
+declaraci\'on e implementaci\'on de la funci\'on, los par\'ametros
+opcionales ocupen los \'ultimos lugares $m$ lugares:
+\begin{verbatim}
+void f1(int,int = 4);
+int f2(double,int = 4, double = 8.2);
+double f3(int = 3,double = 0.0, int = 0);
+\end{verbatim}
+En este caso, \verb+f1(2)+, \verb+f1(2,8)+, \verb+f2(2.3,5)+,
+\verb+f3(3)+, \verb+f3()+, y muchas otras, son todas llamadas
+v\'alidas de estas funciones. Cada vez, los par\'ametros no
+especificados son reemplazados por sus valores predeterminados.
+
+\subsection{Ejemplos de funciones: ra\'{\i}z cuadrada y factorial.}
+
+\subsubsection{Ra\'{\i}z cuadrada.}
+
+Con lo visto hasta ahora, ya podemos escribir un programa que calcule
+la ra\'{\i}z cuadrada de una funci\'on. Para escribir una funci\'on,
+debemos tener claro qu\'e se espera de ella: cu\'antos y de qu\'e tipo
+son los argumentos que recibir\'a, que tipo de valor de retorno
+deber\'a tener, y, por cierto, un nombre adecuado. Para la raiz
+cuadrada, es claro que el argumento es un n\'umero. Pero ese n\'umero
+podr\'{\i}a ser un entero o un real, y eso al compilador no le da lo
+mismo. En este punto nos aprovechamos del {\em cast\/} impl\'{\i}cito:
+en realidad, basta definir la ra\'{\i}z cuadrada con argumento
+\verb+double+; de este modo, si se llama la funci\'on con un argumento
+\verb+int+, el compilador convertir\'a autom\'aticamente el \verb+int+
+en \verb+double+ y nada fallar\'a. En cambio, si la defini\'eramos
+para \verb+int+ y la llamamos con argumento \verb+double+, el
+compilador se quejar\'{\i}a de que no sabe efectuar la
+conversi\'on. Si el argumento es \verb+double+, evidentemente
+esperamos que el valor de retorno de la funci\'on sea tambi\'en un
+\verb+double+. Llamando a la funci\'on \verb+raiz+, tenemos la
+declaraci\'on:
+\begin{verbatim}
+double raiz(double);
+\end{verbatim}
+Debido a la naturaleza de la funci\'on raiz cuadrada, \verb+raiz()+ 
+no tendr\'{\i}a sentido, y por tanto no corresponde
+declararla con un valor default. 
+
+Ahora debemos pensar en c\'omo calcular la ra\'{\i}z cuadrada. Usando
+una variante del m\'etodo de Newton-Raphson, se obtiene que la secuencia
+$$ x_{n+1} = \frac 12 \left(x_n + \frac a{x_n} \right)  $$
+converge a $\sqrt{a}$ cuando $n\rightarrow\infty$. Por tanto, podemos
+calcular la ra\'{\i}z cuadrada con aproximaciones sucesivas. El
+c\'alculo terminar\'a en el paso $N$,  cuando la diferencia entre el
+cuadrado de la
+aproximaci\'on  actual, $x_{N}$, y el valor de $a$,  sea menor que
+un cierto n\'umero peque\~no: $\modulo{x_N - a} < \epsilon \ll
+1$. El valor de  $\epsilon$ determinar\'a la precisi\'on de
+nuestro c\'alculo. Un ejemplo de c\'odigo lo encontramos a
+continuaci\'on:
+\begin{verbatim}
+#include <iostream.h>
+#include <math.h>
+
+double raiz(double);
+
+void main(){
+
+  double r;
+
+  cout.precision(20);
+  cout << "Ingrese un numero: " << endl;
+  cin >> r;
+  cout << raiz(r) << endl;
+
+}
+
+double raiz(double a){
+  double x, dx = 1e3, epsilon = 1e-8;
+
+  while (fabs(dx)>epsilon){
+    x = (x + a/x)/2;
+    dx = x*x - a;
+    cout << "x = " << x << ", precision = " << dx << endl;
+   }
+  return x;
+}
+\end{verbatim}
+
+Luego de la declaraci\'on de la funci\'on \verb+raiz+, est\'a
+\verb+main+, y al final la implementaci\'on de \verb+raiz+. En
+\verb+main+ se pide al usuario que ingrese un n\'umero, el cual se
+aloja en la variable \verb+r+, y se muestra en pantalla el valor de su
+raiz cuadrada. La instrucci\'on \verb+cout.precision(20)+ permite que
+la salida a pantalla muestre el resultado con 20 cifras
+significativas. 
+
+En la implementaci\'on de la funci\'on hay varios aspectos que
+observar. Se ha llamado \verb+x+ a la variable que contendr\'a las
+sucesivas aproximaciones a la ra\'{\i}z. Al final del ciclo, \verb+x+
+contendr\'a el valor (aproximado) de la raiz cuadrada. \verb+dx+
+contiene la diferencia entre el cuadrado de \verb+x+ y el valor de
+\verb+a+. \verb+epsilon+ es el n\'umero (peque\~no) que determina si
+la aproximaci\'on es satisfactoria o no. 
+
+
+El ciclo est\'a dado por una instrucci\'on \verb+while+, y se ejecuta
+mientras \verb+dx>epsilon+, es decir termina cuando \verb+dx+ es
+suficientemente peque\~no. El valor absoluto del real \verb+dx+ se
+obtiene con la funci\'on matem\'atica \verb+fabs+, disponible en el
+header \verb+math.h+ incluido al comienzo del programa.
+Observar que inicialmente \verb+dx=1e3+,
+esto es un valor muy grande; esto permite que la condici\'on del
+\verb+while+ sea siempre verdadera, y el ciclo se ejecuta al menos una
+vez. 
+
+Dentro del ciclo, se calcula la nueva aproximaci\'on, y se env\'{\i}a
+a pantalla un mensaje con la aproximaci\'on actual y la precisi\'on
+alcanzada (dada por \verb+dx+). Eventualmente, cuando la
+aproximaci\'on es suficientemente buena, se sale del ciclo y la
+funci\'on entrega a \verb+main+ el valor de \verb+x+ actual, que es la
+\'ultima aproximaci\'on calculada. 
+
+\subsubsection{Factorial.}
+
+Otro ejemplo \'util es el c\'alculo del factorial, definido para
+numeros naturales:
+$$ n! = n\cdot (n-1) \cdots 2\cdot 1 \ , \quad 0! \equiv 1 \ . $$
+
+La estrategia natural es utilizar un ciclo \verb+for+, determinado por
+una variable entera $i$, que va desde 1 a $n$, guardando los
+resultados en una variable auxiliar que contiene el producto de todos
+los n\'umeros naturales desde 1 hasta $i$:
+
+\begin{verbatim}
+#include <iostream.h>
+
+int factorial(int);
+
+int main(){
+  int n=25 ;  
+  cout << "El factorial de " << n << " es: " << factorial(n) << endl;
+}
+
+int factorial(int i)
+{
+  int f =1;
+  for (int j=1;j<=i;j++){
+    f = f*j;
+  }
+  return f;
+}
+\end{verbatim}
+
+Observar que la variable auxiliar \verb+f+ que contiene el producto
+de los primeros $i$ n\'umeros naturales debe ser inicializada a 1. Si
+se inicializara a 0, \verb+factorial(n)+ ser\'{\i}a 0 para todo
+\verb+n+. 
+
+Esta funci\'on no considera el caso \verb+n=0+, pero al menos para el
+resto de los naturales funcionar\'a bien.
+
+
+
+\subsection{Alcance, visibilidad, tiempo de vida.}
+
+Con el concepto de funci{\'o}n hemos apreciado que es posible que
+coexistan variables con el mismo nombre  en puntos distintos del
+programa, y que signifiquen cosas distintas. Conviene entonces tener
+en claro tres conceptos que est{\'a}n ligados a esta propiedad:
+
+\begin{description}
+\item[Alcance]  ({\it scope}) La secci{\'o}n del c{\'o}digo durante la cual el
+nombre de una variable puede ser usado. Comprende desde la
+declaraci{\'o}n de la variable hasta el final del cuerpo de la
+funci{\'o}n donde es declarada.
+
+Si la variable es declarada dentro de una funci{\'o}n es {\em local\/}.
+Si es definida fuera de todas las funciones (incluso fuera de
+\verb+main+), la variable es {\em global}.
+
+\item[Visibilidad] Indica cu{\'a}les de las variables actualmente al
+alcance pueden ser accesadas. En nuestros ejemplos (subsecci{\'o}n
+\ref{parametros}), la variable \verb+i+ en \verb+main+ a{\'u}n est{\'a} al
+alcance dentro de la funci{\'o}n \verb+funcion+, pero no es visible, y
+por eso es posible reutilizar el nombre. 
+
+\item[Tiempo de vida] Indica cu{\'a}ndo las variables son creadas y cu{\'a}ndo
+  destruidas. En general este concepto coincide con el alcance (las
+  variables son creadas cuando son declaradas y destruidas cuando la
+  funci{\'o}n dentro de la cual fueron declaradas termina), salvo porque
+  es posible definir: (a) variables {\em din{\'a}micas\/}, que no tienen
+  alcance, sino s{\'o}lo tiempo de vida; (b) variables {\em est{\'a}ticas\/},
+  que conservan su valor entre llamadas sucesivas de una funci{\'o}n
+  (estas variables tienen tiempo de vida mayor que su alcance). Para
+  declarar estas {\'u}ltimas se usa un modificador \verb|static|. 
+\end{description}
+
+
+El efecto del modificador \verb+static+ se aprecia en el siguiente
+ejemplo: 
+
+\begin{verbatim}
+#include <iostream.h>
+
+int f();
+
+int main(){
+
+  cout << f() << endl;
+  cout << f() << endl;
+
+}
+
+int f(){
+  int x=0;
+  x++;
+  return x;
+}
+\end{verbatim}
+
+La funci\'on \verb+f+ simplemente toma el valor inicial de \verb+x+ y
+le suma 1. Como cada vez que la funci\'on es llamada la variable local
+\verb+x+ es creada e inicializada, el resultado de este programa es
+siempre un 1 en pantalla:
+\begin{verbatim}
+1
+1
+\end{verbatim}
+
+Ahora modifiquemos la funci\'on, haciendo que \verb+x+ sea una
+variable est\'atica:
+\begin{verbatim}
+#include <iostream.h>
+
+int f();
+
+int main(){
+
+  cout << f() << endl;
+  cout << f() << endl;
+
+}
+
+int f(){
+  static int x=0;
+  x++;
+  return x;
+}
+\end{verbatim}
+
+Ahora, al llamar a \verb+f+ por primera vez, la variable \verb+x+ es
+creada e inicializada, pero no destruida cuando la funci\'on termina,
+de modo que conserva su valor cuando es llamada por segunda vez:
+\begin{verbatim}
+1
+2
+\end{verbatim}
+
+
+Veamos
+un ejemplo de una variable est{\'a}tica en el c{\'a}lculo del factorial:
+\begin{verbatim}
+int factorial2(int i=1){
+    static int fac = 1;
+    fac*=i;
+    return fac ;
+}
+main (){
+  int n=5;   
+  int m=n;
+  while(n>0)  factorial2(n--);
+  cout << "El factorial de "<< m << " es = " << factorial2() << endl; 
+}
+\end{verbatim}
+La idea es, si se desea calcular el factorial de 5, por ejemplo, es
+llamar a la funci\'on \verb+factorial2+ 
+una vez, con argumento $n=5$, y despu\'es
+disminuir $n$ en 1. Dentro de la funci\'on, una variable est\'atica
+(\verb+fac+) 
+aloja el valor $1*5=5$. Luego se llama nuevamente con $n=4$, con lo
+cual \verb+fac=1*5*4+,  y as\'{\i}
+sucesivamente, hasta llegar a $n=1$, momento en el cual
+\verb+fac=1*5*4*3*2*1+. Al disminuir $n$ en 1 una vez m\'as, la
+condici\'on del \verb+while+ es falsa y se sale del ciclo. Al llamar
+una vez m\'as a \verb+factorial2+, esta vez sin argumentos, el
+programa asume que el argumento tiene el valor predeterminado 1, y
+as\'{\i} el resultado es \verb+1*5*4*3*2*1*1+, es decir $5!$.
+
+Observemos el uso del operador de decremento en este programa:
+\verb+factorial2(n--)+ llama a la funci\'on con argumento \verb+n+ y
+{\em despu\'es\/} disminuye \verb+n+ en 1. \'Esto es porque el
+operador de decremento est\'a actuando como sufijo, y es equivalente a
+las dos instrucciones:
+\begin{verbatim}
+factorial2(n);
+n--;
+\end{verbatim}
+Si fuera un prefijo [\verb+factorial2(n--)+], primero disminuir\'{\i}a
+\verb+n+ en 1, y llamar\'{\i}a luego a \verb+factorial2+ con el nuevo valor
+de \verb+n+
+
+Este ejemplo de c\'alculo del factorial ilustra el uso de una variable
+est\'atica, que aloja los productos parciales de los n\'umeros
+enteros, pero no es un buen ejemplo de una funci\'on que calcule el
+factorial, porque de hecho esta funci\'on no lo calcula: es
+\verb+main+ quien, a trav\'es de sucesivas llamadas a
+\verb+factorial2+, calcula el factorial, pero la funci\'on en s\'{\i}
+no. 
+
+
+\subsection{Recursi{\'o}n.}
+
+C++ soporta un tipo especial de t{\'e}cnica de programaci{\'o}n, la
+recursi{\'o}n, que permite que una funci{\'o}n se llame a s\'{\i}
+misma (esto es no trivial, por cuanto si definimos, digamos, una
+funci\'on \verb+f+, dentro del cuerpo de la implementaci\'on no hay
+ninguna declaraci\'on a una funci\'on \verb+f+, y por tanto en
+principio no se podr\'{\i}a usar \verb+f+ porque dicho nombre no
+estar\'{\i}a en {\em scope\/}; C++ permite soslayar este hecho).
+La recursi\'on 
+permite definir de modo muy compacto una funci{\'o}n que calcule
+el factorial de un n{\'u}mero entero \verb+n+.
+\begin{verbatim}
+int factorial3(int n){
+    return (n<2) ? 1: n * factorial(n-1);
+}
+
+int main(){
+  int n=5;
+  cout << "El factorial de "<< m << " es = " << factorial3(n) << endl; 
+}
+\end{verbatim}
+
+En este tercer ejemplo, el factorial de $n$ es definido en funci\'on del
+factorial de $n-1$. Se ha usado la expresi\'on condicional (operador
+\verb+?+) para compactar a\'un m\'as el c\'odigo. Por ejemplo, al
+pedir el factorial de 5 la funci\'on se pregunta si $5<2$. Esto es
+falso, luego, la funci\'on devuelve a \verb+main+ el valor
+\verb+5*factorial3(4)+. A su vez, \verb+factorial3(4)+ se pregunta si
+$4<2$; siendo falso, devuelve {\em a la funci\'on que la llam\'o\/}
+(es decir, a \verb+factorial3(5)+), el valor \verb+4*factorial3(3)+. El
+proceso sigue hasta que \verb+factorial(2)+ llama a
+\verb+factorial3(1)+. En ese momento, $1<2$, y la funci\'on
+\verb+factorial3(1)+, en vez de llamar nuevamente al factorial,
+devuelve a la funci\'on que la llam\'o el valor 1. No hay m\'as
+llamadas a \verb+factorial3+, y el proceso de recursi\'on se
+detiene. El resultado final es que \verb+main+ recibe el valor
+\verb+factorial3(5)+ $=$ \verb+5*factorial3(4)+ $=\cdots=$
+\verb+5*4*3*2*factorial3(1)+ $=$ \verb+5*4*3*2*1+$=120$.
+
+Este tercer c\'odigo para el c\'alculo del factorial s\'{\i} considera
+el caso $n=0$, y adem\'as es m\'as eficiente, al ser m\'as compacto. 
+
+La recursi\'on debe ser empleada con cuidado. Es importante asegurarse
+de que existe una condici\'on para la cual la recursi\'on se detenga,
+de otro modo, caer\'{\i}amos en una recursi\'on infinita que
+har\'{\i}a in\'util nuestro programa. En el caso del factorial,
+pudimos verificar que dicha condici\'on existe, por tanto el programa
+es finito. En situaciones m\'as complicadas puede no ser tan evidente,
+y es responsabilidad del programador ---como siempre--- revisar que
+todo est\'e bajo control.
+
+
+\subsection{Funciones internas.}
+
+Exiten muchas funciones previamente implementadas en C++ almacenadas
+en distintas bibliotecas. Una de las bibliotecas importante es la
+matem{\'a}tica. Para usarla uno debe incluir el archivo de {\it header\/}
+\verb|<math.h>| y luego al compilar agregar al final del comando de
+compilaci{\'o}n \verb|-lm|:
+\begin{verbatim}
+g++ -o <salida> <fuente>.cc -lm
+\end{verbatim}
+si se desea crear un ejecutable \verb+<salida>+ a partir del c\'odigo
+en \verb+<fuente>.cc+. 
+
+ Veamos algunas de estas funciones:
+\begin{center}
+\begin{tabular}{|l|l|} \hline
+\verb|pow(x,y)| & Eleva a potencia, $x^y$\\
+\verb|fabs(x)| & Valor absoluto\\
+\verb|sqrt(x)| & Ra{\'\i}z cuadrada\\
+\verb|sin(x) cos(x)| & Seno y coseno\\
+\verb|tan(x)| & Tangente\\
+\verb|atan(x)| & Arcotangente de $x$ en $[-\pi, \pi]$\\
+\verb|atan2(y, x)| & Arcotangente de $y/x$ en $[-\pi, \pi]$\\
+\verb|exp(x)| & Exponencial\\
+\verb|log(x) log10(x)| & Logaritmo natural y logaritmo en base 10\\
+\verb|floor(x)| & Entero m{\'a}s cercano hacia abajo (e.g. \verb|floor(3.2)=3|)\\
+\verb|ceil(x)| & Entero m{\'a}s cercano hacia arriba (e.g. \verb|ceil(3.2)=4|)\\
+\verb|fmod(x,y)| & El resto de $x/y$ (e.g. \verb|fmod(7.3, 2)=1.3|)\\ \hline
+\end{tabular}
+\end{center}
+
+Para elevar a potencias enteras, es m\'as conveniente usar la forma
+expl\'{\i}cita en vez de la funci\'on \verb+pow+, i.e. calcular
+\verb+x^3+ como \verb+x*x*x+ es m\'as eficiente computacionalmente que
+\verb+pow(x,3)+, debido a los algoritmos que usa \verb+pow+ para
+calcular potencias. \'Estos son m\'as convenientes cuando las
+potencias no son enteras, en cuyo caso no existe una forma
+expl\'{\i}cita en t\'erminos de productos.
+
+\section{Punteros.}
+
+
+Una de las ventajas de C++ es permitir el acceso directo del programador a
+zonas de memoria, ya sea para crearlas, asignarles un valor o
+destruirlas. Para ello, adem{\'a}s de los tipos de variables ya
+conocidos (\verb+int+, \verb+double+, etc.), C++ proporciona un
+nuevo tipo: el {\em puntero}. El puntero no contiene el valor de una variable,
+sino la direcci{\'o}n de memoria en la cual dicha variable se
+encuentra. 
+
+Un peque{\~n}o ejemplo nos permite ver la diferencia entre un puntero y
+la variable a la cual ese puntero ``apunta'':
+\begin{verbatim}
+void main(){
+    int i = 42;
+    int * p = &i;
+    cout << "El valor del puntero es: " << p << endl;
+    cout << "Y apunta a la variable: " << *p << endl;
+}
+\end{verbatim}
+
+En este programa definimos una variable \verb+i+ entera. Al crear esta
+variable, el programa reserv\'o un espacio  adecuado en
+alg\'un sector de la memoria. Luego pusimos, en esa direcci\'on de
+memoria, el valor \verb+42+. En la siguiente l\'{\i}nea creamos un
+puntero a \verb+i+, que en este caso denominamos
+\verb+p+. Los punteros no son punteros a cualquier cosa, sino
+punteros a un tipo particular de variable. Ello es manifiesto en la
+forma de la declaraci\'on: \verb+int * p+. En la misma l\'{\i}nea
+asignamos a este puntero un valor. Ese valor debe ser tambi\'en una
+direcci\'on de memoria, y para eso usamos \verb+&i+, que es la
+direcci\'on de memoria donde est\'a \verb+i+. Ya hemos visto antes el
+uso de \verb+&+ para entregar una direcci\'on de memoria, al estudiar
+paso de par\'ametros a funciones por referencia (\ref{referencia}).
+
+Al ejecutar este programa vemos en pantalla los mensajes:
+\begin{verbatim}
+El valor del puntero es: 0xbffff9d8
+Y apunta a la variable: 42
+\end{verbatim}
+Primero obtenemos un n\'umero hexadecimal imposible
+ de determinar {\em a priori\/}, y que
+corresponde a la direcci{\'o}n de memoria donde qued{\'o} ubicada la
+variable \verb+i+. La segunda l\'{\i}nea nos da el valor de la
+variable que est{\'a} en esa direcci{\'o}n de memoria: 42. Puesto que
+\verb+*+ aplicado a un puntero entrega el contenido de esa direcci\'on
+de memoria, se le denomina {\em operador de dereferenciaci\'on}. 
+
+En este ejemplo, hemos creado un puntero que contiene la direcci\'on
+de memoria de una variable preexistente: declaramos una variable, esa
+variable queda en alguna direcci\'on de memoria, y despu\'es asignamos
+esa direcci\'on de memoria a un puntero. En este caso, podemos
+referirnos a la variable tanto por su nombre (\verb+i+) como por su
+puntero asociado (\verb+p_i+).
+
+Tambi\'en es posible crear directamente una direcci\'on de memoria,
+sin necesidad de crear una variable antes. En este caso, la \'unica
+forma de manipular este objeto es a trav\'es de su puntero, porque no
+existe ninguna variable y por tanto ning\'un nombre asociado a \'el.
+Esto se hace con el operador \verb+new+. El mismo ejemplo anterior
+puede ser reescrito usando s\'olo punteros:
+\begin{verbatim}
+void main(){
+    int * p = new int;
+    *p = 42;
+    cout << "El valor del puntero es: " << p << endl;
+    cout << "Y apunta a la variable: " << *p << endl;
+    delete p;
+}
+\end{verbatim}
+
+La primera l\'{\i}nea crea un nuevo puntero a \verb+int+ llamado
+\verb+p+. \verb+new+ verifica que haya suficiente memoria para alojar
+un nuevo \verb+int+, y si es as\'{\i} reserva ese espacio de
+memoria. En \verb+p+ queda la direcci\'on de la memoria
+reservada. Esto es equivalente a la declaraci\'on \verb+int i;+ del
+programa anterior, salvo que ahora la \'unica manera de accesar esa
+direcci\'on de memoria es a trav\'es del puntero \verb+p+. A
+continuaci\'on se coloca {\em dentro\/} de esa direcci\'on (observar
+la presencia del operador de dereferenciaci\'on \verb+*+) el n\'umero
+\verb+42+. El programa manda a pantalla la misma informaci\'on que la
+versi\'on anterior, salvo que seguramente el valor de \verb+p+ ser\'a
+distinto. 
+
+Finalmente, ya que el puntero no volver\'a a ser usado, la direcci\'on
+de memoria debe ser liberada para que nuestro u otros programas puedan
+utilizarla. Ello se realiza con el operador \verb+delete+. Todo
+puntero creado con \verb+new+ debe ser, cuando ya no se utilice,
+borrado con \verb+delete+. Ello evitar\'a desagradables problemas en
+nuestro programa debido a fuga de memoria ({\em memory leak\/}). 
+
+
+
+Los punteros tienen gran importancia cuando de manejar datos
+din{\'a}micos se trata, es decir, objetos que son creados durante la
+ejecuci{\'o}n del programa, en n{\'u}mero imposible de predecir al
+momento de compilar. Por ejemplo, una aplicaci{\'o}n X-windows normal que
+crea una, dos, tres, etc.\ ventanas a medida que uno abre archivos.
+En este caso, cada ventana es un objeto din{\'a}mico, creado durante la
+ejecuci{\'o}n, y la {\'u}nica forma de manejarlo es a trav{\'e}s
+de un puntero a ese objeto, creado con \verb+new+ cuando la ventana es
+creada, y destruido con \verb+delete+ cuando la ventana es cerrada. 
+
+
+\section{Matrices.}
+
+\subsection{Declaraci{\'o}n e inicializaci{\'o}n.}
+
+Podemos declarar (e inicializar inmediatamente) matrices de enteros,
+reales de doble precisi{\'o}n, caracteres, etc., seg{\'u}n nuestras
+necesidades.
+
+\begin{verbatim}
+int a[5];
+double r[3] = {3.5, 4.1, -10.8};
+char palabra[5];
+\end{verbatim}
+
+Una vez declarada la matriz (digamos \verb+a[5]+), los valores
+individuales se accesan con \verb+a[i]+, con 
+\verb+i+ desde 0 a 4. Por ejemplo, podemos inicializar los elementos
+de la matriz as{\'\i}:
+\begin{verbatim}
+a[0] = 3;
+a[3] = 5; ...
+\end{verbatim}
+o si queremos ingresarlos desde el teclado:
+\begin{verbatim}
+for (i = 0; i < 5; i++){
+    cin >> a[i];
+}
+\end{verbatim}
+Y si deseamos escribirlos en pantalla:
+\begin{verbatim}
+for (i = 0; i < 5; i++){
+    cout >> a[i];
+}
+\end{verbatim}
+
+\subsection{Matrices como par{\'a}metros de funciones.}
+
+Si deseamos, por ejemplo, dise{\~n}ar una funci{\'o}n que mande los
+elementos de una matriz a pantalla, necesitamos entregarle como
+par\'ametro la matriz que va a utilizar. Para ello se agrega 
+\verb+[]+ luego del nombre de la variable, para indicar que se trata
+de una matriz:
+
+\begin{verbatim}
+void PrintMatriz(int, double []);
+
+void main(){
+     double matriz[5] = {3.5, 5.2, 2.4, -0.9, -10.8};
+     PrintMatriz(5, matriz);
+}
+
+void PrintMatriz(int i, double a[]){
+     for (int j = 0; j < i; j++){
+          cout << "Elemento " << j << " = " << a[j] << endl;
+     }
+}
+
+\end{verbatim}
+
+Observemos que la funci{\'o}n debe recibir dos par{\'a}metros, uno de los
+cuales es la dimensi{\'o}n de la matriz. Esto se debe a que cuando las
+matrices son usadas como par{\'a}metros la informaci{\'o}n de su
+dimensi{\'o}n no es traspasada, y debe ser comunicada
+independientemente. Una ligera optimizaci{\'o}n al programa anterior es
+modificar \verb+main+ a:
+\begin{verbatim}
+main()
+{
+     const int dim = 5;
+     double matriz[dim] = {3.5, 5.2, 2.4, -0.9, -10.8};
+     PrintMatriz(dim, matriz);
+}
+\end{verbatim}
+De este modo, si eventualmente cambiamos de opini{\'o}n y deseamos
+trabajar con matrices de longitud distinta, s{\'o}lo hay que modificar
+una l{\'\i}nea de c{\'o}digo (la primera) en todo el programa, el cual
+puede llegar a ser bastante largo por cierto. (En el ejemplo,
+tambi{\'e}n habr{\'\i}a que cambiar la l{\'\i}nea de inicializaci{\'o}n
+de la matriz, porque asume que la matriz requiere s{\'o}lo 5 elementos,
+pero de todos modos deber{\'\i}a ser clara la enorme conveniencia.)
+Podemos reescribir este programa con un comando de preprocesador para
+hacer la definici{\'o}n de la dimensi{\'o}n:
+\begin{verbatim}
+#include <iostream.h>
+#define DIM 5
+main(){
+     double matriz[DIM] = {3.5, 5.2, 2.4, -0.9, -10.8};
+     PrintMatriz(DIM, matriz);
+}
+\end{verbatim}
+
+Sin embargo, ninguna de estas alternativas resuelve el problema de que
+el compilador espera que la dimensi\'on de una matriz sea un entero 
+constante, determinado en el momento de la compilaci\'on (no de la
+ejecuci\'on).
+
+\subsection{Asignaci{\'o}n din{\'a}mica.}
+
+La reserva de memoria para la matriz podemos hacerla en forma din{\'a}mica
+ocupando el operador \verb|new| que pedir{\'a} al sistema la memoria
+necesaria, si est{\'a} disponible el sistema se la asignar{\'a}. Como
+con cualquier puntero,
+una vez desocupado el arreglo debemos liberar la memoria con el
+comando \verb|delete|.
+\begin{verbatim}
+#include <iostream.h>
+main()
+{
+     cout<<"Ingrese la dimension deseada :" ;
+     int dim ;
+     cin >> dim ;
+     double * matriz = new double[dim] ; // Reserva la memoria
+     for(int i=0; i < dim; i++) {
+        cout << "Ingrese elemento "<< i <<" : ";
+        cin >> matriz[i] ;
+     } 
+
+     for (int i=0;i<dim;i++){
+        cout << matriz[i] << ", ";
+     } 
+     cout << endl;
+
+     delete [] matriz       // Libera la memoria reservada 
+}
+\end{verbatim}
+ 
+Este ejemplo permite apreciar una gran ventaja del uso de punteros, al
+permitirnos liberarnos de definir la dimensi\'on de una matriz como
+una constante. Aqu\'{\i}, \verb+dim+ es simplemente un \verb+int+. 
+La asignaci\'on
+din\'amica permite definir matrices cuya dimensi\'on se determina
+reci\'en durante la ejecuci\'on. 
+
+Observemos finalmente que la liberaci\'on de memoria, en el caso de
+arreglos, se hace con el operador \verb+delete []+, no \verb+delete+
+como en los punteros usuales.
+
+
+\subsection{Matrices multidimensionales.}
+
+Es f{\'a}cil declarar e inicializar matrices de m{\'a}s de una
+dimensi{\'o}n: 
+\begin{verbatim}
+double array[10][8];
+int array[2][3] = {{1, 2, 3}, 
+                   {4, 5, 6}};
+\end{verbatim}
+
+Una operaci\'on usual es definir primero las dimensiones de la matriz,
+y luego llenar sus elementos uno por uno (o desplegarlos en pantalla),
+recorriendo la matriz ya sea por filas o por columnas. Hay que tener
+cuidado del orden en el cual uno realiza las operaciones. En el
+siguiente c\'odigo, definimos una matriz de 10 filas y 3 columnas, la
+llenamos con ceros elemento por elemento, y luego inicializamos tres
+de sus elementos a n\'umeros distintos de cero. Finalmente desplegamos
+la matriz resultante en pantalla:
+
+\begin{verbatim}
+#include <iostream.h>
+
+int main(){
+  const int dimx=3, dimy=10;
+
+  double a[dimy][dimx];
+
+   for (int i=0;i<dimy;i++){
+     for (int j=0;j<dimx;j++){
+        a[i][j]=0;
+     }
+     cout << endl;
+   }
+
+  a[0][0]=1;
+  a[3][2]=2;
+  a[9][2]=3;
+
+   for (int i=0;i<dimy;i++){
+     for (int j=0;j<dimx;j++){
+       cout << a[i][j] << ", ";
+     }
+     cout << endl;
+   }
+}
+\end{verbatim}
+
+Inicializar los elementos a cero inicialmente es particularmente
+relevante. Si no, la matriz se llenar\'{\i}a con elementos
+aleatorios. 
+
+Tambi\'en es posible definir arreglos bidimensionales
+din\'amicamente. En el siguiente ejemplo, se define una matriz de 200
+filas y 400 columnas, inicializ\'andose sus elementos a cero, y
+finalmente se borra:
+\begin{verbatim}
+int main()
+{
+  
+  int width;
+  int height;
+
+  width = 200;
+  height = 400;
+  
+
+  double ** matriz = new double * [width];
+ 
+  for (int i=0;i<width;i++){
+    matriz[i] = new double[height];
+  }
+
+  for (int i=0;i<width;i++){
+    for (int j=0;j<height;j++){
+      matriz[i][j] = 0;
+    }
+  }
+ 
+  for (int i=0;i<width;i++){
+    delete [] matriz[i];
+  }
+  delete [] matriz;
+  
+}
+\end{verbatim}
+
+Primero se crea, con \verb+new+, un puntero (\verb+matriz+) 
+de dimensi\'on 200, que
+representar\'a las filas. Cada
+uno de sus elementos (\verb+matriz[i]+), a su vez, ser\'a un nuevo puntero, de
+dimensi\'on 400, representando cada columna. Por tanto, \verb+matriz+
+debe ser un puntero a puntero (de dobles, en este caso), y as\'{\i} es
+definido inicialmente (\verb+double ** ...+).  Esto puede parecer
+extra\~no a primera vista, pero recordemos que los punteros pueden ser
+punteros a cualquier objeto, en particular a otro puntero. 
+Luego se crean los
+punteros de cada columna (primer ciclo \verb+for+). A continuaci\'on
+se llenan los elementos con ceros (segundo ciclo
+\verb+for+). Finalmente, se libera la memoria, en orden inverso a como
+fue asignada: primero se libera la memoria de cada columna de la
+matriz (\verb+delete [] matriz[i]+, tercer ciclo \verb+for+), y por
+\'ultimo se libera la memoria del puntero a estos punteros
+(\verb+delete [] matriz+). 
+
+
+\subsection{Matrices de caracteres: cadenas (strings).}
+
+Una palabra, frase o texto m\'as largo es representado internamente
+por C++ como una matriz de \verb+char+s. A esto se le llama ``cadena''
+(string). Sin embargo, esto ocasiona un
+problema, pues las matrices deben ser definidas con dimensi\'on
+constante (a menos que sean definidas din\'amicamente), y las palabras
+pueden tener longitud arbitraria. La convenci\'on de C++ para resolver
+el problema es aceptar que una cadena tiene longitud arbitraria, pero
+debe indicar d\'onde termina. Esto se hace con el \verb+char+ nulo: 
+\verb+'\0'+. As\'{\i}, para asignar a la variable \verb+palabra+ 
+el valor ``Hola'', debe definirse como una matriz de dimensi\'on 5
+(una m\'as que el n\'umero de letras):
+\begin{verbatim}
+char palabra[5] = {'H', 'o', 'l', 'a', '\0'};
+\end{verbatim}
+Para escribir ``Hola'' en pantalla basta recorrer los elementos de
+\verb+palabra+ uno a uno:
+\begin{verbatim}
+for (i = 0; i < 5; i++)
+{
+    cout << palabra[i];
+}
+\end{verbatim}
+Si tuvi\'eramos que hacer esto cada vez que queremos escribir algo a
+pantalla no ser\'{\i}a muy c\'omodo. Por ello, tambi\'en podemos
+escribir ``Hola'' en pantalla simplemente con \verb+cout << "Hola"+, y
+de hecho \'ese fue el primer ejemplo de este cap\'{\i}tulo. De hecho,
+la declaraci{\'o}n de
+\verb+palabra+ podr\'{\i}a haberse escrito:
+\begin{verbatim}
+char palabra[5] = "Hola";
+\end{verbatim}
+Esto ya es bastante m\'as c\'omodo, aunque persiste la inconsistencia
+de definir \verb+palabra+ con dimensi\'on 5, cuando en realidad al
+lado derecho de la asignaci\'on hay un objeto con s\'olo 4 elementos
+(visibles). 
+
+\'Este y otros problemas asociados con el manejo convencional de
+cadenas en C++ se resuelven  incluyendo  el header \verb+string+. 
+
+\subsubsection{string}
+
+El c\'odigo anterior se puede reescribir:
+\begin{verbatim}
+#include <iostream.h>
+#include <string>
+
+int main(){
+  string palabra = "Hola";
+  cout << texto1 << endl;
+}
+\end{verbatim}
+
+Observar que la l\'{\i}nea a incluir es \verb+#include <string>+,
+{\em sin la extensi\'on ``.h''}. Al incluir \verb+string+, las cadenas
+pueden ser declaradas como objetos tipo \verb+string+ en vez de
+arreglos de \verb+char+. El hecho de que ya no tengamos que definir a
+priori la dimensi\'on de la cadena es una gran ventaja. De hecho,
+permite ingresar palabras desde el teclado trivialmente, sin
+preocuparse de que el input del usuario sea demasiado grande (tal que
+supere la dimensi\'on del arreglo que podamos haber declarado
+inicialmente) o
+demasiado corto (tal que se traduzca en un despilfarro de memoria por
+reservar m\'as memoria para el arreglo de la que realmente se necesita):
+\begin{verbatim}
+#include <iostream.h>
+#include <string>
+
+int main(){
+  string palabra;
+  cin >> texto1;
+}
+\end{verbatim}
+
+Adem\'as, este nuevo tipo \verb+string+ permite
+acceder a un sinn\'umero de funciones adicionales que facilitan
+enormemente el manejo de cadenas. Por ejemplo, las cadenas se pueden
+sumar, donde la suma de cadenas \verb+a+ y \verb+b+ 
+est\'a definida (siguiendo la
+intuici\'on) como la cadena que resulta de poner \verb+b+ a
+continuaci\'on de \verb+a+:
+\begin{verbatim}
+#include <iostream.h>
+#include <string>
+
+int main(){
+  string texto1 = "Primera palabra";
+  string texto2 = "Segunda palabra";
+  cout << texto1 << endl << texto2 << endl;
+  cout << texto1 + ", " + texto2  << endl;
+  // La ultima linea es equivalente a:
+  // string texto3 = texto1 + ", " + texto2;
+  // cout << texto3 << endl;
+}
+\end{verbatim}
+El output de este programa ser\'a:
+\verb+Primera palabra, Segunda palabra+. 
+
+Dijimos que es muy f\'acil ingresar una cadena desde el teclado, pues
+no es necesario definir la dimensi\'on desde el comienzo. Sin embargo,
+el c\'odigo anterior, usando \verb+cin+, no es muy general, porque el
+input termina cuando el usuario ingresa el primer cambio de l\'{\i}nea
+o el primer espacio. Esto es muy c\'omodo cuando queremos ingresar una
+serie de valores (por ejemplo, para llenar un arreglo), 
+pues podemos ingresarlos ya sea en la forma: 
+\verb+1<Enter> 2<Enter> 3<Enter>+, etc., o \verb+1 2 3+, etc, pero no
+es \'optimo cuando deseamos ingresar texto, que podr\'{\i}a constar de
+m\'as de una palabra y, por tanto, necesariamente incluir\'{\i}a
+espacios (por ejemplo, al ingresar el nombre y apellido de una
+persona). Sin explicar demasiado por qu\'e, digamos que la soluci\'on
+a este problema es utilizar una funci\'on asociada a \verb+cin+
+llamada \verb+gets+, y que espera input desde el teclado hasta que el
+usuario d\'e el primer cambio de l\'{\i}nea. Un ejemplo simple lo
+encontramos en el siguiente c\'odigo:
+\begin{verbatim}
+#include <iostream.h>
+#include <string>
+
+int main(){
+  string texto1 = "El resultado es: " ;
+  char * texto2;
+
+  cin.gets(&texto2);
+  string texto
+  cout << texto1 + string(texto2) << endl;
+}
+\end{verbatim}
+
+Observamos que \verb+gets+ acepta en realidad un argumento que es un
+puntero a puntero de caracteres (\verb+texto2+ fue declarado como un
+puntero a \verb+char+, y \verb+gets+ es llamado con el argumento
+\verb+&texto2+, que es la direcci\'on de memoria asociada a
+\verb+texto2+, i.e. el puntero que apunta a \verb+texto2.+) 
+
+De este modo, \verb+gets+ espera input desde el teclado hasta el
+primer cambio de l\'{\i}nea, y asigna la cadena ingresada a
+\verb+texto2+. Sin embargo, si despu\'es queremos utilizar
+\verb+texto2+ en conjunto con otras cadenas (definidas como
+\verb+string+), ser\'a necesario convertirla expl\'{\i}citamente a
+\verb+string+ (ver secci\'on \ref{cast}). En nuestro c\'odigo,
+dese\'abamos sumar \verb+texto1+ con \verb+texto2+ y enviar el
+resultado a pantalla.
+
+
+\subsection{{\tt main} como funci\'on}
+
+
+Para ejecutar un programa compilado en C++, escribimos su nombre en el
+prompt:
+\begin{verbatim}
+user@host:~/$ programa
+\end{verbatim}
+Si el mismo usuario desea ejecutar alguno de los comandos del sistema
+operativo, debe hacer lo mismo:
+\begin{verbatim}
+user@host:~/$ ls
+\end{verbatim}
+
+Sin embargo, \verb+ls+ es en realidad el nombre de un archivo
+ejecutable en el directorio \verb+/bin+, de modo que en realidad no
+hay diferencias entre nuestro programa y un comando del sistema
+operativo en ese sentido. Sin embargo, \'estos pueden recibir
+argumentos y opciones. Por ejemplo, para ver todos los archivos que
+comienzan con \verb+l+ en el directorio local basta con darle a
+\verb+ls+ el argumento \verb+l*+: \verb+ls l*+. Si queremos ordenar
+los archivos en orden inverso de modificaci\'on, basta dar otro
+argumento, en forma de opci\'on: \verb+ls -tr l*+. Se ve entonces que
+los argumentos de un archivo ejecutable permiten modificar el
+comportamiento del programa de modos espec\'{\i}ficos. 
+
+?`Es posible hacer lo mismo con archivos ejecutables hechos por el
+usuario? La respuesta es s\'{\i}, y para eso se usan los argumentos
+del \verb+main+. Recordemos que \verb+main+ es una funci\'on, pero
+hasta el momento no hemos aprovechado esa
+caracter\'{\i}stica. Simplemente sabemos que el programa empieza a
+ejecutarse en la  l\'{\i}\~nea donde est\'a la 
+funci\'on \verb+main+. Adem\'as, siempre hemos
+escrito esa l\'{\i}nea como \verb+main()+. Sin embargo, \verb+main+, como
+cualquier funci\'on, es capaz de aceptar
+argumentos. 
+Espec\'{\i}ficamente, acepta dos argumentos, el primero es
+un entero (que cuenta el n\'umero de argumentos que \verb+main+
+recibi\'o), y  el segundo es un puntero a un arreglo de caracteres
+(que contiene los distintos argumentos, en forma de cadenas de
+caracteres, que se le entregaron.
+
+Por ejemplo:
+\begin{verbatim}
+#include <iostream.h>
+main( int argc, char * argv[])
+{
+     for(int i = 0; i < argc; i++) cout << argv[i] << endl ;
+}
+\end{verbatim}
+Si llamamos a este programa \verb+argumentos+, obtenemos 
+distintas salidas al llamarlo con distintos argumentos:
+\begin{verbatim}
+user@host:~/$ argumentos 
+argumentos
+user@host:~/$ argumentos ap k
+argumentos
+ap
+k
+user@host:~/$ argumentos -t -s arg1
+argumentos
+-t
+-s
+arg1
+\end{verbatim}
+Observar que el primer argumento del programa es siempre el nombre del
+propio programa.
+
+Naturalmente, \'este es un ejemplo muy simple. Es tarea del
+programador decidir c\'omo manejar cada una de las opciones o
+argumentos que se le entregan al programa desde la l\'{\i}nea de
+comandos, escribiendo el c\'odigo correspondiente.
+
+\vspace{.3cm}
+Un segundo aspecto con el cual no hemos sido sistem\'aticos es que
+\verb+main+, como toda funci\'on, tiene un tipo de retorno. En el caso
+de \verb+main+, ese tipo debe ser \verb+int+. Este \verb+int+ es
+entregado al sistema operativo, y puede servir para determinar si el
+programa se ejecut\'o con normalidad o si ocurri\'o algo
+anormal. Podr\'{\i}amos hacer ese valor de retorno igual a 0 o 1,
+respectivamente. As\'{\i}, la siguiente estructura es correcta:
+\begin{verbatim}
+int main(){
+   // Codigo
+   
+   return 0;
+} 
+\end{verbatim}
+En este caso, el programa entrega siempre el valor 0 al sistema
+operativo. 
+
+Los c\'odigos del tipo:
+\begin{verbatim}
+main(){
+   // Codigo
+}
+\end{verbatim}
+o 
+\begin{verbatim}
+void main(){
+   // Codigo
+}
+\end{verbatim}
+tambi\'en compilan, pero el compilador emite una advertencia si es
+llamado con la opci\'on \verb+-Wall+ ({\it Warning all\/}). En el primer
+caso, la advertencia es:
+\begin{verbatim}
+warning: ANSI C++ forbids declaration `main' with no type
+\end{verbatim}
+En el segundo:
+\begin{verbatim}
+return type for `main' changed to `int'
+\end{verbatim}
+
+En general, siempre es conveniente compilar con la opci\'on
+\verb+-Wall+, para lograr
+que nuestro c\'odigo est\'e realmente correcto 
+(\verb|g++ -Wall <archivo>.cc -o <archivo>|).
+
+\section{Clases.}
+
+C++ dispone de una serie de tipos de variables con los cuales nos
+est{\'a} permitido  operar: \verb+int+, \verb+double+, \verb+char+, etc.
+Creamos variables de estos tipos y luego podemos operar con ellos:
+
+\begin{verbatim}
+int x, y;
+x = 3;
+y = 6;
+int z = x + y;
+\end{verbatim}
+
+No hay, sin embargo, en C++, una estructura predefinida que
+corresponda a n{\'u}meros complejos, vectores de dimensi{\'o}n $n$ o
+matrices, por ejemplo. Y sin embargo, nos agradar\'{\i}a disponer de
+n{\'u}meros complejos que pudi{\'e}ramos definir como 
+\begin{verbatim}
+z = (3,5);
+w = (6,8);
+\end{verbatim}
+y que tuvieran sentido las expresiones
+\begin{verbatim}
+a = z + w;
+b = z * w;
+c = z / w;
+d = z + 3;
+e = modulo(z);
+f = sqrt(z);
+\end{verbatim}
+
+Todas estas expresiones son completamente naturales desde el punto de
+vista matem{\'a}tico, y ser\'{\i}a bueno que el lenguaje las
+entendiera. Esto es imposible en el estado actual, pues, por ejemplo,
+el signo \verb-+- es un operador que espera a ambos lados suyos un
+n{\'u}mero. Sumar cualquier cosa con cualquier cosa no significa nada
+necesariamente, as\'{\i} que s{\'o}lo est{\'a} permitido operar con
+n{\'u}meros. Pero los humanos sabemos que los complejos son n{\'u}meros.
+?`C{\'o}mo dec\'{\i}rselo al computador? ?`C{\'o}mo convencerlo de que
+sumar vectores o matrices es tambi{\'e}n posible matem{\'a}ticamente, y
+que el mismo signo \verb-+- deber\'{\i}a servir para todas estas
+operaciones?
+
+La respuesta es: a trav{\'e}s del concepto de {\em clases\/}. Lo que
+debemos hacer es definir una clase de n{\'u}meros complejos.
+Llam{\'e}mosla \verb+Complejo+. Una vez definida correctamente,
+\verb+Complejo+ ser{\'a} un tipo m{\'a}s de variable que el compilador
+reconocer{\'a}, igual que \verb+int+, \verb+double+, \verb+char+, etc.
+Y ser{\'a} tan f{\'a}cil operar con los \verb+Complejos+ como con todos
+los tipos de variables preexistentes. Esta facilidad es la base de
+la extensibilidad de que es capaz  C++, y por tanto de todas las
+propiedades que lo convierten en un lenguaje muy poderoso. 
+
+Las clases responden a la necesidad del programador de construir
+objetos o tipos de datos que respondan a sus necesidades. Si
+necesitamos trabajar con vectores de 5 coordenadas, ser{\'a} natural
+definir una clase que corresponda a vectores con 5 coordenadas; si se
+trata de un programa de administraci{\'o}n de personal, la clase puede
+corresponder a un empleado, con sus datos personales como elementos.
+
+Si bien es cierto uno puede trabajar con clases en el contexto de
+orientaci{\'o}n al procedimiento, las clases muestran con mayor
+propiedad su potencial con la orientaci{\'o}n al objeto, donde cada
+objeto corresponde a una clase. Por ejemplo, para efectuar una
+aplicaci{\'o}n para Windows, la ventana principal, las ventanas de los
+archivos abiertos, la barra de men{\'u}, las cajas de di{\'a}logo, los
+botones, etc., cada uno de estos objetos estar{\'a} asociado a una
+clase. 
+
+\subsection{Definici{\'o}n.}
+
+Digamos que queremos una clase para representar los empleados de una
+empresa. Llam{\'e}mosla \verb+Persona+. La convenci{\'o}n aceptada es que
+los nombres de las clases comiencen con may{\'u}scula. Esto es porque
+las clases, recordemos, corresponder{\'a}n a tipos de variables tan
+v{\'a}lidos como los internos de C++ (\verb+int+, \verb+char+, etc.).
+Al usar nombres con may{\'u}scula distiguimos visualmente los nombres
+de un tipo de variable interno y uno definido por el usuario.
+
+La estructura m\'{\i}nima de la definici{\'o}n de la clase
+\verb+Persona+ es:
+\begin{verbatim}
+class Persona
+{
+
+};
+\end{verbatim}
+
+Todas las caracter\'{\i}sticas de la clase se definen entre los
+parent{\'e}sis cursivos.
+
+\subsection{Miembros.}
+
+Se denomina {\em miembros\/} de una clase a todas las variables y
+funciones declaradas dentro de una clase. Por ejemplo, para personas,
+es natural caracterizarlas por su nombre y su edad. Y si se trata de
+empleados de una empresa, es natural tambi{\'e}n tener una funci{\'o}n
+que entregue su sueldo:
+
+\begin{verbatim}
+class Persona
+{
+     char nombre[20];
+     int edad;
+     double sueldo();
+}
+\end{verbatim}
+
+Los miembros de una clase pueden tener cualquier nombre, excepto el
+nombre de la propia clase dentro de la cual se definen, ese nombre
+est{\'a} reservado.
+
+\subsection{Miembros p{\'u}blicos y privados.}
+
+Una clase distingue informaci{\'o}n (datos o funciones) privada
+(accesible s{\'o}lo a otros miembros de la misma clase) y p{\'u}blica
+(accesible a funciones externas a la clase). La parte privada
+corresponde a la estructura interna de la clase, y la parte p{\'u}blica
+a la implementaci{\'o}n (t\'{\i}picamente funciones), que permite la
+interacci{\'o}n de la clase con el exterior.
+
+Consideremos ahora nuestro deseo de tener una clase que represente
+n{\'u}meros complejos. Un n{\'u}mero complejo tiene dos n{\'u}meros reales (parte
+real e imaginaria), y {\'e}sos son elementos privados, es decir, parte
+de su estructura interna. Sin embargo, nos gustar{\'\i}a poder modificar
+y conocer esas cantidades. Eso s{\'o}lo puede hacerse a trav{\'e}s de
+funciones p{\'u}blicas.
+\begin{verbatim}
+class Complejo
+{
+private:
+    double real, imaginaria;
+public:
+    void setreal(double);
+    void setimag(double);
+    double getreal();
+    double getimag();
+};
+\end{verbatim}
+En este ejemplo, los miembros privados son s{\'o}lo variables, y los
+miembros p{\'u}blicos son s{\'o}lo funciones. {\'E}ste es el caso t{\'\i}pico, pero
+puede haber variables y funciones de ambos tipos.
+
+\subsection{Operador de selecci{\'o}n (.).}
+
+Hemos definido una clase de n{\'u}meros complejos y funciones que nos
+permiten conocer y modificar las partes real e imaginaria. ?`C{\'o}mo
+se usan estos elementos? Consideremos el siguiente programa de
+ejemplo:
+
+\begin{verbatim}
+class Complejo
+{
+private:
+    double real, imaginaria;
+public:
+    void setreal(double);
+    void setimag(double);
+    double getreal();
+    double getimag();
+};
+
+void main()
+{
+    Complejo z, w;
+    
+    z.setreal(3);
+    z.setimag(2.8);
+    w.setreal(1.5);
+    w.setimag(5);
+    cout << "El primer numero complejo es: " << z.getreal() 
+         << " + i*" << z.getimag() << endl;
+    cout << "El segundo es: " << w.getreal() << " + i*" 
+         << z.getimag() << endl;
+}
+\end{verbatim}
+Vemos en la primera l\'{\i}nea de \verb+main+ c{\'o}mo la clase
+\verb+Complejo+ se usa del mismo modo que usar\'{\i}amos \verb+int+ o
+\verb+double+. Ahora \verb+Complejo+ es un tipo de variable tan
+v{\'a}lido como los tipos predefinidos por C++. Una vez definida la
+variable, el operador de selecci{\'o}n (\verb+.+) permite acceder a las
+funciones p{\'u}blicas correspondientes a la clase \verb+Complejo+,
+aplicadas a la variable particular que nos interesa:
+\verb+z.setreal(3)+ pone en la parte real del \verb+Complejo+
+\verb+z+ el n{\'u}mero 3, y \verb+w.setreal(1.5)+ hace lo propio con
+\verb+w+. 
+
+\subsection{Implementaci{\'o}n de funciones miembros.}
+
+Ya sabemos c{\'o}mo declarar funciones miembros en el interior de la
+clase y c{\'o}mo usarlas. Ahora veamos c{\'o}mo se implementan. 
+\begin{verbatim}
+void Complejo::setreal(double x)
+{
+    real = x;
+}
+
+void Complejo::setimag(double x)
+{
+    imaginaria = x;
+}
+
+double Complejo::getreal()
+{
+    return real;
+}
+
+double Complejo::getimag()
+{
+    return imaginaria;
+}
+\end{verbatim}
+Como toda funci{\'o}n, primero va el tipo de la funci{\'o}n (\verb+void+
+o \verb+double+ en los ejemplos), luego el nombre de la funci{\'o}n y
+los argumentos. Finalmente la implementaci{\'o}n. Lo diferente es que
+el nombre va precedido del nombre de la clase y el operador
+``\verb+::+''\ .
+
+
+\subsection{Constructor.}
+
+Al declarar una variable, el programa crea el espacio de memoria
+suficiente para alojarla. Cuando se trata de variables de tipos
+predefinidos en C++ esto no es problema, pero cuando son tipos
+definidos por el usuario C++ debe saber c{\'o}mo construir ese espacio.
+La funci{\'o}n que realiza esa tarea se denomina {\em constructor}. 
+
+El constructor es una funci{\'o}n p{\'u}blica de la clase, que tiene el
+mismo nombre que ella. Agreguemos un constructor a la clase
+\verb+Complejo+: 
+\begin{verbatim}
+class Complejo
+{
+private:
+    double real,imaginaria;
+public:
+    Complejo(double,double);
+    void setreal(double);
+    void setimag(double);
+    double getreal();
+    double getimag();
+};
+
+Complejo::Complejo (double x, double y)
+: real(x), imaginaria(y)
+{}
+\end{verbatim}
+Definir el constructor de esta manera nos permite crear en nuestro
+programa variables de tipo \verb+Complejo+ y asignarles
+valores sin usar \verb+setreal()+ o \verb+setimag()+:
+\begin{verbatim}
+Complejo z (2, 3.8);
+Complejo w = Complejo(6.8, -3);
+\end{verbatim}
+
+En el constructor se inicializan las variables internas que nos
+interesa inicializar al momento de crear un objeto de esta clase. 
+
+Si una de las variables internas a inicializar es una cadena de
+caracteres, hay que inicializarla de modo un poco distinto. Por
+ejemplo, si estamos 
+haciendo una clase \verb+Persona+ que s{\'o}lo tenga el nombre de una
+persona, entonces podemos definir la clase y su constructor en la
+forma: 
+\begin{verbatim}
+class Persona
+{
+private:
+    char nombre[20];
+public:
+    Persona(char []);
+};
+Persona::Persona(a[])
+{
+   strcpy(nombre,a);
+}
+\end{verbatim}
+
+Si uno no especifica el constructor de una clase C++ crea uno default,
+pero en general ser{\'a} insuficiente para cualquier aplicaci{\'o}n
+realmente pr{\'a}ctica. Es una mala costumbre ser descuidado y dejar
+estas decisiones al computador.
+
+\subsection{Destructor.}
+
+As{\'\i} como es necesario crear espacio de memoria al definir una
+variable, hay que deshacerse de ese espacio cuando la variable deja
+de ser necesaria. En otras palabras, la clase necesita tambi{\'e}n un
+{\em destructor\/}. Si la clase es \verb+Complejo+, el destructor es
+una funci{\'o}n p{\'u}blica de ella, llamada \verb+~Complejo+.  
+\begin{verbatim}
+class Complejo
+{
+private:
+    double real, imaginaria;
+public:
+    Complejo(double,double);
+    ~Complejo(void);
+    void setreal(double);
+    void setimag(double);
+    double getreal();
+    double getimag();
+};
+
+Complejo::Complejo (double x, double y): real(x), imaginaria(y)
+{
+}
+
+Complejo::~Complejo(void)
+{
+}
+\end{verbatim}
+
+Como con los constructores, al omitir un destructor C++ genera un
+{\it default}, pero es una mala costumbre\ldots, etc.
+
+\subsection{Matrices de clases.}
+
+Una clase es un tipo de variable como cualquier otra de
+las predefinidas en C++. Es posible construir matrices con ellas, del
+mismo modo que uno tiene matrices de enteros o caracteres. La {\'u}nica
+diferencia con las matrices usuales es que no se pueden s{\'o}lo
+declarar, sino que hay que inicializarlas simult{\'a}neamente. Por
+ejemplo, si queremos crear una matriz que contenga 2 n{\'u}meros
+complejos, la l\'{\i}nea
+\begin{verbatim}
+Complejo z[2];
+\end{verbatim}
+es incorrecta, pero s\'{\i} es aceptable la l\'{\i}nea
+\begin{verbatim}
+Complejo z[2] = {Complejo(3.5,-0.8), Complejo(-2,4)};
+\end{verbatim}
+
+
+\section{Sobrecarga.}
+
+Para que la definici{\'o}n de nuevos objetos sea realmente {\'u}til, hay
+que ser capaz de hacer con ellos muchas acciones que nos ser\'{\i}an
+naturales. Como ya comentamos al introducir el concepto de clase, 
+nos gustar\'{\i}a sumar n{\'u}meros complejos, y que esa suma utilizara
+el mismo signo \verb-+- de la suma usual. O extraerles la ra\'{\i}z
+cuadrada, y que la operaci{\'o}n sea tan f{\'a}cil como escribir
+\verb+sqrt(z)+. Lo que estamos pidiendo es que el operador \verb-+- o
+la funci{\'o}n \verb+sqrt()+ sean {\em polim{\'o}rficos}, es decir, que
+act{\'u}e de distinto modo seg{\'u}n el tipo de argumento que se le
+entregue. Si \verb+z+ es un real, \verb+sqrt(z)+ calcular{\'a} la
+ra\'{\i}z de un n{\'u}mero real; si es complejo, calcular{\'a} la
+ra\'{\i}z de un n{\'u}mero complejo. 
+
+La t{\'e}cnica de programaci{\'o}n mediante la cual podemos definir
+funciones polim{\'o}rficas se llama {\em sobrecarga}. 
+
+\subsection{Sobrecarga de funciones.}
+
+Digamos que la ra\'{\i}z cuadrada de un n{\'u}mero complejo $a+ib$ es
+$(a/2) + i(b/2)$. (Es m{\'a}s complicado en realidad, pero no queremos
+escribir las f{\'o}rmulas ahora.)
+
+Para sobrecargar la funci{\'o}n \verb+sqrt()+ de modo que acepte
+n{\'u}meros complejos basta definirla as\'{\i}:
+
+\begin{verbatim}
+Complejo sqrt(Complejo z)
+{
+     return Complejo (z.getreal()/2, z.getimag()/2);
+}
+\end{verbatim}
+Observemos que definimos una funci{\'o}n \verb+sqrt+ que acepta
+argumentos de tipo \verb+Complejo+, y que entrega un n{\'u}mero del
+mismo tipo. Cuando pidamos la ra\'{\i}z de un n{\'u}mero, el computador
+se preguntar{\'a} si el n{\'u}mero en cuesti{\'o}n es un \verb+int+,
+\verb+double+, \verb+float+ o \verb+Complejo+, y seg{\'u}n eso
+escoger{\'a} la versi{\'o}n de \verb+sqrt+ que corresponda.
+
+Con la definici{\'o}n anterior podemos obtener la ra\'{\i}z cuadrada de un
+n{\'u}mero complejo simplemente con las instrucciones:
+\begin{verbatim}
+Complejo z(1,3);
+Complejo raiz = sqrt(z);
+\end{verbatim}
+
+\subsection{Sobrecarga de operadores.}
+
+?`C{\'o}mo le decimos al computador que el signo \verb-+- tambi{\'e}n
+puede aceptar n{\'u}meros complejos? La respuesta es f{\'a}cil, porque
+para C++ un operador no es sino una funci{\'o}n, y la acci{\'o}n de
+sobrecargar que ya vimos sirve en este caso tambi{\'e}n. La sintaxis
+es: 
+\begin{verbatim}
+Complejo operator + (Complejo z, Complejo w)
+{
+    return Complejo (z.getreal() + w.getreal(), 
+                      z.getimag() + w.getimag()); 
+} 
+\end{verbatim}
+
+\subsection{Coerci{\'o}n.}
+
+Sabemos definir $a+b$, con $a$ y $b$ complejos. Pero ?`qu{\'e} pasa si
+$a$ o $b$ son enteros? ?`O reales? Pareciera que tendr\'{\i}amos que
+definir no s{\'o}lo
+\begin{verbatim}
+Complejo operator + (Complejo a, Complejo b);
+\end{verbatim}
+sino tambi{\'e}n todas las combinaciones restantes:
+\begin{verbatim}
+Complejo operator + (Complejo a, int b);
+Complejo operator + (Complejo a, float b);
+Complejo operator + (int a, Complejo b);
+\end{verbatim}
+etc{\'e}tera.
+
+En realidad esto no es necesario. Por cierto, un n{\'u}mero real es un
+n{\'u}mero complejo con parte imaginaria nula, y es posible hacerle saber
+esto a C++, usando la posibilidad de definir funciones con
+par{\'a}metros default. Basta declarar (en el interior de la clase) el
+constructor de los n{\'u}meros complejos como
+\begin{verbatim}
+Complejo (double, double = 0);
+\end{verbatim}
+Esto permite definir un n{\'u}mero complejo con la instrucci{\'o}n:
+\begin{verbatim}
+Complejo c = Complejo(3.5);
+\end{verbatim}
+resultando el n{\'u}mero complejo $3.5 + i\cdot 0$. Y si tenemos una
+l\'{\i}nea del tipo:
+\begin{verbatim}
+Complejo c = Complejo(3,2.8) + 5;
+\end{verbatim}
+el computador convertir{\'a} impl{\'\i}citamente el entero 5 a
+\verb+Complejo+ (sabe c{\'o}mo hacerlo porque el constructor de n{\'u}meros
+complejos acepta tambi{\'e}n un solo argumento en vez de dos), y luego
+realizar{\'a} la suma entre dos complejos, que es entonces la {\'u}nica
+que es necesario definir. 
+
+
+\section{Herencia.}
+
+{\em Herencia\/} es el mecanismo mediante el cual es posible definir
+clases a partir de otras, preservando parte de las propiedades de la
+primera y agregando o modificando otras.
+
+Por ejemplo, si definimos la clase \verb+Persona+, toda
+\verb+Persona+ tendr{\'a} una variable miembro que sea su
+\verb+nombre+. Si definimos una clase \verb+Hombre+, tambi{\'e}n ser{\'a}
+\verb+Persona+, y por tanto deber\'{\i}a tener \verb+nombre+. Pero adem{\'a}s
+puede tener \verb+esposa+. Y ciertamente no toda \verb+Persona+ tiene
+\verb+esposa+. S{\'o}lo un \verb+Hombre+. 
+
+C++ provee mecanismos para implementar estas relaciones l{\'o}gicas y
+poder definir una clase \verb+Hombre+ a partir de \verb+Persona+. Lo
+vemos en el siguiente ejemplo:
+
+\begin{verbatim}
+class Persona
+{
+private:
+    char nombre[20];
+public:
+    Persona(char [] = "");
+    ~Persona(void);
+    char getname();
+}
+
+class Hombre : public Persona
+{
+private:
+    char esposa[20];
+public:
+    Hombre(char a[]) : Persona(a)
+    { };
+    char getwife();
+    void setwife();
+}    
+\end{verbatim}
+
+Primero definimos una clase \verb+Persona+ que tiene \verb+nombre+.
+Luego definimos una clase \verb+Hombre+ {\em a partir de\/}
+\verb+Persona+ (con la l\'{\i}nea 
+\verb+class Hombre : public+ \verb+Persona+). 
+Esto permite de modo autom{\'a}tico que \verb+Hombre+ tenga
+tambi{\'e}n una variable \verb+nombre+. Y finalmente, dentro de la clase
+\verb+Hombre+, se definen todas aquellas caracter\'{\i}sticas
+adicionales que una \verb+Persona+ no tiene pero un \verb+Hombre+
+s\'{\i}: \verb+esposa+, y funciones miembros para modificar y obtener
+el nombre de ella.
+
+
+Un ejemplo de uso de estas dos clases:
+
+\begin{verbatim}
+Persona cocinera("Maria");
+Hombre panadero("Claudio");
+panadero.setwife("Estela");
+
+cout << cocinera.getname() << endl;
+cout << panadero.getname() << endl;
+cout << panadero.getwife() << endl;
+\end{verbatim}
+
+Observemos que \verb+panadero+ tambi{\'e}n tiene una funci{\'o}n
+\verb+getname()+, a pesar de que la clase \verb+Hombre+ no la define
+expl\'{\i}citamente. Esta funci{\'o}n se ha {\em heredado\/} de la
+clase de la cual \verb+Hombre+ se ha derivado, \verb+Persona+. 
+
+% Local Variables: 
+% TeX-master: "mfm"
+% End: 

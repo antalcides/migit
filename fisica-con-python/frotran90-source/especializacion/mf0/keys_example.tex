@@ -1,0 +1,35 @@
+\documentclass[12pt,keys]{mfm2}      
+\pagestyle{empty}        
+\addtolength{\textwidth}{-5cm}
+\addtolength{\oddsidemargin}{2.5cm}
+\begin{document}
+
+\noindent
+{\bf Caso 1:} \verb+\documentclass[12pt]{mfm2}+
+\vspace{.5cm}
+
+La opci\'on \verb+keys+ resulta muy \'util cuando tengo objetos numerados
+autom\'aticamente, como una ecuaci\'on:
+\begin{equation}
+  \vec F = m \vec a \ . 
+\end{equation}
+y luego quiero referirme a ella: Ec.\  \eqref{newton}.
+
+\vspace{2cm}
+\addtocounter{equation}{-1}
+
+\noindent
+{\bf Caso 2:} \verb+\documentclass[keys,12pt]{mfm2}+
+\vspace{.5cm}
+
+La opci\'on \verb+keys+ resulta muy \'util cuando tengo objetos numerados
+autom\'aticamente, como una ecuaci\'on:
+\begin{equation}
+  \label{newton}
+  \vec F = m \vec a \ . 
+\end{equation}
+y luego quiero referirme a ella: Ec.\  \eqref{newton}.
+
+\end{document}
+
+

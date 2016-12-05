@@ -1,0 +1,115 @@
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C     Curso de Fisica Matematica  Y Computacional
+C     Especializacion En Fisica General
+C NOMBRE: Derivada
+C AUTOR: Antalcides Olivo
+C DESCRIPCION: Este programa calcula las derivadas parciales usando
+C              diferncias finitas .
+C FECHA: 07/11/03 17.50
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C
+
+      program derivadas
+
+      real dift, difd,difc, dif2,dx,x,A ,b,errord,errort,errorc,error2
+      Write(*,'(T5,A/)')
+     & '***************************************************************'
+C     Introducion:
+      Write(6,'(T5,A/)')
+     & 'Å*******************Å********************Å********************Å'
+      write(6,'(T5,A/)')
+     & ' calcule la 1§ y 2¦ derivada de f(x) = sin((pi/2)*x) '
+      Write(6,'(T5,A/)')
+     & 'Å****************Å*****************Å**************************Å'
+      Write(*,'(T5,A/)')
+     & '***************************************************************'
+      Write(*,*) '                                                     '
+      Write(*,*) '                                                     '
+
+C**********************************************************************
+      !definicion de las variables
+      ! dift indica que realizaremos la derivada hacia adelante
+      ! dift indica que realizaremos la derivada hacia atras
+      ! difc indica que realizaremos la derivada centrada
+      ! dx es el paso
+      ! errord,errort,errorc representan los errores de las derivadas
+      ! definidas anteriormente
+      ! X representa el valor numerico de la derivada
+      ! A representa el valor analitico de la derivada
+C***********************************************************************
+
+C     valor a evaluar:
+      Write(6,'(T5,A/)') 'Ingrese el valor x a evaluar'
+      read (5,*) '(T5,A/)', x
+C     tama¤o del paso
+      Write(6,'(T5,A/)') 'Introduzca el valor del paso dx'
+      read (5,*) dx
+      Write(*,*) '                                                     '
+      Write(*,*) '                                                     '
+C     calculamos la derivada:
+      difd=(fun(x+dx)-fun(x))/dx
+      dift=(fun(x)-fun(x-dx))/dx
+      difc=(fun(x+dx)-fun(x-dx))/(2*dx)
+      dif2=(fun(x+dx) -2*fun(x)+fun(x-dx))/(dx**2)
+C      print*, 'difd=', difd
+C      !print*, 'dift=', dift
+C      !print*, 'difc=', difc
+      A=fun1(x)
+      b=fun2(x)
+      errord=abs(((A-difd)/A)*100)
+      errort=abs(((A-dift)/A)*100)
+      errorc=abs(((A-difc)/A)*100)
+      error2=abs(((B-dif2)/B)*100)
+       WRITE(*,'(3(T5,A/),3(T5,A/T5,(3(A,1PE13.6))/))')
+     &'              ³ Valor numerico³ Valor analit. ³              ',
+     &'              ³estimado       ³ ******        ³   Diferencia ',
+     &'              ³               ³  ******       ³   en %       ',
+     &'ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄ',
+     &'difd          ³ ',difd,     ' ³ ' ,a     ,  ' ³ ', errord     ,
+     &'ÄÄÄÄÄÄÄÄÄÄÄÄÄÄ³ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ³ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ³ÄÄÄÄÄÄÄÄÄÄÄÄÄÄ',
+     &'dift          ³ ',dift   ,  ' ³ ' ,a     ,  ' ³ ',errort,
+     &'ÄÄÄÄÄÄÄÄÄÄÄÄÄÄ³ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ³ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ³ÄÄÄÄÄÄÄÄÄÄÄÄÄÄ',
+     &'difc          ³ ' ,difc ,   ' ³ ' ,a     ,  ' ³ ',errorc ,
+     &'ÄÄÄÄÄÄÄÄÄÄÄÄÄÄ³ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ³ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ³ÄÄÄÄÄÄÄÄÄÄÄÄÄÄ',
+     &'dif2          ³ ' ,dif2 ,   ' ³ ' ,B     ,  ' ³ ',error2
+       !WRITE(6,*)'El programa termino!'
+C           **abrir los archivos y escribir los datos**
+      open(20,file='derivada.txt',status='unknown')
+      WRITE(20,'(3(T5,A/),3(T5,A/T5,(3(A,1PE13.6))/))')
+     &'              ³ Valor numerico³ Valor analit. ³              ',
+     &'              ³estimado       ³               ³   Diferencia ',
+     &'              ³               ³               ³   en %       ',
+     &'**************Å***************Å***************Å**************',
+     &'difd          ³ ',difd,     ' ³ ' ,a     ,  ' ³ ', errord     ,
+     &'**************³***************³***************³**************',
+     &'dift          ³ ',dift   ,  ' ³ ' ,a     ,  ' ³ ',errort,
+     &'**************³***************³***************³**************',
+     &'difc          ³ ' ,difc ,   ' ³ ' ,a     ,  ' ³ ',errorc ,
+     &'**************³***************³***************³**************',
+     &'dif2          ³ ' ,dif2 ,   ' ³ ' ,B     ,  ' ³ ',error2 ,
+     &'**************³***************³***************³**************'
+      close(20)
+      end
+C***********************************************************************
+C           Definimos la funcion a evaluar:
+C***********************************************************************
+      function fun(X)
+      real X ,t
+      parameter (pi=3.1416)
+      t=pi/2.0
+      fun = sin(t*x)
+      end
+C***********************************************************************
+      function fun1(X)
+      real X ,t
+      parameter (pi=3.1416)
+      t=pi/2.0
+      fun1 = t*cos(t*x)
+      end
+C***********************************************************************
+      function fun2(X)
+      real X ,t
+      parameter (pi=3.1416)
+      t=pi/2.0
+      fun2 = -(t**2)*sin(t*x)
+      end

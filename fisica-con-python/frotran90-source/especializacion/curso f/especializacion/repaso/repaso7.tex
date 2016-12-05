@@ -1,0 +1,397 @@
+%% This document created by Scientific Word (R) Version 3.5
+
+%TCIDATA{LaTeXparent=0,0,est2.tex}
+%TCIDATA{ChildDefaults=%
+%chapter:5,page:51,section:5
+%}
+
+
+\section{}
+
+\section{Pruebas de bondad de ajuste}
+
+\subsection{Prueba chi cuadrado de bondad de ajuste}
+
+Suponemos ahora un problema que puede ser caracterizado por una variable
+aleatoria discreta cuyos valores representan K posibles categorias y ocurren
+con probabilidades\newline $p_{k}:k=1,2,3,\cdots K$ en el cual nos interesa la
+hip\'{o}tesis H$_{0}:p_{k}=p_{k_{0}};$ Siendo $p_{k_{0}}$ valores fijos,
+Contra la alternativa l\'{o}gica H$_{1.}$
+
+Como estad\'{\i}stico de prueba se escoge la llamada $\chi^{2}$%
+\[
+X^{2}=\sum_{k=1}^{K}\frac{\left(  N_{k}-np_{k_{0}}\right)  ^{2}}{np_{k_{0}}}%
+\]
+Se rechaza la hip\'{o}tesis $H_{0}$ con base en los valores concretos
+$n_{1},\cdots,n_{k}$ si y s\'{o}lo si para el valos $x^{2}$ de $X^{2}$ vale
+\[
+x^{2}\geq c,
+\]
+donde $c$ es alg\'{u}n valos cr\'{\i}tico.
+
+Ahora se usa el echo de que, bajo $H_{0}$, la estad\'{\i}stica $X^{2}%
+\leadsto\chi_{K-1}^{2}$ en algunos libros se utiliza como notaci\'{o}n para el
+estad\'{\i}stico $\chi^{2}$%
+\[
+X^{2}=\sum_{i=1}^{K}\frac{\left(  O_{k}-E_{k}\right)  ^{2}}{E_{k}}%
+\]
+donde $O_{k}$ es la frecuencia observada y $E_{k}$ es la frecuencia esperada.
+
+En el caso de que la distribuci\'{o}n tenga un par\'{a}metro \ la
+hip\'{o}tesis es
+\[
+H_{0}=p_{k}=p_{k}\left(  \theta\right)  ,k=1,2,\cdots,K
+\]
+siendo $\theta=\left(  \theta_{1},\cdots,\theta_{s}\right)  ,$ $s<K-1,$ un
+par\'{a}meto; As\'{\i}
+\[
+X^{2}=\sum_{k=1}^{K}\frac{\left(  N_{k}-np_{k_{0}}\left(  \hat{\theta}\right)
+\right)  ^{2}}{np_{k_{0}}\left(  \hat{\theta}\right)  }\leadsto\chi
+_{K-1-s}^{2}%
+\]
+bajo $H_{0},$ as\'{\i} los grados de libertad se reducen exactamente un
+n\'{u}mero igual al n\'{u}mero de p\'{a}rametros, y rechazariamos la
+hip\'{o}tesis si $x^{2}>\chi^{2}$
+
+\subsection{Pruebas de tablas de contingencia}
+
+\paragraph{Prueba de independencia}
+
+En un estudio estad\'{\i}stico es importante averiguar si dos variables de
+clasificaci\'{o}n , ya sean cualitativas o cuantitativas son independientes.
+
+En esta prueba los $n$ elementos de muestra de una poblaci\'{o}n pueden
+clasificarse de acuerdo con dos criterios diferemtes. Por ello es interesante
+saber si los dos m\'{e}todos de calsificaci\'{o}n son estad\'{\i}sticamente
+independientes. Supongamos por ejemplo que el primer m\'{e}todo tiene $r$
+niveles y que el segundo m\'{e}todo $c$ niveles . Sea $O_{ij}$ la frecuencia
+observada para el nivel $i$ y para el nivel $j$ de los dos m\'{e}todos de
+clasificaci\'{o}n , por lo que los datos aparecer\'{a}n como una tabla de $r$
+renglones y $c$ columnas
+
+Para La prueba de independencia se usan las siguientes hip\'{o}tesis
+
+H$_{0}:$ Las dos variables de clasificaci\'{o}n son independientes.
+
+H$_{1}:$ Las dos variables de clasificaci\'{o}n son dependientes.
+
+Usandose el estad\'{\i}stico de prueba
+\[
+X^{2}=\sum_{i,j=1}^{r,c}\frac{\left(  O_{ij}-E_{ij}\right)  ^{2}}{E_{ij}}%
+=\sum_{i,j=1}^{r,c}\frac{O_{ij}^{2}}{E_{ij}}-n
+\]
+Donde $p_{ij}=u_{i}v_{j}$ y
+\begin{align*}
+\hat{u}_{i}  &  =\frac{1}{n}\sum_{j=1}^{c}O_{ij}\\
+\hat{v}_{j}  &  =\frac{1}{n}\sum_{i=1}^{r}O_{ij}\\
+E_{ij}  &  =n\hat{u}\hat{v}=\frac{1}{n}\sum_{i=1}^{r}O_{ij}\sum_{j=1}%
+^{c}O_{ij}%
+\end{align*}
+As\'{\i} tenemos que $X^{2}\leadsto\chi_{\left(  r-1\right)  \left(
+c-1\right)  }^{2}$ y se rechazar\'{a} la hip\'{o}tesis si $X^{2}>\chi_{\left(
+r-1\right)  \left(  c-1\right)  }^{2}$
+
+\subsection{Anova}
+
+\subsection{Anova con un factor}
+
+El m\'{e}todo de ANOVA es un cr\'{\i}terio que requiere del c\'{a}lculo de dos
+estimaciones independientes para $\sigma^{2},$ la varianza poblacional com\'{u}n.
+
+estas dos estimaciones las denominaremos $S_{b}^{2},S_{w}^{2}$ ,donde
+S$_{b}^{2}$ es la estimaci\'{o}n de la varianza entre las muestras y
+S$_{w}^{2} $ es la estimaci\'{o}n de la varianza interior de las muestras; con
+lo que resulta el estad\'{\i}stico
+\[
+F=\frac{S_{b}^{2}}{S_{w}^{2}}.
+\]
+En este caso tenemos $k$ muestras como se ilustra en la tabla
+\[%
+\begin{array}
+[c]{ccccc}%
+\bar{X}_{i} & \bar{X}_{1} & \bar{X}_{1} & \cdots & \bar{X}_{k}\\
+S_{i} & S_{1} & S_{2} & \cdots & S_{k}\\
+n_{i} & n_{1} & n_{2} & \cdots & n_{k}%
+\end{array}
+\]
+Para simplificar los c\'{a}lculos suponemos que
+\[
+n=n_{1}=n_{2}=\cdots=n_{k},
+\]
+entonces hallamos $S_{w}^{2}$ la estimaci\'{o}n ponderada para $\sigma^{2}$%
+\[
+S_{w}^{2}=\sum_{i=1}^{k}\frac{S_{i}^{2}}{k},
+\]
+como esta estimaci\'{o}n se basa en $k$ muestras cada una de tama\~{n}o $n$ y
+cada una tiene $\left(  n-1\right)  $ grados de libertad asociados ellas
+entonces los grados de libertad $gl_{w}$ asociados a S$_{w}^{2}$ es
+\[
+gl_{w}=\sum_{i=1}^{k}\left(  n-1\right)  =k\left(  n-1\right)
+\]
+generalizando
+\begin{align*}
+S_{w}^{2}  &  =\frac{\sum_{i=1}^{k}\left(  n_{i}-1\right)  S_{i}^{2}}%
+{\sum_{i=1}^{k}n_{i}-k}\\
+gl_{w}  &  =\sum_{i=1}^{k}n_{i}-k\\
+\bar{X}  &  =\sum_{i=1}^{k}\frac{\bar{X}_{i}}{k}\\
+S_{b}^{2}  &  =n\sum_{i=1}^{k}\frac{\left(  \bar{X}_{i}-\bar{X}\right)  }{k-1}%
+\end{align*}
+donde los grados de libertad asociados a $S_{b}^{2}$ son
+\[
+gl_{b}=k-1
+\]
+
+\section{Modelos lineales}%
+
+\begin{definition}
+Sean Y y X variables aleatorias y supongamos que la relaci\'{o}n existente
+entre ellas es
+\begin{equation}
+Y=\beta_0+\beta_1X+\epsilon%
+\end{equation}
+$donde\;\ \epsilon\sim N\left(   0,\sigma^{2}\right)   $ es un error
+aleatorio, es decir
+\begin{equation}
+E\left(   Y|X\right)   =\beta_0+\beta_1X
+\end{equation}
+Notese que el modelo es lineal con relaci\'{o}n a los llamados coeficientes de
+regresi\'{o}n $\beta_{0},\beta_{1},$ es decir el modelo
+\begin{equation}
+Y=\beta_0+\beta_1X^n+\epsilon,
+\end{equation}
+\end{definition} 
+
+Donde$n\in\nz$ es tambi\'{e}n un modelo de regresi\'{o}n lineal.
+
+En la definici\'{o}n 5.1 se establecieron 4 supuestos los cuales son
+
+\begin{enumerate}
+\item Para cada valor de $x_{i}$, las variables aleatorias $\epsilon_{i}$ se
+distribuyen noermalmente
+
+\item Para cada valos $x_{i}$, la media o valor esperado de $\epsilon_{i}$ es cero
+
+\item Para cada valos $x_{i},$ la varianza de $\epsilon_{i}$ es contante
+
+\item Los $\epsilon_{i}$ son independientes
+\end{enumerate}
+
+Como consecuencia de los cuatro supuestos se pueden hacer las siguientes observaciones
+
+\begin{enumerate}
+\item Los valores de $x$ son fijos
+
+\item Los valores de los par\'{a}metros $\hat{\beta}_{0}$ y $\hat{\beta}_{1}$
+son constanes, pero desconocidas, sim embargo pueden estimarse basandonos en
+los cuatro supuestos y el m\'{e}todo de los m\'{\i}nimos cuadrados
+
+\item Como el valor de $y$ para un $x$ fijo est\'{a} determinado por la
+relaci\'{o}n $y=\beta_{0}+\beta_{1}x+\epsilon$. Por tanto los valores de $y$
+dependeran de los valores de $\epsilon.$ Por tanto $y$ es una variable aleatoria
+\end{enumerate}
+
+Para un valor fijo de $x$, la distribuci\'{o}n muestral de $y$ es normal,
+porque sus valores dependen de $\epsilon$ , y los valores de $\epsilon$ se
+distribuyen normalmente. Como muestra la figura.
+%TCIMACRO{\FRAME{dhFU}{8.2154cm}{4.2702cm}{0pt}{\Qcb{La distribuci\'{o}n
+%muestral de $y$ para un valor fijo de $x$ tiene una media denotada por
+%$\mu_{y|x},$ donde la ecuaci\'{o}n $E\left(  y|x\right)  =\beta_{0}+\beta
+%_{1}x$ se llama ecuaci\'{o}n de regresi\'{o}n poblacional.}}{}{lineal.wmf}%
+%{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "USEDEF";  valid_file "F";
+%width 8.2154cm;  height 4.2702cm;  depth 0pt;  original-width 8.2702in;
+%original-height 11.694in;  cropleft "0";  croptop "1";  cropright "1";
+%cropbottom "0";  filename '../Tacho/lineal.wmf';file-properties "NPEU";}}}%
+%BeginExpansion
+\begin{center}
+\includegraphics[
+natheight=11.694000in,
+natwidth=8.270200in,
+height=4.2702cm,
+width=8.2154cm
+]%
+{../Tacho/lineal.wmf}%
+\\
+La distribuci\'{o}n muestral de $y$ para un valor fijo de $x$ tiene una media
+denotada por $\mu_{y|x},$ donde la ecuaci\'{o}n $E\left(  y|x\right)
+=\beta_{0}+\beta_{1}x$ se llama ecuaci\'{o}n de regresi\'{o}n poblacional.
+\end{center}
+%EndExpansion
+Ahora determinaremos los LS-Estimadores $\hat{\beta}_{0}$ y $\hat{\beta}_{1}$
+de $\beta_{0}$ y $\beta_{1}$ respectivamente
+
+Un modelo lineal de acuerdo con la definici\'{o}n 5.1 se llama modelo lineal
+simple, para este modelo sup\`{o}ngamos que tenemos $n$ pares de
+observaciones, por ejemplo
+\[
+\left(  y_{1},x_{1}\right)  ,\left(  y_{2},x_{2}\right)  ,\left(  y_{3}%
+,x_{3}\right)  ,\cdots,\left(  y_{n},x_{n}\right)  .
+\]
+Entonces empleamos estos datos para estimar los par\'{a}metros desconocidos
+$\beta_{0}$ y $\beta_{1}$ por medio del m\'{e}todo de los m\'{\i}nimos
+cuadrados explicado en el cap\'{\i}tulo 2.2.3. Por lo que
+\begin{align*}
+W\left(  \beta_{0},\beta_{1}\right)   &  =\sum_{i=1}^{n}e_{i}^{2}\\
+&  =\sum_{i=1}^{n}\left(  y_{i}-\beta_{0}-\beta_{1}x_{i}\right)  ^{2}%
+\end{align*}
+Entonces los LS-Estimadores de $\beta_{0}$ y $\beta_{1}$ deben satisfacer
+\begin{align*}
+\frac{\partial W}{\partial\beta_{0}}\left|  _{\hat{\beta}_{0},\hat{\beta}_{1}%
+}\right.   &  =-2\sum_{i=1}^{n}\left(  y_{i}-\hat{\beta}_{0}-\hat{\beta}%
+_{1}x_{i}\right)  =0\\
+\frac{\partial W}{\partial\beta_{1}}\left|  _{\hat{\beta}_{0},\hat{\beta}_{1}%
+}\right.   &  =-2\sum_{i=1}^{n}\left(  y_{i}-\hat{\beta}_{0}-\hat{\beta}%
+_{1}x_{i}\right)  x_{i}=0
+\end{align*}
+resolviendo este sistema de ecuaciones se obtienen $\hat{\beta}_{0}$ y
+$\hat{\beta}_{1}$
+\begin{align*}
+\hat{\beta}_{0}  &  =\bar{y}-\hat{\beta}_{1}\bar{x}\\
+\hat{\beta}_{1}  &  =\frac{\sum_{i=1}^{n}y_{i}x_{i}-\frac{\left(  \sum
+_{i=1}^{n}y_{i}\right)  \left(  \sum_{i=1}^{n}x_{i}\right)  }{n}}{\sum
+_{i=1}^{n}x_{i}^{2}-\frac{\left(  \sum_{i=1}^{n}x_{i}\right)  ^{2}}{n}}%
+\end{align*}
+Entonces el modelo de regresi\'{o}n lineal simple ajustado es
+\[
+\hat{y}=\hat{\beta}_{0}+\hat{\beta}_{1}x_{i}%
+\]
+Para simplifiar la notaci\'{o}n notaremos
+\begin{align*}
+S_{xx}  &  =\sum_{i=1}^{n}x_{i}^{2}-\frac{\left(  \sum_{i=1}^{n}x_{i}\right)
+^{2}}{n}\\
+S_{xy}  &  =\sum_{i=1}^{n}y_{i}x_{i}-\frac{\left(  \sum_{i=1}^{n}y_{i}\right)
+\left(  \sum_{i=1}^{n}x_{i}\right)  }{n}%
+\end{align*}
+As\'{\i} $\hat{\beta}_{1}=\frac{S_{xy}}{S_{xx}}.$
+
+\subsubsection{Estimaci\'{o}n puntual}
+
+analizaremos ahora las propiedades de los estimadores $\hat{\beta}_{0}$ y
+$\hat{\beta}_{1}$
+
+\begin{itemize}
+\item $E\left(  \hat{\beta}_{1}\right)  =E\left(  \frac{S_{xy}}{S_{xx}%
+}\right)  =\beta_{1}$
+
+\item $V\left(  \hat{\beta}_{1}\right)  =V\left(  \frac{S_{xy}}{S_{xx}%
+}\right)  =\frac{\sigma^{2}}{S_{xx}}$
+
+\item $E\left(  \hat{\beta}_{0}\right)  =\beta_{0}$
+
+\item $V\left(  \hat{\beta}_{0}\right)  =\sigma^{2}\left(  \frac{1}{n}%
++\frac{\bar{x}^{2}}{S_{xx}}\right)  $
+
+\item $cov=\left(  \hat{\beta}_{0},\hat{\beta}_{1}\right)  =-\frac{\sigma
+^{2}\bar{x}}{S_{xx}}$
+\end{itemize}
+
+Queda como ejercicio la prueba de estas propiedades .
+
+De acuerdo con esto observamos que $\hat{\beta}_{0}$ y $\hat{\beta}_{1}$ son
+estimadores insesgados .
+
+Ahora si notamos
+\[
+SS_{E}=\sum_{i=1}^{n}e_{i}^{2}=S_{yy}-\hat{\beta}_{1}S_{xy}%
+\]
+entonces $\hat{\sigma}^{2}=\frac{SS_{E}}{n-2}\equiv MS_{E}$ es un estimador
+insesgado de $\sigma^{2}$ y $S_{yy}\equiv MS_{R}$
+
+\subsection{Prueba de hip\'{o}tesis}
+
+Nos queda presentar los estad\'{\i}sticos que utilizaremos para una prueba de hip\'{o}tesis
+
+\begin{enumerate}
+\item Si tenemos las hip\'{o}tesis
+\begin{align*}
+H_{0}  &  :\beta_{1}=\beta_{1,0}\\
+H_{1}  &  :\beta_{1}\neq\beta_{1,0}%
+\end{align*}
+entonces se usa el estad\'{\i}stico
+\[
+t=\frac{\hat{\beta}_{1}-\beta_{1,0}}{\sqrt{\frac{MS_{E}}{S_{xx}}}}\leadsto
+t_{\alpha/2,n-2}%
+\]
+
+\item Si
+\begin{align*}
+H_{0}  &  :\beta_{0}=\beta_{0,0}\\
+H_{1}  &  :\beta_{0}\neq\beta_{0,0}%
+\end{align*}
+Se usa el estad\'{\i}stico
+\[
+t=\frac{\hat{\beta}_{0}-\beta_{0,0}}{\sqrt{\frac{MS_{E}}{S_{xx}}\left(
+\frac{1}{n}+\frac{\bar{x}^{2}}{S_{xx}}\right)  }}\leadsto t_{\alpha/2,n-2}%
+\]
+
+\item Si
+\begin{align*}
+H_{0}  &  :\beta_{1}=0\\
+H_{1}  &  :\beta_{1}\neq0
+\end{align*}
+Se usa el estad\'{\i}stico
+\[
+F=\frac{MS_{R}}{MS_{E}}\leadsto F_{\alpha,1,n-2}\leadsto t_{\alpha/2,n-2}^{2}%
+\]
+\end{enumerate}
+
+\subsection{Intervalos de confianza}
+
+Es posible encontrar los l\'{\i}mites para un intervalo de confianza del
+$\left(  1-\alpha\right)  100\%$ para cada caso
+
+\begin{enumerate}
+\item Para $\beta_{1}$ es
+\[
+\hat{\beta}\pm t_{\alpha/2}\sqrt{\frac{MS_{E}}{S_{xx}}}%
+\]
+donde
+\[
+t_{\alpha/2}\leadsto t_{\alpha/2,n-2}%
+\]
+
+\item Una vez que se ha encontrado la ecuaci\'{o}n de regresi\'{o}n muestral y
+que se ha determinado el modelo $E\left(  y|x\right)  =\beta_{0}+\beta_{1}x $
+, podemos usar la ecuaci\'{o}n de regresi\'{o}n $\hat{y}=\hat{\beta}_{0}%
++\hat{\beta}_{1}x_{i}$ para realizar predicciones; al hacerlo queremos estimar
+el valor promedio para $y$ dado $x$, es decir $E\left(  y|x\right)  .$
+As\'{\i} como predecir el valor aleatorio $y$ para un valor $x$ dado.\newline
+Los l\'{\i}mites del intervalo de confianza para $E\left(  y|x_{0}\right)  $
+estan dados por la f\'{o}rmula
+\[
+\hat{y}\pm t_{\alpha/2}\sqrt{SM_{E}\left(  \frac{1}{n}+\frac{\left(
+x_{0}-\bar{x}\right)  ^{2}}{S_{xx}}\right)  }%
+\]
+donde
+\[
+t_{\alpha/2}\leadsto t_{\alpha/2,n-2}%
+\]
+
+\item Los l\'{\i}mites del intervalo de confianza para un valor de un solo
+valor aleatorio $y$ dado un valor particular $x=x_{0}$ est\'{a}n dados por la
+expresi\'{o}n
+\[
+\hat{y}\pm t_{\alpha/2}\sqrt{SM_{E}\left(  1+\frac{1}{n}+\frac{\left(
+x_{0}-\bar{x}\right)  ^{2}}{S_{xx}}\right)  }%
+\]
+donde
+\[
+t_{\alpha/2}\leadsto t_{\alpha/2,n-2}%
+\]
+\end{enumerate}
+
+\begin{thebibliography}{9}                                                                                                %
+\bibitem {}Williams Mendenhall. \emph{Estad\'{\i}stica matem\'{a}tica con
+aplicaciones}\newline Grupo editorial iberoamericano . 1990
+
+\bibitem {}Murray R . Spiegel . \emph{Estad\'{\i}stica} Mac Graw-Hill .1991
+
+\bibitem {}Paul Meyer . \emph{Probabilidad y aplicaciones estad\'{\i}sticas}%
+\newline Addison Wesley, 1992
+
+\bibitem {}Walpole Ronald . \emph{Probabilidad y estad\'{\i}stica}\newline Mac
+Graw-Hill . 1995
+
+\bibitem {}Hines William. \emph{Probabilidad y estad\'{\i}stica}%
+\newline CECSA. 1993
+\end{thebibliography}

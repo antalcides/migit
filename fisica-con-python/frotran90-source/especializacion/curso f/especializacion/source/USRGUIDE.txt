@@ -1,0 +1,276 @@
+This file provides the information needed to use the f90gl libraries from
+an application program.  It should be sufficient for most purposes, but is
+not complete.  The definitive guide is the binding specification "A Fortran 90
+Interface for OpenGL:  Revised January 1998", NISTIR 6134, which can be
+obtained from the f90gl web page http://math.nist.gov/f90gl.
+
+You may find the example programs and makefiles in f90gl/examples provide a
+good guide to using f90gl.
+
+Check the f90gl web page http://math.nist.gov/f90gl for the latest information,
+makefiles for additional systems, etc.  Look under the list of Unix workstations
+or list of Windows 95/NT systems for the status of systems that don't work at
+the time of this release.  Look under Software for additional makefiles.  Look
+under News for general announcements.
+
+Contents:
+
+1) Using f90gl
+2) Upgrading from f90gl version 1.0
+3) special system notes
+     All systems
+     NASoftware, Linux
+     F
+     Educational F on Linux
+     XLF
+     Lahey
+     DVF
+     Salford
+     Digital Fortran on Digital Unix
+
+1) Using f90gl
+   -----------
+
+Program units that access entities (procedures, symbolic constants, etc.) from
+OpenGL, GLU or GLUT must USE the appropriate module.  The modules are
+OPENGL_GL, OPENGL_GLU and OPENGL_GLUT.
+
+All OpenGL procedures and OpenGL "defined constants" are provided with the
+same name as in the C interface, except that names are case insensitive and
+names longer than 31 characters are truncated (there are a few of these in
+the OpenGL extensions).  All procedure names are generic.  All defined
+constants are integers with the PARAMETER attribute.
+
+To insure correspondence between Fortran types and C types, you should always
+specify the KIND type parameter for all actual arguments passed to OpenGL
+procedures.
+  - Variables should have the kind type parameter in the declaration.
+  - Constants should have the kind type parameter attached (e.g., 1.0_GLFLOAT)
+  - Expressions should evaluate to a value with the appropriate kind.
+The correspondence between OpenGL types and Fortran TYPE(KIND) is
+   GLbyte         INTEGER(GLBYTE)
+   GLubyte        INTEGER(GLUBYTE)
+   GLshort        INTEGER(GLSHORT)
+   GLushort       INTEGER(GLUSHORT)
+   GLint          INTEGER(GLINT)
+   GLuint         INTEGER(GLUINT)
+   GLenum         INTEGER(GLENUM)
+   GLbitfield     INTEGER(GLBITFIELD)
+   GLsizei        INTEGER(GLSIZEI)
+   GLfloat        REAL(GLFLOAT)
+   GLclampf       REAL(GLCLAMPF)
+   GLdouble       REAL(GLDOUBLE)
+   GLclampd       REAL(GLCLAMPD)
+   GLboolean      LOGICAL(GLBOOLEAN)
+   GLUquadricObj  TYPE(GLUQUADRICOBJ)
+   GLUnurbsObj    TYPE(GLUNURBSOBJ)
+   GLUtesselator  TYPE(GLUTESSELATOR)
+
+For OpenGL procedures that return a character string (e.g. glGetString)
+the Fortran result type is a pointer to an array of character(len=1).  You
+can determine the length of the string with SIZE, and when you are done with
+the string you can free the memory with DEALLOCATE.
+
+TYPE(GLCPTR) is provided for storing C pointers.  GLNULLPTR and the == operator
+are provided for testing against NULL.
+
+gluNewNurbsRenderer, gluNewQuadric and gluNewTess return a pointer to the
+appropriate derived type.  The C test for NULL "if (cptr == NULL)" is
+achieved with ASSOCIATED: "IF (.NOT. ASSOCIATED(fptr))".
+
+Procedures that take an argument of type GLvoid, which can be one of several
+types, have a specific routine for each of the supported types plus
+TYPE(GLCPTR), but are accessed through the generic name.
+
+Some procedures in GLU and GLUT accept (in C) NULL as the actual argument for
+a dummy function, to "turn off" a callback function.  From Fortran you can
+pass GLUNULLFUNC or GLUTNULLFUNC.
+
+In general, array arguments are assumed size arrays.  In some cases, the C
+library will keep a pointer to the array for later processing.  In these
+cases, the f90gl interface attaches the TARGET attribute to the dummy
+argument.  It is the user's responsibility to insure that the actual argument
+will persist and may be modified by a procedure to which it is not an argument.
+One means of achieving this is to pass a whole array with the TARGET and SAVE
+attributes.  The procedures and arguments to which this applies are:
+ glFeedbackBuffer     buffer
+ glSelectBuffer       buffer
+ glEdgeFlagPointer    pointer
+ glTexCoordPointer    pointer
+ glColorPointer       pointer
+ glIndexPointer       pointer
+ glNormalPointer      pointer
+ glVertexPointer      pointer
+ gluNurbsCurve        uknot, ctlarray
+ gluNurbsSurface      uknot, vknot, ctlarray
+ gluPwlCurve          array
+ gluTessVertex        data
+ gluTessBeginPolygon  polygon_data
+See f90gl/examples/glutdino.f90 for a complicated example.
+
+To determine the proper command line to compile and link with the f90gl library,
+see the makefile for your system in f90gl/examples.
+
+2) Upgrading from f90gl version 1.0
+   --------------------------------
+
+f90gl version 1.0 implemented the original proposed Fortran 90 bindings for
+OpenGL.  The final Fortran 90 bindings for OpenGL approved by the OpenGL ARB
+and implemented in this version of f90gl contain non-upwardly-compatible
+changes.  If you have application codes using the old bindings, they will have
+to be changed to use this version of f90gl.
+
+A utility is provided in f90gl/util/trans10 to help translate codes from
+version 1.0.  Although it handles most cases, it does not do everything and
+it may make unwanted changes.  So if you use this, BACK UP YOUR FILES FIRST!
+trans10 is a sed script; read the file for instructions and limitations.
+
+The changes that must be made to application programs are:
+
+-- The module names have changed.  What was f90gl, f90glu and f90glut is now
+   opengl_gl, opengl_glu and opengl_glut.
+
+-- The f90 prefix on procedure names, kind type parameters and derived types
+   has been removed.  All of these now have the same name as the C entities.
+   If you used procedures with very names that were truncated, watch for a
+   change in the truncation point.
+
+-- glcptr changed from being a character length to a derived type.  What was
+   character(glcptr) should now be type(glcptr)
+
+-- glunull and glutnull should not be in an external statement anymore, and
+   have been changed to glunullfunc and glutnullfunc
+
+-- The GLUT fonts should not be in an external statement anymore.
+
+-- Some arrays must persist after the call to the OpenGL routine that uses it
+   (because OpenGL saves a pointer to it and uses it later).  However, what
+   you did in f90gl 1.0 will probably still work, unless you used the trick of
+   passing an array element as the actual argument, which is no longer
+   supported.  It is now recommended that you only pass whole arrays in these
+   cases, and that they have the TARGET and SAVE attributes.
+
+3) Special system notes
+   --------------------
+
+All systems:
+ - in gluTessBeginPolygon, polygon_data must be a rank one array of
+   type integer(kind=glint) or real(kind=glfloat).
+ - in gluTessVertex, vertexdata must be type(glcptr) or a rank one array of type
+   integer(kind=glbyte, glshort or glint) or real(kind=glfloat or gldouble).
+ - for the tesselator callback functions edgeFlag and edgeFlagData, the
+   argument 'flag' is integer(kind=glint) instead of logical(kind=glboolean).
+   A value of 0 corresponds to .false. and nonzero corresponds to .true.
+ - in the callback function for glutKeyboardFunc, 'key' is returned as an
+   integer(kind=glint) instead of a char.
+ - in glutInit, argc and argv are optional.  If present, they must
+   both be present, argc is an integer(kind=glcint) and argv is an
+   array of character strings, one command line argument per
+   array entry.  See f90gl/examples/olympic3.f90 for an example of sending
+   command line arguments.
+ - in callback functions for glu and glut, all arguments should be
+   declared with intent(in out).
+ - in the callback functions for gluTessCallback, any void * arguments
+   must be an array of integer(kind=glint) or real(kind=glfloat), and
+   when there is more than one such argument they must be the same type.
+   The array arguments should be declared as assumed size, except with
+   the F language where they are assumed shape.
+ - some arrays are declared as assumed shape arrays in the f90gl modules
+   instead of assumed size as specified in the bindings.  These are mostly
+   integer(kind=glbyte) and integer(kind=glshort) arrays for which the size
+   of the array is not known.  This should not make a difference to the user,
+   but if it does you can find them in the fwrap*.fpp source files by searching
+   for 'need assumed shape'.
+ - glEdgeFlagPointer and glEdgeFlagPointerEXT require an argument that is a
+   C pointer (address) of an array of one byte logicals.  Unfortunately
+   Fortran 90 does not guarantee the existence of a one byte logical type, and
+   logical(kind=glboolean) may or may not be this type.  The use of
+   glEdgeFlagPointer will probably not work correctly unless
+   logical(kind=glboolean) is a one byte logical.  An additional specific
+   routine under the same generic name is provided which accepts ptr as
+   integer(kind=glbyte).  If your system supports one byte integers (most do),
+   then this form can be used using 1 for .true. and 0 for .false.
+
+NASoftware, Linux:
+ - arrays that will have their addresses saved in the C library do not
+   have the target attribute as specified in the binding.
+ - you must have the directory containing the libraries
+   (e.g. <path-to-f90gl>/f90gl/lib) in your LIBRARY_PATH environment variable.
+
+F:
+ - currently does not work with F because of size limitations in the F
+   compilers.  Check the f90gl web page for the latest information.
+ - the remaining comments are likely to apply if f90gl supports F in the future.
+ - glAreTexturesResident and glAreTexturesResidentEXT
+   These are subroutines instead of functions.  They take an additional
+   intent(out) logical(kind=glboolean) argument, areresident, at the end of the
+   argument list to return the function result.
+ - gluProject, gluUnProject and gluScaleImage
+   These are subroutines instead of functions.  They take an additional
+   intent(out) integer(kind=glint) argument, errcode, at the end of the argument
+   list to return the function result.
+ - glutCreateMenu is a subroutine instead of a function.  It takes an additional
+   intent(out) integer(king=glint) argument, menuid, at the end of the argument
+   list to return the function result.
+ - arrays are declared as assumed shape arrays in the f90gl modules instead of
+   assumed size as specified in the bindings.  This should not matter.
+ - in the vertex array extension, the named constant
+   GL_TEXTURE_COORD_ARRAY_POINTER_EXT is renamed
+   GL_TEXTURE_COORD_ARRAY_POINTERX instead of truncating to the 31 characters
+   GL_TEXTURE_COORD_ARRAY_POINTER_ because F doesn't allow a name to end with _
+ - instead of passing glunullfunc and glutnullfunc as NULL for a procedure
+   actual argument, omit the argument.  For example, to disable the IdleFunc
+   use 'call glutidlefunc()' instead of 'call glutidlefunc(glutnullfunc)'.
+ - in gluTessCallback, if the void * arguments to the callback function
+   are integer arrays, then the value for 'which' must have _INT appended
+   to it, for example GLU_TESS_VERTEX_INT.
+ - the combine and combineData callbacks in gluTessCallback will not work
+   because they require passing arrays from C to F and C does not know
+   about assumed shape arrays.
+ - capitalization is important in F.  All f90gl procedure names, kind type
+   parameters and defined types must be lower case, and all "defined constants",
+   GLUNULLFUNC and GLUTNULLFUNC must be upper case.
+
+Educational F on Linux:
+ - Everything listed under F above applies to Educational F, too.
+ - The following routines are not supported except for the argument ptr
+   being of type(glcptr): glColorPointer, glIndexPointer, glNormalPointer,
+   glTexCoordPointer, glVertexPointer, glVertexPointerEXT, glNormalPointerEXT,
+   glColorPointerEXT, glIndexPointerEXT, glTexCoordPointerEXT.
+ - The following routines are not supported at all:  glFeedbackBuffer,
+   glSelectBuffer, glEdgeFlagPointer, glEdgeFlagPointerEXT gluNurbsCurve,
+   gluNurbsSurface and gluPwlCurve.
+
+XLF:
+ - If f90gl was built with OLDXLF defined in the preprocessor file (XLF versions
+   older than 3.2.5.2 and 4.1.0.1) then arrays that OpenGL keeps a pointer to
+   may not work correctly.  Try the glutdino example.  If the dinosaur has
+   sides, then it is OK.
+
+Lahey:
+ - Lahey provides a binary version of f90gl that works with LF90, LF95 and
+   ELF90.  Go to http://www.lahey.com and search for OpenGL.
+   The remaining comments pertain to building f90gl from the sources instead
+   of using the precompiled libraries.
+ - Note that for Lahey/Fujitsu LF95 the mf key uses "j" for Fujitsu.
+ - You must use LF95 if you use MS VC++.  With the Borland C compiler you
+   can use either LF90 or LF95.
+
+DVF
+ - Compaq (Digital) supplies a binary version of f90gl for DVF.  Go to
+   http://www.compaq.com/fortran and look under "Downloads".
+
+Salford:
+ - does not work with Salford ftn95.  Check the f90gl web page for the
+   latest information.
+
+Digital Fortran on Digital Unix:
+ - If f90gl was compiled with #define DIGITAL_NO_ECO_02 in fppincs/fppaddo
+   because patch ECO 02 has not been applied to the Digital Fortran compiler,
+   then there is a slight change in the API as follows:
+       in gluTessCallback, if the void * arguments to the callback function
+       are integer arrays, then the value for 'which' must have _INT appended
+       to it, for example GLU_TESS_VERTEX_INT.
+   If you get a compile time error about not matching the generic interface
+   for gluTessCallback, change whether or not _INT is appended to the symbolic
+   value for 'which'.

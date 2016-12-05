@@ -1,0 +1,1632 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\begin_preamble
+\input{preamble2}
+\input{composicion-codigo}
+\usepackage{fancyvrb}
+\usepackage[unicode=true,pdfusetitle,
+ bookmarks=true,bookmarksnumbered=true,bookmarksopen=true,bookmarksopenlevel=1,
+ breaklinks=false,pdfborder={0 0 0},backref=false,colorlinks=false]
+ {hyperref}
+\hypersetup{
+ pdfpagelayout=OneColumn, pdfnewwindow=true, pdfstartview=XYZ, plainpages=false}
+ \newsavebox{\LstBox}
+ %\graphicspath{ {./img/} }
+ \makeatletter
+\def\input@path{{./}{./build/}}
+\makeatother
+ \graphicspath{{./}{./img/}{./build/}}
+ \renewcommand{\baselinestretch}{1.5}
+\raggedbottom %para que no distibuya los espacios verticales en una hoja
+\setcounter{problema}{1}
+\end_preamble
+\options svgnames,x11names,x11names,HTML
+\use_default_options false
+\master libro-latex.lyx
+\maintain_unincluded_children false
+\language spanish
+\language_package none
+\inputencoding utf8x
+\fontencoding default
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 0
+\use_mathdots 0
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle headings
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagecolor{white} 
+\backslash
+mainmatter 
+\backslash
+pagestyle{headings} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Edici
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'o
+\end_layout
+
+\end_inset
+
+n B
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'a
+\end_layout
+
+\end_inset
+
+sica
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+chaptertoc  
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{objetivos}  
+\backslash
+begin{lista}  
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ Comprender el esquema básico de funcionamiento de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+TeX{}
+\backslash
+,
+\end_layout
+
+\end_inset
+
+ y 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX{}
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ Conocer las diferentes salidas que produce 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX{}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ Conocer las diferentes herramientas que interactúan con 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX{}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ Aprender a instalar 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX{}
+\backslash
+,
+\end_layout
+
+\end_inset
+
+ en diferentes sistemas.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lista} 
+\backslash
+end{objetivos}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introducción
+\end_layout
+
+\begin_layout Standard
+A diferencia de un procesador de textos como Writer, con 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX{}
+\end_layout
+
+\end_inset
+
+ tenemos un control más adecuado sobre cualquier aspecto tipográfico del
+ documento.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX{}
+\end_layout
+
+\end_inset
+
+ formatea las páginas de acuerdo a la clase de documento especificado por
+ el comando 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinline+
+\backslash
+documentclass{}+
+\end_layout
+
+\end_inset
+
+, por ejemplo, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinline+
+\backslash
+documentclass{report}+
+\end_layout
+
+\end_inset
+
+ formatea el documento de tal forma que el producto es un documento con
+ formato de artículo.
+ 
+\end_layout
+
+\begin_layout Standard
+Un documento 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX{}
+\end_layout
+
+\end_inset
+
+ puede tener texto ordinario junto con texto en modo matemático.
+ Los comandos vienen precedidos por el símbolo “
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinline+
+\backslash
++
+\end_layout
+
+\end_inset
+
+ ” (barra invertida).
+\end_layout
+
+\begin_layout Standard
+Hay comandos que funcionan en modo texto y hay comandos que solo funcionan
+ en modo matemático, pero para escribir en modo matemático hay varios entornos
+ el más común es el entorno delimitado por dos signos de dólar (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinline+$...$+
+\end_layout
+
+\end_inset
+
+) .
+\end_layout
+
+\begin_layout Section
+Ordenes en 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+protect
+\backslash
+TeX{}
+\backslash
+,
+\end_layout
+
+\end_inset
+
+ y 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+protect
+\backslash
+LaTeX
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{description}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item[{$
+\backslash
+blacklozenge$}] Comienzan por una barra invertida: (( $
+\backslash
+backslash$))
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item[{$
+\backslash
+blacklozenge$}] Distinguen mayúsculas y minúsculas
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item[{$
+\backslash
+blacklozenge$}] Dos tipos:
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+begin{description} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item[1.] sólo con letras (pueden ser varias) 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item[2.] con carácter especial (uno sólo) 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{description}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item[{$
+\backslash
+blacklozenge$}] 
+\backslash
+TeX{}
+\backslash
+, ignora los espacios en blanco justo después de un mandato: para tenerlos
+ en cuenta, escribir 
+\backslash
+lstinline+
+\backslash
+,+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item[{$
+\backslash
+blacklozenge$}] Parámetros: {[}opcionales{]} y 
+\backslash
+{obligatorios
+\backslash
+} , es decir 
+\backslash
+end{description}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Ejemplos de comandos
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{description}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item[{$
+\backslash
+spadesuit$}] Comentarios: a partir de signo 
+\backslash
+%, son ignorados 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{description}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Veamos algunas ordenes: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinline+
+\backslash
+TeX 
+\backslash
+LaTeX+
+\end_layout
+
+\end_inset
+
+ Como podemos observar los dos logos aparecen juntos 
+\backslash
+
+\backslash
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+TeX{}
+\backslash
+LaTeX{}
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+% 
+\backslash
+
+\backslash
+es una orden de tipo 2
+\end_layout
+
+\end_inset
+
+ para que se separen debemos colocar un comando de indique el espacio, por
+ ejemplo un espacio normal 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinline+
+\backslash
+TeX{}
+\backslash
+,
+\backslash
+LaTeX{}
+\backslash
+
+\backslash
+[2ex] 
+\backslash
+today
+\backslash
+
+\backslash
+[4ex]+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+TeX{}
+\backslash
+,
+\backslash
+LaTeX{}
+\backslash
+
+\backslash
+[2ex] 
+\backslash
+today
+\backslash
+
+\backslash
+[4ex]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinline+
+\backslash
+textbf{texto resaltado}+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{texto resaltado}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Caracteres especiales
+\end_layout
+
+\begin_layout Standard
+Los siguientes caracteres se ocupan de manera recurrente en los códigos
+ fuentes y o al tipearlos, no aparecen en el documento compilado.
+ 
+\end_layout
+
+\begin_layout Standard
+Sus funciones son las siguientes: 
+\end_layout
+
+\begin_layout Standard
+
+\backslash
+ Define comandos y entornos.
+\end_layout
+
+\begin_layout Standard
+
+\backslash
+
+\backslash
+ Genera una nueva línea o fila (en el caso de tablas y arreglos).
+ 
+\end_layout
+
+\begin_layout Standard
+% Permite escribir comentarios, los que no aparecerá́n en el documento final.
+\end_layout
+
+\begin_layout Standard
+$ Despliega expresiones matemáticas.
+ 
+\end_layout
+
+\begin_layout Standard
+& Realiza un cambio de columna en tablas o arreglos.
+ 
+\end_layout
+
+\begin_layout Standard
+{ } Permiten realizar cambios locales y es usado para definir comandos y
+ entornos.
+ 
+\end_layout
+
+\begin_layout Standard
+- Usado en lenguaje matemático para realizar sub índices.
+\end_layout
+
+\begin_layout Standard
+Para generar estos caracteres en el documento se puede anteponer un símbolo
+ 
+\backslash
+ a cada uno de ellos, exceptuando 
+\backslash
+ y 
+\backslash
+
+\backslash
+ los cuales se escriben con el comando 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstinline+$
+\backslash
+backslash$+
+\end_layout
+
+\end_inset
+
+.
+ O en su defecto usando el comando
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+lstinline+
+\backslash
+verb 
+\backslash
++
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+A continuacion se muetran ejemplos del uso de algun manera: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{code}
+\backslash
+lstinline|
+\backslash
+$|
+\backslash
+,
+\backslash
+lstinline|
+\backslash
+&|
+\backslash
+,
+\backslash
+lstinline|
+\backslash
+%|
+\backslash
+,
+\backslash
+lstinline|
+\backslash
+#|
+\backslash
+,
+\backslash
+lstinline|
+\backslash
+_|
+\backslash
+,
+\backslash
+lstinline|
+\backslash
+{|
+\backslash
+,
+\backslash
+lstinline|
+\backslash
+}|
+\backslash
+,
+\backslash
+lstinline|
+\backslash
+verb+~^+|
+\backslash
+,
+\backslash
+lstinline|
+\backslash
++|
+\backslash
+end{code}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Mi primer documento
+\end_layout
+
+\begin_layout Subsection
+Estructura de un fichero de entrada
+\end_layout
+
+\begin_layout Standard
+Cuando
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+LaTeXe{}
+\end_layout
+
+\end_inset
+
+ procesa un fichero de entrada, espera de él que siga una determinada 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+wi{estructura}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Todo fichero de entrada debe comenzar con la orden 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{code}
+\backslash
+lstinline+
+\backslash
+documentclass{...}+
+\backslash
+end{code}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esto indica qué tipo de documento es el que se pretende crear.
+\end_layout
+
+\begin_layout Standard
+Tras esto, se pueden incluir órdenes que influirán sobre el estilo del documento
+ entero, o puede cargar 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+wi{paquete}s
+\end_layout
+
+\end_inset
+
+ que añadirán nuevas propiedades al sistema de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Para cargar uno de estos paquetes se usará la instrucción 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{code}
+\backslash
+lstinline+
+\backslash
+usepackage{...}+
+\backslash
+end{code}
+\end_layout
+
+\end_inset
+
+ Cuando todo el trabajo de configuración esté realizado
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnote{El 
+\backslash
+'area entre
+\backslash
+texttt{
+\backslash
+bs documentclass} y 
+\backslash
+texttt{
+\backslash
+bs begin
+\backslash
+ensuremath{
+\backslash
+mathtt{
+\backslash
+{}}document
+\backslash
+ensuremath{
+\backslash
+mathtt{
+\backslash
+}}}} se llama 
+\backslash
+emph{
+\backslash
+wi{preámbulo}}.}
+\end_layout
+
+\end_inset
+
+ entonces comienza el cuerpo del texto con la instrucción 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+begin{code}
+\backslash
+lstinline|
+\backslash
+begin{document}|  
+\backslash
+end{code}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A partir de entonces se introducirá el texto mezclado con algunas instrucciones
+ útiles de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Al finalizar el documento debe ponerse la orden 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{code}
+\backslash
+lstinline|
+\backslash
+end{documeent}|
+\backslash
+end{code}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+LaTeX{} 
+\end_layout
+
+\end_inset
+
+ ignorará cualquier cosa que se ponga tras esta instrucción.
+ La 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+figura~del ejercicio~
+\backslash
+ref{p1}
+\end_layout
+
+\end_inset
+
+ muestra el contenido mínimo de un fichero de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeXe
+\end_layout
+
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+wi{fichero de entrada}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Ejemplo para un artículo científico en español
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{problema}{p1}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+documentclass[a4paper,11pt]{article}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+usepackage{latexsym}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+usepackage[activeacute,spanish]{babel}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+author{Juan Valdez}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+title{Minimizando}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+frenchspacing
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{document}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+maketitle 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tableofcontents
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Inicio}
+\end_layout
+
+\begin_layout Plain Layout
+
+Bien 
+\backslash
+ldots{} y aqu
+\backslash
+'i comienza mi primer art
+\backslash
+'iculo.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Fin} 
+\end_layout
+
+\begin_layout Plain Layout
+
+Aqu
+\backslash
+'i van las secciones 
+\backslash
+ldots 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+ldots{} y aqu
+\backslash
+'i acaba.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{document}
+\end_layout
+
+\begin_layout Plain Layout
+
+Todo lo que se escriba aqu
+\backslash
+'i no se toma en cuenta ...
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{problema}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+El formato del documento
+\end_layout
+
+\begin_layout Subsection
+Clases de documentos
+\end_layout
+
+\begin_layout Standard
+Cuando procesa un fichero de entrada, lo primero que necesita saber 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX{}
+\end_layout
+
+\end_inset
+
+ es el tipo de documento que el autor quiere crear.
+ Esto se indica con la instrucción 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ci{documentclass}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{command} 
+\backslash
+ci{documentclass}
+\backslash
+ 
+\backslash
+lstinline+{opciones}{clase}+
+\backslash
+end{command}
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En este caso, la 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{clase}
+\end_layout
+
+\end_inset
+
+ indica el tipo de documento que creará.
+ En la 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+tabla~
+\backslash
+ref{documentclasses}
+\end_layout
+
+\end_inset
+
+ se muestran las clases de documento que se explican en esta introducción.
+ La distribución de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeXe{}
+\end_layout
+
+\end_inset
+
+ proporciona más clases para otros documentos, como cartas y transparencias.
+\end_layout
+
+\begin_layout Standard
+El parámetro de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{
+\backslash
+wi{opciones}}
+\end_layout
+
+\end_inset
+
+ personaliza el comportamiento de la clase de documento elegida.
+ 
+\end_layout
+
+\begin_layout Standard
+Las opciones se deben separar con comas.
+ A continuación se indican las opciones más comunes de las clases de documento
+ estándares.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+bf Clases de documentos
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{documentclasses}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{description} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item[
+\backslash
+bf
+\backslash
+texttt{article}] para art
+\backslash
+'iculos de revistas especializadas, ponencias, trabajos de pr
+\backslash
+'acticas de formaci
+\backslash
+'on, trabajos de seminarios, informes peque'nos, solicitudes, dict
+\backslash
+'amenes, descripciones de programas, invitaciones y muchos otros.
+     
+\backslash
+index{articulo@art
+\backslash
+'iculo}     
+\backslash
+index{clase
+\backslash
+texttt{article}@clasearticle}     
+\backslash
+item[
+\backslash
+bf
+\backslash
+texttt{report}] para informes mayores que constan dem
+\backslash
+'as de un cap
+\backslash
+'itulo, proyectos fin de carrera, tesis doctorales, libros peque'nos, disertacio
+nes, guiones y similares.
+    
+\backslash
+index{informe} 
+\backslash
+index{clase
+\backslash
+texttt{report}@clasereport} 
+\backslash
+item[
+\backslash
+bf
+\backslash
+texttt{book}] para libros de verdad    
+\backslash
+index{libro}    
+\backslash
+index{clase
+\backslash
+texttt{book}@clasebook}    
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item[
+\backslash
+bf
+\backslash
+texttt{slide}] para transparencias.
+ Esta clase emplea tipos grandes
+\backslash
+textsf{sans serif}.
+\backslash
+index{transparencias}
+\backslash
+index{clase
+\backslash
+texttt{slide}@claseslide}    
+\backslash
+end{description}    
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

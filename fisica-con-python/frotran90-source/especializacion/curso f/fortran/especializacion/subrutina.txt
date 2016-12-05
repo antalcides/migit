@@ -1,0 +1,4 @@
+            la suma es = .150E+02      eureka
+           la resta es = .500E+01    eureka
+        el producto es = .500E+02    eureka
+        el cociente es =    2.000 e

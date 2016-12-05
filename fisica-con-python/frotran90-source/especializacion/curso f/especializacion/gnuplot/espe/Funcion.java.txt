@@ -1,0 +1,10 @@
+
+
+package integral2;
+
+public class Funcion extends Simpson{
+
+    public double f(double x){
+        return Math.cos(x);
+    }
+}

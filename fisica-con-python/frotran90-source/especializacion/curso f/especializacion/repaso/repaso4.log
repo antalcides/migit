@@ -1,0 +1,22 @@
+This is pdfTeX, Version 3.141592-1.10a (MiKTeX 2.2) (preloaded format=latex 2000.11.28)  20 JUL 2003 15:30
+**repaso4.tex
+(repaso4.tex{pdftex.cfg}
+LaTeX2e <2001/06/01>
+Babel <v3.7h> and hyphenation patterns for spanish, loaded.
+! Undefined control sequence.
+l.20 \section
+             {Variables aleatorias}
+? x
+ 
+Here is how much of TeX's memory you used:
+ 7 strings out of 95674
+ 61 string characters out of 1191906
+ 44254 words of memory out of 1048577
+ 3106 multiletter control sequences out of 35000
+ 3640 words of font info for 14 fonts, out of 500000 for 1000
+ 2 hyphenation exceptions out of 607
+ 5i,0n,1p,59b,7s stack positions out of 1500i,500n,5000p,200000b,32768s
+ 0 PDF objects out of 65536
+ 0 named destinations out of 20000
+ 0 words of extra memory for PDF output out of 65536
+No pages of output.

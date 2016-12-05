@@ -1,0 +1,17 @@
+C     PROGRAMA QUE CALCULA LAS DERIVADAS SUCESIVAS DE UNA FUNCION ALGEBRAICA.
+      real*4 b(100),a(100)
+      write(*,*) 'Dame el orden de la funcion'
+      read(*,*) n
+      write(*,*) 'Da los coeficientes'
+      read(*,*) (a(i),i=1,n+1)
+      write(*,*) (a(i),i=1,n+1)
+      write(*,*) 'Las derivadas sucesivas son:'
+      do 5 k=1,n+1
+      do 10 j=1,n+1
+      b(j)=a(j+1)*j
+      a(j)=b(j)
+   10 continue
+      write (*,*) (a(m),m=1,n)
+    5 continue
+      stop
+      end

@@ -1,0 +1,414 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0055)http://personal.redestb.es/mgtalles/fortran/tema3_4.htm -->
+<HTML><HEAD><TITLE>Microsoft FORTRAN 5.1</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff background="Microsoft FORTRAN 5_1_archivos/formulas.jpg">
+<H1 align=center>TEMA 3: Microsoft FORTRAN 5.1</H1>
+<BLOCKQUOTE>
+  <H3>3.3.3 SENTENCIAS DE ENTRADA/SALIDA (I/O)</H3></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Estas sentencias permiten la intercomunicación del ordenador con el usuario 
+  y con los periféricos (discos, impresoras, módem, etc.). Son las 
+  siguientes:</P></BLOCKQUOTE>
+<DIV align=center>
+<CENTER>
+<TABLE width="100%">
+  <TBODY>
+  <TR>
+    <TD align=middle><A 
+      href="http://personal.redestb.es/mgtalles/fortran/Tema3_41.htm#SENTENCIAOPEN"><B>OPEN</B></A></TD>
+    <TD align=middle><A 
+      href="http://personal.redestb.es/mgtalles/fortran/Tema3_41.htm#SENTENCIAREAD"><B>READ</B></A></TD>
+    <TD align=middle><A 
+      href="http://personal.redestb.es/mgtalles/fortran/tema3_4.htm#SENTENCIAPRINT"><B>PRINT</B></A> 
+    </TD>
+    <TD align=middle><A 
+      href="http://personal.redestb.es/mgtalles/fortran/Tema3_41.htm#SENTENCIAINQUIRE"><B>INQUIRE</B></A></TD>
+    <TD align=middle><A 
+      href="http://personal.redestb.es/mgtalles/fortran/Tema3_41.htm#SENTENCIAREWIND"><B>REWIND</B></A></TD></TR>
+  <TR>
+    <TD align=middle><A 
+      href="http://personal.redestb.es/mgtalles/fortran/Tema3_41.htm#SENTENCIACLOSE"><B>CLOSE</B></A></TD>
+    <TD align=middle><A 
+      href="http://personal.redestb.es/mgtalles/fortran/Tema3_41.htm#SENTENCIAWRITE"><B>WRITE</B></A></TD>
+    <TD align=middle><A 
+      href="http://personal.redestb.es/mgtalles/fortran/tema3_4.htm#SENTENCIAFORMAT"><B>FORMAT</B></A></TD>
+    <TD align=middle><A 
+      href="http://personal.redestb.es/mgtalles/fortran/Tema3_41.htm#SENTENCIABACKSPACE"><B>BACKSPACE</B></A></TD>
+    <TD align=middle><A 
+      href="http://personal.redestb.es/mgtalles/fortran/Tema3_41.htm#SENTENCIA EOF"><B>END 
+      FILE</B></A></TD></TR></TBODY></TABLE></CENTER></DIV>
+<BLOCKQUOTE>
+  <P>En estos momentos disponemos ya, de un conjunto de sentencias y operadores 
+  para realizar un programa "útil", pero de nada sirve un programa, si no es 
+  capaz de mostrar mensajes de estado, dar las soluciones al usuario o informar 
+  a este sobre los datos que requiera para el proceso. Mediante estas sentencias 
+  podemos comunicarnos con el programa para darle datos iniciales que necesite, 
+  y este podrá devolvernos los resultados. </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Las sentencias de I/O (Input/Output) son las mismas para todos los posibles 
+  medios de comunicación, pero las trataremos por separado según sea éste. Así, 
+  tenemos: </P>
+  <UL>
+    <LI>Comunicación con el usuario (consola) 
+    <LI>Comunicación con los dispositivos de almacenamiento (discos) 
+    <LI>Comunicación con otros periféricos. (impresora, módem, etc.) 
+</LI></UL></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <H4><FONT size=2>LOS CANALES DE 
+COMUNICACION</FONT></H4></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>El ordenador se comunica con su entorno mediante canales, es decir, se 
+  conecta con sus periféricos por líneas de comunicación, por las cuales fluirá 
+  la información. Es como llamar por teléfono a un amigo. Para comunicarnos, 
+  necesitamos de una línea telefónica por la cual circulan las palabras de 
+  ambos. Para seleccionar el amigo con el que queremos hablar, (y por tanto, la 
+  línea), marcamos un número telefónico. De la misma forma, el ordenador marca 
+  un "teléfono", estableciendo la línea (canal) de comunicación con un 
+  determinado periférico. Estos 'teléfonos' vienen determinados por el sistema 
+  operativo. Son números enteros comprendidos entre el 1 y N, donde N es el 
+  número especificado por la línea FILES= del fichero config.sys, en el caso de 
+  una transmisión de datos a disco. En FORTRAN esto se realiza mediante el 
+  parámetro UNIT=, en las sentencias de I/O que establecen la comunicación. El 
+  número máximo de canales que acepta el FORTRAN para el parámetro UNIT= es 99. 
+  Más adelante, veremos la forma de usar los parámetros en las sentencias de I/O 
+  que los permiten. </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <H4><FONT size=2>LOS FORMATOS DE 
+COMUNICACION</FONT></H4></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Con las sentencias de I/O, ya podemos comunicarnos con nuestros programas. 
+  No obstante, no hemos definido el "formato" que tendrá nuestra comunicación. 
+  El FORTRAN permite especificar cómo deben leerse y mostrarse los resultados y 
+  datos de nuestras variables. La especificación de un formato, sustituye al 
+  formato "libre", (el *) de las sentencias. </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>He aquí una lista de los formatos del FORTRAN Microsoft más 
+empleados:</P></BLOCKQUOTE>
+<DIV align=center>
+<CENTER>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TD width=104><B>TIPO</B></TD>
+    <TD width=85><B>SINTAXIS</B> </TD>
+    <TD width=159><B>DATO asociado</B></TD>
+    <TD width=124><B>EJEMPLO</B></TD></TR>
+  <TR>
+    <TD width=104><B>numérico</B></TD>
+    <TD width=85><B>I</B>m.[z]</TD>
+    <TD width=159>entero </TD>
+    <TD width=124><B>I3</B></TD></TR>
+  <TR>
+    <TD width=104></TD>
+    <TD width=85><B>F</B>m.d </TD>
+    <TD width=159>real</TD>
+    <TD width=124><B>F7.4</B> </TD></TR>
+  <TR>
+    <TD width=104></TD>
+    <TD width=85><B>E</B>m.d[<B>E</B>e] </TD>
+    <TD width=159>real</TD>
+    <TD width=124><B>E7.4E2</B> </TD></TR>
+  <TR>
+    <TD width=104></TD>
+    <TD width=85><B>D</B>m.d[<B>D</B>,e] </TD>
+    <TD width=159>doble</TD>
+    <TD width=124><B>D16.8</B> </TD></TR>
+  <TR>
+    <TD width=104></TD>
+    <TD width=85><B>G</B>m.d[<B>E</B>e] </TD>
+    <TD width=159>real</TD>
+    <TD width=124><B>G7.4</B> </TD></TR>
+  <TR>
+    <TD width=104><B>caracter</B></TD>
+    <TD width=85><B>A</B>[m] </TD>
+    <TD width=159>cadena</TD>
+    <TD width=124><B>A25</B> </TD></TR>
+  <TR>
+    <TD width=104><B>movimiento</B></TD>
+    <TD width=85>m<B>X</B> </TD>
+    <TD width=159>-</TD>
+    <TD width=124><B>5X</B> </TD></TR>
+  <TR>
+    <TD width=104></TD>
+    <TD width=85><B>T</B>m </TD>
+    <TD width=159>-</TD>
+    <TD width=124><B>T15</B> </TD></TR>
+  <TR>
+    <TD width=104></TD>
+    <TD width=85><B>TR</B>m </TD>
+    <TD width=159>-</TD>
+    <TD width=124><B>TR8</B> </TD></TR>
+  <TR>
+    <TD width=104></TD>
+    <TD width=85><B>TL</B>m </TD>
+    <TD width=159>-</TD>
+    <TD width=124><B>TL3</B> </TD></TR>
+  <TR>
+    <TD width=104><B>registro</B></TD>
+    <TD width=85><B>/</B> </TD>
+    <TD width=159>-</TD>
+    <TD width=124></TD></TR>
+  <TR>
+    <TD width=104></TD>
+    <TD width=85><B>\</B> </TD>
+    <TD width=159>-</TD>
+    <TD width=124></TD></TR>
+  <TR>
+    <TD width=104><B>lógico</B></TD>
+    <TD width=85><B>L</B>m </TD>
+    <TD width=159>lógico</TD>
+    <TD width=124><B>L2</B> </TD></TR>
+  <TR>
+    <TD width=104><B>hexadecimal</B></TD>
+    <TD width=85><B>Z</B>m </TD>
+    <TD width=159>entero</TD>
+    <TD width=124><B>Z4</B> </TD></TR>
+  <TR>
+    <TD width=104><B>general</B></TD>
+    <TD width=85><B>SP</B> </TD>
+    <TD width=159>numéricos</TD>
+    <TD width=124></TD></TR>
+  <TR>
+    <TD width=104></TD>
+    <TD width=85><B>SS</B> </TD>
+    <TD width=159>numéricos</TD>
+    <TD width=124></TD></TR>
+  <TR>
+    <TD width=104><B>LIBRE</B></TD>
+    <TD width=85>* </TD>
+    <TD width=159>todos</TD>
+    <TD width=124><B>*</B> </TD></TR></TBODY></TABLE></CENTER></DIV>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P>siendo: </P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P>m: especifica el numero de caracteres del campo <BR>z: especifica el 
+    numero de ceros a la izquierda del número <BR>d: especifica el numero de 
+    dígitos decimales (debe ser siempre menor que m-1) <BR>e: numero de dígitos 
+    del exponente </P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>las cosas entre paréntesis rectos son opcionales<BR></P>
+  <BLOCKQUOTE>
+    <P>Si el número a representar por un formato no cabe en el campo: 
+  </P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P>- en lectura, se trunca perdiendo los dígitos más a la derecha <BR>- en 
+    escritura, se obtiene una cadena de asteriscos </P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Múltiples formatos pueden encadenarse, separándolos con 
+comas.</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Todos los formatos que tratan valores (tanto numéricos como de cadena ) se 
+  pueden repetir mediante un número antes de la letra de identificación. </P>
+  <P>Podemos repetir una cadena de formatos encerrándola entre paréntesis y 
+  dando un valor de repetición. Por ejemplo: </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P>4I3 ! Son 4 formatos I3 </P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P>5(I3,A7,F7.3,F7.3) !Se repite 5 veces el grupo de 
+formatos.</P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Cuando la cadena de formatos es menor que el número de variables a 
+  representar, vuelve a comenzar desde el principio hasta representarlos 
+  todos.</P>
+  <BLOCKQUOTE>
+    <P><B>Formato I</B> (enteros):</P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>El formato I se usa en I/O para recibir o mostrar datos de tipo entero. Se 
+  puede especificar el número de dígitos que tendrá el valor y el número de 
+  ceros a la izquierda.(número mínimo de dígitos que se mostrarán en la 
+  salida)</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P><B>Formatos F,E,D,G</B> (reales):</P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Estos formatos representan números reales. Cabe decir que, en estos 
+  formatos con dígitos decimales, dentro de "m" se encuentran también el punto 
+  decimal y el signo, por lo que debemos tenerlos en cuenta a la hora de 
+  dimensionar el campo de salida m. El formato G determina cual de los dos (F o 
+  E) es mejor para representar el valor.</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P><B>Formato A</B> (carácter):</P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Este formato nos permite la entrada y salida de cadenas. Si se omite el 
+  ancho de campo, A se ajusta al ancho de la cadena a imprimir(solo válido en 
+  escritura).</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P><B>Formatos X,T,TR,TL</B> (movimiento)</P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Producen movimientos en el cursor de pantalla, o en el registro de datos de 
+  un fichero, o en la línea de la impresora. </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P><B>Formatos /,\</B> (registro)</P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>/ produce el salto de línea o fin de registro y <BR>\ permite continuar 
+  imprimiendo en esa línea más allá de la sentencia de I/O en la que se 
+  encuentra.</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P><B>Formato L</B> (lógico):</P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Este formato permite el tratamiento de datos lógicos. En lectura debe 
+  introducirse el valor como .TRUE. o .FALSE. mientras que en escritura devuelve 
+  0 o 1.</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P><B>Formato Z</B> (hexadecimal):</P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Permite la impresión de un valor como número hexadecimal, o la lectura de 
+  un valor en esa base.</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P><B>Formatos SP, SS</B> (de signo):</P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>SP permite que el signo 'más' de los valores positivos sea visualizado en 
+  el campo. SS anula a SP (el signo deja de visualizarse. Estos valores se 
+  aplican hasta el siguiente formato SS o SP.</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P><B>Formato *</B> (libre):</P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Es el formato más empleado. Al especificarlo, dejamos que sea el procesador 
+  el que elija el formato con el cual se representarán los valores en I/O 
+  dependiendo de su tipo.</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Existen dos formas de dar formatos:</P>
+  <UL>
+    <LI>Mediante una sentencia FORMAT 
+    <LI>Implícito en la orden de I/O </LI></UL></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P>-<A name=SENTENCIAFORMAT>SENTENCIA <B>FORMAT</B></A><B> </B>(formatos a 
+    los datos)</P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>La sentencia FORMAT tiene la sintaxis:</P>
+  <BLOCKQUOTE>
+    <P>ET <B>FORMAT</B> (cadena de formatos)</P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>donde ET es la etiqueta que define la línea del formato para poder 
+  referenciarlo. Es imprescindible, pues la sentencia de formato no es 
+  ejecutable sino declarativa, por lo que será ignorada al llegar a ella. Como 
+  ejemplo:</P>
+  <BLOCKQUOTE>
+    <P><B>WRITE</B>(*,100)<I>PESO<BR></I>100 <B>FORMAT</B>('El peso es 
+    ',<B>I</B>3,' Kgs')<BR></P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Para poner un formato implícito en una sentencia de I/O, debe encerrarse 
+  entre comillas simples y paréntesis:</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P>WRITE(*,<B>'(</B>cadena de formatos<B>)'</B>)</P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <H4>LA COMUNICACION POR CONSOLA</H4></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>En la comunicación por consola, la introducción de datos se realiza 
+  mediante el teclado y la impresión de resultados aparece en pantalla 
+  (monitor). Las sentencias empleadas para ello son tres:</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P>- SENTENCIA <B>READ </B>(Entrada)</P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Esta sentencia lee datos del teclado. Mediante ella podemos introducir 
+  valores en el programa. Ha aparecido ya en programas de ejemplo anteriores. 
+  </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Su sintaxis es:</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P><B>READ</B>(UNIDAD,FORMATO<B>,IOSTAT=</B><I>VARI&gt;</I>),<I>VARIABLE1,VARIABLE2</I>,... 
+    </P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Donde UNIDAD es el dispositivo de entrada. Para especificar el teclado se 
+  pone usualmente un "*", que es el dispositivo por defecto para entradas en 
+  FORTRAN. FORMATO es el formato que se dará al dato introducido, y puede ser 
+  una cadena de formato o una etiqueta de línea de sentencia FORMAT, aunque 
+  normalmente se pone también un "*" para especificar al programa que elija el 
+  'formato libre'. IOSTAT es una función interna del FORTRAN para determinar si 
+  se producen errores en I/O. (Comprueba si hay un error y devuelve un código en 
+  la variable entera -VARI-) VARIABLE es la variable o conjunto de variables que 
+  recibirán los datos.</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P>- SENTENCIA <B>WRITE</B> (Salida)</P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Esta sentencia permite mostrar resultados en pantalla. Su funcionamiento 
+  queda reflejado en la mayoría de los ejemplos anteriores. Su sintaxis general 
+  es:</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P><B>WRITE</B>(UNIDAD,FORMATO<B>,IOSTAT</B>=<I>VARI&gt;</I>)EXPRESION 
+  </P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Donde UNIDAD es "*" para la consola, FORMATO es una expresión de formato o 
+  una etiqueta a una línea de formato, IOSTAT tiene el mismo significado que 
+  READ y EXPRESI&amp;OACUTEN es una expresión válida FORTRAN (una expresión 
+  matemática, un conjunto de variables, etc.). Como en la sentencia READ, 
+  podemos dar como valor a formato un "*" que expresa formato libre -el programa 
+  mostrará el resultado de una determinada forma según sea entero, real, 
+  carácter, etc.</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Veamos unos ejemplos de WRITE con distintas expresiones:</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P><B>WRITE</B> (*,*)'hola, que tal estas?'</P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>escribe la cadena de caracteres entre comillas simples:</P></BLOCKQUOTE>
+<P align=center>hola, que tal estas?</P>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P><B>WRITE</B>(*,*)'El peso total es:',PESO,' 
+Kgs.'</P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Si la variable PESO contiene el valor 85.764, la línea mostrada 
+será:</P></BLOCKQUOTE>
+<P align=center>El peso total es: 85.764 Kgs.</P>
+<BLOCKQUOTE>
+  <P>Si queremos escribir los 3 valores de un vector <I>X</I>, podemos 
+poner:</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P><B>WRITE</B>(*,*)(<I>X</I>(<I>I</I>),<I>I</I>=1,3) ! bucle DO implícito 
+    (del FORTRAN 77)</P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>o bien</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P><B>WRITE</B>(*,*)<I>X</I></P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P><B>-</B><A name=SENTENCIAPRINT>SENTENCIA 
+<B>PRINT</B></A></P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Esta sentencia esta es desuso, por lo que no la trataremos. </P></BLOCKQUOTE>
+<HR width="75%">
+
+<DIV align=center>
+<CENTER>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD><A href="http://personal.redestb.es/mgtalles/fortran/tema3_3.htm"><IMG 
+      height=40 alt="Pasar al Tema 3.3" 
+      src="Microsoft FORTRAN 5_1_archivos/anterior.jpg" width=110 align=bottom 
+      border=0></A> </TD>
+    <TD><A href="http://personal.redestb.es/mgtalles/fortran/index.htm"><IMG 
+      height=40 alt="Ir al indice" 
+      src="Microsoft FORTRAN 5_1_archivos/indice.jpg" width=110 align=bottom 
+      border=0></A> </TD>
+    <TD><A 
+      href="http://personal.redestb.es/mgtalles/fortran/tema3_41.htm"><IMG 
+      height=40 alt="Pasar a la siguiente seccion" 
+      src="Microsoft FORTRAN 5_1_archivos/sgente.jpg" width=110 align=bottom 
+      border=0></A> </TD></TR></TBODY></TABLE></CENTER></DIV></BODY></HTML>

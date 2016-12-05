@@ -1,0 +1,55 @@
+From: <Guardado por Microsoft Internet Explorer 5>
+Subject: 
+Date: Wed, 22 Oct 2003 12:10:08 -0500
+MIME-Version: 1.0
+Content-Type: text/html;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+Content-Location: http://proton.ucting.udg.mx/posgrado/cursos/metodos/matlab/m-files/Trapecio.m
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2800.1165
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY><PRE>function a = trapecio(y,x)
+
+%
+
+%  a = trapecio(y,x)
+
+%
+
+%  encuentra el area bajo la curva y = f(x) usando la regla del 
+
+%  trapecio
+
+%
+
+%   x = vector conteniendo los puntos de la variable independiente
+
+%       los elementos de x no necesitan ser espaciados uniformemente
+
+%   y = f(x) = valores de la funcion, correspondientes a los datos en x
+
+%
+
+%  a = el area bajo f(x) en el intervalo definido por x
+
+%
+
+x = x(:)'; y = y(:)';   % asegurarse de que x e y son vectores fila
+
+ly = length(y);
+
+lx = length(x);
+
+if (lx ~= ly), error(' x e y deben ser de la misma longitud'),end
+
+a = 0.5*( [0 y] + [y 0] ) .* ( [x 0] - [0 x] );
+
+a = sum( a(1,2:ly) );
+
+
+
+</PRE></BODY></HTML>

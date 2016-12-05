@@ -1,0 +1,89 @@
+%% This document created by Scientific Word (R) Version 3.0
+
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{CSTFile=LaTeX article (bright).cst}
+%TCIDATA{Created=Thu Oct 02 11:17:41 2003}
+%TCIDATA{LastRevised=Thu Oct 02 11:18:08 2003}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="General\Blank Document">}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\begin{document}
+
+
+\begin{proof}
+$\left(  19\right)  $ se puede escribir de la forma
+\[
+\Delta u+c\left(  x\right)  u=0,
+\]
+donde $p:=m\left(  \alpha-1\right)  >2$, y $c\left(  x\right)  =\frac{g\left(
+u\left(  x\right)  \right)  }{u\left(  x\right)  }=O\left(  \left|  x\right|
+^{-p}\right)  .$ Luego exist un $C>0$, tal que
+\[
+u=C\int\frac{1}{\left|  x-y\right|  ^{n-2}}f\left(  y\right)  dy,
+\]
+donde $f\left(  y\right)  :=g\left(  u\left(  y\right)  \right)  \in C\left(
+\mathbb{R}^{n}\right)  $ y $f\left(  y\right)  =O\left(  \left|  y\right|
+^{-\alpha m}\right)  $ en el infinto.
+
+De esto, el lema $6a)$ y el lema $4$ se deduce que
+\begin{equation}
+\int f\left(  y\right)  dy>0.\tag{21}%
+\end{equation}
+Con eso y el lema $6b)$ resulta:
+\begin{equation}
+\text{existe un }\widetilde{\lambda}>0\text{ \ \ tal que \ \ }u_{1}\left(
+x\right)  <0\text{ para }x_{1}\geq\widetilde{\lambda}\text{.}\tag{22}%
+\end{equation}
+Ahora, se hace una traslaci\'{o}n hasta un punto $\mathbf{q=}\left(
+q_{1},...,q_{n}\right)  $ en $\mathbb{R}^{n}$ y se fijan las coordenadas
+radiales con respecto a \'{e}ste punto (nuevo origen) de modo que
+\begin{equation}
+\int f\left(  y\right)  y_{j}dy=0,\text{ \ \ }j=1,...,n.\tag{23}%
+\end{equation}
+Luego $\left(  21\right)  ,$ $\left(  22\right)  ,$ $\left(  23\right)  $ y el
+lema $6c)$ se sigue que
+\begin{equation}
+\text{Existe un }\lambda_{0}>0\text{ tal que para todo }\lambda\geq\lambda
+_{0}:u\left(  x\right)  >u\left(  x^{\lambda}\right)  \text{ \ \ si }%
+x_{1}<\lambda\text{.}\tag{24}%
+\end{equation}
+De $\left(  22\right)  ,$ $\left(  24\right)  $, el lema $5$ y el lema $6c)$
+resulta un intervalo m\'{a}ximal $\left(  \lambda_{1},\infty\right)  ,$
+$\lambda_{1}>0,$ donde $\left(  22\right)  $ y $\left(  24\right)  $ valen.
+Luego
+\[
+u\left(  x\right)  \geq u\left(  x^{\lambda_{1}}\right)  \text{ para\ }%
+x_{1}<\lambda_{1}\text{ \ \ y \ \ }u_{1}<0\text{ para }x_{1}>\lambda
+_{1}\text{.}%
+\]
+La simetr\'{i}a de \ $u$ con respecto al hiperplano $x_{1}=0$ se sigue el lema
+$5$ y con eso el teorema queda probado.
+\end{proof}
+\end{document}

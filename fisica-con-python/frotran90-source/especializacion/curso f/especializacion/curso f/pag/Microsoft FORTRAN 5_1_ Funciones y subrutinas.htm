@@ -1,0 +1,616 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0055)http://personal.redestb.es/mgtalles/fortran/tema3_5.htm -->
+<HTML><HEAD><TITLE>Microsoft FORTRAN 5.1. Funciones y subrutinas</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff 
+background="Microsoft FORTRAN 5_1_ Funciones y subrutinas_archivos/formulas.jpg">
+<P> </P>
+<H1 align=center>TEMA 3: Microsoft FORTRAN 5.1</H1>
+<BLOCKQUOTE>
+  <H2>3.4 funciones y subprogramas</H2></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <H3>3.4.1 CONCEPTOS BASICOS</H3></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Muchas veces en un programa necesitamos repetir un mismo proceso varias 
+  veces en distintas partes de éste. Para evitar el tener que repetir el mismo 
+  código varias veces, el programador tiene la opción de abstraer esa parte del 
+  programa en un módulo. Este módulo es independiente del programa principal y 
+  puede ser llamado por éste cuando se requiera. Muchos lenguajes de 
+  programación (como el C) se basan íntegramente en módulos. Se crea un módulo 
+  principal (MAIN module) y distintos módulos más pequeños con las distintas 
+  operaciones del programa. A esta clase de programación se la denomina 
+  <B>programación MODULAR</B>. El lenguaje FORTRAN permite crear módulos 
+  independientes a los programas de dos tipos distintos. Son las 
+  <B>funciones</B> (functions) y <B>subrutinas</B> (subroutines). Los módulos se 
+  declaran mediante un nombre de variable. Los programas pueden llamar a estos 
+  módulos mediante su <B>nombre</B>. A continuación vamos a ver la forma de 
+  diseñar módulos. Es importante resaltar que, si bien un módulo es un programa 
+  completo, depende del programa principal que lo llama. No es posible ejecutar 
+  un módulo por separado, sino que debe siempre estar asociado a un programa 
+  principal. </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <H4><FONT size=2>ORGANIZACION DE MODULOS</FONT></H4></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Los módulos se organizan de forma que siempre debemos tener un programa 
+  principal (MAIN MODULE), en el cual comienza el proceso, y que llama a cada 
+  subprograma enviándole los datos iniciales, para que los procese, cuando lo 
+  necesite. Los subprogramas devolverán los resultados de su acción al programa 
+  principal.</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>El retorno de un módulo siempre se realiza a la línea siguiente de aquella 
+  que hace la llamada en el caso de subrutinas, o a la misma en el caso de 
+  funciones. Los datos que se envían a los módulos se llaman <B>argumentos del 
+  programa principal</B>. Los datos recibidos en el módulo son los <B>argumentos 
+  del módulo o parámetros formales</B>. Las variables usadas en los módulos se 
+  llaman variables temporales, y su tiempo de vida es el mismo que el de 
+  ejecución del módulo, es decir, todas las variables de los módulos son 
+  destruidas al retornar de este al programa principal. Podemos usar nombres en 
+  los subprogramas que coincidan con variables del programa principal, pues no 
+  tienen nada que ver, ya que son variables temporales del procedimiento, y solo 
+  son conocidos por el. Los demás módulos no saben de la existencia de esa 
+  variable, a no ser que sea enviada como argumento. </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <H4><FONT size=2>DIFERENCIAS ENTRE SUBRUTINA Y FUNCION</FONT></H4></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Hemos dicho que existen dos tipos de módulos en FORTRAN, subrutinas y 
+  funciones. Las principales diferencias entre ellas son las 
+siguientes:</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Una función es un bloque de código con un nombre de variable. En el 
+  programa principal se hace referencia a el como si de una variable más se 
+  tratara. Generalmente, las funciones aparecen en sentencias de asignación y en 
+  expresiones a evaluar, como una variable más, por ejemplo en el siguiente 
+  programa:</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE><PRE><B>PROGRAM</B> <I>MAS_MENOS
+</I><B>INTEGER</B> <I>A,B,N</I> 
+<B>WRITE</B>(*.*)'DAME LOS SUMANDOS A Y B' 
+<B>READ</B>(*,*)<I>A,B</I> 
+<B>WRITE</B>(*,*)ELIGE OPERACION 1=SUMA,2=RESTA' 
+<B>READ</B>(*,*)<B>N</B> 
+<B>SELECT CASE</B> (<I>N)</I> 
+<B>  CASE</B>(1) 
+<B>    WRITE</B>(*,*)<B><I>SUMA</I></B>(<I>A,B</I>) 
+<B>  CASE DEFAULT</B> 
+<B>    WRITE</B>(*,*)<B><I>RESTA</I></B>(<I>A,B</I>) 
+<B>END SELECT</B> 
+<B>END</B></PRE></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Se llama a dos funciones de nombre SUMA y RESTA que efectuarán la operación 
+  correspondiente de los sumandos. La sintaxis de estas funciones sería:</P>
+  <BLOCKQUOTE><PRE><B>INTEGER FUNCTION</B> <B><I>SUMA</I></B>(<I>X,Y</I>) 
+<B>INTEGER</B> <I>X,Y</I> 
+<B><I>  SUMA</I></B>=<I>X</I>+<I>Y</I> 
+<B>END</B></PRE><PRE><B>INTEGER FUNCTION</B> <B><I>RESTA</I></B>(<I>J,K</I>) 
+<B>INTEGER</B> <I>J,K</I> 
+<B><I>  RESTA</I></B>=<I>J</I>-<I>K</I> 
+<B>END</B></PRE></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Primero se evalúa la expresión y luego se imprime. Si una función aparece 
+  varias veces en una misma expresión, se procesa sucesivamente, hasta lograr el 
+  valor final de la expresión. </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Nótese que en el programa principal, los nombres de las funciones conllevan 
+  unos paréntesis con nombres de variables. Estos son los valores o 
+  <B>argumentos</B> que se envían a la función para que realice su tarea. El 
+  resultado de la función queda almacenado en su nombre y devuelto mediante este 
+  al programa principal (Nótese que se emplea el nombre de la función sin 
+  argumentos dentro de la propia función, es decir, como una variable más. Las 
+  funciones sólo devuelven un resultado. </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Las subrutinas son auténticos programas dentro de programas. Reciben y 
+  devuelven numerosos datos y resultados o incluso ninguno, es decir, podría ser 
+  que el proceso de la subrutina sea independiente de el de el programa 
+  principal. Deben ser llamadas con una sentencia especial llamada <B>CALL. 
+  </B>Un ejemplo de subrutina sería:</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE><PRE><B>SUBROUTINE</B> <B><I>BORRA</I></B>() 
+<B>  WRITE</B>(*,'(1X,A)')<B><I>CHAR</I></B>(27)//'[2J' 
+<B>END </B></PRE></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>cada vez que en el programa principal se inserte una línea del 
+tipo:</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE><PRE><B>CALL</B> BORRA</PRE></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>se producirá un borrado de pantalla mediante la secuencia de escape <A 
+  href="http://personal.redestb.es/mgtalles/fortran/ansi.htm">ANSI</A> 
+  correspondiente. Nótese que esta subrutina no tiene argumentos (no los 
+  necesita para su labor). Además emplea una función en su proceso. La función 
+  <B><I>CHAR</I></B>(), que retorna como resultado el carácter ASCII del número 
+  especificado entre paréntesis. </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <H4><FONT size=2>PROGRAMACION RECURSIVA</FONT></H4></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Muchos lenguajes de programación basados en módulos, permiten llamarse a si 
+  mismos en ejecución. De esta forma podemos llamar a una función desde si misma 
+  para que realice varias veces una determinada operación. El objetivo de esto 
+  es doble. En primer lugar el código se compacta al máximo. En segundo lugar 
+  permite, que problemas de difícil solución se simplifiquen de forma pasmosa. 
+  Un ejemplo; supongamos que queremos llenar una caja con varios tipos de 
+  libros, de forma que entren la máxima cantidad de ellos. Para resolver este 
+  problema, un método consiste en ir introduciendo distintas combinaciones de 
+  libros y comprobando cual de ellas optimiza mejor el volumen. Para ello, 
+  mediante programación modular recursiva, diseñamos una función que introduce 
+  un tipo de libro. Para meter ahora de otro tipo, la función se llama a si 
+  misma, enviándole el nuevo tipo, y así sucesivamente. De esta forma, con una 
+  sola función hemos realizado muchas veces la tarea con distintos valores hasta 
+  llenar la caja. Es como anidar funciones (recuérdese lo dicho para la 
+  sentencia DO), pero con un solo módulo. El ahorro de memoria es mayor cuantas 
+  más veces necesitamos llamar a la función. El FORTRAN <B>no permite la 
+  programación recursiva.</B> </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <H4><FONT size=2>LOS TRES TIPOS DE FUNCIONES</FONT></H4></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Existen tres tipos distintos de funciones: <B>de sentencia</B>, 
+  <B>intrínsecas</B> y <B>externas</B>.</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P><I>Funciones de sentencia: </I>Se trata de funciones que podemos definir en 
+  una sentencia del programa principal para calcular un determinado valor, que 
+  se repite muchas veces durante el proceso. Supongamos que necesitamos calcular 
+  muchas veces en un programa, el módulo de un vector. Lo mas interesante sería 
+  poder definir una función que nos calcule el módulo del vector sin más que 
+  decírselo. Podemos escribir por ejemplo la función:</P></BLOCKQUOTE>
+<P align=center><IMG height=27 
+src="Microsoft FORTRAN 5_1_ Funciones y subrutinas_archivos/IMG00010.gif" 
+width=164 align=bottom></P>
+<BLOCKQUOTE>
+  <P>En FORTRAN escribiremos <B>en la zona de declaración</B>, después de todas 
+  las sentencias de declaración de variables y antes de la primera sentencia 
+  ejecutable, una línea del tipo:</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE><PRE><B><I>MODUVEC</I></B>(<I>X,Y,Z</I>)=<B><I>SQRT</I></B>(<I>X</I>**2+<I>Y</I>**2 +<I>Z</I>**2) </PRE></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Acabamos de definir una función de sentencia de nombre 
+  <B><I>MODUVEC</I></B>, y argumentos ficticios X,Y y Z, componentes del vector 
+  del cual queramos calcular el módulo. Más tarde, en la zona de ejecución 
+  podremos poner una línea del tipo:</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE><PRE><I>MODULO</I>=<B><I>MODUVEC</I></B>(<I>V,W,T</I>)</PRE></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>obteniendo en la variable <I>MODULO</I>, el módulo del vector cuyas 
+  componentes sean V,W,T. </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P><I>Funciones intrínsecas: </I>Estas funciones vienen definidas en el 
+  compilador y pueden ser llamadas mediante su nombre. En el ejemplo anterior 
+  hemos usado una de ellas. La función <B><I>SQRT</I></B>( ) que devuelve la 
+  raíz cuadrada del argumento. En la sección 3.5 se da una lista de las 
+  funciones intrínsecas más comunes con el tipo de argumento que requieren y el 
+  resultado que devuelven. </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P><I>Funciones externas:</I> Son las funciones que podemos definir nosotros 
+  para que las utilice el programa principal. Son los módulos propiamente 
+  dichos. </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <H4><FONT size=2>INTERCAMBIO DE DATOS ENTRE MODULOS</FONT></H4></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Existen dos formas de pasar información entre el programa principal y los 
+  subprogramas. Se trata del <B>paso por valor</B> y el <B>paso por 
+  referencia</B>: </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P><I>Paso por valor</I>: Los valores de los argumentos del programa principal 
+  que desean ser enviados al subprograma son copiados en unas nuevas variables 
+  para ser procesados. La gran ventaja de enviar los argumentos por valor, es 
+  que las variables del programa principal no son alteradas en los subprogramas. 
+  Es decir, si cambiamos el valor del argumento en un subprograma, esto no 
+  afectará a la variable del programa principal correspondiente. De esta forma 
+  preservamos los valores de las variables del programa principal. 
+</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P><I>Paso por referencia</I>: En este caso, no se envía al subprograma el 
+  valor de la variable sino que se envía la posición de memoria donde esta está 
+  situada. La ventaja del paso por referencia es, que podemos devolver múltiples 
+  resultados en los argumentos. Téngase en cuenta, que si variamos un argumento 
+  del subprograma, esta variación se guardará en la posición de memoria donde 
+  éste está definido, y como es el mismo que el argumento del programa 
+  principal, al retornar del subprograma, éste habrá cambiado. </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Se suele emplear el paso por valor en funciones y por referencia en 
+  subrutinas. </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Cabe decir que los argumentos de programa principal y subrutina pueden 
+  tener el mismo nombre o distinto, <B>pero deberán ser del mismo tipo.</B> El 
+  que sean la misma variable solo dependerá de la forma de intercambio que se 
+  emplee en cada caso. </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Veamos un ejemplo:</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE><PRE><B>PROGRAM</B> <I>INTERCAMBIO
+</I><B>INTEGER</B> <I>A</I>/3/,<I>B</I>/4/,<I>C</I>/0/ 
+<B>  CALL</B> <B><I>MODULO1</I></B>(<I>A,B,C</I>) 
+<B>  WRITE</B>(*,*)'EL PRODUCTO ES:',<I>C</I> 
+<B>END</B></PRE><PRE><B>SUBROUTINE</B> <B><I>MODULO1</I></B>(<I>A,B,T</I>) 
+<B>INTEGER</B> <I>A,B,T</I> 
+<I>  T</I><B>=</B><I>A</I>*<I>B</I> 
+<B>END</B></PRE></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Nótese que la variable enviada <I>C</I> se recibió en <I>T</I>. Como el 
+  paso se realizó por referencia (por defecto en el FORTRAN), <I>C</I> y 
+  <I>T</I> son la misma variable, y el resultado que se calcula en <I>T</I>, se 
+  devolverá en <I>C</I> y se escribirá en pantalla. Si analizamos gráficamente 
+  lo que ocurre es:</P></BLOCKQUOTE>
+<DIV align=center>
+<CENTER>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TD align=middle><FONT size=1><B>variable enviada</B></FONT> </TD>
+    <TD align=middle><FONT size=1><B>valor(posición de memoria)</B></FONT> </TD>
+    <TD align=middle><FONT size=1><B>parámetro de subprograma</B></FONT> 
+</TD></TR>
+  <TR>
+    <TD align=middle>A</TD>
+    <TD align=middle>10 </TD>
+    <TD align=middle>A</TD></TR>
+  <TR>
+    <TD align=middle>B</TD>
+    <TD align=middle>3 </TD>
+    <TD align=middle>B</TD></TR>
+  <TR>
+    <TD align=middle>C</TD>
+    <TD align=middle>5 </TD>
+    <TD align=middle>T</TD></TR></TBODY></TABLE></CENTER></DIV>
+<BLOCKQUOTE>
+  <P>Aquí se ve claramente que tanto C como T tienen valor 5. Se llaman de forma 
+  distinta, pero ocupan la misma posición en memoria y por tanto comparten el 
+  valor que esta contiene. </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <H4>BLOQUES COMUNES. USO DE COMMON</H4></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Existe una tercera forma de intercambio de datos entre módulos. Se trata de 
+  los bloques comunes o COMMON BLOCKS. Se trata de asignar una porción de 
+  memoria, en la cual se definirán distintas variables, como común a estas. De 
+  esta forma, al estar varias variables compartiendo las mismas posiciones de 
+  memoria, tendrán los mismos valores. (ver figura anterior) </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Pensemos que las variables guardan sus datos en la memoria RAM. Si hacemos 
+  que dos variables guarden sus datos en la misma posición, ambas tendrán el 
+  mismo valor. Pensemos en un ejemplo. Supongamos que dos personas abren una 
+  cuenta bancaria compartida. Si una de las personas ingresa dinero, este dinero 
+  estará disponible para ambas, es decir, las dos tienen el mismo dinero. Si la 
+  otra saca dinero, el saldo para las dos personas será el mismo. La variación 
+  en la cuenta afecta de inmediato a ambas personas. De la misma forma, el 
+  cambio de valor en una variable que comparte su área de memoria con otra, 
+  provoca la variación inmediata de esta última. El bloque COMMON se define en 
+  el programa principal y en los subprogramas que compartirán los datos. No es 
+  necesario que los nombres de variables sean iguales pero, al igual que con los 
+  argumentos de funciones y subrutinas, estas deben ser del mismo tipo (integer, 
+  real, etc.) y longitud(real*4, double precision, etc.). Pensemos en los 
+  bloques COMMON como lo que son. Intercambio de valores por referencia, solo 
+  que no especificados como argumentos de la función o subrutina. 
+</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <H3>3.4.2 SENTENCIAS ASOCIADAS A LOS MODULOS</H3></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Dicho todo esto, pasemos a ver en detalle, todas y cada una de las 
+  sentencias asociadas a módulos. Las sentencias empleadas para definir y usar 
+  módulos son:</P>
+  <P>&nbsp;</P>
+  <DIV align=center>
+  <CENTER>
+  <TABLE width="100%">
+    <TBODY>
+    <TR>
+      <TD align=middle><A 
+        href="http://personal.redestb.es/mgtalles/fortran/tema3_5.htm#FUNCTION"><B>FUNCTION</B></A></TD>
+      <TD align=middle><A 
+        href="http://personal.redestb.es/mgtalles/fortran/tema3_5.htm#COMMON"><B>COMMON</B></A></TD>
+      <TD align=middle><A 
+        href="http://personal.redestb.es/mgtalles/fortran/tema3_5.htm#ENTRY"><B>ENTRY</B></A></TD></TR>
+    <TR>
+      <TD align=middle><A 
+        href="http://personal.redestb.es/mgtalles/fortran/tema3_5.htm#SUBROUTINE"><B>SUBROUTINE</B></A></TD>
+      <TD align=middle><A 
+        href="http://personal.redestb.es/mgtalles/fortran/tema3_5.htm#INTERFACE"><B>INTERFACE 
+        TO..END</B></A></TD>
+      <TD align=middle><A 
+        href="http://personal.redestb.es/mgtalles/fortran/tema3_5.htm#SAVE"><B>SAVE</B></A></TD></TR>
+    <TR>
+      <TD align=middle><A 
+        href="http://personal.redestb.es/mgtalles/fortran/tema3_5.htm#RETURN"><B>RETURN</B></A></TD>
+      <TD align=middle><A 
+        href="http://personal.redestb.es/mgtalles/fortran/tema3_5.htm#BLOCK"><B>BLOCK 
+        DATA</B> </A></TD>
+      <TD align=middle><A 
+        href="http://personal.redestb.es/mgtalles/fortran/tema3_5.htm#EXTERNAL"><B>EXTERNAL</B></A></TD></TR>
+    <TR>
+      <TD align=middle><A 
+        href="http://personal.redestb.es/mgtalles/fortran/tema3_5.htm#CALL"><B>CALL</B></A></TD>
+      <TD align=middle><STRONG>END</STRONG></TD>
+      <TD align=middle><A 
+        href="http://personal.redestb.es/mgtalles/fortran/tema3_5.htm#INTRINSIC"><B>INTRINSIC</B></A></TD></TR></TBODY></TABLE></CENTER></DIV></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>La explicación para cada una de ellas es la siguiente: </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>-SENTENCIA <A name=FUNCTION><B>FUNCTION</B></A></P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Esta sentencia<B> </B>declara una función definida por el usuario 
+  (externa.). Es similar a la sentencia PROGRAM en un programa. Da nombre a la 
+  función y determina sus parámetros formales. Su sintaxis es:</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P>TIPO <B>FUNCTION</B> <B><I>NOMBRE</I></B> 
+(PARAMETROS)</P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Donde TIPO, es el tipo de dato en que se define la función,(tipo entero 
+  real, etc..), y es el tipo que tendrá el resultado (la variable 
+  <I>NOMBRE</I>). <B><I>NOMBRE</I></B><I>,</I> es el nombre de la función,(el de 
+  la variable que contendrá el resultado, y PARAMETROS son los parámetros 
+  formales de la función, que recibe del programa principal.</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Para aclarar ideas baste este ejemplo de función externa: </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE><PRE><B>REAL</B> <B>FUNCTION</B><B><I> </I></B><I>VOL_ESFERA </I>(<I>R</I>) 
+<B>REAL</B> <I>R</I> 
+<B>REAL</B> <I>PI</I>=3.1415927 
+<I>  VOL_ESFERA</I>=4/3*<I>PI</I>*<I>R</I>**3 
+<B>END</B></PRE></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>que calcula el volumen de una esfera de radio R. El nombre de la función es 
+  VOL_ESFERA. de tipo REAL Nótese que <B>el nombre de la función es usado dentro 
+  de ella para guardar el resultado de esta</B>. Como parámetro formal del 
+  programa principal, se recibe el radio de la esfera. La línea del programa 
+  principal podría ser del tipo:</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE><PRE><I>VOLUMEN</I>=<B><I>VOL_ESFERA</I></B>(<I>RADIO</I>)</PRE></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>en la cual se usa el nombre de la función como si de una variable más se 
+  tratara. Al final de esta, VOLUMEN contendrá el resultado de la función 
+  Conviene observar que un subprograma o función siempre termina con la 
+  sentencia <B>END</B>, igual que un programa principal.</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>-SENTENCIA <A name=SUBROUTINE><B>SUBROUTINE</B></A></P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Esta sentencia se emplea para la creación de subprogramas (subrutinas). 
+  Mediante ella se pueden extraer del programa principal bloques de código que 
+  se usen con frecuencia, para de esta forma reducir el tamaño del código. Su 
+  sintaxis es:</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P><B>SUBROUTINE</B> <B><I>NOMBRE</I></B> 
+(PARAMETROS)</P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Donde <B><I>NOMBRE</I></B> es el nombre del subprograma y PARAMETROS son 
+  los parámetros formales que recibe del programa principal. En la subrutina NO 
+  se define el tipo de dato que es, pues no es como una función en la cual el 
+  resultado de esta se devuelve en el nombre de la función. En una subrutina los 
+  datos se envían y reciben mediante los parámetros formales y los bloques 
+  comunes (common). Es por tanto, un programa independiente del principal, 
+  ligado a este únicamente por los datos que se envían y reciben. 
+</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>La función descrita anteriormente, podría ponerse como subrutina 
+así:</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE><PRE><B>SUBROUTINE</B> <B><I>VOLUMEN</I></B>(<I>VOL_ESFERA,R</I>) 
+<B>REAL</B><I> VOL_ESFERA,R</I> 
+<B>REAL</B> <I>PI</I>/3.1415927/
+<I>VOL_ESFERA</I>=4/3*<I>PI</I>*<I>R</I>**3 
+<B>END</B></PRE></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>y se llamaría desde el programa principal mediante la 
+sentencia:</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE><PRE><B>CALL</B> <B><I>VOLUMEN</I></B>(<I>V,R</I>)</PRE></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Se ve pues que los parámetros formales que el programa envía se 
+  corresponderán con los recibidos de la siguiente forma:</P></BLOCKQUOTE>
+<P align=center><I>V</I> <I>=VOL_ESFERA</I> volumen de la esfera </P>
+<P align=center><I>R</I> <I>=R</I> radio de la esfera</P>
+<BLOCKQUOTE>
+  <P>Esta situación provoca que al retornar de la subrutina, <I>V</I> contendrá 
+  el resultado(el volumen). Recordemos que el paso de datos se realiza <B>por 
+  referencia</B>, lo que implica que <I>V</I> y <I>VOL_ESFERA</I> <B>son dos 
+  formas de llamar a una misma posición de memoria.</B> </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Véanse los ejemplos correspondientes para aclarar ideas. </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>-SENTENCIA <A name=RETURN><B>RETURN</B></A></P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Esta sentencia permite salir de un módulo de forma forzada. Podemos 
+  mediante ella retornar al programa principal antes de haber terminado por 
+  completo el proceso de la función y subrutina. Su sintaxis es </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P><B>RETURN</B></P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Un ejemplo de uso seria la rutina:</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE><PRE><B>SUBROUTINE</B> <B><I>VOLUMEN</I></B>(<I>VOL_ESFERA,R</I>)
+<B>REAL</B><I> VOL_ESFERA,R</I> 
+<B>REAL</B> <I>PI</I>/3.1415927/ 
+<B> IF </B>(<I>R</I><B>.LT.</B>0.) <B>THEN</B> 
+<B>   WRITE</B>(*,*)'El radio es negativo!' 
+<B>   RETURN</B> 
+<B> ELSE</B> 
+<I>   VOL_ESFERA</I>=4/3*<I>PI</I>*<I>R</I>**3 
+<B> ENDIF</B> 
+<B>END</B></PRE></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P><B>-</B>SENTENCIA<B> </B><A name=CALL><B>CALL</B></A></P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Esta sentencia se usa para llamar a una subrutina desde el programa 
+  principal o desde un subprograma. Su sintaxis es:</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P><B>CALL</B> <B><I>NOMBRESUB</I></B> 
+(PARAMETROS)</P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Donde <B><I>NOMBRESUB</I></B> es el nombre de la subrutina a llamar y 
+  PARAMETROS son las variables que recibirá la subrutina como parámetros 
+  formales. </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Recordemos que el FORTRAN <B>no permite la programación recursiva</B>, lo 
+  que significa que <B>no podemos llamar a un modulo desde si mismo</B>. Es 
+  decir no podemos llamar a una subrutina desde si misma. Un ejemplo de lo que 
+  <B>NO SE PUEDE</B> hacer es:</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE><PRE><B>SUBROUTINE</B> <B><I>MALA</I></B><I>(A,B,C</I>) 
+<B>REAL</B> <I>A,B,C</I> 
+<I>A</I>=1 
+<I>B</I>=2 
+<I>C</I>=A*B 
+<B>IF</B> (<I>C</I><B>.GT.</B>0) <B>CALL</B> <B><I>MALA</I></B>(<I>A,B,C</I>) 
+<B>END</B></PRE></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P><B>-</B>SENTENCIA <A name=COMMON><B>COMMON</B></A></P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Mediante esta sentencia podemos crear bloques de memoria en los cuales 
+  podemos definir variables, y asignar un nombre al conjunto, para, 
+  posteriormente, compartir datos con otras variables. Su sintaxis 
+es:</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE><PRE><B>COMMON</B> &lt;/NOMBRE/&gt; <I>VAR1,VAR2</I>,...</PRE></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Donde el NOMBRE es opcional, pero recomendado, pues el FORTRAN<B> solo 
+  permite crear un bloque COMMON sin nombre</B>, y <I>VARx</I> es el conjunto de 
+  variables que se colocarán en el bloque. </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>El funcionamiento de <B>COMMON</B> gráficamente podría ser como en la 
+  figura: </P></BLOCKQUOTE>
+<P><IMG height=84 hspace=0 
+src="Microsoft FORTRAN 5_1_ Funciones y subrutinas_archivos/IMG00011.gif" 
+width=384 align=right> </P>
+<BLOCKQUOTE>
+  <P>Esta figura representa un bloque COMMON de tres variables, ( una entera, 
+  una real y un vector de 2 componentes). La sintaxis para definir este bloque 
+  habría podido ser así: </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE><PRE><B>COMMON</B> <I>PEPE,PI,INTENSIDAD</I>(2)</PRE></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Que crea el bloque (sin nombre), de 4 casillas de la figura anterior. Desde 
+  un subprograma puede ahora llamarse a este bloque sin más que insertar una 
+  sentencia COMMON en su bloque de declaración:</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE><PRE><B>SUBROUTINE</B> <B><I>SUB</I></B>(...) 
+... 
+... 
+<B>COMMON</B> <I>PEPA,TEO,MATRIZ</I>(2) 
+...
+</PRE></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Es interesante destacar que podemos mediante COMMON reasignar nombres a las 
+  variables e incluso unir varias en tensores o viceversa. En el ejemplo 
+  anterior, podríamos definir en el subprograma el bloque common 
+así:</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE><PRE><B>COMMON</B> <I>ENTERA,VECTOR</I>(3)</PRE></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Con lo que VECTOR ha englobado tanto a PI como a INTENSIDAD. Podríamos 
+  incluso definir variables como complejas en un programa principal, y como 
+  vectores de dos componentes en un subprograma. Las posibilidades son muy 
+  amplias.<BR></P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>-SENTENCIA<B> </B><A name=INTERFACE><B>INTERFACE</B></A><B> 
+TO..END</B></P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Esta función permite el empleo de funciones externas de librerías 
+  especiales. Se tratará en el tema de programación avanzada.</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>-SENTENCIA<B> </B><A name=BLOCK><B>BLOCK</B></A><B> DATA</B></P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Esta sentencia permite el uso de la sentencia<B> DATA </B>para inicializar 
+  variables definidas en bloques<B> COMMON.</B> El FORTRAN no permite usar la 
+  asignación en declaración ni la sentencia<B> DATA </B>con variables en 
+  bloques<B> COMMON. </B>Esta sentencia crea un nuevo módulo, de inicialización, 
+  en el cual si se permite. Su sintaxis es:<BR></P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P><B>BLOCK DATA</B> <I>NOMBRE</I></P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Donde nombre<I> </I>es el nombre dado al módulo block data<I>.</I> Un 
+  ejemplo de esto sería:</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE><PRE><B>BLOCK DATA </B><I>INICIAL</I> 
+<B>INTEGER </B>X 
+<B>REAL </B><I>Y</I>(20<B>)</B> 
+<B>COMMON /</B><I>BLOQUE1</I><B>/ </B><B><I>X,Y</I></B> 
+<B>DATA </B><I>X</I><B>/1/,</B><I>Y</I><B>/20*0./</B> 
+<B>END</B></PRE></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Este módulo inicializa las variables del bloque <B>COMMON</B> de nombre 
+  <I>BLOQUE1</I>. </P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>El bloque <B>BLOCK DATA</B> es de declaración. <B>No está permitida ninguna 
+  sentencia de ejecución.</B></P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>-SENTENCIA<B> </B><A name=ENTRY><B>ENTRY</B></A></P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>La sentencia<B> RETURN </B>nos permitía salir de forma forzada de un 
+  módulo. La sentencia<B> ENTRY </B>nos permite lo contrario, es decir, entrar 
+  en una determinada posición en un subprograma. Su sintaxis es:</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P><B>ENTRY </B>NOMBRE(LISTA)</P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Donde NOMBRE es el nombre del punto de entrada y lista es la lista de 
+  variables enviadas</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>-SENTENCIA <A name=SAVE><B>SAVE</B></A></P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Muchas veces resulta necesario que una vez se ha llamado a un subprograma, 
+  algunas de sus variables conserven su valor para posteriores 
+  llamadas(variables estáticas).Esto se consigue mediante esta sentencia, 
+  situada inmediatamente después de la línea de definición de la 
+  <B>SUBROUTINE</B> o <B>FUNCTION</B>. Su sintaxis es:</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P><B>SAVE</B> &lt;(LISTA)&gt;</P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Donde LISTA es la lista de variables que deberán conservar su valor entre 
+  llamadas. Si se omite, todas las variables guardarán su valor. 
+Así.</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE><PRE><B>SUBROUTINE</B> <B><I>EJEMPLO</I></B>(<I>A,B,C</I>) 
+<B>SAVE</B> (<I>A</I>) 
+<B>REAL</B> <I>A</I>/2./,<I>B,C</I> 
+.... 
+<B>END</B></PRE></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>La variable <I>A</I> se inicializa a 2 solo en la primera llamada. En las 
+  siguientes, conservará el valor que vaya adquiriendo a lo largo del 
+  módulo<B>.</B></P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>-SENTENCIAS<B> </B><A name=EXTERNAL><B>EXTERNAL</B></A><B> e </B><A 
+  name=INTRINSIC><B>INTRINSIC</B></A></P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Cuando un procedimiento externo no se encuentra en el mismo fichero de 
+  código FORTRAN, debemos "reservar" su nombre, para que el compilador sepa que 
+  se trata de un nombre de subrutina o función y no de una variable normal. Para 
+  ello se declaran estos nombres como de funciones externas mediante la 
+  sentencia:</P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P><B>EXTERNAL </B><I>NOMBRE1,NOMBRE2</I>,....</P></BLOCKQUOTE></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <P>Donde <I>NOMBRE1</I><B>,</B>etc son los nombres de los distintos módulos 
+  externos. De esta forma el compilador sabe que cuando hacemos referencia a 
+  estos nombres, nos referimos a los módulos y no a variables. Si la función o 
+  procedimiento es una función interna del FORTRAN usamos la sentencia<B> 
+  INTRINSIC, </B>con la misma sintaxis que<B> EXTERNAL. </B>La versión 5.1 no 
+  necesita de estas dos sentencias, pues reconoce automáticamente las variables 
+  y los módulos, siempre que estos estén en el mismo fichero de texto (.FOR). 
+  </P></BLOCKQUOTE>
+<HR width="75%">
+
+<DIV align=center>
+<CENTER>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD><A 
+      href="http://personal.redestb.es/mgtalles/fortran/tema3_42.htm"><IMG 
+      height=40 alt="Pasar al Tema 3.4" 
+      src="Microsoft FORTRAN 5_1_ Funciones y subrutinas_archivos/anterior.jpg" 
+      width=110 align=bottom border=0></A> </TD>
+    <TD><A href="http://personal.redestb.es/mgtalles/fortran/index.htm"><IMG 
+      height=40 alt="Ir al indice" 
+      src="Microsoft FORTRAN 5_1_ Funciones y subrutinas_archivos/indice.jpg" 
+      width=110 align=bottom border=0></A> </TD>
+    <TD><A 
+      href="http://personal.redestb.es/mgtalles/fortran/tema3_51.htm"><IMG 
+      height=40 alt="Pasar a la siguiente seccion" 
+      src="Microsoft FORTRAN 5_1_ Funciones y subrutinas_archivos/sgente.jpg" 
+      width=110 align=bottom border=0></A> 
+</TD></TR></TBODY></TABLE></CENTER></DIV></BODY></HTML>

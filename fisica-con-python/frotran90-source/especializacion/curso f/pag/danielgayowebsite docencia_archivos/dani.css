@@ -1,0 +1,66 @@
+.actualizacion {
+	FONT-SIZE: 8pt; COLOR: #2d5387; FONT-FAMILY: arial
+}
+.atencion {
+	FONT-SIZE: 12pt; COLOR: #ff5d05; FONT-FAMILY: Arial, Helvetica, Geneva, Swiss, SunSans-Regular
+}
+.boton {
+	FONT-WEIGHT: normal; FONT-SIZE: 8pt; COLOR: #3060a0; FONT-FAMILY: arial; TEXT-DECORATION: none
+}
+.codigo {
+	FONT-WEIGHT: bold; FONT-SIZE: 9pt; COLOR: #194a8c; FONT-FAMILY: "Courier New", Courier, Monaco
+}
+.contenidocelda {
+	FONT-SIZE: 9pt; COLOR: #194a8c; FONT-FAMILY: Arial, Helvetica, Geneva, Swiss, SunSans-Regular
+}
+.diminuta {
+	FONT-SIZE: 8pt; COLOR: #6b91ba; FONT-FAMILY: Arial, Helvetica, Geneva, Swiss, SunSans-Regular
+}
+.menu {
+	FONT-WEIGHT: bold; FONT-SIZE: 8pt; COLOR: white; FONT-FAMILY: arial; TEXT-DECORATION: none
+}
+.novedad {
+	FONT-WEIGHT: bold; FONT-SIZE: 8pt; COLOR: #ff5d05; FONT-FAMILY: Arial, Helvetica, Geneva, Swiss, SunSans-Regular
+}
+.novedadanterior {
+	FONT-WEIGHT: bold; FONT-SIZE: 8pt; COLOR: #ff9a24; FONT-FAMILY: Arial, Helvetica, Geneva, Swiss, SunSans-Regular
+}
+.ruta {
+	FONT-WEIGHT: normal; FONT-SIZE: 8pt; COLOR: #274d81; FONT-FAMILY: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; TEXT-DECORATION: none
+}
+.seccion {
+	FONT-WEIGHT: bold; FONT-SIZE: 14pt; MARGIN-BOTTOM: 1px; COLOR: white; MARGIN-RIGHT: 10px; FONT-FAMILY: arial
+}
+.texto-pequeno {
+	FONT-SIZE: 8pt; FONT-FAMILY: Arial, Helvetica, Geneva, Swiss, SunSans-Regular
+}
+.texto-pequeno-sangrado {
+	FONT-SIZE: 8pt; MARGIN-LEFT: 1cm; TEXT-INDENT: 0pt; FONT-FAMILY: Arial, Helvetica, Geneva, Swiss, SunSans-Regular
+}
+.titulocelda {
+	FONT-WEIGHT: bold; FONT-SIZE: 9pt; COLOR: #fff; FONT-FAMILY: Arial, Helvetica, Geneva, Swiss, SunSans-Regular
+}
+A {
+	COLOR: #2d5387
+}
+BODY {
+	FONT-SIZE: 10pt; COLOR: #2d5387; FONT-FAMILY: Arial, Helvetica, Geneva, Swiss, SunSans-Regular
+}
+H1 {
+	FONT-SIZE: 14pt; FONT-FAMILY: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; TEXT-ALIGN: justify
+}
+H2 {
+	FONT-SIZE: 12pt; FONT-FAMILY: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; TEXT-ALIGN: justify
+}
+H3 {
+	FONT-SIZE: 11pt; FONT-FAMILY: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; TEXT-ALIGN: justify
+}
+H4 {
+	FONT-SIZE: 10pt; FONT-FAMILY: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; TEXT-ALIGN: justify
+}
+LI {
+	FONT-SIZE: 10pt; FONT-FAMILY: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; TEXT-ALIGN: justify
+}
+P {
+	FONT-SIZE: 10pt; TEXT-INDENT: 30px; FONT-FAMILY: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; TEXT-ALIGN: justify
+}

@@ -1,0 +1,21 @@
+c     regla del trapecio
+      program trapecio
+      real y(10), sumY, area, w,d, xdsq, xd
+      integer i, m
+      parameter(m=10)
+      do 3 i=1,m
+3     continue
+      read(*,*) Y(1)
+      sumY=0
+      do 4 i=2,m
+      sumY=sumY+Y(i)
+4     continue
+      write(*,*) 'introduzca el valor de d y W',d,w
+      read(*,*) d,w
+      area=d/2.*(Y(1)+2.*sumY+Y(m))
+      xdsq=2.*.07069*386./W*area
+      xd=sqrt(xdsq)
+      write(*,10) xd
+10    format('Velocidad de salida=',f7.3,' pulgadas por segundo')
+      stop
+      end

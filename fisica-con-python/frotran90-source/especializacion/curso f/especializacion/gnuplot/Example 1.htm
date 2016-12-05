@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0082)http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_1.html -->
+<HTML><HEAD><TITLE>Example 1:</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY background="Example 1_archivos/summer_p.gif">
+<P>
+<HR>
+<A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_2.html" 
+name=tex2html59><IMG src="Example 1_archivos/next_motif.gif" align=middle></A> 
+<A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/section3_2.html" 
+name=tex2html57><IMG src="Example 1_archivos/up_motif.gif" align=middle></A> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/section3_2.html" 
+name=tex2html51><IMG src="Example 1_archivos/previous_motif.gif" 
+align=middle></A> <BR><B>Next:</B> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_2.html" 
+name=tex2html60>Example 2:</A> <B>Up:</B> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/section3_2.html" 
+name=tex2html58>Using GNUPLOT for </A><B>Previous:</B> <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/section3_2.html" 
+name=tex2html52>Using GNUPLOT for </A>
+<HR>
+
+<P>
+<H4><A name=SECTION0002001000000000000>Example 1:</A></H4>Here is a first 
+example, producing a plot for this document. The GNUPLOT input file is given 
+below, and the output appears as Figure <A 
+href="http://vieta.math.tu-cottbus.de/programme/gnuplot/latextut/paragraph3_2_0_0_1.html#eg1">1</A>. 
+The input file defines the output to be in <IMG alt="" 
+src="Example 1_archivos/_9659_tex2html_wrap11982.xbm" align=bottom>, gives a 
+file name for the output, and plots <IMG alt="" 
+src="Example 1_archivos/_9659_tex2html_wrap11544.xbm" align=bottom> for <IMG 
+alt="" src="Example 1_archivos/_9659_tex2html_wrap11744.xbm" align=bottom> on 
+<IMG alt="" src="Example 1_archivos/_9659_tex2html_wrap11548.xbm" align=bottom>. 
+To produce the figure, I simply 
+<P>\input{eg1} 
+<P>in a <TT>center</TT> environment in a <TT>figure</TT> environment. In 
+following examples, I will enclose the figure in a box to make it look a little 
+better. 
+<P><PRE><TT>
+    set terminal latex
+    set output "eg1.tex"
+    plot [-3.14:3.14] sin(x)</TT></PRE>
+<P><A name=776><IMG src="Example 1_archivos/invis_anchor.xbm" align=middle></A>
+<P><A name=eg1><IMG src="Example 1_archivos/invis_anchor.xbm" 
+align=middle></A><IMG alt="" src="Example 1_archivos/_9659_figure76.gif" 
+align=bottom>
+<P>
+<P>Note that GNUPLOT has drawn in the axes, labeled the tic marks for us, scaled 
+the <IMG alt="" src="Example 1_archivos/_9659_tex2html_wrap11596.xbm" 
+align=bottom> axis automatically, and added a key in the upper-right-hand corner 
+(this may be moved with the <TT>set key</TT> command, and removed with <TT>set 
+nokey</TT>). 
+<P>This is the default line style for the <IMG alt="" 
+src="Example 1_archivos/_9659_tex2html_wrap11982.xbm" align=bottom> driver. 
+Because of the limited picture capabilities of <IMG alt="" 
+src="Example 1_archivos/_9659_tex2html_wrap11982.xbm" align=bottom>, many dots 
+are required to approximate drawing a solid line. This may overload the memory 
+of many <IMG alt="" src="Example 1_archivos/_9659_tex2html_wrap11520.xbm" 
+align=bottom> implementations. There are other line types available that draw 
+dotted lines and use much less memory. The EEPIC driver draws solid lines with 
+much less memory usage. 
+<P>
+<HR>
+
+<P>
+<ADDRESS>David.Kotz@dartmouth.edu </ADDRESS></BODY></HTML>

@@ -1,0 +1,421 @@
+\documentclass[12pt]{article}%
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[spanish]{babel}
+\usepackage[pdftex,dvips]{color}
+\usepackage{amsmath}
+\usepackage[spanish]{babel}
+\usepackage{fancybox}
+\usepackage[ansinew]{inputenc}
+\usepackage{amsfonts}
+\usepackage{amssymb}%
+\setcounter{MaxMatrixCols}{30}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{Version=4.00.0.2312}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+%TCIDATA{Created=Friday, October 24, 2003 07:58:30}
+%TCIDATA{LastRevised=Sunday, October 26, 2003 19:45:51}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Soluci\'{o}n}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\begin{document}
+\thispagestyle{plain}\ \newpage
+
+\textbf{\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad
+\qquad\qquad\qquad}
+
+\bigskip\thispagestyle{plain} \bigskip
+
+\begin{center}
+
+
+\textbf{{\large {M\'{E}TODOS NUM\'{E}RICOS}.\newline\newline\newline
+ASIGNACI\'{O}N \#2.}}
+
+\bigskip\bigskip
+
+\textbf{PRESETADO POR:}
+
+\bigskip
+
+\textbf{\color{blue}{{ANTALCIDES OLIVO BURGOS\\    \hspace{4pt} IRINA RUIZ BAENA}. }}%
+\vspace{3cm}\newline\textbf{PRESENTADO A: }
+\textbf{\color{blue}{\\DR  JUAN CARLOS ORTIZ \\ UNIVERSIDAD DE
+PUERTO RICO}}
+
+\textbf{\vspace{3cm}}
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\textbf{\ UNIVERSIDAD DEL NORTE-\-UNIVERSIDAD}
+
+\textbf{ESPECIALIZACI\'{O}N EN F\'{I}SICA GENERAL}
+
+\textbf{\ DEPARTAMENTO DE MATEM\'{A}TICAS Y F\'{I}SICA.\newline OCTUBRE 27 del
+2.003}
+\end{center}
+
+\newpage
+
+\section*{\color{blue}{Asignación 2}}
+
+\section{{\protect\large {M\'{E}TODOS DE INTEGRACI\'{O}N NUM\'{E}RICA}}}
+
+\subsection{LA REGLA DEL TRAPECIO}
+
+El m\'{e}todo de Euler aproxima la derivada en $\left[  x_{n},x_{n+1}\right]
+$ por una constante, concretamente por su valor en $x_{n}$.
+\textquestiondown Por qu\'{e} privilegiar al punto $x_{n}?$
+\textquestiondown No ser\'{a} mejor tomar , por ejemplo, como aproximaci\'{o}n
+constante de la derivada el promedio de sus valores en los extremos del
+intervalo? En ese caso
+\[
+y(x_{n+1})=y\left(  x_{n}\right)  +h\frac{f\left(  x_{n},y\left(
+x_{n}\right)  \right)  f\left(  x_{n+1},y\left(  x_{n+1}\right)  \right)  }%
+{2}+R_{n}%
+\]
+donde $R_{n}$ es el error de truncaci\'{o}n, por lo que se aproxima de la forma.%
+
+\[
+y_{n+1}\approx y_{n}+h\frac{f\left(  x_{n},y\left(  x_{n}\right)  \right)
+f\left(  x_{n+1},y\left(  x_{n+1}\right)  \right)  }{2}%
+\]
+
+
+Esta aproximaci\'{o}n conduce a la llamada regla del trapecio
+
+la cual \ es convergente de grado dos, es decir%
+\[
+\left\Vert e_{n}\right\Vert \leq e^{\left(  b-a\right)  L/\left(  1-\frac
+{hL}{2}\right)  }\left\Vert e_{0}\right\Vert +\frac{Ch^{2}}{L}\left(
+e^{\left(  b-a\right)  L/\left(  1-\frac{hL}{2}\right)  }-1\right)  ,\text{ si
+}0\leq n\leq N
+\]%
+\[
+\text{donde }e_{n}=y\left(  x_{n}\right)  -y_{n},\ \frac{hL}{2}<1,\ C=\frac
+{5}{12}\max_{x\in\left[  a,b\right]  }\left\Vert y^{\prime\prime\prime}\left(
+x\right)  \right\Vert \
+\]
+
+
+a pesar de que la regla del trapecio tiene un orden de convergencia mayor que
+el m\'{e}todo de Euler. eso no significa que sea un m\'{e}todo mejor , pues
+hay otra diferencia importante entre ambos m\'{e}todos. el m\'{e}todo de Euler
+es \textit{expl\'{\i}cito,} el valor de $y_{n+1}$ viene dado
+expl\'{\i}citamente en t\'{e}rmino del valor anterior $y_{n}$ y se puede
+calcular f\'{a}cilmente mediante la evaluaci\'{o}n de $f$ y una pocas
+operaciones aritm\'{e}ticas. por el contrario, la regla del trapecio es un
+m\'{e}todo \textit{impl\'{\i}cito}, para calcular $y_{n+1}$ hay que resolver
+un sistema de ecuaciones no lineales, lo que en general es computacionalmente
+costoso. de lo que se deduce, el orden no lo es todo. Aunque en un m\'{e}todo
+de orden alto en principio hay que dar menos pasos, estos pueden ser muy
+costosos, por lo que puede ser mejor un m\'{e}todo de menos orden en el que a
+pesar de dar m\'{a}s pasos cada uno de ellos lleve menos trabajo computacional.
+
+\subsection{Aplicaciones}
+
+Para aplicar este m\'{e}todo resolveremos dos problemas de f\'{\i}sica
+m\'{e}canica anal\'{\i}ticamente y usando Fortran lo resolveremos
+computacionalmente y luego calculamos el error.
+
+\begin{enumerate}
+\item un objeto que pesa $48\ lb$ se suelta desde el reposo en la parte
+superior de un plano inclinado met\'{a}lico que tiene una inclinaci\'{o}n de
+$30%
+%TCIMACRO{\U{ba}}%
+%BeginExpansion
+{{}^o}%
+%EndExpansion
+$ respecto a la horizontal. la resistencia del aire es num\'{e}ricamente igual
+a un medio de la velocidad (en pies por segundo), el coeficiente de rozamiento
+es $\frac{1}{4}$
+
+\begin{enumerate}
+\item \textquestiondown Cu\'{a}l es el tiempo que tarda el objeto para
+adquirir una velocidad de $10.2$ $ft/s$ despu\'{e}s de haberse soltado?
+
+\item \textquestiondown Cu\'{a}l es la distancia sobre el plano que ha
+recorrido el cuerpo, para alcanzar la velocidad de $10.2$ $ft/s$?%
+%TCIMACRO{\FRAME{dhF}{2.7691in}{1.8273in}{0pt}{}{}{fortran.jpg}%
+%{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "USEDEF";  valid_file "F";
+%width 2.7691in;  height 1.8273in;  depth 0pt;  original-width 2.7268in;
+%original-height 1.7902in;  cropleft "0";  croptop "1";  cropright "1";
+%cropbottom "0";  filename 'fortran.jpg';file-properties "XNPEU";}}}%
+%BeginExpansion
+\begin{center}
+\includegraphics[
+natheight=1.790200in,
+natwidth=2.726800in,
+height=1.8273in,
+width=2.7691in
+]%
+{fortran.jpg}%
+\end{center}
+%EndExpansion
+
+\end{enumerate}
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}
+\item[a.] La l\'{\i}nea de movimiento es a lo largo del plano, si escogemos el
+origen del sistema de referencia en la parte superior y el sentido positivo de
+las $x$ hacia abajo del plano, entonces las%
+%TCIMACRO{\FRAME{dhF}{2.8643in}{2.1715in}{0pt}{}{}{plano.jpg}%
+%{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "USEDEF";  valid_file "F";
+%width 2.8643in;  height 2.1715in;  depth 0pt;  original-width 2.8098in;
+%original-height 2.1231in;  cropleft "0";  croptop "1";  cropright "1";
+%cropbottom "0";  filename 'plano.jpg';file-properties "XNPEU";}}}%
+%BeginExpansion
+\begin{center}
+\includegraphics[
+natheight=2.123100in,
+natwidth=2.809800in,
+height=2.1715in,
+width=2.8643in
+]%
+{plano.jpg}%
+\end{center}
+%EndExpansion
+fuerzas que act\'{u}na sobre el objeto A son:\newline Su peso de 48 lb que
+act\'{u}a verticalmente hacia abajo.\newline La fuerza normal, N que ejerce el
+plano sobre el objeto la cual act\'{u}a en la direcci\'{o}n positiva y
+perpendicular al plano.\newline La resitencia del aire $f_{a}$,que tiene un
+valor num\'{e}rico igual a $\frac{v}{2}$, puesto que $v>0$ esta fuerza tiene
+una direcci\'{o}n negativa en $x.$\newline La fuerza de rozamiento, que tiene
+un valor $\mu N$ y tiene una direcci\'{o}n negativa en $x.$\newline de la
+gr\'{a}fica 2 y aplicando la segunda ley de Newton obtenemos
+\begin{align*}
+\text{ en }x &  :\ \ ma\ =Wsen30%
+%TCIMACRO{\U{ba}}%
+%BeginExpansion
+{{}^o}%
+%EndExpansion
+-f_{s}-f_{r}\\
+f_{r} &  =\mu N\\
+\text{en }y &  :0=N-W\cos30%
+%TCIMACRO{\U{ba}}%
+%BeginExpansion
+{{}^o}%
+%EndExpansion
+\end{align*}
+Reemplazando los valores y resolviendo el sistema de las tres ecuaciones
+anteriores se obtiene:%
+\[
+\frac{3}{2}\frac{dv}{dt}=24-6\sqrt{3}-\frac{1}{2}v
+\]
+al separar variables se obtiene%
+\[
+\frac{dv}{48-12\sqrt{3}-v}=\frac{dt}{3}%
+\]
+como cuando $t=0,\ v=0$ se tiene%
+\begin{align}
+\int_{0}^{10.2}\frac{dv}{48-12\sqrt{3}-v} &  =\int_{0}^{t}\frac{dt}%
+{3}\label{ec1}\\
+0.469\,66 &  =\frac{1}{3}t\\
+t_{a} &  =1.\,\allowbreak409\,0\ s
+\end{align}
+de la ecuaci\'{o}n \ref{ec1} observamos que la velocidad final debe cumplir la
+siguiente condici\'{o}n $v<27.\,\allowbreak215$
+
+\item[b.] Al resolver anal\'{\i}ticamente la ecuaci\'{o}n \ref{ec1} y
+despejando $t$ obtenemos que
+\begin{align*}
+v &  =\left(  48-12\sqrt{3}\right)  \left(  1-e^{-\frac{t}{3}}\right)  \\
+\frac{dx}{dt} &  =\left(  48-12\sqrt{3}\right)  \left(  1-e^{-\frac{t}{3}%
+}\right)
+\end{align*}
+de lo que se obtiene%
+\[
+\int_{0}^{x}dy=\int_{0}^{1.409}\left(  48-12\sqrt{3}\right)  \left(
+1-e^{-\frac{t}{3}}\right)  dt
+\]
+ya que $x\left(  0\right)  =0\ ,~t_{0}=0,$ al integrar podemos determinar lo
+que nos piden, as\'{\i}:%
+\begin{align*}
+x_{a} &  =\left(  13.\,\allowbreak662-3.\,\allowbreak415\,6\sqrt{3}\right)
+ft\\
+x_{a} &  =7.\,\allowbreak746\ ft
+\end{align*}
+
+\end{enumerate}
+\end{solution}
+
+\begin{solution}
+
+
+\begin{enumerate}
+\item[a.] Podemos resolver el problema \ num\'{e}ricamente utilizando la
+ecuaci\'{o}n \ref{ec1} y aplicando la regla del trapecio para calcular la
+integral, estableciendo en el algoritmo%
+\[%
+%TCIMACRO{\dint _{a}^{b}}%
+%BeginExpansion
+{\displaystyle\int_{a}^{b}}
+%EndExpansion
+\,\,t(v)\,dv\approx T_{tra}=\dfrac{\Delta v}{2}\left[  f(v_{0})+2f(v_{1}%
+)+2f(v_{2})+\cdots+2f(v_{n-1})+f(v_{n})\right]
+\]
+donde
+\[
+\Delta v=(b-a)/n\text{\quad y\quad}v_{i}=a+i\,\Delta v
+\]%
+%TCIMACRO{\QTR{BOXHEAD}{El error m\'{a}ximo del m\'{e}todo se puede
+%calcular:}}%
+%BeginExpansion
+El error m\'{a}ximo del m\'{e}todo se puede calcular:%
+%EndExpansion
+\newline Suponiendo $\left\vert f^{\prime\prime}(v)\right\vert \leq K$ para
+$a\leq v\leq b$. Si $E_{T}$ es el error del m\'{e}todo del trapecio
+\[
+\left\vert E_{T}\right\vert \leq\frac{K(b-a)^{3}}{12n^{2}}%
+\]
+Para utilizar este m\'{e}todo \ determinaremos varios subintervalos de la
+velocidad.\newline Por ejemplo.
+
+\item[i.] Para $n=15$
+\begin{align*}
+t  &  =3\left(  \frac{0.34}{48-12\sqrt{3}}+0.68\sum_{i=1}^{14}\frac
+{1}{48-12\sqrt{3}-0.68i}+\allowbreak\frac{0.34}{37.\,\allowbreak8-12\sqrt{3}%
+}\right)  s\\
+t  &  =1.\,\allowbreak409\,3.s.
+\end{align*}
+
+
+\item[ii.] Para $n=30$%
+\begin{align*}
+t_{n} &  =\left(  \frac{0.51}{48-12\sqrt{3}}+0.34\sum_{i=1}^{29}\frac
+{3}{48-12\sqrt{3}-0.34i}+\allowbreak\frac{0.51}{37.\,\allowbreak8-12\sqrt{3}%
+}\right)  s\\
+&  =\allowbreak1.\,\allowbreak409\,1s
+\end{align*}
+Para $n=50$%
+\begin{align*}
+t_{n} &  =\left(  \frac{0.306\,}{48-12\sqrt{3}}+0.204\,\sum_{i=1}^{49}\frac
+{3}{48-12\sqrt{3}-0.204\,i}+\allowbreak\frac{0.306\,}{37.\,\allowbreak
+8-12\sqrt{3}}\right)  s\\
+t_{n} &  =:1.\,\allowbreak409028s
+\end{align*}
+
+
+\item[iii.] Para $n=55$%
+\begin{align*}
+t_{n} &  =\left(  \frac{0.278\,18}{48-12\sqrt{3}}+0.185\,45\sum_{i=1}%
+^{54}\frac{3}{48-12\sqrt{3}-0.185\,45i}+\allowbreak\frac{0.278\,18}%
+{37.\,\allowbreak8-12\sqrt{3}}\right)  s\\
+t_{n} &  =\allowbreak1.\,\allowbreak409\,0s.
+\end{align*}
+Si observamos las gr\'{a}ficas de la funci\'{o}n cuando $n=15$ y $n=55$
+observamos que el error debe ser menor para $n=55$ el cual calcularemos
+anal\'{\i}ticamente ya que conocemos $t\left(  v\right)  ,$ aunque tambi\'{e}n
+lo calcularemos de acuerdo con la f\'{o}rmula de error del m\'{e}todo\newline
+\end{enumerate}
+\end{solution}%
+
+\begin{tabular}
+[c]{ll}%
+%TCIMACRO{\FRAME{ihF}{3.1038in}{1.9545in}{0pt}{}{}{trap15.jpg}%
+%{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "USEDEF";  valid_file "F";
+%width 3.1038in;  height 1.9545in;  depth 0pt;  original-width 3.0597in;
+%original-height 1.9164in;  cropleft "0";  croptop "1";  cropright "1";
+%cropbottom "0";  filename 'trap15.jpg';file-properties "XNPEU";}}}%
+%BeginExpansion
+\raisebox{-0pt}{\includegraphics[
+natheight=1.916400in,
+natwidth=3.059700in,
+height=1.9545in,
+width=3.1038in
+]%
+{trap15.jpg}%
+}%
+%EndExpansion
+&
+%TCIMACRO{\FRAME{ihF}{3.1038in}{1.9545in}{0pt}{}{}{trap50.jpg}%
+%{\special{ language "Scientific Word";  type "GRAPHIC";
+%maintain-aspect-ratio TRUE;  display "USEDEF";  valid_file "F";
+%width 3.1038in;  height 1.9545in;  depth 0pt;  original-width 3.0597in;
+%original-height 1.9164in;  cropleft "0";  croptop "1";  cropright "1";
+%cropbottom "0";  filename 'trap50.jpg';file-properties "XNPEU";}}}%
+%BeginExpansion
+\raisebox{-0pt}{\includegraphics[
+natheight=1.916400in,
+natwidth=3.059700in,
+height=1.9545in,
+width=3.1038in
+]%
+{trap50.jpg}%
+}%
+%EndExpansion
+\end{tabular}
+\newline Para calcular el error por truncamiento debemos calcular  $\left\vert
+f^{\prime\prime}(v)\right\vert $ la cual es
+\begin{align*}
+f^{\prime}\left(  v\right)    & =\frac{3}{\left(  48-12\sqrt{3}-v\right)
+^{2}}\\
+f^{\prime\prime}\left(  v\right)    & =\frac{6}{\left(  48-12\sqrt
+{3}-v\right)  ^{3}}\\
+f^{\prime\prime\prime}\left(  v\right)    & =\allowbreak\frac{18}{\left(
+48-12\sqrt{3}-v\right)  ^{4}}.
+\end{align*}
+Como $f^{\prime\prime\prime}\left(  v\right)  >0$ entonces $f^{\prime\prime
+}\left(  v\right)  $ no tiene maximo relativo, ya que es creciente por tanto
+tomamos como
+\[
+K=\left\vert f^{\prime\prime}\left(  10.2\right)  \right\vert =\frac
+{6}{\left(  48-12\sqrt{3}-10.2\right)  ^{3}}=1.\,\allowbreak217\,9\times
+10^{-3}.
+\]
+As\'{\i} tenemos que el error es
+\begin{align*}
+\left\vert E_{T}\right\vert  & \leq\frac{K(b-a)^{3}}{12n^{2}}=\frac{\left(
+1.\,\allowbreak217\,9\times10^{-3}\right)  \left(  10.2\right)  ^{3}}{12n^{2}%
+}\\
+\text{si }n  & =15,\text{\ \ \ }\left\vert E_{T}\right\vert =\frac
+{1.\,\allowbreak292\,4}{\left(  12\right)  \left(  15\right)  ^{2}%
+}=4.\,\allowbreak786\,7\times10^{-4}\\
+\text{si }n  & =55,\text{\ \ \ }\left\vert E_{T}\right\vert =\frac
+{1.\,\allowbreak292\,4}{\left(  12\right)  \left(  55\right)  ^{2}%
+}=3.\,\allowbreak560\,3\times10^{-5}%
+\end{align*}
+Mientras que los errores relativos para los mismos casos
+\begin{align*}
+& \varepsilon\%=100\left\vert \frac{\left(  t_{a}-t_{n}\right)  }{t_{a}%
+}\right\vert \\
+\text{si }n  & =15,\ \ \varepsilon\%=100\left\vert \frac{\left(
+1.\,\allowbreak409\,0-1.\,\allowbreak409\,3\right)  }{1.\,\allowbreak
+409\,0}\right\vert =2.\,\allowbreak129\,2\times10^{-2}%
+\end{align*}
+
+
+
+\end{document}

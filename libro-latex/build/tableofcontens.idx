@@ -1,0 +1,89 @@
+\indexentry{estructura|hyperpage}{13}
+\indexentry{paquete|hyperpage}{13}
+\indexentry{fichero de entrada|hyperpage}{13}
+\indexentry{pre\'ambulo|hyperpage}{13}
+\indexentry{instrucciones!documentclass@\texttt  {\char 92\relax documentclass}|hyperpage}{14}
+\indexentry{documentclass@\texttt  {\hspace  *{-1.2ex}\char 92\relax documentclass}|hyperpage}{14}
+\indexentry{instrucciones!documentclass@\texttt  {\char 92\relax documentclass}|hyperpage}{14}
+\indexentry{documentclass@\texttt  {\hspace  *{-1.2ex}\char 92\relax documentclass}|hyperpage}{14}
+\indexentry{opciones|hyperpage}{14}
+\indexentry{articulo@art\'iculo|hyperpage}{15}
+\indexentry{clase \texttt{article}@clase article|hyperpage}{15}
+\indexentry{informe|hyperpage}{15}
+\indexentry{clase \texttt{report}@clase report|hyperpage}{15}
+\indexentry{libro|hyperpage}{15}
+\indexentry{clase \texttt{book}@clase book|hyperpage}{15}
+\indexentry{transparencias|hyperpage}{15}
+\indexentry{clase \texttt{slide}@clase slide|hyperpage}{15}
+\indexentry{tama~no de los     tipos!del documento|hyperpage}{15}
+\indexentry{papel legal|hyperpage}{15}
+\indexentry{tama~no del     papel|hyperpage}{15}
+\indexentry{papel DIN-A4|hyperpage}{15}
+\indexentry{papel de carta|hyperpage}{15}
+\indexentry{papel DIN-A5|hyperpage}{15}
+\indexentry{papel DIN-B5|hyperpage}{15}
+\indexentry{papel ejecutivo|hyperpage}{15}
+\indexentry{t\'itulo del documento|hyperpage}{15}
+\indexentry{titlepage@\texttt{titlepage}|hyperpage}{15}
+\indexentry{dos columnas|hyperpage}{15}
+\indexentry{instrucciones!documentclass@\texttt  {\char 92\relax documentclass}|hyperpage}{16}
+\indexentry{documentclass@\texttt  {\hspace  *{-1.2ex}\char 92\relax documentclass}|hyperpage}{16}
+\indexentry{paquete|hyperpage}{16}
+\indexentry{gr\'aficos|hyperpage}{16}
+\indexentry{texto en color|hyperpage}{16}
+\indexentry{instrucciones!usepackage@\texttt  {\char 92\relax usepackage}|hyperpage}{16}
+\indexentry{usepackage@\texttt  {\hspace  *{-1.2ex}\char 92\relax usepackage}|hyperpage}{16}
+\indexentry{paquetes!doc@\textsf  {doc}|hyperpage}{17}
+\indexentry{doc@\textsf  {doc}|hyperpage}{17}
+\indexentry{paquetes!exscale@\textsf  {exscale}|hyperpage}{17}
+\indexentry{exscale@\textsf  {exscale}|hyperpage}{17}
+\indexentry{paquetes!fontenc@\textsf  {fontenc}|hyperpage}{17}
+\indexentry{fontenc@\textsf  {fontenc}|hyperpage}{17}
+\indexentry{codificaci\'on de tipo|hyperpage}{17}
+\indexentry{paquetes!ifthen@\textsf  {ifthen}|hyperpage}{17}
+\indexentry{ifthen@\textsf  {ifthen}|hyperpage}{17}
+\indexentry{paquetes!latexsym@\textsf  {latexsym}|hyperpage}{17}
+\indexentry{latexsym@\textsf  {latexsym}|hyperpage}{17}
+\indexentry{paquetes!makeidx@\textsf  {makeidx}|hyperpage}{17}
+\indexentry{makeidx@\textsf  {makeidx}|hyperpage}{17}
+\indexentry{paquetes!syntonly@\textsf  {syntonly}|hyperpage}{17}
+\indexentry{syntonly@\textsf  {syntonly}|hyperpage}{17}
+\indexentry{paquetes!inputenc@\textsf  {inputenc}|hyperpage}{17}
+\indexentry{inputenc@\textsf  {inputenc}|hyperpage}{17}
+\indexentry{paquetes!ascii@\textsf  {ascii}|hyperpage}{17}
+\indexentry{ascii@\textsf  {ascii}|hyperpage}{17}
+\indexentry{paquetes!latin1@\textsf  {latin1}|hyperpage}{17}
+\indexentry{latin1@\textsf  {latin1}|hyperpage}{17}
+\indexentry{paquetes!latin2@\textsf  {latin2}|hyperpage}{17}
+\indexentry{latin2@\textsf  {latin2}|hyperpage}{17}
+\indexentry{paquetes!cp437@\textsf  {cp437}|hyperpage}{17}
+\indexentry{cp437@\textsf  {cp437}|hyperpage}{17}
+\indexentry{paquetes!cp580@\textsf  {cp580}|hyperpage}{17}
+\indexentry{cp580@\textsf  {cp580}|hyperpage}{17}
+\indexentry{paquetes!applemac@\textsf  {applemac}|hyperpage}{17}
+\indexentry{applemac@\textsf  {applemac}|hyperpage}{17}
+\indexentry{paquetes!next@\textsf  {next}|hyperpage}{17}
+\indexentry{next@\textsf  {next}|hyperpage}{17}
+\indexentry{paquetes!ansinew@\textsf  {ansinew}|hyperpage}{17}
+\indexentry{ansinew@\textsf  {ansinew}|hyperpage}{17}
+\indexentry{cabeceras|hyperpage}{18}
+\indexentry{pies de p\'agina|hyperpage}{18}
+\indexentry{estilo de pagina@estilo de p\'agina|hyperpage}{18}
+\indexentry{estilo de pagina@estilo de p\'agina!plain@\texttt{plain}|hyperpage}{18}
+\indexentry{plain@\texttt{plain}|hyperpage}{18}
+\indexentry{estilo de pagina@estilo de p\'agina!headings@\texttt{headings}|hyperpage}{18}
+\indexentry{headings@\texttt{headings}|hyperpage}{18}
+\indexentry{estilo de pagina@estilo de p\'agina!empty@\texttt{empty}|hyperpage}{18}
+\indexentry{empty@\texttt{empty}|hyperpage}{18}
+\indexentry{instrucciones!pagestyle@\texttt  {\char 92\relax pagestyle}|hyperpage}{18}
+\indexentry{pagestyle@\texttt  {\hspace  *{-1.2ex}\char 92\relax pagestyle}|hyperpage}{18}
+\indexentry{instrucciones!thispagestyle@\texttt  {\char 92\relax thispagestyle}|hyperpage}{18}
+\indexentry{thispagestyle@\texttt  {\hspace  *{-1.2ex}\char 92\relax thispagestyle}|hyperpage}{18}
+\indexentry{instrucciones!include@\texttt  {\char 92\relax include}|hyperpage}{18}
+\indexentry{include@\texttt  {\hspace  *{-1.2ex}\char 92\relax include}|hyperpage}{18}
+\indexentry{instrucciones!includeonly@\texttt  {\char 92\relax includeonly}|hyperpage}{18}
+\indexentry{includeonly@\texttt  {\hspace  *{-1.2ex}\char 92\relax includeonly}|hyperpage}{18}
+\indexentry{instrucciones!include@\texttt  {\char 92\relax include}|hyperpage}{18}
+\indexentry{include@\texttt  {\hspace  *{-1.2ex}\char 92\relax include}|hyperpage}{18}
+\indexentry{instrucciones!includeonly@\texttt  {\char 92\relax includeonly}|hyperpage}{18}
+\indexentry{includeonly@\texttt  {\hspace  *{-1.2ex}\char 92\relax includeonly}|hyperpage}{18}

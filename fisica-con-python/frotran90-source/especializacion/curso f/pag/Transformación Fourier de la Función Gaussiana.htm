@@ -1,0 +1,239 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0073)http://www.df.uba.ar/users/dmitnik/teoricaII/ondas/programs/gaussian.html -->
+<HTML><HEAD><TITLE>Transformación Fourier de la Función Gaussiana</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR></HEAD>
+<BODY>
+<H1 style="COLOR: red" align=center>Transformación Fourier de la Función 
+Gaussiana </H1><TR><TD>
+<HR noShade SIZE=1>
+<FONT color=#0000ff>
+<H1>Cómo dibujar una onda armónica</H1></FONT>En esta primer parte veremos un 
+ejemplo de có se puede visualizar el avance de una onda armónica en el tiempo. 
+Para ello, modificaremos levemente el programa <I><B>sin3.f</B></I> que vimos en 
+la práctica anterior, agregándole la variable temporal. El programa se llama <A 
+href="http://www.df.uba.ar/users/dmitnik/teoricaII/ondas/programs/beat/armonic.f" 
+target=_blank>armonic.f</A> y es el siguiente: 
+<P>
+<TABLE cellSpacing=0 cellPadding=5 align=center bgColor=#ffcccc border=0>
+  <TBODY>
+  <TR>
+    <TD><PRE>	program armonic
+
+c....... This program prints two columns in files "wavet###.dat"
+c	 where ### means different times.
+c	X: "npoints" angles between 0 and 6*Pi
+c	Y: sin(kX-wT)
+
+
+c....... variables declaration
+	implicit real*8(a-h,o-z)
+
+        common/blockwave/rk,w
+	data npoints,ntpoints/2000,10/	!! npoints: points in x
+c					!! ntpoints: number of graphs in t
+
+c....... calculation of Pi
+	Pi = 2.0d0*dasin(1.0d0)
+
+c....... calculation of angular step
+	dang = 6.0d0*Pi/npoints	
+
+c...... initialization
+	rk = 1
+	w = 1
+
+	print*,' for the function y=sin(kX-wT) '
+	print*,' give the value of k :'
+	read*,rk
+	print*,' give the value of w :'
+	read*,w
+	print*,' '
+
+c...... calculation of T=Period
+	period = 2.0d0*Pi/w
+	deltat = Period/ntpoints
+	t = -deltat
+
+c...... loop in time ( 1 cycle)
+	do 500 it=1,ntpoints
+
+	  t = t + deltat
+
+c.......  table generation for this particular time
+	  x = -dang
+	  do 100 i=1,npoints		!! loop in x
+		x = x + dang
+		y = wave(x,t)
+		write(10+it,25) x,y
+100	  continue			!! end loop in x
+25	  format(5x,f10.3,3x,f14.4)	
+
+
+500	continue		!! end loop in time
+
+	stop
+	end
+
+c------------------------------------------------------------
+
+	function wave(x,t)
+	
+	implicit real*8(a-h,o-z)
+	common/blockwave/rk,w
+
+	wave = sin(rk*x - w*t)
+
+	return
+	end
+</PRE></TD></TR></TBODY></TABLE></P>
+<P>Este programa construye una serie de files (<I>fort.11, fort.12, fort.13, 
+...</I>) que podrán ser dibujados usando <B><I>xmgrace</I></B>. Una forma de 
+visualizar fácilmente el avance temporal, es graficando los resultados de la 
+siguiente forma: <BR><BR><IMG 
+src="Transformación Fourier de la Función Gaussiana_archivos/armonic.gif"> 
+<P>Mediante la pendiente podremos hallar la velocidad con que avanza la onda. 
+<P>
+<H3 style="COLOR: red">Ejercicios: </H3>
+<LI>Modificar el programa y hallar las velocidades de avance de la onda (grupo o 
+fase?) para distintos casos (considerar tambien velocidades negativas).<BR>
+<LI>Qué pasa si en lugar de <I>sin</I> se pone <I>cos</I>?<BR><BR>
+<P><TR><TD>
+<HR noShade SIZE=1>
+<FONT color=#0000ff>
+<H1>Construcción de un paquete de ondas</H1></FONT>Ahora modificaremos el 
+programa anterior, y construiremos un paquete de ondas, con dos ondas 
+sinusoidales, cuyas frecuencias no estan muy separadas. Esto se puede hacer 
+modificando la función <I><B>wave</B></I> de la siguiente manera: 
+<P>
+<TABLE cellSpacing=0 cellPadding=5 align=center bgColor=#ffcccc border=0>
+  <TBODY>
+  <TR>
+    <TD><PRE>	function wave(x,t)
+	
+	implicit real*8(a-h,o-z)
+	common/blockwave/rk,w
+
+	deltak = 0.1
+	deltaw = 0.1
+	wave = sin((rk+deltak)*x - (w+deltaw)*t) +
+     +         sin((rk-deltak)*x - (w-deltaw)*t)
+
+	return
+	end
+</PRE></TD></TR></TBODY></TABLE></P>
+<P>
+<P>Si todo anda bien, deberán recibir resultados como el siguiente: <BR><BR><IMG 
+src="Transformación Fourier de la Función Gaussiana_archivos/beat.gif"> 
+<P>
+<H3 style="COLOR: red">Ejercicios: </H3>
+<LI>Hallar las velocidades de avance de las componentes (grupo o fase?) y la 
+velocidad de grupo del paquete.<BR>
+<LI>Qué pasa si reemplazamos uno de los <I>sin</I> por un <I>cos</I>?<BR>
+<LI>Modificar el programa y variar las amplitudes relativas, de modo que la 
+amplitud de una componente sea mucho mayor que la otra.<BR>
+<LI>Cómo harías una onda estacionaria? (hacélo).<BR>
+<LI>Modificar el programa agregando mas ondas al paquete. (si querés poner 
+muchas ondas, es preferible introducir un loop en la función 
+<I>wave</I>).<BR><BR>
+<P><TR><TD>
+<HR noShade SIZE=1>
+<FONT color=#0000ff>
+<H1>Conociendo la función Gaussiana</H1></FONT>Lo primero que vamos a hacer para 
+conocer la función Gaussiana es dibujarla. Para ello, haremos uso del programa 
+<A 
+href="http://www.df.uba.ar/users/dmitnik/teoricaII/ondas/programs/gaussian/gaussian.for" 
+target=_blank>gaussian.for</A>. Allí encontraremos la siguiente subrutina: 
+<P>
+<TABLE cellSpacing=0 cellPadding=5 align=center bgColor=#ffcccc border=0>
+  <TBODY>
+  <TR>
+    <TD><PRE>        real*8 function gauss(i,apot,wpot,dx)
+        implicit real*8(a-h,o-z)
+
+c.......construct a Gaussian wavepacket function
+
+        common/bckdat/pi
+        data rzero,one,two/0.0d0,1.0d0,2.0d0/
+
+        x = i*dx
+        f1=one/dsqrt(wpot*dsqrt(pi))
+        gauss= f1*exp(-(x-apot)**2/(two*wpot**2))
+
+        return
+
+</PRE></TD></TR></TBODY></TABLE></P>
+<P>que producirá los valores del Gaussiano, para cada punto <I>x=i*dx</I>. Si 
+todo está correcto, los resultados deberán aparecer en el directorio (si 
+compilás y ejecutás !). 
+<P>
+<H3 style="COLOR: red">Ejercicios: </H3>
+<LI>Qué significa <I><B>apot</B></I> ?<BR>
+<LI>Qué significa <I><B>wpot</B></I> ?<BR>
+<LI>Variar estas variables y graficar los cambios 
+<LI>Integrar los resultados y comprobar la normalización <BR>
+<P><TR><TD>
+<HR noShade SIZE=1>
+<FONT color=#0000ff>
+<H1>Transformación Fourier</H1></FONT>Para familiarizarnos con la Transformación 
+de Fourier, transformaremos una función simple 
+<P>
+<TABLE cellSpacing=0 cellPadding=5 align=center bgColor=#ccccff border=0>
+  <TBODY>
+  <TR>
+    <TD><PRE><I>y(x)=sin(wt * phi)</I>
+</PRE></TD></TR></TBODY></TABLE></P>usando el programa <A 
+href="http://www.df.uba.ar/users/dmitnik/teoricaII/ondas/programs/fourier/fouriers.for" 
+target=_blank>fouriers.for</A>.
+<P>Si el programa es usado correctamente (en éste caso usamos <I>npts=50</I>, 
+<I>tau=1</I>, <I>w=0.2</I> y <I>phi=0</I>), deberán obtener resultados como en 
+el siguiente ejemplo: <BR><BR><IMG 
+src="Transformación Fourier de la Función Gaussiana_archivos/fouriers.jpg" 
+width="100%"> 
+<P>
+<H3 style="COLOR: red">Ejercicios: </H3><BR>
+<LI>Graficar los resultados para distintos valores de la frecuencia y la fase 
+<LI>Cambiar los números de puntos y graficar 
+<LI>Qué significa la parte real y la imaginaria? 
+<LI>Por qué hay dos picos en la transformada de la figura anterior? 
+<LI>Modificá el programa, transformando otras funciones. <BR>
+<P><TR><TD>
+<HR noShade SIZE=1>
+<FONT color=#0000ff>
+<H1>Paquete de Ondas Gaussianas</H1></FONT>Ahora construiremos un paquete de 
+ondas Gaussiano, usando el programa <A 
+href="http://www.df.uba.ar/users/dmitnik/teoricaII/ondas/programs/wavepacket/wavepacket.for" 
+target=_blank>wavepacket.for</A>.
+<P>Este paquete de ondas se construye multiplicando la función Gaussiana por una 
+función Hankel. 
+<P>
+<H3 style="COLOR: red">Ejercicios: </H3>
+<LI>Qué significan las partes real e imaginaria?<BR>
+<LI>Comprobar la variación de los resultados para diferentes energías 
+<LI>Integrar los resultados y comprobar la normalización<BR>
+<LI>Cómo harías avanzar al paquete de ondas? Modificá el programa y 
+probá<BR><TR><TD>
+<HR noShade SIZE=1>
+<FONT color=#0000ff>
+<H1>Transformación Fourier del Paquete de Ondas Gaussianas</H1></FONT>Ahora 
+haremos la Transformación Fourier del paquete de ondas Gaussiano, usando el 
+programa <A 
+href="http://www.df.uba.ar/users/dmitnik/teoricaII/ondas/programs/invgauss/invfourgauss.for" 
+target=_blank>invfourgauss.for</A>.
+<P>
+<P>
+<H3 style="COLOR: red">Ejercicios: </H3>
+<LI>En la función transformada: Qué significan las partes real e imaginaria?<BR>
+<LI>Comprobar la variación de los resultados para diferentes energías 
+<LI>Comprobar la variación de los resultados para diferentes valores de 
+<I>X0</I> 
+<LI>Integrar los resultados y comprobar la normalización<BR>
+<LI>Realizar la transformación en el programa modificado, (el que avanza el 
+paquete de ondas en el tiempo).<BR><BR>
+<DIV>
+<HR align=center width="100%" SIZE=2>
+</HR></DIV>
+<H2>Lecturas Auxiliares Recomendadas:</H2><BR>
+<LI><A href="http://thorin.adnc.com/~topquark/quantum/heisenbergmain.html" 
+target=_blank><I>Heisenberg's Uncertainty Principle Java Applet</I> - by Mark 
+Sutherland<A>.<BR></A></LI></BODY></HTML>

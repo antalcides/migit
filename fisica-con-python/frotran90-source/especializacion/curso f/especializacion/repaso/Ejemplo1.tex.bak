@@ -1,0 +1,68 @@
+% PSTricks TeX macro
+% Title: Untitled-2
+% Creator: Dia v0.90
+% CreationDate: Thu Jul 24 13:12:44 2003
+% For: jtorres
+% \usepackage{pstricks}
+% The following commands are not supported in PSTricks at present
+% We define them conditionally, so when they are implemented,
+% this pstricks file will use them.
+\ifx\setlinejoinmode\undefined
+  \newcommand{\setlinejoinmode}[1]{}
+\fi
+\ifx\setlinecaps\undefined
+  \newcommand{\setlinecaps}[1]{}
+\fi
+% This way define your own fonts mapping (for example with ifthen)
+\ifx\setfont\undefined
+  \newcommand{\setfont}[2]{}
+\fi
+\pspicture(2.195700,-11.230000)(14.710300,-1.530000)
+\scalebox{1.000000 -1.000000}{
+\newrgbcolor{dialinecolor}{0.000000 0.000000 0.000000}
+\psset{linecolor=dialinecolor}
+\newrgbcolor{diafillcolor}{1.000000 1.000000 1.000000}
+\psset{fillcolor=diafillcolor}
+\psset{linewidth=0.100000}
+\psset{linestyle=solid}
+\psset{linestyle=solid}
+\setlinejoinmode{0}
+\setlinecaps{0}
+\newrgbcolor{dialinecolor}{1.000000 1.000000 1.000000}
+\psset{linecolor=dialinecolor}
+\pspolygon*(5.900000,3.750000)(8.400000,6.600000)(3.250000,10.050000)
+\newrgbcolor{dialinecolor}{0.000000 0.000000 0.000000}
+\psset{linecolor=dialinecolor}
+\pspolygon(5.900000,3.750000)(8.400000,6.600000)(3.250000,10.050000)
+\psset{linewidth=0.100000}
+\psset{linestyle=solid}
+\psset{linestyle=solid}
+\setlinejoinmode{0}
+\setlinecaps{0}
+\newrgbcolor{dialinecolor}{1.000000 1.000000 1.000000}
+\psset{linecolor=dialinecolor}
+\pspolygon*(9.700000,5.800000)(13.800000,3.650000)(10.650000,10.650000)
+\newrgbcolor{dialinecolor}{0.000000 0.000000 0.000000}
+\psset{linecolor=dialinecolor}
+\pspolygon(9.700000,5.800000)(13.800000,3.650000)(10.650000,10.650000)
+\setfont{Courier}{0.800000}
+\newrgbcolor{dialinecolor}{0.000000 0.000000 0.000000}
+\psset{linecolor=dialinecolor}
+\rput(5.100000,3.800000){\scalebox{1 -1}{}}
+\setfont{Dotum}{1.400000}
+\newrgbcolor{dialinecolor}{0.000000 0.000000 0.000000}
+\psset{linecolor=dialinecolor}
+\rput(5.600000,3.450000){\scalebox{1 -1}{A}}
+\setfont{Dotum}{1.400000}
+\newrgbcolor{dialinecolor}{0.000000 0.000000 0.000000}
+\psset{linecolor=dialinecolor}
+\rput(2.700000,10.850000){\scalebox{1 -1}{B}}
+\setfont{Dotum}{1.400000}
+\newrgbcolor{dialinecolor}{0.000000 0.000000 0.000000}
+\psset{linecolor=dialinecolor}
+\rput(9.000000,7.300000){\scalebox{1 -1}{C}}
+\setfont{Dotum}{1.400000}
+\newrgbcolor{dialinecolor}{0.000000 0.000000 0.000000}
+\psset{linecolor=dialinecolor}
+\rput(12.050000,2.700000){\scalebox{1 -1}{$\alpha$}}
+}\endpspicture

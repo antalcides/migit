@@ -1,0 +1,43 @@
+
+
+%\section{ Problema de Dirichlet generalizado}
+Con el principio del m\'{a}ximo generalizado (colorario) se sigue
+que existe soluci\'{o}n d\'{e}bil \'{u}nica para el problema de
+Direchlet generalizado. Adicionalmente en la prueba se utilizan
+los siguientes teoremas: la alternativa Fredholm, Lax-Milgram, y
+Rellich-Kondrackov el cual establece que
+\[
+W_{0}^{1,2}\left(  \Omega\right)  \subset\subset L^{2}\left(  \Omega\right)
+\text{ \ si }n>2,
+\]
+y $\Omega$ es abierto acotado en $\mathbb{R}^{n}$ con $\partial\Omega$ de
+clase $C^{1}$.
+\begin{definition}
+Sean $g$, $f\in L^{2}\left(  \Omega\right)  $ y $L$ el operador diferencial
+definido en $\left(  1\right)  $, $u\in W^{1,2}\left(  \Omega\right)  $ es una
+\textbf{soluci\'{o}n d\'{e}bil} de
+\[
+\left\{
+\begin{array}
+[c]{c}%
+Lu=f\text{ \ en }\Omega,\\
+u=g\text{ sobre }\partial\Omega,
+\end{array}
+\right.
+\]
+si $u-g\in W_{0}^{1,2}\left(  \Omega\right)  $ y adem\'{a}s
+\begin{equation}
+\mathcal{L}\left(  u,v\right)  =F\left(  v\right)  =-\int_{\Omega}fvdx\text{,
+}\forall v\in C_{0}^{1}\left(  \Omega\right)  ,\tag{8}%
+\end{equation}
+donde $\mathcal{L}$ viene dado por $\left(  6\right)  .$
+\end{definition}
+\begin{lemma}
+Si $I:W_{0}^{1,2}\left(  \Omega\right)  \longrightarrow\left(  W_{0}%
+^{1,2}\left(  \Omega\right)  \right)  ^{\ast}$, $u\longrightarrow Iu$, donde
+\[
+Iu\left(  v\right)  :=\int_{\Omega}uvdx\text{, }v\in W_{0}^{1,2}\left(
+\Omega\right)  .
+\]
+Entonces $I$ es una inmersi\'{o}n compacta.
+\end{lemma}
